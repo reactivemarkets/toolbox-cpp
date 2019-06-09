@@ -1,0 +1,94 @@
+---
+version: 2.1
+jobs:
+  lint:
+    docker:
+      - image: registry.gitlab.com/reactivemarkets/public-registry/toolchain-cpp:debian
+    steps:
+      - checkout
+      - run:
+          command: |
+            mkdir -p build
+            cd build
+            cmake .. -G 'Unix Makefiles' \
+              -DCMAKE_C_COMPILER=gcc-8 \
+              -DCMAKE_CXX_COMPILER=g++-8
+            VERBOSE=1 make -j2 cppcheck
+  build_clang_debug:
+    docker:
+      - image: registry.gitlab.com/reactivemarkets/public-registry/toolchain-cpp:debian
+    steps:
+      - checkout
+      - run:
+          command: |
+            mkdir -p build
+            cd build
+            cmake .. -G 'Unix Makefiles' \
+              -DTOOLBOX_BUILD_SHARED=ON \
+              -DCMAKE_BUILD_TYPE=DEBUG \
+              -DCMAKE_C_COMPILER=clang-7 \
+              -DCMAKE_CXX_COMPILER=clang++-7
+            VERBOSE=1 make -j2 all test
+  build_clang_release:
+    docker:
+      - image: registry.gitlab.com/reactivemarkets/public-registry/toolchain-cpp:debian
+    steps:
+      - checkout
+      - run:
+          command: |
+            mkdir -p build
+            cd build
+            cmake .. -G 'Unix Makefiles' \
+              -DTOOLBOX_BUILD_SHARED=ON \
+              -DCMAKE_BUILD_TYPE=RELEASE \
+              -DCMAKE_C_COMPILER=clang-7 \
+              -DCMAKE_CXX_COMPILER=clang++-7
+            VERBOSE=1 make -j2 all test
+  build_gcc_debug:
+    docker:
+      - image: registry.gitlab.com/reactivemarkets/public-registry/toolchain-cpp:debian
+    steps:
+      - checkout
+      - run:
+          command: |
+            mkdir -p build
+            cd build
+            cmake .. -G 'Unix Makefiles' \
+              -DTOOLBOX_BUILD_SHARED=ON \
+              -DCMAKE_BUILD_TYPE=DEBUG \
+              -DCMAKE_C_COMPILER=gcc-8 \
+              -DCMAKE_CXX_COMPILER=g++-8
+            VERBOSE=1 make -j2 all test
+  build_gcc_release:
+    docker:
+      - image: registry.gitlab.com/reactivemarkets/public-registry/toolchain-cpp:debian
+    steps:
+      - checkout
+      - run:
+          command: |
+            mkdir -p build
+            cd build
+            cmake .. -G 'Unix Makefiles' \
+              -DTOOLBOX_BUILD_SHARED=ON \
+              -DCMAKE_BUILD_TYPE=RELEASE \
+              -DCMAKE_C_COMPILER=gcc-8 \
+              -DCMAKE_CXX_COMPILER=g++-8
+            VERBOSE=1 make -j2 all test
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - lint
+      - build_clang_debug:
+          requires:
+            - lint
+      - build_clang_release:
+          requires:
+            - lint
+      - build_gcc_debug:
+          requires:
+            - lint
+      - build_gcc_release:
+          requires:
+            - lint
