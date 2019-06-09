@@ -1,0 +1,4 @@
+cppcheckError:*/toolbox/toolbox/util/IntTypes.ut.cpp
+preprocessorErrorDirective:*/toolbox/toolbox/net/Error.cpp
+preprocessorErrorDirective:*/toolbox/toolbox/sys/Error.cpp
+returnDanglingLifetime:*/toolbox/toolbox/io/Timer.cpp

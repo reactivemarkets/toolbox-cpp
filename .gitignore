@@ -1,0 +1,12 @@
+# Editors and IDEs.
+*~
+.editorconfig
+.vscode
+/.idea/
+
+# OSX.
+.DS_Store
+
+# Build.
+*.pyc
+cmake-build-*/

@@ -1,0 +1,14 @@
+# -*- yaml -*-
+---
+Checks:
+  '-*,bugprone-use-after-move,modernize-use-nullptr,modernize-use-equals-default,modernize-use-equals-delete,modernize-use-override,readability-braces-around-statements,readability-deleted-default,readability-identifier-naming,hicpp-*,-hicpp-no-array-decay,-hicpp-no-assembler,-hicpp-signed-bitwise,-hicpp-vararg'
+WarningsAsErrors: ''
+HeaderFilterRegex: ''
+AnalyzeTemporaryDtors: false
+FormatStyle: file
+CheckOptions:
+  - key: readability-identifier-naming.EnumConstantCase
+    value: CamelCase
+  - key: modernize-use-nullptr.NullMacros
+    value: 'NULL'
+...
