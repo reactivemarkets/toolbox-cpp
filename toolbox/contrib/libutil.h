@@ -15,8 +15,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#ifndef MATCHBOX_CONTRIB_LIBUTIL_H
-#define MATCHBOX_CONTRIB_LIBUTIL_H
+#ifndef TOOLBOX_CONTRIB_LIBUTIL_H
+#define TOOLBOX_CONTRIB_LIBUTIL_H
 
 /* See https://github.com/LuaDist/libbsd */
 
@@ -34,4 +34,4 @@ int pidfile_write(struct pidfh* pfh);
 int pidfile_close(struct pidfh* pfh);
 int pidfile_remove(struct pidfh* pfh);
 
-#endif // MATCHBOX_CONTRIB_LIBUTIL_H
+#endif // TOOLBOX_CONTRIB_LIBUTIL_H
