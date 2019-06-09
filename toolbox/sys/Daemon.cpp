@@ -18,7 +18,7 @@
 
 #include "System.hpp"
 
-#include <toolbox/io/File.hpp>
+#include <fcntl.h> // open()
 
 namespace toolbox {
 inline namespace sys {
@@ -55,7 +55,10 @@ void daemon()
 
     // Re-open standard input.
     close(STDIN_FILENO);
-    os::open("/dev/null", O_RDONLY);
+    const auto fd = ::open("/dev/null", O_RDONLY);
+    if (fd < 0) {
+        throw std::system_error{make_sys_error(errno), "open"};
+    }
 }
 
 } // namespace sys

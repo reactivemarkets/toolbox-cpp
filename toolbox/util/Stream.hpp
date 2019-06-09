@@ -14,8 +14,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef TOOLBOX_IO_STREAM_HPP
-#define TOOLBOX_IO_STREAM_HPP
+#ifndef TOOLBOX_UTIL_STREAM_HPP
+#define TOOLBOX_UTIL_STREAM_HPP
 
 #include <toolbox/Config.h>
 
@@ -25,7 +25,7 @@
 #include <string_view>
 
 namespace toolbox {
-inline namespace io {
+inline namespace util {
 
 TOOLBOX_API void reset(std::ostream& os) noexcept;
 
@@ -102,7 +102,7 @@ void join(std::ostream& os, const ArgT& arg, const ArgsT&... args)
     (..., [&os](const auto& arg) { os << DelimT << arg; }(args));
 }
 
-} // namespace io
+} // namespace util
 } // namespace toolbox
 
 namespace std::experimental {
@@ -114,4 +114,4 @@ ostream_joiner<char>& operator<<(ostream_joiner<char>& osj, const ValueT& value)
 }
 } // namespace std::experimental
 
-#endif // TOOLBOX_IO_STREAM_HPP
+#endif // TOOLBOX_UTIL_STREAM_HPP

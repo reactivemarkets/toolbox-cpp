@@ -17,7 +17,7 @@
 #ifndef TOOLBOX_UTIL_EXCEPTION_HPP
 #define TOOLBOX_UTIL_EXCEPTION_HPP
 
-#include <toolbox/io/Stream.hpp>
+#include <toolbox/util/Stream.hpp>
 
 #include <stdexcept>
 

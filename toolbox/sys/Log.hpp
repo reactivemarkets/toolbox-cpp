@@ -17,8 +17,8 @@
 #ifndef TOOLBOX_SYS_LOG_HPP
 #define TOOLBOX_SYS_LOG_HPP
 
-#include <toolbox/io/Stream.hpp>
 #include <toolbox/sys/Limits.hpp>
+#include <toolbox/util/Stream.hpp>
 
 namespace toolbox {
 inline namespace sys {

@@ -16,11 +16,12 @@
 
 #include "Signal.hpp"
 
-#include <toolbox/sys/Error.hpp>
+#include "Error.hpp"
+
 #include <toolbox/util/Finally.hpp>
 
 namespace toolbox {
-inline namespace ipc {
+inline namespace sys {
 
 SigWait::SigWait(std::initializer_list<int> mask)
 {
@@ -78,5 +79,5 @@ void sig_block_all()
     }
 }
 
-} // namespace ipc
+} // namespace sys
 } // namespace toolbox

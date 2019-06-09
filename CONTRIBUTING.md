@@ -20,13 +20,13 @@ result, a *commit message shows whether a developer is a good collaborator*." --
 
 The seven rules of a great git commit message:
 
-1.  separate subject from body with a blank line;
-2.  limit the subject line to 50 characters;
-3.  capitalise the subject line;
-4.  do not end the subject line with a period;
-5.  use the imperative mood in the subject line;
-6.  wrap the body at 72 characters;
-7.  use the body to explain _what_ and _why_ vs. _how_.
+1. separate subject from body with a blank line;
+2. limit the subject line to 50 characters;
+3. capitalise the subject line;
+4. do not end the subject line with a period;
+5. use the imperative mood in the subject line;
+6. wrap the body at 72 characters;
+7. use the body to explain _what_ and _why_ vs. _how_.
 
 See [How to Write a Git Commit Message](http://chris.beams.io/posts/git-commit/) by Chris Beams.
 
@@ -34,10 +34,12 @@ See [How to Write a Git Commit Message](http://chris.beams.io/posts/git-commit/)
 
 We actively welcome your pull requests.
 
-1. Fork the repo and create your branch from `master`;
-2. Add unit-test coverage where possible;
-3. Ensure the test suite passes;
-4. Update the documentation for API changes.
+1. fork the repo and create your branch from `master`;
+2. follow coding style and best practice;
+3. add unit-test coverage where possible;
+4. ensure the test suite passes;
+5. ensure that there are no package cycles;
+6. update the documentation for API changes.
 
 ## Coding Style
 
@@ -90,8 +92,6 @@ Const functions precede non-const functions for two reasons:
 ### Assertions
 
 Use `assert` statements to formalise contract and document assumptions.
-
-### Best Practice
 
 ## License
 

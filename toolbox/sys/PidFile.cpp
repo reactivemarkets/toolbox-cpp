@@ -16,7 +16,9 @@
 
 #include "PidFile.hpp"
 
-#include <toolbox/io/File.hpp>
+#include "Error.hpp"
+
+#include <toolbox/util/String.hpp>
 
 #include <toolbox/contrib/flopen.c>
 #include <toolbox/contrib/pidfile.c>
@@ -26,7 +28,6 @@
 
 namespace toolbox {
 inline namespace sys {
-using namespace std;
 
 void detail::PidFileDeleter::operator()(pidfh* pfh) const noexcept
 {
@@ -39,9 +40,9 @@ PidFile open_pid_file(const char* path, mode_t mode)
     PidFile pf{pidfile_open(path, mode, &pid)};
     if (!pf) {
         if (errno == EEXIST) {
-            throw runtime_error{"daemon already running, pid: "s + to_string(pid)};
+            throw std::runtime_error{"daemon already running, pid: "s + to_string(pid)};
         }
-        throw system_error{make_sys_error(errno), "pidfile_open"};
+        throw std::system_error{make_sys_error(errno), "pidfile_open"};
     }
     return pf;
 }
@@ -56,7 +57,7 @@ void close_pid_file(PidFile& pf) noexcept
 void write_pid_file(PidFile& pf)
 {
     if (pf && pidfile_write(pf.get()) < 0) {
-        throw system_error{make_sys_error(errno), "pidfile_write"};
+        throw std::system_error{make_sys_error(errno), "pidfile_write"};
     }
 }
 
