@@ -17,7 +17,6 @@
 #ifndef TOOLBOX_UTIL_TOKENISER_HPP
 #define TOOLBOX_UTIL_TOKENISER_HPP
 
-#include <toolbox/sys/Time.hpp>
 #include <toolbox/util/String.hpp>
 
 #include <algorithm>
@@ -78,11 +77,11 @@ class Tokeniser {
 };
 
 template <typename FnT>
-std::size_t parse_line(CyclTime now, std::string_view buf, FnT fn)
+std::size_t parse_line(std::string_view buf, FnT fn)
 {
     Tokeniser lines{buf, "\n"sv};
     while (lines.has_delim()) {
-        fn(now, lines.top());
+        fn(lines.top());
         lines.pop();
     }
     return lines.consumed();

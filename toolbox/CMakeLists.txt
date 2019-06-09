@@ -48,7 +48,7 @@ set(lib_SOURCES
   io/Interruptible.cpp
   io/Muxer.cpp
   io/Reactor.cpp
-  io/Stream.cpp
+  io/Runner.cpp
   io/Timer.cpp
   io/TimerFd.cpp
   ipc/Futex.cpp
@@ -56,7 +56,6 @@ set(lib_SOURCES
   ipc/MpmcQueue.cpp
   ipc/Msg.cpp
   ipc/Shm.cpp
-  ipc/Signal.cpp
   net/DgramSock.cpp
   net/Endpoint.cpp
   net/Error.cpp
@@ -65,6 +64,7 @@ set(lib_SOURCES
   net/McastSock.cpp
   net/Protocol.cpp
   net/Resolver.cpp
+  net/Runner.cpp
   net/Socket.cpp
   net/StreamAcceptor.cpp
   net/StreamConnector.cpp
@@ -77,8 +77,10 @@ set(lib_SOURCES
   sys/Log.cpp
   sys/Options.cpp
   sys/PidFile.cpp
+  sys/Signal.cpp
   sys/System.cpp
   sys/Time.cpp
+  sys/Thread.cpp
   util/Array.cpp
   util/Compare.cpp
   util/Config.cpp
@@ -91,6 +93,7 @@ set(lib_SOURCES
   util/RingBuffer.cpp
   util/Ryu.cpp
   util/Slot.cpp
+  util/Stream.cpp
   util/String.cpp
   util/StringBuf.cpp
   util/Struct.cpp
@@ -129,11 +132,11 @@ set(test_SOURCES
   io/Buffer.ut.cpp
   io/EpollReactor.ut.cpp
   io/Handle.ut.cpp
-  io/Stream.ut.cpp
   io/Timer.ut.cpp
   net/Endpoint.ut.cpp
   net/IoSock.ut.cpp
   net/Resolver.ut.cpp
+  net/Runner.ut.cpp
   net/Socket.ut.cpp
   sys/Argv.ut.cpp
   sys/Date.ut.cpp
@@ -151,6 +154,7 @@ set(test_SOURCES
   util/RingBuffer.ut.cpp
   util/Ryu.ut.cpp
   util/Slot.ut.cpp
+  util/Stream.ut.cpp
   util/String.ut.cpp
   util/StringBuf.ut.cpp
   util/Struct.ut.cpp

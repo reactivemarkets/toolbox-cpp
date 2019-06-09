@@ -95,6 +95,8 @@ set(CMAKE_BUILD_WITH_INSTALL_RPATH ON)
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH ON)
 set(CMAKE_INSTALL_RPATH "$ORIGIN/../${CMAKE_INSTALL_LIBDIR}")
 
+find_program(DOT_EXECUTABLE dot)
+
 function(install_libraries)
   foreach(lib ${ARGN})
     if(NOT "${lib}" MATCHES "\\.a$")
@@ -168,7 +170,9 @@ if (CLANG_TIDY)
         -p "${CMAKE_BINARY_DIR}")
 endif()
 
+add_subdirectory(image)
 add_subdirectory(toolbox)
+add_subdirectory(example)
 
 set(CPACK_GENERATOR "TGZ;RPM")
 

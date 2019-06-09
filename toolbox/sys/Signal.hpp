@@ -14,15 +14,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef TOOLBOX_IPC_SIGNAL_HPP
-#define TOOLBOX_IPC_SIGNAL_HPP
+#ifndef TOOLBOX_SYS_SIGNAL_HPP
+#define TOOLBOX_SYS_SIGNAL_HPP
 
 #include <toolbox/sys/Time.hpp>
 
 #include <csignal>
 
 namespace toolbox {
-inline namespace ipc {
+inline namespace sys {
 
 class TOOLBOX_API SigWait {
   public:
@@ -53,7 +53,7 @@ class TOOLBOX_API SigWait {
 /// Block all signals.
 TOOLBOX_API void sig_block_all();
 
-} // namespace ipc
+} // namespace sys
 } // namespace toolbox
 
-#endif // TOOLBOX_IPC_SIGNAL_HPP
+#endif // TOOLBOX_SYS_SIGNAL_HPP

@@ -14,22 +14,4 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Stream.hpp"
-
-#include <sys/time.h>
-
-namespace toolbox {
-inline namespace io {
-using namespace std;
-
-void reset(ostream& os) noexcept
-{
-    os.clear();
-    os.fill(os.widen(' '));
-    os.flags(ios_base::skipws | ios_base::dec);
-    os.precision(6);
-    os.width(0);
-}
-
-} // namespace io
-} // namespace toolbox
+#include "Thread.hpp"
