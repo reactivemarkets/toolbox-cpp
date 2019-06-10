@@ -97,4 +97,4 @@ Use `assert` statements to formalise contract and document assumptions.
 
 By contributing to Toolbox, you agree that your contributions will be licensed under the [Apache 2.0
 License](https://www.apache.org/licenses/LICENSE-2.0). A copy of the license is available in the
-[`LICENSE`](LICENSE) file in the root directory of this source tree.
+LICENSE file in the root directory of this source tree.

@@ -124,6 +124,20 @@ if(NOT "${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}" MATCHES "\\.a$")
   add_definitions(-DBOOST_TEST_DYN_LINK)
 endif()
 
+find_package(Doxygen) # Optional.
+
+if(DOXYGEN_FOUND)
+  configure_file("${PROJECT_SOURCE_DIR}/Doxyfile.in"
+    "${PROJECT_BINARY_DIR}/Doxyfile" @ONLY)
+
+  add_custom_target(toolbox-doc
+    WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
+    COMMAND "${DOXYGEN_EXECUTABLE}" "${PROJECT_BINARY_DIR}/Doxyfile"
+    SOURCES "${PROJECT_BINARY_DIR}/Doxyfile")
+
+  add_dependencies(toolbox-doc toolbox-image)
+endif()
+
 include_directories(SYSTEM
   "${Boost_INCLUDE_DIRS}")
 
