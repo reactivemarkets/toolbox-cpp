@@ -59,6 +59,22 @@ struct FunctionTraits<ReturnT (ClassT::*)(ArgsT...) const> : FunctionTraits<Retu
     using ClassType = ClassT;
 };
 
+/// Specialisation for const noexcept member functions.
+template <typename ClassT, typename ReturnT, typename... ArgsT>
+struct FunctionTraits<ReturnT (ClassT::*)(ArgsT...) const noexcept>
+: FunctionTraits<ReturnT (*)(ArgsT...)> {
+    using FunctionType = ReturnT (ClassT::*)(ArgsT...) const noexcept;
+    using ClassType = ClassT;
+};
+
+/// Specialisation for noexcept member functions.
+template <typename ClassT, typename ReturnT, typename... ArgsT>
+struct FunctionTraits<ReturnT (ClassT::*)(ArgsT...) noexcept>
+: FunctionTraits<ReturnT (*)(ArgsT...)> {
+    using FunctionType = ReturnT (ClassT::*)(ArgsT...) noexcept;
+    using ClassType = ClassT;
+};
+
 } // namespace util
 } // namespace toolbox
 

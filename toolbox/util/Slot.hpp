@@ -19,6 +19,8 @@
 
 #include <toolbox/util/Traits.hpp>
 
+#include <utility>
+
 namespace toolbox {
 inline namespace util {
 
@@ -44,8 +46,8 @@ class BasicSlot {
     constexpr BasicSlot(BasicSlot&&) noexcept = default;
     constexpr BasicSlot& operator=(BasicSlot&&) noexcept = default;
 
-    void invoke(ArgsT... args) const { fn_(obj_, args...); }
-    void operator()(ArgsT... args) const { fn_(obj_, args...); }
+    void invoke(ArgsT... args) const { fn_(obj_, std::forward<ArgsT>(args)...); }
+    void operator()(ArgsT... args) const { fn_(obj_, std::forward<ArgsT>(args)...); }
     constexpr bool empty() const noexcept { return fn_ == nullptr; }
     constexpr explicit operator bool() const noexcept { return fn_ != nullptr; }
 
@@ -54,7 +56,7 @@ class BasicSlot {
     constexpr auto& bind() noexcept
     {
         obj_ = nullptr;
-        fn_ = [](void* obj, ArgsT... args) { FnT(args...); };
+        fn_ = [](void* obj, ArgsT... args) { FnT(std::forward<ArgsT>(args)...); };
         return *this;
     }
     // Lambda function.
@@ -62,7 +64,9 @@ class BasicSlot {
     constexpr auto& bind(ClassT* obj) noexcept
     {
         obj_ = obj;
-        fn_ = [](void* obj, ArgsT... args) { (*static_cast<ClassT*>(obj))(args...); };
+        fn_ = [](void* obj, ArgsT... args) {
+            (*static_cast<ClassT*>(obj))(std::forward<ArgsT>(args)...);
+        };
         return *this;
     }
     // Member function.
@@ -70,7 +74,9 @@ class BasicSlot {
     constexpr auto& bind(ClassT* obj) noexcept
     {
         obj_ = obj;
-        fn_ = [](void* obj, ArgsT... args) { (static_cast<ClassT*>(obj)->*MemFnT)(args...); };
+        fn_ = [](void* obj, ArgsT... args) {
+            (static_cast<ClassT*>(obj)->*MemFnT)(std::forward<ArgsT>(args)...);
+        };
         return *this;
     }
     void reset(std::nullptr_t = nullptr) noexcept

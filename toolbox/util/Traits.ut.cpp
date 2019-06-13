@@ -86,6 +86,42 @@ BOOST_AUTO_TEST_CASE(TraitsConstFunctorCase)
     BOOST_TEST(tuple_size_v<Tuple> == 3U);
 }
 
+BOOST_AUTO_TEST_CASE(TraitsConstNoexceptFunctorCase)
+{
+    struct Test {
+        double operator()(short, int, long) const noexcept { return 0.0; }
+    };
+
+    using Traits = FunctionTraits<Test>;
+    using Tuple = Traits::Pack<tuple>;
+
+    BOOST_TEST((is_same_v<Traits::ReturnType, double>));
+    BOOST_TEST((is_same_v<Traits::ClassType, Test>));
+    BOOST_TEST(Traits::Arity == 3);
+    BOOST_TEST((is_same_v<Traits::ArgType<0>, short>));
+    BOOST_TEST((is_same_v<Traits::ArgType<1>, int>));
+    BOOST_TEST((is_same_v<Traits::ArgType<2>, long>));
+    BOOST_TEST(tuple_size_v<Tuple> == 3U);
+}
+
+BOOST_AUTO_TEST_CASE(TraitsNoexceptFunctorCase)
+{
+    struct Test {
+        double operator()(short, int, long) noexcept { return 0.0; }
+    };
+
+    using Traits = FunctionTraits<Test>;
+    using Tuple = Traits::Pack<tuple>;
+
+    BOOST_TEST((is_same_v<Traits::ReturnType, double>));
+    BOOST_TEST((is_same_v<Traits::ClassType, Test>));
+    BOOST_TEST(Traits::Arity == 3);
+    BOOST_TEST((is_same_v<Traits::ArgType<0>, short>));
+    BOOST_TEST((is_same_v<Traits::ArgType<1>, int>));
+    BOOST_TEST((is_same_v<Traits::ArgType<2>, long>));
+    BOOST_TEST(tuple_size_v<Tuple> == 3U);
+}
+
 BOOST_AUTO_TEST_CASE(TraitsLambdaCase)
 {
     auto fn = [](short, int, long) -> double { return 0.0; };
@@ -105,6 +141,22 @@ BOOST_AUTO_TEST_CASE(TraitsLambdaCase)
 BOOST_AUTO_TEST_CASE(TraitsConstLambdaCase)
 {
     const auto fn = [](short, int, long) -> double { return 0.0; };
+
+    using Traits = FunctionTraits<decltype(fn)>;
+    using Tuple = Traits::Pack<tuple>;
+
+    BOOST_TEST((is_same_v<Traits::ReturnType, double>));
+    BOOST_TEST((is_same_v<Traits::ClassType, remove_const_t<decltype(fn)>>));
+    BOOST_TEST(Traits::Arity == 3);
+    BOOST_TEST((is_same_v<Traits::ArgType<0>, short>));
+    BOOST_TEST((is_same_v<Traits::ArgType<1>, int>));
+    BOOST_TEST((is_same_v<Traits::ArgType<2>, long>));
+    BOOST_TEST(tuple_size_v<Tuple> == 3U);
+}
+
+BOOST_AUTO_TEST_CASE(TraitsConstNoexceptLambdaCase)
+{
+    const auto fn = [](short, int, long) noexcept->double { return 0.0; };
 
     using Traits = FunctionTraits<decltype(fn)>;
     using Tuple = Traits::Pack<tuple>;

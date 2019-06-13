@@ -133,4 +133,17 @@ BOOST_AUTO_TEST_CASE(SlotConstMemFunCase)
     BOOST_TEST(x == t.x);
 }
 
+BOOST_AUTO_TEST_CASE(SlotRvalueFunCase)
+{
+    int x{2};
+    auto fn = [&x](int&& y) { x = x + y; };
+
+    BasicSlot<int&&> cb = toolbox::bind(&fn);
+    cb(3);
+    BOOST_TEST(x == 5);
+    int&& m = 6;
+    cb.invoke(std::move(m));
+    BOOST_TEST(x == 11);
+}
+
 BOOST_AUTO_TEST_SUITE_END()
