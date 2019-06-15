@@ -6,11 +6,7 @@ The Reactive C++ Toolbox is an open source library of C++17 components designed 
 aynchronous IO network applications on the Linux platform. Machine architectures currently supported
 are: AMD64, ARM and ARM32.
 
-### Documentation
-
-The [latest Doxygen documentation](https://doc.toolbox.reactivemarkets.com) is available online.
-
-### Dependencies
+## Prerequisites
 
 To build Toolbox from source, you will need:
 
@@ -18,90 +14,34 @@ To build Toolbox from source, you will need:
 - [GCC](http://gcc.gnu.org/) or [Clang](http://clang.llvm.org/) with support for C++17;
 - [Boost](http://www.boost.org/) for additional library dependencies;
 
-## Quick Start
+## Getting Started
+
+Clone the repository, build and run the unit-tests as follows:
 
 ```bash
 $ git clone git@github.com:reactivemarkets/toolbox-cpp.git toolbox-cpp
 $ mkdir toolbox-cpp/build
 $ cd toolbox-cpp/build
 $ cmake ..
-$ make -j all test package
+$ make -j all test install
 ```
 
-## Building from Source
+## Documentation
 
-The following sections assume that `TOOLBOX_SOURCE` is equal to `SOURCE_DIR/toolbox-cpp`, and that
-`TOOLBOX_BUILD` is equal to `BUILD_DIR/toolbox-cpp`.
+The [latest Doxygen documentation](https://doc.toolbox.reactivemarkets.com) is available online.
 
-### Clone Repository
+## Contributing
 
-Clone the repository from the [master repository](https://github.com/reactivemarkets/toolbox-cpp) or
-your own personal fork:
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process
+for submitting pull requests.
 
-``` bash
-$ cd $SOURCE_DIR
-$ git clone git@github.com:reactivemarkets/toolbox-cpp.git toolbox-cpp
-```
+## Versioning
 
-The `SOURCE_DIR/toolbox-cpp` directory should now contain the source.
+We use [SemVer](https://semver.org/) for versioning. For the versions available, see the [tags on
+this repository](https://github.com/reactivemarkets/toolbox-cpp/tags).
 
-### Configure Build
+## License
 
-Configure using `cmake` as follows from the build directory:
-
-``` bash
-$ cd $BUILD_DIR
-$ mkdir -p toolbox-cpp
-$ cd toolbox-cpp
-$ cmake $SOURCE_DIR/toolbox-cpp -DCMAKE_INSTALL_PREFIX=$TOOLBOX_HOME
-```
-
-This step will produce Unix Makefiles by default. The build-type and compiler can be set using the
-following options:
-
-``` bash
-$ cmake $SOURCE_DIR/toolbox-cpp -G "Unix Makefiles" \
-  -DCMAKE_BUILD_TYPE=RELEASE \
-  -DCMAKE_INSTALL_PREFIX=$TOOLBOX_HOME \
-  -DCMAKE_C_COMPILER=gcc \
-  -DCMAKE_CXX_COMPILER=g++
-```
-
-Build times can be reduced during development by disabling shared libraries and compiler
-optimisations:
-
-``` bash
-$ cmake $SOURCE_DIR/toolbox-cpp -G "Unix Makefiles" \
-  -DCMAKE_BUILD_TYPE=DEBUG \
-  -DTOOLBOX_BUILD_SHARED=OFF
-```
-
-Note that both shared and static libraries are built by default.
-
-Architecture-specific optimisation flags can be specified for release builds:
-
-``` bash
-$ cmake $SOURCE_DIR/toolbox-cpp -G "Unix Makefiles" \
-  -DCMAKE_BUILD_TYPE=RELEASE \
-  -DCMAKE_C_FLAGS_RELEASE="-march=native -O3" \
-  -DCMAKE_CXX_FLAGS_RELEASE="-march=native -O3"
-```
-
-See [CMake Documentation](https://cmake.org/documentation) for further information.
-
-### Build Binaries
-
-Compile the code in the build directory using the `make` command:
-
-``` bash
-$ cd $BUILD_DIR/toolbox-cpp
-$ make
-```
-
-### Install Artefacts
-
-Install to `CMAKE_INSTALL_PREFIX`:
-
-``` bash
-$ make install
-```
+This project is licensed under the [Apache 2.0
+License](https://www.apache.org/licenses/LICENSE-2.0). A copy of the license is available in the
+[LICENSE.md](LICENSE.md) file in the root directory of the source tree.

@@ -19,6 +19,11 @@
 #define TOOLBOX_CONFIG_H
 
 /**
+ * Toolbox version.
+ */
+#define TOOLBOX_VERSION "@TOOLBOX_VERSION@"
+
+/**
  * Macro for packed structures.
  */
 #define TOOLBOX_PACKED __attribute__((packed))
