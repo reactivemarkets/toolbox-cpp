@@ -38,7 +38,7 @@ if(DOT_EXECUTABLE)
       WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
       COMMAND CXX="${CMAKE_CXX_COMPILER}" "${PERL}" etc/dotdepend.pl ${name}
               | "${DOT_EXECUTABLE}" -Tpng >"${outfile}"
-      DEPENDS "${PROJECT_SOURCE_DIR}/etc/dotdepend.pl" "toolbox-static")
+      DEPENDS "${PROJECT_SOURCE_DIR}/etc/dotdepend.pl")
 
     set(outfiles ${outfiles} "${outfile}")
     install(FILES "${outfile}" DESTINATION image COMPONENT doc)

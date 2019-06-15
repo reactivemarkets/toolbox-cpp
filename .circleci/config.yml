@@ -13,7 +13,7 @@ jobs:
             cmake .. -G 'Unix Makefiles' \
               -DCMAKE_C_COMPILER=gcc-8 \
               -DCMAKE_CXX_COMPILER=g++-8
-            VERBOSE=1 make -j2 cppcheck
+            make -j2 cppcheck
   build_clang_debug:
     docker:
       - image: registry.gitlab.com/reactivemarkets/public-registry/toolchain-cpp:debian
@@ -74,6 +74,41 @@ jobs:
               -DCMAKE_C_COMPILER=gcc-8 \
               -DCMAKE_CXX_COMPILER=g++-8
             VERBOSE=1 make -j2 all test
+  build_doc:
+    docker:
+      - image: registry.gitlab.com/reactivemarkets/public-registry/toolchain-cpp:debian
+    steps:
+      - checkout
+      - run:
+          command: |
+            mkdir -p build
+            cd build
+            cmake .. -G 'Unix Makefiles' \
+              -DCMAKE_C_COMPILER=gcc-8 \
+              -DCMAKE_CXX_COMPILER=g++-8
+            make -j2 toolbox-doc
+      - persist_to_workspace:
+          root: build/doc
+          paths: html
+  deploy_doc:
+    docker:
+      - image: node:10.15
+    steps:
+      - checkout
+      - attach_workspace:
+          at: build/doc
+      - run:
+          command: |
+            npm install -g --silent gh-pages@2.0.1
+            git config user.email "ci-build@reactivemarkets.com"
+            git config user.name "ci-build"
+      - add_ssh_keys:
+          fingerprints:
+            - "f0:1c:80:78:74:eb:00:f2:20:6f:2c:99:a8:6a:d9:7c"
+      - run:
+          command: |
+            gh-pages --message "[skip ci] Deploy GitHub Pages: ${CIRCLE_SHA1}" \
+              --dist build/doc/html
 
 workflows:
   version: 2
@@ -92,3 +127,18 @@ workflows:
       - build_gcc_release:
           requires:
             - lint
+      - build_doc:
+          requires:
+            - build_clang_debug
+            - build_clang_release
+            - build_gcc_debug
+            - build_gcc_release
+          filters:
+            branches:
+              only: master
+      - deploy_doc:
+          requires:
+            - build_doc
+          filters:
+            branches:
+              only: master
