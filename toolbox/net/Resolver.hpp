@@ -49,7 +49,8 @@ class TOOLBOX_API Resolver {
 
     /// Wait for and execute a batch of enqueued tasks.
     /// The timeout value must be small enough not to overflow when added to the current time.
-    /// Returns the number of tasks executed or -1 if the Resolver was closed.
+    ///
+    /// \returns the number of tasks executed or -1 if the Resolver was closed.
     int run(Duration timeout = Seconds{60});
 
     /// Interrupt and exit any inprogress call to run().

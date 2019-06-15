@@ -28,7 +28,7 @@ constexpr size_t MaxEvents{16};
 
 } // namespace
 
-EpollReactor::EpollReactor(size_t size_hint)
+EpollReactor::EpollReactor(std::size_t size_hint)
 : mux_{size_hint}
 {
     const auto efd = efd_.fd();

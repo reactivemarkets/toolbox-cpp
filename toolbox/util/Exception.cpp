@@ -32,12 +32,12 @@ Exception::Exception(int err, const error_category& ecat)
 : Exception{error_code{err, ecat}}
 {
 }
-Exception::Exception(error_code ec, string_view what)
+Exception::Exception(error_code ec, std::string_view what)
 : runtime_error{ec.message().append(": ").append(what)}
 , ec_{ec}
 {
 }
-Exception::Exception(int err, const error_category& ecat, string_view what)
+Exception::Exception(int err, const error_category& ecat, std::string_view what)
 : Exception(error_code{err, ecat}, what)
 {
 }

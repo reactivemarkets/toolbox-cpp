@@ -84,7 +84,7 @@ inline int shmget(key_t key, std::size_t size, int shmflg)
     return id;
 }
 
-/// Attach the shared-memory segment associated with `shmid` to the address space of the calling
+/// Attach the shared-memory segment associated with \p shmid to the address space of the calling
 /// thread.
 template <typename ValueT>
 ShmPtr<ValueT> shmat(int shmid, const ValueT* shmaddr, int shmflg, std::error_code& ec) noexcept
@@ -97,7 +97,7 @@ ShmPtr<ValueT> shmat(int shmid, const ValueT* shmaddr, int shmflg, std::error_co
     return {static_cast<ValueT*>(addr), shmdt};
 }
 
-/// Attach the shared-memory segment associated with `shmid` to the address space of the calling
+/// Attach the shared-memory segment associated with \p shmid to the address space of the calling
 /// thread.
 template <typename ValueT>
 ShmPtr<ValueT> shmat(int shmid, const ValueT* shmaddr, int shmflg)
