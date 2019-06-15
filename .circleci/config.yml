@@ -11,6 +11,7 @@ jobs:
             mkdir -p build
             cd build
             cmake .. -G 'Unix Makefiles' \
+              -DTOOLBOX_VERSION="${CIRCLE_TAG:-$CIRCLE_BRANCH}" \
               -DCMAKE_C_COMPILER=gcc-8 \
               -DCMAKE_CXX_COMPILER=g++-8
             make -j2 cppcheck
@@ -25,6 +26,7 @@ jobs:
             cd build
             cmake .. -G 'Unix Makefiles' \
               -DTOOLBOX_BUILD_SHARED=ON \
+              -DTOOLBOX_VERSION="${CIRCLE_TAG:-$CIRCLE_BRANCH}" \
               -DCMAKE_BUILD_TYPE=DEBUG \
               -DCMAKE_C_COMPILER=clang-7 \
               -DCMAKE_CXX_COMPILER=clang++-7
@@ -40,6 +42,7 @@ jobs:
             cd build
             cmake .. -G 'Unix Makefiles' \
               -DTOOLBOX_BUILD_SHARED=ON \
+              -DTOOLBOX_VERSION="${CIRCLE_TAG:-$CIRCLE_BRANCH}" \
               -DCMAKE_BUILD_TYPE=RELEASE \
               -DCMAKE_C_COMPILER=clang-7 \
               -DCMAKE_CXX_COMPILER=clang++-7
@@ -55,6 +58,7 @@ jobs:
             cd build
             cmake .. -G 'Unix Makefiles' \
               -DTOOLBOX_BUILD_SHARED=ON \
+              -DTOOLBOX_VERSION="${CIRCLE_TAG:-$CIRCLE_BRANCH}" \
               -DCMAKE_BUILD_TYPE=DEBUG \
               -DCMAKE_C_COMPILER=gcc-8 \
               -DCMAKE_CXX_COMPILER=g++-8
@@ -70,6 +74,7 @@ jobs:
             cd build
             cmake .. -G 'Unix Makefiles' \
               -DTOOLBOX_BUILD_SHARED=ON \
+              -DTOOLBOX_VERSION="${CIRCLE_TAG:-$CIRCLE_BRANCH}" \
               -DCMAKE_BUILD_TYPE=RELEASE \
               -DCMAKE_C_COMPILER=gcc-8 \
               -DCMAKE_CXX_COMPILER=g++-8
@@ -84,6 +89,7 @@ jobs:
             mkdir -p build
             cd build
             cmake .. -G 'Unix Makefiles' \
+              -DTOOLBOX_VERSION="${CIRCLE_TAG:-$CIRCLE_BRANCH}" \
               -DCMAKE_C_COMPILER=gcc-8 \
               -DCMAKE_CXX_COMPILER=g++-8
             make -j2 toolbox-doc

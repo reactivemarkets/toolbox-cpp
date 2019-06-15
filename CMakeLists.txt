@@ -54,8 +54,9 @@ if(NOT CMAKE_BUILD_TYPE)
   #set(CMAKE_BUILD_TYPE PERF)
 endif()
 
-message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 message(STATUS "Build architecture: ${TOOLBOX_BUILD_ARCH}")
+message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
+message(STATUS "Build version: ${TOOLBOX_VERSION}")
 
 # Enable for use with clang-tidy.
 if(NOT CMAKE_EXPORT_COMPILE_COMMANDS)

@@ -1,11 +1,11 @@
-# Contributing to Toolbox
+# Contributing
 
 We want to make contributing to this project as easy and transparent as possible. All contributions
 are welcome.
 
 ## Code of Conduct
 
-The code of conduct is described in [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).
+The code of conduct is described in [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
 
 ## Issues
 
@@ -15,8 +15,8 @@ sufficient instructions to be able to reproduce the issue.
 ## Commit Messages
 
 "Re-establishing the context of a piece of code is wasteful. We can't avoid it completely, so our
-efforts should go to reducing it [as much] as possible. Commit messages can do exactly that and as a
-result, a *commit message shows whether a developer is a good collaborator*." -- Peter Hutterer
+efforts should go to reducing it \[as much\] as possible. Commit messages can do exactly that and as
+a result, a *commit message shows whether a developer is a good collaborator*." -- Peter Hutterer
 
 The seven rules of a great git commit message:
 
@@ -97,4 +97,4 @@ Use `assert` statements to formalise contract and document assumptions.
 
 By contributing to Toolbox, you agree that your contributions will be licensed under the [Apache 2.0
 License](https://www.apache.org/licenses/LICENSE-2.0). A copy of the license is available in the
-LICENSE file in the root directory of this source tree.
+[LICENSE.md](LICENSE.md) file in the root directory of this source tree.
