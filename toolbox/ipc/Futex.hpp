@@ -37,9 +37,10 @@ inline int futex(int& uaddr, int futex_op, int val, const timespec* timeout = nu
 }
 } // namespace detail
 
-/// This operation wakes `n` waiters at most that are waiting (e.g., inside `FUTEX_WAIT`) on the
-/// futex word at the address `uaddr`.
-/// Returns the number of waiters that were woken up.
+/// This operation wakes \p n waiters at most that are waiting (e.g., inside `FUTEX_WAIT`) on the
+/// futex word at the address \p uaddr.
+///
+/// \returns the number of waiters that were woken up.
 inline int futex_notify(int& uaddr, int n, std::error_code& ec) noexcept
 {
     const auto ret = detail::futex(uaddr, FUTEX_WAKE, n);
@@ -49,9 +50,10 @@ inline int futex_notify(int& uaddr, int n, std::error_code& ec) noexcept
     return ret;
 }
 
-/// This operation wakes `n` waiters at most that are waiting (e.g., inside `FUTEX_WAIT`) on the
-/// futex word at the address `uaddr`.
-/// Returns the number of waiters that were woken up.
+/// This operation wakes \p n waiters at most that are waiting (e.g., inside `FUTEX_WAIT`) on the
+/// futex word at the address \p uaddr.
+///
+/// \returns the number of waiters that were woken up.
 inline int futex_notify(int& uaddr, int n)
 {
     const auto ret = detail::futex(uaddr, FUTEX_WAKE, n);
@@ -62,41 +64,45 @@ inline int futex_notify(int& uaddr, int n)
 }
 
 /// This operation wakes all waiters that are waiting (e.g., inside `FUTEX_WAIT`) on the futex word
-/// at the address `uaddr`.
-/// Returns the number of waiters that were woken up.
+/// at the address \p uaddr.
+///
+/// \returns the number of waiters that were woken up.
 inline int futex_notify_all(int& uaddr, std::error_code& ec) noexcept
 {
     return futex_notify(uaddr, std::numeric_limits<int>::max(), ec);
 }
 
 /// This operation wakes all waiters that are waiting (e.g., inside `FUTEX_WAIT`) on the futex word
-/// at the address `uaddr`.
-/// Returns the number of waiters that were woken up.
+/// at the address \p uaddr.
+///
+/// \returns the number of waiters that were woken up.
 inline int futex_notify_all(int& uaddr)
 {
     return futex_notify(uaddr, std::numeric_limits<int>::max());
 }
 
 /// This operation wakes at most a single waiter that is waiting (e.g., inside `FUTEX_WAIT`) on the
-/// futex word at the address `uaddr`.
-/// Returns the number of waiters that were woken up.
+/// futex word at the address \p uaddr.
+///
+/// \returns the number of waiters that were woken up.
 inline int futex_notify_one(int& uaddr, std::error_code& ec) noexcept
 {
     return futex_notify(uaddr, 1, ec);
 }
 
 /// This operation wakes at most a single waiter that is waiting (e.g., inside `FUTEX_WAIT`) on the
-/// futex word at the address `uaddr`.
-/// Returns the number of waiters that were woken up.
+/// futex word at the address \p uaddr.
+///
+/// \returns the number of waiters that were woken up.
 inline int futex_notify_one(int& uaddr)
 {
     return futex_notify(uaddr, 1);
 }
 
-/// This operation tests that the value at the futex word pointed to by the address `uaddr` still
-/// contains the expected value `val`, and if so, then sleeps waiting for a `FUTEX_WAKE` operation
-/// on the futex word. If the futex value does not match `val`, then the call fails immediately with
-/// the error `EAGAIN`.
+/// This operation tests that the value at the futex word pointed to by the address \p uaddr still
+/// contains the \p expected value, and if so, then sleeps waiting for a `FUTEX_WAKE` operation on
+/// the futex word. If the futex value does not match \p expected, then the call fails immediately
+/// with the error `EAGAIN`.
 inline void futex_wait(int& uaddr, int expected, std::error_code& ec) noexcept
 {
     if (detail::futex(uaddr, FUTEX_WAIT, expected) < 0) {
@@ -104,9 +110,11 @@ inline void futex_wait(int& uaddr, int expected, std::error_code& ec) noexcept
     }
 }
 
-/// This operation tests that the value at the futex word pointed to by the address `uaddr` still
-/// contains the expected value `val`, and if so, then sleeps waiting for a `FUTEX_WAKE` operation
-/// on the futex word. If the futex value does not match `val`, then the function returns false.
+/// This operation tests that the value at the futex word pointed to by the address \p uaddr still
+/// contains the \p expected value, and if so, then sleeps waiting for a `FUTEX_WAKE` operation on
+/// the futex word.
+///
+/// \returns false if the futex value does not match \p expected.
 inline bool futex_wait(int& uaddr, int expected)
 {
     if (detail::futex(uaddr, FUTEX_WAIT, expected) < 0) {

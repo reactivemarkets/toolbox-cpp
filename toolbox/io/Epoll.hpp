@@ -25,6 +25,7 @@
 namespace toolbox {
 namespace os {
 
+/// Open an epoll file descriptor
 inline FileHandle epoll_create(int size, std::error_code& ec) noexcept
 {
     const auto ret = ::epoll_create(size);
@@ -34,6 +35,7 @@ inline FileHandle epoll_create(int size, std::error_code& ec) noexcept
     return ret;
 }
 
+/// Open an epoll file descriptor
 inline FileHandle epoll_create(int size)
 {
     const auto fd = ::epoll_create(size);
@@ -43,6 +45,7 @@ inline FileHandle epoll_create(int size)
     return fd;
 }
 
+/// Control interface for an epoll file descriptor.
 inline int epoll_ctl(int epfd, int op, int fd, epoll_event event, std::error_code& ec) noexcept
 {
     const auto ret = ::epoll_ctl(epfd, op, fd, &event);
@@ -52,6 +55,7 @@ inline int epoll_ctl(int epfd, int op, int fd, epoll_event event, std::error_cod
     return ret;
 }
 
+/// Control interface for an epoll file descriptor.
 inline void epoll_ctl(int epfd, int op, int fd, epoll_event event)
 {
     const auto ret = ::epoll_ctl(epfd, op, fd, &event);
@@ -60,6 +64,7 @@ inline void epoll_ctl(int epfd, int op, int fd, epoll_event event)
     }
 }
 
+/// Wait for an I/O event on an epoll file descriptor.
 inline int epoll_wait(int epfd, epoll_event* events, int maxevents, int timeout,
                       std::error_code& ec) noexcept
 {
@@ -70,6 +75,7 @@ inline int epoll_wait(int epfd, epoll_event* events, int maxevents, int timeout,
     return ret;
 }
 
+/// Wait for an I/O event on an epoll file descriptor.
 inline int epoll_wait(int epfd, epoll_event* events, int maxevents, int timeout)
 {
     const auto ret = ::epoll_wait(epfd, events, maxevents, timeout);
