@@ -23,6 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Toolbox
+   &#160;<span id="projectnumber">master</span>
    </div>
    <div id="projectbrief">The Reactive C++ Toolbox</div>
   </td>
@@ -66,33 +67,24 @@ $(function() {
 <div class="contents">
 <div class="textblock"><h2>What is Toolbox?</h2>
 <p>The Reactive C++ Toolbox is an open source library of C++17 components designed for efficient aynchronous IO network applications on the Linux platform. Machine architectures currently supported are: AMD64, ARM and ARM32.</p>
-<h3>Documentation</h3>
-<p>The <a href="https://doc.toolbox.reactivemarkets.com">latest Doxygen documentation</a> is available online.</p>
-<h3>Dependencies</h3>
+<h2>Prerequisites</h2>
 <p>To build Toolbox from source, you will need:</p>
 <ul>
 <li><a href="http://www.cmake.org/">CMake</a> for Makefile generation;</li>
 <li><a href="http://gcc.gnu.org/">GCC</a> or <a href="http://clang.llvm.org/">Clang</a> with support for C++17;</li>
 <li><a href="http://www.boost.org/">Boost</a> for additional library dependencies;</li>
 </ul>
-<h2>Quick Start</h2>
-<div class="fragment"><div class="line">$ git clone git@github.com:reactivemarkets/toolbox-cpp.git toolbox-cpp</div><div class="line">$ mkdir toolbox-cpp/build</div><div class="line">$ cd toolbox-cpp/build</div><div class="line">$ cmake ..</div><div class="line">$ make -j all test package</div></div><!-- fragment --><h2>Building from Source</h2>
-<p>The following sections assume that <code>TOOLBOX_SOURCE</code> is equal to <code>SOURCE_DIR/toolbox-cpp</code>, and that <code>TOOLBOX_BUILD</code> is equal to <code>BUILD_DIR/toolbox-cpp</code>.</p>
-<h3>Clone Repository</h3>
-<p>Clone the repository from the <a href="https://github.com/reactivemarkets/toolbox-cpp">master repository</a> or your own personal fork:</p>
-<div class="fragment"><div class="line">$ cd $SOURCE_DIR</div><div class="line">$ git clone git@github.com:reactivemarkets/toolbox-cpp.git toolbox-cpp</div></div><!-- fragment --><p>The <code>SOURCE_DIR/toolbox-cpp</code> directory should now contain the source.</p>
-<h3>Configure Build</h3>
-<p>Configure using <code>cmake</code> as follows from the build directory:</p>
-<div class="fragment"><div class="line">$ cd $BUILD_DIR</div><div class="line">$ mkdir -p toolbox-cpp</div><div class="line">$ cd toolbox-cpp</div><div class="line">$ cmake $SOURCE_DIR/toolbox-cpp -DCMAKE_INSTALL_PREFIX=$TOOLBOX_HOME</div></div><!-- fragment --><p>This step will produce Unix Makefiles by default. The build-type and compiler can be set using the following options:</p>
-<div class="fragment"><div class="line">$ cmake $SOURCE_DIR/toolbox-cpp -G &quot;Unix Makefiles&quot; \</div><div class="line">  -DCMAKE_BUILD_TYPE=RELEASE \</div><div class="line">  -DCMAKE_INSTALL_PREFIX=$TOOLBOX_HOME \</div><div class="line">  -DCMAKE_C_COMPILER=gcc \</div><div class="line">  -DCMAKE_CXX_COMPILER=g++</div></div><!-- fragment --><p>Build times can be reduced during development by disabling shared libraries and compiler optimisations:</p>
-<div class="fragment"><div class="line">$ cmake $SOURCE_DIR/toolbox-cpp -G &quot;Unix Makefiles&quot; \</div><div class="line">  -DCMAKE_BUILD_TYPE=DEBUG \</div><div class="line">  -DTOOLBOX_BUILD_SHARED=OFF</div></div><!-- fragment --><p>Note that both shared and static libraries are built by default.</p>
-<p>Architecture-specific optimisation flags can be specified for release builds:</p>
-<div class="fragment"><div class="line">$ cmake $SOURCE_DIR/toolbox-cpp -G &quot;Unix Makefiles&quot; \</div><div class="line">  -DCMAKE_BUILD_TYPE=RELEASE \</div><div class="line">  -DCMAKE_C_FLAGS_RELEASE=&quot;-march=native -O3&quot; \</div><div class="line">  -DCMAKE_CXX_FLAGS_RELEASE=&quot;-march=native -O3&quot;</div></div><!-- fragment --><p>See <a href="https://cmake.org/documentation">CMake Documentation</a> for further information.</p>
-<h3>Build Binaries</h3>
-<p>Compile the code in the build directory using the <code>make</code> command:</p>
-<div class="fragment"><div class="line">$ cd $BUILD_DIR/toolbox-cpp</div><div class="line">$ make</div></div><!-- fragment --><h3>Install Artefacts</h3>
-<p>Install to <code>CMAKE_INSTALL_PREFIX</code>:</p>
-<div class="fragment"><div class="line">$ make install</div></div><!-- fragment --> </div></div><!-- contents -->
+<h2>Getting Started</h2>
+<p>Clone the repository, build and run the unit-tests as follows:</p>
+<div class="fragment"><div class="line">$ git clone git@github.com:reactivemarkets/toolbox-cpp.git toolbox-cpp</div><div class="line">$ mkdir toolbox-cpp/build</div><div class="line">$ cd toolbox-cpp/build</div><div class="line">$ cmake ..</div><div class="line">$ make -j all test install</div></div><!-- fragment --><h2>Documentation</h2>
+<p>The <a href="https://doc.toolbox.reactivemarkets.com">latest Doxygen documentation</a> is available online.</p>
+<h2>Contributing</h2>
+<p>Please read <a class="el" href="md_CONTRIBUTING.html">CONTRIBUTING.md</a> for details on our code of conduct, and the process for submitting pull requests.</p>
+<h2>Versioning</h2>
+<p>We use <a href="https://semver.org/">SemVer</a> for versioning. For the versions available, see the <a href="https://github.com/reactivemarkets/toolbox-cpp/tags">tags on this repository</a>.</p>
+<h2>License</h2>
+<p>This project is licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. A copy of the license is available in the <a class="el" href="md_LICENSE.html">LICENSE.md</a> file in the root directory of the source tree. </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

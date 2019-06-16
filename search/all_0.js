@@ -6,6 +6,7 @@ var searchData=
   ['addrinfofuture',['AddrInfoFuture',['../namespacetoolbox_1_1net.html#ac4480cb34e79fe172f654642e7d0089e',1,'toolbox::net']]],
   ['addrinfoptr',['AddrInfoPtr',['../namespacetoolbox_1_1net.html#a527fd7fbab8cb71aed64b28e782c6d8e',1,'toolbox::net']]],
   ['advance',['advance',['../namespacetoolbox_1_1io.html#ac4c6ee3c6f93a5851f9499705857f7ca',1,'toolbox::io']]],
+  ['algorithms_2emd',['Algorithms.md',['../Algorithms_8md.html',1,'']]],
   ['alloc',['alloc',['../classtoolbox_1_1io_1_1TimerPool.html#acc7dd4601ed07c868f4277f697380570',1,'toolbox::io::TimerPool']]],
   ['alwaysfalse',['AlwaysFalse',['../structtoolbox_1_1util_1_1AlwaysFalse.html',1,'toolbox::util']]],
   ['append',['append',['../classtoolbox_1_1util_1_1VarAccum.html#ab7b908754264400a5b870f4ee5423648',1,'toolbox::util::VarAccum::append(double val) noexcept'],['../classtoolbox_1_1util_1_1VarAccum.html#ad253f2f453142ebf2bc55a687bbdb9ed',1,'toolbox::util::VarAccum::append(double first, ArgsT... args) noexcept'],['../classtoolbox_1_1util_1_1StringBuf.html#a3422516d6db952cafa1179751a4cda3c',1,'toolbox::util::StringBuf::append()'],['../Math_8ut_8cpp.html#a57261b541822acf7675b3e0560a38f55',1,'append():&#160;Math.ut.cpp']]],
@@ -23,5 +24,7 @@ var searchData=
   ['array_5fsize',['array_size',['../namespacetoolbox_1_1util.html#ac6e2b4a14d77b7232a232a7b4ec326df',1,'toolbox::util']]],
   ['arrayview',['ArrayView',['../classtoolbox_1_1util_1_1ArrayView.html',1,'toolbox::util::ArrayView&lt; ValueT &gt;'],['../classtoolbox_1_1util_1_1ArrayView.html#a2b1a62626be151662119647256fd4660',1,'toolbox::util::ArrayView::ArrayView(const ValueT *ptr, std::size_t len) noexcept'],['../classtoolbox_1_1util_1_1ArrayView.html#a407eac9b9c6c3cf3868761ebce26623e',1,'toolbox::util::ArrayView::ArrayView(TypeU(&amp;arr)[SizeN]) noexcept'],['../classtoolbox_1_1util_1_1ArrayView.html#a785cf258a6f44038a2e8aa39bfe76a75',1,'toolbox::util::ArrayView::ArrayView(const std::vector&lt; ValueT &gt; &amp;arr) noexcept'],['../classtoolbox_1_1util_1_1ArrayView.html#ad632c4c7527ef5cb6e6e3db3bfcdf7cd',1,'toolbox::util::ArrayView::ArrayView() noexcept=default'],['../classtoolbox_1_1util_1_1ArrayView.html#ab5cc636f161e4d089a9739cd1e166f67',1,'toolbox::util::ArrayView::ArrayView(const ArrayView &amp;) noexcept=default'],['../classtoolbox_1_1util_1_1ArrayView.html#ae583f5fd97451ada223d966c6bcda860',1,'toolbox::util::ArrayView::ArrayView(ArrayView &amp;&amp;) noexcept=default']]],
   ['assign',['assign',['../classtoolbox_1_1util_1_1StringBuf.html#a14776eb0ab920c775fe464d5498ef32a',1,'toolbox::util::StringBuf']]],
-  ['available',['available',['../classtoolbox_1_1ipc_1_1MpmcQueue.html#a85da98f5759b21024cc86978bcbeac9d',1,'toolbox::ipc::MpmcQueue::available()'],['../classtoolbox_1_1util_1_1RingBuffer.html#ae4ebbb12d0b07ce2e6827e65f2c37245',1,'toolbox::util::RingBuffer::available()']]]
+  ['available',['available',['../classtoolbox_1_1ipc_1_1MpmcQueue.html#a85da98f5759b21024cc86978bcbeac9d',1,'toolbox::ipc::MpmcQueue::available()'],['../classtoolbox_1_1util_1_1RingBuffer.html#ae4ebbb12d0b07ce2e6827e65f2c37245',1,'toolbox::util::RingBuffer::available()']]],
+  ['algorithms',['Algorithms',['../md_doc_Algorithms.html',1,'']]],
+  ['apache_20license',['Apache License',['../md_LICENSE.html',1,'']]]
 ];

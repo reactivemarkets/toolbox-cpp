@@ -25,6 +25,7 @@ var searchData=
   ['stringbuf_2ecpp',['StringBuf.cpp',['../StringBuf_8cpp.html',1,'']]],
   ['stringbuf_2ehpp',['StringBuf.hpp',['../StringBuf_8hpp.html',1,'']]],
   ['stringbuf_2eut_2ecpp',['StringBuf.ut.cpp',['../StringBuf_8ut_8cpp.html',1,'']]],
+  ['stringhandling_2emd',['StringHandling.md',['../StringHandling_8md.html',1,'']]],
   ['struct_2ecpp',['Struct.cpp',['../Struct_8cpp.html',1,'']]],
   ['struct_2ehpp',['Struct.hpp',['../Struct_8hpp.html',1,'']]],
   ['struct_2eut_2ecpp',['Struct.ut.cpp',['../Struct_8ut_8cpp.html',1,'']]],

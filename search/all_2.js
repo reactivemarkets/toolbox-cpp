@@ -25,8 +25,10 @@ var searchData=
   ['compare',['compare',['../classtoolbox_1_1util_1_1StringBuf.html#a20aab65acfa5d67c50882ebb15327e6f',1,'toolbox::util::StringBuf::compare(const StringBuf&lt; MaxR &gt; &amp;rhs) const noexcept'],['../classtoolbox_1_1util_1_1StringBuf.html#a8c442a008642e26e350dd02c43375b52',1,'toolbox::util::StringBuf::compare(std::string_view rhs) const noexcept'],['../structtoolbox_1_1util_1_1Version.html#ae0c7d400d851a1ccb40819cd71039118',1,'toolbox::util::Version::compare()'],['../namespacetoolbox_1_1util.html#a47b5dcc2b4883b91675e06a453119ea6',1,'toolbox::util::compare()']]],
   ['compare_2ecpp',['Compare.cpp',['../Compare_8cpp.html',1,'']]],
   ['compare_2ehpp',['Compare.hpp',['../Compare_8hpp.html',1,'']]],
+  ['concurrency_2emd',['Concurrency.md',['../Concurrency_8md.html',1,'']]],
   ['config',['Config',['../classtoolbox_1_1util_1_1Config.html',1,'toolbox::util::Config'],['../classtoolbox_1_1util_1_1Config.html#a7b7ef2806c50ae9358a8ac135b7eed3b',1,'toolbox::util::Config::Config()'],['../classtoolbox_1_1util_1_1Config.html#a7730c184d68a72b64d758c7fb74b97ce',1,'toolbox::util::Config::Config(const Config &amp;)'],['../classtoolbox_1_1util_1_1Config.html#aad93ffb924a3e07fba2c4a0b47169146',1,'toolbox::util::Config::Config(Config &amp;&amp;)']]],
   ['config_2ecpp',['Config.cpp',['../Config_8cpp.html',1,'']]],
+  ['config_2eh',['Config.h',['../Config_8h.html',1,'']]],
   ['config_2ehpp',['Config.hpp',['../Config_8hpp.html',1,'']]],
   ['config_2eut_2ecpp',['Config.ut.cpp',['../Config_8ut_8cpp.html',1,'']]],
   ['connect',['connect',['../structtoolbox_1_1net_1_1DgramSock.html#a1b99fbdf783a2ad240fbc22bed1c1f21',1,'toolbox::net::DgramSock::connect(const Endpoint &amp;ep, std::error_code &amp;ec) noexcept'],['../structtoolbox_1_1net_1_1DgramSock.html#a8c405a631986a0b2066b2cc5e7aaa85b',1,'toolbox::net::DgramSock::connect(const Endpoint &amp;ep)'],['../structtoolbox_1_1net_1_1McastSock.html#a4765f20fbd6bba16563b31eec7bb0280',1,'toolbox::net::McastSock::connect(const Endpoint &amp;ep, std::error_code &amp;ec) noexcept'],['../structtoolbox_1_1net_1_1McastSock.html#ae927a0a17f4b4fd3716c2c59762e4222',1,'toolbox::net::McastSock::connect(const Endpoint &amp;ep)'],['../classtoolbox_1_1net_1_1StreamConnector.html#a8e80729e9c0175f2c2970c73ac00b85f',1,'toolbox::net::StreamConnector::connect()'],['../structtoolbox_1_1net_1_1StreamSockClnt.html#adb888be117b5b04e812201915dbe641a',1,'toolbox::net::StreamSockClnt::connect(const Endpoint &amp;ep, std::error_code &amp;ec) noexcept'],['../structtoolbox_1_1net_1_1StreamSockClnt.html#a39bfe78a507201e1eeee9a1404f12de7',1,'toolbox::net::StreamSockClnt::connect(const Endpoint &amp;ep)'],['../namespacetoolbox_1_1os.html#ae7c0ab4612dcb1c55e2c75659074b0a1',1,'toolbox::os::connect(int sockfd, const sockaddr &amp;addr, socklen_t addrlen, std::error_code &amp;ec) noexcept'],['../namespacetoolbox_1_1os.html#af3e3c326180c17d9391853c17839de75',1,'toolbox::os::connect(int sockfd, const sockaddr &amp;addr, socklen_t addrlen)'],['../namespacetoolbox_1_1os.html#aa073b13cac40f9dbe88c9b0317205433',1,'toolbox::os::connect(int sockfd, const EndpointT &amp;ep, std::error_code &amp;ec) noexcept'],['../namespacetoolbox_1_1os.html#aaf8b4b1f59400db6f3af678b82f2e19c',1,'toolbox::os::connect(int sockfd, const EndpointT &amp;ep)']]],
@@ -47,6 +49,7 @@ var searchData=
   ['crit',['Crit',['../classtoolbox_1_1sys_1_1Log.html#a2808c4de7e3c9a97aa02d977b29645a8ab8159c7b3f509de803c8e908b15c5bce',1,'toolbox::sys::Log']]],
   ['current',['current',['../classtoolbox_1_1sys_1_1CyclTime.html#a6914bc691fe0f773d3d6d27a966f9443',1,'toolbox::sys::CyclTime']]],
   ['cycltime',['CyclTime',['../classtoolbox_1_1sys_1_1CyclTime.html',1,'toolbox::sys']]],
-  ['contributor_20covenant_20code_20of_20conduct',['Contributor Covenant Code of Conduct',['../md_CODE_OF_CONDUCT.html',1,'']]],
-  ['contributing_20to_20toolbox',['Contributing to Toolbox',['../md_CONTRIBUTING.html',1,'']]]
+  ['code_20of_20conduct',['Code of Conduct',['../md_CODE_OF_CONDUCT.html',1,'']]],
+  ['contributing',['Contributing',['../md_CONTRIBUTING.html',1,'']]],
+  ['concurrency',['Concurrency',['../md_doc_Concurrency.html',1,'']]]
 ];

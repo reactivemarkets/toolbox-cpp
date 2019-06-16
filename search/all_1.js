@@ -16,5 +16,7 @@ var searchData=
   ['buffer',['Buffer',['../classtoolbox_1_1io_1_1Buffer.html',1,'toolbox::io::Buffer'],['../classtoolbox_1_1io_1_1Buffer.html#a198296626dfa4fdfb453a082215e236e',1,'toolbox::io::Buffer::Buffer(std::size_t capacity)'],['../classtoolbox_1_1io_1_1Buffer.html#a4e1372ccef25ad3f8626a62154060148',1,'toolbox::io::Buffer::Buffer()=default'],['../classtoolbox_1_1io_1_1Buffer.html#addbe062272ae4a51bb8b615d11fd5a73',1,'toolbox::io::Buffer::Buffer(const Buffer &amp;)=default'],['../classtoolbox_1_1io_1_1Buffer.html#a67aa3647e69ae02f2a95b724e5f3d87c',1,'toolbox::io::Buffer::Buffer(Buffer &amp;&amp;) noexcept=default']]],
   ['buffer_2ecpp',['Buffer.cpp',['../Buffer_8cpp.html',1,'']]],
   ['buffer_2ehpp',['Buffer.hpp',['../Buffer_8hpp.html',1,'']]],
-  ['buffer_2eut_2ecpp',['Buffer.ut.cpp',['../Buffer_8ut_8cpp.html',1,'']]]
+  ['buffer_2eut_2ecpp',['Buffer.ut.cpp',['../Buffer_8ut_8cpp.html',1,'']]],
+  ['buildfromsource_2emd',['BuildFromSource.md',['../BuildFromSource_8md.html',1,'']]],
+  ['build_20from_20source',['Build from Source',['../md_doc_BuildFromSource.html',1,'']]]
 ];
