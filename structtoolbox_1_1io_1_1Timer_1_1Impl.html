@@ -99,68 +99,6 @@ Public Attributes</h2></td></tr>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="Timer_8hpp_source.html#l00041">41</a> of file <a class="el" href="Timer_8hpp_source.html">Timer.hpp</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a279be5d0f188dc27f753ad958103f74e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a279be5d0f188dc27f753ad958103f74e">&#9670;&nbsp;</a></span>@2</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">union { ... } </td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a85cf708f8b097daf84348fba38a80ba7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85cf708f8b097daf84348fba38a80ba7">&#9670;&nbsp;</a></span>expiry</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">MonoTime toolbox::io::Timer::Impl::expiry</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Timer_8hpp_source.html#l00049">49</a> of file <a class="el" href="Timer_8hpp_source.html">Timer.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a68cb43299e3330f8d988339762198daf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68cb43299e3330f8d988339762198daf">&#9670;&nbsp;</a></span>id</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">long toolbox::io::Timer::Impl::id</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Timer_8hpp_source.html#l00048">48</a> of file <a class="el" href="Timer_8hpp_source.html">Timer.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a2b9d106951fd741bacf92ee0c912a9c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b9d106951fd741bacf92ee0c912a9c5">&#9670;&nbsp;</a></span>interval</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Duration toolbox::io::Timer::Impl::interval</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Timer_8hpp_source.html#l00050">50</a> of file <a class="el" href="Timer_8hpp_source.html">Timer.hpp</a>.</p>
-
-</div>
-</div>
 <a id="a1b9390a1783607df5e0dd0884f77ae3e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1b9390a1783607df5e0dd0884f77ae3e">&#9670;&nbsp;</a></span>next</h2>
 
@@ -176,6 +114,40 @@ Public Attributes</h2></td></tr>
 <p>Singly-linked free-list. </p>
 
 <p class="definition">Definition at line <a class="el" href="Timer_8hpp_source.html#l00044">44</a> of file <a class="el" href="Timer_8hpp_source.html">Timer.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Timer_8cpp_source.html#l00040">toolbox::io::TimerPool::alloc()</a>.</p>
+
+</div>
+</div>
+<a id="aa099016dcd855981775495c3f00cb593"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa099016dcd855981775495c3f00cb593">&#9670;&nbsp;</a></span>tq</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtoolbox_1_1io_1_1TimerQueue.html">TimerQueue</a>* toolbox::io::Timer::Impl::tq</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Timer_8hpp_source.html#l00045">45</a> of file <a class="el" href="Timer_8hpp_source.html">Timer.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Timer_8cpp_source.html#l00080">toolbox::io::TimerQueue::dispatch()</a>.</p>
+
+</div>
+</div>
+<a id="a279be5d0f188dc27f753ad958103f74e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a279be5d0f188dc27f753ad958103f74e">&#9670;&nbsp;</a></span>@2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">union { ... } </td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -195,6 +167,54 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a68cb43299e3330f8d988339762198daf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68cb43299e3330f8d988339762198daf">&#9670;&nbsp;</a></span>id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long toolbox::io::Timer::Impl::id</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Timer_8hpp_source.html#l00048">48</a> of file <a class="el" href="Timer_8hpp_source.html">Timer.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a85cf708f8b097daf84348fba38a80ba7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85cf708f8b097daf84348fba38a80ba7">&#9670;&nbsp;</a></span>expiry</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MonoTime toolbox::io::Timer::Impl::expiry</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Timer_8hpp_source.html#l00049">49</a> of file <a class="el" href="Timer_8hpp_source.html">Timer.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a2b9d106951fd741bacf92ee0c912a9c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b9d106951fd741bacf92ee0c912a9c5">&#9670;&nbsp;</a></span>interval</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Duration toolbox::io::Timer::Impl::interval</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Timer_8hpp_source.html#l00050">50</a> of file <a class="el" href="Timer_8hpp_source.html">Timer.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a93cee9355408d5f62ea2064e5ae8e1a6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a93cee9355408d5f62ea2064e5ae8e1a6">&#9670;&nbsp;</a></span>slot</h2>
 
@@ -208,22 +228,6 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="Timer_8hpp_source.html#l00051">51</a> of file <a class="el" href="Timer_8hpp_source.html">Timer.hpp</a>.</p>
-
-</div>
-</div>
-<a id="aa099016dcd855981775495c3f00cb593"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa099016dcd855981775495c3f00cb593">&#9670;&nbsp;</a></span>tq</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classtoolbox_1_1io_1_1TimerQueue.html">TimerQueue</a>* toolbox::io::Timer::Impl::tq</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Timer_8hpp_source.html#l00045">45</a> of file <a class="el" href="Timer_8hpp_source.html">Timer.hpp</a>.</p>
 
 </div>
 </div>

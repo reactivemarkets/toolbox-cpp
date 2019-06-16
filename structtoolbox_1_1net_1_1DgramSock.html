@@ -203,22 +203,6 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="DgramSock_8hpp_source.html#l00027">27</a> of file <a class="el" href="DgramSock_8hpp_source.html">DgramSock.hpp</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a3e9f01d1f6afc8f1cab9c353d1bc7833"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e9f01d1f6afc8f1cab9c353d1bc7833">&#9670;&nbsp;</a></span>Endpoint</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="structtoolbox_1_1net_1_1DgramSock.html#a3e9f01d1f6afc8f1cab9c353d1bc7833">toolbox::net::DgramSock::Endpoint</a> =  <a class="el" href="namespacetoolbox_1_1net.html#a0007c7989e60a8c2b2eeabf64c1e60f2">DgramEndpoint</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="DgramSock_8hpp_source.html#l00029">29</a> of file <a class="el" href="DgramSock_8hpp_source.html">DgramSock.hpp</a>.</p>
-
-</div>
-</div>
 <a id="a534d64ded93ca8d5b1e75f2c0e009534"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a534d64ded93ca8d5b1e75f2c0e009534">&#9670;&nbsp;</a></span>Protocol</h2>
 
@@ -232,6 +216,22 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="DgramSock_8hpp_source.html#l00028">28</a> of file <a class="el" href="DgramSock_8hpp_source.html">DgramSock.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a3e9f01d1f6afc8f1cab9c353d1bc7833"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e9f01d1f6afc8f1cab9c353d1bc7833">&#9670;&nbsp;</a></span>Endpoint</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="structtoolbox_1_1net_1_1DgramSock.html#a3e9f01d1f6afc8f1cab9c353d1bc7833">toolbox::net::DgramSock::Endpoint</a> =  <a class="el" href="namespacetoolbox_1_1net.html#a0007c7989e60a8c2b2eeabf64c1e60f2">DgramEndpoint</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="DgramSock_8hpp_source.html#l00029">29</a> of file <a class="el" href="DgramSock_8hpp_source.html">DgramSock.hpp</a>.</p>
 
 </div>
 </div>
@@ -325,9 +325,77 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="reference">Referenced by <a class="el" href="DgramSock_8hpp_source.html#l00037">DgramSock()</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6c5f8a3ddd7f8f570f02449386cdf152"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c5f8a3ddd7f8f570f02449386cdf152">&#9670;&nbsp;</a></span>get_sock_name() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toolbox::net::DgramSock::get_sock_name </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structtoolbox_1_1net_1_1DgramSock.html#a3e9f01d1f6afc8f1cab9c353d1bc7833">Endpoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>ep</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::error_code &amp;&#160;</td>
+          <td class="paramname"><em>ec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="DgramSock_8hpp_source.html#l00044">44</a> of file <a class="el" href="DgramSock_8hpp_source.html">DgramSock.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ab553ff1e1d8451df4c08b9267195f1e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab553ff1e1d8451df4c08b9267195f1e5">&#9670;&nbsp;</a></span>get_sock_name() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toolbox::net::DgramSock::get_sock_name </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structtoolbox_1_1net_1_1DgramSock.html#a3e9f01d1f6afc8f1cab9c353d1bc7833">Endpoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>ep</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="DgramSock_8hpp_source.html#l00048">48</a> of file <a class="el" href="DgramSock_8hpp_source.html">DgramSock.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a2748bd4fc7ade290f5acf9d9b2854674"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2748bd4fc7ade290f5acf9d9b2854674">&#9670;&nbsp;</a></span>bind() <span class="overload">[1/2]</span></h2>
 
@@ -457,72 +525,6 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="DgramSock_8hpp_source.html#l00055">55</a> of file <a class="el" href="DgramSock_8hpp_source.html">DgramSock.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a6c5f8a3ddd7f8f570f02449386cdf152"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c5f8a3ddd7f8f570f02449386cdf152">&#9670;&nbsp;</a></span>get_sock_name() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void toolbox::net::DgramSock::get_sock_name </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structtoolbox_1_1net_1_1DgramSock.html#a3e9f01d1f6afc8f1cab9c353d1bc7833">Endpoint</a> &amp;&#160;</td>
-          <td class="paramname"><em>ep</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::error_code &amp;&#160;</td>
-          <td class="paramname"><em>ec</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="DgramSock_8hpp_source.html#l00044">44</a> of file <a class="el" href="DgramSock_8hpp_source.html">DgramSock.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ab553ff1e1d8451df4c08b9267195f1e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab553ff1e1d8451df4c08b9267195f1e5">&#9670;&nbsp;</a></span>get_sock_name() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void toolbox::net::DgramSock::get_sock_name </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structtoolbox_1_1net_1_1DgramSock.html#a3e9f01d1f6afc8f1cab9c353d1bc7833">Endpoint</a> &amp;&#160;</td>
-          <td class="paramname"><em>ep</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="DgramSock_8hpp_source.html#l00048">48</a> of file <a class="el" href="DgramSock_8hpp_source.html">DgramSock.hpp</a>.</p>
 
 </div>
 </div>

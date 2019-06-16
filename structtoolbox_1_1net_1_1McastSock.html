@@ -231,22 +231,6 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00233">233</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="aa0820d00091837078e666b13be5019a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0820d00091837078e666b13be5019a7">&#9670;&nbsp;</a></span>Endpoint</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="structtoolbox_1_1net_1_1McastSock.html#aa0820d00091837078e666b13be5019a7">toolbox::net::McastSock::Endpoint</a> =  <a class="el" href="namespacetoolbox_1_1net.html#ad241f41f7c610ff4aebb891762a75f7f">UdpEndpoint</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00235">235</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
-
-</div>
-</div>
 <a id="aaad59e849637869ba8cff1df556348f9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaad59e849637869ba8cff1df556348f9">&#9670;&nbsp;</a></span>Protocol</h2>
 
@@ -260,6 +244,22 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00234">234</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aa0820d00091837078e666b13be5019a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0820d00091837078e666b13be5019a7">&#9670;&nbsp;</a></span>Endpoint</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="structtoolbox_1_1net_1_1McastSock.html#aa0820d00091837078e666b13be5019a7">toolbox::net::McastSock::Endpoint</a> =  <a class="el" href="namespacetoolbox_1_1net.html#ad241f41f7c610ff4aebb891762a75f7f">UdpEndpoint</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00235">235</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
 
 </div>
 </div>
@@ -356,6 +356,72 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae9a7f7893dfced4f320290e922c5850f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9a7f7893dfced4f320290e922c5850f">&#9670;&nbsp;</a></span>get_sock_name() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toolbox::net::McastSock::get_sock_name </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structtoolbox_1_1net_1_1McastSock.html#aa0820d00091837078e666b13be5019a7">Endpoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>ep</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::error_code &amp;&#160;</td>
+          <td class="paramname"><em>ec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00250">250</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a2bd4e2157c83acfcfb77b486fe1e6487"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bd4e2157c83acfcfb77b486fe1e6487">&#9670;&nbsp;</a></span>get_sock_name() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toolbox::net::McastSock::get_sock_name </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structtoolbox_1_1net_1_1McastSock.html#aa0820d00091837078e666b13be5019a7">Endpoint</a> &amp;&#160;</td>
+          <td class="paramname"><em>ep</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00254">254</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a228283d9969ae2341195951e04ddad96"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a228283d9969ae2341195951e04ddad96">&#9670;&nbsp;</a></span>bind() <span class="overload">[1/2]</span></h2>
 
@@ -485,400 +551,6 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00261">261</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ae9a7f7893dfced4f320290e922c5850f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9a7f7893dfced4f320290e922c5850f">&#9670;&nbsp;</a></span>get_sock_name() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void toolbox::net::McastSock::get_sock_name </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structtoolbox_1_1net_1_1McastSock.html#aa0820d00091837078e666b13be5019a7">Endpoint</a> &amp;&#160;</td>
-          <td class="paramname"><em>ep</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::error_code &amp;&#160;</td>
-          <td class="paramname"><em>ec</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00250">250</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a2bd4e2157c83acfcfb77b486fe1e6487"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bd4e2157c83acfcfb77b486fe1e6487">&#9670;&nbsp;</a></span>get_sock_name() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void toolbox::net::McastSock::get_sock_name </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structtoolbox_1_1net_1_1McastSock.html#aa0820d00091837078e666b13be5019a7">Endpoint</a> &amp;&#160;</td>
-          <td class="paramname"><em>ep</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00254">254</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a7f8aa7fea21ed26edfddb39c02139a9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f8aa7fea21ed26edfddb39c02139a9a">&#9670;&nbsp;</a></span>join_group() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void toolbox::net::McastSock::join_group </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacetoolbox_1_1net.html#a5b6ac5524a5dcb280a454cefad94f754">IpAddr</a> &amp;&#160;</td>
-          <td class="paramname"><em>addr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>ifindex</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::error_code &amp;&#160;</td>
-          <td class="paramname"><em>ec</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00301">301</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a3104b52e60c737845d7529dadb071137"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3104b52e60c737845d7529dadb071137">&#9670;&nbsp;</a></span>join_group() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void toolbox::net::McastSock::join_group </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacetoolbox_1_1net.html#a5b6ac5524a5dcb280a454cefad94f754">IpAddr</a> &amp;&#160;</td>
-          <td class="paramname"><em>addr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>ifindex</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00305">305</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ac2608e0159363712e552bd4757eaaeca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2608e0159363712e552bd4757eaaeca">&#9670;&nbsp;</a></span>join_group() <span class="overload">[3/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void toolbox::net::McastSock::join_group </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacetoolbox_1_1net.html#a5b6ac5524a5dcb280a454cefad94f754">IpAddr</a> &amp;&#160;</td>
-          <td class="paramname"><em>addr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>ifname</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::error_code &amp;&#160;</td>
-          <td class="paramname"><em>ec</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00310">310</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a462fad5f7abfdf46fe44e47c4c1e90b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a462fad5f7abfdf46fe44e47c4c1e90b1">&#9670;&nbsp;</a></span>join_group() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void toolbox::net::McastSock::join_group </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacetoolbox_1_1net.html#a5b6ac5524a5dcb280a454cefad94f754">IpAddr</a> &amp;&#160;</td>
-          <td class="paramname"><em>addr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>ifname</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00314">314</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
-
-</div>
-</div>
-<a id="acdc392f9fc8ad3554e33921e3554b52a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acdc392f9fc8ad3554e33921e3554b52a">&#9670;&nbsp;</a></span>leave_group() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void toolbox::net::McastSock::leave_group </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacetoolbox_1_1net.html#a5b6ac5524a5dcb280a454cefad94f754">IpAddr</a> &amp;&#160;</td>
-          <td class="paramname"><em>addr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>ifindex</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::error_code &amp;&#160;</td>
-          <td class="paramname"><em>ec</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00319">319</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a569954e0d6e6b1ce85f71e53689beebf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a569954e0d6e6b1ce85f71e53689beebf">&#9670;&nbsp;</a></span>leave_group() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void toolbox::net::McastSock::leave_group </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacetoolbox_1_1net.html#a5b6ac5524a5dcb280a454cefad94f754">IpAddr</a> &amp;&#160;</td>
-          <td class="paramname"><em>addr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>ifindex</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00323">323</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
-
-</div>
-</div>
-<a id="aa19fc78233de9dd2cb86d84c1034fcd2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa19fc78233de9dd2cb86d84c1034fcd2">&#9670;&nbsp;</a></span>leave_group() <span class="overload">[3/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void toolbox::net::McastSock::leave_group </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacetoolbox_1_1net.html#a5b6ac5524a5dcb280a454cefad94f754">IpAddr</a> &amp;&#160;</td>
-          <td class="paramname"><em>addr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>ifname</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::error_code &amp;&#160;</td>
-          <td class="paramname"><em>ec</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00328">328</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a27570b891b68b5ff1e4477c019793ec2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27570b891b68b5ff1e4477c019793ec2">&#9670;&nbsp;</a></span>leave_group() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void toolbox::net::McastSock::leave_group </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespacetoolbox_1_1net.html#a5b6ac5524a5dcb280a454cefad94f754">IpAddr</a> &amp;&#160;</td>
-          <td class="paramname"><em>addr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>ifname</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00332">332</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
 
 </div>
 </div>
@@ -1279,6 +951,334 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00296">296</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a7f8aa7fea21ed26edfddb39c02139a9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f8aa7fea21ed26edfddb39c02139a9a">&#9670;&nbsp;</a></span>join_group() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toolbox::net::McastSock::join_group </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacetoolbox_1_1net.html#a5b6ac5524a5dcb280a454cefad94f754">IpAddr</a> &amp;&#160;</td>
+          <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>ifindex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::error_code &amp;&#160;</td>
+          <td class="paramname"><em>ec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00301">301</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a3104b52e60c737845d7529dadb071137"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3104b52e60c737845d7529dadb071137">&#9670;&nbsp;</a></span>join_group() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toolbox::net::McastSock::join_group </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacetoolbox_1_1net.html#a5b6ac5524a5dcb280a454cefad94f754">IpAddr</a> &amp;&#160;</td>
+          <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>ifindex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00305">305</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ac2608e0159363712e552bd4757eaaeca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2608e0159363712e552bd4757eaaeca">&#9670;&nbsp;</a></span>join_group() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toolbox::net::McastSock::join_group </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacetoolbox_1_1net.html#a5b6ac5524a5dcb280a454cefad94f754">IpAddr</a> &amp;&#160;</td>
+          <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>ifname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::error_code &amp;&#160;</td>
+          <td class="paramname"><em>ec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00310">310</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a462fad5f7abfdf46fe44e47c4c1e90b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a462fad5f7abfdf46fe44e47c4c1e90b1">&#9670;&nbsp;</a></span>join_group() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toolbox::net::McastSock::join_group </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacetoolbox_1_1net.html#a5b6ac5524a5dcb280a454cefad94f754">IpAddr</a> &amp;&#160;</td>
+          <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>ifname</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00314">314</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
+
+</div>
+</div>
+<a id="acdc392f9fc8ad3554e33921e3554b52a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdc392f9fc8ad3554e33921e3554b52a">&#9670;&nbsp;</a></span>leave_group() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toolbox::net::McastSock::leave_group </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacetoolbox_1_1net.html#a5b6ac5524a5dcb280a454cefad94f754">IpAddr</a> &amp;&#160;</td>
+          <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>ifindex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::error_code &amp;&#160;</td>
+          <td class="paramname"><em>ec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00319">319</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a569954e0d6e6b1ce85f71e53689beebf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a569954e0d6e6b1ce85f71e53689beebf">&#9670;&nbsp;</a></span>leave_group() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toolbox::net::McastSock::leave_group </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacetoolbox_1_1net.html#a5b6ac5524a5dcb280a454cefad94f754">IpAddr</a> &amp;&#160;</td>
+          <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>ifindex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00323">323</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aa19fc78233de9dd2cb86d84c1034fcd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa19fc78233de9dd2cb86d84c1034fcd2">&#9670;&nbsp;</a></span>leave_group() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toolbox::net::McastSock::leave_group </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacetoolbox_1_1net.html#a5b6ac5524a5dcb280a454cefad94f754">IpAddr</a> &amp;&#160;</td>
+          <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>ifname</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::error_code &amp;&#160;</td>
+          <td class="paramname"><em>ec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00328">328</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a27570b891b68b5ff1e4477c019793ec2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27570b891b68b5ff1e4477c019793ec2">&#9670;&nbsp;</a></span>leave_group() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toolbox::net::McastSock::leave_group </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacetoolbox_1_1net.html#a5b6ac5524a5dcb280a454cefad94f754">IpAddr</a> &amp;&#160;</td>
+          <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>ifname</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="McastSock_8hpp_source.html#l00332">332</a> of file <a class="el" href="McastSock_8hpp_source.html">McastSock.hpp</a>.</p>
 
 </div>
 </div>

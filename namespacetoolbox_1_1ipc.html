@@ -226,6 +226,395 @@ template&lt;typename ValueT &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a772144b89c25aef241fd964d30606dcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a772144b89c25aef241fd964d30606dcb">&#9670;&nbsp;</a></span>futex_notify() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int toolbox::ipc::futex_notify </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>uaddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::error_code &amp;&#160;</td>
+          <td class="paramname"><em>ec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This operation wakes <code>n</code> waiters at most that are waiting (e.g., inside <code>FUTEX_WAIT</code>) on the futex word at the address <code>uaddr</code>.</p>
+<dl class="section return"><dt>Returns</dt><dd>the number of waiters that were woken up. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Futex_8hpp_source.html#l00044">44</a> of file <a class="el" href="Futex_8hpp_source.html">Futex.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Futex_8hpp_source.html#l00070">futex_notify_all()</a>, and <a class="el" href="Futex_8hpp_source.html#l00088">futex_notify_one()</a>.</p>
+
+</div>
+</div>
+<a id="a0d2751eb25fb6410e7821d8f035ea888"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d2751eb25fb6410e7821d8f035ea888">&#9670;&nbsp;</a></span>futex_notify() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int toolbox::ipc::futex_notify </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>uaddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This operation wakes <code>n</code> waiters at most that are waiting (e.g., inside <code>FUTEX_WAIT</code>) on the futex word at the address <code>uaddr</code>.</p>
+<dl class="section return"><dt>Returns</dt><dd>the number of waiters that were woken up. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Futex_8hpp_source.html#l00057">57</a> of file <a class="el" href="Futex_8hpp_source.html">Futex.hpp</a>.</p>
+
+</div>
+</div>
+<a id="accfb54d2eed16b90e3535e6bf6ec7082"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accfb54d2eed16b90e3535e6bf6ec7082">&#9670;&nbsp;</a></span>futex_notify_all() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int toolbox::ipc::futex_notify_all </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>uaddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::error_code &amp;&#160;</td>
+          <td class="paramname"><em>ec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This operation wakes all waiters that are waiting (e.g., inside <code>FUTEX_WAIT</code>) on the futex word at the address <code>uaddr</code>.</p>
+<dl class="section return"><dt>Returns</dt><dd>the number of waiters that were woken up. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Futex_8hpp_source.html#l00070">70</a> of file <a class="el" href="Futex_8hpp_source.html">Futex.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a04a9939d6e29ad054c56cece247946e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04a9939d6e29ad054c56cece247946e8">&#9670;&nbsp;</a></span>futex_notify_all() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int toolbox::ipc::futex_notify_all </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>uaddr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This operation wakes all waiters that are waiting (e.g., inside <code>FUTEX_WAIT</code>) on the futex word at the address <code>uaddr</code>.</p>
+<dl class="section return"><dt>Returns</dt><dd>the number of waiters that were woken up. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Futex_8hpp_source.html#l00079">79</a> of file <a class="el" href="Futex_8hpp_source.html">Futex.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aa6daef00e9877696feac698f67a00019"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6daef00e9877696feac698f67a00019">&#9670;&nbsp;</a></span>futex_notify_one() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int toolbox::ipc::futex_notify_one </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>uaddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::error_code &amp;&#160;</td>
+          <td class="paramname"><em>ec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This operation wakes at most a single waiter that is waiting (e.g., inside <code>FUTEX_WAIT</code>) on the futex word at the address <code>uaddr</code>.</p>
+<dl class="section return"><dt>Returns</dt><dd>the number of waiters that were woken up. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Futex_8hpp_source.html#l00088">88</a> of file <a class="el" href="Futex_8hpp_source.html">Futex.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a4e07259bdeb8eaee0a445c03d0871352"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e07259bdeb8eaee0a445c03d0871352">&#9670;&nbsp;</a></span>futex_notify_one() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int toolbox::ipc::futex_notify_one </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>uaddr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This operation wakes at most a single waiter that is waiting (e.g., inside <code>FUTEX_WAIT</code>) on the futex word at the address <code>uaddr</code>.</p>
+<dl class="section return"><dt>Returns</dt><dd>the number of waiters that were woken up. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Futex_8hpp_source.html#l00097">97</a> of file <a class="el" href="Futex_8hpp_source.html">Futex.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ac5bf60d138cf69c7013de27fffbe2692"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5bf60d138cf69c7013de27fffbe2692">&#9670;&nbsp;</a></span>futex_wait() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toolbox::ipc::futex_wait </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>uaddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>expected</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::error_code &amp;&#160;</td>
+          <td class="paramname"><em>ec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This operation tests that the value at the futex word pointed to by the address <code>uaddr</code> still contains the <code>expected</code> value, and if so, then sleeps waiting for a <code>FUTEX_WAKE</code> operation on the futex word. If the futex value does not match <code>expected</code>, then the call fails immediately with the error <code>EAGAIN</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="Futex_8hpp_source.html#l00106">106</a> of file <a class="el" href="Futex_8hpp_source.html">Futex.hpp</a>.</p>
+
+</div>
+</div>
+<a id="acb712e744461e77824f11e399913b5ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb712e744461e77824f11e399913b5ef">&#9670;&nbsp;</a></span>futex_wait() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool toolbox::ipc::futex_wait </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>uaddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>expected</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This operation tests that the value at the futex word pointed to by the address <code>uaddr</code> still contains the <code>expected</code> value, and if so, then sleeps waiting for a <code>FUTEX_WAKE</code> operation on the futex word.</p>
+<dl class="section return"><dt>Returns</dt><dd>false if the futex value does not match <code>expected</code>. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Futex_8hpp_source.html#l00118">118</a> of file <a class="el" href="Futex_8hpp_source.html">Futex.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a9ae24a17204d2d23f0bcd77e8b0b055b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ae24a17204d2d23f0bcd77e8b0b055b">&#9670;&nbsp;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool toolbox::ipc::operator== </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtoolbox_1_1ipc_1_1MmapPointer.html">MmapPointer</a>&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classtoolbox_1_1ipc_1_1MmapPointer.html">MmapPointer</a>&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Mmap_8hpp_source.html#l00051">51</a> of file <a class="el" href="Mmap_8hpp_source.html">Mmap.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a0ac882fb8a1002bedc3f5046e312d21b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ac882fb8a1002bedc3f5046e312d21b">&#9670;&nbsp;</a></span>operator!=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool toolbox::ipc::operator!= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtoolbox_1_1ipc_1_1MmapPointer.html">MmapPointer</a>&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classtoolbox_1_1ipc_1_1MmapPointer.html">MmapPointer</a>&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Mmap_8hpp_source.html#l00056">56</a> of file <a class="el" href="Mmap_8hpp_source.html">Mmap.hpp</a>.</p>
+
+</div>
+</div>
 <a id="ac6504780b9b7f04ad85370b3b0081a95"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac6504780b9b7f04ad85370b3b0081a95">&#9670;&nbsp;</a></span>create_mpmc_queue() <span class="overload">[1/2]</span></h2>
 
@@ -367,386 +756,6 @@ template&lt;typename ValueT &gt; </div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="Msg_8hpp_source.html#l00033">33</a> of file <a class="el" href="Msg_8hpp_source.html">Msg.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a772144b89c25aef241fd964d30606dcb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a772144b89c25aef241fd964d30606dcb">&#9670;&nbsp;</a></span>futex_notify() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int toolbox::ipc::futex_notify </td>
-          <td>(</td>
-          <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>uaddr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>n</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::error_code &amp;&#160;</td>
-          <td class="paramname"><em>ec</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>This operation wakes <code>n</code> waiters at most that are waiting (e.g., inside <code>FUTEX_WAIT</code>) on the futex word at the address <code>uaddr</code>. Returns the number of waiters that were woken up. </p>
-
-<p class="definition">Definition at line <a class="el" href="Futex_8hpp_source.html#l00043">43</a> of file <a class="el" href="Futex_8hpp_source.html">Futex.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a0d2751eb25fb6410e7821d8f035ea888"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d2751eb25fb6410e7821d8f035ea888">&#9670;&nbsp;</a></span>futex_notify() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int toolbox::ipc::futex_notify </td>
-          <td>(</td>
-          <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>uaddr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>n</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>This operation wakes <code>n</code> waiters at most that are waiting (e.g., inside <code>FUTEX_WAIT</code>) on the futex word at the address <code>uaddr</code>. Returns the number of waiters that were woken up. </p>
-
-<p class="definition">Definition at line <a class="el" href="Futex_8hpp_source.html#l00055">55</a> of file <a class="el" href="Futex_8hpp_source.html">Futex.hpp</a>.</p>
-
-</div>
-</div>
-<a id="accfb54d2eed16b90e3535e6bf6ec7082"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#accfb54d2eed16b90e3535e6bf6ec7082">&#9670;&nbsp;</a></span>futex_notify_all() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int toolbox::ipc::futex_notify_all </td>
-          <td>(</td>
-          <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>uaddr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::error_code &amp;&#160;</td>
-          <td class="paramname"><em>ec</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>This operation wakes all waiters that are waiting (e.g., inside <code>FUTEX_WAIT</code>) on the futex word at the address <code>uaddr</code>. Returns the number of waiters that were woken up. </p>
-
-<p class="definition">Definition at line <a class="el" href="Futex_8hpp_source.html#l00067">67</a> of file <a class="el" href="Futex_8hpp_source.html">Futex.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a04a9939d6e29ad054c56cece247946e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04a9939d6e29ad054c56cece247946e8">&#9670;&nbsp;</a></span>futex_notify_all() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int toolbox::ipc::futex_notify_all </td>
-          <td>(</td>
-          <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>uaddr</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>This operation wakes all waiters that are waiting (e.g., inside <code>FUTEX_WAIT</code>) on the futex word at the address <code>uaddr</code>. Returns the number of waiters that were woken up. </p>
-
-<p class="definition">Definition at line <a class="el" href="Futex_8hpp_source.html#l00075">75</a> of file <a class="el" href="Futex_8hpp_source.html">Futex.hpp</a>.</p>
-
-</div>
-</div>
-<a id="aa6daef00e9877696feac698f67a00019"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6daef00e9877696feac698f67a00019">&#9670;&nbsp;</a></span>futex_notify_one() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int toolbox::ipc::futex_notify_one </td>
-          <td>(</td>
-          <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>uaddr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::error_code &amp;&#160;</td>
-          <td class="paramname"><em>ec</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>This operation wakes at most a single waiter that is waiting (e.g., inside <code>FUTEX_WAIT</code>) on the futex word at the address <code>uaddr</code>. Returns the number of waiters that were woken up. </p>
-
-<p class="definition">Definition at line <a class="el" href="Futex_8hpp_source.html#l00083">83</a> of file <a class="el" href="Futex_8hpp_source.html">Futex.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a4e07259bdeb8eaee0a445c03d0871352"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e07259bdeb8eaee0a445c03d0871352">&#9670;&nbsp;</a></span>futex_notify_one() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int toolbox::ipc::futex_notify_one </td>
-          <td>(</td>
-          <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>uaddr</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>This operation wakes at most a single waiter that is waiting (e.g., inside <code>FUTEX_WAIT</code>) on the futex word at the address <code>uaddr</code>. Returns the number of waiters that were woken up. </p>
-
-<p class="definition">Definition at line <a class="el" href="Futex_8hpp_source.html#l00091">91</a> of file <a class="el" href="Futex_8hpp_source.html">Futex.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ac5bf60d138cf69c7013de27fffbe2692"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5bf60d138cf69c7013de27fffbe2692">&#9670;&nbsp;</a></span>futex_wait() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void toolbox::ipc::futex_wait </td>
-          <td>(</td>
-          <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>uaddr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>expected</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::error_code &amp;&#160;</td>
-          <td class="paramname"><em>ec</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>This operation tests that the value at the futex word pointed to by the address <code>uaddr</code> still contains the expected value <code>val</code>, and if so, then sleeps waiting for a <code>FUTEX_WAKE</code> operation on the futex word. If the futex value does not match <code>val</code>, then the call fails immediately with the error <code>EAGAIN</code>. </p>
-
-<p class="definition">Definition at line <a class="el" href="Futex_8hpp_source.html#l00100">100</a> of file <a class="el" href="Futex_8hpp_source.html">Futex.hpp</a>.</p>
-
-</div>
-</div>
-<a id="acb712e744461e77824f11e399913b5ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb712e744461e77824f11e399913b5ef">&#9670;&nbsp;</a></span>futex_wait() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool toolbox::ipc::futex_wait </td>
-          <td>(</td>
-          <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>uaddr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>expected</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>This operation tests that the value at the futex word pointed to by the address <code>uaddr</code> still contains the expected value <code>val</code>, and if so, then sleeps waiting for a <code>FUTEX_WAKE</code> operation on the futex word. If the futex value does not match <code>val</code>, then the function returns false. </p>
-
-<p class="definition">Definition at line <a class="el" href="Futex_8hpp_source.html#l00110">110</a> of file <a class="el" href="Futex_8hpp_source.html">Futex.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a0ac882fb8a1002bedc3f5046e312d21b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ac882fb8a1002bedc3f5046e312d21b">&#9670;&nbsp;</a></span>operator!=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool toolbox::ipc::operator!= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classtoolbox_1_1ipc_1_1MmapPointer.html">MmapPointer</a>&#160;</td>
-          <td class="paramname"><em>lhs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classtoolbox_1_1ipc_1_1MmapPointer.html">MmapPointer</a>&#160;</td>
-          <td class="paramname"><em>rhs</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Mmap_8hpp_source.html#l00056">56</a> of file <a class="el" href="Mmap_8hpp_source.html">Mmap.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a9ae24a17204d2d23f0bcd77e8b0b055b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ae24a17204d2d23f0bcd77e8b0b055b">&#9670;&nbsp;</a></span>operator==()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool toolbox::ipc::operator== </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classtoolbox_1_1ipc_1_1MmapPointer.html">MmapPointer</a>&#160;</td>
-          <td class="paramname"><em>lhs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classtoolbox_1_1ipc_1_1MmapPointer.html">MmapPointer</a>&#160;</td>
-          <td class="paramname"><em>rhs</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Mmap_8hpp_source.html#l00051">51</a> of file <a class="el" href="Mmap_8hpp_source.html">Mmap.hpp</a>.</p>
 
 </div>
 </div>

@@ -357,8 +357,8 @@ template&lt;typename ValueT &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a85da98f5759b21024cc86978bcbeac9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85da98f5759b21024cc86978bcbeac9d">&#9670;&nbsp;</a></span>available()</h2>
+<a id="aaa8f7e94c0db57d2e16a5921ce211489"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa8f7e94c0db57d2e16a5921ce211489">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -369,27 +369,24 @@ template&lt;typename ValueT &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::size_t <a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">toolbox::ipc::MpmcQueue</a>&lt; ValueT &gt;::available </td>
+          <td class="memname"><a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">MpmcQueue</a>&amp; <a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">toolbox::ipc::MpmcQueue</a>&lt; ValueT &gt;::operator= </td>
           <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">MpmcQueue</a>&lt; ValueT &gt; &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the number of available elements. </p>
-
-<p class="definition">Definition at line <a class="el" href="MpmcQueue_8hpp_source.html#l00131">131</a> of file <a class="el" href="MpmcQueue_8hpp_source.html">MpmcQueue.hpp</a>.</p>
-
 </div>
 </div>
-<a id="abc289205103947ad9f0d6dfdcee7da1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc289205103947ad9f0d6dfdcee7da1b">&#9670;&nbsp;</a></span>capacity()</h2>
+<a id="a72ef546ab054a1622dd067d59afad2a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72ef546ab054a1622dd067d59afad2a3">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -400,10 +397,11 @@ template&lt;typename ValueT &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::size_t <a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">toolbox::ipc::MpmcQueue</a>&lt; ValueT &gt;::capacity </td>
+          <td class="memname"><a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">MpmcQueue</a>&amp; <a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">toolbox::ipc::MpmcQueue</a>&lt; ValueT &gt;::operator= </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype"><a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">MpmcQueue</a>&lt; ValueT &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -412,9 +410,8 @@ template&lt;typename ValueT &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the maximum number of elements the queue can hold. I.e. the queue's capacity. </p>
 
-<p class="definition">Definition at line <a class="el" href="MpmcQueue_8hpp_source.html#l00134">134</a> of file <a class="el" href="MpmcQueue_8hpp_source.html">MpmcQueue.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="MpmcQueue_8hpp_source.html#l00113">113</a> of file <a class="el" href="MpmcQueue_8hpp_source.html">MpmcQueue.hpp</a>.</p>
 
 </div>
 </div>
@@ -480,6 +477,67 @@ template&lt;typename ValueT &gt; </div>
 
 </div>
 </div>
+<a id="a85da98f5759b21024cc86978bcbeac9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85da98f5759b21024cc86978bcbeac9d">&#9670;&nbsp;</a></span>available()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueT &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">toolbox::ipc::MpmcQueue</a>&lt; ValueT &gt;::available </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the number of available elements. </p>
+
+<p class="definition">Definition at line <a class="el" href="MpmcQueue_8hpp_source.html#l00131">131</a> of file <a class="el" href="MpmcQueue_8hpp_source.html">MpmcQueue.hpp</a>.</p>
+
+</div>
+</div>
+<a id="abc289205103947ad9f0d6dfdcee7da1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc289205103947ad9f0d6dfdcee7da1b">&#9670;&nbsp;</a></span>capacity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueT &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t <a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">toolbox::ipc::MpmcQueue</a>&lt; ValueT &gt;::capacity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the maximum number of elements the queue can hold. I.e. the queue's capacity. </p>
+
+<p class="definition">Definition at line <a class="el" href="MpmcQueue_8hpp_source.html#l00134">134</a> of file <a class="el" href="MpmcQueue_8hpp_source.html">MpmcQueue.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a7211ce1fb74fce197d07a601bae4c602"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7211ce1fb74fce197d07a601bae4c602">&#9670;&nbsp;</a></span>max_size()</h2>
 
@@ -510,8 +568,8 @@ template&lt;typename ValueT &gt; </div>
 
 </div>
 </div>
-<a id="aaa8f7e94c0db57d2e16a5921ce211489"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa8f7e94c0db57d2e16a5921ce211489">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="aa3676d87b264342236980b1572ad5905"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3676d87b264342236980b1572ad5905">&#9670;&nbsp;</a></span>size()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -522,24 +580,57 @@ template&lt;typename ValueT &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">MpmcQueue</a>&amp; <a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">toolbox::ipc::MpmcQueue</a>&lt; ValueT &gt;::operator= </td>
+          <td class="memname">std::size_t <a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">toolbox::ipc::MpmcQueue</a>&lt; ValueT &gt;::size </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">MpmcQueue</a>&lt; ValueT &gt; &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns true if the number of elements in the queue. </p>
+
+<p class="definition">Definition at line <a class="el" href="MpmcQueue_8hpp_source.html#l00139">139</a> of file <a class="el" href="MpmcQueue_8hpp_source.html">MpmcQueue.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a920d940391ac8b7b72e25d01e14b4e50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a920d940391ac8b7b72e25d01e14b4e50">&#9670;&nbsp;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueT &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">toolbox::ipc::MpmcQueue</a>&lt; ValueT &gt;::reset </td>
+          <td>(</td>
+          <td class="paramtype">std::nullptr_t&#160;</td>
+          <td class="paramname"> = <code>nullptr</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="MpmcQueue_8hpp_source.html#l00146">146</a> of file <a class="el" href="MpmcQueue_8hpp_source.html">MpmcQueue.hpp</a>.</p>
+
 </div>
 </div>
-<a id="a72ef546ab054a1622dd067d59afad2a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72ef546ab054a1622dd067d59afad2a3">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="a7791f186abac00f07b8b93e4278e9d75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7791f186abac00f07b8b93e4278e9d75">&#9670;&nbsp;</a></span>swap()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -550,9 +641,9 @@ template&lt;typename ValueT &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">MpmcQueue</a>&amp; <a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">toolbox::ipc::MpmcQueue</a>&lt; ValueT &gt;::operator= </td>
+          <td class="memname">void <a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">toolbox::ipc::MpmcQueue</a>&lt; ValueT &gt;::swap </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">MpmcQueue</a>&lt; ValueT &gt; &amp;&amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">MpmcQueue</a>&lt; ValueT &gt; &amp;&#160;</td>
           <td class="paramname"><em>rhs</em></td><td>)</td>
           <td></td>
         </tr>
@@ -564,7 +655,75 @@ template&lt;typename ValueT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="MpmcQueue_8hpp_source.html#l00113">113</a> of file <a class="el" href="MpmcQueue_8hpp_source.html">MpmcQueue.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="MpmcQueue_8hpp_source.html#l00155">155</a> of file <a class="el" href="MpmcQueue_8hpp_source.html">MpmcQueue.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ad12534d5283b24342705ee97eb768f3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad12534d5283b24342705ee97eb768f3d">&#9670;&nbsp;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueT &gt; </div>
+<div class="memtemplate">
+template&lt;typename FnT &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">toolbox::ipc::MpmcQueue</a>&lt; ValueT &gt;::read </td>
+          <td>(</td>
+          <td class="paramtype">FnT&#160;</td>
+          <td class="paramname"><em>fn</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns false if queue is empty. </p>
+
+<p class="definition">Definition at line <a class="el" href="MpmcQueue_8hpp_source.html#l00165">165</a> of file <a class="el" href="MpmcQueue_8hpp_source.html">MpmcQueue.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a811937fdeef04440ca1d43cebe8f2399"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a811937fdeef04440ca1d43cebe8f2399">&#9670;&nbsp;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ValueT &gt; </div>
+<div class="memtemplate">
+template&lt;typename FnT &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">toolbox::ipc::MpmcQueue</a>&lt; ValueT &gt;::write </td>
+          <td>(</td>
+          <td class="paramtype">FnT&#160;</td>
+          <td class="paramname"><em>fn</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns false if capacity is exceeded. </p>
+
+<p class="definition">Definition at line <a class="el" href="MpmcQueue_8hpp_source.html#l00193">193</a> of file <a class="el" href="MpmcQueue_8hpp_source.html">MpmcQueue.hpp</a>.</p>
 
 </div>
 </div>
@@ -661,165 +820,6 @@ template&lt;typename ValueT &gt; </div>
 <p>Returns false if capacity is exceeded. </p>
 
 <p class="definition">Definition at line <a class="el" href="MpmcQueue_8hpp_source.html#l00232">232</a> of file <a class="el" href="MpmcQueue_8hpp_source.html">MpmcQueue.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ad12534d5283b24342705ee97eb768f3d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad12534d5283b24342705ee97eb768f3d">&#9670;&nbsp;</a></span>read()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ValueT &gt; </div>
-<div class="memtemplate">
-template&lt;typename FnT &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">toolbox::ipc::MpmcQueue</a>&lt; ValueT &gt;::read </td>
-          <td>(</td>
-          <td class="paramtype">FnT&#160;</td>
-          <td class="paramname"><em>fn</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns false if queue is empty. </p>
-
-<p class="definition">Definition at line <a class="el" href="MpmcQueue_8hpp_source.html#l00165">165</a> of file <a class="el" href="MpmcQueue_8hpp_source.html">MpmcQueue.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a920d940391ac8b7b72e25d01e14b4e50"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a920d940391ac8b7b72e25d01e14b4e50">&#9670;&nbsp;</a></span>reset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ValueT &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">toolbox::ipc::MpmcQueue</a>&lt; ValueT &gt;::reset </td>
-          <td>(</td>
-          <td class="paramtype">std::nullptr_t&#160;</td>
-          <td class="paramname"> = <code>nullptr</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="MpmcQueue_8hpp_source.html#l00146">146</a> of file <a class="el" href="MpmcQueue_8hpp_source.html">MpmcQueue.hpp</a>.</p>
-
-</div>
-</div>
-<a id="aa3676d87b264342236980b1572ad5905"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3676d87b264342236980b1572ad5905">&#9670;&nbsp;</a></span>size()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ValueT &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::size_t <a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">toolbox::ipc::MpmcQueue</a>&lt; ValueT &gt;::size </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns true if the number of elements in the queue. </p>
-
-<p class="definition">Definition at line <a class="el" href="MpmcQueue_8hpp_source.html#l00139">139</a> of file <a class="el" href="MpmcQueue_8hpp_source.html">MpmcQueue.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a7791f186abac00f07b8b93e4278e9d75"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7791f186abac00f07b8b93e4278e9d75">&#9670;&nbsp;</a></span>swap()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ValueT &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">toolbox::ipc::MpmcQueue</a>&lt; ValueT &gt;::swap </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">MpmcQueue</a>&lt; ValueT &gt; &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="MpmcQueue_8hpp_source.html#l00155">155</a> of file <a class="el" href="MpmcQueue_8hpp_source.html">MpmcQueue.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a811937fdeef04440ca1d43cebe8f2399"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a811937fdeef04440ca1d43cebe8f2399">&#9670;&nbsp;</a></span>write()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ValueT &gt; </div>
-<div class="memtemplate">
-template&lt;typename FnT &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html">toolbox::ipc::MpmcQueue</a>&lt; ValueT &gt;::write </td>
-          <td>(</td>
-          <td class="paramtype">FnT&#160;</td>
-          <td class="paramname"><em>fn</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns false if capacity is exceeded. </p>
-
-<p class="definition">Definition at line <a class="el" href="MpmcQueue_8hpp_source.html#l00193">193</a> of file <a class="el" href="MpmcQueue_8hpp_source.html">MpmcQueue.hpp</a>.</p>
 
 </div>
 </div>

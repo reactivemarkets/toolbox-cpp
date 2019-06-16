@@ -173,6 +173,8 @@ template&lt;typename PolicyT&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="Handle_8hpp_source.html#l00035">35</a> of file <a class="el" href="Handle_8hpp_source.html">Handle.hpp</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="Handle_8hpp_source.html#l00040">toolbox::io::BasicHandle&lt; FilePolicy &gt;::~BasicHandle()</a>.</p>
+
 </div>
 </div>
 <a id="a9de7d50611be361528744ce9016223cf"></a>
@@ -293,64 +295,6 @@ template&lt;typename PolicyT&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a51f79dcac943978fd9850ee17e13def2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51f79dcac943978fd9850ee17e13def2">&#9670;&nbsp;</a></span>empty()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename PolicyT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool <a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">toolbox::io::BasicHandle</a>&lt; PolicyT &gt;::empty </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Handle_8hpp_source.html#l00064">64</a> of file <a class="el" href="Handle_8hpp_source.html">Handle.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a6cb446829643a07497975b6ff89f8f21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6cb446829643a07497975b6ff89f8f21">&#9670;&nbsp;</a></span>get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename PolicyT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html#a8d9e937bf769ebc61782fbd96b4e588c">Id</a> <a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">toolbox::io::BasicHandle</a>&lt; PolicyT &gt;::get </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Handle_8hpp_source.html#l00067">67</a> of file <a class="el" href="Handle_8hpp_source.html">Handle.hpp</a>.</p>
-
-</div>
-</div>
 <a id="a1ac80f397be34dbe0e1fac46c71203b1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1ac80f397be34dbe0e1fac46c71203b1">&#9670;&nbsp;</a></span>invalid()</h2>
 
@@ -377,6 +321,97 @@ template&lt;typename PolicyT&gt; </div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="Handle_8hpp_source.html#l00033">33</a> of file <a class="el" href="Handle_8hpp_source.html">Handle.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Handle_8hpp_source.html#l00052">toolbox::io::BasicHandle&lt; FilePolicy &gt;::BasicHandle()</a>, <a class="el" href="Handle_8hpp_source.html#l00064">toolbox::io::BasicHandle&lt; FilePolicy &gt;::empty()</a>, <a class="el" href="Handle_8hpp_source.html#l00065">toolbox::io::BasicHandle&lt; FilePolicy &gt;::operator bool()</a>, <a class="el" href="Handle_8hpp_source.html#l00070">toolbox::io::BasicHandle&lt; FilePolicy &gt;::release()</a>, <a class="el" href="Handle_8hpp_source.html#l00076">toolbox::io::BasicHandle&lt; FilePolicy &gt;::reset()</a>, <a class="el" href="Handle_8hpp_source.html#l00084">toolbox::io::BasicHandle&lt; FilePolicy &gt;::swap()</a>, and <a class="el" href="Handle_8hpp_source.html#l00040">toolbox::io::BasicHandle&lt; FilePolicy &gt;::~BasicHandle()</a>.</p>
+
+</div>
+</div>
+<a id="a7267cba7dabbe31c5a54397a736e9d34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7267cba7dabbe31c5a54397a736e9d34">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PolicyT&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">BasicHandle</a>&amp; <a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">toolbox::io::BasicHandle</a>&lt; PolicyT &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">BasicHandle</a>&lt; PolicyT &gt; &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="Handle_8hpp_source.html#l00040">toolbox::io::BasicHandle&lt; FilePolicy &gt;::~BasicHandle()</a>.</p>
+
+</div>
+</div>
+<a id="a73b29668170e5dbb812eca2e9e7c9fd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73b29668170e5dbb812eca2e9e7c9fd8">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PolicyT&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">BasicHandle</a>&amp; <a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">toolbox::io::BasicHandle</a>&lt; PolicyT &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">BasicHandle</a>&lt; PolicyT &gt; &amp;&amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Handle_8hpp_source.html#l00057">57</a> of file <a class="el" href="Handle_8hpp_source.html">Handle.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a51f79dcac943978fd9850ee17e13def2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51f79dcac943978fd9850ee17e13def2">&#9670;&nbsp;</a></span>empty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PolicyT&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool <a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">toolbox::io::BasicHandle</a>&lt; PolicyT &gt;::empty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Handle_8hpp_source.html#l00064">64</a> of file <a class="el" href="Handle_8hpp_source.html">Handle.hpp</a>.</p>
 
 </div>
 </div>
@@ -409,6 +444,37 @@ template&lt;typename PolicyT&gt; </div>
 
 </div>
 </div>
+<a id="a6cb446829643a07497975b6ff89f8f21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cb446829643a07497975b6ff89f8f21">&#9670;&nbsp;</a></span>get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PolicyT&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html#a8d9e937bf769ebc61782fbd96b4e588c">Id</a> <a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">toolbox::io::BasicHandle</a>&lt; PolicyT &gt;::get </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Handle_8hpp_source.html#l00067">67</a> of file <a class="el" href="Handle_8hpp_source.html">Handle.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Handle_8hpp_source.html#l00091">toolbox::io::operator==()</a>.</p>
+
+</div>
+</div>
 <a id="a4d149f880b18593e70f4681c5836b869"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4d149f880b18593e70f4681c5836b869">&#9670;&nbsp;</a></span>operator*()</h2>
 
@@ -435,64 +501,6 @@ template&lt;typename PolicyT&gt; </div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="Handle_8hpp_source.html#l00068">68</a> of file <a class="el" href="Handle_8hpp_source.html">Handle.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a7267cba7dabbe31c5a54397a736e9d34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7267cba7dabbe31c5a54397a736e9d34">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename PolicyT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">BasicHandle</a>&amp; <a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">toolbox::io::BasicHandle</a>&lt; PolicyT &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">BasicHandle</a>&lt; PolicyT &gt; &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a73b29668170e5dbb812eca2e9e7c9fd8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73b29668170e5dbb812eca2e9e7c9fd8">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename PolicyT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">BasicHandle</a>&amp; <a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">toolbox::io::BasicHandle</a>&lt; PolicyT &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">BasicHandle</a>&lt; PolicyT &gt; &amp;&amp;&#160;</td>
-          <td class="paramname"><em>rhs</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Handle_8hpp_source.html#l00057">57</a> of file <a class="el" href="Handle_8hpp_source.html">Handle.hpp</a>.</p>
 
 </div>
 </div>
@@ -553,6 +561,8 @@ template&lt;typename PolicyT&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="Handle_8hpp_source.html#l00076">76</a> of file <a class="el" href="Handle_8hpp_source.html">Handle.hpp</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="Handle_8hpp_source.html#l00057">toolbox::io::BasicHandle&lt; FilePolicy &gt;::operator=()</a>, and <a class="el" href="Handle_8hpp_source.html#l00076">toolbox::io::BasicHandle&lt; FilePolicy &gt;::reset()</a>.</p>
+
 </div>
 </div>
 <a id="aa62b14493f1cb227cd79e1c957984a2f"></a>
@@ -612,6 +622,8 @@ template&lt;typename PolicyT&gt; </div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="Handle_8hpp_source.html#l00084">84</a> of file <a class="el" href="Handle_8hpp_source.html">Handle.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Handle_8hpp_source.html#l00057">toolbox::io::BasicHandle&lt; FilePolicy &gt;::operator=()</a>.</p>
 
 </div>
 </div>

@@ -115,23 +115,21 @@ struct toolbox::util::FunctionTraits&lt; ReturnT(*)(ArgsT...)&gt;</h3>
 
 <p class="definition">Definition at line <a class="el" href="Traits_8hpp_source.html#l00032">32</a> of file <a class="el" href="Traits_8hpp_source.html">Traits.hpp</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="af4fa45412daa8e1b963d4b50ceae631c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4fa45412daa8e1b963d4b50ceae631c">&#9670;&nbsp;</a></span>ArgType</h2>
+<a id="a3218933adc497e3313dcbc8af4370f72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3218933adc497e3313dcbc8af4370f72">&#9670;&nbsp;</a></span>FunctionType</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename ReturnT , typename... ArgsT&gt; </div>
-<div class="memtemplate">
-template&lt;std::size_t i&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structtoolbox_1_1util_1_1FunctionTraits.html">toolbox::util::FunctionTraits</a>&lt; ReturnT(*)(ArgsT...)&gt;::<a class="el" href="structtoolbox_1_1util_1_1FunctionTraits_3_01ReturnT_07_5_08_07ArgsT_8_8_8_08_4.html#af4fa45412daa8e1b963d4b50ceae631c">ArgType</a> =  std::tuple_element_t&lt;i, std::tuple&lt;ArgsT...&gt; &gt;</td>
+          <td class="memname">using <a class="el" href="structtoolbox_1_1util_1_1FunctionTraits.html">toolbox::util::FunctionTraits</a>&lt; ReturnT(*)(ArgsT...)&gt;::<a class="el" href="structtoolbox_1_1util_1_1FunctionTraits_3_01ReturnT_07_5_08_07ArgsT_8_8_8_08_4.html#a3218933adc497e3313dcbc8af4370f72">FunctionType</a> =  ReturnT (*)(ArgsT...)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Traits_8hpp_source.html#l00041">41</a> of file <a class="el" href="Traits_8hpp_source.html">Traits.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Traits_8hpp_source.html#l00034">34</a> of file <a class="el" href="Traits_8hpp_source.html">Traits.hpp</a>.</p>
 
 </div>
 </div>
@@ -153,8 +151,8 @@ template&lt;typename ReturnT , typename... ArgsT&gt; </div>
 
 </div>
 </div>
-<a id="a3218933adc497e3313dcbc8af4370f72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3218933adc497e3313dcbc8af4370f72">&#9670;&nbsp;</a></span>FunctionType</h2>
+<a id="a7c38f7bbff28eb55b81ced89c2b40535"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c38f7bbff28eb55b81ced89c2b40535">&#9670;&nbsp;</a></span>ReturnType</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -162,12 +160,32 @@ template&lt;typename ReturnT , typename... ArgsT&gt; </div>
 template&lt;typename ReturnT , typename... ArgsT&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structtoolbox_1_1util_1_1FunctionTraits.html">toolbox::util::FunctionTraits</a>&lt; ReturnT(*)(ArgsT...)&gt;::<a class="el" href="structtoolbox_1_1util_1_1FunctionTraits_3_01ReturnT_07_5_08_07ArgsT_8_8_8_08_4.html#a3218933adc497e3313dcbc8af4370f72">FunctionType</a> =  ReturnT (*)(ArgsT...)</td>
+          <td class="memname">using <a class="el" href="structtoolbox_1_1util_1_1FunctionTraits.html">toolbox::util::FunctionTraits</a>&lt; ReturnT(*)(ArgsT...)&gt;::<a class="el" href="structtoolbox_1_1util_1_1FunctionTraits_3_01ReturnT_07_5_08_07ArgsT_8_8_8_08_4.html#a7c38f7bbff28eb55b81ced89c2b40535">ReturnType</a> =  ReturnT</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Traits_8hpp_source.html#l00034">34</a> of file <a class="el" href="Traits_8hpp_source.html">Traits.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Traits_8hpp_source.html#l00036">36</a> of file <a class="el" href="Traits_8hpp_source.html">Traits.hpp</a>.</p>
+
+</div>
+</div>
+<a id="af4fa45412daa8e1b963d4b50ceae631c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4fa45412daa8e1b963d4b50ceae631c">&#9670;&nbsp;</a></span>ArgType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ReturnT , typename... ArgsT&gt; </div>
+<div class="memtemplate">
+template&lt;std::size_t i&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="structtoolbox_1_1util_1_1FunctionTraits.html">toolbox::util::FunctionTraits</a>&lt; ReturnT(*)(ArgsT...)&gt;::<a class="el" href="structtoolbox_1_1util_1_1FunctionTraits_3_01ReturnT_07_5_08_07ArgsT_8_8_8_08_4.html#af4fa45412daa8e1b963d4b50ceae631c">ArgType</a> =  std::tuple_element_t&lt;i, std::tuple&lt;ArgsT...&gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Traits_8hpp_source.html#l00041">41</a> of file <a class="el" href="Traits_8hpp_source.html">Traits.hpp</a>.</p>
 
 </div>
 </div>
@@ -188,24 +206,6 @@ template&lt;template&lt; typename... &gt; typename TemplT&gt; </div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="Traits_8hpp_source.html#l00045">45</a> of file <a class="el" href="Traits_8hpp_source.html">Traits.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a7c38f7bbff28eb55b81ced89c2b40535"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c38f7bbff28eb55b81ced89c2b40535">&#9670;&nbsp;</a></span>ReturnType</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ReturnT , typename... ArgsT&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="structtoolbox_1_1util_1_1FunctionTraits.html">toolbox::util::FunctionTraits</a>&lt; ReturnT(*)(ArgsT...)&gt;::<a class="el" href="structtoolbox_1_1util_1_1FunctionTraits_3_01ReturnT_07_5_08_07ArgsT_8_8_8_08_4.html#a7c38f7bbff28eb55b81ced89c2b40535">ReturnType</a> =  ReturnT</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Traits_8hpp_source.html#l00036">36</a> of file <a class="el" href="Traits_8hpp_source.html">Traits.hpp</a>.</p>
 
 </div>
 </div>

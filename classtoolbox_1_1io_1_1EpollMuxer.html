@@ -167,6 +167,8 @@ Static Public Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00067">67</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="Muxer_8hpp_source.html#l00073">~EpollMuxer()</a>.</p>
+
 </div>
 </div>
 <a id="a1b6b998fca4411f075f0c5066931f9ae"></a>
@@ -249,34 +251,6 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab556cad9f758ad6b829fb25e792eed9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab556cad9f758ad6b829fb25e792eed9e">&#9670;&nbsp;</a></span>events()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static constexpr unsigned toolbox::io::EpollMuxer::events </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classtoolbox_1_1io_1_1EpollMuxer.html#a6e9159b8ec5229b52f53db257de26e78">Event</a> &amp;&#160;</td>
-          <td class="paramname"><em>ev</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00043">43</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
-
-</div>
-</div>
 <a id="af5666b946ed393d17be0ffb4a61ccdf3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af5666b946ed393d17be0ffb4a61ccdf3">&#9670;&nbsp;</a></span>fd()</h2>
 
@@ -303,151 +277,7 @@ Static Public Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00035">35</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
 
-</div>
-</div>
-<a id="a3891018879001bb727316cb9c8a71c20"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3891018879001bb727316cb9c8a71c20">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classtoolbox_1_1io_1_1EpollMuxer.html">EpollMuxer</a>&amp; toolbox::io::EpollMuxer::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classtoolbox_1_1io_1_1EpollMuxer.html">EpollMuxer</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a47448231162665f60b84f8ef2a378ba6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47448231162665f60b84f8ef2a378ba6">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classtoolbox_1_1io_1_1EpollMuxer.html">EpollMuxer</a>&amp; toolbox::io::EpollMuxer::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classtoolbox_1_1io_1_1EpollMuxer.html">EpollMuxer</a> &amp;&amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a88387602ec6226a9e7bdef150e9a8d38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88387602ec6226a9e7bdef150e9a8d38">&#9670;&nbsp;</a></span>set_events() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void toolbox::io::EpollMuxer::set_events </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>fd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>sid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>events</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::error_code &amp;&#160;</td>
-          <td class="paramname"><em>ec</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00120">120</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a0e4f5a450684df0c3f7580217ed537b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e4f5a450684df0c3f7580217ed537b4">&#9670;&nbsp;</a></span>set_events() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void toolbox::io::EpollMuxer::set_events </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>fd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>sid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>events</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00126">126</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Muxer_8hpp_source.html#l00120">set_events()</a>, and <a class="el" href="Muxer_8hpp_source.html#l00112">unsubscribe()</a>.</p>
 
 </div>
 </div>
@@ -477,10 +307,12 @@ Static Public Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00039">39</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="Muxer_8hpp_source.html#l00120">set_events()</a>.</p>
+
 </div>
 </div>
-<a id="a3df2561e94774c7fd2036abd77bf5168"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3df2561e94774c7fd2036abd77bf5168">&#9670;&nbsp;</a></span>subscribe()</h2>
+<a id="ab556cad9f758ad6b829fb25e792eed9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab556cad9f758ad6b829fb25e792eed9e">&#9670;&nbsp;</a></span>events()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -489,37 +321,77 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void toolbox::io::EpollMuxer::subscribe </td>
+          <td class="memname">static constexpr unsigned toolbox::io::EpollMuxer::events </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>fd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="classtoolbox_1_1io_1_1EpollMuxer.html#a6e9159b8ec5229b52f53db257de26e78">Event</a> &amp;&#160;</td>
+          <td class="paramname"><em>ev</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>sid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>events</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00106">106</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00043">43</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Muxer_8hpp_source.html#l00120">set_events()</a>.</p>
+
+</div>
+</div>
+<a id="a3891018879001bb727316cb9c8a71c20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3891018879001bb727316cb9c8a71c20">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtoolbox_1_1io_1_1EpollMuxer.html">EpollMuxer</a>&amp; toolbox::io::EpollMuxer::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtoolbox_1_1io_1_1EpollMuxer.html">EpollMuxer</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="Muxer_8hpp_source.html#l00073">~EpollMuxer()</a>.</p>
+
+</div>
+</div>
+<a id="a47448231162665f60b84f8ef2a378ba6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47448231162665f60b84f8ef2a378ba6">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtoolbox_1_1io_1_1EpollMuxer.html">EpollMuxer</a>&amp; toolbox::io::EpollMuxer::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtoolbox_1_1io_1_1EpollMuxer.html">EpollMuxer</a> &amp;&amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -548,34 +420,6 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00083">83</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a60c61fb94c9f237c38b5228f5adb392b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60c61fb94c9f237c38b5228f5adb392b">&#9670;&nbsp;</a></span>unsubscribe()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void toolbox::io::EpollMuxer::unsubscribe </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>fd</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00112">112</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
 
 </div>
 </div>
@@ -673,6 +517,178 @@ Static Public Member Functions</h2></td></tr>
 <p>Returns the number of file descriptors that are ready, or zero if no file descriptor became ready during before the operation timed-out. </p>
 
 <p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00096">96</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a3df2561e94774c7fd2036abd77bf5168"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3df2561e94774c7fd2036abd77bf5168">&#9670;&nbsp;</a></span>subscribe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toolbox::io::EpollMuxer::subscribe </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>events</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00106">106</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="EpollReactor_8cpp_source.html#l00051">toolbox::io::EpollReactor::do_subscribe()</a>, <a class="el" href="Muxer_8hpp_source.html#l00067">EpollMuxer()</a>, and <a class="el" href="EpollReactor_8cpp_source.html#l00031">toolbox::io::EpollReactor::EpollReactor()</a>.</p>
+
+</div>
+</div>
+<a id="a60c61fb94c9f237c38b5228f5adb392b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60c61fb94c9f237c38b5228f5adb392b">&#9670;&nbsp;</a></span>unsubscribe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toolbox::io::EpollMuxer::unsubscribe </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00112">112</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="EpollReactor_8cpp_source.html#l00065">toolbox::io::EpollReactor::do_unsubscribe()</a>, <a class="el" href="Muxer_8hpp_source.html#l00073">~EpollMuxer()</a>, and <a class="el" href="EpollReactor_8cpp_source.html#l00039">toolbox::io::EpollReactor::~EpollReactor()</a>.</p>
+
+</div>
+</div>
+<a id="a88387602ec6226a9e7bdef150e9a8d38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88387602ec6226a9e7bdef150e9a8d38">&#9670;&nbsp;</a></span>set_events() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toolbox::io::EpollMuxer::set_events </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>events</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::error_code &amp;&#160;</td>
+          <td class="paramname"><em>ec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00120">120</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="EpollReactor_8cpp_source.html#l00075">toolbox::io::EpollReactor::do_set_events()</a>, <a class="el" href="Muxer_8hpp_source.html#l00126">set_events()</a>, and <a class="el" href="Muxer_8hpp_source.html#l00106">subscribe()</a>.</p>
+
+</div>
+</div>
+<a id="a0e4f5a450684df0c3f7580217ed537b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e4f5a450684df0c3f7580217ed537b4">&#9670;&nbsp;</a></span>set_events() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toolbox::io::EpollMuxer::set_events </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>events</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00126">126</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
 
 </div>
 </div>

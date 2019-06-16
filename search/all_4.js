@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['echoclnt_2ecpp',['EchoClnt.cpp',['../EchoClnt_8cpp.html',1,'']]],
+  ['echoserv_2ecpp',['EchoServ.cpp',['../EchoServ_8cpp.html',1,'']]],
   ['elem',['Elem',['../structtoolbox_1_1ipc_1_1MpmcQueue_1_1Elem.html',1,'toolbox::ipc::MpmcQueue']]],
   ['elems',['elems',['../structtoolbox_1_1ipc_1_1MpmcQueue_1_1Impl.html#a9d7a59da3d4dad3c17c95c1cba208457',1,'toolbox::ipc::MpmcQueue::Impl']]],
   ['emplace_5fevent',['emplace_event',['../namespacetoolbox_1_1io.html#ac2fe3d7a039c174e8c7d21995ae7d557',1,'toolbox::io::emplace_event(MsgEvent &amp;ev, int type) noexcept'],['../namespacetoolbox_1_1io.html#a8c5f09411a7a0a1be83d0c63f6ddcd22',1,'toolbox::io::emplace_event(MsgEvent &amp;ev, int type, ArgsT &amp;&amp;... args) noexcept']]],

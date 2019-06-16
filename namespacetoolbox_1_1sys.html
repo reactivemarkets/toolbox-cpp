@@ -348,22 +348,6 @@ Functions</h2></td></tr>
 <tr class="separator:a252ccb6e0963719a55feb7f7040d8e3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
-<a id="aedb936b32edd1672f938990ce346f0e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aedb936b32edd1672f938990ce346f0e2">&#9670;&nbsp;</a></span>Duration</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespacetoolbox_1_1sys.html#aedb936b32edd1672f938990ce346f0e2">toolbox::sys::Duration</a> = typedef <a class="el" href="namespacetoolbox_1_1sys.html#a982f28e6caaaa07ee95deca8f662b6ef">Nanos</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00042">42</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
-
-</div>
-</div>
 <a id="a1566d16291b4b2ce84563d4daff190d1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1566d16291b4b2ce84563d4daff190d1">&#9670;&nbsp;</a></span>IsoDate</h2>
 
@@ -436,19 +420,35 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a51dccfb35d834e78588ead6c8d4cfc62"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51dccfb35d834e78588ead6c8d4cfc62">&#9670;&nbsp;</a></span>Micros</h2>
+<a id="a90f0f82eec67b724f5e9f170e11192b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90f0f82eec67b724f5e9f170e11192b2">&#9670;&nbsp;</a></span>PidFile</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespacetoolbox_1_1sys.html#a51dccfb35d834e78588ead6c8d4cfc62">toolbox::sys::Micros</a> = typedef std::chrono::microseconds</td>
+          <td class="memname">using <a class="el" href="namespacetoolbox_1_1sys.html#a90f0f82eec67b724f5e9f170e11192b2">toolbox::sys::PidFile</a> = typedef std::unique_ptr&lt;pidfh, <a class="el" href="structtoolbox_1_1sys_1_1detail_1_1PidFileDeleter.html">detail::PidFileDeleter</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00038">38</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PidFile_8hpp_source.html#l00034">34</a> of file <a class="el" href="PidFile_8hpp_source.html">PidFile.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a926e572d5ea62970f67ab8c44cc5dcf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a926e572d5ea62970f67ab8c44cc5dcf4">&#9670;&nbsp;</a></span>Seconds</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacetoolbox_1_1sys.html#a926e572d5ea62970f67ab8c44cc5dcf4">toolbox::sys::Seconds</a> = typedef std::chrono::seconds</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00036">36</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
 
 </div>
 </div>
@@ -468,19 +468,19 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a8370f3f6bd9eb78dd325ae3f4e582247"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8370f3f6bd9eb78dd325ae3f4e582247">&#9670;&nbsp;</a></span>MonoTime</h2>
+<a id="a51dccfb35d834e78588ead6c8d4cfc62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51dccfb35d834e78588ead6c8d4cfc62">&#9670;&nbsp;</a></span>Micros</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespacetoolbox_1_1sys.html#a8370f3f6bd9eb78dd325ae3f4e582247">toolbox::sys::MonoTime</a> = typedef <a class="el" href="structtoolbox_1_1sys_1_1MonoClock.html#a26208ee27116c4794b296636e68fbc03">MonoClock::time_point</a></td>
+          <td class="memname">using <a class="el" href="namespacetoolbox_1_1sys.html#a51dccfb35d834e78588ead6c8d4cfc62">toolbox::sys::Micros</a> = typedef std::chrono::microseconds</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00099">99</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00038">38</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
 
 </div>
 </div>
@@ -516,35 +516,35 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a90f0f82eec67b724f5e9f170e11192b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90f0f82eec67b724f5e9f170e11192b2">&#9670;&nbsp;</a></span>PidFile</h2>
+<a id="aedb936b32edd1672f938990ce346f0e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedb936b32edd1672f938990ce346f0e2">&#9670;&nbsp;</a></span>Duration</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespacetoolbox_1_1sys.html#a90f0f82eec67b724f5e9f170e11192b2">toolbox::sys::PidFile</a> = typedef std::unique_ptr&lt;pidfh, <a class="el" href="structtoolbox_1_1sys_1_1detail_1_1PidFileDeleter.html">detail::PidFileDeleter</a>&gt;</td>
+          <td class="memname">using <a class="el" href="namespacetoolbox_1_1sys.html#aedb936b32edd1672f938990ce346f0e2">toolbox::sys::Duration</a> = typedef <a class="el" href="namespacetoolbox_1_1sys.html#a982f28e6caaaa07ee95deca8f662b6ef">Nanos</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PidFile_8hpp_source.html#l00034">34</a> of file <a class="el" href="PidFile_8hpp_source.html">PidFile.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00042">42</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a926e572d5ea62970f67ab8c44cc5dcf4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a926e572d5ea62970f67ab8c44cc5dcf4">&#9670;&nbsp;</a></span>Seconds</h2>
+<a id="a8370f3f6bd9eb78dd325ae3f4e582247"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8370f3f6bd9eb78dd325ae3f4e582247">&#9670;&nbsp;</a></span>MonoTime</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespacetoolbox_1_1sys.html#a926e572d5ea62970f67ab8c44cc5dcf4">toolbox::sys::Seconds</a> = typedef std::chrono::seconds</td>
+          <td class="memname">using <a class="el" href="namespacetoolbox_1_1sys.html#a8370f3f6bd9eb78dd325ae3f4e582247">toolbox::sys::MonoTime</a> = typedef <a class="el" href="structtoolbox_1_1sys_1_1MonoClock.html#a26208ee27116c4794b296636e68fbc03">MonoClock::time_point</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00036">36</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00099">99</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
 
 </div>
 </div>
@@ -594,6 +594,648 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a1232d62d0757da2ec5b0546be63b9a5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1232d62d0757da2ec5b0546be63b9a5b">&#9670;&nbsp;</a></span>close_all()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TOOLBOX_API void toolbox::sys::close_all </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Close all non-standard file handles. </p>
+
+<p class="definition">Definition at line <a class="el" href="Daemon_8cpp_source.html#l00027">27</a> of file <a class="el" href="Daemon_8cpp_source.html">Daemon.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a0234b56be003cdf0056711964c4d2da1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0234b56be003cdf0056711964c4d2da1">&#9670;&nbsp;</a></span>daemon()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TOOLBOX_API void toolbox::sys::daemon </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Daemonise process. Detach from controlling terminal and run in the background as a system daemon. </p>
+
+<p class="definition">Definition at line <a class="el" href="Daemon_8cpp_source.html#l00036">36</a> of file <a class="el" href="Daemon_8cpp_source.html">Daemon.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a0d9206d0e91aae285e84b11bdce119eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d9206d0e91aae285e84b11bdce119eb">&#9670;&nbsp;</a></span>operator""_ymd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto toolbox::sys::operator&quot;&quot;_ymd </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long long&#160;</td>
+          <td class="paramname"><em>val</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00036">36</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a0072bfdf4815af1d28381b5551e8c987"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0072bfdf4815af1d28381b5551e8c987">&#9670;&nbsp;</a></span>operator""_jd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto toolbox::sys::operator&quot;&quot;_jd </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long long&#160;</td>
+          <td class="paramname"><em>val</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00044">44</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a7792b0bac11e8314a447a5c34d124f07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7792b0bac11e8314a447a5c34d124f07">&#9670;&nbsp;</a></span>ymd_to_iso()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto toolbox::sys::ymd_to_iso </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>year</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mon</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mday</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gregorian to ISO8601 date. </p>
+
+<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00050">50</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Date_8ut_8cpp_source.html#l00034">BOOST_AUTO_TEST_CASE()</a>.</p>
+
+</div>
+</div>
+<a id="ada01b6a6f3b7efdb12fdf5aedc61b5c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada01b6a6f3b7efdb12fdf5aedc61b5c4">&#9670;&nbsp;</a></span>ymd_to_jd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto toolbox::sys::ymd_to_jd </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>year</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mon</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mday</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gregorian date to Julian day. </p>
+
+<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00058">58</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Date_8ut_8cpp_source.html#l00039">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="Date_8hpp_source.html#l00073">iso_to_jd()</a>.</p>
+
+</div>
+</div>
+<a id="aa5231d47d1f3d3fe0850bf59fc011e39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5231d47d1f3d3fe0850bf59fc011e39">&#9670;&nbsp;</a></span>iso_to_jd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto toolbox::sys::iso_to_jd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#a1566d16291b4b2ce84563d4daff190d1">IsoDate</a>&#160;</td>
+          <td class="paramname"><em>iso</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ISO8601 to Julian day. </p>
+
+<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00073">73</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Date_8hpp_source.html#l00144">maybe_iso_to_jd()</a>, and <a class="el" href="Date_8hpp_source.html#l00185">parse_time()</a>.</p>
+
+</div>
+</div>
+<a id="a6a706316532fbc5b1c1d8fb5acce5063"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a706316532fbc5b1c1d8fb5acce5063">&#9670;&nbsp;</a></span>jd_to_iso()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto toolbox::sys::jd_to_iso </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#ad3e11d6c6094b92f8417b03cbb66cd3a">JDay</a>&#160;</td>
+          <td class="paramname"><em>jd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Julian day to ISO8601. </p>
+
+<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00083">83</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Date_8ut_8cpp_source.html#l00047">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="Date_8hpp_source.html#l00138">maybe_jd_to_iso()</a>.</p>
+
+</div>
+</div>
+<a id="a58c8c13defcb1619c479a4c1fb4907f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58c8c13defcb1619c479a4c1fb4907f8">&#9670;&nbsp;</a></span>jd_to_mjd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr std::int32_t toolbox::sys::jd_to_mjd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#ad3e11d6c6094b92f8417b03cbb66cd3a">JDay</a>&#160;</td>
+          <td class="paramname"><em>jd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Juilian day to Modified Julian day. Epoch is November 17, 1858. </p>
+
+<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00104">104</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a9364e295172a41c9272eebafef715f05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9364e295172a41c9272eebafef715f05">&#9670;&nbsp;</a></span>mjd_to_jd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto toolbox::sys::mjd_to_jd </td>
+          <td>(</td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>mjd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Modified Julian day to Julian day. Epoch is November 17, 1858. </p>
+
+<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00110">110</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a0ea41ff613695e6e373218cb6abf5d9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ea41ff613695e6e373218cb6abf5d9d">&#9670;&nbsp;</a></span>jd_to_tjd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr std::int32_t toolbox::sys::jd_to_tjd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#ad3e11d6c6094b92f8417b03cbb66cd3a">JDay</a>&#160;</td>
+          <td class="paramname"><em>jd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Julian day to Truncated Julian day. Epoch is May 24, 1968. </p>
+
+<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00116">116</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a4b86571b4342605621e531a64529c919"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b86571b4342605621e531a64529c919">&#9670;&nbsp;</a></span>tjd_to_jd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespacetoolbox_1_1sys.html#ad3e11d6c6094b92f8417b03cbb66cd3a">JDay</a> toolbox::sys::tjd_to_jd </td>
+          <td>(</td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>tjd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Truncated Julian day to Julian day. Epoch is May 24, 1968. </p>
+
+<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00122">122</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a19dad291354209e0f6a9b56485f64c37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19dad291354209e0f6a9b56485f64c37">&#9670;&nbsp;</a></span>jd_to_time()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespacetoolbox_1_1sys.html#a657ecd4f98265bd34f835f59975db04e">WallTime</a> toolbox::sys::jd_to_time </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#ad3e11d6c6094b92f8417b03cbb66cd3a">JDay</a>&#160;</td>
+          <td class="paramname"><em>jd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Julian day to Unix time. </p>
+
+<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00128">128</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Date_8ut_8cpp_source.html#l00052">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="Date_8hpp_source.html#l00185">parse_time()</a>.</p>
+
+</div>
+</div>
+<a id="a4f4071532521dce60a0f2f5b1cf9855e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f4071532521dce60a0f2f5b1cf9855e">&#9670;&nbsp;</a></span>maybe_jd_to_iso()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespacetoolbox_1_1sys.html#a1566d16291b4b2ce84563d4daff190d1">IsoDate</a> toolbox::sys::maybe_jd_to_iso </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#ad3e11d6c6094b92f8417b03cbb66cd3a">JDay</a>&#160;</td>
+          <td class="paramname"><em>jd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Julian day to ISO8601 if argument is non-zero. </p>
+
+<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00138">138</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ab69c55bcbc756a9c5cc9bc0e9f3dc5e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab69c55bcbc756a9c5cc9bc0e9f3dc5e5">&#9670;&nbsp;</a></span>maybe_iso_to_jd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespacetoolbox_1_1sys.html#ad3e11d6c6094b92f8417b03cbb66cd3a">JDay</a> toolbox::sys::maybe_iso_to_jd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#a1566d16291b4b2ce84563d4daff190d1">IsoDate</a>&#160;</td>
+          <td class="paramname"><em>iso</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ISO8601 to Julian day if argument is non-zero. </p>
+
+<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00144">144</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
+
+</div>
+</div>
+<a id="afce705382046df9cdda1b692ac393897"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afce705382046df9cdda1b692ac393897">&#9670;&nbsp;</a></span>is_week_day()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool toolbox::sys::is_week_day </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#ad3e11d6c6094b92f8417b03cbb66cd3a">JDay</a>&#160;</td>
+          <td class="paramname"><em>jday</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00149">149</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Date_8hpp_source.html#l00154">is_weekend_day()</a>.</p>
+
+</div>
+</div>
+<a id="a057dab6f57581e23589b82756a7a0e4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a057dab6f57581e23589b82756a7a0e4b">&#9670;&nbsp;</a></span>is_weekend_day()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool toolbox::sys::is_weekend_day </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#ad3e11d6c6094b92f8417b03cbb66cd3a">JDay</a>&#160;</td>
+          <td class="paramname"><em>jday</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00154">154</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aefb8eb5fd484ba7cfec0d30409682021"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefb8eb5fd484ba7cfec0d30409682021">&#9670;&nbsp;</a></span>parse_date()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto toolbox::sys::parse_date </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>sv</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Date represented in UTC (Universal Time Coordinated, also known as "GMT") in YYYYMMDD format. This special-purpose field is paired with UTCTimeOnly to form a proper UTCTimestamp for bandwidth-sensitive messages.</p>
+<p>Valid values:</p><ul>
+<li>YYYY = 0000-9999;</li>
+<li>MM = 01-12;</li>
+<li>DD = 01-31. </li>
+</ul>
+
+<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00167">167</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Date_8ut_8cpp_source.html#l00057">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="Date_8hpp_source.html#l00185">parse_time()</a>.</p>
+
+</div>
+</div>
+<a id="afdc94d276405a9ed1a5bbf9f1c7b401a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdc94d276405a9ed1a5bbf9f1c7b401a">&#9670;&nbsp;</a></span>parse_time()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr std::optional&lt;<a class="el" href="namespacetoolbox_1_1sys.html#a657ecd4f98265bd34f835f59975db04e">WallTime</a>&gt; toolbox::sys::parse_time </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>sv</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Time/date combination represented in UTC (Universal Time Coordinated, also known as "GMT") in either YYYYMMDD-HH:MM:SS (whole seconds) or YYYYMMDD-HH:MM:SS.sss (milliseconds) format, colons, dash, and period required.</p>
+<p>Valid values:</p><ul>
+<li>YYYY = 0000-9999;</li>
+<li>MM = 01-12;</li>
+<li>DD = 01-31;</li>
+<li>HH = 00-23;</li>
+<li>MM = 00-59;</li>
+<li>SS = 00-60 (60 only if UTC leap second);</li>
+<li>sss = 000-999 (indicating milliseconds). </li>
+</ul>
+
+<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00185">185</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Date_8ut_8cpp_source.html#l00062">BOOST_AUTO_TEST_CASE()</a>.</p>
+
+</div>
+</div>
+<a id="aab82f87b2fc080cf9294be6b964e696c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab82f87b2fc080cf9294be6b964e696c">&#9670;&nbsp;</a></span>make_sys_error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::error_code toolbox::sys::make_sys_error </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>err</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sys_2Error_8hpp_source.html#l00025">25</a> of file <a class="el" href="sys_2Error_8hpp_source.html">Error.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00198">toolbox::os::accept()</a>, <a class="el" href="Socket_8hpp_source.html#l00265">toolbox::os::bind()</a>, <a class="el" href="System_8hpp_source.html#l00028">toolbox::os::chdir()</a>, <a class="el" href="Socket_8hpp_source.html#l00295">toolbox::os::connect()</a>, <a class="el" href="Daemon_8cpp_source.html#l00036">daemon()</a>, <a class="el" href="Epoll_8hpp_source.html#l00029">toolbox::os::epoll_create()</a>, <a class="el" href="Epoll_8hpp_source.html#l00049">toolbox::os::epoll_ctl()</a>, <a class="el" href="Epoll_8hpp_source.html#l00068">toolbox::os::epoll_wait()</a>, <a class="el" href="EventFd_8hpp_source.html#l00028">toolbox::os::eventfd()</a>, <a class="el" href="File_8hpp_source.html#l00193">toolbox::os::fcntl()</a>, <a class="el" href="System_8hpp_source.html#l00046">toolbox::os::fork()</a>, <a class="el" href="File_8hpp_source.html#l00093">toolbox::os::fstat()</a>, <a class="el" href="Shm_8hpp_source.html#l00047">toolbox::os::ftok()</a>, <a class="el" href="File_8hpp_source.html#l00111">toolbox::os::ftruncate()</a>, <a class="el" href="Futex_8hpp_source.html#l00044">toolbox::ipc::futex_notify()</a>, <a class="el" href="Futex_8hpp_source.html#l00106">toolbox::ipc::futex_wait()</a>, <a class="el" href="Socket_8hpp_source.html#l00634">toolbox::net::get_so_error()</a>, <a class="el" href="Socket_8hpp_source.html#l00542">toolbox::os::getsockname()</a>, <a class="el" href="Socket_8hpp_source.html#l00583">toolbox::os::getsockopt()</a>, <a class="el" href="Socket_8hpp_source.html#l00104">toolbox::os::if_nametoindex()</a>, <a class="el" href="Socket_8hpp_source.html#l00326">toolbox::os::listen()</a>, <a class="el" href="Mmap_8hpp_source.html#l00077">toolbox::os::mmap()</a>, <a class="el" href="File_8hpp_source.html#l00033">toolbox::os::open()</a>, <a class="el" href="PidFile_8cpp_source.html#l00037">open_pid_file()</a>, <a class="el" href="Signal_8cpp_source.html#l00045">toolbox::sys::SigWait::operator()()</a>, <a class="el" href="File_8hpp_source.html#l00073">toolbox::os::pipe2()</a>, <a class="el" href="File_8hpp_source.html#l00129">toolbox::os::read()</a>, <a class="el" href="Socket_8hpp_source.html#l00358">toolbox::os::recv()</a>, <a class="el" href="Socket_8hpp_source.html#l00390">toolbox::os::recvfrom()</a>, <a class="el" href="Socket_8hpp_source.html#l00454">toolbox::os::send()</a>, <a class="el" href="Socket_8hpp_source.html#l00487">toolbox::os::sendto()</a>, <a class="el" href="System_8hpp_source.html#l00066">toolbox::os::setsid()</a>, <a class="el" href="Socket_8hpp_source.html#l00600">toolbox::os::setsockopt()</a>, <a class="el" href="Shm_8hpp_source.html#l00090">toolbox::os::shmat()</a>, <a class="el" href="Shm_8hpp_source.html#l00068">toolbox::os::shmget()</a>, <a class="el" href="Socket_8hpp_source.html#l00342">toolbox::os::shutdown()</a>, <a class="el" href="Signal_8cpp_source.html#l00072">sig_block_all()</a>, <a class="el" href="Signal_8cpp_source.html#l00026">toolbox::sys::SigWait::SigWait()</a>, <a class="el" href="Socket_8hpp_source.html#l00128">toolbox::os::socket()</a>, <a class="el" href="Socket_8hpp_source.html#l00162">toolbox::os::socketpair()</a>, <a class="el" href="TimerFd_8hpp_source.html#l00029">toolbox::os::timerfd_create()</a>, <a class="el" href="TimerFd_8hpp_source.html#l00049">toolbox::os::timerfd_settime()</a>, <a class="el" href="File_8hpp_source.html#l00161">toolbox::os::write()</a>, and <a class="el" href="PidFile_8cpp_source.html#l00057">write_pid_file()</a>.</p>
+
+</div>
+</div>
 <a id="a4432f9ae43f8c4c4c737325a8adab6a7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4432f9ae43f8c4c4c737325a8adab6a7">&#9670;&nbsp;</a></span>ceil_cache_line()</h2>
 
@@ -650,8 +1292,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aef1844501afd0408ab83ba0ab3596c10"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef1844501afd0408ab83ba0ab3596c10">&#9670;&nbsp;</a></span>clear() <span class="overload">[1/2]</span></h2>
+<a id="a8e94adb25bb4343e70f491798575ec9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e94adb25bb4343e70f491798575ec9e">&#9670;&nbsp;</a></span>log_label()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -660,65 +1302,10 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void toolbox::sys::clear </td>
+          <td class="memname">TOOLBOX_API const char * toolbox::sys::log_label </td>
           <td>(</td>
-          <td class="paramtype">timeval &amp;&#160;</td>
-          <td class="paramname"><em>tv</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00283">283</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a4e1340f01546dfe8bbb32eccc9d574d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e1340f01546dfe8bbb32eccc9d574d1">&#9670;&nbsp;</a></span>clear() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void toolbox::sys::clear </td>
-          <td>(</td>
-          <td class="paramtype">timespec &amp;&#160;</td>
-          <td class="paramname"><em>ts</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00317">317</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a1232d62d0757da2ec5b0546be63b9a5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1232d62d0757da2ec5b0546be63b9a5b">&#9670;&nbsp;</a></span>close_all()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">TOOLBOX_API void toolbox::sys::close_all </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>level</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -729,60 +1316,11 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Close all non-standard file handles. </p>
+<p>Return log label for given log level. </p>
 
-<p class="definition">Definition at line <a class="el" href="Daemon_8cpp_source.html#l00027">27</a> of file <a class="el" href="Daemon_8cpp_source.html">Daemon.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Log_8cpp_source.html#l00073">73</a> of file <a class="el" href="Log_8cpp_source.html">Log.cpp</a>.</p>
 
-</div>
-</div>
-<a id="a4737b7e561d9e3d75a5ba7b4b209b255"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4737b7e561d9e3d75a5ba7b4b209b255">&#9670;&nbsp;</a></span>close_pid_file()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">TOOLBOX_API void toolbox::sys::close_pid_file </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#a90f0f82eec67b724f5e9f170e11192b2">PidFile</a> &amp;&#160;</td>
-          <td class="paramname"><em>pf</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Close pidfile without removing it. This function should be used when forking daemon processes. </p>
-
-<p class="definition">Definition at line <a class="el" href="PidFile_8cpp_source.html#l00050">50</a> of file <a class="el" href="PidFile_8cpp_source.html">PidFile.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a0234b56be003cdf0056711964c4d2da1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0234b56be003cdf0056711964c4d2da1">&#9670;&nbsp;</a></span>daemon()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TOOLBOX_API void toolbox::sys::daemon </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Daemonise process. Detach from controlling terminal and run in the background as a system daemon. </p>
-
-<p class="definition">Definition at line <a class="el" href="Daemon_8cpp_source.html#l00036">36</a> of file <a class="el" href="Daemon_8cpp_source.html">Daemon.cpp</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Log_8ut_8cpp_source.html#l00054">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="Log_8cpp_source.html#l00105">std_logger()</a>.</p>
 
 </div>
 </div>
@@ -813,6 +1351,40 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="Log_8cpp_source.html#l00078">78</a> of file <a class="el" href="Log_8cpp_source.html">Log.cpp</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="Log_8hpp_source.html#l00036">is_log_level()</a>.</p>
+
+</div>
+</div>
+<a id="a49490fbd55c046ddc6f1089b73342b1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49490fbd55c046ddc6f1089b73342b1b">&#9670;&nbsp;</a></span>set_log_level()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TOOLBOX_API int toolbox::sys::set_log_level </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>level</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set log level globally for all threads. </p>
+
+<p class="definition">Definition at line <a class="el" href="Log_8cpp_source.html#l00083">83</a> of file <a class="el" href="Log_8cpp_source.html">Log.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Log_8ut_8cpp_source.html#l00066">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="Log_8hpp_source.html#l00036">is_log_level()</a>.</p>
+
 </div>
 </div>
 <a id="a18359c12fee88c95a2a2b8609f4e6ae3"></a>
@@ -842,10 +1414,12 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="Log_8cpp_source.html#l00088">88</a> of file <a class="el" href="Log_8cpp_source.html">Log.cpp</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="Log_8hpp_source.html#l00036">is_log_level()</a>.</p>
+
 </div>
 </div>
-<a id="a74e19434b48df09aa2891d1c00ace007"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74e19434b48df09aa2891d1c00ace007">&#9670;&nbsp;</a></span>get_time()</h2>
+<a id="ae3adf60f3d35c708f3598c4991fec377"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3adf60f3d35c708f3598c4991fec377">&#9670;&nbsp;</a></span>set_logger()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -854,10 +1428,10 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">TOOLBOX_API <a class="el" href="namespacetoolbox_1_1sys.html#acfccec6381072b1852453855e64a7e7c">NanoTime</a> toolbox::sys::get_time </td>
+          <td class="memname">TOOLBOX_API <a class="el" href="namespacetoolbox_1_1sys.html#ad30773ec4571816fa4459ed92884acdc">Logger</a> toolbox::sys::set_logger </td>
           <td>(</td>
-          <td class="paramtype">clockid_t&#160;</td>
-          <td class="paramname"><em>clock_id</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#ad30773ec4571816fa4459ed92884acdc">Logger</a>&#160;</td>
+          <td class="paramname"><em>logger</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -868,7 +1442,201 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Time_8cpp_source.html#l00025">25</a> of file <a class="el" href="Time_8cpp_source.html">Time.cpp</a>.</p>
+<p>Set logger globally for all threads. </p>
+
+<p class="definition">Definition at line <a class="el" href="Log_8cpp_source.html#l00093">93</a> of file <a class="el" href="Log_8cpp_source.html">Log.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Log_8ut_8cpp_source.html#l00066">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="Log_8hpp_source.html#l00036">is_log_level()</a>.</p>
+
+</div>
+</div>
+<a id="a64ce166c2b8566b32bfdc0b0e107b454"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64ce166c2b8566b32bfdc0b0e107b454">&#9670;&nbsp;</a></span>write_log() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toolbox::sys::write_log </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string_view&#160;</td>
+          <td class="paramname"><em>msg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Log_8cpp_source.html#l00098">98</a> of file <a class="el" href="Log_8cpp_source.html">Log.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Log_8hpp_source.html#l00036">is_log_level()</a>, and <a class="el" href="Log_8hpp_source.html#l00109">toolbox::sys::Log::~Log()</a>.</p>
+
+</div>
+</div>
+<a id="ad80f55159581ca66bf0c8da2d7c9ed85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad80f55159581ca66bf0c8da2d7c9ed85">&#9670;&nbsp;</a></span>null_logger() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toolbox::sys::null_logger </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string_view&#160;</td>
+          <td class="paramname"><em>msg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Log_8cpp_source.html#l00103">103</a> of file <a class="el" href="Log_8cpp_source.html">Log.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Log_8hpp_source.html#l00036">is_log_level()</a>, and <a class="el" href="Log_8cpp_source.html#l00093">set_logger()</a>.</p>
+
+</div>
+</div>
+<a id="ad175b5f483f45578dec81c7f4fca56b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad175b5f483f45578dec81c7f4fca56b2">&#9670;&nbsp;</a></span>std_logger() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toolbox::sys::std_logger </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string_view&#160;</td>
+          <td class="paramname"><em>msg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Log_8cpp_source.html#l00105">105</a> of file <a class="el" href="Log_8cpp_source.html">Log.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Log_8hpp_source.html#l00036">is_log_level()</a>.</p>
+
+</div>
+</div>
+<a id="a9de05b315a314d0df75eff28e43eb76f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9de05b315a314d0df75eff28e43eb76f">&#9670;&nbsp;</a></span>sys_logger() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toolbox::sys::sys_logger </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string_view&#160;</td>
+          <td class="paramname"><em>msg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Log_8cpp_source.html#l00141">141</a> of file <a class="el" href="Log_8cpp_source.html">Log.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Log_8hpp_source.html#l00036">is_log_level()</a>.</p>
+
+</div>
+</div>
+<a id="a9ac7030b49068c3a5e98546320d81619"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ac7030b49068c3a5e98546320d81619">&#9670;&nbsp;</a></span>log_msg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TOOLBOX_API <a class="el" href="namespacetoolbox_1_1sys.html#a16158a8cb63ed525b556394583d01a22">LogMsg</a> &amp; toolbox::sys::log_msg </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Thread-local log message. This thread-local instance of StaticStream can be used to format log messages before writing to the log. Note that the StaticStream is reset each time this function is called. </p>
+
+<p class="definition">Definition at line <a class="el" href="Log_8cpp_source.html#l00166">166</a> of file <a class="el" href="Log_8cpp_source.html">Log.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Log_8hpp_source.html#l00104">toolbox::sys::Log::Log()</a>.</p>
 
 </div>
 </div>
@@ -902,8 +1670,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="afce705382046df9cdda1b692ac393897"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afce705382046df9cdda1b692ac393897">&#9670;&nbsp;</a></span>is_week_day()</h2>
+<a id="a1213fb1c59e2b5ea37b66e52913ccbcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1213fb1c59e2b5ea37b66e52913ccbcc">&#9670;&nbsp;</a></span>write_log() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -912,333 +1680,21 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool toolbox::sys::is_week_day </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#ad3e11d6c6094b92f8417b03cbb66cd3a">JDay</a>&#160;</td>
-          <td class="paramname"><em>jday</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00149">149</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a057dab6f57581e23589b82756a7a0e4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a057dab6f57581e23589b82756a7a0e4b">&#9670;&nbsp;</a></span>is_weekend_day()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool toolbox::sys::is_weekend_day </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#ad3e11d6c6094b92f8417b03cbb66cd3a">JDay</a>&#160;</td>
-          <td class="paramname"><em>jday</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00154">154</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a05f4ceb780271a9272a7ff7d003ce88e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05f4ceb780271a9272a7ff7d003ce88e">&#9670;&nbsp;</a></span>is_zero() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename RepT , typename PeriodT &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool toolbox::sys::is_zero </td>
-          <td>(</td>
-          <td class="paramtype">std::chrono::duration&lt; RepT, PeriodT &gt;&#160;</td>
-          <td class="paramname"><em>d</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00145">145</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a31a04ce046ba4f1fa5d6fc2f07c85fa6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31a04ce046ba4f1fa5d6fc2f07c85fa6">&#9670;&nbsp;</a></span>is_zero() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ClockT &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool toolbox::sys::is_zero </td>
-          <td>(</td>
-          <td class="paramtype">std::chrono::time_point&lt; ClockT, <a class="el" href="namespacetoolbox_1_1sys.html#aedb936b32edd1672f938990ce346f0e2">Duration</a> &gt;&#160;</td>
-          <td class="paramname"><em>t</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00151">151</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
-
-</div>
-</div>
-<a id="adf64ce71cf7579fa651312404bd54692"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf64ce71cf7579fa651312404bd54692">&#9670;&nbsp;</a></span>is_zero() <span class="overload">[3/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool toolbox::sys::is_zero </td>
-          <td>(</td>
-          <td class="paramtype">timeval&#160;</td>
-          <td class="paramname"><em>tv</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00278">278</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a030bbb753eaeba87fdc8598aa6943442"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a030bbb753eaeba87fdc8598aa6943442">&#9670;&nbsp;</a></span>is_zero() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool toolbox::sys::is_zero </td>
-          <td>(</td>
-          <td class="paramtype">timespec&#160;</td>
-          <td class="paramname"><em>ts</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00312">312</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
-
-</div>
-</div>
-<a id="aa5231d47d1f3d3fe0850bf59fc011e39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5231d47d1f3d3fe0850bf59fc011e39">&#9670;&nbsp;</a></span>iso_to_jd()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr auto toolbox::sys::iso_to_jd </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#a1566d16291b4b2ce84563d4daff190d1">IsoDate</a>&#160;</td>
-          <td class="paramname"><em>iso</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>ISO8601 to Julian day. </p>
-
-<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00073">73</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a6a706316532fbc5b1c1d8fb5acce5063"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a706316532fbc5b1c1d8fb5acce5063">&#9670;&nbsp;</a></span>jd_to_iso()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr auto toolbox::sys::jd_to_iso </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#ad3e11d6c6094b92f8417b03cbb66cd3a">JDay</a>&#160;</td>
-          <td class="paramname"><em>jd</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Julian day to ISO8601. </p>
-
-<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00083">83</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a58c8c13defcb1619c479a4c1fb4907f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58c8c13defcb1619c479a4c1fb4907f8">&#9670;&nbsp;</a></span>jd_to_mjd()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr std::int32_t toolbox::sys::jd_to_mjd </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#ad3e11d6c6094b92f8417b03cbb66cd3a">JDay</a>&#160;</td>
-          <td class="paramname"><em>jd</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Juilian day to Modified Julian day. Epoch is November 17, 1858. </p>
-
-<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00104">104</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a19dad291354209e0f6a9b56485f64c37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19dad291354209e0f6a9b56485f64c37">&#9670;&nbsp;</a></span>jd_to_time()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="namespacetoolbox_1_1sys.html#a657ecd4f98265bd34f835f59975db04e">WallTime</a> toolbox::sys::jd_to_time </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#ad3e11d6c6094b92f8417b03cbb66cd3a">JDay</a>&#160;</td>
-          <td class="paramname"><em>jd</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Julian day to Unix time. </p>
-
-<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00128">128</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a0ea41ff613695e6e373218cb6abf5d9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ea41ff613695e6e373218cb6abf5d9d">&#9670;&nbsp;</a></span>jd_to_tjd()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr std::int32_t toolbox::sys::jd_to_tjd </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#ad3e11d6c6094b92f8417b03cbb66cd3a">JDay</a>&#160;</td>
-          <td class="paramname"><em>jd</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Julian day to Truncated Julian day. Epoch is May 24, 1968. </p>
-
-<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00116">116</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a8e94adb25bb4343e70f491798575ec9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e94adb25bb4343e70f491798575ec9e">&#9670;&nbsp;</a></span>log_label()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">TOOLBOX_API const char * toolbox::sys::log_label </td>
+          <td class="memname">TOOLBOX_API void toolbox::sys::write_log </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>level</em></td><td>)</td>
+          <td class="paramname"><em>level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>msg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -1247,221 +1703,12 @@ template&lt;typename ClockT &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Return log label for given log level. </p>
-
-<p class="definition">Definition at line <a class="el" href="Log_8cpp_source.html#l00073">73</a> of file <a class="el" href="Log_8cpp_source.html">Log.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a9ac7030b49068c3a5e98546320d81619"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ac7030b49068c3a5e98546320d81619">&#9670;&nbsp;</a></span>log_msg()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">TOOLBOX_API <a class="el" href="namespacetoolbox_1_1sys.html#a16158a8cb63ed525b556394583d01a22">LogMsg</a> &amp; toolbox::sys::log_msg </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Thread-local log message. This thread-local instance of StaticStream can be used to format log messages before writing to the log. Note that the StaticStream is reset each time this function is called. </p>
-
-<p class="definition">Definition at line <a class="el" href="Log_8cpp_source.html#l00166">166</a> of file <a class="el" href="Log_8cpp_source.html">Log.cpp</a>.</p>
-
-</div>
-</div>
-<a id="aab82f87b2fc080cf9294be6b964e696c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab82f87b2fc080cf9294be6b964e696c">&#9670;&nbsp;</a></span>make_sys_error()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::error_code toolbox::sys::make_sys_error </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>err</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="sys_2Error_8hpp_source.html#l00025">25</a> of file <a class="el" href="sys_2Error_8hpp_source.html">Error.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ab69c55bcbc756a9c5cc9bc0e9f3dc5e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab69c55bcbc756a9c5cc9bc0e9f3dc5e5">&#9670;&nbsp;</a></span>maybe_iso_to_jd()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="namespacetoolbox_1_1sys.html#ad3e11d6c6094b92f8417b03cbb66cd3a">JDay</a> toolbox::sys::maybe_iso_to_jd </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#a1566d16291b4b2ce84563d4daff190d1">IsoDate</a>&#160;</td>
-          <td class="paramname"><em>iso</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>ISO8601 to Julian day if argument is non-zero. </p>
-
-<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00144">144</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a4f4071532521dce60a0f2f5b1cf9855e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f4071532521dce60a0f2f5b1cf9855e">&#9670;&nbsp;</a></span>maybe_jd_to_iso()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="namespacetoolbox_1_1sys.html#a1566d16291b4b2ce84563d4daff190d1">IsoDate</a> toolbox::sys::maybe_jd_to_iso </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#ad3e11d6c6094b92f8417b03cbb66cd3a">JDay</a>&#160;</td>
-          <td class="paramname"><em>jd</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Julian day to ISO8601 if argument is non-zero. </p>
-
-<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00138">138</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a9364e295172a41c9272eebafef715f05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9364e295172a41c9272eebafef715f05">&#9670;&nbsp;</a></span>mjd_to_jd()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr auto toolbox::sys::mjd_to_jd </td>
-          <td>(</td>
-          <td class="paramtype">std::int32_t&#160;</td>
-          <td class="paramname"><em>mjd</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Modified Julian day to Julian day. Epoch is November 17, 1858. </p>
-
-<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00110">110</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a35b2efe2be4ce7358088951e1d3dae7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35b2efe2be4ce7358088951e1d3dae7b">&#9670;&nbsp;</a></span>ms_since_epoch()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ClockT &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr std::int64_t toolbox::sys::ms_since_epoch </td>
-          <td>(</td>
-          <td class="paramtype">std::chrono::time_point&lt; ClockT, <a class="el" href="namespacetoolbox_1_1sys.html#aedb936b32edd1672f938990ce346f0e2">Duration</a> &gt;&#160;</td>
-          <td class="paramname"><em>t</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00165">165</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a3eb8b2789d340911de2dc612b3e913fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3eb8b2789d340911de2dc612b3e913fa">&#9670;&nbsp;</a></span>ns_since_epoch()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ClockT &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr std::int64_t toolbox::sys::ns_since_epoch </td>
-          <td>(</td>
-          <td class="paramtype">std::chrono::time_point&lt; ClockT, <a class="el" href="namespacetoolbox_1_1sys.html#aedb936b32edd1672f938990ce346f0e2">Duration</a> &gt;&#160;</td>
-          <td class="paramname"><em>t</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00179">179</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
+<p>Unconditionally write log message to the logger. Specifically, this function does not check that level is allowed by the current log level; users are expected to call is_log_level first, before formatting the log message. </p>
 
 </div>
 </div>
 <a id="a19a563c6b106673775513c7920ecf383"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19a563c6b106673775513c7920ecf383">&#9670;&nbsp;</a></span>null_logger() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a19a563c6b106673775513c7920ecf383">&#9670;&nbsp;</a></span>null_logger() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1498,666 +1745,8 @@ template&lt;typename ClockT &gt; </div>
 
 </div>
 </div>
-<a id="ad80f55159581ca66bf0c8da2d7c9ed85"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad80f55159581ca66bf0c8da2d7c9ed85">&#9670;&nbsp;</a></span>null_logger() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void toolbox::sys::null_logger </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>level</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string_view&#160;</td>
-          <td class="paramname"><em>msg</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Log_8cpp_source.html#l00103">103</a> of file <a class="el" href="Log_8cpp_source.html">Log.cpp</a>.</p>
-
-</div>
-</div>
-<a id="abcce9a1a35d645d20a1315c191bc2692"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abcce9a1a35d645d20a1315c191bc2692">&#9670;&nbsp;</a></span>open_pid_file()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TOOLBOX_API <a class="el" href="namespacetoolbox_1_1sys.html#a90f0f82eec67b724f5e9f170e11192b2">PidFile</a> toolbox::sys::open_pid_file </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>path</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">mode_t&#160;</td>
-          <td class="paramname"><em>mode</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Create pidfile and obtain lock. An exception is thrown if the pidfile cannot be locked, because a daemon is already running. If the path argument is null, then /var/run/{progname}.pid is used as the pidfile location. </p>
-
-<p class="definition">Definition at line <a class="el" href="PidFile_8cpp_source.html#l00037">37</a> of file <a class="el" href="PidFile_8cpp_source.html">PidFile.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a0072bfdf4815af1d28381b5551e8c987"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0072bfdf4815af1d28381b5551e8c987">&#9670;&nbsp;</a></span>operator""_jd()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr auto toolbox::sys::operator&quot;&quot;_jd </td>
-          <td>(</td>
-          <td class="paramtype">unsigned long long&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00044">44</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a0d9206d0e91aae285e84b11bdce119eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d9206d0e91aae285e84b11bdce119eb">&#9670;&nbsp;</a></span>operator""_ymd()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr auto toolbox::sys::operator&quot;&quot;_ymd </td>
-          <td>(</td>
-          <td class="paramtype">unsigned long long&#160;</td>
-          <td class="paramname"><em>val</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00036">36</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ae609dfde1ee9906e28f022102282a781"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae609dfde1ee9906e28f022102282a781">&#9670;&nbsp;</a></span>operator+() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">timeval toolbox::sys::operator+ </td>
-          <td>(</td>
-          <td class="paramtype">timeval&#160;</td>
-          <td class="paramname"><em>lhs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">timeval&#160;</td>
-          <td class="paramname"><em>rhs</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00288">288</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
-
-</div>
-</div>
-<a id="afd5e4cc3abf6a16a5462ca6acb78145d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd5e4cc3abf6a16a5462ca6acb78145d">&#9670;&nbsp;</a></span>operator+() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">timespec toolbox::sys::operator+ </td>
-          <td>(</td>
-          <td class="paramtype">timespec&#160;</td>
-          <td class="paramname"><em>lhs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">timespec&#160;</td>
-          <td class="paramname"><em>rhs</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00322">322</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a4ec6794dcc7ddb72536fdcca297e15bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ec6794dcc7ddb72536fdcca297e15bd">&#9670;&nbsp;</a></span>operator-() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">timeval toolbox::sys::operator- </td>
-          <td>(</td>
-          <td class="paramtype">timeval&#160;</td>
-          <td class="paramname"><em>lhs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">timeval&#160;</td>
-          <td class="paramname"><em>rhs</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00300">300</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a0731746cdb61edbb65a77091c3e5f546"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0731746cdb61edbb65a77091c3e5f546">&#9670;&nbsp;</a></span>operator-() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">timespec toolbox::sys::operator- </td>
-          <td>(</td>
-          <td class="paramtype">timespec&#160;</td>
-          <td class="paramname"><em>lhs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">timespec&#160;</td>
-          <td class="paramname"><em>rhs</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00334">334</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a99f88311559b7c604cb6a4500183e717"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99f88311559b7c604cb6a4500183e717">&#9670;&nbsp;</a></span>operator<<() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TOOLBOX_API std::ostream &amp; toolbox::sys::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">ostream &amp;&#160;</td>
-          <td class="paramname"><em>os</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#a8370f3f6bd9eb78dd325ae3f4e582247">MonoTime</a>&#160;</td>
-          <td class="paramname"><em>t</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Time_8cpp_source.html#l00033">33</a> of file <a class="el" href="Time_8cpp_source.html">Time.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a2ca5784d883ea752b577271c823c1e82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ca5784d883ea752b577271c823c1e82">&#9670;&nbsp;</a></span>operator<<() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TOOLBOX_API std::ostream &amp; toolbox::sys::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">ostream &amp;&#160;</td>
-          <td class="paramname"><em>os</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#a657ecd4f98265bd34f835f59975db04e">WallTime</a>&#160;</td>
-          <td class="paramname"><em>t</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Time_8cpp_source.html#l00038">38</a> of file <a class="el" href="Time_8cpp_source.html">Time.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a6e91eb29b122e174b94b31c6c6209f07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e91eb29b122e174b94b31c6c6209f07">&#9670;&nbsp;</a></span>operator<<() <span class="overload">[3/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TOOLBOX_API std::ostream &amp; toolbox::sys::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">ostream &amp;&#160;</td>
-          <td class="paramname"><em>out</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classtoolbox_1_1sys_1_1Options.html">Options</a> &amp;&#160;</td>
-          <td class="paramname"><em>options</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Options_8cpp_source.html#l00112">112</a> of file <a class="el" href="Options_8cpp_source.html">Options.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a3235df5dba6777f0b7b12b7b70ecc8c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3235df5dba6777f0b7b12b7b70ecc8c8">&#9670;&nbsp;</a></span>operator<<() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename DurationT &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">std::ostream&amp; toolbox::sys::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">std::ostream &amp;&#160;</td>
-          <td class="paramname"><em>os</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structtoolbox_1_1sys_1_1PutTime.html">PutTime</a>&lt; DurationT &gt;&#160;</td>
-          <td class="paramname"><em>pt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00250">250</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
-
-</div>
-</div>
-<a id="aefb8eb5fd484ba7cfec0d30409682021"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aefb8eb5fd484ba7cfec0d30409682021">&#9670;&nbsp;</a></span>parse_date()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr auto toolbox::sys::parse_date </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>sv</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Date represented in UTC (Universal Time Coordinated, also known as "GMT") in YYYYMMDD format. This special-purpose field is paired with UTCTimeOnly to form a proper UTCTimestamp for bandwidth-sensitive messages.</p>
-<p>Valid values:</p><ul>
-<li>YYYY = 0000-9999;</li>
-<li>MM = 01-12;</li>
-<li>DD = 01-31. </li>
-</ul>
-
-<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00167">167</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a6c97dd326b4ef3150369a6bc357badac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c97dd326b4ef3150369a6bc357badac">&#9670;&nbsp;</a></span>parse_nanos()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr auto toolbox::sys::parse_nanos </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>sv</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Parse fractional nanoseconds. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">sv</td><td>String of decimal digits. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>nanoseconds. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00349">349</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
-
-</div>
-</div>
-<a id="afdc94d276405a9ed1a5bbf9f1c7b401a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afdc94d276405a9ed1a5bbf9f1c7b401a">&#9670;&nbsp;</a></span>parse_time()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr std::optional&lt;<a class="el" href="namespacetoolbox_1_1sys.html#a657ecd4f98265bd34f835f59975db04e">WallTime</a>&gt; toolbox::sys::parse_time </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>sv</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Time/date combination represented in UTC (Universal Time Coordinated, also known as "GMT") in either YYYYMMDD-HH:MM:SS (whole seconds) or YYYYMMDD-HH:MM:SS.sss (milliseconds) format, colons, dash, and period required.</p>
-<p>Valid values:</p><ul>
-<li>YYYY = 0000-9999;</li>
-<li>MM = 01-12;</li>
-<li>DD = 01-31;</li>
-<li>HH = 00-23;</li>
-<li>MM = 00-59;</li>
-<li>SS = 00-60 (60 only if UTC leap second);</li>
-<li>sss = 000-999 (indicating milliseconds). </li>
-</ul>
-
-<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00185">185</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a252ccb6e0963719a55feb7f7040d8e3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a252ccb6e0963719a55feb7f7040d8e3c">&#9670;&nbsp;</a></span>parse_time_only()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr std::optional&lt;<a class="el" href="namespacetoolbox_1_1sys.html#a982f28e6caaaa07ee95deca8f662b6ef">Nanos</a>&gt; toolbox::sys::parse_time_only </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>sv</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Time-only represented in UTC (Universal Time Coordinated, also known as "GMT") in either HH:MM:SS (whole seconds) or HH:MM:SS.sss (milliseconds) format, colons, and period required. This special-purpose field is paired with UTCDateOnly to form a proper UTCTimestamp for bandwidth-sensitive messages. Valid values: HH = 00-23, MM = 00-59, SS = 00-5960 (60 only if UTC leap second) (without milliseconds). HH = 00-23, MM = 00-59, SS = 00-5960 (60 only if UTC leap second), sss=000-999 (indicating milliseconds). </p>
-
-<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00388">388</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a3f4b3eaf88916c2596b456ce4958b662"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f4b3eaf88916c2596b456ce4958b662">&#9670;&nbsp;</a></span>put_time()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename DurationT  = Seconds&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto toolbox::sys::put_time </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#a657ecd4f98265bd34f835f59975db04e">WallTime</a>&#160;</td>
-          <td class="paramname"><em>t</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>fmt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00244">244</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a49490fbd55c046ddc6f1089b73342b1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49490fbd55c046ddc6f1089b73342b1b">&#9670;&nbsp;</a></span>set_log_level()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">TOOLBOX_API int toolbox::sys::set_log_level </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>level</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Set log level globally for all threads. </p>
-
-<p class="definition">Definition at line <a class="el" href="Log_8cpp_source.html#l00083">83</a> of file <a class="el" href="Log_8cpp_source.html">Log.cpp</a>.</p>
-
-</div>
-</div>
-<a id="ae3adf60f3d35c708f3598c4991fec377"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3adf60f3d35c708f3598c4991fec377">&#9670;&nbsp;</a></span>set_logger()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">TOOLBOX_API <a class="el" href="namespacetoolbox_1_1sys.html#ad30773ec4571816fa4459ed92884acdc">Logger</a> toolbox::sys::set_logger </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#ad30773ec4571816fa4459ed92884acdc">Logger</a>&#160;</td>
-          <td class="paramname"><em>logger</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Set logger globally for all threads. </p>
-
-<p class="definition">Definition at line <a class="el" href="Log_8cpp_source.html#l00093">93</a> of file <a class="el" href="Log_8cpp_source.html">Log.cpp</a>.</p>
-
-</div>
-</div>
-<a id="ae9cef8103b7d5c133dc1079811b4e151"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9cef8103b7d5c133dc1079811b4e151">&#9670;&nbsp;</a></span>sig_block_all()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TOOLBOX_API void toolbox::sys::sig_block_all </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Block all signals. </p>
-
-<p class="definition">Definition at line <a class="el" href="Signal_8cpp_source.html#l00072">72</a> of file <a class="el" href="Signal_8cpp_source.html">Signal.cpp</a>.</p>
-
-</div>
-</div>
 <a id="aa2d56d9a5bb25ad1136e9e6c859b0145"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2d56d9a5bb25ad1136e9e6c859b0145">&#9670;&nbsp;</a></span>std_logger() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2d56d9a5bb25ad1136e9e6c859b0145">&#9670;&nbsp;</a></span>std_logger() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2193,46 +1782,8 @@ template&lt;typename DurationT  = Seconds&gt; </div>
 
 </div>
 </div>
-<a id="ad175b5f483f45578dec81c7f4fca56b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad175b5f483f45578dec81c7f4fca56b2">&#9670;&nbsp;</a></span>std_logger() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void toolbox::sys::std_logger </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>level</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">string_view&#160;</td>
-          <td class="paramname"><em>msg</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Log_8cpp_source.html#l00105">105</a> of file <a class="el" href="Log_8cpp_source.html">Log.cpp</a>.</p>
-
-</div>
-</div>
 <a id="a80a58709e8a2799f52346b3182b9c15c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80a58709e8a2799f52346b3182b9c15c">&#9670;&nbsp;</a></span>sys_logger() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a80a58709e8a2799f52346b3182b9c15c">&#9670;&nbsp;</a></span>sys_logger() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2269,8 +1820,71 @@ template&lt;typename DurationT  = Seconds&gt; </div>
 
 </div>
 </div>
-<a id="a9de05b315a314d0df75eff28e43eb76f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9de05b315a314d0df75eff28e43eb76f">&#9670;&nbsp;</a></span>sys_logger() <span class="overload">[2/2]</span></h2>
+<a id="a6e91eb29b122e174b94b31c6c6209f07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e91eb29b122e174b94b31c6c6209f07">&#9670;&nbsp;</a></span>operator<<() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TOOLBOX_API std::ostream &amp; toolbox::sys::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classtoolbox_1_1sys_1_1Options.html">Options</a> &amp;&#160;</td>
+          <td class="paramname"><em>options</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Options_8cpp_source.html#l00112">112</a> of file <a class="el" href="Options_8cpp_source.html">Options.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Options_8hpp_source.html#l00200">toolbox::sys::Options::operator()()</a>.</p>
+
+</div>
+</div>
+<a id="abcce9a1a35d645d20a1315c191bc2692"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcce9a1a35d645d20a1315c191bc2692">&#9670;&nbsp;</a></span>open_pid_file()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TOOLBOX_API <a class="el" href="namespacetoolbox_1_1sys.html#a90f0f82eec67b724f5e9f170e11192b2">PidFile</a> toolbox::sys::open_pid_file </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">mode_t&#160;</td>
+          <td class="paramname"><em>mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create pidfile and obtain lock. An exception is thrown if the pidfile cannot be locked, because a daemon is already running. If the path argument is null, then /var/run/{progname}.pid is used as the pidfile location. </p>
+
+<p class="definition">Definition at line <a class="el" href="PidFile_8cpp_source.html#l00037">37</a> of file <a class="el" href="PidFile_8cpp_source.html">PidFile.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4737b7e561d9e3d75a5ba7b4b209b255"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4737b7e561d9e3d75a5ba7b4b209b255">&#9670;&nbsp;</a></span>close_pid_file()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2279,21 +1893,11 @@ template&lt;typename DurationT  = Seconds&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void toolbox::sys::sys_logger </td>
+          <td class="memname">TOOLBOX_API void toolbox::sys::close_pid_file </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>level</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#a90f0f82eec67b724f5e9f170e11192b2">PidFile</a> &amp;&#160;</td>
+          <td class="paramname"><em>pf</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">string_view&#160;</td>
-          <td class="paramname"><em>msg</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -2303,7 +1907,206 @@ template&lt;typename DurationT  = Seconds&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Log_8cpp_source.html#l00141">141</a> of file <a class="el" href="Log_8cpp_source.html">Log.cpp</a>.</p>
+<p>Close pidfile without removing it. This function should be used when forking daemon processes. </p>
+
+<p class="definition">Definition at line <a class="el" href="PidFile_8cpp_source.html#l00050">50</a> of file <a class="el" href="PidFile_8cpp_source.html">PidFile.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a97c96cf8c66c6963eea6bec59316de7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97c96cf8c66c6963eea6bec59316de7a">&#9670;&nbsp;</a></span>write_pid_file()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TOOLBOX_API void toolbox::sys::write_pid_file </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#a90f0f82eec67b724f5e9f170e11192b2">PidFile</a> &amp;&#160;</td>
+          <td class="paramname"><em>pf</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Write process' PID into pidfile. </p>
+
+<p class="definition">Definition at line <a class="el" href="PidFile_8cpp_source.html#l00057">57</a> of file <a class="el" href="PidFile_8cpp_source.html">PidFile.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ae9cef8103b7d5c133dc1079811b4e151"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9cef8103b7d5c133dc1079811b4e151">&#9670;&nbsp;</a></span>sig_block_all()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TOOLBOX_API void toolbox::sys::sig_block_all </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Block all signals. </p>
+
+<p class="definition">Definition at line <a class="el" href="Signal_8cpp_source.html#l00072">72</a> of file <a class="el" href="Signal_8cpp_source.html">Signal.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Signal_8hpp_source.html#l00044">toolbox::sys::SigWait::operator()()</a>.</p>
+
+</div>
+</div>
+<a id="a74e19434b48df09aa2891d1c00ace007"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74e19434b48df09aa2891d1c00ace007">&#9670;&nbsp;</a></span>get_time()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TOOLBOX_API <a class="el" href="namespacetoolbox_1_1sys.html#acfccec6381072b1852453855e64a7e7c">NanoTime</a> toolbox::sys::get_time </td>
+          <td>(</td>
+          <td class="paramtype">clockid_t&#160;</td>
+          <td class="paramname"><em>clock_id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Time_8cpp_source.html#l00025">25</a> of file <a class="el" href="Time_8cpp_source.html">Time.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Time_8hpp_source.html#l00063">toolbox::sys::MonoClock::now()</a>, and <a class="el" href="Time_8hpp_source.html#l00083">toolbox::sys::WallClock::now()</a>.</p>
+
+</div>
+</div>
+<a id="a99f88311559b7c604cb6a4500183e717"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99f88311559b7c604cb6a4500183e717">&#9670;&nbsp;</a></span>operator<<() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TOOLBOX_API std::ostream &amp; toolbox::sys::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#a8370f3f6bd9eb78dd325ae3f4e582247">MonoTime</a>&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Time_8cpp_source.html#l00033">33</a> of file <a class="el" href="Time_8cpp_source.html">Time.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a2ca5784d883ea752b577271c823c1e82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ca5784d883ea752b577271c823c1e82">&#9670;&nbsp;</a></span>operator<<() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TOOLBOX_API std::ostream &amp; toolbox::sys::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#a657ecd4f98265bd34f835f59975db04e">WallTime</a>&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Time_8cpp_source.html#l00038">38</a> of file <a class="el" href="Time_8cpp_source.html">Time.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a05f4ceb780271a9272a7ff7d003ce88e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05f4ceb780271a9272a7ff7d003ce88e">&#9670;&nbsp;</a></span>is_zero() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename RepT , typename PeriodT &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool toolbox::sys::is_zero </td>
+          <td>(</td>
+          <td class="paramtype">std::chrono::duration&lt; RepT, PeriodT &gt;&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00145">145</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="EpollReactor_8cpp_source.html#l00134">toolbox::io::EpollReactor::do_poll()</a>, and <a class="el" href="Muxer_8hpp_source.html#l00096">toolbox::io::EpollMuxer::wait()</a>.</p>
+
+</div>
+</div>
+<a id="a31a04ce046ba4f1fa5d6fc2f07c85fa6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31a04ce046ba4f1fa5d6fc2f07c85fa6">&#9670;&nbsp;</a></span>is_zero() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ClockT &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool toolbox::sys::is_zero </td>
+          <td>(</td>
+          <td class="paramtype">std::chrono::time_point&lt; ClockT, <a class="el" href="namespacetoolbox_1_1sys.html#aedb936b32edd1672f938990ce346f0e2">Duration</a> &gt;&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00151">151</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
 
 </div>
 </div>
@@ -2335,22 +2138,26 @@ template&lt;typename ClockT , typename DurationT &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00157">157</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
 
+<p class="reference">Referenced by <a class="el" href="Date_8ut_8cpp_source.html#l00052">BOOST_AUTO_TEST_CASE()</a>.</p>
+
 </div>
 </div>
-<a id="a4b86571b4342605621e531a64529c919"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b86571b4342605621e531a64529c919">&#9670;&nbsp;</a></span>tjd_to_jd()</h2>
+<a id="a35b2efe2be4ce7358088951e1d3dae7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35b2efe2be4ce7358088951e1d3dae7b">&#9670;&nbsp;</a></span>ms_since_epoch()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename ClockT &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="namespacetoolbox_1_1sys.html#ad3e11d6c6094b92f8417b03cbb66cd3a">JDay</a> toolbox::sys::tjd_to_jd </td>
+          <td class="memname">constexpr std::int64_t toolbox::sys::ms_since_epoch </td>
           <td>(</td>
-          <td class="paramtype">std::int32_t&#160;</td>
-          <td class="paramname"><em>tjd</em></td><td>)</td>
+          <td class="paramtype">std::chrono::time_point&lt; ClockT, <a class="el" href="namespacetoolbox_1_1sys.html#aedb936b32edd1672f938990ce346f0e2">Duration</a> &gt;&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -2361,9 +2168,71 @@ template&lt;typename ClockT , typename DurationT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Truncated Julian day to Julian day. Epoch is May 24, 1968. </p>
+<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00165">165</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00122">122</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Date_8ut_8cpp_source.html#l00062">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Date_8hpp_source.html#l00185">parse_time()</a>, and <a class="el" href="Log_8cpp_source.html#l00105">std_logger()</a>.</p>
+
+</div>
+</div>
+<a id="a1efb0e8731d54a2ebfc23cf1f5c11280"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1efb0e8731d54a2ebfc23cf1f5c11280">&#9670;&nbsp;</a></span>us_since_epoch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ClockT &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr std::int64_t toolbox::sys::us_since_epoch </td>
+          <td>(</td>
+          <td class="paramtype">std::chrono::time_point&lt; ClockT, <a class="el" href="namespacetoolbox_1_1sys.html#aedb936b32edd1672f938990ce346f0e2">Duration</a> &gt;&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00172">172</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Date_8ut_8cpp_source.html#l00062">BOOST_AUTO_TEST_CASE()</a>.</p>
+
+</div>
+</div>
+<a id="a3eb8b2789d340911de2dc612b3e913fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3eb8b2789d340911de2dc612b3e913fa">&#9670;&nbsp;</a></span>ns_since_epoch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ClockT &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr std::int64_t toolbox::sys::ns_since_epoch </td>
+          <td>(</td>
+          <td class="paramtype">std::chrono::time_point&lt; ClockT, <a class="el" href="namespacetoolbox_1_1sys.html#aedb936b32edd1672f938990ce346f0e2">Duration</a> &gt;&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00179">179</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
 
 </div>
 </div>
@@ -2457,66 +2326,6 @@ template&lt;typename ClockT &gt; </div>
 
 </div>
 </div>
-<a id="acd6e98c2c09fb002b1786e4d82b0ab56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd6e98c2c09fb002b1786e4d82b0ab56">&#9670;&nbsp;</a></span>to_timespec() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename RepT , typename PeriodT &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr timespec toolbox::sys::to_timespec </td>
-          <td>(</td>
-          <td class="paramtype">std::chrono::duration&lt; RepT, PeriodT &gt;&#160;</td>
-          <td class="paramname"><em>d</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00223">223</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ad76f2893ed0a743febc3a97ebbee74c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad76f2893ed0a743febc3a97ebbee74c9">&#9670;&nbsp;</a></span>to_timespec() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ClockT &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr timespec toolbox::sys::to_timespec </td>
-          <td>(</td>
-          <td class="paramtype">std::chrono::time_point&lt; ClockT, <a class="el" href="namespacetoolbox_1_1sys.html#aedb936b32edd1672f938990ce346f0e2">Duration</a> &gt;&#160;</td>
-          <td class="paramname"><em>t</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00231">231</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
-
-</div>
-</div>
 <a id="ab38019cb3fdc2fbebab32ca4579c8606"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab38019cb3fdc2fbebab32ca4579c8606">&#9670;&nbsp;</a></span>to_timeval() <span class="overload">[1/2]</span></h2>
 
@@ -2544,6 +2353,8 @@ template&lt;typename RepT , typename PeriodT &gt; </div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00208">208</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Time_8hpp_source.html#l00216">to_timeval()</a>.</p>
 
 </div>
 </div>
@@ -2577,8 +2388,40 @@ template&lt;typename ClockT &gt; </div>
 
 </div>
 </div>
-<a id="a1efb0e8731d54a2ebfc23cf1f5c11280"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1efb0e8731d54a2ebfc23cf1f5c11280">&#9670;&nbsp;</a></span>us_since_epoch()</h2>
+<a id="acd6e98c2c09fb002b1786e4d82b0ab56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd6e98c2c09fb002b1786e4d82b0ab56">&#9670;&nbsp;</a></span>to_timespec() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename RepT , typename PeriodT &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr timespec toolbox::sys::to_timespec </td>
+          <td>(</td>
+          <td class="paramtype">std::chrono::duration&lt; RepT, PeriodT &gt;&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00223">223</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Signal_8cpp_source.html#l00056">toolbox::sys::SigWait::operator()()</a>, <a class="el" href="TimerFd_8hpp_source.html#l00088">toolbox::os::timerfd_settime()</a>, and <a class="el" href="Time_8hpp_source.html#l00231">to_timespec()</a>.</p>
+
+</div>
+</div>
+<a id="ad76f2893ed0a743febc3a97ebbee74c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad76f2893ed0a743febc3a97ebbee74c9">&#9670;&nbsp;</a></span>to_timespec() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2589,7 +2432,7 @@ template&lt;typename ClockT &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::int64_t toolbox::sys::us_since_epoch </td>
+          <td class="memname">constexpr timespec toolbox::sys::to_timespec </td>
           <td>(</td>
           <td class="paramtype">std::chrono::time_point&lt; ClockT, <a class="el" href="namespacetoolbox_1_1sys.html#aedb936b32edd1672f938990ce346f0e2">Duration</a> &gt;&#160;</td>
           <td class="paramname"><em>t</em></td><td>)</td>
@@ -2603,12 +2446,86 @@ template&lt;typename ClockT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00172">172</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00231">231</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a1213fb1c59e2b5ea37b66e52913ccbcc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1213fb1c59e2b5ea37b66e52913ccbcc">&#9670;&nbsp;</a></span>write_log() <span class="overload">[1/2]</span></h2>
+<a id="a3f4b3eaf88916c2596b456ce4958b662"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f4b3eaf88916c2596b456ce4958b662">&#9670;&nbsp;</a></span>put_time()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename DurationT  = Seconds&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto toolbox::sys::put_time </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#a657ecd4f98265bd34f835f59975db04e">WallTime</a>&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>fmt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00244">244</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Time_8hpp_source.html#l00250">operator&lt;&lt;()</a>.</p>
+
+</div>
+</div>
+<a id="a3235df5dba6777f0b7b12b7b70ecc8c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3235df5dba6777f0b7b12b7b70ecc8c8">&#9670;&nbsp;</a></span>operator<<() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename DurationT &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; toolbox::sys::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structtoolbox_1_1sys_1_1PutTime.html">PutTime</a>&lt; DurationT &gt;&#160;</td>
+          <td class="paramname"><em>pt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00250">250</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
+
+</div>
+</div>
+<a id="adf64ce71cf7579fa651312404bd54692"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf64ce71cf7579fa651312404bd54692">&#9670;&nbsp;</a></span>is_zero() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2617,21 +2534,277 @@ template&lt;typename ClockT &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">TOOLBOX_API void toolbox::sys::write_log </td>
+          <td class="memname">constexpr bool toolbox::sys::is_zero </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>level</em>, </td>
+          <td class="paramtype">timeval&#160;</td>
+          <td class="paramname"><em>tv</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00278">278</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aef1844501afd0408ab83ba0ab3596c10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef1844501afd0408ab83ba0ab3596c10">&#9670;&nbsp;</a></span>clear() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toolbox::sys::clear </td>
+          <td>(</td>
+          <td class="paramtype">timeval &amp;&#160;</td>
+          <td class="paramname"><em>tv</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00283">283</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="String_8ut_8cpp_source.html#l00171">BOOST_AUTO_TEST_CASE()</a>.</p>
+
+</div>
+</div>
+<a id="ae609dfde1ee9906e28f022102282a781"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae609dfde1ee9906e28f022102282a781">&#9670;&nbsp;</a></span>operator+() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">timeval toolbox::sys::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">timeval&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">timeval&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00288">288</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a4ec6794dcc7ddb72536fdcca297e15bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ec6794dcc7ddb72536fdcca297e15bd">&#9670;&nbsp;</a></span>operator-() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">timeval toolbox::sys::operator- </td>
+          <td>(</td>
+          <td class="paramtype">timeval&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">timeval&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00300">300</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a030bbb753eaeba87fdc8598aa6943442"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a030bbb753eaeba87fdc8598aa6943442">&#9670;&nbsp;</a></span>is_zero() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool toolbox::sys::is_zero </td>
+          <td>(</td>
+          <td class="paramtype">timespec&#160;</td>
+          <td class="paramname"><em>ts</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00312">312</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a4e1340f01546dfe8bbb32eccc9d574d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e1340f01546dfe8bbb32eccc9d574d1">&#9670;&nbsp;</a></span>clear() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toolbox::sys::clear </td>
+          <td>(</td>
+          <td class="paramtype">timespec &amp;&#160;</td>
+          <td class="paramname"><em>ts</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00317">317</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
+
+</div>
+</div>
+<a id="afd5e4cc3abf6a16a5462ca6acb78145d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd5e4cc3abf6a16a5462ca6acb78145d">&#9670;&nbsp;</a></span>operator+() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">timespec toolbox::sys::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">timespec&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">timespec&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00322">322</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a0731746cdb61edbb65a77091c3e5f546"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0731746cdb61edbb65a77091c3e5f546">&#9670;&nbsp;</a></span>operator-() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">timespec toolbox::sys::operator- </td>
+          <td>(</td>
+          <td class="paramtype">timespec&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">timespec&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00334">334</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a6c97dd326b4ef3150369a6bc357badac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c97dd326b4ef3150369a6bc357badac">&#9670;&nbsp;</a></span>parse_nanos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto toolbox::sys::parse_nanos </td>
+          <td>(</td>
           <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>msg</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>sv</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -2640,12 +2813,24 @@ template&lt;typename ClockT &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Unconditionally write log message to the logger. Specifically, this function does not check that level is allowed by the current log level; users are expected to call is_log_level first, before formatting the log message. </p>
+
+<p>Parse fractional nanoseconds. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sv</td><td>String of decimal digits. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>nanoseconds. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00349">349</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Time_8ut_8cpp_source.html#l00034">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="Time_8hpp_source.html#l00388">parse_time_only()</a>.</p>
 
 </div>
 </div>
-<a id="a64ce166c2b8566b32bfdc0b0e107b454"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64ce166c2b8566b32bfdc0b0e107b454">&#9670;&nbsp;</a></span>write_log() <span class="overload">[2/2]</span></h2>
+<a id="a252ccb6e0963719a55feb7f7040d8e3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a252ccb6e0963719a55feb7f7040d8e3c">&#9670;&nbsp;</a></span>parse_time_only()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2654,21 +2839,11 @@ template&lt;typename ClockT &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void toolbox::sys::write_log </td>
+          <td class="memname">constexpr std::optional&lt;<a class="el" href="namespacetoolbox_1_1sys.html#a982f28e6caaaa07ee95deca8f662b6ef">Nanos</a>&gt; toolbox::sys::parse_time_only </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>level</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>sv</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">string_view&#160;</td>
-          <td class="paramname"><em>msg</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -2677,122 +2852,11 @@ template&lt;typename ClockT &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Time-only represented in UTC (Universal Time Coordinated, also known as "GMT") in either HH:MM:SS (whole seconds) or HH:MM:SS.sss (milliseconds) format, colons, and period required. This special-purpose field is paired with UTCDateOnly to form a proper UTCTimestamp for bandwidth-sensitive messages. Valid values: HH = 00-23, MM = 00-59, SS = 00-5960 (60 only if UTC leap second) (without milliseconds). HH = 00-23, MM = 00-59, SS = 00-5960 (60 only if UTC leap second), sss=000-999 (indicating milliseconds). </p>
 
-<p class="definition">Definition at line <a class="el" href="Log_8cpp_source.html#l00098">98</a> of file <a class="el" href="Log_8cpp_source.html">Log.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00388">388</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
 
-</div>
-</div>
-<a id="a97c96cf8c66c6963eea6bec59316de7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97c96cf8c66c6963eea6bec59316de7a">&#9670;&nbsp;</a></span>write_pid_file()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TOOLBOX_API void toolbox::sys::write_pid_file </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#a90f0f82eec67b724f5e9f170e11192b2">PidFile</a> &amp;&#160;</td>
-          <td class="paramname"><em>pf</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Write process' PID into pidfile. </p>
-
-<p class="definition">Definition at line <a class="el" href="PidFile_8cpp_source.html#l00057">57</a> of file <a class="el" href="PidFile_8cpp_source.html">PidFile.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a7792b0bac11e8314a447a5c34d124f07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7792b0bac11e8314a447a5c34d124f07">&#9670;&nbsp;</a></span>ymd_to_iso()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr auto toolbox::sys::ymd_to_iso </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>year</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>mon</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>mday</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gregorian to ISO8601 date. </p>
-
-<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00050">50</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ada01b6a6f3b7efdb12fdf5aedc61b5c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada01b6a6f3b7efdb12fdf5aedc61b5c4">&#9670;&nbsp;</a></span>ymd_to_jd()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr auto toolbox::sys::ymd_to_jd </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>year</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>mon</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>mday</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gregorian date to Julian day. </p>
-
-<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00058">58</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Time_8ut_8cpp_source.html#l00055">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="Date_8hpp_source.html#l00185">parse_time()</a>.</p>
 
 </div>
 </div>
