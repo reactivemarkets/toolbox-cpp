@@ -158,23 +158,41 @@ jobs:
       - store_artifacts:
           path: build/dist
 
+# CircleCI does not run workflows for tags unless you explicitly specify tag filters. Additionally,
+# if a job requires any other jobs (directly or indirectly), you must use regular expressions to
+# specify tag filters for those jobs.
 workflows:
   version: 2
   build:
     jobs:
-      - lint
+      - lint:
+          filters:
+            tags:
+              only: /.*/
       - test_clang_debug:
           requires:
             - lint
+          filters:
+            tags:
+              only: /.*/
       - test_clang_release:
           requires:
             - lint
+          filters:
+            tags:
+              only: /.*/
       - test_gcc_debug:
           requires:
             - lint
+          filters:
+            tags:
+              only: /.*/
       - test_gcc_release:
           requires:
             - lint
+          filters:
+            tags:
+              only: /.*/
       - build_doc:
           requires:
             - test_clang_debug
@@ -192,7 +210,7 @@ workflows:
             - test_gcc_release
           filters:
             branches:
-              only: master
+              ignore: /.*/
             tags:
               only: /^\d+[.]\d+[.]\d+$/
       - deploy_doc:
@@ -206,6 +224,6 @@ workflows:
             - build_release
           filters:
             branches:
-              only: master
+              ignore: /.*/
             tags:
               only: /^\d+[.]\d+[.]\d+$/
