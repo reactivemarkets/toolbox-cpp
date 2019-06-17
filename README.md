@@ -28,7 +28,7 @@ $ make -j all test install
 
 ## Documentation
 
-The [latest Doxygen documentation](https://doc.toolbox.reactivemarkets.com) is available online.
+The [latest Doxygen documentation](https://docs.toolbox.reactivemarkets.com) is available online.
 
 ## Contributing
 
