@@ -39,7 +39,8 @@ We actively welcome your pull requests.
 3. add unit-test coverage where possible;
 4. ensure the test suite passes;
 5. ensure that there are no package cycles;
-6. update the documentation for API changes.
+6. update the documentation for API changes;
+7. run `clang-format` on your changes.
 
 ## Coding Style
 
@@ -59,11 +60,18 @@ covered in this section.
 - indent by 4 spaces;
 - lines should not exceed 100 characters.
 
-[ClangFormat](http://clang.llvm.org/docs/ClangFormat.html) should be used to format source-code
-changes. The
-[GitClangFormat](https://github.com/llvm-mirror/clang/blob/master/tools/clang-format/git-clang-format)
-script integrates [ClangFormat](http://clang.llvm.org/docs/ClangFormat.html) with
-[Git](https://git-scm.com/).
+Use [ClangFormat](http://clang.llvm.org/docs/ClangFormat.html) to format source-code changes.
+The `clang-format` build target formats the entire source tree:
+
+```bash
+$ cmake --build . --target clang-format
+```
+
+Alternatively, if you are using Unix Makefiles:
+
+```bash
+$ make clang-format
+```
 
 ### Naming
 
@@ -92,6 +100,22 @@ Const functions precede non-const functions for two reasons:
 ### Assertions
 
 Use `assert` statements to formalise contract and document assumptions.
+
+### Comments
+
+Comments documenting declarations should be full sentences, even if that seems a little redundant.
+This approach makes them format well when extracted into Doxygen documentation.
+
+### Exceptions
+
+Exception messages should not be capitalised (unless beginning with proper nouns or acronyms) or end
+with punctuation, since they are usually printed following other context. That is, use `throw
+runtime_error{"something bad"}` not `throw runtime_error{"Something bad"}`, so that the example
+below formats without a spurious capital letter mid-message.
+
+```c++
+TOOLBOX_ERROR << "exception: " << e.what();
+```
 
 ## License
 
