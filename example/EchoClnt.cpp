@@ -16,8 +16,8 @@
 
 #include <toolbox/io/EpollReactor.hpp>
 #include <toolbox/io/Runner.hpp>
-#include <toolbox/net/Runner.hpp>
 #include <toolbox/net/Resolver.hpp>
+#include <toolbox/net/Runner.hpp>
 #include <toolbox/net/StreamConnector.hpp>
 #include <toolbox/sys/Log.hpp>
 #include <toolbox/sys/Signal.hpp>

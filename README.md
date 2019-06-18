@@ -12,7 +12,7 @@ To build Toolbox from source, you will need:
 
 - [CMake](http://www.cmake.org/) for Makefile generation;
 - [GCC](http://gcc.gnu.org/) or [Clang](http://clang.llvm.org/) with support for C++17;
-- [Boost](http://www.boost.org/) for additional library dependencies;
+- [Boost](http://www.boost.org/) for additional library dependencies.
 
 ## Getting Started
 

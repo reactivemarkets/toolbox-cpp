@@ -17,6 +17,14 @@
 #ifndef TOOLBOX_SYS_OPTIONS_HPP
 #define TOOLBOX_SYS_OPTIONS_HPP
 
+/// \file Options.hpp
+///
+/// \brief Command-line options parser.
+///
+/// This file was originally authored by Rodrigo Fernandes as part of the Swirly Cloud project.
+///
+/// \author Rodrigo Fernandes
+
 #include <toolbox/util/RefCount.hpp>
 #include <toolbox/util/String.hpp>
 

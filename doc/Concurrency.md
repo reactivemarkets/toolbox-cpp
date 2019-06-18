@@ -247,7 +247,7 @@ Dekker's Algorithm is best understood by the interleavings shown below:
 | ------------- | ------------- |
 | x\_wants = 1  |               |
 | y\_wants == 0 |               |
-| <Acquired>    |               |
+| Acquired      |               |
 |               | y\_wants = 1  |
 |               | x\_wants == 1 |
 
@@ -257,7 +257,7 @@ Dekker's Algorithm is best understood by the interleavings shown below:
 | ------------- | ------------- |
 |               | y\_wants = 1  |
 |               | x\_wants == 0 |
-|               | <Acquired>    |
+|               | Acquired      |
 | x\_wants = 1  |               |
 | y\_wants == 1 |               |
 
