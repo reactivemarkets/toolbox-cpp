@@ -116,7 +116,7 @@ function(install_libraries)
 endfunction()
 
 set(Boost_USE_STATIC_LIBS ON)
-find_package(Boost 1.63 REQUIRED COMPONENTS date_time unit_test_framework)
+find_package(Boost 1.67 REQUIRED COMPONENTS date_time unit_test_framework)
 install_libraries("${Boost_DATE_TIME_LIBRARY}")
 
 add_definitions(-DBOOST_NO_AUTO_PTR=1 -DBOOST_NO_RTTI=1 -DBOOST_NO_TYPEID=1)
@@ -191,9 +191,9 @@ add_subdirectory(image)
 add_subdirectory(toolbox)
 add_subdirectory(example)
 
-set(CPACK_GENERATOR "TGZ;RPM")
+set(CPACK_GENERATOR "TGZ;RPM;DEB")
 
-SET(CPACK_OUTPUT_FILE_PREFIX dist)
+set(CPACK_OUTPUT_FILE_PREFIX dist)
 set(CPACK_PACKAGE_CONTACT "development@reactivemarkets.com")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Toolbox - The Reactive C++ Toolbox")
 set(CPACK_PACKAGE_HOMEPAGE_URL "https://www.reactivemarkets.com")
