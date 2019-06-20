@@ -92,6 +92,7 @@ set(lib_SOURCES
   sys/Time.cpp
   sys/Thread.cpp
   util/Array.cpp
+  util/Benchmark.cpp
   util/Compare.cpp
   util/Config.cpp
   util/Enum.cpp
@@ -225,3 +226,9 @@ foreach(file ${test_SOURCES})
   get_filename_component(name "${file}" NAME_WE)
   add_test(NAME ${dir}::${name}Suite COMMAND toolbox-test -l error -t ${name}Suite)
 endforeach()
+
+add_executable(toolbox-bench
+  util/Utility.bm.cpp
+)
+
+target_link_libraries(toolbox-bench ${toolbox_LIBRARY})

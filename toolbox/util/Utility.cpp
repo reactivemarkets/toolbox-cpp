@@ -23,27 +23,38 @@ namespace toolbox {
 inline namespace util {
 using namespace std;
 
+int dec_digits(int64_t i) noexcept
+{
+    return i < 10000000000 ? i < 100000
+            ? i < 100 ? i < 10 ? 1 : 2 : i < 1000 ? 3 : i < 10000 ? 4 : 5
+            : i < 10000000 ? i < 1000000 ? 6 : 7 : i < 100000000 ? 8 : i < 1000000000 ? 9 : 10
+                           : i < 1000000000000000
+            ? i < 1000000000000 ? i < 100000000000 ? 11 : 12
+                                : i < 10000000000000 ? 13 : i < 100000000000000 ? 14 : 15
+            : i < 100000000000000000 ? i < 10000000000000000 ? 16 : 17
+                                     : i < 1000000000000000000 ? 18 : 19;
+}
+
 int hex_digits(int64_t i) noexcept
 {
-    int n{0};
-    if (i & 0xffffffff00000000) {
-        n += 8;
-        i >>= 32;
-    }
-    if (i & 0xffff0000) {
-        n += 4;
-        i >>= 16;
-    }
-    if (i & 0xff00) {
-        n += 2;
-        i >>= 8;
-    }
-    if (i & 0xf0) {
-        n += 2;
-    } else if (i & 0x0f) {
-        ++n;
-    }
-    return n;
+    // clang-format off
+    return i & 0xffffffff00000000
+        ? i & 0xffff000000000000
+            ? i & 0xff00000000000000
+                ? i & 0xf000000000000000 ? 16:15
+                : i & 0x00f0000000000000 ? 14:13
+            : i & 0xff0000000000
+                ? i & 0xf00000000000 ? 12:11
+                : i & 0x00f000000000 ? 10:9
+        : i & 0xffff0000
+            ? i & 0xff000000
+                ? i & 0xf0000000 ? 8:7
+                : i & 0x00f00000 ? 6:5
+            : i & 0xff00
+                ? i & 0xf000 ? 4:3
+                : i & 0x00f0 ? 2:1
+        ;
+    // clang-format on
 }
 
 bool stob(string_view sv, bool dfl) noexcept

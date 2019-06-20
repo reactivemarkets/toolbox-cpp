@@ -42,6 +42,7 @@ constexpr bool isdigit(int c) noexcept
 }
 static_assert(isdigit('0') && isdigit('9') && !isdigit('A'));
 
+TOOLBOX_API int dec_digits(int64_t i) noexcept;
 TOOLBOX_API int hex_digits(int64_t i) noexcept;
 
 TOOLBOX_API bool stob(std::string_view sv, bool dfl = false) noexcept;
