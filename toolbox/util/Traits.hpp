@@ -45,6 +45,11 @@ struct FunctionTraits<ReturnT (*)(ArgsT...)> {
     using Pack = TemplT<ArgsT...>;
 };
 
+/// Specialisation for noexcept free functions.
+template <typename ReturnT, typename... ArgsT>
+struct FunctionTraits<ReturnT (*)(ArgsT...) noexcept> : FunctionTraits<ReturnT (*)(ArgsT...)> {
+};
+
 /// Specialisation for member functions.
 template <typename ClassT, typename ReturnT, typename... ArgsT>
 struct FunctionTraits<ReturnT (ClassT::*)(ArgsT...)> : FunctionTraits<ReturnT (*)(ArgsT...)> {

@@ -132,6 +132,7 @@ BOOST_AUTO_TEST_CASE(Stou64Case)
 
 BOOST_AUTO_TEST_CASE(HexDigitsCase)
 {
+    BOOST_TEST(hex_digits(0x0) == 1);
     BOOST_TEST(hex_digits(0x1) == 1);
     BOOST_TEST(hex_digits(0xf) == 1);
     BOOST_TEST(hex_digits(0x10) == 2);
@@ -144,6 +145,30 @@ BOOST_AUTO_TEST_CASE(HexDigitsCase)
     BOOST_TEST(hex_digits(0x567890abcdef) == 12);
     BOOST_TEST(hex_digits(0x1000000000000) == 13);
     BOOST_TEST(hex_digits(0x1234567890abcdef) == 16);
+}
+
+BOOST_AUTO_TEST_CASE(DecDigitsCase)
+{
+    BOOST_TEST(dec_digits(0) == 1);
+    BOOST_TEST(dec_digits(1) == 1);
+    BOOST_TEST(dec_digits(10) == 2);
+    BOOST_TEST(dec_digits(100) == 3);
+    BOOST_TEST(dec_digits(1000) == 4);
+    BOOST_TEST(dec_digits(10000) == 5);
+    BOOST_TEST(dec_digits(100000) == 6);
+    BOOST_TEST(dec_digits(1000000) == 7);
+    BOOST_TEST(dec_digits(10000000) == 8);
+    BOOST_TEST(dec_digits(100000000) == 9);
+    BOOST_TEST(dec_digits(1000000000) == 10);
+    BOOST_TEST(dec_digits(10000000000) == 11);
+    BOOST_TEST(dec_digits(100000000000) == 12);
+    BOOST_TEST(dec_digits(1000000000000) == 13);
+    BOOST_TEST(dec_digits(10000000000000) == 14);
+    BOOST_TEST(dec_digits(100000000000000) == 15);
+    BOOST_TEST(dec_digits(1000000000000000) == 16);
+    BOOST_TEST(dec_digits(10000000000000000) == 17);
+    BOOST_TEST(dec_digits(100000000000000000) == 18);
+    BOOST_TEST(dec_digits(1000000000000000000) == 19);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
