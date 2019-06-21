@@ -37,7 +37,7 @@ int Resolver::run(Duration timeout)
         return -1;
     }
     // Copy batch of tasks to temporary buffer.
-    Task tasks[BatchSize];
+    std::array<Task, BatchSize> tasks{};
 
     const auto n = std::min(queue_.size(), BatchSize);
     for (std::size_t i{0}; i < n; ++i) {
