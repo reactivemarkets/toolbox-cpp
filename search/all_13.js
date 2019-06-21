@@ -14,6 +14,7 @@ var searchData=
   ['unspec',['unspec',['../structtoolbox_1_1net_1_1DgramProtocol.html#af14d9aca5f6dae4ad1f52349ba825bf8',1,'toolbox::net::DgramProtocol::unspec()'],['../structtoolbox_1_1net_1_1StreamProtocol.html#a7c54ae5ae8a5c0178b7ae2c477786c6d',1,'toolbox::net::StreamProtocol::unspec()']]],
   ['unsubscribe',['unsubscribe',['../classtoolbox_1_1io_1_1EpollMuxer.html#a60c61fb94c9f237c38b5228f5adb392b',1,'toolbox::io::EpollMuxer']]],
   ['us_5fsince_5fepoch',['us_since_epoch',['../namespacetoolbox_1_1sys.html#a1efb0e8731d54a2ebfc23cf1f5c11280',1,'toolbox::sys']]],
+  ['util_2ehpp',['util.hpp',['../util_8hpp.html',1,'']]],
   ['utility_2ecpp',['Utility.cpp',['../Utility_8cpp.html',1,'']]],
   ['utility_2ehpp',['Utility.hpp',['../Utility_8hpp.html',1,'']]],
   ['utility_2eut_2ecpp',['Utility.ut.cpp',['../Utility_8ut_8cpp.html',1,'']]]

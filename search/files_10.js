@@ -1,11 +1,7 @@
 var searchData=
 [
-  ['variant_2ecpp',['Variant.cpp',['../Variant_8cpp.html',1,'']]],
-  ['variant_2ehpp',['Variant.hpp',['../Variant_8hpp.html',1,'']]],
-  ['varsub_2ecpp',['VarSub.cpp',['../VarSub_8cpp.html',1,'']]],
-  ['varsub_2ehpp',['VarSub.hpp',['../VarSub_8hpp.html',1,'']]],
-  ['varsub_2eut_2ecpp',['VarSub.ut.cpp',['../VarSub_8ut_8cpp.html',1,'']]],
-  ['version_2ecpp',['Version.cpp',['../Version_8cpp.html',1,'']]],
-  ['version_2ehpp',['Version.hpp',['../Version_8hpp.html',1,'']]],
-  ['version_2eut_2ecpp',['Version.ut.cpp',['../Version_8ut_8cpp.html',1,'']]]
+  ['util_2ehpp',['util.hpp',['../util_8hpp.html',1,'']]],
+  ['utility_2ecpp',['Utility.cpp',['../Utility_8cpp.html',1,'']]],
+  ['utility_2ehpp',['Utility.hpp',['../Utility_8hpp.html',1,'']]],
+  ['utility_2eut_2ecpp',['Utility.ut.cpp',['../Utility_8ut_8cpp.html',1,'']]]
 ];
