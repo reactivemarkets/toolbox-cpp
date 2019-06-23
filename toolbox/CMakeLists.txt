@@ -38,6 +38,16 @@ include_directories(SYSTEM
   "${CMAKE_CURRENT_SOURCE_DIR}/contrib")
 
 set(lib_SOURCES
+  http/App.cpp
+  http/Conn.cpp
+  http/Error.cpp
+  http/Exception.cpp
+  http/Parser.cpp
+  http/Request.cpp
+  http/Serv.cpp
+  http/Stream.cpp
+  http/Types.cpp
+  http/Url.cpp
   io/Buffer.cpp
   io/Epoll.cpp
   io/EpollReactor.cpp
@@ -89,6 +99,7 @@ set(lib_SOURCES
   util/Finally.cpp
   util/IntTypes.cpp
   util/Math.cpp
+  util/MemAlloc.cpp
   util/RefCount.cpp
   util/RingBuffer.cpp
   util/Ryu.cpp
@@ -117,6 +128,13 @@ if(TOOLBOX_BUILD_SHARED)
   install(TARGETS toolbox-shared DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT shared)
 endif()
 
+install(FILES http.hpp DESTINATION include/toolbox COMPONENT header)
+install(FILES io.hpp DESTINATION include/toolbox COMPONENT header)
+install(FILES ipc.hpp DESTINATION include/toolbox COMPONENT header)
+install(FILES net.hpp DESTINATION include/toolbox COMPONENT header)
+install(FILES sys.hpp DESTINATION include/toolbox COMPONENT header)
+install(FILES util.hpp DESTINATION include/toolbox COMPONENT header)
+
 foreach(file ${lib_SOURCES})
   get_filename_component(dir  "${file}" DIRECTORY)
   get_filename_component(name "${file}" NAME_WE)
@@ -128,7 +146,15 @@ foreach(file ${lib_SOURCES})
   endif()
 endforeach()
 
+install(FILES contrib/http_parser.h
+  DESTINATION include/toolbox/contrib
+  COMPONENT header
+)
+
 set(test_SOURCES
+  http/Parser.ut.cpp
+  http/Types.ut.cpp
+  http/Url.ut.cpp
   io/Buffer.ut.cpp
   io/EpollReactor.ut.cpp
   io/Handle.ut.cpp
@@ -150,6 +176,7 @@ set(test_SOURCES
   util/Finally.ut.cpp
   util/IntTypes.ut.cpp
   util/Math.ut.cpp
+  util/MemAlloc.ut.cpp
   util/RefCount.ut.cpp
   util/RingBuffer.ut.cpp
   util/Ryu.ut.cpp

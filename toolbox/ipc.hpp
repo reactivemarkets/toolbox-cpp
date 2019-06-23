@@ -14,7 +14,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 #ifndef TOOLBOX_IPC_HPP
 #define TOOLBOX_IPC_HPP
 

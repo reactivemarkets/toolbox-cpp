@@ -14,21 +14,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef TOOLBOX_NET_HPP
-#define TOOLBOX_NET_HPP
+#ifndef TOOLBOX_HTTP_HPP
+#define TOOLBOX_HTTP_HPP
 
-#include "net/DgramSock.hpp"
-#include "net/Endpoint.hpp"
-#include "net/Error.hpp"
-#include "net/IoSock.hpp"
-#include "net/IpAddr.hpp"
-#include "net/McastSock.hpp"
-#include "net/Protocol.hpp"
-#include "net/Resolver.hpp"
-#include "net/Runner.hpp"
-#include "net/Socket.hpp"
-#include "net/StreamAcceptor.hpp"
-#include "net/StreamConnector.hpp"
-#include "net/StreamSock.hpp"
+#include "http/App.hpp"
+#include "http/Conn.hpp"
+#include "http/Error.cpp"
+#include "http/Exception.cpp"
+#include "http/Parser.hpp"
+#include "http/Request.hpp"
+#include "http/Serv.hpp"
+#include "http/Stream.hpp"
+#include "http/Types.hpp"
+#include "http/Url.hpp"
 
-#endif // TOOLBOX_NET_HPP
+#endif // TOOLBOX_HTTP_HPP

@@ -14,7 +14,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 #ifndef TOOLBOX_UTIL_HPP
 #define TOOLBOX_UTIL_HPP
 
@@ -26,20 +25,21 @@
 #include "util/Finally.hpp"
 #include "util/IntTypes.hpp"
 #include "util/Math.hpp"
+#include "util/MemAlloc.hpp"
 #include "util/RefCount.hpp"
 #include "util/RingBuffer.hpp"
 #include "util/Ryu.hpp"
 #include "util/Slot.hpp"
 #include "util/Stream.hpp"
-#include "util/StringBuf.hpp"
 #include "util/String.hpp"
+#include "util/StringBuf.hpp"
 #include "util/Struct.hpp"
 #include "util/Tokeniser.hpp"
 #include "util/Traits.hpp"
 #include "util/TypeTraits.hpp"
 #include "util/Utility.hpp"
-#include "util/Variant.hpp"
 #include "util/VarSub.hpp"
+#include "util/Variant.hpp"
 #include "util/Version.hpp"
 
 #endif // TOOLBOX_UTIL_HPP

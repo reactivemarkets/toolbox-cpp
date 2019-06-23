@@ -16,7 +16,8 @@
 
 set(examples
   toolbox-echo-clnt
-  toolbox-echo-serv)
+  toolbox-echo-serv
+  toolbox-http-serv)
 
 add_custom_target(toolbox-example DEPENDS ${examples})
 
@@ -25,3 +26,6 @@ target_link_libraries(toolbox-echo-clnt ${toolbox_LIBRARY})
 
 add_executable(toolbox-echo-serv EchoServ.cpp)
 target_link_libraries(toolbox-echo-serv ${toolbox_LIBRARY})
+
+add_executable(toolbox-http-serv HttpServ.cpp)
+target_link_libraries(toolbox-http-serv ${toolbox_LIBRARY})

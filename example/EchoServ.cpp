@@ -14,12 +14,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include <toolbox/io/EpollReactor.hpp>
-#include <toolbox/io/Runner.hpp>
-#include <toolbox/net/StreamAcceptor.hpp>
-#include <toolbox/sys/Log.hpp>
-#include <toolbox/sys/Signal.hpp>
-#include <toolbox/util/Tokeniser.hpp>
+#include <toolbox/io.hpp>
+#include <toolbox/net.hpp>
+#include <toolbox/sys.hpp>
+#include <toolbox/util.hpp>
 
 #include <boost/intrusive/list.hpp>
 

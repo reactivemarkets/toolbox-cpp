@@ -14,21 +14,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef TOOLBOX_NET_HPP
-#define TOOLBOX_NET_HPP
+#include "Request.hpp"
 
-#include "net/DgramSock.hpp"
-#include "net/Endpoint.hpp"
-#include "net/Error.hpp"
-#include "net/IoSock.hpp"
-#include "net/IpAddr.hpp"
-#include "net/McastSock.hpp"
-#include "net/Protocol.hpp"
-#include "net/Resolver.hpp"
-#include "net/Runner.hpp"
-#include "net/Socket.hpp"
-#include "net/StreamAcceptor.hpp"
-#include "net/StreamConnector.hpp"
-#include "net/StreamSock.hpp"
+namespace toolbox {
+inline namespace http {
 
-#endif // TOOLBOX_NET_HPP
+HttpRequest::~HttpRequest() = default;
+
+} // namespace http
+} // namespace toolbox
