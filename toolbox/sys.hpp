@@ -14,7 +14,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 #ifndef TOOLBOX_SYS_HPP
 #define TOOLBOX_SYS_HPP
 

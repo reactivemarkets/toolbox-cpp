@@ -14,21 +14,31 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef TOOLBOX_NET_HPP
-#define TOOLBOX_NET_HPP
+#ifndef TOOLBOX_HTTP_EXCEPTION_HPP
+#define TOOLBOX_HTTP_EXCEPTION_HPP
 
-#include "net/DgramSock.hpp"
-#include "net/Endpoint.hpp"
-#include "net/Error.hpp"
-#include "net/IoSock.hpp"
-#include "net/IpAddr.hpp"
-#include "net/McastSock.hpp"
-#include "net/Protocol.hpp"
-#include "net/Resolver.hpp"
-#include "net/Runner.hpp"
-#include "net/Socket.hpp"
-#include "net/StreamAcceptor.hpp"
-#include "net/StreamConnector.hpp"
-#include "net/StreamSock.hpp"
+#include <toolbox/http/Error.hpp>
+#include <toolbox/util/Exception.hpp>
 
-#endif // TOOLBOX_NET_HPP
+namespace toolbox {
+inline namespace http {
+
+struct TOOLBOX_API HttpException : Exception {
+    explicit HttpException(HttpStatus status)
+    : Exception{status}
+    {
+    }
+    HttpException(HttpStatus status, std::string_view what)
+    : Exception{status, what}
+    {
+    }
+    ~HttpException() override;
+
+  protected:
+    using Exception::Exception;
+};
+
+} // namespace http
+} // namespace toolbox
+
+#endif // TOOLBOX_HTTP_EXCEPTION_HPP

@@ -22,11 +22,12 @@ if(DOT_EXECUTABLE)
   message(STATUS "Dot found: ${DOT_EXECUTABLE}")
 
   set(names
+    util
+    sys
     io
     ipc
     net
-    sys
-    util
+    http
   )
 
   foreach(name ${names})

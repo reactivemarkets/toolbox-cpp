@@ -14,3 +14,6 @@
 
 ## Net Package
 ![Net Package](@ref toolbox-net.png)
+
+## Http Package
+![Http Package](@ref toolbox-http.png)

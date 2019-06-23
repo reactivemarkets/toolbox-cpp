@@ -40,7 +40,7 @@ inline int futex(int& uaddr, int futex_op, int val, const timespec* timeout = nu
 /// This operation wakes \p n waiters at most that are waiting (e.g., inside `FUTEX_WAIT`) on the
 /// futex word at the address \p uaddr.
 ///
-/// \returns the number of waiters that were woken up.
+/// \return the number of waiters that were woken up.
 inline int futex_notify(int& uaddr, int n, std::error_code& ec) noexcept
 {
     const auto ret = detail::futex(uaddr, FUTEX_WAKE, n);
@@ -53,7 +53,7 @@ inline int futex_notify(int& uaddr, int n, std::error_code& ec) noexcept
 /// This operation wakes \p n waiters at most that are waiting (e.g., inside `FUTEX_WAIT`) on the
 /// futex word at the address \p uaddr.
 ///
-/// \returns the number of waiters that were woken up.
+/// \return the number of waiters that were woken up.
 inline int futex_notify(int& uaddr, int n)
 {
     const auto ret = detail::futex(uaddr, FUTEX_WAKE, n);
@@ -66,7 +66,7 @@ inline int futex_notify(int& uaddr, int n)
 /// This operation wakes all waiters that are waiting (e.g., inside `FUTEX_WAIT`) on the futex word
 /// at the address \p uaddr.
 ///
-/// \returns the number of waiters that were woken up.
+/// \return the number of waiters that were woken up.
 inline int futex_notify_all(int& uaddr, std::error_code& ec) noexcept
 {
     return futex_notify(uaddr, std::numeric_limits<int>::max(), ec);
@@ -75,7 +75,7 @@ inline int futex_notify_all(int& uaddr, std::error_code& ec) noexcept
 /// This operation wakes all waiters that are waiting (e.g., inside `FUTEX_WAIT`) on the futex word
 /// at the address \p uaddr.
 ///
-/// \returns the number of waiters that were woken up.
+/// \return the number of waiters that were woken up.
 inline int futex_notify_all(int& uaddr)
 {
     return futex_notify(uaddr, std::numeric_limits<int>::max());
@@ -84,7 +84,7 @@ inline int futex_notify_all(int& uaddr)
 /// This operation wakes at most a single waiter that is waiting (e.g., inside `FUTEX_WAIT`) on the
 /// futex word at the address \p uaddr.
 ///
-/// \returns the number of waiters that were woken up.
+/// \return the number of waiters that were woken up.
 inline int futex_notify_one(int& uaddr, std::error_code& ec) noexcept
 {
     return futex_notify(uaddr, 1, ec);
@@ -93,7 +93,7 @@ inline int futex_notify_one(int& uaddr, std::error_code& ec) noexcept
 /// This operation wakes at most a single waiter that is waiting (e.g., inside `FUTEX_WAIT`) on the
 /// futex word at the address \p uaddr.
 ///
-/// \returns the number of waiters that were woken up.
+/// \return the number of waiters that were woken up.
 inline int futex_notify_one(int& uaddr)
 {
     return futex_notify(uaddr, 1);
@@ -114,7 +114,7 @@ inline void futex_wait(int& uaddr, int expected, std::error_code& ec) noexcept
 /// contains the \p expected value, and if so, then sleeps waiting for a `FUTEX_WAKE` operation on
 /// the futex word.
 ///
-/// \returns false if the futex value does not match \p expected.
+/// \return false if the futex value does not match \p expected.
 inline bool futex_wait(int& uaddr, int expected)
 {
     if (detail::futex(uaddr, FUTEX_WAIT, expected) < 0) {
