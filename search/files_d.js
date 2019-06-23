@@ -6,6 +6,8 @@ var searchData=
   ['refcount_2ecpp',['RefCount.cpp',['../RefCount_8cpp.html',1,'']]],
   ['refcount_2ehpp',['RefCount.hpp',['../RefCount_8hpp.html',1,'']]],
   ['refcount_2eut_2ecpp',['RefCount.ut.cpp',['../RefCount_8ut_8cpp.html',1,'']]],
+  ['request_2ecpp',['Request.cpp',['../Request_8cpp.html',1,'']]],
+  ['request_2ehpp',['Request.hpp',['../Request_8hpp.html',1,'']]],
   ['resolver_2ecpp',['Resolver.cpp',['../Resolver_8cpp.html',1,'']]],
   ['resolver_2ehpp',['Resolver.hpp',['../Resolver_8hpp.html',1,'']]],
   ['resolver_2eut_2ecpp',['Resolver.ut.cpp',['../Resolver_8ut_8cpp.html',1,'']]],

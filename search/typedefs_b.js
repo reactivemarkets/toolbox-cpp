@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['ostreamjoiner',['OStreamJoiner',['../namespacetoolbox_1_1util.html#a33f065adac243948f57cc49a55bbf348',1,'toolbox::util']]]
+  ['nanos',['Nanos',['../namespacetoolbox_1_1sys.html#a982f28e6caaaa07ee95deca8f662b6ef',1,'toolbox::sys']]],
+  ['nanotime',['NanoTime',['../namespacetoolbox_1_1sys.html#acfccec6381072b1852453855e64a7e7c',1,'toolbox::sys']]]
 ];

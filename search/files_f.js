@@ -16,6 +16,9 @@ var searchData=
   ['traits_2ecpp',['Traits.cpp',['../Traits_8cpp.html',1,'']]],
   ['traits_2ehpp',['Traits.hpp',['../Traits_8hpp.html',1,'']]],
   ['traits_2eut_2ecpp',['Traits.ut.cpp',['../Traits_8ut_8cpp.html',1,'']]],
+  ['types_2ecpp',['Types.cpp',['../Types_8cpp.html',1,'']]],
+  ['types_2ehpp',['Types.hpp',['../Types_8hpp.html',1,'']]],
+  ['types_2eut_2ecpp',['Types.ut.cpp',['../Types_8ut_8cpp.html',1,'']]],
   ['typetraits_2ecpp',['TypeTraits.cpp',['../TypeTraits_8cpp.html',1,'']]],
   ['typetraits_2ehpp',['TypeTraits.hpp',['../TypeTraits_8hpp.html',1,'']]]
 ];

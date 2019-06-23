@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['main',['main',['../EchoClnt_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;EchoClnt.cpp'],['../EchoServ_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;EchoServ.cpp']]],
+  ['main',['main',['../EchoClnt_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;EchoClnt.cpp'],['../EchoServ_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;EchoServ.cpp'],['../HttpServ_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;HttpServ.cpp']]],
   ['make_5farray_5fview',['make_array_view',['../namespacetoolbox_1_1util.html#aea6e9da7ae1d07fe891ff6bd56cb09f0',1,'toolbox::util::make_array_view(const ValueT *ptr, std::size_t len) noexcept'],['../namespacetoolbox_1_1util.html#ab087d75dc13af66e514617e46fe17b10',1,'toolbox::util::make_array_view(ValueT(&amp;arr)[SizeN]) noexcept']]],
+  ['make_5ferror_5fcode',['make_error_code',['../namespacetoolbox_1_1http.html#af2d983d242eb7f7e89018081edca6f83',1,'toolbox::http']]],
   ['make_5ffinally',['make_finally',['../namespacetoolbox_1_1util.html#a18673d04b2024aa477fc59b3d20b7695',1,'toolbox::util']]],
   ['make_5fgai_5ferror_5fcode',['make_gai_error_code',['../namespacetoolbox_1_1net.html#a63aebb6a507a4f9c79db7574c4a83e45',1,'toolbox::net']]],
   ['make_5fintrusive',['make_intrusive',['../namespacetoolbox_1_1util.html#a74137e3ac6ec59cecfe100bc5c197689',1,'toolbox::util']]],
@@ -13,6 +14,7 @@ var searchData=
   ['mcastsock',['McastSock',['../structtoolbox_1_1net_1_1McastSock.html#ac5595571e947f51957e4fe0ac3029e0f',1,'toolbox::net::McastSock::McastSock(Protocol protocol, std::error_code &amp;ec) noexcept'],['../structtoolbox_1_1net_1_1McastSock.html#a83d417f36037baee25b17e0a41532ee7',1,'toolbox::net::McastSock::McastSock(Protocol protocol)'],['../structtoolbox_1_1net_1_1McastSock.html#a1945c1cadd85299747d37cbb1da32f23',1,'toolbox::net::McastSock::McastSock() noexcept=default']]],
   ['mean',['mean',['../classtoolbox_1_1util_1_1VarAccum.html#ab179d5f739eff565fd94d8ec23d0b665',1,'toolbox::util::VarAccum']]],
   ['member',['Member',['../structtoolbox_1_1util_1_1detail_1_1Member.html#a0c05d54b7d892f82652fce990c8e349b',1,'toolbox::util::detail::Member']]],
+  ['method',['method',['../classtoolbox_1_1http_1_1BasicHttpParser.html#a73561dc5c81a8b73d122b8afc2ed0f63',1,'toolbox::http::BasicHttpParser::method()'],['../classtoolbox_1_1http_1_1HttpRequest.html#a09f26c82614d9cd3608700b53bc1fb93',1,'toolbox::http::HttpRequest::method()']]],
   ['min',['min',['../structtoolbox_1_1util_1_1IntPolicy.html#aac420b6cfce39e46691d76ffdab1f62f',1,'toolbox::util::IntPolicy::min()'],['../structtoolbox_1_1util_1_1IntWrapper.html#aa09e3863b704c7985d1821622b06e0d8',1,'toolbox::util::IntWrapper::min()'],['../classtoolbox_1_1util_1_1VarAccum.html#ac0004d7ce07caac43e04723e8667b17b',1,'toolbox::util::VarAccum::min()']]],
   ['mjd_5fto_5fjd',['mjd_to_jd',['../namespacetoolbox_1_1sys.html#a9364e295172a41c9272eebafef715f05',1,'toolbox::sys']]],
   ['mmap',['mmap',['../namespacetoolbox_1_1os.html#a00410c9868ab7d3b8761f57fd3b70d92',1,'toolbox::os::mmap(void *addr, size_t len, int prot, int flags, int fd, off_t off, std::error_code &amp;ec) noexcept'],['../namespacetoolbox_1_1os.html#ae4ceee628d5400c6f6e93e91bc3264fe',1,'toolbox::os::mmap(void *addr, size_t len, int prot, int flags, int fd, off_t off)']]],

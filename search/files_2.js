@@ -8,5 +8,7 @@ var searchData=
   ['config_2eh',['Config.h',['../Config_8h.html',1,'']]],
   ['config_2ehpp',['Config.hpp',['../Config_8hpp.html',1,'']]],
   ['config_2eut_2ecpp',['Config.ut.cpp',['../Config_8ut_8cpp.html',1,'']]],
+  ['conn_2ecpp',['Conn.cpp',['../Conn_8cpp.html',1,'']]],
+  ['conn_2ehpp',['Conn.hpp',['../Conn_8hpp.html',1,'']]],
   ['contributing_2emd',['CONTRIBUTING.md',['../CONTRIBUTING_8md.html',1,'']]]
 ];

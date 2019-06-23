@@ -1,6 +1,7 @@
 var searchData=
 [
   ['mcastsock',['McastSock',['../structtoolbox_1_1net_1_1McastSock.html',1,'toolbox::net']]],
+  ['memalloc',['MemAlloc',['../structtoolbox_1_1util_1_1MemAlloc.html',1,'toolbox::util']]],
   ['member',['Member',['../structtoolbox_1_1util_1_1detail_1_1Member.html',1,'toolbox::util::detail']]],
   ['mmapdeleter',['MmapDeleter',['../structtoolbox_1_1ipc_1_1MmapDeleter.html',1,'toolbox::ipc']]],
   ['mmappointer',['MmapPointer',['../classtoolbox_1_1ipc_1_1MmapPointer.html',1,'toolbox::ipc']]],

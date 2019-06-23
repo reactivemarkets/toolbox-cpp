@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['value_5ftype',['value_type',['../classtoolbox_1_1util_1_1ArrayView.html#a2f42774104954d981f6f7cd34d888e23',1,'toolbox::util::ArrayView']]],
-  ['valuetype',['ValueType',['../structtoolbox_1_1util_1_1IntPolicy.html#ade0bf144c40a316b83df83c49460454f',1,'toolbox::util::IntPolicy::ValueType()'],['../structtoolbox_1_1util_1_1IntWrapper.html#a70bc524136ec3ada22de54944021f452',1,'toolbox::util::IntWrapper::ValueType()']]]
+  ['udpendpoint',['UdpEndpoint',['../namespacetoolbox_1_1net.html#ad241f41f7c610ff4aebb891762a75f7f',1,'toolbox::net']]],
+  ['unixdgramendpoint',['UnixDgramEndpoint',['../namespacetoolbox_1_1net.html#a04b157dc73a63db2390e0b0516fa73fd',1,'toolbox::net']]],
+  ['unixendpoint',['UnixEndpoint',['../namespacetoolbox_1_1net.html#a9ce69a6b140f3a87dceed7f9a7a3a4dc',1,'toolbox::net']]],
+  ['unixstreamendpoint',['UnixStreamEndpoint',['../namespacetoolbox_1_1net.html#aa7e77fa5f213e765e679341650ead9e8',1,'toolbox::net']]]
 ];

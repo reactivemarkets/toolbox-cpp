@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['ref_5fcount',['ref_count',['../structtoolbox_1_1io_1_1Timer_1_1Impl.html#ad730b7b971a011971db62a3bc9e70b5c',1,'toolbox::io::Timer::Impl']]],
-  ['rpos',['rpos',['../structtoolbox_1_1ipc_1_1MpmcQueue_1_1Impl.html#a5a9f49afc690a225af1728fec77ca294',1,'toolbox::ipc::MpmcQueue::Impl']]]
+  ['major',['major',['../structtoolbox_1_1util_1_1Version.html#a548e8d4ebc90834d96e68708fc8ccd11',1,'toolbox::util::Version']]],
+  ['maxerrsize',['MaxErrSize',['../namespacetoolbox_1_1util.html#ab588e9899a383d1ab776239feded256b',1,'toolbox::util']]],
+  ['maxryubuf',['MaxRyuBuf',['../namespacetoolbox_1_1util.html#ad134e0e14ab465da57c11932ae97a99a',1,'toolbox::util']]],
+  ['minor',['minor',['../structtoolbox_1_1util_1_1Version.html#a394cd71cea20cfe7aa61011370b5bc49',1,'toolbox::util::Version']]]
 ];

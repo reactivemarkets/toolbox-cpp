@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['info',['Info',['../classtoolbox_1_1sys_1_1Log.html#a2808c4de7e3c9a97aa02d977b29645a8a8b57c2411005f1c8c6476d40b634b5aa',1,'toolbox::sys::Log']]]
+  ['head',['Head',['../namespacetoolbox_1_1http.html#a1090dccc3a45f4f6ba45d0d80cb77fdaa98921133d10fbdb0fb6dbb7b2648befe',1,'toolbox::http']]],
+  ['high',['High',['../namespacetoolbox_1_1io.html#a3ebeb41d6195a7beeb4a1734379c4684a655d20c1ca69519ca647684edbb2db35',1,'toolbox::io']]]
 ];

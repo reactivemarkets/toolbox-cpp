@@ -13,13 +13,13 @@ var searchData=
   ['epollreactor_2ecpp',['EpollReactor.cpp',['../EpollReactor_8cpp.html',1,'']]],
   ['epollreactor_2ehpp',['EpollReactor.hpp',['../EpollReactor_8hpp.html',1,'']]],
   ['epollreactor_2eut_2ecpp',['EpollReactor.ut.cpp',['../EpollReactor_8ut_8cpp.html',1,'']]],
-  ['error_2ecpp',['Error.cpp',['../net_2Error_8cpp.html',1,'(Global Namespace)'],['../sys_2Error_8cpp.html',1,'(Global Namespace)']]],
-  ['error_2ehpp',['Error.hpp',['../net_2Error_8hpp.html',1,'(Global Namespace)'],['../sys_2Error_8hpp.html',1,'(Global Namespace)']]],
+  ['error_2ecpp',['Error.cpp',['../http_2Error_8cpp.html',1,'(Global Namespace)'],['../net_2Error_8cpp.html',1,'(Global Namespace)'],['../sys_2Error_8cpp.html',1,'(Global Namespace)']]],
+  ['error_2ehpp',['Error.hpp',['../http_2Error_8hpp.html',1,'(Global Namespace)'],['../net_2Error_8hpp.html',1,'(Global Namespace)'],['../sys_2Error_8hpp.html',1,'(Global Namespace)']]],
   ['event_2ecpp',['Event.cpp',['../Event_8cpp.html',1,'']]],
   ['event_2ehpp',['Event.hpp',['../Event_8hpp.html',1,'']]],
   ['eventfd_2ecpp',['EventFd.cpp',['../EventFd_8cpp.html',1,'']]],
   ['eventfd_2ehpp',['EventFd.hpp',['../EventFd_8hpp.html',1,'']]],
-  ['exception_2ecpp',['Exception.cpp',['../Exception_8cpp.html',1,'']]],
-  ['exception_2ehpp',['Exception.hpp',['../Exception_8hpp.html',1,'']]],
+  ['exception_2ecpp',['Exception.cpp',['../http_2Exception_8cpp.html',1,'(Global Namespace)'],['../util_2Exception_8cpp.html',1,'(Global Namespace)']]],
+  ['exception_2ehpp',['Exception.hpp',['../http_2Exception_8hpp.html',1,'(Global Namespace)'],['../util_2Exception_8hpp.html',1,'(Global Namespace)']]],
   ['exception_2eut_2ecpp',['Exception.ut.cpp',['../Exception_8ut_8cpp.html',1,'']]]
 ];
