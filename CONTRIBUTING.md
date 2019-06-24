@@ -44,8 +44,17 @@ We actively welcome your pull requests.
 
 ## Coding Style
 
-Please follow [CppCoreGuidelines](https://github.com/isocpp/CppCoreGuidelines) for anything not
-covered in this section.
+Follow [CppCoreGuidelines](https://github.com/isocpp/CppCoreGuidelines) for anything not covered in
+this section.
+
+[Go Proverbs](https://go-proverbs.github.io/) also offers some great advice:
+
+- The bigger the interface, the weaker the abstraction.
+- Make the zero value useful.
+- A little copying is better than a little dependency.
+- Clear is better than clever.
+- Design the architecture, name the components, document the details.
+- Documentation is for users.
 
 ### Filenames
 
@@ -116,6 +125,13 @@ below formats without a spurious capital letter mid-message.
 ```c++
 TOOLBOX_ERROR << "exception: " << e.what();
 ```
+
+### Logging
+
+Long running applications and services should log exceptional conditions and life-cycle events.
+Logging in library code, where the run-time context is often unknown, is generally frowned upon and
+should be kept to a minimum. Log files should be kept clean and readable; they should not be used to
+trace the normal flow of execution in production code.
 
 ## License
 
