@@ -95,7 +95,16 @@ $(function() {
 <li>run <code>clang-format</code> on your changes.</li>
 </ol>
 <h2>Coding Style</h2>
-<p>Please follow <a href="https://github.com/isocpp/CppCoreGuidelines">CppCoreGuidelines</a> for anything not covered in this section.</p>
+<p>Follow <a href="https://github.com/isocpp/CppCoreGuidelines">CppCoreGuidelines</a> for anything not covered in this section.</p>
+<p><a href="https://go-proverbs.github.io/">Go Proverbs</a> also offers some great advice:</p>
+<ul>
+<li>The bigger the interface, the weaker the abstraction.</li>
+<li>Make the zero value useful.</li>
+<li>A little copying is better than a little dependency.</li>
+<li>Clear is better than clever.</li>
+<li>Design the architecture, name the components, document the details.</li>
+<li>Documentation is for users.</li>
+</ul>
 <h3>Filenames</h3>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/CamelCase">CamelCase</a> filenames;</li>
@@ -137,7 +146,9 @@ $(function() {
 <p>Comments documenting declarations should be full sentences, even if that seems a little redundant. This approach makes them format well when extracted into Doxygen documentation.</p>
 <h3>Exceptions</h3>
 <p>Exception messages should not be capitalised (unless beginning with proper nouns or acronyms) or end with punctuation, since they are usually printed following other context. That is, use <code>throw runtime_error{"something bad"}</code> not <code>throw runtime_error{"Something bad"}</code>, so that the example below formats without a spurious capital letter mid-message.</p>
-<div class="fragment"><div class="line">{c++}</div><div class="line">TOOLBOX_ERROR &lt;&lt; &quot;exception: &quot; &lt;&lt; e.what();</div></div><!-- fragment --><h2>License</h2>
+<div class="fragment"><div class="line">{c++}</div><div class="line">TOOLBOX_ERROR &lt;&lt; &quot;exception: &quot; &lt;&lt; e.what();</div></div><!-- fragment --><h3>Logging</h3>
+<p>Long running applications and services should log exceptional conditions and life-cycle events. Logging in library code, where the run-time context is often unknown, is generally frowned upon and should be kept to a minimum. Log files should be kept clean and readable; they should not be used to trace the normal flow of execution in production code.</p>
+<h2>License</h2>
 <p>By contributing to Toolbox, you agree that your contributions will be licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. A copy of the license is available in the <a class="el" href="md_LICENSE.html">LICENSE.md</a> file in the root directory of this source tree. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
