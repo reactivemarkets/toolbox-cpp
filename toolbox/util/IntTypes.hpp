@@ -35,6 +35,7 @@ struct IntPolicy {
     static constexpr ValueT min() noexcept { return std::numeric_limits<ValueT>::min(); }
     static constexpr ValueT max() noexcept { return std::numeric_limits<ValueT>::max(); }
 };
+using Int16Policy = IntPolicy<std::int16_t>;
 using Int32Policy = IntPolicy<std::int32_t>;
 using Int64Policy = IntPolicy<std::int64_t>;
 
@@ -283,6 +284,7 @@ struct TOOLBOX_PACKED IntWrapper : IntBase {
     ValueType value_;
 };
 static_assert(std::is_pod_v<IntWrapper<Int32Policy>>);
+static_assert(sizeof(IntWrapper<Int16Policy>) == 2, "must be specific size");
 static_assert(sizeof(IntWrapper<Int32Policy>) == 4, "must be specific size");
 static_assert(sizeof(IntWrapper<Int64Policy>) == 8, "must be specific size");
 
@@ -305,10 +307,20 @@ struct TypeTraits<ValueT, std::enable_if_t<is_int_wrapper<ValueT>>> {
     }
 };
 
+struct Id16Policy : Int16Policy {
+};
 struct Id32Policy : Int32Policy {
 };
 struct Id64Policy : Int64Policy {
 };
+
+/// 16 bit identifier.
+using Id16 = IntWrapper<Id16Policy>;
+
+constexpr Id16 operator""_id16(unsigned long long val) noexcept
+{
+    return Id16{val};
+}
 
 /// 32 bit identifier.
 using Id32 = IntWrapper<Id32Policy>;
