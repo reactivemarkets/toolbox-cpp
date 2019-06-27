@@ -94,6 +94,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1TypeTraits_3_01ValueT_00_01std_1_1enable__if__t_3_01is__int__wrapper_3_01ValueT_01_4_01_4_01_4.html">toolbox::util::TypeTraits&lt; ValueT, std::enable_if_t&lt; is_int_wrapper&lt; ValueT &gt; &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1Id16Policy.html">toolbox::util::Id16Policy</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1Id32Policy.html">toolbox::util::Id32Policy</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1Id64Policy.html">toolbox::util::Id64Policy</a></td></tr>
@@ -110,10 +112,15 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr class="memitem:a4170773b23543d06eb783e2223cf31e6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a4170773b23543d06eb783e2223cf31e6">toolbox::util::Int16Policy</a> = IntPolicy&lt; std::int16_t &gt;</td></tr>
+<tr class="separator:a4170773b23543d06eb783e2223cf31e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3e55e5995d31f757352d2e6f34f1a56"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#ad3e55e5995d31f757352d2e6f34f1a56">toolbox::util::Int32Policy</a> = IntPolicy&lt; std::int32_t &gt;</td></tr>
 <tr class="separator:ad3e55e5995d31f757352d2e6f34f1a56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09eaaab03b9ea89becb2f7a14ba7cc03"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a09eaaab03b9ea89becb2f7a14ba7cc03">toolbox::util::Int64Policy</a> = IntPolicy&lt; std::int64_t &gt;</td></tr>
 <tr class="separator:a09eaaab03b9ea89becb2f7a14ba7cc03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a391cdee9dc372d31c18400ae5d94d29a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a391cdee9dc372d31c18400ae5d94d29a">toolbox::util::Id16</a> = IntWrapper&lt; Id16Policy &gt;</td></tr>
+<tr class="memdesc:a391cdee9dc372d31c18400ae5d94d29a"><td class="mdescLeft">&#160;</td><td class="mdescRight">16 bit identifier.  <a href="namespacetoolbox_1_1util.html#a391cdee9dc372d31c18400ae5d94d29a">More...</a><br /></td></tr>
+<tr class="separator:a391cdee9dc372d31c18400ae5d94d29a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a749987a235b61b098b59fd6c38ed40"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a3a749987a235b61b098b59fd6c38ed40">toolbox::util::Id32</a> = IntWrapper&lt; Id32Policy &gt;</td></tr>
 <tr class="memdesc:a3a749987a235b61b098b59fd6c38ed40"><td class="mdescLeft">&#160;</td><td class="mdescRight">32 bit identifier.  <a href="namespacetoolbox_1_1util.html#a3a749987a235b61b098b59fd6c38ed40">More...</a><br /></td></tr>
 <tr class="separator:a3a749987a235b61b098b59fd6c38ed40"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,6 +133,8 @@ Functions</h2></td></tr>
 <tr class="memitem:a1775b7b35698b2e5c2c5d6606d600cf8"><td class="memTemplParams" colspan="2">template&lt;typename PolicyT &gt; </td></tr>
 <tr class="memitem:a1775b7b35698b2e5c2c5d6606d600cf8"><td class="memTemplItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a1775b7b35698b2e5c2c5d6606d600cf8">toolbox::util::hash_value</a> (IntWrapper&lt; PolicyT &gt; wrapper)</td></tr>
 <tr class="separator:a1775b7b35698b2e5c2c5d6606d600cf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedc3b0f89c122b2a84ee03d1e0112f41"><td class="memItemLeft" align="right" valign="top">constexpr Id16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#aedc3b0f89c122b2a84ee03d1e0112f41">toolbox::util::operator&quot;&quot;_id16</a> (unsigned long long val) noexcept</td></tr>
+<tr class="separator:aedc3b0f89c122b2a84ee03d1e0112f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af94d490efece20f8e0345c2b4cd1cf1d"><td class="memItemLeft" align="right" valign="top">constexpr Id32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#af94d490efece20f8e0345c2b4cd1cf1d">toolbox::util::operator&quot;&quot;_id32</a> (unsigned long long val) noexcept</td></tr>
 <tr class="separator:af94d490efece20f8e0345c2b4cd1cf1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67f8e1a7d56f7b3460d092eedf3d0d73"><td class="memItemLeft" align="right" valign="top">constexpr Id64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a67f8e1a7d56f7b3460d092eedf3d0d73">toolbox::util::operator&quot;&quot;_id64</a> (unsigned long long val) noexcept</td></tr>

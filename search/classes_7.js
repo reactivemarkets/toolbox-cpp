@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['id16policy',['Id16Policy',['../structtoolbox_1_1util_1_1Id16Policy.html',1,'toolbox::util']]],
   ['id32policy',['Id32Policy',['../structtoolbox_1_1util_1_1Id32Policy.html',1,'toolbox::util']]],
   ['id64policy',['Id64Policy',['../structtoolbox_1_1util_1_1Id64Policy.html',1,'toolbox::util']]],
   ['impl',['Impl',['../structtoolbox_1_1io_1_1Timer_1_1Impl.html',1,'toolbox::io::Timer::Impl'],['../structtoolbox_1_1ipc_1_1MpmcQueue_1_1Impl.html',1,'toolbox::ipc::MpmcQueue&lt; ValueT &gt;::Impl']]],

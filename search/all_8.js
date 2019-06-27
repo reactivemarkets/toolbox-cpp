@@ -1,6 +1,8 @@
 var searchData=
 [
   ['id',['Id',['../classtoolbox_1_1io_1_1BasicHandle.html#a8d9e937bf769ebc61782fbd96b4e588c',1,'toolbox::io::BasicHandle::Id()'],['../structtoolbox_1_1io_1_1FilePolicy.html#a8efc39fdb122177561a2be7c8b16d13a',1,'toolbox::io::FilePolicy::Id()'],['../structtoolbox_1_1ipc_1_1ShmPolicy.html#a0264a7b5efbb4ff9b9749e59d61d377e',1,'toolbox::ipc::ShmPolicy::Id()'],['../structtoolbox_1_1sys_1_1MonoClock.html#a0b59acb57c5dac21774753d15df2bff1',1,'toolbox::sys::MonoClock::Id()'],['../structtoolbox_1_1sys_1_1WallClock.html#a884c180af4e57c13e634158f7e5e51b3',1,'toolbox::sys::WallClock::Id()'],['../structtoolbox_1_1io_1_1Timer_1_1Impl.html#a68cb43299e3330f8d988339762198daf',1,'toolbox::io::Timer::Impl::id()'],['../classtoolbox_1_1io_1_1Timer.html#a7fdabe26998aaec71a1c5989b7c15cbc',1,'toolbox::io::Timer::id()']]],
+  ['id16',['Id16',['../namespacetoolbox_1_1util.html#a391cdee9dc372d31c18400ae5d94d29a',1,'toolbox::util']]],
+  ['id16policy',['Id16Policy',['../structtoolbox_1_1util_1_1Id16Policy.html',1,'toolbox::util']]],
   ['id32',['Id32',['../namespacetoolbox_1_1util.html#a3a749987a235b61b098b59fd6c38ed40',1,'toolbox::util']]],
   ['id32policy',['Id32Policy',['../structtoolbox_1_1util_1_1Id32Policy.html',1,'toolbox::util']]],
   ['id64',['Id64',['../namespacetoolbox_1_1util.html#a28d032cfe7fdd88ce36331647850c7df',1,'toolbox::util']]],
@@ -9,6 +11,7 @@ var searchData=
   ['impl',['Impl',['../structtoolbox_1_1io_1_1Timer_1_1Impl.html',1,'toolbox::io::Timer::Impl'],['../structtoolbox_1_1ipc_1_1MpmcQueue_1_1Impl.html',1,'toolbox::ipc::MpmcQueue&lt; ValueT &gt;::Impl']]],
   ['info',['Info',['../classtoolbox_1_1sys_1_1Log.html#a197218eb4d0ca7ff10b922b5d3914e9da8b57c2411005f1c8c6476d40b634b5aa',1,'toolbox::sys::Log']]],
   ['insert',['insert',['../classtoolbox_1_1io_1_1TimerQueue.html#a8e5cfbac369f2900fbc20cda5b7e9674',1,'toolbox::io::TimerQueue::insert(MonoTime expiry, Duration interval, TimerSlot slot)'],['../classtoolbox_1_1io_1_1TimerQueue.html#a281b90ab2c57af6ed0ac60858077c062',1,'toolbox::io::TimerQueue::insert(MonoTime expiry, TimerSlot slot)']]],
+  ['int16policy',['Int16Policy',['../namespacetoolbox_1_1util.html#a4170773b23543d06eb783e2223cf31e6',1,'toolbox::util']]],
   ['int32policy',['Int32Policy',['../namespacetoolbox_1_1util.html#ad3e55e5995d31f757352d2e6f34f1a56',1,'toolbox::util']]],
   ['int64policy',['Int64Policy',['../namespacetoolbox_1_1util.html#a09eaaab03b9ea89becb2f7a14ba7cc03',1,'toolbox::util']]],
   ['intbase',['IntBase',['../structtoolbox_1_1util_1_1IntBase.html',1,'toolbox::util']]],
