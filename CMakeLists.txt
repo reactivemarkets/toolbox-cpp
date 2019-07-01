@@ -46,12 +46,18 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer -fsa
 set(CMAKE_C_FLAGS_PERF   "${CMAKE_C_FLAGS_RELEASE} -fno-omit-frame-pointer")
 set(CMAKE_CXX_FLAGS_PERF "${CMAKE_CXX_FLAGS_RELEASE} -fno-omit-frame-pointer")
 
+# Coverage build
+set(CMAKE_C_FLAGS_COVERAGE "${CMAKE_C_FLAGS_DEBUG} -fprofile-arcs -ftest-coverage")
+set(CMAKE_CXX_FLAGS_COVERAGE "${CMAKE_CXX_FLAGS_DEBUG} -fprofile-arcs -ftest-coverage")
+
+
 if(NOT CMAKE_BUILD_TYPE)
   #set(CMAKE_BUILD_TYPE DEBUG)
   #set(CMAKE_BUILD_TYPE RELEASE)
-  set(CMAKE_BUILD_TYPE RELWITHDEBINFO)
+  set(CMAKE_BUILD_TYPE RELWITHDEBINFO CACHE STRING "Choose the type of build : DEBUG, RELEASE, RELWITHDEBINFO*, MINSIZEREL PERF COVERAGE" FORCE)
   #set(CMAKE_BUILD_TYPE MINSIZEREL)
   #set(CMAKE_BUILD_TYPE PERF)
+  #set(CMAKE_BUILD_TYPE COVERAGE)
 endif()
 
 message(STATUS "Build architecture: ${TOOLBOX_BUILD_ARCH}")
