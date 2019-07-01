@@ -151,6 +151,30 @@ install(FILES contrib/http_parser.h
   COMPONENT header
 )
 
+if(${CMAKE_CXX_COMPILER_ID} MATCHES GNU AND ${CMAKE_BUILD_TYPE} MATCHES COVERAGE)
+  find_program (gcovr gcovr)
+  if (gcovr)
+      message (STATUS "Enabled coverage report generation target 'gcovr'")
+      add_custom_target (gcovr
+          COMMENT "Generating coverage report: ${CMAKE_BINARY_DIR}/gcovr/index.html"
+          COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_BINARY_DIR}/gcovr
+          COMMAND ${gcovr} --root             ${CMAKE_SOURCE_DIR}/toolbox
+            --exclude          ${CMAKE_SOURCE_DIR}/toolbox/contrib
+            --exclude          ${CMAKE_BINARY_DIR}
+            --object-directory ${CMAKE_BINARY_DIR}
+            --output           ${CMAKE_BINARY_DIR}/gcovr/index.html
+            --html
+            --html-details
+            --html-title "ToolBox Coverage Report"
+            --sort-uncovered
+            --exclude-unreachable-branches
+      )
+  else()
+      message(WARNING "gcovr not found, coverage report generation target not available")
+  endif()
+endif()
+
+
 set(test_SOURCES
   http/Parser.ut.cpp
   http/Types.ut.cpp
