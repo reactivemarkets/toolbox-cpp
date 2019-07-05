@@ -45,8 +45,26 @@ class TOOLBOX_API Exception : public std::runtime_error {
     Exception(Exception&&) = default;
     Exception& operator=(Exception&&) = default;
 
-    static void to_json(std::ostream& os, int status_code, const char* status, const char* message);
+    /// Format exception as a OpenAPI JSON response message.
+    /// \param os The output stream.
+    /// \param code The error code.
+    /// \param message The error Message.
+    static void to_json(std::ostream& os, int code, const char* message);
 
+    /// Format exception as a OpenAPI JSON response message.
+    /// \param os The output stream.
+    /// \param code The error code.
+    /// \param message The error Message.
+    static void to_json(std::ostream& os, const std::error_code& code, const char* message)
+    {
+        to_json(os, code.value(), message);
+    }
+
+    /// Format exception as a OpenAPI JSON response message.
+    /// \param os The output stream.
+    void to_json(std::ostream& os) const { to_json(os, ec_, what()); }
+
+    /// Returns the error code.
     const std::error_code& code() const noexcept { return ec_; }
 
   private:
