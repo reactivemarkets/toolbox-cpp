@@ -83,7 +83,9 @@ $(function() {
 <li>use the body to explain <em>what</em> and <em>why</em> vs. <em>how</em>.</li>
 </ol>
 <p>See <a href="http://chris.beams.io/posts/git-commit/">How to Write a Git Commit Message</a> by Chris Beams.</p>
-<h2>Pull Requests</h2>
+<h2>Issue References</h2>
+<p>GitHub issue numbers should be referenced on the last line of the commit message. Keywords can be used to <a href="https://help.github.com/en/articles/closing-issues-using-keywords">automatically close issues</a>. For example:</p>
+<div class="fragment"><div class="line">The Subject Line</div><div class="line"></div><div class="line">A more detailed description that explains what the change is,</div><div class="line">why it is needed, and how it has been implemented.</div><div class="line"></div><div class="line">Closes #123, #456</div></div><!-- fragment --><h2>Pull Requests</h2>
 <p>We actively welcome your pull requests.</p>
 <ol type="1">
 <li>fork the repo and create your branch from <code>master</code>;</li>
