@@ -44,11 +44,10 @@ Exception::Exception(int err, const error_category& ecat, std::string_view what)
 
 Exception::~Exception() = default;
 
-void Exception::to_json(ostream& os, int status_code, const char* status, const char* message)
+void Exception::to_json(ostream& os, int code, const char* message)
 {
-    os << "{\"status_code\":" << status_code //
-       << ",\"status\":\"" << status         //
-       << "\",\"message\":\"" << message     //
+    os << "{\"code\":" << code         //
+       << ",\"message\":\"" << message //
        << "\"}";
 }
 

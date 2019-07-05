@@ -25,9 +25,23 @@ BOOST_AUTO_TEST_SUITE(ExceptionSuite)
 BOOST_AUTO_TEST_CASE(ExceptionCase)
 {
     const auto ec = std::make_error_code(std::errc::invalid_argument);
-    const Exception e{ec, "foo"};
-    BOOST_TEST(e.what() == std::strerror(EINVAL) + std::string{": foo"});
+    const Exception e{ec, "foobar error"};
+    BOOST_TEST(e.what() == std::strerror(EINVAL) + std::string{": foobar error"});
     BOOST_TEST(e.code() == ec);
+}
+
+BOOST_AUTO_TEST_CASE(ExceptionToJsonCase)
+{
+    const auto ec = std::make_error_code(std::errc::invalid_argument);
+    const Exception e{ec, "foobar error"};
+
+    std::stringstream ss;
+    e.to_json(ss);
+
+    BOOST_TEST(ss.str() == //
+               "{\"code\":22"
+               ",\"message\":\"Invalid argument: foobar error\""
+               "}");
 }
 
 BOOST_AUTO_TEST_SUITE_END()

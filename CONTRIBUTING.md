@@ -30,6 +30,21 @@ The seven rules of a great git commit message:
 
 See [How to Write a Git Commit Message](http://chris.beams.io/posts/git-commit/) by Chris Beams.
 
+## Issue References
+
+GitHub issue numbers should be referenced on the last line of the commit message. Keywords can be
+used to [automatically close
+issues](https://help.github.com/en/articles/closing-issues-using-keywords). For example:
+
+```
+The Subject Line
+
+A more detailed description that explains what the change is,
+why it is needed, and how it has been implemented.
+
+Closes #123, #456
+```
+
 ## Pull Requests
 
 We actively welcome your pull requests.
