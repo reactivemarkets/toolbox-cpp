@@ -75,17 +75,27 @@ class MpmcQueue {
             __atomic_store_n(&impl_->elems[i].seq, i, __ATOMIC_RELAXED);
         }
     }
-    explicit MpmcQueue(FileHandle&& fh)
-    : fh_{std::move(fh)}
-    , capacity_{capacity(detail::file_size(fh_.get()))}
+    explicit MpmcQueue(FileHandle& fh)
+    : capacity_{capacity(detail::file_size(fh.get()))}
     , mask_{capacity_ - 1}
-    , mem_map_{os::mmap(nullptr, size(capacity_), PROT_READ | PROT_WRITE, MAP_SHARED, fh_.get(), 0)}
+    , mem_map_{os::mmap(nullptr, size(capacity_), PROT_READ | PROT_WRITE, MAP_SHARED, fh.get(), 0)}
     , impl_{static_cast<Impl*>(mem_map_.get().data())}
     {
         if (!is_pow2(capacity_)) {
             throw std::runtime_error{"capacity not a power of two"};
         }
     }
+    explicit MpmcQueue(FileHandle&& fh)
+    : MpmcQueue{fh}
+    {
+    }
+    /// Opens a file-backed MpmcQueue.
+    ///
+    /// The mmap() function retains a reference to the file associated with the file descriptor,
+    /// so the file can be safely closed once the mapping has been established.
+    ///
+    /// \param path Path to MpmcQueue file.
+    ///
     explicit MpmcQueue(const char* path)
     : MpmcQueue{os::open(path, O_RDWR)}
     {
@@ -98,13 +108,11 @@ class MpmcQueue {
 
     // Move.
     MpmcQueue(MpmcQueue&& rhs) noexcept
-    : fh_{std::move(rhs.fh_)}
-    , capacity_{rhs.capacity_}
+    : capacity_{rhs.capacity_}
     , mask_{rhs.mask_}
     , mem_map_{std::move(rhs.mem_map_)}
     , impl_{rhs.impl_}
     {
-        rhs.fh_ = {};
         rhs.capacity_ = 0;
         rhs.mask_ = 0;
         rhs.mem_map_ = {};
@@ -150,11 +158,9 @@ class MpmcQueue {
         mem_map_.reset(nullptr);
         mask_ = 0;
         capacity_ = 0;
-        fh_.reset(nullptr);
     }
     void swap(MpmcQueue& rhs) noexcept
     {
-        fh_.swap(rhs.fh_);
         std::swap(capacity_, rhs.capacity_);
         std::swap(mask_, rhs.mask_);
         mem_map_.swap(rhs.mem_map_);
@@ -245,7 +251,6 @@ class MpmcQueue {
         return sizeof(Impl) + capacity * sizeof(Elem);
     }
 
-    FileHandle fh_{nullptr};
     std::uint64_t capacity_{}, mask_{};
     Mmap mem_map_{nullptr};
     Impl* impl_{nullptr};
