@@ -102,6 +102,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1FunctionTraits.html">FunctionTraits</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default case for functors and lambdas.  <a href="structtoolbox_1_1util_1_1FunctionTraits.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1FunctionTraits_3_01ReturnT_07_5_08_07ArgsT_8_8_8_08_01noexcept_01_4.html">FunctionTraits&lt; ReturnT(*)(ArgsT...) noexcept &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialisation for noexcept free functions.  <a href="structtoolbox_1_1util_1_1FunctionTraits_3_01ReturnT_07_5_08_07ArgsT_8_8_8_08_01noexcept_01_4.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1FunctionTraits_3_01ReturnT_07_5_08_07ArgsT_8_8_8_08_4.html">FunctionTraits&lt; ReturnT(*)(ArgsT...)&gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialisation for free functions.  <a href="structtoolbox_1_1util_1_1FunctionTraits_3_01ReturnT_07_5_08_07ArgsT_8_8_8_08_4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -496,6 +499,8 @@ Functions</h2></td></tr>
 <tr class="memitem:a8192541393d05b1e645312ede67cf8b8"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
 <tr class="memitem:a8192541393d05b1e645312ede67cf8b8"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a8192541393d05b1e645312ede67cf8b8">split</a> (std::string_view line, std::string_view delims, <a class="el" href="namespacetoolbox_1_1util.html#a97cd5976030ed2920933832609f7bacd">Row</a>&lt; N &gt; &amp;row) noexcept</td></tr>
 <tr class="separator:a8192541393d05b1e645312ede67cf8b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f5330b4e9fb42e24f165a19bb7eb3b6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a8f5330b4e9fb42e24f165a19bb7eb3b6">dec_digits</a> (int64_t i) noexcept</td></tr>
+<tr class="separator:a8f5330b4e9fb42e24f165a19bb7eb3b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94d7587b8dd8b25f6041f6d500bf2c8e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a94d7587b8dd8b25f6041f6d500bf2c8e">hex_digits</a> (int64_t i) noexcept</td></tr>
 <tr class="separator:a94d7587b8dd8b25f6041f6d500bf2c8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a477fb4306e41ea993fe92932ac25d954"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a477fb4306e41ea993fe92932ac25d954">stob</a> (string_view sv, bool dfl) noexcept</td></tr>
@@ -4219,6 +4224,36 @@ template&lt;std::size_t N&gt; </div>
 
 </div>
 </div>
+<a id="a8f5330b4e9fb42e24f165a19bb7eb3b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f5330b4e9fb42e24f165a19bb7eb3b6">&#9670;&nbsp;</a></span>dec_digits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> int toolbox::util::dec_digits </td>
+          <td>(</td>
+          <td class="paramtype">int64_t&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Utility_8cpp_source.html#l00026">26</a> of file <a class="el" href="Utility_8cpp_source.html">Utility.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Utility_8ut_8cpp_source.html#l00150">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="Utility_8hpp_source.html#l00039">isdigit()</a>.</p>
+
+</div>
+</div>
 <a id="a94d7587b8dd8b25f6041f6d500bf2c8e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a94d7587b8dd8b25f6041f6d500bf2c8e">&#9670;&nbsp;</a></span>hex_digits()</h2>
 
@@ -4243,7 +4278,7 @@ template&lt;std::size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Utility_8cpp_source.html#l00026">26</a> of file <a class="el" href="Utility_8cpp_source.html">Utility.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Utility_8cpp_source.html#l00038">38</a> of file <a class="el" href="Utility_8cpp_source.html">Utility.cpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Utility_8ut_8cpp_source.html#l00133">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="Utility_8hpp_source.html#l00039">isdigit()</a>.</p>
 
@@ -4283,7 +4318,7 @@ template&lt;std::size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Utility_8cpp_source.html#l00049">49</a> of file <a class="el" href="Utility_8cpp_source.html">Utility.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Utility_8cpp_source.html#l00060">60</a> of file <a class="el" href="Utility_8cpp_source.html">Utility.cpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="String_8ut_8cpp_source.html#l00056">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="TypeTraits_8hpp_source.html#l00041">toolbox::util::TypeTraits&lt; bool &gt;::from_string()</a>, and <a class="el" href="Utility_8hpp_source.html#l00039">isdigit()</a>.</p>
 
@@ -4313,9 +4348,9 @@ template&lt;std::size_t N&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Utility_8cpp_source.html#l00112">112</a> of file <a class="el" href="Utility_8cpp_source.html">Utility.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Utility_8cpp_source.html#l00123">123</a> of file <a class="el" href="Utility_8cpp_source.html">Utility.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="String_8ut_8cpp_source.html#l00049">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="TypeTraits_8hpp_source.html#l00050">toolbox::util::TypeTraits&lt; double &gt;::from_string()</a>, <a class="el" href="Utility_8hpp_source.html#l00039">isdigit()</a>, and <a class="el" href="Utility_8hpp_source.html#l00051">ston()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="String_8ut_8cpp_source.html#l00049">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="TypeTraits_8hpp_source.html#l00050">toolbox::util::TypeTraits&lt; double &gt;::from_string()</a>, <a class="el" href="Utility_8hpp_source.html#l00039">isdigit()</a>, and <a class="el" href="Utility_8hpp_source.html#l00052">ston()</a>.</p>
 
 </div>
 </div>
@@ -4377,7 +4412,7 @@ template&lt;typename ValueT &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="Utility_8hpp_source.html#l00039">39</a> of file <a class="el" href="Utility_8hpp_source.html">Utility.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Time_8hpp_source.html#l00349">toolbox::sys::parse_nanos()</a>, <a class="el" href="Time_8hpp_source.html#l00388">toolbox::sys::parse_time_only()</a>, and <a class="el" href="Utility_8hpp_source.html#l00051">ston()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Time_8hpp_source.html#l00349">toolbox::sys::parse_nanos()</a>, <a class="el" href="Time_8hpp_source.html#l00388">toolbox::sys::parse_time_only()</a>, and <a class="el" href="Utility_8hpp_source.html#l00052">ston()</a>.</p>
 
 </div>
 </div>
@@ -4443,7 +4478,7 @@ template&lt;typename ValueT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Utility_8hpp_source.html#l00051">51</a> of file <a class="el" href="Utility_8hpp_source.html">Utility.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Utility_8hpp_source.html#l00052">52</a> of file <a class="el" href="Utility_8hpp_source.html">Utility.hpp</a>.</p>
 
 </div>
 </div>

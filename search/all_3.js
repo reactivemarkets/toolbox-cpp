@@ -11,6 +11,7 @@ var searchData=
   ['date_2eut_2ecpp',['Date.ut.cpp',['../Date_8ut_8cpp.html',1,'']]],
   ['dealloc',['dealloc',['../classtoolbox_1_1io_1_1TimerPool.html#a2af0e8c38a663fa23363bf1e4605a20c',1,'toolbox::io::TimerPool::dealloc()'],['../namespacetoolbox_1_1util.html#a1ad9b8b13344faa3e0fa0205a10ad649',1,'toolbox::util::dealloc(void *ptr, size_t size) noexcept'],['../namespacetoolbox_1_1util.html#abe8d5e538106bc7e0b3f79b9748c4026',1,'toolbox::util::dealloc(void *ptr, size_t size, align_val_t al) noexcept'],['../namespacetoolbox_1_1util.html#ab16a610f49615710b5feadd37eb0b7da',1,'toolbox::util::dealloc(void *ptr, std::size_t size) noexcept'],['../namespacetoolbox_1_1util.html#a8fd2c291d481488260579ee8c8088890',1,'toolbox::util::dealloc(void *ptr, std::size_t size, std::align_val_t al) noexcept']]],
   ['debug',['Debug',['../classtoolbox_1_1sys_1_1Log.html#a197218eb4d0ca7ff10b922b5d3914e9da084bd74bc60a78ec41c3cb23a5a89a2b',1,'toolbox::sys::Log']]],
+  ['dec_5fdigits',['dec_digits',['../namespacetoolbox_1_1util.html#a8f5330b4e9fb42e24f165a19bb7eb3b6',1,'toolbox::util']]],
   ['default_5fvalue',['default_value',['../classtoolbox_1_1sys_1_1Value.html#a913de6e802b37c070c6d90574bf10c79',1,'toolbox::sys::Value']]],
   ['delete',['Delete',['../namespacetoolbox_1_1http.html#a1090dccc3a45f4f6ba45d0d80cb77fdaaf2a6c498fb90ee345d997f888fce3b18',1,'toolbox::http']]],
   ['dependencies_2emd',['Dependencies.md',['../Dependencies_8md.html',1,'']]],

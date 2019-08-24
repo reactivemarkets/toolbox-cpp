@@ -179,5 +179,7 @@ var menudata={children:[
 {text:"a",url:"globals_func.html#index_a"},
 {text:"b",url:"globals_func_b.html#index_b"},
 {text:"m",url:"globals_func_m.html#index_m"},
-{text:"o",url:"globals_func_o.html#index_o"}]},
+{text:"o",url:"globals_func_o.html#index_o"},
+{text:"t",url:"globals_func_t.html#index_t"}]},
+{text:"Variables",url:"globals_vars.html"},
 {text:"Macros",url:"globals_defs.html"}]}]}]}

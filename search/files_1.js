@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['benchmark_2ecpp',['Benchmark.cpp',['../Benchmark_8cpp.html',1,'']]],
+  ['benchmark_2ehpp',['Benchmark.hpp',['../Benchmark_8hpp.html',1,'']]],
   ['buffer_2ecpp',['Buffer.cpp',['../Buffer_8cpp.html',1,'']]],
   ['buffer_2ehpp',['Buffer.hpp',['../Buffer_8hpp.html',1,'']]],
   ['buffer_2eut_2ecpp',['Buffer.ut.cpp',['../Buffer_8ut_8cpp.html',1,'']]],

@@ -34,6 +34,7 @@ var searchData=
   ['_7eresolver',['~Resolver',['../classtoolbox_1_1net_1_1Resolver.html#a9f8b0f0b657ec420f631cfee7bc5f428',1,'toolbox::net::Resolver']]],
   ['_7eresolverrunner',['~ResolverRunner',['../classtoolbox_1_1net_1_1ResolverRunner.html#ad2e1178f437d5eceaaa280c6a514a8b6',1,'toolbox::net::ResolverRunner']]],
   ['_7eringbuffer',['~RingBuffer',['../classtoolbox_1_1util_1_1RingBuffer.html#aa2a4b41436f37537ecc713f31828a40d',1,'toolbox::util::RingBuffer']]],
+  ['_7erunnable',['~Runnable',['../structtoolbox_1_1benchmark_1_1Runnable.html#af56d4dd47834d8e8bd91352e2d95eb02',1,'toolbox::benchmark::Runnable']]],
   ['_7esigwait',['~SigWait',['../classtoolbox_1_1sys_1_1SigWait.html#aac85b752c2d84d6c5e2fc6d7acb000d3',1,'toolbox::sys::SigWait']]],
   ['_7estaticbuf',['~StaticBuf',['../classtoolbox_1_1util_1_1StaticBuf.html#a15c0d87685083e4cd18eace257c5c106',1,'toolbox::util::StaticBuf']]],
   ['_7estaticstream',['~StaticStream',['../classtoolbox_1_1util_1_1StaticStream.html#a44636aa28048faac22397ce4fe43b215',1,'toolbox::util::StaticStream']]],

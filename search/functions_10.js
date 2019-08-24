@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['range',['range',['../classtoolbox_1_1benchmark_1_1Benchmark.html#a8935f64645697155611ee95008187345',1,'toolbox::benchmark::Benchmark']]],
   ['rbegin',['rbegin',['../classtoolbox_1_1util_1_1ArrayView.html#a7d9824f9a33f459d8dc5cdf2e1459eeb',1,'toolbox::util::ArrayView']]],
   ['reactor',['Reactor',['../classtoolbox_1_1io_1_1Reactor.html#a78316d3077085e866a3088efb3d1ce75',1,'toolbox::io::Reactor::Reactor() noexcept=default'],['../classtoolbox_1_1io_1_1Reactor.html#aebfb595d48a9c19f9cf3f9c9a25202b8',1,'toolbox::io::Reactor::Reactor(const Reactor &amp;)=delete'],['../classtoolbox_1_1io_1_1Reactor.html#a4b05c16229d65ffd6e58a27834654312',1,'toolbox::io::Reactor::Reactor(Reactor &amp;&amp;)=delete']]],
   ['reactor_5f',['reactor_',['../classtoolbox_1_1http_1_1BasicHttpConn.html#a815e98bcbd5538ea08b1709bd7f470e6',1,'toolbox::http::BasicHttpConn::reactor_()'],['../classtoolbox_1_1http_1_1BasicHttpServ.html#af65fa13186bb04970ade2d2087b5b157',1,'toolbox::http::BasicHttpServ::reactor_()']]],
@@ -23,5 +24,5 @@ var searchData=
   ['root',['root',['../classtoolbox_1_1util_1_1MultiConfig.html#a7a4a904dbf921779a7ddfcd87d4cd9d3',1,'toolbox::util::MultiConfig']]],
   ['rtrim',['rtrim',['../namespacetoolbox_1_1util.html#a503b6933cf0ed7fad42c57c26c0c7698',1,'toolbox::util::rtrim(string_view &amp;s) noexcept'],['../namespacetoolbox_1_1util.html#aa620fa04821c3d8c3dfb8d5ef494c246',1,'toolbox::util::rtrim(string &amp;s) noexcept'],['../namespacetoolbox_1_1util.html#a2794a72a7a53ee2a423d5548d097790e',1,'toolbox::util::rtrim(std::string_view &amp;s) noexcept']]],
   ['rtrim_5fcopy',['rtrim_copy',['../namespacetoolbox_1_1util.html#a6b47d439d5b8eb6a6f10765fcc017ea9',1,'toolbox::util::rtrim_copy(std::string_view s) noexcept'],['../namespacetoolbox_1_1util.html#ae403a5db14f2757a29be1d39918bca28',1,'toolbox::util::rtrim_copy(std::string s) noexcept']]],
-  ['run',['run',['../classtoolbox_1_1net_1_1Resolver.html#ae361ffa1a2d0ffa55374fcaeba3da4a0',1,'toolbox::net::Resolver']]]
+  ['run',['run',['../classtoolbox_1_1net_1_1Resolver.html#ae361ffa1a2d0ffa55374fcaeba3da4a0',1,'toolbox::net::Resolver::run()'],['../structtoolbox_1_1benchmark_1_1Runnable.html#a1de2089788d432368309190f0941c682',1,'toolbox::benchmark::Runnable::run()'],['../classtoolbox_1_1benchmark_1_1BenchmarkStore.html#a090b094aac2de99039557311be9ad963',1,'toolbox::benchmark::BenchmarkStore::run()'],['../classtoolbox_1_1benchmark_1_1Benchmark.html#ab05c00d456bee5fa4a98d9691dca9719',1,'toolbox::benchmark::Benchmark::run()']]]
 ];
