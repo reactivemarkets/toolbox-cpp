@@ -66,59 +66,45 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Utility.bm.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="Utility_8hpp_source.html">Utility.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="Benchmark_8hpp_source.html">Benchmark.hpp</a>&quot;</code><br />
-<code>#include &lt;cassert&gt;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
-<code>#include &lt;list&gt;</code><br />
-<code>#include &lt;numeric&gt;</code><br />
-<code>#include &lt;thread&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;sys/time.h&gt;</code><br />
 </div>
 <p><a href="Utility_8bm_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a6fb29d55ea39beee64f8cbc999a0c349"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utility_8bm_8cpp.html#a6fb29d55ea39beee64f8cbc999a0c349">TOOLBOX_BENCHMARK</a> (&quot;isdigit/toolbox&quot;, [](int64_t i) { return <a class="el" href="namespacetoolbox_1_1util.html#a84d032eb09a2e0045099762aca24abb2">toolbox::util::isdigit</a>(i);}).range(0</td></tr>
-<tr class="separator:a6fb29d55ea39beee64f8cbc999a0c349"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9a8aeae8c35a96d9e3be89509c8a31b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utility_8bm_8cpp.html#ac9a8aeae8c35a96d9e3be89509c8a31b">TOOLBOX_BENCHMARK</a> (&quot;isdigit/std&quot;, [](int64_t i) { return std::isdigit(i);}).range(0</td></tr>
-<tr class="separator:ac9a8aeae8c35a96d9e3be89509c8a31b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a344628653d2a7ab743f7342e5db4f51d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utility_8bm_8cpp.html#a344628653d2a7ab743f7342e5db4f51d">TOOLBOX_BENCHMARK</a> (&quot;conversion/int_to_string&quot;, [](int x) { return std::to_string(x);}).range(0</td></tr>
-<tr class="separator:a344628653d2a7ab743f7342e5db4f51d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb688246a0f742053aefd8cf1ada7520"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utility_8bm_8cpp.html#acb688246a0f742053aefd8cf1ada7520">TOOLBOX_BENCHMARK</a> (&quot;conversion/double_to_string&quot;, [](double x) { return std::to_string(x);}).range(0.0</td></tr>
-<tr class="separator:acb688246a0f742053aefd8cf1ada7520"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5d7642a14f4ade5d6054e08d8186aaa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utility_8bm_8cpp.html#aa5d7642a14f4ade5d6054e08d8186aaa">TOOLBOX_BENCHMARK</a> (&quot;time/gettimeofday&quot;, []() { gettimeofday(&amp;<a class="el" href="Utility_8bm_8cpp.html#a9cf96982557d56650f0f4cd3762f05a0">tv</a>, nullptr);})</td></tr>
-<tr class="separator:aa5d7642a14f4ade5d6054e08d8186aaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8e2068e59705d1b0c47094f3acd092e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utility_8bm_8cpp.html#ab8e2068e59705d1b0c47094f3acd092e">TOOLBOX_BENCHMARK</a> (&quot;util/dec_digits1&quot;, dec_digits).range(0</td></tr>
-<tr class="separator:ab8e2068e59705d1b0c47094f3acd092e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae18a7e80815d475df6a9065895b27388"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utility_8bm_8cpp.html#ae18a7e80815d475df6a9065895b27388">TOOLBOX_BENCHMARK</a> (&quot;util/dec_digits2&quot;, dec_digits2).range(0</td></tr>
-<tr class="separator:ae18a7e80815d475df6a9065895b27388"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f033554de38a5e0dd9f778e7240bf52"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utility_8bm_8cpp.html#a3f033554de38a5e0dd9f778e7240bf52">TOOLBOX_BENCHMARK</a> (&quot;util/dec_digits3&quot;, dec_digits3).range(0</td></tr>
-<tr class="separator:a3f033554de38a5e0dd9f778e7240bf52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ba0d4dea30706ce448067fb2896d074"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utility_8bm_8cpp.html#a1ba0d4dea30706ce448067fb2896d074">TOOLBOX_BENCHMARK</a> (&quot;util/dec_digits4&quot;, dec_digits4).range(0</td></tr>
-<tr class="separator:a1ba0d4dea30706ce448067fb2896d074"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afff9d10cc6d1fbb79336c9303965db79"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utility_8bm_8cpp.html#afff9d10cc6d1fbb79336c9303965db79">TOOLBOX_BENCHMARK</a> (&quot;util/dec_digits5&quot;, dec_digits5).range(0</td></tr>
-<tr class="separator:afff9d10cc6d1fbb79336c9303965db79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab80bc055d6ffa62eb4ca88dc4bf30bd5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utility_8bm_8cpp.html#ab80bc055d6ffa62eb4ca88dc4bf30bd5">TOOLBOX_BENCHMARK</a> (&quot;util/hex_digits1&quot;, hex_digits).range(0</td></tr>
-<tr class="separator:ab80bc055d6ffa62eb4ca88dc4bf30bd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a369ea82373afd4bbcccd56c9f55f7b00"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utility_8bm_8cpp.html#a369ea82373afd4bbcccd56c9f55f7b00">TOOLBOX_BENCHMARK</a> (&quot;util/hex_digits2&quot;, hex_digits2).range(0</td></tr>
-<tr class="separator:a369ea82373afd4bbcccd56c9f55f7b00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a9cf96982557d56650f0f4cd3762f05a0"><td class="memItemLeft" align="right" valign="top">struct timeval&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utility_8bm_8cpp.html#a9cf96982557d56650f0f4cd3762f05a0">tv</a></td></tr>
-<tr class="separator:a9cf96982557d56650f0f4cd3762f05a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10c41c240b8dd1048eded183e7b226b3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utility_8bm_8cpp.html#a10c41c240b8dd1048eded183e7b226b3">TOOLBOX_BENCHMARK</a> (&quot;std/double_to_string&quot;, [](double x) { return std::to_string(x);}).range(0.0</td></tr>
+<tr class="separator:a10c41c240b8dd1048eded183e7b226b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34e2b17e1d5579279851549de932d60a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utility_8bm_8cpp.html#a34e2b17e1d5579279851549de932d60a">TOOLBOX_BENCHMARK</a> (&quot;std/int_to_string&quot;, [](int x) { return std::to_string(x);}).range(0</td></tr>
+<tr class="separator:a34e2b17e1d5579279851549de932d60a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8695b1abbe1d5e143ac3b207df15ee79"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utility_8bm_8cpp.html#a8695b1abbe1d5e143ac3b207df15ee79">TOOLBOX_BENCHMARK</a> (&quot;std/isdigit&quot;, [](int64_t i) { return std::isdigit(i);}).range(0</td></tr>
+<tr class="separator:a8695b1abbe1d5e143ac3b207df15ee79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93f9336c13351725830a193e331c2c49"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utility_8bm_8cpp.html#a93f9336c13351725830a193e331c2c49">TOOLBOX_BENCHMARK</a> (&quot;utility/isdigit&quot;, [](int64_t i) { return <a class="el" href="namespacetoolbox_1_1util.html#a84d032eb09a2e0045099762aca24abb2">toolbox::util::isdigit</a>(i);}).range(0</td></tr>
+<tr class="separator:a93f9336c13351725830a193e331c2c49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94f58b7aad4fadfb73ddb3e38958c133"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utility_8bm_8cpp.html#a94f58b7aad4fadfb73ddb3e38958c133">TOOLBOX_BENCHMARK</a> (&quot;utility/dec_digits1&quot;, dec_digits).range(0</td></tr>
+<tr class="separator:a94f58b7aad4fadfb73ddb3e38958c133"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0f64f9b909213117a1fde18ac10c5d2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utility_8bm_8cpp.html#ac0f64f9b909213117a1fde18ac10c5d2">TOOLBOX_BENCHMARK</a> (&quot;utility/dec_digits2&quot;, dec_digits2).range(0</td></tr>
+<tr class="separator:ac0f64f9b909213117a1fde18ac10c5d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3957fb40ca329a54bc70077385b37b32"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utility_8bm_8cpp.html#a3957fb40ca329a54bc70077385b37b32">TOOLBOX_BENCHMARK</a> (&quot;utility/dec_digits3&quot;, dec_digits3).range(0</td></tr>
+<tr class="separator:a3957fb40ca329a54bc70077385b37b32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1eaeb1f7fadf515f81be0d1b67cceeb9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utility_8bm_8cpp.html#a1eaeb1f7fadf515f81be0d1b67cceeb9">TOOLBOX_BENCHMARK</a> (&quot;utility/dec_digits4&quot;, dec_digits4).range(0</td></tr>
+<tr class="separator:a1eaeb1f7fadf515f81be0d1b67cceeb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ad6d6c3517c0fe6ba7df84e003eca88"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utility_8bm_8cpp.html#a5ad6d6c3517c0fe6ba7df84e003eca88">TOOLBOX_BENCHMARK</a> (&quot;utility/dec_digits5&quot;, dec_digits5).range(0</td></tr>
+<tr class="separator:a5ad6d6c3517c0fe6ba7df84e003eca88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac44102f0136f701e1aba92d8c22dbd12"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utility_8bm_8cpp.html#ac44102f0136f701e1aba92d8c22dbd12">TOOLBOX_BENCHMARK</a> (&quot;utility/hex_digits1&quot;, hex_digits).range(0</td></tr>
+<tr class="separator:ac44102f0136f701e1aba92d8c22dbd12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53ddcac1528b9d85239a53beb58743d0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Utility_8bm_8cpp.html#a53ddcac1528b9d85239a53beb58743d0">TOOLBOX_BENCHMARK</a> (&quot;utility/hex_digits2&quot;, hex_digits2).range(0</td></tr>
+<tr class="separator:a53ddcac1528b9d85239a53beb58743d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a6fb29d55ea39beee64f8cbc999a0c349"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6fb29d55ea39beee64f8cbc999a0c349">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK() <span class="overload">[1/12]</span></h2>
+<a id="a10c41c240b8dd1048eded183e7b226b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10c41c240b8dd1048eded183e7b226b3">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK() <span class="overload">[1/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -126,91 +112,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">TOOLBOX_BENCHMARK </td>
           <td>(</td>
-          <td class="paramtype">&quot;isdigit/toolbox&quot;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">[] (int64_t i) { return <a class="el" href="namespacetoolbox_1_1util.html#a84d032eb09a2e0045099762aca24abb2">toolbox::util::isdigit</a>(i);}&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac9a8aeae8c35a96d9e3be89509c8a31b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9a8aeae8c35a96d9e3be89509c8a31b">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK() <span class="overload">[2/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TOOLBOX_BENCHMARK </td>
-          <td>(</td>
-          <td class="paramtype">&quot;isdigit/std&quot;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">[] (int64_t i) { return std::isdigit(i);}&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a344628653d2a7ab743f7342e5db4f51d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a344628653d2a7ab743f7342e5db4f51d">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK() <span class="overload">[3/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TOOLBOX_BENCHMARK </td>
-          <td>(</td>
-          <td class="paramtype">&quot;conversion/int_to_string&quot;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">[] (int x) { return std::to_string(x);}&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="acb688246a0f742053aefd8cf1ada7520"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb688246a0f742053aefd8cf1ada7520">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK() <span class="overload">[4/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TOOLBOX_BENCHMARK </td>
-          <td>(</td>
-          <td class="paramtype">&quot;conversion/double_to_string&quot;&#160;</td>
+          <td class="paramtype">&quot;std/double_to_string&quot;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
@@ -229,8 +131,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="aa5d7642a14f4ade5d6054e08d8186aaa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5d7642a14f4ade5d6054e08d8186aaa">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK() <span class="overload">[5/12]</span></h2>
+<a id="a34e2b17e1d5579279851549de932d60a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34e2b17e1d5579279851549de932d60a">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK() <span class="overload">[2/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -238,13 +140,13 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">TOOLBOX_BENCHMARK </td>
           <td>(</td>
-          <td class="paramtype">&quot;time/gettimeofday&quot;&#160;</td>
+          <td class="paramtype">&quot;std/int_to_string&quot;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">[] () { gettimeofday(&amp;<a class="el" href="Utility_8bm_8cpp.html#a9cf96982557d56650f0f4cd3762f05a0">tv</a>, nullptr);}&#160;</td>
+          <td class="paramtype">[] (int x) { return std::to_string(x);}&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -257,8 +159,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ab8e2068e59705d1b0c47094f3acd092e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab8e2068e59705d1b0c47094f3acd092e">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK() <span class="overload">[6/12]</span></h2>
+<a id="a8695b1abbe1d5e143ac3b207df15ee79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8695b1abbe1d5e143ac3b207df15ee79">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK() <span class="overload">[3/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -266,7 +168,63 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">TOOLBOX_BENCHMARK </td>
           <td>(</td>
-          <td class="paramtype">&quot;util/dec_digits1&quot;&#160;</td>
+          <td class="paramtype">&quot;std/isdigit&quot;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">[] (int64_t i) { return std::isdigit(i);}&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a93f9336c13351725830a193e331c2c49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93f9336c13351725830a193e331c2c49">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK() <span class="overload">[4/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TOOLBOX_BENCHMARK </td>
+          <td>(</td>
+          <td class="paramtype">&quot;utility/isdigit&quot;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">[] (int64_t i) { return <a class="el" href="namespacetoolbox_1_1util.html#a84d032eb09a2e0045099762aca24abb2">toolbox::util::isdigit</a>(i);}&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a94f58b7aad4fadfb73ddb3e38958c133"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94f58b7aad4fadfb73ddb3e38958c133">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK() <span class="overload">[5/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TOOLBOX_BENCHMARK </td>
+          <td>(</td>
+          <td class="paramtype">&quot;utility/dec_digits1&quot;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
@@ -285,8 +243,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ae18a7e80815d475df6a9065895b27388"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae18a7e80815d475df6a9065895b27388">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK() <span class="overload">[7/12]</span></h2>
+<a id="ac0f64f9b909213117a1fde18ac10c5d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0f64f9b909213117a1fde18ac10c5d2">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK() <span class="overload">[6/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -294,7 +252,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">TOOLBOX_BENCHMARK </td>
           <td>(</td>
-          <td class="paramtype">&quot;util/dec_digits2&quot;&#160;</td>
+          <td class="paramtype">&quot;utility/dec_digits2&quot;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
@@ -313,8 +271,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a3f033554de38a5e0dd9f778e7240bf52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f033554de38a5e0dd9f778e7240bf52">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK() <span class="overload">[8/12]</span></h2>
+<a id="a3957fb40ca329a54bc70077385b37b32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3957fb40ca329a54bc70077385b37b32">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK() <span class="overload">[7/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -322,7 +280,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">TOOLBOX_BENCHMARK </td>
           <td>(</td>
-          <td class="paramtype">&quot;util/dec_digits3&quot;&#160;</td>
+          <td class="paramtype">&quot;utility/dec_digits3&quot;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
@@ -341,8 +299,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a1ba0d4dea30706ce448067fb2896d074"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ba0d4dea30706ce448067fb2896d074">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK() <span class="overload">[9/12]</span></h2>
+<a id="a1eaeb1f7fadf515f81be0d1b67cceeb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1eaeb1f7fadf515f81be0d1b67cceeb9">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK() <span class="overload">[8/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -350,7 +308,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">TOOLBOX_BENCHMARK </td>
           <td>(</td>
-          <td class="paramtype">&quot;util/dec_digits4&quot;&#160;</td>
+          <td class="paramtype">&quot;utility/dec_digits4&quot;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
@@ -369,8 +327,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="afff9d10cc6d1fbb79336c9303965db79"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afff9d10cc6d1fbb79336c9303965db79">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK() <span class="overload">[10/12]</span></h2>
+<a id="a5ad6d6c3517c0fe6ba7df84e003eca88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ad6d6c3517c0fe6ba7df84e003eca88">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK() <span class="overload">[9/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -378,7 +336,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">TOOLBOX_BENCHMARK </td>
           <td>(</td>
-          <td class="paramtype">&quot;util/dec_digits5&quot;&#160;</td>
+          <td class="paramtype">&quot;utility/dec_digits5&quot;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
@@ -397,8 +355,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ab80bc055d6ffa62eb4ca88dc4bf30bd5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab80bc055d6ffa62eb4ca88dc4bf30bd5">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK() <span class="overload">[11/12]</span></h2>
+<a id="ac44102f0136f701e1aba92d8c22dbd12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac44102f0136f701e1aba92d8c22dbd12">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK() <span class="overload">[10/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -406,7 +364,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">TOOLBOX_BENCHMARK </td>
           <td>(</td>
-          <td class="paramtype">&quot;util/hex_digits1&quot;&#160;</td>
+          <td class="paramtype">&quot;utility/hex_digits1&quot;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
@@ -425,8 +383,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a369ea82373afd4bbcccd56c9f55f7b00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a369ea82373afd4bbcccd56c9f55f7b00">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK() <span class="overload">[12/12]</span></h2>
+<a id="a53ddcac1528b9d85239a53beb58743d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53ddcac1528b9d85239a53beb58743d0">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK() <span class="overload">[11/11]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -434,7 +392,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">TOOLBOX_BENCHMARK </td>
           <td>(</td>
-          <td class="paramtype">&quot;util/hex_digits2&quot;&#160;</td>
+          <td class="paramtype">&quot;utility/hex_digits2&quot;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
@@ -450,25 +408,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a9cf96982557d56650f0f4cd3762f05a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cf96982557d56650f0f4cd3762f05a0">&#9670;&nbsp;</a></span>tv</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct timeval tv</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Utility_8bm_8cpp_source.html#l00137">137</a> of file <a class="el" href="Utility_8bm_8cpp_source.html">Utility.bm.cpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Time_8hpp_source.html#l00283">toolbox::sys::clear()</a>, <a class="el" href="Time_8hpp_source.html#l00278">toolbox::sys::is_zero()</a>, <a class="el" href="Time_8hpp_source.html#l00288">toolbox::sys::operator+()</a>, <a class="el" href="Time_8hpp_source.html#l00300">toolbox::sys::operator-()</a>, and <a class="el" href="Time_8hpp_source.html#l00194">toolbox::sys::to_time()</a>.</p>
 
 </div>
 </div>

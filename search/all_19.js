@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['_7eargvlexer',['~ArgvLexer',['../classtoolbox_1_1sys_1_1ArgvLexer.html#a78040d8ca573d412b81c0b6ca37672e4',1,'toolbox::sys::ArgvLexer']]],
-  ['_7eargvsequence',['~ArgvSequence',['../classtoolbox_1_1sys_1_1ArgvSequence.html#abc5639b8885d46373256839863225c88',1,'toolbox::sys::ArgvSequence']]],
+  ['_7eargvlexer',['~ArgvLexer',['../classtoolbox_1_1util_1_1ArgvLexer.html#a36893ad8d21aabf9d41006f269cfa678',1,'toolbox::util::ArgvLexer']]],
+  ['_7eargvsequence',['~ArgvSequence',['../classtoolbox_1_1util_1_1ArgvSequence.html#a56c251e812cbd8ce963cafbebcc978bf',1,'toolbox::util::ArgvSequence']]],
   ['_7earrayview',['~ArrayView',['../classtoolbox_1_1util_1_1ArrayView.html#a4195bbf5158ece45e625ace0c683d2e1',1,'toolbox::util::ArrayView']]],
   ['_7ebasichandle',['~BasicHandle',['../classtoolbox_1_1io_1_1BasicHandle.html#a8d6fa5b51e5a6a8aaf264a3565c9cc76',1,'toolbox::io::BasicHandle']]],
   ['_7ebasichttpparser',['~BasicHttpParser',['../classtoolbox_1_1http_1_1BasicHttpParser.html#adc38aac28dfec872fd39af06ac17dbba',1,'toolbox::http::BasicHttpParser']]],
@@ -34,7 +34,7 @@ var searchData=
   ['_7eresolver',['~Resolver',['../classtoolbox_1_1net_1_1Resolver.html#a9f8b0f0b657ec420f631cfee7bc5f428',1,'toolbox::net::Resolver']]],
   ['_7eresolverrunner',['~ResolverRunner',['../classtoolbox_1_1net_1_1ResolverRunner.html#ad2e1178f437d5eceaaa280c6a514a8b6',1,'toolbox::net::ResolverRunner']]],
   ['_7eringbuffer',['~RingBuffer',['../classtoolbox_1_1util_1_1RingBuffer.html#aa2a4b41436f37537ecc713f31828a40d',1,'toolbox::util::RingBuffer']]],
-  ['_7erunnable',['~Runnable',['../structtoolbox_1_1benchmark_1_1Runnable.html#af56d4dd47834d8e8bd91352e2d95eb02',1,'toolbox::benchmark::Runnable']]],
+  ['_7erunnable',['~Runnable',['../structtoolbox_1_1util_1_1benchmark_1_1Runnable.html#aaab7c2b6ac7fbdb1c3319bd7bb15bc89',1,'toolbox::util::benchmark::Runnable']]],
   ['_7esigwait',['~SigWait',['../classtoolbox_1_1sys_1_1SigWait.html#aac85b752c2d84d6c5e2fc6d7acb000d3',1,'toolbox::sys::SigWait']]],
   ['_7estaticbuf',['~StaticBuf',['../classtoolbox_1_1util_1_1StaticBuf.html#a15c0d87685083e4cd18eace257c5c106',1,'toolbox::util::StaticBuf']]],
   ['_7estaticstream',['~StaticStream',['../classtoolbox_1_1util_1_1StaticStream.html#a44636aa28048faac22397ce4fe43b215',1,'toolbox::util::StaticStream']]],

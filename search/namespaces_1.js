@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['benchmark',['benchmark',['../namespacetoolbox_1_1benchmark.html',1,'toolbox']]],
-  ['detail',['detail',['../namespacetoolbox_1_1benchmark_1_1detail.html',1,'toolbox::benchmark::detail'],['../namespacetoolbox_1_1ipc_1_1detail.html',1,'toolbox::ipc::detail'],['../namespacetoolbox_1_1sys_1_1detail.html',1,'toolbox::sys::detail'],['../namespacetoolbox_1_1util_1_1detail.html',1,'toolbox::util::detail']]],
+  ['benchmark',['benchmark',['../namespacetoolbox_1_1util_1_1benchmark.html',1,'toolbox::util']]],
+  ['detail',['detail',['../namespacetoolbox_1_1ipc_1_1detail.html',1,'toolbox::ipc::detail'],['../namespacetoolbox_1_1sys_1_1detail.html',1,'toolbox::sys::detail'],['../namespacetoolbox_1_1util_1_1benchmark_1_1detail.html',1,'toolbox::util::benchmark::detail'],['../namespacetoolbox_1_1util_1_1detail.html',1,'toolbox::util::detail']]],
   ['http',['http',['../namespacetoolbox_1_1http.html',1,'toolbox']]],
   ['io',['io',['../namespacetoolbox_1_1io.html',1,'toolbox']]],
   ['ipc',['ipc',['../namespacetoolbox_1_1ipc.html',1,'toolbox']]],

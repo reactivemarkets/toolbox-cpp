@@ -11,7 +11,7 @@ var searchData=
   ['impl',['Impl',['../structtoolbox_1_1io_1_1Timer_1_1Impl.html',1,'toolbox::io::Timer::Impl'],['../structtoolbox_1_1ipc_1_1MpmcQueue_1_1Impl.html',1,'toolbox::ipc::MpmcQueue&lt; ValueT &gt;::Impl']]],
   ['info',['Info',['../classtoolbox_1_1sys_1_1Log.html#a197218eb4d0ca7ff10b922b5d3914e9da8b57c2411005f1c8c6476d40b634b5aa',1,'toolbox::sys::Log']]],
   ['insert',['insert',['../classtoolbox_1_1io_1_1TimerQueue.html#a8e5cfbac369f2900fbc20cda5b7e9674',1,'toolbox::io::TimerQueue::insert(MonoTime expiry, Duration interval, TimerSlot slot)'],['../classtoolbox_1_1io_1_1TimerQueue.html#a281b90ab2c57af6ed0ac60858077c062',1,'toolbox::io::TimerQueue::insert(MonoTime expiry, TimerSlot slot)']]],
-  ['instance',['instance',['../classtoolbox_1_1benchmark_1_1BenchmarkStore.html#ae0b4a023bc5dcb4babd79534859729af',1,'toolbox::benchmark::BenchmarkStore']]],
+  ['instance',['instance',['../classtoolbox_1_1util_1_1benchmark_1_1BenchmarkStore.html#aef8f5115238fe146662e070d6e03c715',1,'toolbox::util::benchmark::BenchmarkStore']]],
   ['int16policy',['Int16Policy',['../namespacetoolbox_1_1util.html#a4170773b23543d06eb783e2223cf31e6',1,'toolbox::util']]],
   ['int32policy',['Int32Policy',['../namespacetoolbox_1_1util.html#ad3e55e5995d31f757352d2e6f34f1a56',1,'toolbox::util']]],
   ['int64policy',['Int64Policy',['../namespacetoolbox_1_1util.html#a09eaaab03b9ea89becb2f7a14ba7cc03',1,'toolbox::util']]],

@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['main',['main',['../EchoClnt_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;EchoClnt.cpp'],['../EchoServ_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;EchoServ.cpp'],['../HttpServ_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;HttpServ.cpp'],['../namespacetoolbox_1_1benchmark_1_1detail.html#a645d828df416d0ce08c40c0481a32fd6',1,'toolbox::benchmark::detail::main()']]],
+  ['main',['main',['../EchoClnt_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;EchoClnt.cpp'],['../EchoServ_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;EchoServ.cpp'],['../HttpServ_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;HttpServ.cpp'],['../namespacetoolbox_1_1util_1_1benchmark_1_1detail.html#a309307a2be503712ceaaf3a431c57eeb',1,'toolbox::util::benchmark::detail::main()']]],
+  ['main_2ebm_2ecpp',['Main.bm.cpp',['../Main_8bm_8cpp.html',1,'']]],
   ['main_2eut_2ecpp',['Main.ut.cpp',['../Main_8ut_8cpp.html',1,'']]],
   ['major',['major',['../structtoolbox_1_1util_1_1Version.html#a548e8d4ebc90834d96e68708fc8ccd11',1,'toolbox::util::Version']]],
   ['make_5farray_5fview',['make_array_view',['../namespacetoolbox_1_1util.html#aea6e9da7ae1d07fe891ff6bd56cb09f0',1,'toolbox::util::make_array_view(const ValueT *ptr, std::size_t len) noexcept'],['../namespacetoolbox_1_1util.html#ab087d75dc13af66e514617e46fe17b10',1,'toolbox::util::make_array_view(ValueT(&amp;arr)[SizeN]) noexcept']]],
@@ -63,7 +64,7 @@ var searchData=
   ['msgevent',['MsgEvent',['../structtoolbox_1_1io_1_1MsgEvent.html',1,'toolbox::io']]],
   ['msgqueue',['MsgQueue',['../namespacetoolbox_1_1ipc.html#a4ac949d9deeb81ab08d166170f99ca04',1,'toolbox::ipc']]],
   ['multiconfig',['MultiConfig',['../classtoolbox_1_1util_1_1MultiConfig.html',1,'toolbox::util::MultiConfig'],['../classtoolbox_1_1util_1_1MultiConfig.html#a665d08b8c9735fcec38b7f0d24f94295',1,'toolbox::util::MultiConfig::MultiConfig()'],['../classtoolbox_1_1util_1_1MultiConfig.html#a25fc2c4673170476213cc306aee0ba79',1,'toolbox::util::MultiConfig::MultiConfig(const MultiConfig &amp;)=delete'],['../classtoolbox_1_1util_1_1MultiConfig.html#a1cb0e34013eb13cc33706d1f026009a2',1,'toolbox::util::MultiConfig::MultiConfig(MultiConfig &amp;&amp;)']]],
-  ['multitoken',['multitoken',['../classtoolbox_1_1sys_1_1Value.html#aa500d1bad8b8d3dd402e9d4cece17e15',1,'toolbox::sys::Value']]],
+  ['multitoken',['multitoken',['../classtoolbox_1_1util_1_1Value.html#a28053e318b5dac04a8a1e8dd430220fa',1,'toolbox::util::Value']]],
   ['mutablebuffer',['MutableBuffer',['../namespacetoolbox_1_1io.html#a5f27399855673bfa5dc5f79c77fa61c1',1,'toolbox::io']]],
   ['muxer_2ecpp',['Muxer.cpp',['../Muxer_8cpp.html',1,'']]],
   ['muxer_2ehpp',['Muxer.hpp',['../Muxer_8hpp.html',1,'']]]

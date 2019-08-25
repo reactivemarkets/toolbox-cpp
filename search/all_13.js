@@ -23,7 +23,6 @@ var searchData=
   ['url_2eut_2ecpp',['Url.ut.cpp',['../Url_8ut_8cpp.html',1,'']]],
   ['urlview',['UrlView',['../classtoolbox_1_1http_1_1UrlView.html',1,'toolbox::http::UrlView'],['../classtoolbox_1_1http_1_1UrlView.html#a34cfb297fbf2c5e83a22e256e12cd6b6',1,'toolbox::http::UrlView::UrlView(std::string_view url)'],['../classtoolbox_1_1http_1_1UrlView.html#a1cd762ce12667c8c6dec51e1a0d21855',1,'toolbox::http::UrlView::UrlView(const UrlView &amp;) noexcept=default'],['../classtoolbox_1_1http_1_1UrlView.html#ae47780a6a61d6d96c505386bb5baa57e',1,'toolbox::http::UrlView::UrlView(UrlView &amp;&amp;) noexcept=default']]],
   ['us_5fsince_5fepoch',['us_since_epoch',['../namespacetoolbox_1_1sys.html#a1efb0e8731d54a2ebfc23cf1f5c11280',1,'toolbox::sys']]],
-  ['use',['use',['../namespacetoolbox_1_1benchmark.html#a2bc75cdd70b762a7665ddbb9dc13ed97',1,'toolbox::benchmark::use(const ValueT &amp;val) noexcept'],['../namespacetoolbox_1_1benchmark.html#a86ac018cea6d61d8be19cbf018b588b7',1,'toolbox::benchmark::use(ValueT &amp;val) noexcept']]],
   ['user_5finfo',['user_info',['../classtoolbox_1_1http_1_1BasicUrl.html#ab520766161289a2ca5eea54bd585ec9b',1,'toolbox::http::BasicUrl']]],
   ['util_2ehpp',['util.hpp',['../util_8hpp.html',1,'']]],
   ['utility_2ebm_2ecpp',['Utility.bm.cpp',['../Utility_8bm_8cpp.html',1,'']]],

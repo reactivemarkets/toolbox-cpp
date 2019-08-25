@@ -2,7 +2,7 @@ var searchData=
 [
   ['toolbox_5fapi',['TOOLBOX_API',['../Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3',1,'Config.h']]],
   ['toolbox_5fbenchmark',['TOOLBOX_BENCHMARK',['../Benchmark_8hpp.html#afb04f68d842ccec59dcb4d82d58999b2',1,'Benchmark.hpp']]],
-  ['toolbox_5fbenchmark_5fmain',['TOOLBOX_BENCHMARK_MAIN',['../Benchmark_8hpp.html#a490443373fdc1146f0c601baeccbecc0',1,'Benchmark.hpp']]],
+  ['toolbox_5fbenchmark_5fmain',['TOOLBOX_BENCHMARK_MAIN',['../Benchmark_8hpp.html#ae02764ac71192bbf74a484fdd3401a85',1,'Benchmark.hpp']]],
   ['toolbox_5fbenchmark_5fop_5f1',['TOOLBOX_BENCHMARK_OP_1',['../Benchmark_8hpp.html#aa752081553e70539e29d1332f361db54',1,'Benchmark.hpp']]],
   ['toolbox_5fbenchmark_5fop_5f2',['TOOLBOX_BENCHMARK_OP_2',['../Benchmark_8hpp.html#a6f40d40812ad163247cd487dad503a1a',1,'Benchmark.hpp']]],
   ['toolbox_5fcrit',['TOOLBOX_CRIT',['../Log_8hpp.html#a5b03a968e886a76c3a92a47fbe11cf01',1,'Log.hpp']]],

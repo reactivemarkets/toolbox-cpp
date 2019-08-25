@@ -31,7 +31,7 @@ var searchData=
   ['ftok',['ftok',['../namespacetoolbox_1_1os.html#ab7933f65b8a9d98cd9c56b8bdbd9746a',1,'toolbox::os::ftok(const char *path, int proj_id, std::error_code &amp;ec) noexcept'],['../namespacetoolbox_1_1os.html#a73faf17ff8e4fc7649e28fc753927ddc',1,'toolbox::os::ftok(const char *path, int proj_id)']]],
   ['ftruncate',['ftruncate',['../namespacetoolbox_1_1os.html#a1bfeafabcb939fb753180c1e26865c5b',1,'toolbox::os::ftruncate(int fd, off_t length, std::error_code &amp;ec) noexcept'],['../namespacetoolbox_1_1os.html#a32e4bd90af8e6688c3303dc0255d34c9',1,'toolbox::os::ftruncate(int fd, off_t length)']]],
   ['full',['full',['../classtoolbox_1_1ipc_1_1MpmcQueue.html#a70e21cc3ef2b4447d536c7174c1413ed',1,'toolbox::ipc::MpmcQueue::full()'],['../classtoolbox_1_1util_1_1RingBuffer.html#a39ba6b28feaec4ea3aba858b6d63cf86',1,'toolbox::util::RingBuffer::full()']]],
-  ['func_5f',['func_',['../classtoolbox_1_1benchmark_1_1Benchmark.html#a0e4066ecbc914222171e24dca21b44c8',1,'toolbox::benchmark::Benchmark']]],
+  ['func_5f',['func_',['../classtoolbox_1_1util_1_1benchmark_1_1Benchmark.html#a5dc1a1c6f4247dba7d724aa1e3801c32',1,'toolbox::util::benchmark::Benchmark']]],
   ['functiontraits',['FunctionTraits',['../structtoolbox_1_1util_1_1FunctionTraits.html',1,'toolbox::util']]],
   ['functiontraits_3c_20returnt_28_2a_29_28argst_2e_2e_2e_29_20noexcept_20_3e',['FunctionTraits&lt; ReturnT(*)(ArgsT...) noexcept &gt;',['../structtoolbox_1_1util_1_1FunctionTraits_3_01ReturnT_07_5_08_07ArgsT_8_8_8_08_01noexcept_01_4.html',1,'toolbox::util']]],
   ['functiontraits_3c_20returnt_28_2a_29_28argst_2e_2e_2e_29_3e',['FunctionTraits&lt; ReturnT(*)(ArgsT...)&gt;',['../structtoolbox_1_1util_1_1FunctionTraits_3_01ReturnT_07_5_08_07ArgsT_8_8_8_08_4.html',1,'toolbox::util']]],
