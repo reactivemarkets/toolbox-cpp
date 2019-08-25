@@ -51,7 +51,7 @@ int dec_digits3(int64_t i) noexcept
 int dec_digits4(int64_t i) noexcept __attribute__((noinline));
 int dec_digits4(int64_t i) noexcept
 {
-    return snprintf(nullptr, 0, "%lu", i);
+    return snprintf(nullptr, 0, "%lld", static_cast<long long>(i));
 }
 
 int dec_digits5(int64_t i) noexcept __attribute__((noinline));
