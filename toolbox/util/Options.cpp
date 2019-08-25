@@ -16,14 +16,14 @@
 
 #include "Options.hpp"
 
-#include <toolbox/sys/Argv.hpp>
+#include <toolbox/util/Argv.hpp>
 #include <toolbox/util/Variant.hpp>
 
 #include <iomanip>
 #include <iostream>
 
 namespace toolbox {
-inline namespace sys {
+inline namespace util {
 using namespace std;
 
 Options::Options(string description)
@@ -134,5 +134,5 @@ ostream& operator<<(ostream& out, const Options& options)
     return out;
 }
 
-} // namespace sys
+} // namespace util
 } // namespace toolbox

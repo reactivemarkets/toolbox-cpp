@@ -14,8 +14,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef TOOLBOX_SYS_OPTIONS_HPP
-#define TOOLBOX_SYS_OPTIONS_HPP
+#ifndef TOOLBOX_UTIL_OPTIONS_HPP
+#define TOOLBOX_UTIL_OPTIONS_HPP
 
 /// \file Options.hpp
 ///
@@ -34,7 +34,7 @@
 #include <vector>
 
 namespace toolbox {
-inline namespace sys {
+inline namespace util {
 
 class Options;
 
@@ -229,7 +229,7 @@ class TOOLBOX_API Options {
 
 TOOLBOX_API std::ostream& operator<<(std::ostream& out, const Options& options);
 
-} // namespace sys
+} // namespace util
 } // namespace toolbox
 
-#endif // TOOLBOX_SYS_OPTIONS_HPP
+#endif // TOOLBOX_UTIL_OPTIONS_HPP

@@ -14,12 +14,13 @@
 // limitations under the License.
 #include "Benchmark.hpp"
 
-#include <toolbox/sys/Options.hpp>
+#include <toolbox/util/Options.hpp>
 
 #include <random>
 #include <regex>
 
 namespace toolbox {
+inline namespace util {
 inline namespace benchmark {
 
 Runnable::~Runnable() = default;
@@ -104,4 +105,5 @@ int main(int argc, char* argv[])
 } // namespace detail
 
 } // namespace benchmark
+} // namespace util
 } // namespace toolbox

@@ -29,31 +29,34 @@
 #include <unistd.h>
 
 namespace toolbox {
+inline namespace util {
 inline namespace benchmark {
 
-// The clobber and use functions below are used to defeat the optimiser.
+// The clobber_memory and do_not_optimise functions below are used to defeat the optimiser.
 // See CppCon 2015: Chandler Carruth "Tuning C++: Benchmarks, and CPUs, and Compilers! Oh My!"
 // And https://github.com/google/benchmark/blob/master/include/benchmark/benchmark.h
 
-/// The clobber function instructs the compiler that something might have changed in the memory and
-/// no assumptions can be made that would discard memory writes.
-inline void clobber() noexcept
+/// The clobber_memory function instructs the compiler that something might have changed in the
+/// memory and no assumptions can be made that would discard memory writes.
+inline void clobber_memory() noexcept
 {
     asm volatile("" ::: "memory");
 }
 
-/// The use function emulates the creation additional uses of the reference essentially instructing
-/// the compiler that pointers in it's scope are now available to call though global pointers.
+/// The do_not_optimise function emulates the creation additional uses of the reference essentially
+/// instructing the compiler that pointers in it's scope are now available to call though global
+/// pointers.
 template <typename ValueT>
-inline void use(const ValueT& val) noexcept
+inline void do_not_optimise(const ValueT& val) noexcept
 {
     asm volatile("" : : "r,m"(val) : "memory");
 }
 
-/// The use function emulates the creation additional uses of the reference essentially instructing
-/// the compiler that pointers in it's scope are now available to call though global pointers.
+/// The do_not_optimise function emulates the creation additional uses of the reference essentially
+/// instructing the compiler that pointers in it's scope are now available to call though global
+/// pointers.
 template <typename ValueT>
-inline void use(ValueT& val) noexcept
+inline void do_not_optimise(ValueT& val) noexcept
 {
 #if defined(__clang__)
     asm volatile("" : "+r,m"(val) : : "memory");
@@ -110,8 +113,8 @@ class BenchmarkCaller<FuncT, typename std::enable_if_t<FunctionTraits<FuncT>::Ar
     void operator()()
     {
         for (auto curr = start; curr < end; ++curr) {
-            use(func_(curr));
-            clobber();
+            do_not_optimise(func_(curr));
+            clobber_memory();
         }
     }
 
@@ -212,14 +215,18 @@ TOOLBOX_API int main(int argc, char* argv[]);
 }
 
 } // namespace benchmark
+} // namespace util
 } // namespace toolbox
 
 #define TOOLBOX_BENCHMARK_OP_2(Count) reg_##Count
 #define TOOLBOX_BENCHMARK_OP_1(Name, Func, Value)                                                  \
-    static const auto& TOOLBOX_BENCHMARK_OP_2(Value) = toolbox::benchmark::Benchmark { Name, Func }
+    static const auto& TOOLBOX_BENCHMARK_OP_2(Value) = toolbox::util::benchmark::Benchmark         \
+    {                                                                                              \
+        Name, Func                                                                                 \
+    }
 #define TOOLBOX_BENCHMARK(Name, Func) TOOLBOX_BENCHMARK_OP_1(Name, Func, __COUNTER__)
 
-#define TOOLBOX_BENCHMARK_MAIN()                                                                   \
-    int main(int argc, char* argv[]) { return toolbox::benchmark::detail::main(argc, argv); }
+#define TOOLBOX_BENCHMARK_MAIN                                                                     \
+    int main(int argc, char* argv[]) { return toolbox::util::benchmark::detail::main(argc, argv); }
 
 #endif // TOOLBOX_UTIL_BENCHMARK_HPP

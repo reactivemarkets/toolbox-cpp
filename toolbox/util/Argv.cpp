@@ -17,7 +17,7 @@
 #include "Argv.hpp"
 
 namespace toolbox {
-inline namespace sys {
+inline namespace util {
 using namespace std;
 
 ArgvLexer::~ArgvLexer() = default;
@@ -88,5 +88,5 @@ void ArgvLexer::next() noexcept
     }
 }
 
-} // namespace sys
+} // namespace util
 } // namespace toolbox
