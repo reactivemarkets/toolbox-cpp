@@ -14,8 +14,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef TOOLBOX_SYS_ARGV_HPP
-#define TOOLBOX_SYS_ARGV_HPP
+#ifndef TOOLBOX_UTIL_ARGV_HPP
+#define TOOLBOX_UTIL_ARGV_HPP
 
 #include <toolbox/Config.h>
 
@@ -23,7 +23,7 @@
 #include <string_view>
 
 namespace toolbox {
-inline namespace sys {
+inline namespace util {
 
 /// Utility class that allows an argv array to be treated as a sequence.
 class ArgvSequence {
@@ -104,7 +104,7 @@ class TOOLBOX_API ArgvLexer {
     std::optional<std::string_view> val_;
 };
 
-} // namespace sys
+} // namespace util
 } // namespace toolbox
 
-#endif // TOOLBOX_SYS_ARGV_HPP
+#endif // TOOLBOX_UTIL_ARGV_HPP

@@ -14,18 +14,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef TOOLBOX_SYS_HPP
-#define TOOLBOX_SYS_HPP
+#include <toolbox/util/Benchmark.hpp>
 
-#include "sys/Daemon.hpp"
-#include "sys/Date.hpp"
-#include "sys/Error.hpp"
-#include "sys/Limits.hpp"
-#include "sys/Log.hpp"
-#include "sys/PidFile.hpp"
-#include "sys/Signal.hpp"
-#include "sys/System.hpp"
-#include "sys/Thread.hpp"
-#include "sys/Time.hpp"
-
-#endif // TOOLBOX_SYS_HPP
+TOOLBOX_BENCHMARK_MAIN

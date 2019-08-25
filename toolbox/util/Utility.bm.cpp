@@ -17,14 +17,7 @@
 
 #include "Benchmark.hpp"
 
-#include <cassert>
 #include <cmath>
-#include <list>
-#include <numeric>
-#include <thread>
-#include <vector>
-
-#include <sys/time.h>
 
 using namespace std;
 using namespace toolbox;
@@ -122,29 +115,22 @@ int hex_digits2(int64_t i) noexcept
 
 } // namespace
 
-TOOLBOX_BENCHMARK("isdigit/toolbox", [](int64_t i) {
-    return toolbox::util::isdigit(i);
-}).range(0, 1000);
-TOOLBOX_BENCHMARK("isdigit/std", [](int64_t i) { return std::isdigit(i); }).range(0, 1000);
-
-TOOLBOX_BENCHMARK("conversion/int_to_string", [](int x) {
-    return std::to_string(x);
-}).range(0, 10000);
-TOOLBOX_BENCHMARK("conversion/double_to_string", [](double x) {
+TOOLBOX_BENCHMARK("std/double_to_string", [](double x) {
     return std::to_string(x);
 }).range(0.0, 10000.0);
+TOOLBOX_BENCHMARK("std/int_to_string", [](int x) { return std::to_string(x); }).range(0, 10000);
 
-struct timeval tv;
-TOOLBOX_BENCHMARK("time/gettimeofday", []() { gettimeofday(&tv, nullptr); });
+TOOLBOX_BENCHMARK("std/isdigit", [](int64_t i) { return std::isdigit(i); }).range(0, 1000);
+TOOLBOX_BENCHMARK("utility/isdigit", [](int64_t i) {
+    return toolbox::util::isdigit(i);
+}).range(0, 1000);
 
-TOOLBOX_BENCHMARK("util/dec_digits1", dec_digits).range(0, 400000);
-TOOLBOX_BENCHMARK("util/dec_digits2", dec_digits2).range(0, 400000);
-TOOLBOX_BENCHMARK("util/dec_digits3", dec_digits3).range(0, 400000);
-TOOLBOX_BENCHMARK("util/dec_digits4", dec_digits4).range(0, 400000);
-TOOLBOX_BENCHMARK("util/dec_digits5", dec_digits5).range(0, 400000);
-TOOLBOX_BENCHMARK("util/dec_digits5", dec_digits5).range(0, 400000);
+TOOLBOX_BENCHMARK("utility/dec_digits1", dec_digits).range(0, 400000);
+TOOLBOX_BENCHMARK("utility/dec_digits2", dec_digits2).range(0, 400000);
+TOOLBOX_BENCHMARK("utility/dec_digits3", dec_digits3).range(0, 400000);
+TOOLBOX_BENCHMARK("utility/dec_digits4", dec_digits4).range(0, 400000);
+TOOLBOX_BENCHMARK("utility/dec_digits5", dec_digits5).range(0, 400000);
+TOOLBOX_BENCHMARK("utility/dec_digits5", dec_digits5).range(0, 400000);
 
-TOOLBOX_BENCHMARK("util/hex_digits1", hex_digits).range(0, 400000);
-TOOLBOX_BENCHMARK("util/hex_digits2", hex_digits2).range(0, 400000);
-
-TOOLBOX_BENCHMARK_MAIN()
+TOOLBOX_BENCHMARK("utility/hex_digits1", hex_digits).range(0, 400000);
+TOOLBOX_BENCHMARK("utility/hex_digits2", hex_digits2).range(0, 400000);

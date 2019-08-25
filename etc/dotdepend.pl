@@ -129,9 +129,9 @@ digraph G {
   rankdir=BT
 EOD
 
-# Delete unit-tests.
+# Delete benchmarks and unit-tests.
 foreach (keys %comps) {
-  delete $comps{$_} if /[.]ut$/;
+  delete $comps{$_} if /[.](bm|ut)$/;
 }
 
 # Components are depicted as ovals.

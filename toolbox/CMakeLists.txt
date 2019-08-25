@@ -79,18 +79,17 @@ set(lib_SOURCES
   net/StreamAcceptor.cpp
   net/StreamConnector.cpp
   net/StreamSock.cpp
-  sys/Argv.cpp
   sys/Daemon.cpp
   sys/Date.cpp
   sys/Error.cpp
   sys/Limits.cpp
   sys/Log.cpp
-  sys/Options.cpp
   sys/PidFile.cpp
   sys/Signal.cpp
   sys/System.cpp
   sys/Time.cpp
   sys/Thread.cpp
+  util/Argv.cpp
   util/Array.cpp
   util/Benchmark.cpp
   util/Compare.cpp
@@ -101,6 +100,7 @@ set(lib_SOURCES
   util/IntTypes.cpp
   util/Math.cpp
   util/MemAlloc.cpp
+  util/Options.cpp
   util/RefCount.cpp
   util/RingBuffer.cpp
   util/Ryu.cpp
@@ -189,11 +189,10 @@ set(test_SOURCES
   net/Resolver.ut.cpp
   net/Runner.ut.cpp
   net/Socket.ut.cpp
-  sys/Argv.ut.cpp
   sys/Date.ut.cpp
   sys/Log.ut.cpp
-  sys/Options.ut.cpp
   sys/Time.ut.cpp
+  util/Argv.ut.cpp
   util/Array.ut.cpp
   util/Config.ut.cpp
   util/Enum.ut.cpp
@@ -202,6 +201,7 @@ set(test_SOURCES
   util/IntTypes.ut.cpp
   util/Math.ut.cpp
   util/MemAlloc.ut.cpp
+  util/Options.ut.cpp
   util/RefCount.ut.cpp
   util/RingBuffer.ut.cpp
   util/Ryu.ut.cpp
@@ -227,8 +227,14 @@ foreach(file ${test_SOURCES})
   add_test(NAME ${dir}::${name}Suite COMMAND toolbox-test -l error -t ${name}Suite)
 endforeach()
 
-add_executable(toolbox-bench
-  util/Utility.bm.cpp
+add_executable(toolbox-sys-bench
+  sys/Time.bm.cpp
+  Main.bm.cpp
 )
+target_link_libraries(toolbox-sys-bench ${toolbox_LIBRARY})
 
-target_link_libraries(toolbox-bench ${toolbox_LIBRARY})
+add_executable(toolbox-util-bench
+  util/Utility.bm.cpp
+  Main.bm.cpp
+)
+target_link_libraries(toolbox-util-bench ${toolbox_LIBRARY})

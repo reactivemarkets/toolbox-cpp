@@ -17,7 +17,9 @@
 #ifndef TOOLBOX_UTIL_HPP
 #define TOOLBOX_UTIL_HPP
 
+#include "util/Argv.hpp"
 #include "util/Array.hpp"
+#include "util/Benchmark.hpp"
 #include "util/Compare.hpp"
 #include "util/Config.hpp"
 #include "util/Enum.hpp"
@@ -26,6 +28,7 @@
 #include "util/IntTypes.hpp"
 #include "util/Math.hpp"
 #include "util/MemAlloc.hpp"
+#include "util/Options.hpp"
 #include "util/RefCount.hpp"
 #include "util/RingBuffer.hpp"
 #include "util/Ryu.hpp"
