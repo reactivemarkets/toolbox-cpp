@@ -37,24 +37,7 @@ int dec_digits(int64_t i) noexcept
 
 int hex_digits(int64_t i) noexcept
 {
-    // clang-format off
-    return i & 0xffffffff00000000
-        ? i & 0xffff000000000000
-            ? i & 0xff00000000000000
-                ? i & 0xf000000000000000 ? 16:15
-                : i & 0x00f0000000000000 ? 14:13
-            : i & 0xff0000000000
-                ? i & 0xf00000000000 ? 12:11
-                : i & 0x00f000000000 ? 10:9
-        : i & 0xffff0000
-            ? i & 0xff000000
-                ? i & 0xf0000000 ? 8:7
-                : i & 0x00f00000 ? 6:5
-            : i & 0xff00
-                ? i & 0xf000 ? 4:3
-                : i & 0x00f0 ? 2:1
-        ;
-    // clang-format on
+    return 1 + ((63 - __builtin_clzl(i | 1)) / 4);
 }
 
 bool stob(string_view sv, bool dfl) noexcept

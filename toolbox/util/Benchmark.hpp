@@ -16,6 +16,8 @@
 #ifndef TOOLBOX_UTIL_BENCHMARK_HPP
 #define TOOLBOX_UTIL_BENCHMARK_HPP
 
+#include <toolbox/hdr/HdrHistogram.hpp>
+
 #include <toolbox/Config.h>
 
 #include "Traits.hpp"
@@ -25,8 +27,6 @@
 #include <iostream>
 #include <map>
 #include <thread>
-
-#include <unistd.h>
 
 namespace toolbox {
 inline namespace util {
@@ -65,9 +65,15 @@ inline void do_not_optimise(ValueT& val) noexcept
 #endif
 }
 
+struct TOOLBOX_API Settings {
+    enum OutputMode { Basic, STAT, HDR };
+
+    OutputMode output_mode;
+};
+
 struct TOOLBOX_API Runnable {
     virtual ~Runnable();
-    virtual void run() = 0;
+    virtual void run(const Settings& options) = 0;
 };
 
 class TOOLBOX_API BenchmarkStore {
@@ -77,7 +83,7 @@ class TOOLBOX_API BenchmarkStore {
     void store(const char* name, Runnable& runnable);
     void list() const;
 
-    void run(const std::string& regex, bool randomise);
+    void run(const std::string& regex, bool randomise, const Settings& settings);
 
   private:
     BenchmarkStore();
@@ -170,7 +176,7 @@ class Benchmark : public Runnable {
         return std::move(*this);
     }
 
-    void run() final
+    void run(const Settings& settings) override final
     {
         using namespace std::literals::chrono_literals;
 
@@ -192,6 +198,23 @@ class Benchmark : public Runnable {
 
         const long long expected_seconds{3};
         const long long n_calls = expected_seconds * runs / sleep.count();
+
+        switch (settings.output_mode) {
+        case Settings::Basic:
+            benchmark(n_calls);
+            break;
+        case Settings::STAT:
+            benchmark_stat(n_calls);
+            break;
+        case Settings::HDR:
+            benchmark_hdr(n_calls);
+            break;
+        }
+    }
+
+  private:
+    void benchmark(int n_calls)
+    {
         auto start_check = std::chrono::high_resolution_clock::now();
         for (int i = 0; i < n_calls; ++i) {
             func_();
@@ -205,6 +228,42 @@ class Benchmark : public Runnable {
                   << '\n';
     }
 
+    void benchmark_hdr(int n_calls)
+    {
+        HdrHistogram hdr(1, 10000000, 5);
+        for (int i = 0; i < n_calls; ++i) {
+            auto start = std::chrono::high_resolution_clock::now();
+            func_();
+            auto end = std::chrono::high_resolution_clock::now();
+            const auto count
+                = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+            hdr.record(count);
+        }
+        std::cout << hdr << '\n';
+    }
+
+    void benchmark_stat(int n_calls)
+    {
+        HdrHistogram hdr(1, 10000000, 5);
+        for (int i = 0; i < n_calls; ++i) {
+            auto start = std::chrono::high_resolution_clock::now();
+            func_();
+            auto end = std::chrono::high_resolution_clock::now();
+            const auto count
+                = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+            hdr.record(count);
+        }
+        // clang-format off
+        std::cout << name_
+          << std::setw(25) << n_calls
+          << std::setw(10) << hdr.min()
+          << std::setw(10) << hdr.percentile(50.0)
+          << std::setw(10) << hdr.percentile(95.0)
+          << std::setw(10) << hdr.percentile(99.0)
+          << std::setw(10) << hdr.percentile(99.9)
+          << std::setw(10) << hdr.percentile(99.99) << "\n";
+        // clang-format on
+    }
     const char* name_;
 
     BenchmarkCaller<FuncT> func_;
