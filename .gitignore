@@ -3,6 +3,7 @@
 .editorconfig
 .vscode
 /.idea/
+*.kdev4
 
 # OSX.
 .DS_Store
@@ -10,3 +11,4 @@
 # Build.
 *.pyc
 cmake-build-*/
+build/

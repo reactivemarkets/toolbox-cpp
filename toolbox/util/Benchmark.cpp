@@ -43,7 +43,7 @@ void BenchmarkStore::list() const
     }
 }
 
-void BenchmarkStore::run(const std::string& regex_str, bool randomise)
+void BenchmarkStore::run(const std::string& regex_str, bool randomise, const Settings& settings)
 {
     std::vector<Runnable*> filtered;
 
@@ -61,9 +61,19 @@ void BenchmarkStore::run(const std::string& regex_str, bool randomise)
 
     if (!filtered.empty()) {
         // Print header
-        std::cout << "Benchmark  Average(ns)  Runs Time(us)\n";
+        switch (settings.output_mode) {
+        case Settings::Basic:
+            std::cout << "Benchmark  Average(ns)  Runs Time(us)\n";
+            break;
+        case Settings::STAT:
+            std::cout << "NAME                               COUNT       MIN       %50       %95   "
+                         "    %99     %99.9    %99.99\n";
+            break;
+        default:
+            break;
+        }
         for (auto* test : filtered) {
-            test->run();
+            test->run(settings);
         }
     }
 }
@@ -76,11 +86,14 @@ int main(int argc, char* argv[])
     std::string regex;
     bool list{false};
     bool randomise{false};
+    std::string output;
+    Settings settings;
 
     Options opts{"Benchmark options [OPTIONS] [COMMAND]"};
     // clang-format off
     opts('f', "filter", Value{regex}, "Run only matches of regex")
         ('l', "list", Switch{list}, "List available benchmarks")
+        ('o', "output", Value{output}, "{normal,hdr,stat}")
         ('h', "help", Help{})
         ('r', "random", Switch{randomise}, "Run tests in random order")
     ;
@@ -88,6 +101,14 @@ int main(int argc, char* argv[])
 
     try {
         opts.parse(argc, argv);
+
+        if (output == "hdr") {
+            settings.output_mode = Settings::HDR;
+        } else if (output == "stat") {
+            settings.output_mode = Settings::STAT;
+        } else {
+            settings.output_mode = Settings::Basic;
+        }
     } catch (const std::runtime_error& ex) {
         std::cerr << opts;
         return 1;
@@ -99,7 +120,7 @@ int main(int argc, char* argv[])
         return 0;
     }
 
-    store.run(regex, randomise);
+    store.run(regex, randomise, settings);
     return 0;
 }
 } // namespace detail

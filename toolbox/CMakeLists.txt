@@ -38,6 +38,8 @@ include_directories(SYSTEM
   "${CMAKE_CURRENT_SOURCE_DIR}/contrib")
 
 set(lib_SOURCES
+  hdr/HdrHistogram.cpp
+  hdr/HdrHistogramIterator.cpp
   http/App.cpp
   http/Conn.cpp
   http/Error.cpp
@@ -129,6 +131,7 @@ if(TOOLBOX_BUILD_SHARED)
   install(TARGETS toolbox-shared DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT shared)
 endif()
 
+install(FILES hdr.hpp DESTINATION include/toolbox COMPONENT header)
 install(FILES http.hpp DESTINATION include/toolbox COMPONENT header)
 install(FILES io.hpp DESTINATION include/toolbox COMPONENT header)
 install(FILES ipc.hpp DESTINATION include/toolbox COMPONENT header)
@@ -177,6 +180,7 @@ endif()
 
 
 set(test_SOURCES
+  hdr/HdrHistogram.ut.cpp
   http/Parser.ut.cpp
   http/Types.ut.cpp
   http/Url.ut.cpp
