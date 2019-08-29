@@ -47,6 +47,7 @@ class StreamConnector {
     bool connect(CyclTime now, Reactor& r, const Endpoint& ep)
     {
         StreamSockClnt sock{ep.protocol()};
+        static_cast<DerivedT*>(this)->on_sock_init(now, sock);
         sock.set_non_block();
         if (sock.is_ip_family()) {
             set_tcp_no_delay(sock.get(), true);
@@ -64,7 +65,7 @@ class StreamConnector {
             sock_ = std::move(sock);
             return false;
         }
-        static_cast<DerivedT*>(this)->do_connect(now, std::move(sock), ep);
+        static_cast<DerivedT*>(this)->on_sock_connect(now, std::move(sock), ep);
         return true;
     }
 
@@ -77,13 +78,13 @@ class StreamConnector {
         IoSock sock{std::move(sock_)};
         sub_.reset();
         try {
-            const auto ec = sock.get_so_error();
+            const auto ec = sock.get_error();
             if (ec) {
                 throw std::system_error{ec, "connect"};
             }
-            static_cast<DerivedT*>(this)->do_connect(now, std::move(sock), ep_);
+            static_cast<DerivedT*>(this)->on_sock_connect(now, std::move(sock), ep_);
         } catch (const std::exception& e) {
-            static_cast<DerivedT*>(this)->do_connect_error(now, e);
+            static_cast<DerivedT*>(this)->on_sock_connect_error(now, e);
         }
     }
 

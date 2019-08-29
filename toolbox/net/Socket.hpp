@@ -647,16 +647,36 @@ inline std::error_code get_so_error(int sockfd)
     return make_sys_error(optval);
 }
 
-inline void set_so_reuse_addr(int sockfd, bool enabled, std::error_code& ec) noexcept
+inline int get_so_rcv_buf(int sockfd, std::error_code& ec) noexcept
 {
-    int optval{enabled ? 1 : 0};
-    os::setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(optval), ec);
+    int optval{};
+    socklen_t optlen{sizeof(optval)};
+    os::getsockopt(sockfd, SOL_SOCKET, SO_RCVBUF, &optval, optlen, ec);
+    return optval;
 }
 
-inline void set_so_reuse_addr(int sockfd, bool enabled)
+inline int get_so_rcv_buf(int sockfd)
 {
-    int optval{enabled ? 1 : 0};
-    os::setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(optval));
+    int optval{};
+    socklen_t optlen{sizeof(optval)};
+    os::getsockopt(sockfd, SOL_SOCKET, SO_RCVBUF, &optval, optlen);
+    return optval;
+}
+
+inline int get_so_snd_buf(int sockfd, std::error_code& ec) noexcept
+{
+    int optval{};
+    socklen_t optlen{sizeof(optval)};
+    os::getsockopt(sockfd, SOL_SOCKET, SO_SNDBUF, &optval, optlen, ec);
+    return optval;
+}
+
+inline int get_so_snd_buf(int sockfd)
+{
+    int optval{};
+    socklen_t optlen{sizeof(optval)};
+    os::getsockopt(sockfd, SOL_SOCKET, SO_SNDBUF, &optval, optlen);
+    return optval;
 }
 
 inline void set_so_rcv_buf(int sockfd, int size, std::error_code& ec) noexcept
@@ -667,6 +687,18 @@ inline void set_so_rcv_buf(int sockfd, int size, std::error_code& ec) noexcept
 inline void set_so_rcv_buf(int sockfd, int size)
 {
     os::setsockopt(sockfd, SOL_SOCKET, SO_RCVBUF, &size, sizeof(size));
+}
+
+inline void set_so_reuse_addr(int sockfd, bool enabled, std::error_code& ec) noexcept
+{
+    int optval{enabled ? 1 : 0};
+    os::setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(optval), ec);
+}
+
+inline void set_so_reuse_addr(int sockfd, bool enabled)
+{
+    int optval{enabled ? 1 : 0};
+    os::setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(optval));
 }
 
 inline void set_so_snd_buf(int sockfd, int size, std::error_code& ec) noexcept
@@ -706,34 +738,46 @@ struct Sock {
     bool is_ip_family() const noexcept { return family_ == AF_INET || family_ == AF_INET6; }
 
     // Logically const.
-    std::error_code get_so_error(std::error_code& ec) const
+    std::error_code get_error(std::error_code& ec) const noexcept
     {
         return toolbox::get_so_error(*sock_, ec);
     }
-    std::error_code get_so_error() const { return toolbox::get_so_error(*sock_); }
+    std::error_code get_error() const { return toolbox::get_so_error(*sock_); }
+
+    int get_rcv_buf(std::error_code& ec) const noexcept
+    {
+        return toolbox::get_so_rcv_buf(*sock_, ec);
+    }
+    int get_rcv_buf() const { return toolbox::get_so_rcv_buf(*sock_); }
+
+    int get_snd_buf(std::error_code& ec) const noexcept
+    {
+        return toolbox::get_so_snd_buf(*sock_, ec);
+    }
+    int get_snd_buf() const { return toolbox::get_so_snd_buf(*sock_); }
 
     void close() { sock_.reset(); }
 
     void set_non_block(std::error_code& ec) noexcept { toolbox::set_non_block(*sock_, ec); }
     void set_non_block() { toolbox::set_non_block(*sock_); }
 
-    void set_so_rcv_buf(int size, std::error_code& ec) noexcept
+    void set_rcv_buf(int size, std::error_code& ec) noexcept
     {
         toolbox::set_so_rcv_buf(*sock_, size, ec);
     }
-    void set_so_rcv_buf(int size) { toolbox::set_so_rcv_buf(*sock_, size); }
+    void set_rcv_buf(int size) { toolbox::set_so_rcv_buf(*sock_, size); }
 
-    void set_so_reuse_addr(bool enabled, std::error_code& ec) noexcept
+    void set_reuse_addr(bool enabled, std::error_code& ec) noexcept
     {
         toolbox::set_so_reuse_addr(*sock_, enabled, ec);
     }
-    void set_so_reuse_addr(bool enabled) { toolbox::set_so_reuse_addr(*sock_, enabled); }
+    void set_reuse_addr(bool enabled) { toolbox::set_so_reuse_addr(*sock_, enabled); }
 
-    void set_so_snd_buf(int size, std::error_code& ec) noexcept
+    void set_snd_buf(int size, std::error_code& ec) noexcept
     {
         toolbox::set_so_snd_buf(*sock_, size, ec);
     }
-    void set_so_snd_buf(int size) { toolbox::set_so_snd_buf(*sock_, size); }
+    void set_snd_buf(int size) { toolbox::set_so_snd_buf(*sock_, size); }
 
   protected:
     FileHandle sock_;
