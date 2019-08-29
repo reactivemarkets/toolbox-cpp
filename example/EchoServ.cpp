@@ -121,14 +121,11 @@ class EchoServ : public StreamAcceptor<EchoServ> {
     }
 
   private:
-    void do_accept(CyclTime now, IoSock&& sock, const Endpoint& ep)
+    void on_sock_init(CyclTime now, IoSock& sock) {}
+    void on_sock_accept(CyclTime now, IoSock&& sock, const Endpoint& ep)
     {
         TOOLBOX_INFO << "connection opened: " << ep;
 
-        sock.set_non_block();
-        if (sock.is_ip_family()) {
-            set_tcp_no_delay(sock.get(), true);
-        }
         // High performance TCP servers could use a custom allocator.
         auto* const conn = new EchoConn{now, reactor_, move(sock), ep};
         conn_list_.push_back(*conn);

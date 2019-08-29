@@ -43,29 +43,32 @@ class TOOLBOX_API HttpAppBase {
     constexpr HttpAppBase(HttpAppBase&&) noexcept = default;
     HttpAppBase& operator=(HttpAppBase&&) noexcept = default;
 
-    void on_connect(CyclTime now, const Endpoint& ep) { do_on_connect(now, ep); }
-    void on_disconnect(CyclTime now, const Endpoint& ep) noexcept { do_on_disconnect(now, ep); }
-    void on_error(CyclTime now, const Endpoint& ep, const std::exception& e,
-                  HttpStream& os) noexcept
+    void on_http_connect(CyclTime now, const Endpoint& ep) { do_on_http_connect(now, ep); }
+    void on_http_disconnect(CyclTime now, const Endpoint& ep) noexcept
     {
-        do_on_error(now, ep, e, os);
+        do_on_http_disconnect(now, ep);
     }
-    void on_message(CyclTime now, const Endpoint& ep, const HttpRequest& req, HttpStream& os)
+    void on_http_error(CyclTime now, const Endpoint& ep, const std::exception& e,
+                       HttpStream& os) noexcept
     {
-        do_on_message(now, ep, req, os);
+        do_on_http_error(now, ep, e, os);
     }
-    void on_timeout(CyclTime now, const Endpoint& ep) noexcept { do_on_timeout(now, ep); }
+    void on_http_message(CyclTime now, const Endpoint& ep, const HttpRequest& req, HttpStream& os)
+    {
+        do_on_http_message(now, ep, req, os);
+    }
+    void on_http_timeout(CyclTime now, const Endpoint& ep) noexcept { do_on_http_timeout(now, ep); }
 
   protected:
-    virtual void do_on_connect(CyclTime now, const Endpoint& ep) = 0;
-    virtual void do_on_disconnect(CyclTime now, const Endpoint& ep) noexcept = 0;
-    virtual void do_on_error(CyclTime now, const Endpoint& ep, const std::exception& e,
-                             HttpStream& os) noexcept
+    virtual void do_on_http_connect(CyclTime now, const Endpoint& ep) = 0;
+    virtual void do_on_http_disconnect(CyclTime now, const Endpoint& ep) noexcept = 0;
+    virtual void do_on_http_error(CyclTime now, const Endpoint& ep, const std::exception& e,
+                                  HttpStream& os) noexcept
         = 0;
-    virtual void do_on_message(CyclTime now, const Endpoint& ep, const HttpRequest& req,
-                               HttpStream& os)
+    virtual void do_on_http_message(CyclTime now, const Endpoint& ep, const HttpRequest& req,
+                                    HttpStream& os)
         = 0;
-    virtual void do_on_timeout(CyclTime now, const Endpoint& ep) noexcept = 0;
+    virtual void do_on_http_timeout(CyclTime now, const Endpoint& ep) noexcept = 0;
 };
 
 } // namespace http

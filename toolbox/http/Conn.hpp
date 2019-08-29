@@ -64,7 +64,7 @@ class BasicHttpConn
         sub_ = r.subscribe(*sock_, EventIn, bind<&BasicHttpConn::on_io_event>(this));
         tmr_ = r.timer(now.mono_time() + IdleTimeout, Priority::Low,
                        bind<&BasicHttpConn::on_timer>(this));
-        app.on_connect(now, ep_);
+        app.on_http_connect(now, ep_);
     }
 
     // Copy.
@@ -79,7 +79,7 @@ class BasicHttpConn
     void clear() noexcept { req_.clear(); }
     void dispose(CyclTime now) noexcept
     {
-        app_.on_disconnect(now, ep_);
+        app_.on_http_disconnect(now, ep_);
         delete this;
     }
 
@@ -99,7 +99,7 @@ class BasicHttpConn
             req_.append_url(sv);
             ret = true;
         } catch (const std::exception& e) {
-            app_.on_error(now, ep_, e, os_);
+            app_.on_http_error(now, ep_, e, os_);
             flush_and_dispose(now);
         }
         return ret;
@@ -116,7 +116,7 @@ class BasicHttpConn
             req_.append_header_field(sv, first);
             ret = true;
         } catch (const std::exception& e) {
-            app_.on_error(now, ep_, e, os_);
+            app_.on_http_error(now, ep_, e, os_);
             flush_and_dispose(now);
         }
         return ret;
@@ -128,7 +128,7 @@ class BasicHttpConn
             req_.append_header_value(sv, first);
             ret = true;
         } catch (const std::exception& e) {
-            app_.on_error(now, ep_, e, os_);
+            app_.on_http_error(now, ep_, e, os_);
             flush_and_dispose(now);
         }
         return ret;
@@ -145,7 +145,7 @@ class BasicHttpConn
             req_.append_body(sv);
             ret = true;
         } catch (const std::exception& e) {
-            app_.on_error(now, ep_, e, os_);
+            app_.on_http_error(now, ep_, e, os_);
             flush_and_dispose(now);
         }
         return ret;
@@ -158,7 +158,7 @@ class BasicHttpConn
             req_.flush(); // May throw.
 
             const auto was_empty = out_.empty();
-            app_.on_message(now, ep_, req_, os_);
+            app_.on_http_message(now, ep_, req_, os_);
 
             if (was_empty) {
                 // May throw.
@@ -166,7 +166,7 @@ class BasicHttpConn
             }
             ret = true;
         } catch (const std::exception& e) {
-            app_.on_error(now, ep_, e, os_);
+            app_.on_http_error(now, ep_, e, os_);
             flush_and_dispose(now);
         }
         req_.clear();
@@ -204,16 +204,16 @@ class BasicHttpConn
                 }
             }
         } catch (const HttpException&) {
-            // Do not call on_error() here, because it will have already been called in one of the
-            // noexcept parser callback functions.
+            // Do not call on_http_error() here, because it will have already been called in one of
+            // the noexcept parser callback functions.
         } catch (const std::exception& e) {
-            app_.on_error(now, ep_, e, os_);
+            app_.on_http_error(now, ep_, e, os_);
             flush_and_dispose(now);
         }
     }
     void on_timer(CyclTime now, Timer& tmr)
     {
-        app_.on_timeout(now, ep_);
+        app_.on_http_timeout(now, ep_);
         dispose(now);
     }
     void flush_and_dispose(CyclTime now) noexcept

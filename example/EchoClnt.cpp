@@ -123,7 +123,8 @@ class EchoClnt : public StreamConnector<EchoClnt> {
     }
 
   private:
-    void do_connect(CyclTime now, IoSock&& sock, const Endpoint& ep)
+    void on_sock_init(CyclTime now, IoSock& sock) {}
+    void on_sock_connect(CyclTime now, IoSock&& sock, const Endpoint& ep)
     {
         TOOLBOX_INFO << "connection opened: " << ep;
         inprogress_ = false;
@@ -132,7 +133,7 @@ class EchoClnt : public StreamConnector<EchoClnt> {
         auto* const conn = new EchoConn{now, reactor_, move(sock), ep};
         conn_list_.push_back(*conn);
     }
-    void do_connect_error(CyclTime now, const std::exception& e)
+    void on_sock_connect_error(CyclTime now, const std::exception& e)
     {
         TOOLBOX_ERROR << "failed to connect: " << e.what();
         aifuture_ = resolver_.resolve(uri_, SOCK_STREAM);
