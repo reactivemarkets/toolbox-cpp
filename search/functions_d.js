@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['on_5fconnect',['on_connect',['../classtoolbox_1_1http_1_1HttpAppBase.html#a34b1db7612c5e9ce47d88fa0a83fa068',1,'toolbox::http::HttpAppBase']]],
-  ['on_5fdisconnect',['on_disconnect',['../classtoolbox_1_1http_1_1HttpAppBase.html#a8ebf6312e51146bb7d6d0eb45069bf0d',1,'toolbox::http::HttpAppBase']]],
-  ['on_5ferror',['on_error',['../classtoolbox_1_1http_1_1HttpAppBase.html#a01e5172a19d61a31270904470e809dae',1,'toolbox::http::HttpAppBase']]],
-  ['on_5fmessage',['on_message',['../classtoolbox_1_1http_1_1HttpAppBase.html#ac4c94f40844bc1960a8173da522a1397',1,'toolbox::http::HttpAppBase']]],
-  ['on_5ftimeout',['on_timeout',['../classtoolbox_1_1http_1_1HttpAppBase.html#a0641ef892910dbee9c67c97cbaf9e2bb',1,'toolbox::http::HttpAppBase']]],
+  ['on_5fhttp_5fconnect',['on_http_connect',['../classtoolbox_1_1http_1_1HttpAppBase.html#ab451e2e7e998b0044d9984fd249cf15f',1,'toolbox::http::HttpAppBase']]],
+  ['on_5fhttp_5fdisconnect',['on_http_disconnect',['../classtoolbox_1_1http_1_1HttpAppBase.html#a99238276eefd4d07fb821ab331fdbe99',1,'toolbox::http::HttpAppBase']]],
+  ['on_5fhttp_5ferror',['on_http_error',['../classtoolbox_1_1http_1_1HttpAppBase.html#ad1607a83b444ad540d8953df7e62ecb4',1,'toolbox::http::HttpAppBase']]],
+  ['on_5fhttp_5fmessage',['on_http_message',['../classtoolbox_1_1http_1_1HttpAppBase.html#aa0cba7a41e395c83cc8cbdd1434bd465',1,'toolbox::http::HttpAppBase']]],
+  ['on_5fhttp_5ftimeout',['on_http_timeout',['../classtoolbox_1_1http_1_1HttpAppBase.html#a2f4627007d4be07fa52b9a8d1a808a10',1,'toolbox::http::HttpAppBase']]],
   ['open',['open',['../namespacetoolbox_1_1os.html#a2cf774799407bd02ff9fe8a8aa6642e4',1,'toolbox::os::open(const char *path, int flags, mode_t mode, std::error_code &amp;ec) noexcept'],['../namespacetoolbox_1_1os.html#adcf70f2fb29a429f38e8dc47a617590c',1,'toolbox::os::open(const char *path, int flags, mode_t mode)'],['../namespacetoolbox_1_1os.html#ab97b46648035dd50d9b46824f0a12a93',1,'toolbox::os::open(const char *path, int flags, std::error_code &amp;ec) noexcept'],['../namespacetoolbox_1_1os.html#a4611135ccc106a49d68a469353715077',1,'toolbox::os::open(const char *path, int flags)']]],
   ['open_5fpid_5ffile',['open_pid_file',['../namespacetoolbox_1_1sys.html#abcce9a1a35d645d20a1315c191bc2692',1,'toolbox::sys']]],
   ['operator_20_26_3d',['operator &amp;=',['../structtoolbox_1_1util_1_1IntWrapper.html#abe0d4891ed71ee17a9c8a7996d774c9e',1,'toolbox::util::IntWrapper']]],
