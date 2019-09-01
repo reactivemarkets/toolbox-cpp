@@ -84,7 +84,7 @@ Inheritance diagram for toolbox::io::EpollReactor:</div>
   <img src="classtoolbox_1_1io_1_1EpollReactor.png" usemap="#toolbox::io::EpollReactor_map" alt=""/>
   <map id="toolbox::io::EpollReactor_map" name="toolbox::io::EpollReactor_map">
 <area href="classtoolbox_1_1io_1_1Reactor.html" alt="toolbox::io::Reactor" shape="rect" coords="0,56,146,80"/>
-<area href="classtoolbox_1_1io_1_1Interruptible.html" alt="toolbox::io::Interruptible" shape="rect" coords="0,0,146,24"/>
+<area href="classtoolbox_1_1io_1_1Notifiable.html" alt="toolbox::io::Notifiable" shape="rect" coords="0,0,146,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -97,8 +97,8 @@ Public Types</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6fc2440d8897361af0ab204e67d99d00"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#a6fc2440d8897361af0ab204e67d99d00">EpollReactor</a> (std::size_t size_hint=1024)</td></tr>
 <tr class="separator:a6fc2440d8897361af0ab204e67d99d00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af65b15697763f96ce2719c1f580a439e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#af65b15697763f96ce2719c1f580a439e">~EpollReactor</a> () override</td></tr>
-<tr class="separator:af65b15697763f96ce2719c1f580a439e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93885461064f0d4d57fd7fa014684c53"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#a93885461064f0d4d57fd7fa014684c53">~EpollReactor</a> () final</td></tr>
+<tr class="separator:a93885461064f0d4d57fd7fa014684c53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af49fdae771be9434686e1909a3506d8e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#af49fdae771be9434686e1909a3506d8e">EpollReactor</a> (const <a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html">EpollReactor</a> &amp;)=delete</td></tr>
 <tr class="separator:af49fdae771be9434686e1909a3506d8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77c79f08ee2165e678f385873f369ce2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html">EpollReactor</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#a77c79f08ee2165e678f385873f369ce2">operator=</a> (const <a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html">EpollReactor</a> &amp;)=delete</td></tr>
@@ -130,47 +130,47 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ace5de03a0a9b87bfa9a24e35be036487 inherit pub_methods_classtoolbox_1_1io_1_1Reactor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5a07e56db7390a3fee845aaedec4abb inherit pub_methods_classtoolbox_1_1io_1_1Reactor"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Reactor.html#ab5a07e56db7390a3fee845aaedec4abb">poll</a> (CyclTime now, Duration timeout=<a class="el" href="namespacetoolbox_1_1io.html#a21ca3c18b252161e1a4c6efcb85d0e4b">NoTimeout</a>)</td></tr>
 <tr class="separator:ab5a07e56db7390a3fee845aaedec4abb inherit pub_methods_classtoolbox_1_1io_1_1Reactor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_classtoolbox_1_1io_1_1Interruptible"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classtoolbox_1_1io_1_1Interruptible')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classtoolbox_1_1io_1_1Interruptible.html">toolbox::io::Interruptible</a></td></tr>
-<tr class="memitem:a483426906810c1f2b717d7c6d15504af inherit pub_methods_classtoolbox_1_1io_1_1Interruptible"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Interruptible.html#a483426906810c1f2b717d7c6d15504af">Interruptible</a> () noexcept=default</td></tr>
-<tr class="separator:a483426906810c1f2b717d7c6d15504af inherit pub_methods_classtoolbox_1_1io_1_1Interruptible"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afeb1b873a862fa1e6979ac1dcc8cb292 inherit pub_methods_classtoolbox_1_1io_1_1Interruptible"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Interruptible.html#afeb1b873a862fa1e6979ac1dcc8cb292">~Interruptible</a> ()</td></tr>
-<tr class="separator:afeb1b873a862fa1e6979ac1dcc8cb292 inherit pub_methods_classtoolbox_1_1io_1_1Interruptible"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af124d9192ec613364ed512ffea145e25 inherit pub_methods_classtoolbox_1_1io_1_1Interruptible"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Interruptible.html#af124d9192ec613364ed512ffea145e25">Interruptible</a> (const <a class="el" href="classtoolbox_1_1io_1_1Interruptible.html">Interruptible</a> &amp;)=delete</td></tr>
-<tr class="separator:af124d9192ec613364ed512ffea145e25 inherit pub_methods_classtoolbox_1_1io_1_1Interruptible"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f540aec8edfe730ab2c24976141a7b3 inherit pub_methods_classtoolbox_1_1io_1_1Interruptible"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtoolbox_1_1io_1_1Interruptible.html">Interruptible</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Interruptible.html#a5f540aec8edfe730ab2c24976141a7b3">operator=</a> (const <a class="el" href="classtoolbox_1_1io_1_1Interruptible.html">Interruptible</a> &amp;)=delete</td></tr>
-<tr class="separator:a5f540aec8edfe730ab2c24976141a7b3 inherit pub_methods_classtoolbox_1_1io_1_1Interruptible"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93e7faa0f7a1b9d360ae5f95e20debd9 inherit pub_methods_classtoolbox_1_1io_1_1Interruptible"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Interruptible.html#a93e7faa0f7a1b9d360ae5f95e20debd9">Interruptible</a> (<a class="el" href="classtoolbox_1_1io_1_1Interruptible.html">Interruptible</a> &amp;&amp;)=delete</td></tr>
-<tr class="separator:a93e7faa0f7a1b9d360ae5f95e20debd9 inherit pub_methods_classtoolbox_1_1io_1_1Interruptible"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb112b9f0a194cf5a0ac8d3673196b78 inherit pub_methods_classtoolbox_1_1io_1_1Interruptible"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtoolbox_1_1io_1_1Interruptible.html">Interruptible</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Interruptible.html#acb112b9f0a194cf5a0ac8d3673196b78">operator=</a> (<a class="el" href="classtoolbox_1_1io_1_1Interruptible.html">Interruptible</a> &amp;&amp;)=delete</td></tr>
-<tr class="separator:acb112b9f0a194cf5a0ac8d3673196b78 inherit pub_methods_classtoolbox_1_1io_1_1Interruptible"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92c2ffd97df1832cf68a98be8612d6d8 inherit pub_methods_classtoolbox_1_1io_1_1Interruptible"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Interruptible.html#a92c2ffd97df1832cf68a98be8612d6d8">interrupt</a> () noexcept</td></tr>
-<tr class="separator:a92c2ffd97df1832cf68a98be8612d6d8 inherit pub_methods_classtoolbox_1_1io_1_1Interruptible"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classtoolbox_1_1io_1_1Notifiable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classtoolbox_1_1io_1_1Notifiable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classtoolbox_1_1io_1_1Notifiable.html">toolbox::io::Notifiable</a></td></tr>
+<tr class="memitem:ac4cf57ba321c70aa7ff49baf544074ce inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Notifiable.html#ac4cf57ba321c70aa7ff49baf544074ce">Notifiable</a> () noexcept=default</td></tr>
+<tr class="separator:ac4cf57ba321c70aa7ff49baf544074ce inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38a93d3e3d878f79cf934ccba5f48e9a inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Notifiable.html#a38a93d3e3d878f79cf934ccba5f48e9a">~Notifiable</a> ()</td></tr>
+<tr class="separator:a38a93d3e3d878f79cf934ccba5f48e9a inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b63107eed1a18446cd1049ed1366dde inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Notifiable.html#a3b63107eed1a18446cd1049ed1366dde">Notifiable</a> (const <a class="el" href="classtoolbox_1_1io_1_1Notifiable.html">Notifiable</a> &amp;) noexcept=default</td></tr>
+<tr class="separator:a3b63107eed1a18446cd1049ed1366dde inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a319c6c56a2ee732e1d42ac30e41ad219 inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtoolbox_1_1io_1_1Notifiable.html">Notifiable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Notifiable.html#a319c6c56a2ee732e1d42ac30e41ad219">operator=</a> (const <a class="el" href="classtoolbox_1_1io_1_1Notifiable.html">Notifiable</a> &amp;) noexcept=default</td></tr>
+<tr class="separator:a319c6c56a2ee732e1d42ac30e41ad219 inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf5c339339f3ef93810a941106deb928 inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Notifiable.html#acf5c339339f3ef93810a941106deb928">Notifiable</a> (<a class="el" href="classtoolbox_1_1io_1_1Notifiable.html">Notifiable</a> &amp;&amp;) noexcept=default</td></tr>
+<tr class="separator:acf5c339339f3ef93810a941106deb928 inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a560889c44e3dd85bfdcaf8467615f1c7 inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtoolbox_1_1io_1_1Notifiable.html">Notifiable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Notifiable.html#a560889c44e3dd85bfdcaf8467615f1c7">operator=</a> (<a class="el" href="classtoolbox_1_1io_1_1Notifiable.html">Notifiable</a> &amp;&amp;) noexcept=default</td></tr>
+<tr class="separator:a560889c44e3dd85bfdcaf8467615f1c7 inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5c788bb93dc1fc8dcf46a80cda853ee inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Notifiable.html#aa5c788bb93dc1fc8dcf46a80cda853ee">notify</a> () noexcept</td></tr>
+<tr class="separator:aa5c788bb93dc1fc8dcf46a80cda853ee inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a4168433def03c0c0c89399ef4daf6eb1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#a4168433def03c0c0c89399ef4daf6eb1">do_interrupt</a> () noexcept override</td></tr>
-<tr class="memdesc:a4168433def03c0c0c89399ef4daf6eb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thread-safe.  <a href="#a4168433def03c0c0c89399ef4daf6eb1">More...</a><br /></td></tr>
-<tr class="separator:a4168433def03c0c0c89399ef4daf6eb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c05507ea033cccc91275f21f345f050"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtoolbox_1_1io_1_1Reactor_1_1Handle.html">Handle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#a0c05507ea033cccc91275f21f345f050">do_subscribe</a> (int fd, unsigned events, <a class="el" href="namespacetoolbox_1_1io.html#a51270edb28d40f59f724a79e2e3ed0a6">IoSlot</a> slot) override</td></tr>
-<tr class="separator:a0c05507ea033cccc91275f21f345f050"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac45e0bb94e4bd93520c52911855abe51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#ac45e0bb94e4bd93520c52911855abe51">do_unsubscribe</a> (int fd, int sid) noexcept override</td></tr>
-<tr class="separator:ac45e0bb94e4bd93520c52911855abe51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaad5d3b351b5515a1ec8d8761630fbc3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#aaad5d3b351b5515a1ec8d8761630fbc3">do_set_events</a> (int fd, int sid, unsigned events, <a class="el" href="namespacetoolbox_1_1io.html#a51270edb28d40f59f724a79e2e3ed0a6">IoSlot</a> slot, std::error_code &amp;ec) noexcept override</td></tr>
-<tr class="separator:aaad5d3b351b5515a1ec8d8761630fbc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9b4c653f597478354aea12daa8af284"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#ac9b4c653f597478354aea12daa8af284">do_set_events</a> (int fd, int sid, unsigned events, <a class="el" href="namespacetoolbox_1_1io.html#a51270edb28d40f59f724a79e2e3ed0a6">IoSlot</a> slot) override</td></tr>
-<tr class="separator:ac9b4c653f597478354aea12daa8af284"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50223d934e9c0b1e85e802a3c48a9d5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#a50223d934e9c0b1e85e802a3c48a9d5d">do_set_events</a> (int fd, int sid, unsigned events, std::error_code &amp;ec) noexcept override</td></tr>
-<tr class="separator:a50223d934e9c0b1e85e802a3c48a9d5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21e7bc14a4bc200ade494049f7d443b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#a21e7bc14a4bc200ade494049f7d443b4">do_set_events</a> (int fd, int sid, unsigned events) override</td></tr>
-<tr class="separator:a21e7bc14a4bc200ade494049f7d443b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a894d54ba8872bbe54e9cdb0dc1ee26b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtoolbox_1_1io_1_1Timer.html">Timer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#a894d54ba8872bbe54e9cdb0dc1ee26b1">do_timer</a> (MonoTime expiry, Duration interval, <a class="el" href="namespacetoolbox_1_1io.html#a3ebeb41d6195a7beeb4a1734379c4684">Priority</a> priority, <a class="el" href="namespacetoolbox_1_1io.html#a9637530ce7cb05e3d37b882576fbcaa4">TimerSlot</a> slot) override</td></tr>
-<tr class="memdesc:a894d54ba8872bbe54e9cdb0dc1ee26b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws std::bad_alloc only.  <a href="#a894d54ba8872bbe54e9cdb0dc1ee26b1">More...</a><br /></td></tr>
-<tr class="separator:a894d54ba8872bbe54e9cdb0dc1ee26b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa371d65cc9d412ad595a036a78e95d45"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtoolbox_1_1io_1_1Timer.html">Timer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#aa371d65cc9d412ad595a036a78e95d45">do_timer</a> (MonoTime expiry, <a class="el" href="namespacetoolbox_1_1io.html#a3ebeb41d6195a7beeb4a1734379c4684">Priority</a> priority, <a class="el" href="namespacetoolbox_1_1io.html#a9637530ce7cb05e3d37b882576fbcaa4">TimerSlot</a> slot) override</td></tr>
-<tr class="memdesc:aa371d65cc9d412ad595a036a78e95d45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws std::bad_alloc only.  <a href="#aa371d65cc9d412ad595a036a78e95d45">More...</a><br /></td></tr>
-<tr class="separator:aa371d65cc9d412ad595a036a78e95d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bbea9641c655c8430c888994a2a4f46"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#a9bbea9641c655c8430c888994a2a4f46">do_poll</a> (CyclTime now, Duration timeout) override</td></tr>
-<tr class="separator:a9bbea9641c655c8430c888994a2a4f46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6ecd8c3213b00e3ec9e8402dff49778"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#ae6ecd8c3213b00e3ec9e8402dff49778">do_notify</a> () noexcept final</td></tr>
+<tr class="memdesc:ae6ecd8c3213b00e3ec9e8402dff49778"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thread-safe.  <a href="#ae6ecd8c3213b00e3ec9e8402dff49778">More...</a><br /></td></tr>
+<tr class="separator:ae6ecd8c3213b00e3ec9e8402dff49778"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bde2b4b468832c7371dcf60f3eac17c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtoolbox_1_1io_1_1Reactor_1_1Handle.html">Handle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#a2bde2b4b468832c7371dcf60f3eac17c">do_subscribe</a> (int fd, unsigned events, <a class="el" href="namespacetoolbox_1_1io.html#a51270edb28d40f59f724a79e2e3ed0a6">IoSlot</a> slot) final</td></tr>
+<tr class="separator:a2bde2b4b468832c7371dcf60f3eac17c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae62ad0a049652cf70969f6758bdfec99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#ae62ad0a049652cf70969f6758bdfec99">do_unsubscribe</a> (int fd, int sid) noexcept final</td></tr>
+<tr class="separator:ae62ad0a049652cf70969f6758bdfec99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4eaef84efd26cb3c99567219d2de04d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#a4eaef84efd26cb3c99567219d2de04d9">do_set_events</a> (int fd, int sid, unsigned events, <a class="el" href="namespacetoolbox_1_1io.html#a51270edb28d40f59f724a79e2e3ed0a6">IoSlot</a> slot, std::error_code &amp;ec) noexcept final</td></tr>
+<tr class="separator:a4eaef84efd26cb3c99567219d2de04d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe15478b69d8d082835e701c7ef7fa7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#afe15478b69d8d082835e701c7ef7fa7e">do_set_events</a> (int fd, int sid, unsigned events, <a class="el" href="namespacetoolbox_1_1io.html#a51270edb28d40f59f724a79e2e3ed0a6">IoSlot</a> slot) final</td></tr>
+<tr class="separator:afe15478b69d8d082835e701c7ef7fa7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a619e53580626f9ab28296c14e52aae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#a7a619e53580626f9ab28296c14e52aae">do_set_events</a> (int fd, int sid, unsigned events, std::error_code &amp;ec) noexcept final</td></tr>
+<tr class="separator:a7a619e53580626f9ab28296c14e52aae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72f2eff4479421d16ac775839aceddfe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#a72f2eff4479421d16ac775839aceddfe">do_set_events</a> (int fd, int sid, unsigned events) final</td></tr>
+<tr class="separator:a72f2eff4479421d16ac775839aceddfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23a1c68bb9592fd165b1a472dda178ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtoolbox_1_1io_1_1Timer.html">Timer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#a23a1c68bb9592fd165b1a472dda178ea">do_timer</a> (MonoTime expiry, Duration interval, <a class="el" href="namespacetoolbox_1_1io.html#a3ebeb41d6195a7beeb4a1734379c4684">Priority</a> priority, <a class="el" href="namespacetoolbox_1_1io.html#a9637530ce7cb05e3d37b882576fbcaa4">TimerSlot</a> slot) final</td></tr>
+<tr class="memdesc:a23a1c68bb9592fd165b1a472dda178ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws std::bad_alloc only.  <a href="#a23a1c68bb9592fd165b1a472dda178ea">More...</a><br /></td></tr>
+<tr class="separator:a23a1c68bb9592fd165b1a472dda178ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a075a741c26cf6bb15d52ec912bc656ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtoolbox_1_1io_1_1Timer.html">Timer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#a075a741c26cf6bb15d52ec912bc656ce">do_timer</a> (MonoTime expiry, <a class="el" href="namespacetoolbox_1_1io.html#a3ebeb41d6195a7beeb4a1734379c4684">Priority</a> priority, <a class="el" href="namespacetoolbox_1_1io.html#a9637530ce7cb05e3d37b882576fbcaa4">TimerSlot</a> slot) final</td></tr>
+<tr class="memdesc:a075a741c26cf6bb15d52ec912bc656ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws std::bad_alloc only.  <a href="#a075a741c26cf6bb15d52ec912bc656ce">More...</a><br /></td></tr>
+<tr class="separator:a075a741c26cf6bb15d52ec912bc656ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2b55f3fff672216d3dbe1a9b8f92b7d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#aa2b55f3fff672216d3dbe1a9b8f92b7d">do_poll</a> (CyclTime now, Duration timeout) final</td></tr>
+<tr class="separator:aa2b55f3fff672216d3dbe1a9b8f92b7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -221,8 +221,8 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af65b15697763f96ce2719c1f580a439e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af65b15697763f96ce2719c1f580a439e">&#9670;&nbsp;</a></span>~EpollReactor()</h2>
+<a id="a93885461064f0d4d57fd7fa014684c53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93885461064f0d4d57fd7fa014684c53">&#9670;&nbsp;</a></span>~EpollReactor()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -239,7 +239,7 @@ Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
+<span class="mlabels"><span class="mlabel">final</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -353,8 +353,8 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a4168433def03c0c0c89399ef4daf6eb1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4168433def03c0c0c89399ef4daf6eb1">&#9670;&nbsp;</a></span>do_interrupt()</h2>
+<a id="ae6ecd8c3213b00e3ec9e8402dff49778"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6ecd8c3213b00e3ec9e8402dff49778">&#9670;&nbsp;</a></span>do_notify()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -363,7 +363,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void toolbox::io::EpollReactor::do_interrupt </td>
+          <td class="memname">void toolbox::io::EpollReactor::do_notify </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -371,21 +371,21 @@ Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">protected</span><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Thread-safe. </p>
 
-<p>Implements <a class="el" href="classtoolbox_1_1io_1_1Interruptible.html#a3244747f903024f7798c4f3c5471db32">toolbox::io::Interruptible</a>.</p>
+<p>Implements <a class="el" href="classtoolbox_1_1io_1_1Notifiable.html#adef80201650d43dcbad66578043d4f72">toolbox::io::Notifiable</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="EpollReactor_8cpp_source.html#l00044">44</a> of file <a class="el" href="EpollReactor_8cpp_source.html">EpollReactor.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a0c05507ea033cccc91275f21f345f050"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c05507ea033cccc91275f21f345f050">&#9670;&nbsp;</a></span>do_subscribe()</h2>
+<a id="a2bde2b4b468832c7371dcf60f3eac17c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bde2b4b468832c7371dcf60f3eac17c">&#9670;&nbsp;</a></span>do_subscribe()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -419,7 +419,7 @@ Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -430,8 +430,8 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac45e0bb94e4bd93520c52911855abe51"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac45e0bb94e4bd93520c52911855abe51">&#9670;&nbsp;</a></span>do_unsubscribe()</h2>
+<a id="ae62ad0a049652cf70969f6758bdfec99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae62ad0a049652cf70969f6758bdfec99">&#9670;&nbsp;</a></span>do_unsubscribe()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -459,7 +459,7 @@ Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">protected</span><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -470,8 +470,8 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aaad5d3b351b5515a1ec8d8761630fbc3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaad5d3b351b5515a1ec8d8761630fbc3">&#9670;&nbsp;</a></span>do_set_events() <span class="overload">[1/4]</span></h2>
+<a id="a4eaef84efd26cb3c99567219d2de04d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4eaef84efd26cb3c99567219d2de04d9">&#9670;&nbsp;</a></span>do_set_events() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -517,7 +517,7 @@ Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">protected</span><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -528,8 +528,8 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac9b4c653f597478354aea12daa8af284"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9b4c653f597478354aea12daa8af284">&#9670;&nbsp;</a></span>do_set_events() <span class="overload">[2/4]</span></h2>
+<a id="afe15478b69d8d082835e701c7ef7fa7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe15478b69d8d082835e701c7ef7fa7e">&#9670;&nbsp;</a></span>do_set_events() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -569,7 +569,7 @@ Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -580,8 +580,8 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a50223d934e9c0b1e85e802a3c48a9d5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50223d934e9c0b1e85e802a3c48a9d5d">&#9670;&nbsp;</a></span>do_set_events() <span class="overload">[3/4]</span></h2>
+<a id="a7a619e53580626f9ab28296c14e52aae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a619e53580626f9ab28296c14e52aae">&#9670;&nbsp;</a></span>do_set_events() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -621,7 +621,7 @@ Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">protected</span><span class="mlabel">virtual</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -632,8 +632,8 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a21e7bc14a4bc200ade494049f7d443b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21e7bc14a4bc200ade494049f7d443b4">&#9670;&nbsp;</a></span>do_set_events() <span class="overload">[4/4]</span></h2>
+<a id="a72f2eff4479421d16ac775839aceddfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72f2eff4479421d16ac775839aceddfe">&#9670;&nbsp;</a></span>do_set_events() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -667,7 +667,7 @@ Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -678,8 +678,8 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a894d54ba8872bbe54e9cdb0dc1ee26b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a894d54ba8872bbe54e9cdb0dc1ee26b1">&#9670;&nbsp;</a></span>do_timer() <span class="overload">[1/2]</span></h2>
+<a id="a23a1c68bb9592fd165b1a472dda178ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23a1c68bb9592fd165b1a472dda178ea">&#9670;&nbsp;</a></span>do_timer() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -719,7 +719,7 @@ Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -732,8 +732,8 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa371d65cc9d412ad595a036a78e95d45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa371d65cc9d412ad595a036a78e95d45">&#9670;&nbsp;</a></span>do_timer() <span class="overload">[2/2]</span></h2>
+<a id="a075a741c26cf6bb15d52ec912bc656ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a075a741c26cf6bb15d52ec912bc656ce">&#9670;&nbsp;</a></span>do_timer() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -767,7 +767,7 @@ Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -780,8 +780,8 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a9bbea9641c655c8430c888994a2a4f46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9bbea9641c655c8430c888994a2a4f46">&#9670;&nbsp;</a></span>do_poll()</h2>
+<a id="aa2b55f3fff672216d3dbe1a9b8f92b7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2b55f3fff672216d3dbe1a9b8f92b7d">&#9670;&nbsp;</a></span>do_poll()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -809,7 +809,7 @@ Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">final</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
