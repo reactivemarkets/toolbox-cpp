@@ -14,12 +14,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Interruptible.hpp"
+#include "Notifiable.hpp"
 
 namespace toolbox {
 inline namespace io {
 
-Interruptible::~Interruptible() = default;
+Notifiable::~Notifiable() = default;
 
 } // namespace io
 } // namespace toolbox

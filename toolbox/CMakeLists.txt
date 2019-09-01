@@ -55,8 +55,8 @@ set(lib_SOURCES
   io/EventFd.cpp
   io/File.cpp
   io/Handle.cpp
-  io/Interruptible.cpp
   io/Muxer.cpp
+  io/Notifiable.cpp
   io/Reactor.cpp
   io/Runner.cpp
   io/Timer.cpp

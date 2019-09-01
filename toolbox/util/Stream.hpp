@@ -33,7 +33,7 @@ template <std::size_t MaxN>
 class StaticBuf : public std::streambuf {
   public:
     StaticBuf() noexcept { reset(); }
-    ~StaticBuf() override = default;
+    ~StaticBuf() final = default;
 
     // Copy.
     StaticBuf(const StaticBuf&) = delete;
@@ -61,7 +61,7 @@ class StaticStream : public std::ostream {
     {
         rdbuf(&buf_);
     }
-    ~StaticStream() override = default;
+    ~StaticStream() final = default;
 
     // Copy.
     StaticStream(const StaticStream&) = delete;

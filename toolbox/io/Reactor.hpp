@@ -17,7 +17,7 @@
 #ifndef TOOLBOX_IO_REACTOR_HPP
 #define TOOLBOX_IO_REACTOR_HPP
 
-#include <toolbox/io/Interruptible.hpp>
+#include <toolbox/io/Notifiable.hpp>
 #include <toolbox/io/Timer.hpp>
 
 namespace toolbox {
@@ -28,7 +28,7 @@ enum class Priority { High = 0, Low = 1 };
 
 using IoSlot = BasicSlot<CyclTime, int, unsigned>;
 
-class TOOLBOX_API Reactor : public Interruptible {
+class TOOLBOX_API Reactor : public Notifiable {
   public:
     class Handle {
       public:

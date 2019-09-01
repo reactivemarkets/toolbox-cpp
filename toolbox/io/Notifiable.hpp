@@ -14,34 +14,36 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef TOOLBOX_IO_INTERRUPTIBLE_HPP
-#define TOOLBOX_IO_INTERRUPTIBLE_HPP
+#ifndef TOOLBOX_IO_NOTIFIABLE_HPP
+#define TOOLBOX_IO_NOTIFIABLE_HPP
 
 #include <toolbox/Config.h>
 
 namespace toolbox {
 inline namespace io {
 
-class TOOLBOX_API Interruptible {
+/// The Notifiable is implemented by types that may be woken-up, interrupted or otherwise notified
+/// of an asynchronous event.
+class TOOLBOX_API Notifiable {
   public:
-    Interruptible() noexcept = default;
-    virtual ~Interruptible();
+    Notifiable() noexcept = default;
+    virtual ~Notifiable();
 
     // Copy.
-    Interruptible(const Interruptible&) = delete;
-    Interruptible& operator=(const Interruptible&) = delete;
+    Notifiable(const Notifiable&) noexcept = default;
+    Notifiable& operator=(const Notifiable&) noexcept = default;
 
     // Move.
-    Interruptible(Interruptible&&) = delete;
-    Interruptible& operator=(Interruptible&&) = delete;
+    Notifiable(Notifiable&&) noexcept = default;
+    Notifiable& operator=(Notifiable&&) noexcept = default;
 
-    void interrupt() noexcept { do_interrupt(); }
+    void notify() noexcept { do_notify(); }
 
   protected:
-    virtual void do_interrupt() noexcept = 0;
+    virtual void do_notify() noexcept = 0;
 };
 
 } // namespace io
 } // namespace toolbox
 
-#endif // TOOLBOX_IO_INTERRUPTIBLE_HPP
+#endif // TOOLBOX_IO_NOTIFIABLE_HPP

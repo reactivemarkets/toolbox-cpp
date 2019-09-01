@@ -170,7 +170,7 @@ class Benchmark : public Runnable {
         return std::move(*this);
     }
 
-    void run() override final
+    void run() final
     {
         using namespace std::literals::chrono_literals;
 

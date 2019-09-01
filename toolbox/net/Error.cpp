@@ -29,7 +29,7 @@ inline namespace net {
 namespace {
 struct GaiErrorCategory : std::error_category {
     constexpr GaiErrorCategory() noexcept = default;
-    ~GaiErrorCategory() override = default;
+    ~GaiErrorCategory() final = default;
 
     // Copy.
     GaiErrorCategory(const GaiErrorCategory&) = delete;
@@ -39,8 +39,8 @@ struct GaiErrorCategory : std::error_category {
     GaiErrorCategory(GaiErrorCategory&&) = delete;
     GaiErrorCategory& operator=(GaiErrorCategory&&) = delete;
 
-    const char* name() const noexcept override { return "gai"; }
-    std::string message(int err) const override { return gai_strerror(err); }
+    const char* name() const noexcept final { return "gai"; }
+    std::string message(int err) const final { return gai_strerror(err); }
 };
 
 const GaiErrorCategory gai_cat_{};
