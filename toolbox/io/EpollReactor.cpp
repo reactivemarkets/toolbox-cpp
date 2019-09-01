@@ -31,21 +31,21 @@ constexpr size_t MaxEvents{16};
 EpollReactor::EpollReactor(std::size_t size_hint)
 : mux_{size_hint}
 {
-    const auto efd = efd_.fd();
-    data_.resize(max<size_t>(efd + 1, size_hint));
-    mux_.subscribe(efd, 0, EventIn);
+    const auto notify = notify_.fd();
+    data_.resize(max<size_t>(notify + 1, size_hint));
+    mux_.subscribe(notify, 0, EventIn);
 }
 
 EpollReactor::~EpollReactor()
 {
-    mux_.unsubscribe(efd_.fd());
+    mux_.unsubscribe(notify_.fd());
 }
 
-void EpollReactor::do_interrupt() noexcept
+void EpollReactor::do_notify() noexcept
 {
     // Best effort.
     std::error_code ec;
-    efd_.write(1, ec);
+    notify_.write(1, ec);
 }
 
 Reactor::Handle EpollReactor::do_subscribe(int fd, unsigned events, IoSlot slot)
@@ -200,8 +200,8 @@ int EpollReactor::dispatch(CyclTime now, Event* buf, int size)
 
         auto& ev = buf[i];
         const auto fd = mux_.fd(ev);
-        if (fd == efd_.fd()) {
-            efd_.read();
+        if (fd == notify_.fd()) {
+            notify_.read();
             continue;
         }
         const auto& ref = data_[fd];

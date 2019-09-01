@@ -29,7 +29,7 @@ class TOOLBOX_API EpollReactor : public Reactor {
     using Event = typename EpollMuxer::Event;
 
     explicit EpollReactor(std::size_t size_hint = 1024);
-    ~EpollReactor() override;
+    ~EpollReactor() final;
 
     // Copy.
     EpollReactor(const EpollReactor&) = delete;
@@ -41,23 +41,23 @@ class TOOLBOX_API EpollReactor : public Reactor {
 
   protected:
     /// Thread-safe.
-    void do_interrupt() noexcept override;
+    void do_notify() noexcept final;
 
-    Handle do_subscribe(int fd, unsigned events, IoSlot slot) override;
-    void do_unsubscribe(int fd, int sid) noexcept override;
+    Handle do_subscribe(int fd, unsigned events, IoSlot slot) final;
+    void do_unsubscribe(int fd, int sid) noexcept final;
 
     void do_set_events(int fd, int sid, unsigned events, IoSlot slot,
-                       std::error_code& ec) noexcept override;
-    void do_set_events(int fd, int sid, unsigned events, IoSlot slot) override;
-    void do_set_events(int fd, int sid, unsigned events, std::error_code& ec) noexcept override;
-    void do_set_events(int fd, int sid, unsigned events) override;
+                       std::error_code& ec) noexcept final;
+    void do_set_events(int fd, int sid, unsigned events, IoSlot slot) final;
+    void do_set_events(int fd, int sid, unsigned events, std::error_code& ec) noexcept final;
+    void do_set_events(int fd, int sid, unsigned events) final;
 
     /// Throws std::bad_alloc only.
-    Timer do_timer(MonoTime expiry, Duration interval, Priority priority, TimerSlot slot) override;
+    Timer do_timer(MonoTime expiry, Duration interval, Priority priority, TimerSlot slot) final;
     /// Throws std::bad_alloc only.
-    Timer do_timer(MonoTime expiry, Priority priority, TimerSlot slot) override;
+    Timer do_timer(MonoTime expiry, Priority priority, TimerSlot slot) final;
 
-    int do_poll(CyclTime now, Duration timeout) override;
+    int do_poll(CyclTime now, Duration timeout) final;
 
   private:
     MonoTime next_expiry(MonoTime next) const;
@@ -70,7 +70,7 @@ class TOOLBOX_API EpollReactor : public Reactor {
     };
     EpollMuxer mux_;
     std::vector<Data> data_;
-    EventFd efd_{0, EFD_NONBLOCK};
+    EventFd notify_{0, EFD_NONBLOCK};
     static_assert(static_cast<int>(Priority::High) == 0);
     static_assert(static_cast<int>(Priority::Low) == 1);
     TimerPool tp_;

@@ -22,7 +22,7 @@ inline namespace http {
 namespace {
 struct HttpErrorCategory : std::error_category {
     constexpr HttpErrorCategory() noexcept = default;
-    ~HttpErrorCategory() override = default;
+    ~HttpErrorCategory() final = default;
 
     // Copy.
     HttpErrorCategory(const HttpErrorCategory&) = delete;
@@ -32,11 +32,8 @@ struct HttpErrorCategory : std::error_category {
     HttpErrorCategory(HttpErrorCategory&&) = delete;
     HttpErrorCategory& operator=(HttpErrorCategory&&) = delete;
 
-    const char* name() const noexcept override { return "http"; }
-    std::string message(int err) const override
-    {
-        return enum_string(static_cast<HttpStatus>(err));
-    }
+    const char* name() const noexcept final { return "http"; }
+    std::string message(int err) const final { return enum_string(static_cast<HttpStatus>(err)); }
 };
 
 const HttpErrorCategory ecat_{};

@@ -38,25 +38,25 @@ class HttpApp : public HttpAppBase {
     using Slot = BasicSlot<const HttpRequest&, HttpStream&>;
     using SlotMap = std::unordered_map<std::string, Slot>;
 
-    ~HttpApp() override = default;
+    ~HttpApp() final = default;
     void bind(const std::string& path, Slot slot) { slot_map_[path] = slot; }
 
   protected:
-    void do_on_http_connect(CyclTime now, const Endpoint& ep) noexcept override
+    void do_on_http_connect(CyclTime now, const Endpoint& ep) noexcept final
     {
         TOOLBOX_INFO << "http session connected: " << ep;
     }
-    void do_on_http_disconnect(CyclTime now, const Endpoint& ep) noexcept override
+    void do_on_http_disconnect(CyclTime now, const Endpoint& ep) noexcept final
     {
         TOOLBOX_INFO << "http session disconnected: " << ep;
     }
     void do_on_http_error(CyclTime now, const Endpoint& ep, const std::exception& e,
-                          HttpStream& os) noexcept override
+                          HttpStream& os) noexcept final
     {
         TOOLBOX_ERROR << "http session error: " << ep << ": " << e.what();
     }
     void do_on_http_message(CyclTime now, const Endpoint& ep, const HttpRequest& req,
-                            HttpStream& os) override
+                            HttpStream& os) final
     {
         const auto it = slot_map_.find(string{req.path()});
         if (it != slot_map_.end()) {
@@ -68,7 +68,7 @@ class HttpApp : public HttpAppBase {
         }
         os.commit();
     }
-    void do_on_http_timeout(CyclTime now, const Endpoint& ep) noexcept override
+    void do_on_http_timeout(CyclTime now, const Endpoint& ep) noexcept final
     {
         TOOLBOX_WARNING << "http session timeout: " << ep;
     }
