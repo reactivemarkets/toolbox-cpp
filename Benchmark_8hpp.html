@@ -74,19 +74,21 @@ $(function() {
 <div class="title">Benchmark.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="Config_8h_source.html">toolbox/Config.h</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="HdrHistogram_8hpp_source.html">toolbox/hdr/HdrHistogram.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="Config_8h_source.html">toolbox/Config.h</a>&gt;</code><br />
 <code>#include &quot;<a class="el" href="Traits_8hpp_source.html">Traits.hpp</a>&quot;</code><br />
 <code>#include &lt;atomic&gt;</code><br />
 <code>#include &lt;chrono&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
 <code>#include &lt;thread&gt;</code><br />
-<code>#include &lt;unistd.h&gt;</code><br />
 </div>
 <p><a href="Benchmark_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1benchmark_1_1Settings.html">toolbox::util::benchmark::Settings</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1benchmark_1_1Runnable.html">toolbox::util::benchmark::Runnable</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1util_1_1benchmark_1_1BenchmarkStore.html">toolbox::util::benchmark::BenchmarkStore</a></td></tr>
@@ -150,7 +152,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Benchmark_8hpp_source.html#l00221">221</a> of file <a class="el" href="Benchmark_8hpp_source.html">Benchmark.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Benchmark_8hpp_source.html#l00280">280</a> of file <a class="el" href="Benchmark_8hpp_source.html">Benchmark.hpp</a>.</p>
 
 </div>
 </div>
@@ -185,10 +187,10 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code" href="Benchmark_8hpp.html#a6f40d40812ad163247cd487dad503a1a">TOOLBOX_BENCHMARK_OP_2</a>(Value) = <a class="code" href="classtoolbox_1_1util_1_1benchmark_1_1Benchmark.html">toolbox::util::benchmark::Benchmark</a>         \</div><div class="line">    {                                                                                              \</div><div class="line">        Name, Func                                                                                 \</div><div class="line">    }</div><div class="ttc" id="classtoolbox_1_1util_1_1benchmark_1_1Benchmark_html"><div class="ttname"><a href="classtoolbox_1_1util_1_1benchmark_1_1Benchmark.html">toolbox::util::benchmark::Benchmark</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8hpp_source.html#l00134">Benchmark.hpp:134</a></div></div>
-<div class="ttc" id="Benchmark_8hpp_html_a6f40d40812ad163247cd487dad503a1a"><div class="ttname"><a href="Benchmark_8hpp.html#a6f40d40812ad163247cd487dad503a1a">TOOLBOX_BENCHMARK_OP_2</a></div><div class="ttdeci">#define TOOLBOX_BENCHMARK_OP_2(Count)</div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8hpp_source.html#l00221">Benchmark.hpp:221</a></div></div>
+<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code" href="Benchmark_8hpp.html#a6f40d40812ad163247cd487dad503a1a">TOOLBOX_BENCHMARK_OP_2</a>(Value) = <a class="code" href="classtoolbox_1_1util_1_1benchmark_1_1Benchmark.html">toolbox::util::benchmark::Benchmark</a>         \</div><div class="line">    {                                                                                              \</div><div class="line">        Name, Func                                                                                 \</div><div class="line">    }</div><div class="ttc" id="classtoolbox_1_1util_1_1benchmark_1_1Benchmark_html"><div class="ttname"><a href="classtoolbox_1_1util_1_1benchmark_1_1Benchmark.html">toolbox::util::benchmark::Benchmark</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8hpp_source.html#l00140">Benchmark.hpp:140</a></div></div>
+<div class="ttc" id="Benchmark_8hpp_html_a6f40d40812ad163247cd487dad503a1a"><div class="ttname"><a href="Benchmark_8hpp.html#a6f40d40812ad163247cd487dad503a1a">TOOLBOX_BENCHMARK_OP_2</a></div><div class="ttdeci">#define TOOLBOX_BENCHMARK_OP_2(Count)</div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8hpp_source.html#l00280">Benchmark.hpp:280</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="Benchmark_8hpp_source.html#l00222">222</a> of file <a class="el" href="Benchmark_8hpp_source.html">Benchmark.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Benchmark_8hpp_source.html#l00281">281</a> of file <a class="el" href="Benchmark_8hpp_source.html">Benchmark.hpp</a>.</p>
 
 </div>
 </div>
@@ -218,7 +220,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Benchmark_8hpp_source.html#l00227">227</a> of file <a class="el" href="Benchmark_8hpp_source.html">Benchmark.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Benchmark_8hpp_source.html#l00286">286</a> of file <a class="el" href="Benchmark_8hpp_source.html">Benchmark.hpp</a>.</p>
 
 </div>
 </div>
@@ -234,7 +236,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Benchmark_8hpp_source.html#l00229">229</a> of file <a class="el" href="Benchmark_8hpp_source.html">Benchmark.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Benchmark_8hpp_source.html#l00288">288</a> of file <a class="el" href="Benchmark_8hpp_source.html">Benchmark.hpp</a>.</p>
 
 </div>
 </div>

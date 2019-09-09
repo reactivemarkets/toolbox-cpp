@@ -2,6 +2,8 @@ var searchData=
 [
   ['id',['id',['../classtoolbox_1_1io_1_1Timer.html#a7fdabe26998aaec71a1c5989b7c15cbc',1,'toolbox::io::Timer']]],
   ['if_5fnametoindex',['if_nametoindex',['../namespacetoolbox_1_1os.html#aa9d8299ca5a6677c7d66cbca46e51780',1,'toolbox::os::if_nametoindex(const char *ifname, std::error_code &amp;ec) noexcept'],['../namespacetoolbox_1_1os.html#a3c25d27217852eff267f58306ad7cad0',1,'toolbox::os::if_nametoindex(const char *ifname)']]],
+  ['increment_5fiteration_5flevel',['increment_iteration_level',['../classtoolbox_1_1hdr_1_1AbstractHdrIterator.html#afafb054a98fc16ae433ad5d9adaf2ad5',1,'toolbox::hdr::AbstractHdrIterator::increment_iteration_level()'],['../classtoolbox_1_1hdr_1_1AllValuesIterator.html#a22172e8b41f00b42191d4507da5e9b0a',1,'toolbox::hdr::AllValuesIterator::increment_iteration_level()'],['../classtoolbox_1_1hdr_1_1PercentileIterator.html#abc6c5a2e7ff10eba73844c32be2115e3',1,'toolbox::hdr::PercentileIterator::increment_iteration_level()']]],
+  ['increment_5fsub_5fbucket',['increment_sub_bucket',['../classtoolbox_1_1hdr_1_1AbstractHdrIterator.html#ab61189a41b7e5999f7a5ef710c4d7874',1,'toolbox::hdr::AbstractHdrIterator']]],
   ['insert',['insert',['../classtoolbox_1_1io_1_1TimerQueue.html#a8e5cfbac369f2900fbc20cda5b7e9674',1,'toolbox::io::TimerQueue::insert(MonoTime expiry, Duration interval, TimerSlot slot)'],['../classtoolbox_1_1io_1_1TimerQueue.html#a281b90ab2c57af6ed0ac60858077c062',1,'toolbox::io::TimerQueue::insert(MonoTime expiry, TimerSlot slot)']]],
   ['instance',['instance',['../classtoolbox_1_1util_1_1benchmark_1_1BenchmarkStore.html#aef8f5115238fe146662e070d6e03c715',1,'toolbox::util::benchmark::BenchmarkStore']]],
   ['interval',['interval',['../classtoolbox_1_1io_1_1Timer.html#a378af256224f9af1b412e18f1dc56019',1,'toolbox::io::Timer']]],
@@ -22,5 +24,6 @@ var searchData=
   ['is_5fweekend_5fday',['is_weekend_day',['../namespacetoolbox_1_1sys.html#a057dab6f57581e23589b82756a7a0e4b',1,'toolbox::sys']]],
   ['is_5fzero',['is_zero',['../namespacetoolbox_1_1sys.html#a05f4ceb780271a9272a7ff7d003ce88e',1,'toolbox::sys::is_zero(std::chrono::duration&lt; RepT, PeriodT &gt; d) noexcept'],['../namespacetoolbox_1_1sys.html#a31a04ce046ba4f1fa5d6fc2f07c85fa6',1,'toolbox::sys::is_zero(std::chrono::time_point&lt; ClockT, Duration &gt; t) noexcept'],['../namespacetoolbox_1_1sys.html#adf64ce71cf7579fa651312404bd54692',1,'toolbox::sys::is_zero(timeval tv) noexcept'],['../namespacetoolbox_1_1sys.html#a030bbb753eaeba87fdc8598aa6943442',1,'toolbox::sys::is_zero(timespec ts) noexcept']]],
   ['isdigit',['isdigit',['../namespacetoolbox_1_1util.html#a84d032eb09a2e0045099762aca24abb2',1,'toolbox::util']]],
-  ['iso_5fto_5fjd',['iso_to_jd',['../namespacetoolbox_1_1sys.html#aa5231d47d1f3d3fe0850bf59fc011e39',1,'toolbox::sys']]]
+  ['iso_5fto_5fjd',['iso_to_jd',['../namespacetoolbox_1_1sys.html#aa5231d47d1f3d3fe0850bf59fc011e39',1,'toolbox::sys']]],
+  ['iteratoradapter',['IteratorAdapter',['../classtoolbox_1_1hdr_1_1IteratorAdapter.html#a838199f2e1f161f3133deebd44438fe7',1,'toolbox::hdr::IteratorAdapter']]]
 ];

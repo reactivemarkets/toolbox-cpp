@@ -13,5 +13,6 @@ var searchData=
   ['is_5fstring',['is_string',['../structtoolbox_1_1util_1_1is__string.html',1,'toolbox::util']]],
   ['is_5fstring_3c_20std_3a_3astring_20_3e',['is_string&lt; std::string &gt;',['../structtoolbox_1_1util_1_1is__string_3_01std_1_1string_01_4.html',1,'toolbox::util']]],
   ['is_5fstring_3c_20std_3a_3astring_5fview_20_3e',['is_string&lt; std::string_view &gt;',['../structtoolbox_1_1util_1_1is__string_3_01std_1_1string__view_01_4.html',1,'toolbox::util']]],
-  ['isodatepolicy',['IsoDatePolicy',['../structtoolbox_1_1sys_1_1IsoDatePolicy.html',1,'toolbox::sys']]]
+  ['isodatepolicy',['IsoDatePolicy',['../structtoolbox_1_1sys_1_1IsoDatePolicy.html',1,'toolbox::sys']]],
+  ['iteratoradapter',['IteratorAdapter',['../classtoolbox_1_1hdr_1_1IteratorAdapter.html',1,'toolbox::hdr']]]
 ];

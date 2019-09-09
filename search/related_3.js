@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['timer',['Timer',['../classtoolbox_1_1io_1_1TimerQueue.html#a50de43af5bed41f30c071d8cce0e81bc',1,'toolbox::io::TimerQueue']]],
-  ['timerqueue',['TimerQueue',['../classtoolbox_1_1io_1_1Timer.html#a865df28c10927729363ac18d3d83f35b',1,'toolbox::io::Timer']]]
+  ['intrusive_5fptr_5fadd_5fref',['intrusive_ptr_add_ref',['../classtoolbox_1_1io_1_1TimerQueue.html#a60fe1acdad8ffc4c8de852ca87254b8f',1,'toolbox::io::TimerQueue']]],
+  ['intrusive_5fptr_5frelease',['intrusive_ptr_release',['../classtoolbox_1_1io_1_1TimerQueue.html#ab455296408b28787ad0ba195a05db038',1,'toolbox::io::TimerQueue']]]
 ];

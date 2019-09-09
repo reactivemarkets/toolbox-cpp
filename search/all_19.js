@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['_7eabstracthdriterator',['~AbstractHdrIterator',['../classtoolbox_1_1hdr_1_1AbstractHdrIterator.html#a64bed484673a616b4dd33861c7e789ce',1,'toolbox::hdr::AbstractHdrIterator']]],
   ['_7eargvlexer',['~ArgvLexer',['../classtoolbox_1_1util_1_1ArgvLexer.html#a36893ad8d21aabf9d41006f269cfa678',1,'toolbox::util::ArgvLexer']]],
   ['_7eargvsequence',['~ArgvSequence',['../classtoolbox_1_1util_1_1ArgvSequence.html#a56c251e812cbd8ce963cafbebcc978bf',1,'toolbox::util::ArgvSequence']]],
   ['_7earrayview',['~ArrayView',['../classtoolbox_1_1util_1_1ArrayView.html#a4195bbf5158ece45e625ace0c683d2e1',1,'toolbox::util::ArrayView']]],

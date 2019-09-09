@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['elems',['elems',['../structtoolbox_1_1ipc_1_1MpmcQueue_1_1Impl.html#a9d7a59da3d4dad3c17c95c1cba208457',1,'toolbox::ipc::MpmcQueue::Impl']]],
-  ['end',['end',['../classtoolbox_1_1util_1_1benchmark_1_1BenchmarkCaller_3_01FuncT_00_01typename_01std_1_1enable__if38e1c0a5273e321e6ea10099c54e9847.html#aa4af2288f48bde958049e3323eb0bc3a',1,'toolbox::util::benchmark::BenchmarkCaller&lt; FuncT, typename std::enable_if_t&lt; FunctionTraits&lt; FuncT &gt;::Arity &gt; &gt;']]],
-  ['ep_5f',['ep_',['../classtoolbox_1_1http_1_1BasicHttpConn.html#af5ae638f71b82cddefaeaf5267e69d03',1,'toolbox::http::BasicHttpConn']]],
-  ['expiry',['expiry',['../structtoolbox_1_1io_1_1Timer_1_1Impl.html#a85cf708f8b097daf84348fba38a80ba7',1,'toolbox::io::Timer::Impl']]]
+  ['count_5fadded_5fin_5fthis_5fiter_5fstep',['count_added_in_this_iter_step',['../classtoolbox_1_1hdr_1_1HdrIterationValue.html#af1291d98ee52cc98a1e6f00dde292713',1,'toolbox::hdr::HdrIterationValue']]],
+  ['count_5fat_5fthis_5fvalue_5f',['count_at_this_value_',['../classtoolbox_1_1hdr_1_1AbstractHdrIterator.html#a1508169d9bb40b2817966d4251051c78',1,'toolbox::hdr::AbstractHdrIterator']]],
+  ['count_5fat_5fvalue_5fiterated_5fto',['count_at_value_iterated_to',['../classtoolbox_1_1hdr_1_1HdrIterationValue.html#a39c1ee647811a47d1aa8939bbddbcbd3',1,'toolbox::hdr::HdrIterationValue']]],
+  ['counts_5flen',['counts_len',['../classtoolbox_1_1hdr_1_1HdrHistogram.html#a683b90c8e324a3db4ab73fc6386103fd',1,'toolbox::hdr::HdrHistogram']]],
+  ['current_5findex_5f',['current_index_',['../classtoolbox_1_1hdr_1_1AbstractHdrIterator.html#a4afb1a8c7544a3a2451953d44af6aebc',1,'toolbox::hdr::AbstractHdrIterator']]],
+  ['current_5fiteration_5fvalue_5f',['current_iteration_value_',['../classtoolbox_1_1hdr_1_1AbstractHdrIterator.html#aa39dff71bf542e24347e12658428e7be',1,'toolbox::hdr::AbstractHdrIterator']]]
 ];

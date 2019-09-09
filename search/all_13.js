@@ -7,6 +7,7 @@ var searchData=
   ['unauthorized',['Unauthorized',['../namespacetoolbox_1_1http.html#a047cfa9f37dc83f9eae3d11d82fa214eae06d1ba70f1331e9f9a113cc2f887d3f',1,'toolbox::http']]],
   ['unbind',['Unbind',['../namespacetoolbox_1_1http.html#a1090dccc3a45f4f6ba45d0d80cb77fdaa4bffa5083d48d52f00eb873b6e136d5f',1,'toolbox::http']]],
   ['unbox',['unbox',['../namespacetoolbox_1_1util.html#a5d51e7e40c696ced8aa45e5ad52a8905',1,'toolbox::util']]],
+  ['unit_5fmagnitude',['unit_magnitude',['../classtoolbox_1_1hdr_1_1HdrHistogram.html#a207ab5baa03ed04d1c58c66041109922',1,'toolbox::hdr::HdrHistogram']]],
   ['unix',['unix',['../structtoolbox_1_1net_1_1DgramProtocol.html#ae90096b6c4985d0c4036afe4f893db82',1,'toolbox::net::DgramProtocol::unix()'],['../structtoolbox_1_1net_1_1StreamProtocol.html#ac10b869217f6f093757917154236d86b',1,'toolbox::net::StreamProtocol::unix()']]],
   ['unixdgramendpoint',['UnixDgramEndpoint',['../namespacetoolbox_1_1net.html#a04b157dc73a63db2390e0b0516fa73fd',1,'toolbox::net']]],
   ['unixdgramprotocol',['UnixDgramProtocol',['../structtoolbox_1_1net_1_1UnixDgramProtocol.html',1,'toolbox::net']]],
