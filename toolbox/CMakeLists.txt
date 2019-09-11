@@ -77,6 +77,7 @@ set(lib_SOURCES
   net/McastSock.cpp
   net/Protocol.cpp
   net/Resolver.cpp
+  net/Resolver2.cpp
   net/Runner.cpp
   net/Socket.cpp
   net/StreamAcceptor.cpp
@@ -218,6 +219,7 @@ set(test_SOURCES
   net/Endpoint.ut.cpp
   net/IoSock.ut.cpp
   net/Resolver.ut.cpp
+  net/Resolver2.ut.cpp
   net/Runner.ut.cpp
   net/Socket.ut.cpp
   sys/Date.ut.cpp

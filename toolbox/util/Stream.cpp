@@ -16,6 +16,8 @@
 
 #include "Stream.hpp"
 
+#include <sstream>
+
 namespace toolbox {
 inline namespace util {
 using namespace std;
@@ -27,6 +29,13 @@ void reset(ostream& os) noexcept
     os.flags(ios_base::skipws | ios_base::dec);
     os.precision(6);
     os.width(0);
+}
+
+std::stringstream wrap_buffer(char* buf, int size)
+{
+    std::stringstream stream;
+    stream.rdbuf()->pubsetbuf(buf, size);
+    return stream;
 }
 
 } // namespace util

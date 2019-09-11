@@ -25,6 +25,7 @@
 #include "net/McastSock.hpp"
 #include "net/Protocol.hpp"
 #include "net/Resolver.hpp"
+#include "net/Resolver2.hpp"
 #include "net/Runner.hpp"
 #include "net/Socket.hpp"
 #include "net/StreamAcceptor.hpp"

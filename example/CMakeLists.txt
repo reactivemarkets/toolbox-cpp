@@ -29,3 +29,6 @@ target_link_libraries(toolbox-echo-serv ${toolbox_LIBRARY})
 
 add_executable(toolbox-http-serv HttpServ.cpp)
 target_link_libraries(toolbox-http-serv ${toolbox_LIBRARY})
+
+add_executable(toolbox-dns Dns.cpp)
+target_link_libraries(toolbox-dns ${toolbox_LIBRARY})

@@ -57,4 +57,14 @@ BOOST_AUTO_TEST_CASE(OStreamJoinerCase)
     BOOST_TEST(ss.str() == "foo,bar,baz");
 }
 
+BOOST_AUTO_TEST_CASE(StreamWrapping)
+{
+    char arr[20];
+    auto ss = util::wrap_buffer(arr, sizeof(arr));
+    ss << "string" << 1.2 << '\0';
+
+    BOOST_TEST(!strcmp(arr, "string1.2"));
+    //TODO: test limit, overflow, empty read etc;
+}
+
 BOOST_AUTO_TEST_SUITE_END()

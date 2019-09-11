@@ -34,9 +34,8 @@ class EchoConn {
     using AutoUnlinkOption = boost::intrusive::link_mode<boost::intrusive::auto_unlink>;
 
   public:
-    EchoConn(CyclTime now, Reactor& r, IoSock&& sock, const StreamEndpoint& ep)
+    EchoConn(CyclTime now, Reactor& r, IoSock&& sock)
     : sock_{move(sock)}
-    , ep_{ep}
     {
         sub_ = r.subscribe(sock_.get(), EventIn, bind<&EchoConn::on_input>(this));
         tmr_ = r.timer(now.mono_time(), PingInterval, Priority::Low,
@@ -91,7 +90,6 @@ class EchoConn {
         }
     }
     IoSock sock_;
-    const StreamEndpoint ep_;
     Reactor::Handle sub_;
     Buffer buf_;
     Timer tmr_;
@@ -137,7 +135,7 @@ class EchoClnt : public StreamConnector<EchoClnt> {
         inprogress_ = false;
 
         // High performance TCP servers could use a custom allocator.
-        auto* const conn = new EchoConn{now, reactor_, move(sock), ep};
+        auto* const conn = new EchoConn{now, reactor_, move(sock)};
         conn_list_.push_back(*conn);
     }
     void on_sock_connect_error(CyclTime now, const std::exception& e)

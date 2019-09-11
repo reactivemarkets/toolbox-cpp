@@ -35,7 +35,7 @@ jobs:
               -DCMAKE_BUILD_TYPE=DEBUG \
               -DCMAKE_C_COMPILER=clang-7 \
               -DCMAKE_CXX_COMPILER=clang++-7
-            VERBOSE=1 make -j2 all test
+            CTEST_OUTPUT_ON_FAILURE=1 VERBOSE=1 make -j2 all test
   test_clang_release:
     docker:
       - image: registry.gitlab.com/reactivemarkets/public-registry/toolchain-cpp:debian
@@ -52,7 +52,7 @@ jobs:
               -DCMAKE_BUILD_TYPE=RELEASE \
               -DCMAKE_C_COMPILER=clang-7 \
               -DCMAKE_CXX_COMPILER=clang++-7
-            VERBOSE=1 make -j2 all test
+            CTEST_OUTPUT_ON_FAILURE=1 VERBOSE=1 make -j2 all test
   test_gcc_debug:
     docker:
       - image: registry.gitlab.com/reactivemarkets/public-registry/toolchain-cpp:debian
@@ -69,7 +69,7 @@ jobs:
               -DCMAKE_BUILD_TYPE=DEBUG \
               -DCMAKE_C_COMPILER=gcc-8 \
               -DCMAKE_CXX_COMPILER=g++-8
-            VERBOSE=1 make -j2 all test
+            CTEST_OUTPUT_ON_FAILURE=1 VERBOSE=1 make -j2 all test
   test_gcc_release:
     docker:
       - image: registry.gitlab.com/reactivemarkets/public-registry/toolchain-cpp:debian
@@ -86,7 +86,7 @@ jobs:
               -DCMAKE_BUILD_TYPE=RELEASE \
               -DCMAKE_C_COMPILER=gcc-8 \
               -DCMAKE_CXX_COMPILER=g++-8
-            VERBOSE=1 make -j2 all test
+            CTEST_OUTPUT_ON_FAILURE=1 VERBOSE=1 make -j2 all test
   build_doc:
     docker:
       - image: registry.gitlab.com/reactivemarkets/public-registry/toolchain-cpp:debian

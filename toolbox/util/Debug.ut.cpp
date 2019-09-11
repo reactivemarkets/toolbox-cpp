@@ -1,5 +1,4 @@
 // The Reactive C++ Toolbox.
-// Copyright (C) 2013-2019 Swirly Cloud Limited
 // Copyright (C) 2019 Reactive Markets Limited
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,20 +13,30 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef TOOLBOX_NET_ERROR_HPP
-#define TOOLBOX_NET_ERROR_HPP
+#include "Debug.hpp"
 
-#include <toolbox/Config.h>
+#include <boost/test/unit_test.hpp>
 
-#include <system_error>
+using namespace std;
+using namespace toolbox;
 
-namespace toolbox {
-inline namespace net {
+BOOST_AUTO_TEST_SUITE(DebugSuite)
 
-TOOLBOX_API const std::error_category& gai_error_category() noexcept;
-TOOLBOX_API std::error_code make_gai_error_code(int err) noexcept;
+BOOST_AUTO_TEST_CASE(DumpCase)
+{
+    std::string data{"12345"};
+    {
+        stringstream ss;
+        ss << hex_dump(data.c_str(), data.size() + 1);
 
-} // namespace net
-} // namespace toolbox
+        BOOST_TEST(ss.str() == " 0x31 0x32 0x33 0x34 0x35 0x00");
+    }
+    {
+        stringstream ss;
+        ss << hex_dump(data.c_str(), data.size() + 1, hex_dump::Mode::NON_PRINTABLE);
 
-#endif // TOOLBOX_NET_ERROR_HPP
+        BOOST_TEST(ss.str() == " 1 2 3 4 5 0x00");
+    }
+}
+
+BOOST_AUTO_TEST_SUITE_END()

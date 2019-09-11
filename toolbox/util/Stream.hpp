@@ -102,6 +102,9 @@ void join(std::ostream& os, const ArgT& arg, const ArgsT&... args)
     (..., [&os](const auto& arg) { os << DelimT << arg; }(args));
 }
 
+/// Adapt char * into stream interface
+TOOLBOX_API std::stringstream wrap_buffer(char* buf, int size);
+
 } // namespace util
 } // namespace toolbox
 
@@ -112,6 +115,7 @@ ostream_joiner<char>& operator<<(ostream_joiner<char>& osj, const ValueT& value)
     osj = value;
     return osj;
 }
+
 } // namespace std::experimental
 
 #endif // TOOLBOX_UTIL_STREAM_HPP
