@@ -38,8 +38,8 @@ include_directories(SYSTEM
   "${CMAKE_CURRENT_SOURCE_DIR}/contrib")
 
 set(lib_SOURCES
-  hdr/HdrHistogram.cpp
-  hdr/HdrHistogramIterator.cpp
+  hdr/Histogram.cpp
+  hdr/Iterator.cpp
   http/App.cpp
   http/Conn.cpp
   http/Error.cpp
@@ -89,11 +89,11 @@ set(lib_SOURCES
   sys/PidFile.cpp
   sys/Signal.cpp
   sys/System.cpp
-  sys/Time.cpp
   sys/Thread.cpp
+  sys/Time.cpp
+  util/Alarm.cpp
   util/Argv.cpp
   util/Array.cpp
-  util/Benchmark.cpp
   util/Compare.cpp
   util/Config.cpp
   util/Enum.cpp
@@ -131,6 +131,27 @@ if(TOOLBOX_BUILD_SHARED)
   install(TARGETS toolbox-shared DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT shared)
 endif()
 
+set(lib_bm_SOURCES
+  bm/Benchmark.cpp
+  bm/Ctx.cpp
+  bm/Range.cpp
+  bm/Record.cpp
+  bm/Suite.cpp
+  bm/Utility.cpp)
+
+add_library(toolbox-bm-static STATIC ${lib_bm_SOURCES})
+set_target_properties(toolbox-bm-static PROPERTIES OUTPUT_NAME toolbox-bm)
+target_link_libraries(toolbox-bm-static ${toolbox_LIBRARY})
+install(TARGETS toolbox-bm-static DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT static)
+
+if(TOOLBOX_BUILD_SHARED)
+  add_library(toolbox-bm-shared SHARED ${lib_bm_SOURCES})
+  set_target_properties(toolbox-bm-shared PROPERTIES OUTPUT_NAME toolbox-bm)
+  target_link_libraries(toolbox-bm-shared ${toolbox_LIBRARY})
+  install(TARGETS toolbox-bm-shared DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT shared)
+endif()
+
+install(FILES bm.hpp DESTINATION include/toolbox COMPONENT header)
 install(FILES hdr.hpp DESTINATION include/toolbox COMPONENT header)
 install(FILES http.hpp DESTINATION include/toolbox COMPONENT header)
 install(FILES io.hpp DESTINATION include/toolbox COMPONENT header)
@@ -180,7 +201,7 @@ endif()
 
 
 set(test_SOURCES
-  hdr/HdrHistogram.ut.cpp
+  hdr/Histogram.ut.cpp
   http/Parser.ut.cpp
   http/Types.ut.cpp
   http/Url.ut.cpp
@@ -230,15 +251,3 @@ foreach(file ${test_SOURCES})
   get_filename_component(name "${file}" NAME_WE)
   add_test(NAME ${dir}::${name}Suite COMMAND toolbox-test -l error -t ${name}Suite)
 endforeach()
-
-add_executable(toolbox-sys-bench
-  sys/Time.bm.cpp
-  Main.bm.cpp
-)
-target_link_libraries(toolbox-sys-bench ${toolbox_LIBRARY})
-
-add_executable(toolbox-util-bench
-  util/Utility.bm.cpp
-  Main.bm.cpp
-)
-target_link_libraries(toolbox-util-bench ${toolbox_LIBRARY})

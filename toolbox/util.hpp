@@ -19,7 +19,6 @@
 
 #include "util/Argv.hpp"
 #include "util/Array.hpp"
-#include "util/Benchmark.hpp"
 #include "util/Compare.hpp"
 #include "util/Config.hpp"
 #include "util/Enum.hpp"

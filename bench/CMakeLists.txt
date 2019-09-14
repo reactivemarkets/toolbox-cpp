@@ -15,17 +15,13 @@
 # limitations under the License.
 
 set(targets
-  toolbox-echo-clnt
-  toolbox-echo-serv
-  toolbox-http-serv)
+  toolbox-time-bench
+  toolbox-util-bench)
 
-add_custom_target(toolbox-example DEPENDS ${targets})
+add_custom_target(toolbox-bench DEPENDS ${targets})
 
-add_executable(toolbox-echo-clnt EchoClnt.cpp)
-target_link_libraries(toolbox-echo-clnt ${toolbox_LIBRARY})
+add_executable(toolbox-time-bench Time.bm.cpp)
+target_link_libraries(toolbox-time-bench ${toolbox_bm_LIBRARY})
 
-add_executable(toolbox-echo-serv EchoServ.cpp)
-target_link_libraries(toolbox-echo-serv ${toolbox_LIBRARY})
-
-add_executable(toolbox-http-serv HttpServ.cpp)
-target_link_libraries(toolbox-http-serv ${toolbox_LIBRARY})
+add_executable(toolbox-util-bench Util.bm.cpp)
+target_link_libraries(toolbox-util-bench ${toolbox_bm_LIBRARY})

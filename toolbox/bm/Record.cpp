@@ -13,10 +13,29 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef TOOLBOX_HDR_HPP
-#define TOOLBOX_HDR_HPP
+#include "Record.hpp"
 
-#include "hdr/Histogram.hpp"
-#include "hdr/Iterator.hpp"
+#include <toolbox/hdr/Histogram.hpp>
 
-#endif // TOOLBOX_HDR_HPP
+#include <cassert>
+
+namespace toolbox::bm {
+using namespace std;
+
+BenchmarkRecord::BenchmarkRecord(HdrHistogram& hist, int count) noexcept
+: hist_{hist}
+, count_{count}
+, start_{chrono::high_resolution_clock::now()}
+{
+    assert(count >= 1);
+}
+
+BenchmarkRecord::~BenchmarkRecord()
+{
+    const auto end = chrono::high_resolution_clock::now();
+    const auto elapsed = chrono::duration_cast<chrono::nanoseconds>(end - start_);
+    // Record average.
+    hist_.record(elapsed.count() / count_, count_);
+}
+
+} // namespace toolbox::bm
