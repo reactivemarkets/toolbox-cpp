@@ -156,8 +156,10 @@ include_directories(
 
 if(TOOLBOX_BUILD_SHARED)
   set(toolbox_LIBRARY toolbox-shared)
+  set(toolbox_bm_LIBRARY toolbox-bm-shared)
 else()
   set(toolbox_LIBRARY toolbox-static)
+  set(toolbox_bm_LIBRARY toolbox-bm-static)
 endif()
 
 enable_testing()
@@ -195,6 +197,7 @@ endif()
 
 add_subdirectory(image)
 add_subdirectory(toolbox)
+add_subdirectory(bench)
 add_subdirectory(example)
 
 set(CPACK_GENERATOR "TGZ;RPM;DEB")

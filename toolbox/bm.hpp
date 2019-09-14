@@ -13,10 +13,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef TOOLBOX_HDR_HPP
-#define TOOLBOX_HDR_HPP
+#ifndef TOOLBOX_BM_HPP
+#define TOOLBOX_BM_HPP
 
-#include "hdr/Histogram.hpp"
-#include "hdr/Iterator.hpp"
+#include "bm/Benchmark.hpp"
+#include "bm/Ctx.hpp"
+#include "bm/Range.hpp"
+#include "bm/Record.hpp"
+#include "bm/Suite.hpp"
+#include "bm/Utility.hpp"
 
-#endif // TOOLBOX_HDR_HPP
+#endif // TOOLBOX_BM_HPP

@@ -1,4 +1,5 @@
 // The Reactive C++ Toolbox.
+// Copyright (C) 2013-2019 Swirly Cloud Limited
 // Copyright (C) 2019 Reactive Markets Limited
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,10 +14,4 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef TOOLBOX_HDR_HPP
-#define TOOLBOX_HDR_HPP
-
-#include "hdr/Histogram.hpp"
-#include "hdr/Iterator.hpp"
-
-#endif // TOOLBOX_HDR_HPP
+#include "Alarm.hpp"

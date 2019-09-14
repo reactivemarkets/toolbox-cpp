@@ -14,7 +14,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "HdrHistogram.hpp"
+#include "Histogram.hpp"
 
 #include <boost/test/unit_test.hpp>
 
@@ -23,7 +23,7 @@ using namespace toolbox;
 
 namespace utf = boost::unit_test;
 
-BOOST_AUTO_TEST_SUITE(HdrHistogramSuite)
+BOOST_AUTO_TEST_SUITE(HistogramSuite)
 
 constexpr auto Lowest = 1;
 constexpr std::int64_t Highest = 3600ull * 1000 * 1000;
