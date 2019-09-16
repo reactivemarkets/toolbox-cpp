@@ -5,6 +5,7 @@ var searchData=
   ['hash_3c_20toolbox_3a_3aversion_20_3e',['hash&lt; toolbox::Version &gt;',['../structstd_1_1hash_3_01toolbox_1_1Version_01_4.html',1,'std']]],
   ['hdrhistogram',['HdrHistogram',['../classtoolbox_1_1hdr_1_1HdrHistogram.html',1,'toolbox::hdr']]],
   ['hdriterationvalue',['HdrIterationValue',['../classtoolbox_1_1hdr_1_1HdrIterationValue.html',1,'toolbox::hdr']]],
+  ['hdriterator',['HdrIterator',['../classtoolbox_1_1hdr_1_1HdrIterator.html',1,'toolbox::hdr']]],
   ['help',['Help',['../classtoolbox_1_1util_1_1Help.html',1,'toolbox::util']]],
   ['httpappbase',['HttpAppBase',['../classtoolbox_1_1http_1_1HttpAppBase.html',1,'toolbox::http']]],
   ['httpbuf',['HttpBuf',['../classtoolbox_1_1http_1_1HttpBuf.html',1,'toolbox::http']]],

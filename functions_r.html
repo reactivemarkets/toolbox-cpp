@@ -65,19 +65,19 @@ $(function() {
 
 <h3><a id="index_r"></a>- r -</h3><ul>
 <li>range()
-: <a class="el" href="classtoolbox_1_1util_1_1benchmark_1_1Benchmark.html#a13ba4d29b20fa18a89a9d7e8502c2ca8">toolbox::util::benchmark::Benchmark&lt; FuncT &gt;</a>
+: <a class="el" href="classtoolbox_1_1bm_1_1BenchmarkCtx.html#a1cb05b09868562a2f44c6a59c6b1874c">toolbox::bm::BenchmarkCtx</a>
 </li>
 <li>rbegin()
 : <a class="el" href="classtoolbox_1_1util_1_1ArrayView.html#a7d9824f9a33f459d8dc5cdf2e1459eeb">toolbox::util::ArrayView&lt; ValueT &gt;</a>
 </li>
 <li>reached_iteration_level()
-: <a class="el" href="classtoolbox_1_1hdr_1_1AbstractHdrIterator.html#a21147f18b7dd8821eaf7c4401f8d465c">toolbox::hdr::AbstractHdrIterator</a>
-, <a class="el" href="classtoolbox_1_1hdr_1_1AllValuesIterator.html#abbc94706c43d994c290aa4da59a5d21f">toolbox::hdr::AllValuesIterator</a>
-, <a class="el" href="classtoolbox_1_1hdr_1_1PercentileIterator.html#a92300565eec915a18ae1162f97f593a0">toolbox::hdr::PercentileIterator</a>
+: <a class="el" href="classtoolbox_1_1hdr_1_1AllValuesIterator.html#abbc94706c43d994c290aa4da59a5d21f">toolbox::hdr::AllValuesIterator</a>
+, <a class="el" href="classtoolbox_1_1hdr_1_1HdrIterator.html#a0dbf94f973e6aa62c6ed64c4d1ab1dad">toolbox::hdr::HdrIterator</a>
+, <a class="el" href="classtoolbox_1_1hdr_1_1PercentileIterator.html#aa43625f8bd9abcf5831a273d21199ff4">toolbox::hdr::PercentileIterator</a>
 , <a class="el" href="classtoolbox_1_1hdr_1_1RecordedIterator.html#aafc30f06b60a7eb93377c6c4d8cbb292">toolbox::hdr::RecordedIterator</a>
 </li>
 <li>Reactor()
-: <a class="el" href="classtoolbox_1_1io_1_1Reactor.html#aebfb595d48a9c19f9cf3f9c9a25202b8">toolbox::io::Reactor</a>
+: <a class="el" href="classtoolbox_1_1io_1_1Reactor.html#a78316d3077085e866a3088efb3d1ce75">toolbox::io::Reactor</a>
 </li>
 <li>reactor_()
 : <a class="el" href="classtoolbox_1_1http_1_1BasicHttpConn.html#a815e98bcbd5538ea08b1709bd7f470e6">toolbox::http::BasicHttpConn&lt; RequestT, AppT &gt;</a>
@@ -95,17 +95,17 @@ $(function() {
 : <a class="el" href="classtoolbox_1_1util_1_1Config.html#adae0caaabd93e3ca88b5a92672788756">toolbox::util::Config</a>
 </li>
 <li>record()
-: <a class="el" href="classtoolbox_1_1hdr_1_1HdrHistogram.html#a59fed1acf13b765a1d072099ae3a62f4">toolbox::hdr::HdrHistogram</a>
+: <a class="el" href="classtoolbox_1_1hdr_1_1HdrHistogram.html#aee17deca0cc25c89bb688d145ab0d5ef">toolbox::hdr::HdrHistogram</a>
 </li>
 <li>RecordedIterator
 : <a class="el" href="classtoolbox_1_1hdr_1_1HdrHistogram.html#a8c923858388b5651b06ddf8f5d20f754">toolbox::hdr::HdrHistogram</a>
-, <a class="el" href="classtoolbox_1_1hdr_1_1RecordedIterator.html#a2a3b24bf887b2f807b381c74c503a65f">toolbox::hdr::RecordedIterator</a>
+, <a class="el" href="classtoolbox_1_1hdr_1_1RecordedIterator.html#a4be9ba465efc4c17ae68e2fd30ba690b">toolbox::hdr::RecordedIterator</a>
 </li>
 <li>recv()
 : <a class="el" href="structtoolbox_1_1net_1_1IoSock.html#a385fe358f93679b3de34dc9041779e42">toolbox::net::IoSock</a>
 </li>
 <li>recvfrom()
-: <a class="el" href="structtoolbox_1_1net_1_1DgramSock.html#a90d81ac472917f289b60d21ade14228e">toolbox::net::DgramSock</a>
+: <a class="el" href="structtoolbox_1_1net_1_1DgramSock.html#aa8c34f19d6842b4c7365ae4ac459635e">toolbox::net::DgramSock</a>
 , <a class="el" href="structtoolbox_1_1net_1_1McastSock.html#af6cfa3b5c381f5e4b7ae674d390594c5">toolbox::net::McastSock</a>
 </li>
 <li>ref_count
@@ -129,6 +129,9 @@ $(function() {
 : <a class="el" href="structtoolbox_1_1sys_1_1MonoClock.html#a4e3f90331854856a8fae6dfce25c4a5e">toolbox::sys::MonoClock</a>
 , <a class="el" href="structtoolbox_1_1sys_1_1WallClock.html#a566d30a1347f3eda5798df31f46dfb0b">toolbox::sys::WallClock</a>
 </li>
+<li>report()
+: <a class="el" href="classtoolbox_1_1bm_1_1BenchmarkSuite.html#a7640c8ea532e66d4e81caffe162d9c62">toolbox::bm::BenchmarkSuite</a>
+</li>
 <li>required()
 : <a class="el" href="classtoolbox_1_1util_1_1Presence.html#adaf3ca360fe18298c46c9752631e0e75">toolbox::util::Presence&lt; DerivedT &gt;</a>
 </li>
@@ -139,7 +142,8 @@ $(function() {
 : <a class="el" href="classtoolbox_1_1io_1_1Buffer.html#a88d0fd0c75fa72ddc5cab057e51bb02d">toolbox::io::Buffer</a>
 </li>
 <li>reset()
-: <a class="el" href="classtoolbox_1_1http_1_1BasicHttpParser.html#ac3a54c194bbe68c022105045b9fc5160">toolbox::http::BasicHttpParser&lt; DerivedT &gt;</a>
+: <a class="el" href="classtoolbox_1_1hdr_1_1HdrHistogram.html#aab7b476aab12fb037f7be0f9f2c6841a">toolbox::hdr::HdrHistogram</a>
+, <a class="el" href="classtoolbox_1_1http_1_1BasicHttpParser.html#ac3a54c194bbe68c022105045b9fc5160">toolbox::http::BasicHttpParser&lt; DerivedT &gt;</a>
 , <a class="el" href="classtoolbox_1_1http_1_1BasicUrl.html#a0ba2f1917aada87a92db96537c36855e">toolbox::http::BasicUrl&lt; DerivedT &gt;</a>
 , <a class="el" href="classtoolbox_1_1http_1_1HttpBuf.html#add18f60da073b58dcf1722c2a72f8d58">toolbox::http::HttpBuf</a>
 , <a class="el" href="classtoolbox_1_1http_1_1HttpStream.html#a9f569bc3f80cddccd40e84b14f5580e3">toolbox::http::HttpStream</a>
@@ -159,7 +163,7 @@ $(function() {
 : <a class="el" href="classtoolbox_1_1net_1_1Resolver.html#ac592d6d726068f4131749227a009c956">toolbox::net::Resolver</a>
 </li>
 <li>ResolverRunner()
-: <a class="el" href="classtoolbox_1_1net_1_1ResolverRunner.html#aef58b8a4380e38b7fff671867843756a">toolbox::net::ResolverRunner</a>
+: <a class="el" href="classtoolbox_1_1net_1_1ResolverRunner.html#ade91ba826f7892ade81d85cc2fac87d8">toolbox::net::ResolverRunner</a>
 </li>
 <li>ReturnType
 : <a class="el" href="structtoolbox_1_1util_1_1FunctionTraits_3_01ReturnT_07_5_08_07ArgsT_8_8_8_08_4.html#a7c38f7bbff28eb55b81ced89c2b40535">toolbox::util::FunctionTraits&lt; ReturnT(*)(ArgsT...)&gt;</a>
@@ -168,7 +172,7 @@ $(function() {
 : <a class="el" href="classtoolbox_1_1util_1_1ArrayView.html#aa9a8612078e0fe84a6192cd7d8f17123">toolbox::util::ArrayView&lt; ValueT &gt;</a>
 </li>
 <li>RingBuffer()
-: <a class="el" href="classtoolbox_1_1util_1_1RingBuffer.html#a9adff8261d6284e04278ce088383bcaa">toolbox::util::RingBuffer&lt; ValueT &gt;</a>
+: <a class="el" href="classtoolbox_1_1util_1_1RingBuffer.html#aea281c64bb3e0736c7a1cf63da740b1c">toolbox::util::RingBuffer&lt; ValueT &gt;</a>
 </li>
 <li>root()
 : <a class="el" href="classtoolbox_1_1util_1_1MultiConfig.html#a7a4a904dbf921779a7ddfcd87d4cd9d3">toolbox::util::MultiConfig</a>
@@ -177,10 +181,8 @@ $(function() {
 : <a class="el" href="structtoolbox_1_1ipc_1_1MpmcQueue_1_1Impl.html#a5a9f49afc690a225af1728fec77ca294">toolbox::ipc::MpmcQueue&lt; ValueT &gt;::Impl</a>
 </li>
 <li>run()
-: <a class="el" href="classtoolbox_1_1net_1_1Resolver.html#ae361ffa1a2d0ffa55374fcaeba3da4a0">toolbox::net::Resolver</a>
-, <a class="el" href="classtoolbox_1_1util_1_1benchmark_1_1Benchmark.html#a01a2b448840949bde6ec69488bba928d">toolbox::util::benchmark::Benchmark&lt; FuncT &gt;</a>
-, <a class="el" href="classtoolbox_1_1util_1_1benchmark_1_1BenchmarkStore.html#a6cda9a41499cc71f77065d6c9a93ee58">toolbox::util::benchmark::BenchmarkStore</a>
-, <a class="el" href="structtoolbox_1_1util_1_1benchmark_1_1Runnable.html#ad4c1c814bf492b05bfa6a626dfe8c79e">toolbox::util::benchmark::Runnable</a>
+: <a class="el" href="classtoolbox_1_1bm_1_1BenchmarkSuite.html#ac930749648aa6f77d25f3b624f9b2cfa">toolbox::bm::BenchmarkSuite</a>
+, <a class="el" href="classtoolbox_1_1net_1_1Resolver.html#ae361ffa1a2d0ffa55374fcaeba3da4a0">toolbox::net::Resolver</a>
 </li>
 </ul>
 </div><!-- contents -->

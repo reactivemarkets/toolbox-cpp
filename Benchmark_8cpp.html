@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Toolbox: toolbox/util/Benchmark.cpp File Reference</title>
+<title>Toolbox: toolbox/bm/Benchmark.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_cb851817d6f77244316f2683559617a2.html">toolbox</a></li><li class="navelem"><a class="el" href="dir_ef993a3e784ac3ef8e7464d3dccd4cb3.html">util</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_cb851817d6f77244316f2683559617a2.html">toolbox</a></li><li class="navelem"><a class="el" href="dir_efa182846caf0691c23b1866ac575282.html">bm</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -73,7 +73,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="Benchmark_8hpp_source.html">Benchmark.hpp</a>&quot;</code><br />
+<code>#include &lt;<a class="el" href="Suite_8hpp_source.html">toolbox/bm/Suite.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="Options_8hpp_source.html">toolbox/util/Options.hpp</a>&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;random&gt;</code><br />
 <code>#include &lt;regex&gt;</code><br />
 </div>
@@ -81,19 +83,15 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:namespacetoolbox"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox.html">toolbox</a></td></tr>
+<tr class="memitem:namespacetoolbox_1_1bm"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1bm.html">toolbox::bm</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespacetoolbox_1_1util"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html">toolbox::util</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespacetoolbox_1_1util_1_1benchmark"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util_1_1benchmark.html">toolbox::util::benchmark</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespacetoolbox_1_1util_1_1benchmark_1_1detail"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util_1_1benchmark_1_1detail.html">toolbox::util::benchmark::detail</a></td></tr>
+<tr class="memitem:namespacetoolbox_1_1bm_1_1detail"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1bm_1_1detail.html">toolbox::bm::detail</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a309307a2be503712ceaaf3a431c57eeb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util_1_1benchmark_1_1detail.html#a309307a2be503712ceaaf3a431c57eeb">toolbox::util::benchmark::detail::main</a> (int argc, char *argv[])</td></tr>
-<tr class="separator:a309307a2be503712ceaaf3a431c57eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68184ba2a046bdc2b4b45ec5f716f28d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1bm_1_1detail.html#a68184ba2a046bdc2b4b45ec5f716f28d">toolbox::bm::detail::main</a> (int argc, char *argv[])</td></tr>
+<tr class="separator:a68184ba2a046bdc2b4b45ec5f716f28d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

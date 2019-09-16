@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['_7eabstracthdriterator',['~AbstractHdrIterator',['../classtoolbox_1_1hdr_1_1AbstractHdrIterator.html#a64bed484673a616b4dd33861c7e789ce',1,'toolbox::hdr::AbstractHdrIterator']]],
+  ['_7ealarm',['~Alarm',['../classtoolbox_1_1util_1_1Alarm.html#a0383498b1645bbbdc334979f0e770a6a',1,'toolbox::util::Alarm']]],
   ['_7eargvlexer',['~ArgvLexer',['../classtoolbox_1_1util_1_1ArgvLexer.html#a36893ad8d21aabf9d41006f269cfa678',1,'toolbox::util::ArgvLexer']]],
   ['_7eargvsequence',['~ArgvSequence',['../classtoolbox_1_1util_1_1ArgvSequence.html#a56c251e812cbd8ce963cafbebcc978bf',1,'toolbox::util::ArgvSequence']]],
   ['_7earrayview',['~ArrayView',['../classtoolbox_1_1util_1_1ArrayView.html#a4195bbf5158ece45e625ace0c683d2e1',1,'toolbox::util::ArrayView']]],
@@ -9,6 +9,9 @@ var searchData=
   ['_7ebasichttpserv',['~BasicHttpServ',['../classtoolbox_1_1http_1_1BasicHttpServ.html#aac366c873d067187aa26d002c712add2',1,'toolbox::http::BasicHttpServ']]],
   ['_7ebasicslot',['~BasicSlot',['../classtoolbox_1_1util_1_1BasicSlot.html#a44e285e215b30e3a2421d444f8e11cc5',1,'toolbox::util::BasicSlot']]],
   ['_7ebasicurl',['~BasicUrl',['../classtoolbox_1_1http_1_1BasicUrl.html#a312f506cfc9b8f0ab5493be50a10d5a1',1,'toolbox::http::BasicUrl']]],
+  ['_7ebenchmarkctx',['~BenchmarkCtx',['../classtoolbox_1_1bm_1_1BenchmarkCtx.html#a1d682701dafeb551a152dd0ebf940019',1,'toolbox::bm::BenchmarkCtx']]],
+  ['_7ebenchmarkrange',['~BenchmarkRange',['../classtoolbox_1_1bm_1_1BenchmarkRange.html#ad1c80a39ffcdc2f17b9d1baaff49db58',1,'toolbox::bm::BenchmarkRange']]],
+  ['_7ebenchmarkrecord',['~BenchmarkRecord',['../classtoolbox_1_1bm_1_1BenchmarkRecord.html#ae281cbf6a19d02081f5d4ac0bdaac0d4',1,'toolbox::bm::BenchmarkRecord']]],
   ['_7ebuffer',['~Buffer',['../classtoolbox_1_1io_1_1Buffer.html#a785f44ebdc19ce599b676e19057ace0b',1,'toolbox::io::Buffer']]],
   ['_7ecomparable',['~Comparable',['../structtoolbox_1_1util_1_1Comparable.html#a5253a9512f6214a366167c6b67e5e5d4',1,'toolbox::util::Comparable']]],
   ['_7econfig',['~Config',['../classtoolbox_1_1util_1_1Config.html#a6520c97255cf6a52cca88afb4a3599df',1,'toolbox::util::Config']]],
@@ -18,6 +21,7 @@ var searchData=
   ['_7eexception',['~Exception',['../classtoolbox_1_1util_1_1Exception.html#a54bceec898694e0a7945857a09ec725f',1,'toolbox::util::Exception']]],
   ['_7efinally',['~Finally',['../classtoolbox_1_1util_1_1Finally.html#ae2d66561bad70c4c049f6caeb3967fd5',1,'toolbox::util::Finally']]],
   ['_7ehandle',['~Handle',['../classtoolbox_1_1io_1_1Reactor_1_1Handle.html#ae483da1b7901899842919be147c6ef25',1,'toolbox::io::Reactor::Handle']]],
+  ['_7ehdriterator',['~HdrIterator',['../classtoolbox_1_1hdr_1_1HdrIterator.html#a3281a35d1eadba96099c5609c0089305',1,'toolbox::hdr::HdrIterator']]],
   ['_7ehttpappbase',['~HttpAppBase',['../classtoolbox_1_1http_1_1HttpAppBase.html#a0959e21dbb807a6069b32e76e0a6cc4f',1,'toolbox::http::HttpAppBase']]],
   ['_7ehttpbuf',['~HttpBuf',['../classtoolbox_1_1http_1_1HttpBuf.html#a082fececea270c6f2f85d02a34c8cbf0',1,'toolbox::http::HttpBuf']]],
   ['_7ehttpexception',['~HttpException',['../structtoolbox_1_1http_1_1HttpException.html#a08f85387322274a3ae187a93baca71b0',1,'toolbox::http::HttpException']]],
@@ -35,7 +39,6 @@ var searchData=
   ['_7eresolver',['~Resolver',['../classtoolbox_1_1net_1_1Resolver.html#a9f8b0f0b657ec420f631cfee7bc5f428',1,'toolbox::net::Resolver']]],
   ['_7eresolverrunner',['~ResolverRunner',['../classtoolbox_1_1net_1_1ResolverRunner.html#ad2e1178f437d5eceaaa280c6a514a8b6',1,'toolbox::net::ResolverRunner']]],
   ['_7eringbuffer',['~RingBuffer',['../classtoolbox_1_1util_1_1RingBuffer.html#aa2a4b41436f37537ecc713f31828a40d',1,'toolbox::util::RingBuffer']]],
-  ['_7erunnable',['~Runnable',['../structtoolbox_1_1util_1_1benchmark_1_1Runnable.html#aaab7c2b6ac7fbdb1c3319bd7bb15bc89',1,'toolbox::util::benchmark::Runnable']]],
   ['_7esigwait',['~SigWait',['../classtoolbox_1_1sys_1_1SigWait.html#aac85b752c2d84d6c5e2fc6d7acb000d3',1,'toolbox::sys::SigWait']]],
   ['_7estaticbuf',['~StaticBuf',['../classtoolbox_1_1util_1_1StaticBuf.html#ae2ff7a766d56a0e24389dd33086f3b70',1,'toolbox::util::StaticBuf']]],
   ['_7estaticstream',['~StaticStream',['../classtoolbox_1_1util_1_1StaticStream.html#ade7dd6e4793e060712b32e3ec1a981dd',1,'toolbox::util::StaticStream']]],

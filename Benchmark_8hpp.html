@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Toolbox: toolbox/util/Benchmark.hpp File Reference</title>
+<title>Toolbox: toolbox/bm/Benchmark.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_cb851817d6f77244316f2683559617a2.html">toolbox</a></li><li class="navelem"><a class="el" href="dir_ef993a3e784ac3ef8e7464d3dccd4cb3.html">util</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_cb851817d6f77244316f2683559617a2.html">toolbox</a></li><li class="navelem"><a class="el" href="dir_efa182846caf0691c23b1866ac575282.html">bm</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -74,128 +74,37 @@ $(function() {
 <div class="title">Benchmark.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="HdrHistogram_8hpp_source.html">toolbox/hdr/HdrHistogram.hpp</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="Config_8h_source.html">toolbox/Config.h</a>&gt;</code><br />
-<code>#include &quot;<a class="el" href="Traits_8hpp_source.html">Traits.hpp</a>&quot;</code><br />
-<code>#include &lt;atomic&gt;</code><br />
-<code>#include &lt;chrono&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;map&gt;</code><br />
-<code>#include &lt;thread&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="Config_8h_source.html">toolbox/Config.h</a>&gt;</code><br />
 </div>
 <p><a href="Benchmark_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1benchmark_1_1Settings.html">toolbox::util::benchmark::Settings</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1benchmark_1_1Runnable.html">toolbox::util::benchmark::Runnable</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1util_1_1benchmark_1_1BenchmarkStore.html">toolbox::util::benchmark::BenchmarkStore</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1util_1_1benchmark_1_1BenchmarkCaller.html">toolbox::util::benchmark::BenchmarkCaller&lt; FuncT, Enable &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1util_1_1benchmark_1_1BenchmarkCaller_3_01FuncT_00_01typename_01std_1_1enable__if38e1c0a5273e321e6ea10099c54e9847.html">toolbox::util::benchmark::BenchmarkCaller&lt; FuncT, typename std::enable_if_t&lt; FunctionTraits&lt; FuncT &gt;::Arity &gt; &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1util_1_1benchmark_1_1Benchmark.html">toolbox::util::benchmark::Benchmark&lt; FuncT &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1bm_1_1Benchmark.html">toolbox::bm::Benchmark</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:namespacetoolbox"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox.html">toolbox</a></td></tr>
+<tr class="memitem:namespacetoolbox_1_1bm"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1bm.html">toolbox::bm</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespacetoolbox_1_1util"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html">toolbox::util</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespacetoolbox_1_1util_1_1benchmark"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util_1_1benchmark.html">toolbox::util::benchmark</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespacetoolbox_1_1util_1_1benchmark_1_1detail"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util_1_1benchmark_1_1detail.html">toolbox::util::benchmark::detail</a></td></tr>
+<tr class="memitem:namespacetoolbox_1_1bm_1_1detail"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1bm_1_1detail.html">toolbox::bm::detail</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a6f40d40812ad163247cd487dad503a1a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Benchmark_8hpp.html#a6f40d40812ad163247cd487dad503a1a">TOOLBOX_BENCHMARK_OP_2</a>(Count)&#160;&#160;&#160;reg_##Count</td></tr>
-<tr class="separator:a6f40d40812ad163247cd487dad503a1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa752081553e70539e29d1332f361db54"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Benchmark_8hpp.html#aa752081553e70539e29d1332f361db54">TOOLBOX_BENCHMARK_OP_1</a>(Name,  Func,  Value)</td></tr>
-<tr class="separator:aa752081553e70539e29d1332f361db54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb04f68d842ccec59dcb4d82d58999b2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Benchmark_8hpp.html#afb04f68d842ccec59dcb4d82d58999b2">TOOLBOX_BENCHMARK</a>(Name,  Func)&#160;&#160;&#160;<a class="el" href="Benchmark_8hpp.html#aa752081553e70539e29d1332f361db54">TOOLBOX_BENCHMARK_OP_1</a>(Name, Func, __COUNTER__)</td></tr>
-<tr class="separator:afb04f68d842ccec59dcb4d82d58999b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae02764ac71192bbf74a484fdd3401a85"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Benchmark_8hpp.html#ae02764ac71192bbf74a484fdd3401a85">TOOLBOX_BENCHMARK_MAIN</a>&#160;&#160;&#160;int <a class="el" href="HttpServ_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(int argc, char* argv[]) { return <a class="el" href="namespacetoolbox_1_1util_1_1benchmark_1_1detail.html#a309307a2be503712ceaaf3a431c57eeb">toolbox::util::benchmark::detail::main</a>(argc, argv); }</td></tr>
+<tr class="memitem:a593b3688517bba31725d54fcdc184265"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Benchmark_8hpp.html#a593b3688517bba31725d54fcdc184265">TOOLBOX_BENCHMARK</a>(NAME)</td></tr>
+<tr class="separator:a593b3688517bba31725d54fcdc184265"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae02764ac71192bbf74a484fdd3401a85"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Benchmark_8hpp.html#ae02764ac71192bbf74a484fdd3401a85">TOOLBOX_BENCHMARK_MAIN</a>&#160;&#160;&#160;int <a class="el" href="HttpServ_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(int argc, char* argv[]) { return <a class="el" href="namespacetoolbox_1_1bm_1_1detail.html#a68184ba2a046bdc2b4b45ec5f716f28d">toolbox::bm::detail::main</a>(argc, argv); }</td></tr>
 <tr class="separator:ae02764ac71192bbf74a484fdd3401a85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac66b69b7ea2be2dbec4525cc4652f900"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util_1_1benchmark.html#ac66b69b7ea2be2dbec4525cc4652f900">toolbox::util::benchmark::clobber_memory</a> () noexcept</td></tr>
-<tr class="separator:ac66b69b7ea2be2dbec4525cc4652f900"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbfa6361a5eb99c02c77973cbfdb800e"><td class="memTemplParams" colspan="2">template&lt;typename ValueT &gt; </td></tr>
-<tr class="memitem:adbfa6361a5eb99c02c77973cbfdb800e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util_1_1benchmark.html#adbfa6361a5eb99c02c77973cbfdb800e">toolbox::util::benchmark::do_not_optimise</a> (const ValueT &amp;val) noexcept</td></tr>
-<tr class="separator:adbfa6361a5eb99c02c77973cbfdb800e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c0b0ff7e56973f49d8c5cba8cd8c532"><td class="memTemplParams" colspan="2">template&lt;typename ValueT &gt; </td></tr>
-<tr class="memitem:a0c0b0ff7e56973f49d8c5cba8cd8c532"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util_1_1benchmark.html#a0c0b0ff7e56973f49d8c5cba8cd8c532">toolbox::util::benchmark::do_not_optimise</a> (ValueT &amp;val) noexcept</td></tr>
-<tr class="separator:a0c0b0ff7e56973f49d8c5cba8cd8c532"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a309307a2be503712ceaaf3a431c57eeb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util_1_1benchmark_1_1detail.html#a309307a2be503712ceaaf3a431c57eeb">toolbox::util::benchmark::detail::main</a> (int argc, char *argv[])</td></tr>
-<tr class="separator:a309307a2be503712ceaaf3a431c57eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68184ba2a046bdc2b4b45ec5f716f28d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1bm_1_1detail.html#a68184ba2a046bdc2b4b45ec5f716f28d">toolbox::bm::detail::main</a> (int argc, char *argv[])</td></tr>
+<tr class="separator:a68184ba2a046bdc2b4b45ec5f716f28d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a6f40d40812ad163247cd487dad503a1a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f40d40812ad163247cd487dad503a1a">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK_OP_2</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define TOOLBOX_BENCHMARK_OP_2</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">Count</td><td>)</td>
-          <td>&#160;&#160;&#160;reg_##Count</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Benchmark_8hpp_source.html#l00280">280</a> of file <a class="el" href="Benchmark_8hpp_source.html">Benchmark.hpp</a>.</p>
-
-</div>
-</div>
-<a id="aa752081553e70539e29d1332f361db54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa752081553e70539e29d1332f361db54">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK_OP_1</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define TOOLBOX_BENCHMARK_OP_1</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">Name, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">Func, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">Value&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code" href="Benchmark_8hpp.html#a6f40d40812ad163247cd487dad503a1a">TOOLBOX_BENCHMARK_OP_2</a>(Value) = <a class="code" href="classtoolbox_1_1util_1_1benchmark_1_1Benchmark.html">toolbox::util::benchmark::Benchmark</a>         \</div><div class="line">    {                                                                                              \</div><div class="line">        Name, Func                                                                                 \</div><div class="line">    }</div><div class="ttc" id="classtoolbox_1_1util_1_1benchmark_1_1Benchmark_html"><div class="ttname"><a href="classtoolbox_1_1util_1_1benchmark_1_1Benchmark.html">toolbox::util::benchmark::Benchmark</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8hpp_source.html#l00140">Benchmark.hpp:140</a></div></div>
-<div class="ttc" id="Benchmark_8hpp_html_a6f40d40812ad163247cd487dad503a1a"><div class="ttname"><a href="Benchmark_8hpp.html#a6f40d40812ad163247cd487dad503a1a">TOOLBOX_BENCHMARK_OP_2</a></div><div class="ttdeci">#define TOOLBOX_BENCHMARK_OP_2(Count)</div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8hpp_source.html#l00280">Benchmark.hpp:280</a></div></div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="Benchmark_8hpp_source.html#l00281">281</a> of file <a class="el" href="Benchmark_8hpp_source.html">Benchmark.hpp</a>.</p>
-
-</div>
-</div>
-<a id="afb04f68d842ccec59dcb4d82d58999b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb04f68d842ccec59dcb4d82d58999b2">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK</h2>
+<a id="a593b3688517bba31725d54fcdc184265"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a593b3688517bba31725d54fcdc184265">&#9670;&nbsp;</a></span>TOOLBOX_BENCHMARK</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -204,23 +113,15 @@ Functions</h2></td></tr>
           <td class="memname">#define TOOLBOX_BENCHMARK</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">Name, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname">NAME</td><td>)</td>
           <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">Func&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;<a class="el" href="Benchmark_8hpp.html#aa752081553e70539e29d1332f361db54">TOOLBOX_BENCHMARK_OP_1</a>(Name, Func, __COUNTER__)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Benchmark_8hpp_source.html#l00286">286</a> of file <a class="el" href="Benchmark_8hpp_source.html">Benchmark.hpp</a>.</p>
+<b>Value:</b><div class="fragment"><div class="line"><span class="keyword">namespace </span>benchmark::NAME {                                                                    \</div><div class="line">    void fn(::<a class="code" href="classtoolbox_1_1bm_1_1BenchmarkCtx.html">toolbox::bm::BenchmarkCtx</a>&amp; ctx);                                                     \</div><div class="line">    <a class="code" href="structtoolbox_1_1bm_1_1Benchmark.html">::toolbox::bm::Benchmark</a> bm{#NAME, fn};                                                        \</div><div class="line">    }                                                                                              \</div><div class="line">    void benchmark::NAME::fn(<a class="code" href="classtoolbox_1_1bm_1_1BenchmarkCtx.html">toolbox::bm::BenchmarkCtx</a>&amp; ctx)</div><div class="ttc" id="structtoolbox_1_1bm_1_1Benchmark_html"><div class="ttname"><a href="structtoolbox_1_1bm_1_1Benchmark.html">toolbox::bm::Benchmark</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8hpp_source.html#l00024">Benchmark.hpp:24</a></div></div>
+<div class="ttc" id="classtoolbox_1_1bm_1_1BenchmarkCtx_html"><div class="ttname"><a href="classtoolbox_1_1bm_1_1BenchmarkCtx.html">toolbox::bm::BenchmarkCtx</a></div><div class="ttdef"><b>Definition:</b> <a href="Ctx_8hpp_source.html#l00026">Ctx.hpp:26</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="Benchmark_8hpp_source.html#l00035">35</a> of file <a class="el" href="Benchmark_8hpp_source.html">Benchmark.hpp</a>.</p>
 
 </div>
 </div>
@@ -231,12 +132,12 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TOOLBOX_BENCHMARK_MAIN&#160;&#160;&#160;int <a class="el" href="HttpServ_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(int argc, char* argv[]) { return <a class="el" href="namespacetoolbox_1_1util_1_1benchmark_1_1detail.html#a309307a2be503712ceaaf3a431c57eeb">toolbox::util::benchmark::detail::main</a>(argc, argv); }</td>
+          <td class="memname">#define TOOLBOX_BENCHMARK_MAIN&#160;&#160;&#160;int <a class="el" href="HttpServ_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(int argc, char* argv[]) { return <a class="el" href="namespacetoolbox_1_1bm_1_1detail.html#a68184ba2a046bdc2b4b45ec5f716f28d">toolbox::bm::detail::main</a>(argc, argv); }</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Benchmark_8hpp_source.html#l00288">288</a> of file <a class="el" href="Benchmark_8hpp_source.html">Benchmark.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Benchmark_8hpp_source.html#l00042">42</a> of file <a class="el" href="Benchmark_8hpp_source.html">Benchmark.hpp</a>.</p>
 
 </div>
 </div>

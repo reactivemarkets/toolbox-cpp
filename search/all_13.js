@@ -7,7 +7,7 @@ var searchData=
   ['unauthorized',['Unauthorized',['../namespacetoolbox_1_1http.html#a047cfa9f37dc83f9eae3d11d82fa214eae06d1ba70f1331e9f9a113cc2f887d3f',1,'toolbox::http']]],
   ['unbind',['Unbind',['../namespacetoolbox_1_1http.html#a1090dccc3a45f4f6ba45d0d80cb77fdaa4bffa5083d48d52f00eb873b6e136d5f',1,'toolbox::http']]],
   ['unbox',['unbox',['../namespacetoolbox_1_1util.html#a5d51e7e40c696ced8aa45e5ad52a8905',1,'toolbox::util']]],
-  ['unit_5fmagnitude',['unit_magnitude',['../classtoolbox_1_1hdr_1_1HdrHistogram.html#a207ab5baa03ed04d1c58c66041109922',1,'toolbox::hdr::HdrHistogram']]],
+  ['unit_5fmagnitude',['unit_magnitude',['../classtoolbox_1_1hdr_1_1HdrHistogram.html#a76d32b651f693bd7bde71b30d9c5ac6a',1,'toolbox::hdr::HdrHistogram']]],
   ['unix',['unix',['../structtoolbox_1_1net_1_1DgramProtocol.html#ae90096b6c4985d0c4036afe4f893db82',1,'toolbox::net::DgramProtocol::unix()'],['../structtoolbox_1_1net_1_1StreamProtocol.html#ac10b869217f6f093757917154236d86b',1,'toolbox::net::StreamProtocol::unix()']]],
   ['unixdgramendpoint',['UnixDgramEndpoint',['../namespacetoolbox_1_1net.html#a04b157dc73a63db2390e0b0516fa73fd',1,'toolbox::net']]],
   ['unixdgramprotocol',['UnixDgramProtocol',['../structtoolbox_1_1net_1_1UnixDgramProtocol.html',1,'toolbox::net']]],
@@ -26,8 +26,7 @@ var searchData=
   ['us_5fsince_5fepoch',['us_since_epoch',['../namespacetoolbox_1_1sys.html#a1efb0e8731d54a2ebfc23cf1f5c11280',1,'toolbox::sys']]],
   ['user_5finfo',['user_info',['../classtoolbox_1_1http_1_1BasicUrl.html#ab520766161289a2ca5eea54bd585ec9b',1,'toolbox::http::BasicUrl']]],
   ['util_2ehpp',['util.hpp',['../util_8hpp.html',1,'']]],
-  ['utility_2ebm_2ecpp',['Utility.bm.cpp',['../Utility_8bm_8cpp.html',1,'']]],
-  ['utility_2ecpp',['Utility.cpp',['../Utility_8cpp.html',1,'']]],
-  ['utility_2ehpp',['Utility.hpp',['../Utility_8hpp.html',1,'']]],
+  ['utility_2ecpp',['Utility.cpp',['../bm_2Utility_8cpp.html',1,'(Global Namespace)'],['../util_2Utility_8cpp.html',1,'(Global Namespace)']]],
+  ['utility_2ehpp',['Utility.hpp',['../bm_2Utility_8hpp.html',1,'(Global Namespace)'],['../util_2Utility_8hpp.html',1,'(Global Namespace)']]],
   ['utility_2eut_2ecpp',['Utility.ut.cpp',['../Utility_8ut_8cpp.html',1,'']]]
 ];

@@ -5,7 +5,6 @@ var searchData=
   ['limits_2ecpp',['Limits.cpp',['../Limits_8cpp.html',1,'']]],
   ['limits_2ehpp',['Limits.hpp',['../Limits_8hpp.html',1,'']]],
   ['link',['Link',['../namespacetoolbox_1_1http.html#a1090dccc3a45f4f6ba45d0d80cb77fdaa97e7c9a7d06eac006a28bf05467fcc8b',1,'toolbox::http']]],
-  ['list',['list',['../classtoolbox_1_1util_1_1benchmark_1_1BenchmarkStore.html#a7a0953ba43285103939b204a1d0de1b7',1,'toolbox::util::benchmark::BenchmarkStore']]],
   ['list_5fhook',['list_hook',['../classtoolbox_1_1http_1_1BasicHttpConn.html#a7629c88a8270fa4beb1969b6173d3e71',1,'toolbox::http::BasicHttpConn']]],
   ['listen',['listen',['../structtoolbox_1_1net_1_1StreamSockServ.html#a9efab62c8f4dfdbb4a732b0c4d413dca',1,'toolbox::net::StreamSockServ::listen(int backlog, std::error_code &amp;ec) noexcept'],['../structtoolbox_1_1net_1_1StreamSockServ.html#a1241783f370ae800c6eb2e7eea8ce6be',1,'toolbox::net::StreamSockServ::listen(int backlog)'],['../namespacetoolbox_1_1os.html#a8780504a196b00e0b5650b2cbe399786',1,'toolbox::os::listen(int sockfd, int backlog, std::error_code &amp;ec) noexcept'],['../namespacetoolbox_1_1os.html#a69d33a27537a4df265fb3c8a21e86b3b',1,'toolbox::os::listen(int sockfd, int backlog)']]],
   ['load',['load',['../structtoolbox_1_1util_1_1ThreadSafePolicy.html#ac5f2048bbdacc9a6305ee000bf68b057',1,'toolbox::util::ThreadSafePolicy::load()'],['../structtoolbox_1_1util_1_1ThreadUnsafePolicy.html#a2677f408c0a0cfc0f99ee30e9525f3db',1,'toolbox::util::ThreadUnsafePolicy::load()']]],
@@ -19,7 +18,7 @@ var searchData=
   ['logger',['Logger',['../namespacetoolbox_1_1sys.html#ad30773ec4571816fa4459ed92884acdc',1,'toolbox::sys']]],
   ['logmsg',['LogMsg',['../namespacetoolbox_1_1sys.html#a16158a8cb63ed525b556394583d01a22',1,'toolbox::sys']]],
   ['low',['Low',['../namespacetoolbox_1_1io.html#a3ebeb41d6195a7beeb4a1734379c4684a28d0edd045e05cf5af64e35ae0c4c6ef',1,'toolbox::io']]],
-  ['lowest',['Lowest',['../HdrHistogram_8ut_8cpp.html#a3ddbcbb7177ae2b6f5ebb0ea61e8c3ba',1,'HdrHistogram.ut.cpp']]],
+  ['lowest',['Lowest',['../Histogram_8ut_8cpp.html#a3ddbcbb7177ae2b6f5ebb0ea61e8c3ba',1,'Histogram.ut.cpp']]],
   ['ltrim',['ltrim',['../namespacetoolbox_1_1util.html#aa30f9e12051f5022b8358f6eed58fd97',1,'toolbox::util::ltrim(string_view &amp;s) noexcept'],['../namespacetoolbox_1_1util.html#a9f73a91ad910a4f157a83bfac7561cab',1,'toolbox::util::ltrim(string &amp;s) noexcept'],['../namespacetoolbox_1_1util.html#a74372ee0a56dd10c6fee6276eb4d82b0',1,'toolbox::util::ltrim(std::string_view &amp;s) noexcept']]],
   ['ltrim_5fcopy',['ltrim_copy',['../namespacetoolbox_1_1util.html#a5fdc609062f8db4b94b25a77c2ff6d39',1,'toolbox::util::ltrim_copy(std::string_view s) noexcept'],['../namespacetoolbox_1_1util.html#ab7fbe111cdcb7435765a8c16a9fef18b',1,'toolbox::util::ltrim_copy(std::string s) noexcept']]]
 ];

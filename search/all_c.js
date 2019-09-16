@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['name',['name',['../structtoolbox_1_1sys_1_1ThreadConfig.html#adc99679ef1e4fecd2c2c87576a66dc88',1,'toolbox::sys::ThreadConfig']]],
+  ['name',['name',['../structtoolbox_1_1bm_1_1Benchmark.html#a58a66c870d09792e3ab871fc773df637',1,'toolbox::bm::Benchmark::name()'],['../structtoolbox_1_1sys_1_1ThreadConfig.html#adc99679ef1e4fecd2c2c87576a66dc88',1,'toolbox::sys::ThreadConfig::name()']]],
   ['nanos',['Nanos',['../namespacetoolbox_1_1sys.html#a982f28e6caaaa07ee95deca8f662b6ef',1,'toolbox::sys']]],
   ['nanotime',['NanoTime',['../namespacetoolbox_1_1sys.html#acfccec6381072b1852453855e64a7e7c',1,'toolbox::sys']]],
   ['net_2ehpp',['net.hpp',['../net_8hpp.html',1,'']]],

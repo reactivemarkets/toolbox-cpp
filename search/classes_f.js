@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['settings',['Settings',['../structtoolbox_1_1util_1_1benchmark_1_1Settings.html',1,'toolbox::util::benchmark']]],
   ['shmpolicy',['ShmPolicy',['../structtoolbox_1_1ipc_1_1ShmPolicy.html',1,'toolbox::ipc']]],
   ['sigwait',['SigWait',['../classtoolbox_1_1sys_1_1SigWait.html',1,'toolbox::sys']]],
   ['sock',['Sock',['../structtoolbox_1_1net_1_1Sock.html',1,'toolbox::net']]],

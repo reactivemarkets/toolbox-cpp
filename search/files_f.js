@@ -2,7 +2,6 @@ var searchData=
 [
   ['thread_2ecpp',['Thread.cpp',['../Thread_8cpp.html',1,'']]],
   ['thread_2ehpp',['Thread.hpp',['../Thread_8hpp.html',1,'']]],
-  ['time_2ebm_2ecpp',['Time.bm.cpp',['../Time_8bm_8cpp.html',1,'']]],
   ['time_2ecpp',['Time.cpp',['../Time_8cpp.html',1,'']]],
   ['time_2ehpp',['Time.hpp',['../Time_8hpp.html',1,'']]],
   ['time_2eut_2ecpp',['Time.ut.cpp',['../Time_8ut_8cpp.html',1,'']]],
