@@ -48,8 +48,8 @@ TOOLBOX_API Logger get_logger() noexcept;
 TOOLBOX_API Logger set_logger(Logger logger) noexcept;
 
 /// Unconditionally write log message to the logger. Specifically, this function does not check that
-/// level is allowed by the current log level; users are expected to call is_log_level first, before
-/// formatting the log message.
+/// level is allowed by the current log level; users are expected to call is_log_level() first,
+/// before formatting the log message.
 TOOLBOX_API void write_log(int level, std::string_view msg) noexcept;
 
 /// Null logger. This logger does nothing and is effectively /dev/null.

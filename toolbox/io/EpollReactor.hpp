@@ -28,7 +28,7 @@ class TOOLBOX_API EpollReactor : public Reactor {
   public:
     using Event = typename EpollMuxer::Event;
 
-    explicit EpollReactor(std::size_t size_hint = 1024);
+    explicit EpollReactor(std::size_t size_hint = 0);
     ~EpollReactor() final;
 
     // Copy.
