@@ -29,7 +29,6 @@ constexpr size_t MaxEvents{16};
 } // namespace
 
 EpollReactor::EpollReactor(std::size_t size_hint)
-: mux_{size_hint}
 {
     const auto notify = notify_.fd();
     data_.resize(max<size_t>(notify + 1, size_hint));

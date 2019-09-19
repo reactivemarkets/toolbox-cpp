@@ -25,7 +25,8 @@
 namespace toolbox {
 namespace os {
 
-/// Open an epoll file descriptor
+/// Open a new epoll instance. The size argument is ignored in kernels >= 2.6.8, but must be greater
+/// than zero.
 inline FileHandle epoll_create(int size, std::error_code& ec) noexcept
 {
     const auto ret = ::epoll_create(size);
@@ -35,12 +36,33 @@ inline FileHandle epoll_create(int size, std::error_code& ec) noexcept
     return ret;
 }
 
-/// Open an epoll file descriptor
+/// Open a new epoll instance. The size argument is ignored in kernels >= 2.6.8, but must be greater
+/// than zero.
 inline FileHandle epoll_create(int size)
 {
     const auto fd = ::epoll_create(size);
     if (fd < 0) {
         throw std::system_error{make_sys_error(errno), "epoll_create"};
+    }
+    return fd;
+}
+
+/// Open a new epoll instance. If flags is zero, then epoll_create1() is the same as epoll_create().
+inline FileHandle epoll_create1(int flags, std::error_code& ec) noexcept
+{
+    const auto ret = ::epoll_create1(flags);
+    if (ret < 0) {
+        ec = make_sys_error(errno);
+    }
+    return ret;
+}
+
+/// Open a new epoll instance. If flags is zero, then epoll_create1() is the same as epoll_create().
+inline FileHandle epoll_create1(int flags)
+{
+    const auto fd = ::epoll_create1(flags);
+    if (fd < 0) {
+        throw std::system_error{make_sys_error(errno), "epoll_create1"};
     }
     return fd;
 }

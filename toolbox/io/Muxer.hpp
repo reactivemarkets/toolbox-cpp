@@ -64,8 +64,8 @@ class EpollMuxer {
         return n;
     }
 
-    explicit EpollMuxer(std::size_t size_hint)
-    : mux_{os::epoll_create(size_hint)}
+    explicit EpollMuxer(int flags = 0)
+    : mux_{os::epoll_create1(flags)}
     , tfd_{TFD_NONBLOCK}
     {
         subscribe(tfd_.fd(), 0, EventIn);
