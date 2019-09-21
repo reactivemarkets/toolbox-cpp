@@ -18,5 +18,6 @@
 
 #include "hdr/Histogram.hpp"
 #include "hdr/Iterator.hpp"
+#include "hdr/Utility.hpp"
 
 #endif // TOOLBOX_HDR_HPP

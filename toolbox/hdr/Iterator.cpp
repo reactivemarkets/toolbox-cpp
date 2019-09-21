@@ -14,236 +14,229 @@
 // limitations under the License.
 
 #include "Iterator.hpp"
+
 #include "Histogram.hpp"
+
+#include <cmath>
 
 namespace toolbox {
 inline namespace hdr {
 using namespace std;
-namespace {
-using RecordedIteratorAdapter = IteratorAdapter<RecordedIterator>;
-// Empty histogram for past the end iterator
-static const HdrHistogram empty_hist{1, 1, 1};
-} // namespace
 
-HdrIterationValue::HdrIterationValue(const HdrIterator& iterator)
-: iterator_{iterator}
-{
-}
-
-void HdrIterationValue::set(int64_t value) noexcept
-{
-    value_iterated_to = value;
-    value_iterated_from = iterator_.prev_value_iterated_to_;
-    count_at_value_iterated_to = iterator_.count_at_this_value_;
-    count_added_in_this_iter_step
-        = iterator_.total_count_to_current_index_ - iterator_.total_count_to_prev_index_;
-    total_count_to_this_value = iterator_.total_count_to_current_index_;
-    total_value_to_this_value = iterator_.value_to_index_;
-    percentile = (100.0 * iterator_.total_count_to_current_index_) / iterator_.total_count_;
-    percentile_level_iterated_to = iterator_.get_percentile_iterated_to();
-    int_to_double_conversion_ratio = iterator_.int_to_double_conversion_ratio_;
-}
-
-HdrIterator::HdrIterator(const HdrHistogram& hist)
-: hist_{hist}
-, value_at_next_index_{1ll << hist.unit_magnitude}
-, current_iteration_value_{*this}
-, total_count_{hist.total_count_}
-, int_to_double_conversion_ratio_{hist.int_to_double_conversion_ratio_}
-{
-}
-
-HdrIterator::HdrIterator()
-: hist_{empty_hist}
-, current_iteration_value_{*this}
-, end_{true}
+HdrIterator::HdrIterator(const HdrHistogram& h) noexcept
+: h_{h}
+, counts_index_{-1}
+, total_count_{h.total_count()}
+, count_{0}
+, cumulative_count_{0}
+, value_{0}
+, highest_equivalent_value_{0}
+, value_iterated_from_{0}
+, value_iterated_to_{0}
 {
 }
 
 HdrIterator::~HdrIterator() = default;
 
+bool HdrIterator::do_next() noexcept
+{
+    bool result = move_next();
+    if (result) {
+        update_iterated_values(value_);
+    }
+    return result;
+}
+
+bool HdrIterator::has_buckets() const noexcept
+{
+    return counts_index_ < h_.counts_len();
+}
+
 bool HdrIterator::has_next() const noexcept
 {
-    return total_count_to_current_index_ < total_count_;
+    return cumulative_count_ < total_count_;
 }
 
-double HdrIterator::get_percentile_iterated_to() const noexcept
+int64_t HdrIterator::peek_next_value_from_index() const noexcept
 {
-    return (100.0 * total_count_to_current_index_) / total_count_;
+    return h_.value_at_index(counts_index_ + 1);
 }
 
-double HdrIterator::get_percentile_iterated_from() const noexcept
+bool HdrIterator::next_value_greater_than_reporting_level_upper_bound(
+    int64_t reporting_level_upper_bound) const noexcept
 {
-    return (100.0 * total_count_to_prev_index_) / total_count_;
-}
-
-int64_t HdrIterator::get_value_iterated_to() const noexcept
-{
-    return hist_.get_highest_equivalent_value(value_at_index_);
-}
-
-int64_t HdrIterator::get_count_at_this_value() const noexcept
-{
-    return count_at_this_value_;
-}
-
-const HdrIterationValue& HdrIterator::operator*() const noexcept
-{
-    return this->current_iteration_value_;
-}
-
-const HdrIterationValue* HdrIterator::operator->() const noexcept
-{
-    return &this->current_iteration_value_;
-}
-
-HdrIterator& HdrIterator::operator++()
-{
-    while (has_next()) {
-        count_at_this_value_ = hist_.get_count_at_index(current_index_);
-        if (fresh_sub_bucket_) {
-            total_count_to_current_index_ += count_at_this_value_;
-            value_to_index_ += count_at_this_value_ * get_value_iterated_to();
-            fresh_sub_bucket_ = false;
-        }
-        if (reached_iteration_level()) {
-            auto value_iterated_to = get_value_iterated_to();
-            current_iteration_value_.set(value_iterated_to);
-
-            prev_value_iterated_to_ = value_iterated_to;
-            total_count_to_prev_index_ = total_count_to_current_index_;
-
-            increment_iteration_level();
-
-            return *this;
-        }
-
-        increment_sub_bucket();
+    if (counts_index_ >= h_.counts_len()) {
+        return false;
     }
-    return *this;
+    return peek_next_value_from_index() > reporting_level_upper_bound;
 }
 
-void HdrIterator::increment_sub_bucket()
+bool HdrIterator::basic_next() noexcept
 {
-    fresh_sub_bucket_ = true;
-    ++current_index_;
-    value_at_index_ = hist_.get_value_from_index(current_index_);
-    value_at_next_index_ = hist_.get_value_from_index(current_index_ + 1);
-}
-
-AllValuesIterator::AllValuesIterator(const HdrHistogram& hist)
-: HdrIterator{hist}
-{
-}
-
-AllValuesIterator::AllValuesIterator() = default;
-
-bool AllValuesIterator::has_next() const noexcept
-{
-    bool next = this->current_index_ < this->hist_.counts_len - 1;
-    if (!next) {
-        this->end_ = true;
+    if (!has_next() || counts_index_ >= h_.counts_len()) {
+        return false;
     }
-    return next;
+    move_next();
+    return true;
 }
 
-bool AllValuesIterator::reached_iteration_level() const
+bool HdrIterator::move_next() noexcept
 {
-    return visited_index_ != this->current_index_;
+    counts_index_++;
+
+    if (!has_buckets()) {
+        return false;
+    }
+
+    count_ = h_.counts_get_normalised(counts_index_);
+    cumulative_count_ += count_;
+
+    value_ = h_.value_at_index(counts_index_);
+    highest_equivalent_value_ = h_.highest_equivalent_value(value_);
+    lowest_equivalent_value_ = h_.lowest_equivalent_value(value_);
+    median_equivalent_value_ = h_.median_equivalent_value(value_);
+    return true;
 }
 
-void AllValuesIterator::increment_iteration_level()
+void HdrIterator::update_iterated_values(int64_t new_value_iterated_to) noexcept
 {
-    visited_index_ = this->current_index_;
+    value_iterated_from_ = value_iterated_to_;
+    value_iterated_to_ = new_value_iterated_to;
 }
 
-RecordedIterator::RecordedIterator(const HdrHistogram& hist)
-: AllValuesIterator{hist}
-{
-}
-
-RecordedIterator::RecordedIterator() = default;
-
-bool RecordedIterator::reached_iteration_level() const
-{
-    const auto current_count = this->hist_.get_count_at_index(current_index_);
-    return current_count and (visited_index_ != current_index_);
-}
-
-bool operator==(const RecordedIterator& lhs, const RecordedIterator& rhs) noexcept
-{
-    return lhs.end_ == rhs.end_;
-}
-
-bool operator!=(const RecordedIterator& lhs, const RecordedIterator& rhs) noexcept
-{
-    return !(lhs == rhs);
-}
-
-PercentileIterator::PercentileIterator(const HdrHistogram& hist,
-                                       double percentile_ticks_per_half_distance)
-: HdrIterator{hist}
-, percentile_ticks_per_half_distance_{percentile_ticks_per_half_distance}
+HdrPercentileIterator::HdrPercentileIterator(const HdrHistogram& h,
+                                             int32_t ticks_per_half_distance) noexcept
+: HdrIterator{h}
+, seen_last_value_{false}
+, ticks_per_half_distance_{ticks_per_half_distance}
+, percentile_to_iterate_to_{0.0}
+, percentile_{0.0}
 {
 }
 
-PercentileIterator::PercentileIterator() = default;
-
-bool PercentileIterator::has_next() const noexcept
+bool HdrPercentileIterator::do_next() noexcept
 {
-    if (HdrIterator::has_next()) {
+    if (!has_next()) {
+        if (seen_last_value_) {
+            return false;
+        }
+        seen_last_value_ = true;
+        percentile_ = 100.0;
         return true;
     }
 
-    // We want one additional last step to 100%
-    if (!reached_last_recorded_value_ && this->total_count_) {
-        percentile_to_iterate_to_ = 100.0;
-        reached_last_recorded_value_ = true;
-        return true;
+    if (counts_index_ == -1 && !basic_next()) {
+        return false;
     }
+    do {
+        const double current_percentile{cumulative_count_ * 100.0 / h_.total_count()};
+        if (count_ != 0 && percentile_to_iterate_to_ <= current_percentile) {
+            update_iterated_values(h_.highest_equivalent_value(value_));
 
-    this->end_ = true;
+            percentile_ = percentile_to_iterate_to_;
+            const int64_t temp = (log(100.0 / (100.0 - percentile_to_iterate_to_)) / log(2)) + 1.0;
+            const int64_t half_distance = pow(2, static_cast<double>(temp));
+            const int64_t percentile_reporting_ticks{ticks_per_half_distance_ * half_distance};
+            percentile_to_iterate_to_ += 100.0 / percentile_reporting_ticks;
+
+            return true;
+        }
+    } while (basic_next());
+
+    return true;
+}
+
+HdrCountAddedIterator::HdrCountAddedIterator(const HdrHistogram& h)
+: HdrIterator{h}
+{
+}
+
+HdrCountAddedIterator::~HdrCountAddedIterator() = default;
+
+HdrRecordedIterator::HdrRecordedIterator(const HdrHistogram& h)
+: HdrCountAddedIterator{h}
+{
+}
+
+bool HdrRecordedIterator::do_next() noexcept
+{
+    while (basic_next()) {
+        if (count_ != 0) {
+            update_iterated_values(value_);
+            count_added_in_this_iteration_step_ = count_;
+            return true;
+        }
+    }
     return false;
 }
 
-bool PercentileIterator::reached_iteration_level() const noexcept
+HdrLinearIterator::HdrLinearIterator(const HdrHistogram& h, int64_t value_units_per_bucket) noexcept
+: HdrCountAddedIterator{h}
+, value_units_per_bucket_{value_units_per_bucket}
+, next_value_reporting_level_{value_units_per_bucket}
+, next_value_reporting_level_lowest_equivalent_{h.lowest_equivalent_value(value_units_per_bucket)}
 {
-    if (this->count_at_this_value_ == 0) {
-        return false;
+}
+
+bool HdrLinearIterator::do_next() noexcept
+{
+    count_added_in_this_iteration_step_ = 0;
+
+    if (has_next()
+        || next_value_greater_than_reporting_level_upper_bound(
+            next_value_reporting_level_lowest_equivalent_)) {
+        do {
+            if (value_ >= next_value_reporting_level_lowest_equivalent_) {
+                update_iterated_values(next_value_reporting_level_);
+
+                next_value_reporting_level_ += value_units_per_bucket_;
+                next_value_reporting_level_lowest_equivalent_
+                    = h_.lowest_equivalent_value(next_value_reporting_level_);
+
+                return true;
+            }
+            if (!move_next()) {
+                return true;
+            }
+            count_added_in_this_iteration_step_ += count_;
+        } while (true);
     }
-    auto current_percentile = (100.0 * this->total_count_to_current_index_) / this->total_count_;
-    return current_percentile >= this->percentile_to_iterate_to_;
+    return false;
 }
 
-double PercentileIterator::get_percentile_iterated_to() const noexcept
+HdrLogIterator::HdrLogIterator(const HdrHistogram& h, int64_t value_units_first_bucket,
+                               double log_base) noexcept
+: HdrCountAddedIterator{h}
+, log_base_{log_base}
+, next_value_reporting_level_{value_units_first_bucket}
+, next_value_reporting_level_lowest_equivalent_{h.lowest_equivalent_value(value_units_first_bucket)}
 {
-    return this->percentile_to_iterate_to_;
 }
 
-double PercentileIterator::get_percentile_iterated_from() const noexcept
+bool HdrLogIterator::do_next() noexcept
 {
-    return this->percentile_to_iterate_from_;
-}
+    count_added_in_this_iteration_step_ = 0;
 
-void PercentileIterator::increment_iteration_level()
-{
-    this->percentile_to_iterate_from_ = this->percentile_to_iterate_to_;
-    auto percentile_gap{100.0 - this->percentile_to_iterate_to_};
-    if (percentile_gap) {
-        auto half_distance = pow(2, (log(100 / percentile_gap) / log(2)) + 1);
-        auto percentile_reporting_ticks = percentile_ticks_per_half_distance_ * half_distance;
-        this->percentile_to_iterate_to_ += 100.0 / percentile_reporting_ticks;
+    if (has_next()
+        || next_value_greater_than_reporting_level_upper_bound(
+            next_value_reporting_level_lowest_equivalent_)) {
+        do {
+            if (value_ >= next_value_reporting_level_lowest_equivalent_) {
+                update_iterated_values(next_value_reporting_level_);
+
+                next_value_reporting_level_ *= log_base_;
+                next_value_reporting_level_lowest_equivalent_
+                    = h_.lowest_equivalent_value(next_value_reporting_level_);
+
+                return true;
+            }
+            if (!move_next()) {
+                return true;
+            }
+            count_added_in_this_iteration_step_ += count_;
+        } while (true);
     }
-}
-
-bool operator==(const PercentileIterator& lhs, const PercentileIterator& rhs) noexcept
-{
-    return lhs.end_ == rhs.end_;
-}
-
-bool operator!=(const PercentileIterator& lhs, const PercentileIterator& rhs) noexcept
-{
-    return !(lhs == rhs);
+    return false;
 }
 
 } // namespace hdr

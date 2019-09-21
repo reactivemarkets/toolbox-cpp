@@ -17,150 +17,184 @@
 
 #include <toolbox/Config.h>
 
-#include <cmath>
-#include <iomanip>
-#include <iostream>
-#include <limits>
-#include <vector>
+#include <cstdint>
 
 namespace toolbox {
+/// A C++ port of HdrHistogram_c written Michael Barker and released to the public domain.
 inline namespace hdr {
-
 class HdrHistogram;
-class HdrIterator;
 
-class TOOLBOX_API HdrIterationValue {
-  public:
-    HdrIterationValue(const HdrIterator& iterator);
-
-    void set(std::int64_t value) noexcept;
-
-    std::int64_t value_iterated_to{0};
-    std::int64_t value_iterated_from{0};
-    std::int64_t count_at_value_iterated_to{0};
-    std::int64_t count_added_in_this_iter_step{0};
-    std::int64_t total_count_to_this_value{0};
-    std::int64_t total_value_to_this_value{0};
-    double percentile{0.0};
-    double percentile_level_iterated_to{0.0};
-    double int_to_double_conversion_ratio{1.0};
-
-  private:
-    const HdrIterator& iterator_;
-};
-
+/// HdrIterator is the base iterator for all iterator types.
 class TOOLBOX_API HdrIterator {
   public:
-    explicit HdrIterator(const HdrHistogram& hist);
-
-    /// Past the end iterator.
-    HdrIterator();
+    /// Construct iterator.
+    ///
+    /// \param h The histogram to iterate over.
+    HdrIterator(const HdrHistogram& h) noexcept;
     virtual ~HdrIterator();
 
-    virtual bool has_next() const noexcept;
-    virtual bool reached_iteration_level() const = 0;
-    virtual double get_percentile_iterated_to() const noexcept;
-    virtual double get_percentile_iterated_from() const noexcept;
+    // Copy.
+    HdrIterator(const HdrIterator&) = delete;
+    HdrIterator& operator=(const HdrIterator&) = delete;
 
-    std::int64_t get_value_iterated_to() const noexcept;
-    std::int64_t get_count_at_this_value() const noexcept;
-    const HdrIterationValue& operator*() const noexcept;
-    const HdrIterationValue* operator->() const noexcept;
+    // Move.
+    HdrIterator(HdrIterator&&) noexcept = default;
+    HdrIterator& operator=(HdrIterator&&) = delete;
 
-    virtual void increment_iteration_level() = 0;
-    HdrIterator& operator++();
-    void increment_sub_bucket();
+    /// Value directly from array for the current counts_index.
+    std::int64_t count() const noexcept { return count_; }
+    /// Sum of all of the counts up to and including the count at this index.
+    std::int64_t cumulative_count() const noexcept { return cumulative_count_; }
+    /// The current value based on counts_index.
+    std::int64_t value() const noexcept { return value_; }
+    std::int64_t highest_equivalent_value() const noexcept { return highest_equivalent_value_; }
+
+    /// Iterate to the next value for the iterator. If there are no more values available return
+    /// false.
+    ///
+    /// \return false if there are no values remaining for this iterator.
+    bool next() noexcept { return do_next(); }
 
   protected:
-    friend class HdrIterationValue;
+    bool has_buckets() const noexcept;
+    bool has_next() const noexcept;
+    std::int64_t peek_next_value_from_index() const noexcept;
+    bool next_value_greater_than_reporting_level_upper_bound(
+        std::int64_t reporting_level_upper_bound) const noexcept;
 
-    const HdrHistogram& hist_;
-    std::int64_t current_index_{0};
-    std::int64_t count_at_this_value_{0};
-    std::int64_t total_count_to_current_index_{0};
-    std::int64_t total_count_to_prev_index_{0};
-    std::int64_t prev_value_iterated_to_{0};
-    std::int64_t value_at_index_{0};
-    std::int64_t value_to_index_{0};
-    std::int64_t value_at_next_index_{0};
-    HdrIterationValue current_iteration_value_;
+    bool basic_next() noexcept;
+    bool move_next() noexcept;
+    void update_iterated_values(std::int64_t new_value_iterated_to) noexcept;
+
+    virtual bool do_next() noexcept;
+
+    const HdrHistogram& h_;
+    /// Raw index into the counts array.
+    std::int32_t counts_index_;
+    /// Snapshot of the length at the time the iterator is created.
     std::int64_t total_count_;
-    bool fresh_sub_bucket_{true};
-    mutable bool end_{false};
-    double int_to_double_conversion_ratio_{1.0};
+    std::int64_t count_;
+    std::int64_t cumulative_count_;
+    std::int64_t value_;
+    std::int64_t highest_equivalent_value_;
+    std::int64_t lowest_equivalent_value_;
+    std::int64_t median_equivalent_value_;
+    std::int64_t value_iterated_from_;
+    std::int64_t value_iterated_to_;
 };
 
-class TOOLBOX_API AllValuesIterator : public HdrIterator {
+/// HdrPercentileIterator is a percentile iterator.
+class TOOLBOX_API HdrPercentileIterator : public HdrIterator {
   public:
-    explicit AllValuesIterator(const HdrHistogram& hist);
-    // Past the end iterator.
-    AllValuesIterator();
+    HdrPercentileIterator(const HdrHistogram& h, std::int32_t ticks_per_half_distance) noexcept;
+    ~HdrPercentileIterator() final = default;
 
-    bool has_next() const noexcept override;
-    bool reached_iteration_level() const override;
-    void increment_iteration_level() override;
+    // Copy.
+    HdrPercentileIterator(const HdrPercentileIterator&) = delete;
+    HdrPercentileIterator& operator=(const HdrPercentileIterator&) = delete;
+
+    // Move.
+    HdrPercentileIterator(HdrPercentileIterator&&) noexcept = default;
+    HdrPercentileIterator& operator=(HdrPercentileIterator&&) = delete;
+
+    double percentile() const noexcept { return percentile_; }
 
   protected:
-    std::int64_t visited_index_{-1};
-};
-
-/// Provide a means of iterating through all recorded histogram values
-/// using the finest granularity steps supported by the underlying representation.
-/// The iteration steps through all non-zero recorded value counts,
-/// and terminates when all recorded histogram values are exhausted.
-class TOOLBOX_API RecordedIterator : public AllValuesIterator {
-    friend bool operator==(const RecordedIterator& lhs, const RecordedIterator& rhs) noexcept;
-    friend bool operator!=(const RecordedIterator& lhs, const RecordedIterator& rhs) noexcept;
-
-  public:
-    explicit RecordedIterator(const HdrHistogram& hist);
-    /// Past the end iterator.
-    RecordedIterator();
-
-    bool reached_iteration_level() const override;
-};
-
-template <typename IteratorT>
-class IteratorAdapter {
-  public:
-    explicit IteratorAdapter(const HdrHistogram& hist)
-    : hist_{hist}
-    {
-    }
-    IteratorT begin() const
-    {
-        auto it = IteratorT{hist_};
-        ++it;
-        return it;
-    }
-    IteratorT end() const { return {}; }
+    bool do_next() noexcept final;
 
   private:
-    const HdrHistogram& hist_;
+    bool seen_last_value_;
+    std::int32_t ticks_per_half_distance_;
+    double percentile_to_iterate_to_;
+    double percentile_;
 };
 
-class TOOLBOX_API PercentileIterator : public HdrIterator {
-    friend bool operator==(const PercentileIterator& lhs, const PercentileIterator& rhs) noexcept;
-    friend bool operator!=(const PercentileIterator& lhs, const PercentileIterator& rhs) noexcept;
-
+/// HdrCountAddedIterator is a recorded value iterator.
+class TOOLBOX_API HdrCountAddedIterator : public HdrIterator {
   public:
-    explicit PercentileIterator(const HdrHistogram& hist,
-                                double percentile_ticks_per_half_distance = 5.0);
-    /// Past the end iterator.
-    PercentileIterator();
+    // Copy.
+    HdrCountAddedIterator(const HdrCountAddedIterator&) = delete;
+    HdrCountAddedIterator& operator=(const HdrCountAddedIterator&) = delete;
 
-    bool has_next() const noexcept override;
-    bool reached_iteration_level() const noexcept override;
-    double get_percentile_iterated_to() const noexcept override;
-    double get_percentile_iterated_from() const noexcept override;
+    // Move.
+    HdrCountAddedIterator(HdrCountAddedIterator&&) noexcept = default;
+    HdrCountAddedIterator& operator=(HdrCountAddedIterator&&) = delete;
 
-    void increment_iteration_level() override;
+    std::int64_t count_added_in_this_iteration_step() const noexcept
+    {
+        return count_added_in_this_iteration_step_;
+    }
+
+  protected:
+    explicit HdrCountAddedIterator(const HdrHistogram& h);
+    ~HdrCountAddedIterator() override;
+
+    std::int64_t count_added_in_this_iteration_step_{0};
+};
+
+/// HdrRecordedIterator is a recorded value iterator.
+class TOOLBOX_API HdrRecordedIterator : public HdrCountAddedIterator {
+  public:
+    HdrRecordedIterator(const HdrHistogram& h);
+    ~HdrRecordedIterator() final = default;
+
+    // Copy.
+    HdrRecordedIterator(const HdrRecordedIterator&) = delete;
+    HdrRecordedIterator& operator=(const HdrRecordedIterator&) = delete;
+
+    // Move.
+    HdrRecordedIterator(HdrRecordedIterator&&) noexcept = default;
+    HdrRecordedIterator& operator=(HdrRecordedIterator&&) = delete;
+
+  protected:
+    bool do_next() noexcept final;
+};
+
+/// HdrLinearIterator is a linear value iterator.
+class TOOLBOX_API HdrLinearIterator : public HdrCountAddedIterator {
+  public:
+    HdrLinearIterator(const HdrHistogram& h, std::int64_t value_units_per_bucket) noexcept;
+    ~HdrLinearIterator() final = default;
+
+    // Copy.
+    HdrLinearIterator(const HdrLinearIterator&) = delete;
+    HdrLinearIterator& operator=(const HdrLinearIterator&) = delete;
+
+    // Move.
+    HdrLinearIterator(HdrLinearIterator&&) noexcept = default;
+    HdrLinearIterator& operator=(HdrLinearIterator&&) = delete;
+
+  protected:
+    bool do_next() noexcept final;
 
   private:
-    double percentile_ticks_per_half_distance_;
-    mutable bool reached_last_recorded_value_{false};
-    mutable double percentile_to_iterate_to_{0.0};
-    double percentile_to_iterate_from_{0.0};
+    std::int64_t value_units_per_bucket_;
+    std::int64_t next_value_reporting_level_;
+    std::int64_t next_value_reporting_level_lowest_equivalent_;
+};
+
+/// HdrLogIterator is a logarithmic value iterator.
+class TOOLBOX_API HdrLogIterator : public HdrCountAddedIterator {
+  public:
+    HdrLogIterator(const HdrHistogram& h, std::int64_t value_units_first_bucket,
+                   double log_base) noexcept;
+    ~HdrLogIterator() final = default;
+
+    // Copy.
+    HdrLogIterator(const HdrLogIterator&) = delete;
+    HdrLogIterator& operator=(const HdrLogIterator&) = delete;
+
+    // Move.
+    HdrLogIterator(HdrLogIterator&&) noexcept = default;
+    HdrLogIterator& operator=(HdrLogIterator&&) = delete;
+
+  protected:
+    bool do_next() noexcept final;
+
+  private:
+    double log_base_;
+    std::int64_t next_value_reporting_level_;
+    std::int64_t next_value_reporting_level_lowest_equivalent_;
 };
 
 } // namespace hdr

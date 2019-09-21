@@ -37,7 +37,7 @@ BenchmarkRange::~BenchmarkRange()
     const auto elapsed = chrono::duration_cast<chrono::nanoseconds>(end - start_);
     const auto count = last_ - first_;
     // Record average.
-    hist_.record(elapsed.count() / count, count);
+    hist_.record_values(elapsed.count() / count, count);
 }
 
 } // namespace toolbox::bm
