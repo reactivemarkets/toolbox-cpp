@@ -40,6 +40,7 @@ include_directories(SYSTEM
 set(lib_SOURCES
   hdr/Histogram.cpp
   hdr/Iterator.cpp
+  hdr/Utility.cpp
   http/App.cpp
   http/Conn.cpp
   http/Error.cpp
@@ -199,9 +200,10 @@ if(${CMAKE_CXX_COMPILER_ID} MATCHES GNU AND ${CMAKE_BUILD_TYPE} MATCHES COVERAGE
   endif()
 endif()
 
-
 set(test_SOURCES
   hdr/Histogram.ut.cpp
+  hdr/Iterator.ut.cpp
+  hdr/Utility.ut.cpp
   http/Parser.ut.cpp
   http/Types.ut.cpp
   http/Url.ut.cpp
