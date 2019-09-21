@@ -75,11 +75,15 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:adac2e0f68b0d1b4042e2370b3681268e"><td class="memItemLeft" align="right" valign="top">FileHandle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1os.html#adac2e0f68b0d1b4042e2370b3681268e">epoll_create</a> (int size, std::error_code &amp;ec) noexcept</td></tr>
-<tr class="memdesc:adac2e0f68b0d1b4042e2370b3681268e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open an epoll file descriptor.  <a href="#adac2e0f68b0d1b4042e2370b3681268e">More...</a><br /></td></tr>
 <tr class="separator:adac2e0f68b0d1b4042e2370b3681268e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a0b5e1273b05a191eb50466379267da"><td class="memItemLeft" align="right" valign="top">FileHandle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1os.html#a5a0b5e1273b05a191eb50466379267da">epoll_create</a> (int size)</td></tr>
-<tr class="memdesc:a5a0b5e1273b05a191eb50466379267da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open an epoll file descriptor.  <a href="#a5a0b5e1273b05a191eb50466379267da">More...</a><br /></td></tr>
 <tr class="separator:a5a0b5e1273b05a191eb50466379267da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0dc822550bee359e0d6eeca6bc8efc0"><td class="memItemLeft" align="right" valign="top">FileHandle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1os.html#ac0dc822550bee359e0d6eeca6bc8efc0">epoll_create1</a> (int flags, std::error_code &amp;ec) noexcept</td></tr>
+<tr class="memdesc:ac0dc822550bee359e0d6eeca6bc8efc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open a new epoll instance. If flags is zero, then <a class="el" href="namespacetoolbox_1_1os.html#ac0dc822550bee359e0d6eeca6bc8efc0" title="Open a new epoll instance. If flags is zero, then epoll_create1() is the same as epoll_create(). ">epoll_create1()</a> is the same as <a class="el" href="namespacetoolbox_1_1os.html#adac2e0f68b0d1b4042e2370b3681268e">epoll_create()</a>.  <a href="#ac0dc822550bee359e0d6eeca6bc8efc0">More...</a><br /></td></tr>
+<tr class="separator:ac0dc822550bee359e0d6eeca6bc8efc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a844d69a578537cb16f1d955629711a1e"><td class="memItemLeft" align="right" valign="top">FileHandle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1os.html#a844d69a578537cb16f1d955629711a1e">epoll_create1</a> (int flags)</td></tr>
+<tr class="memdesc:a844d69a578537cb16f1d955629711a1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open a new epoll instance. If flags is zero, then <a class="el" href="namespacetoolbox_1_1os.html#ac0dc822550bee359e0d6eeca6bc8efc0" title="Open a new epoll instance. If flags is zero, then epoll_create1() is the same as epoll_create(). ">epoll_create1()</a> is the same as <a class="el" href="namespacetoolbox_1_1os.html#adac2e0f68b0d1b4042e2370b3681268e">epoll_create()</a>.  <a href="#a844d69a578537cb16f1d955629711a1e">More...</a><br /></td></tr>
+<tr class="separator:a844d69a578537cb16f1d955629711a1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7814d6fdbef16e828aed007e77e374ed"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1os.html#a7814d6fdbef16e828aed007e77e374ed">epoll_ctl</a> (int epfd, int op, int fd, epoll_event event, std::error_code &amp;ec) noexcept</td></tr>
 <tr class="memdesc:a7814d6fdbef16e828aed007e77e374ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Control interface for an epoll file descriptor.  <a href="#a7814d6fdbef16e828aed007e77e374ed">More...</a><br /></td></tr>
 <tr class="separator:a7814d6fdbef16e828aed007e77e374ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -484,12 +488,11 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Open a new epoll instance. The size argument is ignored in kernels &gt;= 2.6.8, but must be greater than zero. </p>
 
-<p>Open an epoll file descriptor. </p>
+<p class="definition">Definition at line <a class="el" href="Epoll_8hpp_source.html#l00030">30</a> of file <a class="el" href="Epoll_8hpp_source.html">Epoll.hpp</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Epoll_8hpp_source.html#l00029">29</a> of file <a class="el" href="Epoll_8hpp_source.html">Epoll.hpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="Epoll_8hpp_source.html#l00039">epoll_create()</a>, and <a class="el" href="Muxer_8hpp_source.html#l00067">toolbox::io::EpollMuxer::EpollMuxer()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Epoll_8hpp_source.html#l00041">epoll_create()</a>.</p>
 
 </div>
 </div>
@@ -516,10 +519,81 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Open a new epoll instance. The size argument is ignored in kernels &gt;= 2.6.8, but must be greater than zero. </p>
 
-<p>Open an epoll file descriptor. </p>
+<p class="definition">Definition at line <a class="el" href="Epoll_8hpp_source.html#l00041">41</a> of file <a class="el" href="Epoll_8hpp_source.html">Epoll.hpp</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Epoll_8hpp_source.html#l00039">39</a> of file <a class="el" href="Epoll_8hpp_source.html">Epoll.hpp</a>.</p>
+</div>
+</div>
+<a id="ac0dc822550bee359e0d6eeca6bc8efc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0dc822550bee359e0d6eeca6bc8efc0">&#9670;&nbsp;</a></span>epoll_create1() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FileHandle toolbox::os::epoll_create1 </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>flags</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::error_code &amp;&#160;</td>
+          <td class="paramname"><em>ec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Open a new epoll instance. If flags is zero, then <a class="el" href="namespacetoolbox_1_1os.html#ac0dc822550bee359e0d6eeca6bc8efc0" title="Open a new epoll instance. If flags is zero, then epoll_create1() is the same as epoll_create(). ">epoll_create1()</a> is the same as <a class="el" href="namespacetoolbox_1_1os.html#adac2e0f68b0d1b4042e2370b3681268e">epoll_create()</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="Epoll_8hpp_source.html#l00051">51</a> of file <a class="el" href="Epoll_8hpp_source.html">Epoll.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Epoll_8hpp_source.html#l00061">epoll_create1()</a>, and <a class="el" href="Muxer_8hpp_source.html#l00067">toolbox::io::EpollMuxer::EpollMuxer()</a>.</p>
+
+</div>
+</div>
+<a id="a844d69a578537cb16f1d955629711a1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a844d69a578537cb16f1d955629711a1e">&#9670;&nbsp;</a></span>epoll_create1() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">FileHandle toolbox::os::epoll_create1 </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>flags</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Open a new epoll instance. If flags is zero, then <a class="el" href="namespacetoolbox_1_1os.html#ac0dc822550bee359e0d6eeca6bc8efc0" title="Open a new epoll instance. If flags is zero, then epoll_create1() is the same as epoll_create(). ">epoll_create1()</a> is the same as <a class="el" href="namespacetoolbox_1_1os.html#adac2e0f68b0d1b4042e2370b3681268e">epoll_create()</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="Epoll_8hpp_source.html#l00061">61</a> of file <a class="el" href="Epoll_8hpp_source.html">Epoll.hpp</a>.</p>
 
 </div>
 </div>
@@ -577,9 +651,9 @@ Functions</h2></td></tr>
 
 <p>Control interface for an epoll file descriptor. </p>
 
-<p class="definition">Definition at line <a class="el" href="Epoll_8hpp_source.html#l00049">49</a> of file <a class="el" href="Epoll_8hpp_source.html">Epoll.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Epoll_8hpp_source.html#l00071">71</a> of file <a class="el" href="Epoll_8hpp_source.html">Epoll.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Epoll_8hpp_source.html#l00059">epoll_ctl()</a>, <a class="el" href="Muxer_8hpp_source.html#l00120">toolbox::io::EpollMuxer::set_events()</a>, <a class="el" href="Muxer_8hpp_source.html#l00106">toolbox::io::EpollMuxer::subscribe()</a>, and <a class="el" href="Muxer_8hpp_source.html#l00112">toolbox::io::EpollMuxer::unsubscribe()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Epoll_8hpp_source.html#l00081">epoll_ctl()</a>, <a class="el" href="Muxer_8hpp_source.html#l00120">toolbox::io::EpollMuxer::set_events()</a>, <a class="el" href="Muxer_8hpp_source.html#l00106">toolbox::io::EpollMuxer::subscribe()</a>, and <a class="el" href="Muxer_8hpp_source.html#l00112">toolbox::io::EpollMuxer::unsubscribe()</a>.</p>
 
 </div>
 </div>
@@ -631,7 +705,7 @@ Functions</h2></td></tr>
 
 <p>Control interface for an epoll file descriptor. </p>
 
-<p class="definition">Definition at line <a class="el" href="Epoll_8hpp_source.html#l00059">59</a> of file <a class="el" href="Epoll_8hpp_source.html">Epoll.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Epoll_8hpp_source.html#l00081">81</a> of file <a class="el" href="Epoll_8hpp_source.html">Epoll.hpp</a>.</p>
 
 </div>
 </div>
@@ -689,9 +763,9 @@ Functions</h2></td></tr>
 
 <p>Wait for an I/O event on an epoll file descriptor. </p>
 
-<p class="definition">Definition at line <a class="el" href="Epoll_8hpp_source.html#l00068">68</a> of file <a class="el" href="Epoll_8hpp_source.html">Epoll.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Epoll_8hpp_source.html#l00090">90</a> of file <a class="el" href="Epoll_8hpp_source.html">Epoll.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Epoll_8hpp_source.html#l00079">epoll_wait()</a>, and <a class="el" href="Muxer_8hpp_source.html#l00085">toolbox::io::EpollMuxer::wait()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Epoll_8hpp_source.html#l00101">epoll_wait()</a>, and <a class="el" href="Muxer_8hpp_source.html#l00085">toolbox::io::EpollMuxer::wait()</a>.</p>
 
 </div>
 </div>
@@ -743,7 +817,7 @@ Functions</h2></td></tr>
 
 <p>Wait for an I/O event on an epoll file descriptor. </p>
 
-<p class="definition">Definition at line <a class="el" href="Epoll_8hpp_source.html#l00079">79</a> of file <a class="el" href="Epoll_8hpp_source.html">Epoll.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Epoll_8hpp_source.html#l00101">101</a> of file <a class="el" href="Epoll_8hpp_source.html">Epoll.hpp</a>.</p>
 
 </div>
 </div>
