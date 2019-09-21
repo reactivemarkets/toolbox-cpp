@@ -216,6 +216,13 @@ inline std::size_t pstrcpyid(char (&dst)[SizeN], std::int64_t id) noexcept
     return pstrcpyid<PadC>(dst, id, SizeN);
 }
 
+template <typename... ArgsT>
+std::string make_string(ArgsT&&... args)
+{
+    std::stringstream os;
+    ([&os](auto&& arg) { os << arg; }(args), ...);
+    return os.str();
+}
 } // namespace util
 } // namespace toolbox
 

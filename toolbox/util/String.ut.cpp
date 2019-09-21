@@ -348,4 +348,10 @@ BOOST_AUTO_TEST_CASE(PstrcpyidCase)
     BOOST_TEST(buf.canary == '#');
 }
 
+BOOST_AUTO_TEST_CASE(MakeStringCase)
+{
+    auto res = make_string(1, 1.2, "foo");
+    BOOST_TEST(res == "11.2foo");
+}
+
 BOOST_AUTO_TEST_SUITE_END()
