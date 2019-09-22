@@ -6,6 +6,8 @@ var searchData=
   ['log',['Log',['../classtoolbox_1_1sys_1_1Log.html#abfcba22c9f12f3e0760e92bf35114b89',1,'toolbox::sys::Log::Log(int level) noexcept'],['../classtoolbox_1_1sys_1_1Log.html#acbbee7506d262855b075efb30f7c3b9c',1,'toolbox::sys::Log::Log(const Log &amp;)=delete'],['../classtoolbox_1_1sys_1_1Log.html#a70791c067ae379f0ad4d2f993ec53c72',1,'toolbox::sys::Log::Log(Log &amp;&amp;)=delete']]],
   ['log_5flabel',['log_label',['../namespacetoolbox_1_1sys.html#a8e94adb25bb4343e70f491798575ec9e',1,'toolbox::sys']]],
   ['log_5fmsg',['log_msg',['../namespacetoolbox_1_1sys.html#a9ac7030b49068c3a5e98546320d81619',1,'toolbox::sys']]],
+  ['lowest_5fequivalent_5fvalue',['lowest_equivalent_value',['../classtoolbox_1_1hdr_1_1HdrHistogram.html#a1d9f7d522107805dc027344bc6433bb9',1,'toolbox::hdr::HdrHistogram']]],
+  ['lowest_5ftrackable_5fvalue',['lowest_trackable_value',['../classtoolbox_1_1hdr_1_1HdrHistogram.html#a860f898a57bb7aade5e14fc80974b032',1,'toolbox::hdr::HdrHistogram']]],
   ['ltrim',['ltrim',['../namespacetoolbox_1_1util.html#aa30f9e12051f5022b8358f6eed58fd97',1,'toolbox::util::ltrim(string_view &amp;s) noexcept'],['../namespacetoolbox_1_1util.html#a9f73a91ad910a4f157a83bfac7561cab',1,'toolbox::util::ltrim(string &amp;s) noexcept'],['../namespacetoolbox_1_1util.html#a74372ee0a56dd10c6fee6276eb4d82b0',1,'toolbox::util::ltrim(std::string_view &amp;s) noexcept']]],
   ['ltrim_5fcopy',['ltrim_copy',['../namespacetoolbox_1_1util.html#a5fdc609062f8db4b94b25a77c2ff6d39',1,'toolbox::util::ltrim_copy(std::string_view s) noexcept'],['../namespacetoolbox_1_1util.html#ab7fbe111cdcb7435765a8c16a9fef18b',1,'toolbox::util::ltrim_copy(std::string s) noexcept']]]
 ];

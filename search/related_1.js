@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['basichttpparser_3c_20basichttpconn_3c_20requestt_2c_20appt_20_3e_20_3e',['BasicHttpParser&lt; BasicHttpConn&lt; RequestT, AppT &gt; &gt;',['../classtoolbox_1_1http_1_1BasicHttpConn.html#a6f97b26085a035e10ae215b65024c160',1,'toolbox::http::BasicHttpConn']]]
+  ['intrusive_5fptr_5fadd_5fref',['intrusive_ptr_add_ref',['../classtoolbox_1_1io_1_1TimerQueue.html#a60fe1acdad8ffc4c8de852ca87254b8f',1,'toolbox::io::TimerQueue']]],
+  ['intrusive_5fptr_5frelease',['intrusive_ptr_release',['../classtoolbox_1_1io_1_1TimerQueue.html#ab455296408b28787ad0ba195a05db038',1,'toolbox::io::TimerQueue']]]
 ];

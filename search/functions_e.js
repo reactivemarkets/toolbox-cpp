@@ -16,9 +16,9 @@ var searchData=
   ['pctile95',['pctile95',['../namespacetoolbox_1_1util.html#ac0d424ef08b04b0126c3e1f1a259c15e',1,'toolbox::util']]],
   ['pctile99',['pctile99',['../namespacetoolbox_1_1util.html#a6aae9fa0668426e26762afa507f1f053',1,'toolbox::util']]],
   ['pctile999',['pctile999',['../namespacetoolbox_1_1util.html#a6f5ab407c7c3c9d3c355421ded2fa1dd',1,'toolbox::util']]],
+  ['peek_5fnext_5fvalue_5ffrom_5findex',['peek_next_value_from_index',['../classtoolbox_1_1hdr_1_1HdrIterator.html#a1590bf6488eec37c8fe1a3e92a7fbee0',1,'toolbox::hdr::HdrIterator']]],
   ['pending',['pending',['../classtoolbox_1_1io_1_1Timer.html#ab836963dfecb56ea5e15f945366082c1',1,'toolbox::io::Timer']]],
-  ['percentile',['percentile',['../classtoolbox_1_1hdr_1_1HdrHistogram.html#a825af33dca90c67d3646043e848a5ff7',1,'toolbox::hdr::HdrHistogram']]],
-  ['percentileiterator',['PercentileIterator',['../classtoolbox_1_1hdr_1_1PercentileIterator.html#ab3867e28678dd50521b2c0f37a11ea7a',1,'toolbox::hdr::PercentileIterator::PercentileIterator(const HdrHistogram &amp;hist, double percentile_ticks_per_half_distance=5.0)'],['../classtoolbox_1_1hdr_1_1PercentileIterator.html#ae753a8a9f37b9d24afb86627f38becd2',1,'toolbox::hdr::PercentileIterator::PercentileIterator()']]],
+  ['percentile',['percentile',['../classtoolbox_1_1hdr_1_1HdrPercentileIterator.html#a5b3d00e556e71b21b2fe4c8d83f9b8cb',1,'toolbox::hdr::HdrPercentileIterator']]],
   ['pipe2',['pipe2',['../namespacetoolbox_1_1os.html#a64ce740757b1441975d1e3e8106d54b8',1,'toolbox::os::pipe2(int flags, std::error_code &amp;ec) noexcept'],['../namespacetoolbox_1_1os.html#aecc41dd9ccc1e0a680481da5e773aa66',1,'toolbox::os::pipe2(int flags)']]],
   ['poll',['poll',['../classtoolbox_1_1io_1_1Reactor.html#ab5a07e56db7390a3fee845aaedec4abb',1,'toolbox::io::Reactor']]],
   ['pop',['pop',['../classtoolbox_1_1ipc_1_1MpmcQueue.html#a49bbdf1f553bc11344bc86b391bccceb',1,'toolbox::ipc::MpmcQueue::pop()'],['../classtoolbox_1_1util_1_1ArgvLexer.html#af748e99090ea0f77a31b0dc843ad4724',1,'toolbox::util::ArgvLexer::pop()'],['../classtoolbox_1_1util_1_1RingBuffer.html#a2d57349f371f771c06f18bcde267ae55',1,'toolbox::util::RingBuffer::pop()'],['../classtoolbox_1_1util_1_1Tokeniser.html#a588b626e916522cdbf10f0373deba753',1,'toolbox::util::Tokeniser::pop()']]],
@@ -32,5 +32,6 @@ var searchData=
   ['pstrcpyid',['pstrcpyid',['../namespacetoolbox_1_1util.html#a70b6d6a5819cf3c5e09d78c9f02150d9',1,'toolbox::util::pstrcpyid(char *dst, std::int64_t id, std::size_t n) noexcept'],['../namespacetoolbox_1_1util.html#a0409c61ec6d33526f76c1521d6c7a523',1,'toolbox::util::pstrcpyid(char(&amp;dst)[SizeN], std::int64_t id) noexcept']]],
   ['pstrlen',['pstrlen',['../namespacetoolbox_1_1util.html#a34a90928b6344edf6b937b87470dfed8',1,'toolbox::util::pstrlen(const char *src, std::size_t n) noexcept'],['../namespacetoolbox_1_1util.html#a25ca7d10ba1f0ad005b2b97f8b12b1da',1,'toolbox::util::pstrlen(const char(&amp;src)[SizeN]) noexcept']]],
   ['push',['push',['../classtoolbox_1_1ipc_1_1MpmcQueue.html#ac40caa2cec8f27f85810275b5bb3a716',1,'toolbox::ipc::MpmcQueue::push(const ValueT &amp;val) noexcept'],['../classtoolbox_1_1ipc_1_1MpmcQueue.html#a6baecca60bb5029f1051da9fcc1bdf98',1,'toolbox::ipc::MpmcQueue::push(ValueT &amp;&amp;val) noexcept'],['../classtoolbox_1_1util_1_1RingBuffer.html#a40623d2aa4adeddf7b97c6bce2b4c60c',1,'toolbox::util::RingBuffer::push()']]],
+  ['put_5fpercentiles',['put_percentiles',['../namespacetoolbox_1_1hdr.html#a60c785036cc15c24f6f8bc13e02ca80a',1,'toolbox::hdr']]],
   ['put_5ftime',['put_time',['../namespacetoolbox_1_1sys.html#a3f4b3eaf88916c2596b456ce4958b662',1,'toolbox::sys']]]
 ];

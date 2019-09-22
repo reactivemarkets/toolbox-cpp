@@ -67,68 +67,251 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">toolbox::hdr Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A C++ port of HdrHistogram_c written Michael Barker and released to the public domain.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1hdr_1_1AllValuesIterator.html">AllValuesIterator</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1hdr_1_1HdrBucketConfig.html">HdrBucketConfig</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bucket configuration.  <a href="structtoolbox_1_1hdr_1_1HdrBucketConfig.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1hdr_1_1HdrCountAddedIterator.html">HdrCountAddedIterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classtoolbox_1_1hdr_1_1HdrCountAddedIterator.html" title="HdrCountAddedIterator is a recorded value iterator. ">HdrCountAddedIterator</a> is a recorded value iterator.  <a href="classtoolbox_1_1hdr_1_1HdrCountAddedIterator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1hdr_1_1HdrHistogram.html">HdrHistogram</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1hdr_1_1HdrIterationValue.html">HdrIterationValue</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A High Dynamic Range (HDR) Histogram.  <a href="classtoolbox_1_1hdr_1_1HdrHistogram.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1hdr_1_1HdrIterator.html">HdrIterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classtoolbox_1_1hdr_1_1HdrIterator.html" title="HdrIterator is the base iterator for all iterator types. ">HdrIterator</a> is the base iterator for all iterator types.  <a href="classtoolbox_1_1hdr_1_1HdrIterator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1hdr_1_1IteratorAdapter.html">IteratorAdapter</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1hdr_1_1HdrLinearIterator.html">HdrLinearIterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classtoolbox_1_1hdr_1_1HdrLinearIterator.html" title="HdrLinearIterator is a linear value iterator. ">HdrLinearIterator</a> is a linear value iterator.  <a href="classtoolbox_1_1hdr_1_1HdrLinearIterator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1hdr_1_1PercentileIterator.html">PercentileIterator</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1hdr_1_1HdrLogIterator.html">HdrLogIterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classtoolbox_1_1hdr_1_1HdrLogIterator.html" title="HdrLogIterator is a logarithmic value iterator. ">HdrLogIterator</a> is a logarithmic value iterator.  <a href="classtoolbox_1_1hdr_1_1HdrLogIterator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1hdr_1_1RecordedIterator.html">RecordedIterator</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1hdr_1_1HdrPercentileIterator.html">HdrPercentileIterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classtoolbox_1_1hdr_1_1HdrPercentileIterator.html" title="HdrPercentileIterator is a percentile iterator. ">HdrPercentileIterator</a> is a percentile iterator.  <a href="classtoolbox_1_1hdr_1_1HdrPercentileIterator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a811711f5c54b52186e4d7d1dd53d8278"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1hdr.html#a811711f5c54b52186e4d7d1dd53d8278">RecordedIteratorAdapter</a> = <a class="el" href="classtoolbox_1_1hdr_1_1IteratorAdapter.html">IteratorAdapter</a>&lt; <a class="el" href="classtoolbox_1_1hdr_1_1RecordedIterator.html">RecordedIterator</a> &gt;</td></tr>
-<tr class="separator:a811711f5c54b52186e4d7d1dd53d8278"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1hdr_1_1HdrRecordedIterator.html">HdrRecordedIterator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classtoolbox_1_1hdr_1_1HdrRecordedIterator.html" title="HdrRecordedIterator is a recorded value iterator. ">HdrRecordedIterator</a> is a recorded value iterator.  <a href="classtoolbox_1_1hdr_1_1HdrRecordedIterator.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1hdr_1_1PutPercentiles.html">PutPercentiles</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1537cdf3454bee25101147ff403cb245"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1hdr.html#a1537cdf3454bee25101147ff403cb245">operator&lt;&lt;</a> (ostream &amp;out, const <a class="el" href="classtoolbox_1_1hdr_1_1HdrHistogram.html">HdrHistogram</a> &amp;hist)</td></tr>
-<tr class="separator:a1537cdf3454bee25101147ff403cb245"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d94362101829699240fc067cfa81dca"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1hdr.html#a5d94362101829699240fc067cfa81dca">operator==</a> (const <a class="el" href="classtoolbox_1_1hdr_1_1RecordedIterator.html">RecordedIterator</a> &amp;lhs, const <a class="el" href="classtoolbox_1_1hdr_1_1RecordedIterator.html">RecordedIterator</a> &amp;rhs) noexcept</td></tr>
-<tr class="separator:a5d94362101829699240fc067cfa81dca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73efdccd7ce1b1df0a7bb2ee002a7b02"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1hdr.html#a73efdccd7ce1b1df0a7bb2ee002a7b02">operator!=</a> (const <a class="el" href="classtoolbox_1_1hdr_1_1RecordedIterator.html">RecordedIterator</a> &amp;lhs, const <a class="el" href="classtoolbox_1_1hdr_1_1RecordedIterator.html">RecordedIterator</a> &amp;rhs) noexcept</td></tr>
-<tr class="separator:a73efdccd7ce1b1df0a7bb2ee002a7b02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91fe631c7b954239fce07d2c63321bb9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1hdr.html#a91fe631c7b954239fce07d2c63321bb9">operator==</a> (const <a class="el" href="classtoolbox_1_1hdr_1_1PercentileIterator.html">PercentileIterator</a> &amp;lhs, const <a class="el" href="classtoolbox_1_1hdr_1_1PercentileIterator.html">PercentileIterator</a> &amp;rhs) noexcept</td></tr>
-<tr class="separator:a91fe631c7b954239fce07d2c63321bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa34ba9601071b579a21a7caa28d8dc2e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1hdr.html#aa34ba9601071b579a21a7caa28d8dc2e">operator!=</a> (const <a class="el" href="classtoolbox_1_1hdr_1_1PercentileIterator.html">PercentileIterator</a> &amp;lhs, const <a class="el" href="classtoolbox_1_1hdr_1_1PercentileIterator.html">PercentileIterator</a> &amp;rhs) noexcept</td></tr>
-<tr class="separator:aa34ba9601071b579a21a7caa28d8dc2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10402812dedb39fd7924bcf64e3f33bf"><td class="memItemLeft" align="right" valign="top">int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1hdr.html#a10402812dedb39fd7924bcf64e3f33bf">min</a> (const <a class="el" href="classtoolbox_1_1hdr_1_1HdrHistogram.html">HdrHistogram</a> &amp;h) noexcept</td></tr>
+<tr class="separator:a10402812dedb39fd7924bcf64e3f33bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49d118be429fe1bee403e5a547180bce"><td class="memItemLeft" align="right" valign="top">int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1hdr.html#a49d118be429fe1bee403e5a547180bce">max</a> (const <a class="el" href="classtoolbox_1_1hdr_1_1HdrHistogram.html">HdrHistogram</a> &amp;h) noexcept</td></tr>
+<tr class="separator:a49d118be429fe1bee403e5a547180bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b25a8b2fee61b04bd84668d08f6ef22"><td class="memItemLeft" align="right" valign="top">int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1hdr.html#a4b25a8b2fee61b04bd84668d08f6ef22">value_at_percentile</a> (const <a class="el" href="classtoolbox_1_1hdr_1_1HdrHistogram.html">HdrHistogram</a> &amp;h, double percentile) noexcept</td></tr>
+<tr class="separator:a4b25a8b2fee61b04bd84668d08f6ef22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb510a462d876b6115d6f6e91eb2e696"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1hdr.html#aeb510a462d876b6115d6f6e91eb2e696">mean</a> (const <a class="el" href="classtoolbox_1_1hdr_1_1HdrHistogram.html">HdrHistogram</a> &amp;h) noexcept</td></tr>
+<tr class="separator:aeb510a462d876b6115d6f6e91eb2e696"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4c142dab096bf16936d3725731ba032"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1hdr.html#aa4c142dab096bf16936d3725731ba032">stddev</a> (const <a class="el" href="classtoolbox_1_1hdr_1_1HdrHistogram.html">HdrHistogram</a> &amp;h) noexcept</td></tr>
+<tr class="separator:aa4c142dab096bf16936d3725731ba032"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0ca8215da3b57b3aabf36a261b91f0d"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1hdr.html#ac0ca8215da3b57b3aabf36a261b91f0d">operator&lt;&lt;</a> (ostream &amp;os, <a class="el" href="structtoolbox_1_1hdr_1_1PutPercentiles.html">PutPercentiles</a> pp)</td></tr>
+<tr class="separator:ac0ca8215da3b57b3aabf36a261b91f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60c785036cc15c24f6f8bc13e02ca80a"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1hdr.html#a60c785036cc15c24f6f8bc13e02ca80a">put_percentiles</a> (const <a class="el" href="classtoolbox_1_1hdr_1_1HdrHistogram.html">HdrHistogram</a> &amp;h, std::int32_t ticks_per_half_distance, double value_scale) noexcept</td></tr>
+<tr class="separator:a60c785036cc15c24f6f8bc13e02ca80a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="a811711f5c54b52186e4d7d1dd53d8278"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a811711f5c54b52186e4d7d1dd53d8278">&#9670;&nbsp;</a></span>RecordedIteratorAdapter</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A C++ port of HdrHistogram_c written Michael Barker and released to the public domain. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a10402812dedb39fd7924bcf64e3f33bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10402812dedb39fd7924bcf64e3f33bf">&#9670;&nbsp;</a></span>min()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespacetoolbox_1_1hdr.html#a811711f5c54b52186e4d7d1dd53d8278">toolbox::hdr::RecordedIteratorAdapter</a> = typedef <a class="el" href="classtoolbox_1_1hdr_1_1IteratorAdapter.html">IteratorAdapter</a>&lt;<a class="el" href="classtoolbox_1_1hdr_1_1RecordedIterator.html">RecordedIterator</a>&gt;</td>
+          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> std::int64_t toolbox::hdr::min </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtoolbox_1_1hdr_1_1HdrHistogram.html">HdrHistogram</a> &amp;&#160;</td>
+          <td class="paramname"><em>h</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Histogram_8cpp_source.html#l00111">111</a> of file <a class="el" href="Histogram_8cpp_source.html">Histogram.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hdr_2Utility_8cpp_source.html#l00041">41</a> of file <a class="el" href="hdr_2Utility_8cpp_source.html">Utility.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Buffer_8cpp_source.html#l00059">toolbox::io::advance()</a>, <a class="el" href="Math_8hpp_source.html#l00083">toolbox::util::VarAccum::append()</a>, <a class="el" href="Time_8ut_8cpp_source.html#l00055">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Math_8hpp_source.html#l00075">toolbox::util::VarAccum::clear()</a>, <a class="el" href="Daemon_8cpp_source.html#l00027">toolbox::sys::close_all()</a>, <a class="el" href="Histogram_8hpp_source.html#l00084">toolbox::hdr::HdrHistogram::counts_len()</a>, <a class="el" href="Buffer_8hpp_source.html#l00051">toolbox::io::Buffer::data()</a>, <a class="el" href="EpollReactor_8cpp_source.html#l00133">toolbox::io::EpollReactor::do_poll()</a>, <a class="el" href="IntTypes_8hpp_source.html#l00035">toolbox::util::IntPolicy&lt; ValueT &gt;::min()</a>, <a class="el" href="IntTypes_8hpp_source.html#l00069">toolbox::util::IntWrapper&lt; PolicyT &gt;::min()</a>, <a class="el" href="StringBuf_8hpp_source.html#l00084">toolbox::util::StringBuf&lt; MaxN &gt;::operator+=()</a>, <a class="el" href="String_8hpp_source.html#l00181">toolbox::util::pstrcpy()</a>, <a class="el" href="Histogram_8cpp_source.html#l00213">toolbox::hdr::HdrHistogram::record_values()</a>, <a class="el" href="Resolver_8cpp_source.html#l00024">toolbox::net::Resolver::run()</a>, and <a class="el" href="Buffer_8hpp_source.html#l00057">toolbox::io::Buffer::str()</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a1537cdf3454bee25101147ff403cb245"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1537cdf3454bee25101147ff403cb245">&#9670;&nbsp;</a></span>operator<<()</h2>
+<a id="a49d118be429fe1bee403e5a547180bce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49d118be429fe1bee403e5a547180bce">&#9670;&nbsp;</a></span>max()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> std::int64_t toolbox::hdr::max </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtoolbox_1_1hdr_1_1HdrHistogram.html">HdrHistogram</a> &amp;&#160;</td>
+          <td class="paramname"><em>h</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="hdr_2Utility_8cpp_source.html#l00046">46</a> of file <a class="el" href="hdr_2Utility_8cpp_source.html">Utility.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Math_8hpp_source.html#l00083">toolbox::util::VarAccum::append()</a>, <a class="el" href="Histogram_8ut_8cpp_source.html#l00047">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Math_8hpp_source.html#l00075">toolbox::util::VarAccum::clear()</a>, <a class="el" href="Histogram_8hpp_source.html#l00084">toolbox::hdr::HdrHistogram::counts_len()</a>, <a class="el" href="Timer_8cpp_source.html#l00080">toolbox::io::TimerQueue::dispatch()</a>, <a class="el" href="EpollReactor_8cpp_source.html#l00133">toolbox::io::EpollReactor::do_poll()</a>, <a class="el" href="Futex_8hpp_source.html#l00070">toolbox::ipc::futex_notify_all()</a>, <a class="el" href="Histogram_8cpp_source.html#l00096">toolbox::hdr::HdrHistogram::HdrHistogram()</a>, <a class="el" href="IntTypes_8hpp_source.html#l00036">toolbox::util::IntPolicy&lt; ValueT &gt;::max()</a>, <a class="el" href="Time_8hpp_source.html#l00055">toolbox::sys::MonoClock::max()</a>, <a class="el" href="IntTypes_8hpp_source.html#l00070">toolbox::util::IntWrapper&lt; PolicyT &gt;::max()</a>, <a class="el" href="Time_8hpp_source.html#l00075">toolbox::sys::WallClock::max()</a>, <a class="el" href="Histogram_8cpp_source.html#l00213">toolbox::hdr::HdrHistogram::record_values()</a>, <a class="el" href="Histogram_8cpp_source.html#l00200">toolbox::hdr::HdrHistogram::reset()</a>, and <a class="el" href="Log_8cpp_source.html#l00083">toolbox::sys::set_log_level()</a>.</p>
+
+</div>
+</div>
+<a id="a4b25a8b2fee61b04bd84668d08f6ef22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b25a8b2fee61b04bd84668d08f6ef22">&#9670;&nbsp;</a></span>value_at_percentile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> std::int64_t toolbox::hdr::value_at_percentile </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtoolbox_1_1hdr_1_1HdrHistogram.html">HdrHistogram</a> &amp;&#160;</td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>percentile</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the value at a specific percentile.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">h</td><td>The histogram. </td></tr>
+    <tr><td class="paramname">percentile</td><td>The percentile to get the value for. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the percentile value. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="hdr_2Utility_8cpp_source.html#l00051">51</a> of file <a class="el" href="hdr_2Utility_8cpp_source.html">Utility.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="hdr_2Utility_8ut_8cpp_source.html#l00033">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="Suite_8cpp_source.html#l00049">toolbox::bm::BenchmarkSuite::report()</a>.</p>
+
+</div>
+</div>
+<a id="aeb510a462d876b6115d6f6e91eb2e696"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb510a462d876b6115d6f6e91eb2e696">&#9670;&nbsp;</a></span>mean()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> double toolbox::hdr::mean </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtoolbox_1_1hdr_1_1HdrHistogram.html">HdrHistogram</a> &amp;&#160;</td>
+          <td class="paramname"><em>h</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Gets the mean for the values in the histogram.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">h</td><td>The histogram. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the mean. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="hdr_2Utility_8cpp_source.html#l00066">66</a> of file <a class="el" href="hdr_2Utility_8cpp_source.html">Utility.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="hdr_2Utility_8ut_8cpp_source.html#l00057">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="hdr_2Utility_8cpp_source.html#l00096">operator&lt;&lt;()</a>, <a class="el" href="Math_8hpp_source.html#l00133">toolbox::util::pctile95()</a>, <a class="el" href="Math_8hpp_source.html#l00139">toolbox::util::pctile99()</a>, <a class="el" href="Math_8hpp_source.html#l00145">toolbox::util::pctile999()</a>, <a class="el" href="hdr_2Utility_8cpp_source.html#l00080">stddev()</a>, and <a class="el" href="Math_8hpp_source.html#l00128">toolbox::util::zscore()</a>.</p>
+
+</div>
+</div>
+<a id="aa4c142dab096bf16936d3725731ba032"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4c142dab096bf16936d3725731ba032">&#9670;&nbsp;</a></span>stddev()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> double toolbox::hdr::stddev </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtoolbox_1_1hdr_1_1HdrHistogram.html">HdrHistogram</a> &amp;&#160;</td>
+          <td class="paramname"><em>h</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Gets the standard deviation for the values in the histogram.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">h</td><td>The histogram. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the standard deviation. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="hdr_2Utility_8cpp_source.html#l00080">80</a> of file <a class="el" href="hdr_2Utility_8cpp_source.html">Utility.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="hdr_2Utility_8ut_8cpp_source.html#l00057">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="hdr_2Utility_8cpp_source.html#l00096">operator&lt;&lt;()</a>.</p>
+
+</div>
+</div>
+<a id="ac0ca8215da3b57b3aabf36a261b91f0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0ca8215da3b57b3aabf36a261b91f0d">&#9670;&nbsp;</a></span>operator<<()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -137,46 +320,54 @@ Functions</h2></td></tr>
           <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> std::ostream &amp; toolbox::hdr::operator&lt;&lt; </td>
           <td>(</td>
           <td class="paramtype">ostream &amp;&#160;</td>
-          <td class="paramname"><em>out</em>, </td>
+          <td class="paramname"><em>os</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="structtoolbox_1_1hdr_1_1PutPercentiles.html">PutPercentiles</a>&#160;</td>
+          <td class="paramname"><em>pp</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="hdr_2Utility_8cpp_source.html#l00096">96</a> of file <a class="el" href="hdr_2Utility_8cpp_source.html">Utility.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="hdr_2Utility_8hpp_source.html#l00056">put_percentiles()</a>.</p>
+
+</div>
+</div>
+<a id="a60c785036cc15c24f6f8bc13e02ca80a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60c785036cc15c24f6f8bc13e02ca80a">&#9670;&nbsp;</a></span>put_percentiles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto toolbox::hdr::put_percentiles </td>
+          <td>(</td>
           <td class="paramtype">const <a class="el" href="classtoolbox_1_1hdr_1_1HdrHistogram.html">HdrHistogram</a> &amp;&#160;</td>
-          <td class="paramname"><em>hist</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Histogram_8cpp_source.html#l00275">275</a> of file <a class="el" href="Histogram_8cpp_source.html">Histogram.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a5d94362101829699240fc067cfa81dca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d94362101829699240fc067cfa81dca">&#9670;&nbsp;</a></span>operator==() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool toolbox::hdr::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classtoolbox_1_1hdr_1_1RecordedIterator.html">RecordedIterator</a> &amp;&#160;</td>
-          <td class="paramname"><em>lhs</em>, </td>
+          <td class="paramname"><em>h</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classtoolbox_1_1hdr_1_1RecordedIterator.html">RecordedIterator</a> &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em>&#160;</td>
+          <td class="paramtype">std::int32_t&#160;</td>
+          <td class="paramname"><em>ticks_per_half_distance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>value_scale</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -186,126 +377,12 @@ Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Iterator_8cpp_source.html#l00173">173</a> of file <a class="el" href="Iterator_8cpp_source.html">Iterator.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a73efdccd7ce1b1df0a7bb2ee002a7b02"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73efdccd7ce1b1df0a7bb2ee002a7b02">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool toolbox::hdr::operator!= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classtoolbox_1_1hdr_1_1RecordedIterator.html">RecordedIterator</a> &amp;&#160;</td>
-          <td class="paramname"><em>lhs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classtoolbox_1_1hdr_1_1RecordedIterator.html">RecordedIterator</a> &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Iterator_8cpp_source.html#l00178">178</a> of file <a class="el" href="Iterator_8cpp_source.html">Iterator.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a91fe631c7b954239fce07d2c63321bb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91fe631c7b954239fce07d2c63321bb9">&#9670;&nbsp;</a></span>operator==() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool toolbox::hdr::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classtoolbox_1_1hdr_1_1PercentileIterator.html">PercentileIterator</a> &amp;&#160;</td>
-          <td class="paramname"><em>lhs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classtoolbox_1_1hdr_1_1PercentileIterator.html">PercentileIterator</a> &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Iterator_8cpp_source.html#l00239">239</a> of file <a class="el" href="Iterator_8cpp_source.html">Iterator.cpp</a>.</p>
-
-</div>
-</div>
-<a id="aa34ba9601071b579a21a7caa28d8dc2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa34ba9601071b579a21a7caa28d8dc2e">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool toolbox::hdr::operator!= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classtoolbox_1_1hdr_1_1PercentileIterator.html">PercentileIterator</a> &amp;&#160;</td>
-          <td class="paramname"><em>lhs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classtoolbox_1_1hdr_1_1PercentileIterator.html">PercentileIterator</a> &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Iterator_8cpp_source.html#l00244">244</a> of file <a class="el" href="Iterator_8cpp_source.html">Iterator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hdr_2Utility_8hpp_source.html#l00056">56</a> of file <a class="el" href="hdr_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
 
 </div>
 </div>
