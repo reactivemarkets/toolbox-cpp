@@ -8,6 +8,7 @@ var searchData=
   ['make_5ffinally',['make_finally',['../namespacetoolbox_1_1util.html#a18673d04b2024aa477fc59b3d20b7695',1,'toolbox::util']]],
   ['make_5fgai_5ferror_5fcode',['make_gai_error_code',['../namespacetoolbox_1_1net.html#a63aebb6a507a4f9c79db7574c4a83e45',1,'toolbox::net']]],
   ['make_5fintrusive',['make_intrusive',['../namespacetoolbox_1_1util.html#a74137e3ac6ec59cecfe100bc5c197689',1,'toolbox::util']]],
+  ['make_5fstring',['make_string',['../namespacetoolbox_1_1util.html#a5381caf0f9dd28d46bcaebc62e4efa2c',1,'toolbox::util']]],
   ['make_5fsys_5ferror',['make_sys_error',['../namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c',1,'toolbox::sys']]],
   ['math_2ecpp',['Math.cpp',['../Math_8cpp.html',1,'']]],
   ['math_2ehpp',['Math.hpp',['../Math_8hpp.html',1,'']]],
