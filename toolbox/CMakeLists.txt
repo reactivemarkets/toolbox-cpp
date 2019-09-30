@@ -104,7 +104,8 @@ set(lib_SOURCES
   util/Math.cpp
   util/MemAlloc.cpp
   util/Options.cpp
-  util/RefCount.cpp
+  util/Options.cpp
+  util/Path.cpp
   util/RingBuffer.cpp
   util/Ryu.cpp
   util/Slot.cpp
@@ -230,6 +231,7 @@ set(test_SOURCES
   util/Math.ut.cpp
   util/MemAlloc.ut.cpp
   util/Options.ut.cpp
+  util/Path.ut.cpp
   util/RefCount.ut.cpp
   util/RingBuffer.ut.cpp
   util/Ryu.ut.cpp
@@ -248,7 +250,8 @@ set(test_SOURCES
 add_executable(toolbox-test
   ${test_SOURCES}
   Main.ut.cpp)
-target_link_libraries(toolbox-test ${toolbox_LIBRARY} "${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}")
+target_link_libraries(toolbox-test
+  ${toolbox_LIBRARY} "${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}" stdc++fs)
 
 foreach(file ${test_SOURCES})
   get_filename_component(dir  "${file}" DIRECTORY)

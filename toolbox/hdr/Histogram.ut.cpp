@@ -82,7 +82,7 @@ BOOST_AUTO_TEST_CASE(HistogramOutOfRangeCase)
 BOOST_AUTO_TEST_CASE(HistogramResetCase)
 {
     HdrHistogram h{1, 10000000, 3};
-    for (int i{0}; i < 1000000; ++i) {
+    for (int i{0}; i < 1000; ++i) {
         BOOST_TEST(h.record_value(i));
     }
     h.reset();
@@ -92,7 +92,7 @@ BOOST_AUTO_TEST_CASE(HistogramResetCase)
 BOOST_AUTO_TEST_CASE(HistogramTotalCountCase)
 {
     HdrHistogram h{1, 10000000, 3};
-    for (int i{0}; i < 1000000; ++i) {
+    for (int i{0}; i < 1000; ++i) {
         BOOST_TEST(h.record_value(i));
         BOOST_TEST(h.total_count() == i + 1);
     }
