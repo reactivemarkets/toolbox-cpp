@@ -27,9 +27,9 @@ namespace {
 void run_reactor(Reactor& r, ThreadConfig config, const std::atomic<bool>& stop)
 {
     sig_block_all();
-    pthread_setname_np(pthread_self(), config.name.c_str());
-    TOOLBOX_NOTICE << "started " << config.name << " thread";
     try {
+        set_thread_attrs(config);
+        TOOLBOX_NOTICE << "started " << config.name << " thread";
         while (!stop.load(std::memory_order_acquire)) {
             r.poll(CyclTime::now());
         }

@@ -220,6 +220,7 @@ set(test_SOURCES
   net/Socket.ut.cpp
   sys/Date.ut.cpp
   sys/Log.ut.cpp
+  sys/Thread.ut.cpp
   sys/Time.ut.cpp
   util/Argv.ut.cpp
   util/Array.ut.cpp

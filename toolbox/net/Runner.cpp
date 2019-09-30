@@ -29,9 +29,9 @@ namespace {
 void run_resolver(Resolver& r, ThreadConfig config)
 {
     sig_block_all();
-    pthread_setname_np(pthread_self(), config.name.c_str());
-    TOOLBOX_NOTICE << "started " << config.name << " thread";
     try {
+        set_thread_attrs(config);
+        TOOLBOX_NOTICE << "started " << config.name << " thread";
         // The run() function returns -1 when resolver is closed.
         while (r.run() >= 0)
             ;
