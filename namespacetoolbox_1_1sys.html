@@ -98,6 +98,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1sys_1_1SigWait.html">SigWait</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1sys_1_1ThreadConfig.html">ThreadConfig</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structtoolbox_1_1sys_1_1ThreadConfig.html" title="ThreadConfig holds the thread attributes. ">ThreadConfig</a> holds the thread attributes.  <a href="structtoolbox_1_1sys_1_1ThreadConfig.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1sys_1_1WallClock.html">WallClock</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -256,6 +257,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ae9cef8103b7d5c133dc1079811b4e151"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#ae9cef8103b7d5c133dc1079811b4e151">sig_block_all</a> ()</td></tr>
 <tr class="memdesc:ae9cef8103b7d5c133dc1079811b4e151"><td class="mdescLeft">&#160;</td><td class="mdescRight">Block all signals.  <a href="#ae9cef8103b7d5c133dc1079811b4e151">More...</a><br /></td></tr>
 <tr class="separator:ae9cef8103b7d5c133dc1079811b4e151"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1272738915274a2e726e296663668ff"><td class="memItemLeft" align="right" valign="top">cpu_set_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#ac1272738915274a2e726e296663668ff">parse_cpu_set</a> (string_view s) noexcept</td></tr>
+<tr class="separator:ac1272738915274a2e726e296663668ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a932f019e19eddcea7ce9c9b98151e509"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a932f019e19eddcea7ce9c9b98151e509">set_thread_attrs</a> (const <a class="el" href="structtoolbox_1_1sys_1_1ThreadConfig.html">ThreadConfig</a> &amp;config)</td></tr>
+<tr class="separator:a932f019e19eddcea7ce9c9b98151e509"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fa73b8bbce9ea5180fa8cbf4d3b5e7d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> cpu_set_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a9fa73b8bbce9ea5180fa8cbf4d3b5e7d">parse_cpu_set</a> (std::string_view s) noexcept</td></tr>
+<tr class="separator:a9fa73b8bbce9ea5180fa8cbf4d3b5e7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74e19434b48df09aa2891d1c00ace007"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Config_8h.html#a046dc47367ddddc297cabd91c5372a44">TOOLBOX_WEAK</a> <a class="el" href="namespacetoolbox_1_1sys.html#a982f28e6caaaa07ee95deca8f662b6ef">Nanos</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a74e19434b48df09aa2891d1c00ace007">get_time</a> (clockid_t clock_id) noexcept</td></tr>
 <tr class="separator:a74e19434b48df09aa2891d1c00ace007"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99f88311559b7c604cb6a4500183e717"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a99f88311559b7c604cb6a4500183e717">operator&lt;&lt;</a> (ostream &amp;os, <a class="el" href="namespacetoolbox_1_1sys.html#a8370f3f6bd9eb78dd325ae3f4e582247">MonoTime</a> t)</td></tr>
@@ -1214,7 +1221,7 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="sys_2Error_8hpp_source.html#l00025">25</a> of file <a class="el" href="sys_2Error_8hpp_source.html">Error.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00198">toolbox::os::accept()</a>, <a class="el" href="Socket_8hpp_source.html#l00265">toolbox::os::bind()</a>, <a class="el" href="System_8hpp_source.html#l00028">toolbox::os::chdir()</a>, <a class="el" href="Socket_8hpp_source.html#l00295">toolbox::os::connect()</a>, <a class="el" href="Daemon_8cpp_source.html#l00036">daemon()</a>, <a class="el" href="Epoll_8hpp_source.html#l00030">toolbox::os::epoll_create()</a>, <a class="el" href="Epoll_8hpp_source.html#l00051">toolbox::os::epoll_create1()</a>, <a class="el" href="Epoll_8hpp_source.html#l00071">toolbox::os::epoll_ctl()</a>, <a class="el" href="Epoll_8hpp_source.html#l00090">toolbox::os::epoll_wait()</a>, <a class="el" href="EventFd_8hpp_source.html#l00028">toolbox::os::eventfd()</a>, <a class="el" href="File_8hpp_source.html#l00193">toolbox::os::fcntl()</a>, <a class="el" href="System_8hpp_source.html#l00046">toolbox::os::fork()</a>, <a class="el" href="File_8hpp_source.html#l00093">toolbox::os::fstat()</a>, <a class="el" href="Shm_8hpp_source.html#l00047">toolbox::os::ftok()</a>, <a class="el" href="File_8hpp_source.html#l00111">toolbox::os::ftruncate()</a>, <a class="el" href="Futex_8hpp_source.html#l00044">toolbox::ipc::futex_notify()</a>, <a class="el" href="Futex_8hpp_source.html#l00106">toolbox::ipc::futex_wait()</a>, <a class="el" href="Socket_8hpp_source.html#l00634">toolbox::net::get_so_error()</a>, <a class="el" href="Socket_8hpp_source.html#l00542">toolbox::os::getsockname()</a>, <a class="el" href="Socket_8hpp_source.html#l00583">toolbox::os::getsockopt()</a>, <a class="el" href="Socket_8hpp_source.html#l00104">toolbox::os::if_nametoindex()</a>, <a class="el" href="Socket_8hpp_source.html#l00326">toolbox::os::listen()</a>, <a class="el" href="Mmap_8hpp_source.html#l00077">toolbox::os::mmap()</a>, <a class="el" href="File_8hpp_source.html#l00033">toolbox::os::open()</a>, <a class="el" href="PidFile_8cpp_source.html#l00037">open_pid_file()</a>, <a class="el" href="Signal_8cpp_source.html#l00045">toolbox::sys::SigWait::operator()()</a>, <a class="el" href="File_8hpp_source.html#l00073">toolbox::os::pipe2()</a>, <a class="el" href="File_8hpp_source.html#l00129">toolbox::os::read()</a>, <a class="el" href="Socket_8hpp_source.html#l00358">toolbox::os::recv()</a>, <a class="el" href="Socket_8hpp_source.html#l00390">toolbox::os::recvfrom()</a>, <a class="el" href="Socket_8hpp_source.html#l00454">toolbox::os::send()</a>, <a class="el" href="Socket_8hpp_source.html#l00487">toolbox::os::sendto()</a>, <a class="el" href="System_8hpp_source.html#l00066">toolbox::os::setsid()</a>, <a class="el" href="Socket_8hpp_source.html#l00600">toolbox::os::setsockopt()</a>, <a class="el" href="Shm_8hpp_source.html#l00090">toolbox::os::shmat()</a>, <a class="el" href="Shm_8hpp_source.html#l00068">toolbox::os::shmget()</a>, <a class="el" href="Socket_8hpp_source.html#l00342">toolbox::os::shutdown()</a>, <a class="el" href="Signal_8cpp_source.html#l00072">sig_block_all()</a>, <a class="el" href="Signal_8cpp_source.html#l00026">toolbox::sys::SigWait::SigWait()</a>, <a class="el" href="Socket_8hpp_source.html#l00128">toolbox::os::socket()</a>, <a class="el" href="Socket_8hpp_source.html#l00162">toolbox::os::socketpair()</a>, <a class="el" href="TimerFd_8hpp_source.html#l00029">toolbox::os::timerfd_create()</a>, <a class="el" href="TimerFd_8hpp_source.html#l00049">toolbox::os::timerfd_settime()</a>, <a class="el" href="File_8hpp_source.html#l00161">toolbox::os::write()</a>, and <a class="el" href="PidFile_8cpp_source.html#l00057">write_pid_file()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00198">toolbox::os::accept()</a>, <a class="el" href="Socket_8hpp_source.html#l00265">toolbox::os::bind()</a>, <a class="el" href="System_8hpp_source.html#l00028">toolbox::os::chdir()</a>, <a class="el" href="Socket_8hpp_source.html#l00295">toolbox::os::connect()</a>, <a class="el" href="Daemon_8cpp_source.html#l00036">daemon()</a>, <a class="el" href="Epoll_8hpp_source.html#l00030">toolbox::os::epoll_create()</a>, <a class="el" href="Epoll_8hpp_source.html#l00051">toolbox::os::epoll_create1()</a>, <a class="el" href="Epoll_8hpp_source.html#l00071">toolbox::os::epoll_ctl()</a>, <a class="el" href="Epoll_8hpp_source.html#l00090">toolbox::os::epoll_wait()</a>, <a class="el" href="EventFd_8hpp_source.html#l00028">toolbox::os::eventfd()</a>, <a class="el" href="File_8hpp_source.html#l00193">toolbox::os::fcntl()</a>, <a class="el" href="System_8hpp_source.html#l00046">toolbox::os::fork()</a>, <a class="el" href="File_8hpp_source.html#l00093">toolbox::os::fstat()</a>, <a class="el" href="Shm_8hpp_source.html#l00047">toolbox::os::ftok()</a>, <a class="el" href="File_8hpp_source.html#l00111">toolbox::os::ftruncate()</a>, <a class="el" href="Futex_8hpp_source.html#l00044">toolbox::ipc::futex_notify()</a>, <a class="el" href="Futex_8hpp_source.html#l00106">toolbox::ipc::futex_wait()</a>, <a class="el" href="Socket_8hpp_source.html#l00634">toolbox::net::get_so_error()</a>, <a class="el" href="Socket_8hpp_source.html#l00542">toolbox::os::getsockname()</a>, <a class="el" href="Socket_8hpp_source.html#l00583">toolbox::os::getsockopt()</a>, <a class="el" href="Socket_8hpp_source.html#l00104">toolbox::os::if_nametoindex()</a>, <a class="el" href="Socket_8hpp_source.html#l00326">toolbox::os::listen()</a>, <a class="el" href="Mmap_8hpp_source.html#l00077">toolbox::os::mmap()</a>, <a class="el" href="File_8hpp_source.html#l00033">toolbox::os::open()</a>, <a class="el" href="PidFile_8cpp_source.html#l00037">open_pid_file()</a>, <a class="el" href="Signal_8cpp_source.html#l00045">toolbox::sys::SigWait::operator()()</a>, <a class="el" href="File_8hpp_source.html#l00073">toolbox::os::pipe2()</a>, <a class="el" href="File_8hpp_source.html#l00129">toolbox::os::read()</a>, <a class="el" href="Socket_8hpp_source.html#l00358">toolbox::os::recv()</a>, <a class="el" href="Socket_8hpp_source.html#l00390">toolbox::os::recvfrom()</a>, <a class="el" href="Socket_8hpp_source.html#l00454">toolbox::os::send()</a>, <a class="el" href="Socket_8hpp_source.html#l00487">toolbox::os::sendto()</a>, <a class="el" href="Thread_8cpp_source.html#l00050">set_thread_attrs()</a>, <a class="el" href="System_8hpp_source.html#l00066">toolbox::os::setsid()</a>, <a class="el" href="Socket_8hpp_source.html#l00600">toolbox::os::setsockopt()</a>, <a class="el" href="Shm_8hpp_source.html#l00090">toolbox::os::shmat()</a>, <a class="el" href="Shm_8hpp_source.html#l00068">toolbox::os::shmget()</a>, <a class="el" href="Socket_8hpp_source.html#l00342">toolbox::os::shutdown()</a>, <a class="el" href="Signal_8cpp_source.html#l00072">sig_block_all()</a>, <a class="el" href="Signal_8cpp_source.html#l00026">toolbox::sys::SigWait::SigWait()</a>, <a class="el" href="Socket_8hpp_source.html#l00128">toolbox::os::socket()</a>, <a class="el" href="Socket_8hpp_source.html#l00162">toolbox::os::socketpair()</a>, <a class="el" href="TimerFd_8hpp_source.html#l00029">toolbox::os::timerfd_create()</a>, <a class="el" href="TimerFd_8hpp_source.html#l00049">toolbox::os::timerfd_settime()</a>, <a class="el" href="File_8hpp_source.html#l00161">toolbox::os::write()</a>, and <a class="el" href="PidFile_8cpp_source.html#l00057">write_pid_file()</a>.</p>
 
 </div>
 </div>
@@ -1905,6 +1912,98 @@ Functions</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="Signal_8cpp_source.html#l00072">72</a> of file <a class="el" href="Signal_8cpp_source.html">Signal.cpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Signal_8hpp_source.html#l00044">toolbox::sys::SigWait::operator()()</a>.</p>
+
+</div>
+</div>
+<a id="ac1272738915274a2e726e296663668ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1272738915274a2e726e296663668ff">&#9670;&nbsp;</a></span>parse_cpu_set() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">cpu_set_t toolbox::sys::parse_cpu_set </td>
+          <td>(</td>
+          <td class="paramtype">string_view&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Thread_8cpp_source.html#l00034">34</a> of file <a class="el" href="Thread_8cpp_source.html">Thread.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Thread_8ut_8cpp_source.html#l00039">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="Thread_8cpp_source.html#l00050">set_thread_attrs()</a>.</p>
+
+</div>
+</div>
+<a id="a932f019e19eddcea7ce9c9b98151e509"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a932f019e19eddcea7ce9c9b98151e509">&#9670;&nbsp;</a></span>set_thread_attrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> void toolbox::sys::set_thread_attrs </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtoolbox_1_1sys_1_1ThreadConfig.html">ThreadConfig</a> &amp;&#160;</td>
+          <td class="paramname"><em>config</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set attributes for current thread from config. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td>The configuration. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="Thread_8cpp_source.html#l00050">50</a> of file <a class="el" href="Thread_8cpp_source.html">Thread.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9fa73b8bbce9ea5180fa8cbf4d3b5e7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fa73b8bbce9ea5180fa8cbf4d3b5e7d">&#9670;&nbsp;</a></span>parse_cpu_set() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> cpu_set_t toolbox::sys::parse_cpu_set </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Parse an isolcpus-style set of CPUs.</p>
+<p>The CPU set is either a list: "&lt;cpu&gt;,...,&lt;cpu&gt;", or a range: "&lt;cpu&gt;-&lt;cpu&gt;", or a combination or both: "&lt;cpu&gt;,...,&lt;cpu&gt;-&lt;cpu&gt;", where "&lt;cpu&gt;" begins at 0 and the maximum value is "number of
+CPUs in system - 1". For example: "0,1,10-11,22-23".</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>An isolcpus-style set of CPUs. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a copy of the CPU set. </dd></dl>
 
 </div>
 </div>

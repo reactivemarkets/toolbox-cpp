@@ -14,6 +14,7 @@ var searchData=
   ['typetraits_3c_20bool_20_3e',['TypeTraits&lt; bool &gt;',['../structtoolbox_1_1util_1_1TypeTraits_3_01bool_01_4.html',1,'toolbox::util']]],
   ['typetraits_3c_20dgramendpoint_20_3e',['TypeTraits&lt; DgramEndpoint &gt;',['../structtoolbox_1_1util_1_1TypeTraits_3_01DgramEndpoint_01_4.html',1,'toolbox::util']]],
   ['typetraits_3c_20double_20_3e',['TypeTraits&lt; double &gt;',['../structtoolbox_1_1util_1_1TypeTraits_3_01double_01_4.html',1,'toolbox::util']]],
+  ['typetraits_3c_20path_20_3e',['TypeTraits&lt; Path &gt;',['../structtoolbox_1_1util_1_1TypeTraits_3_01Path_01_4.html',1,'toolbox::util']]],
   ['typetraits_3c_20std_3a_3achrono_3a_3aduration_3c_20rept_2c_20periodt_20_3e_20_3e',['TypeTraits&lt; std::chrono::duration&lt; RepT, PeriodT &gt; &gt;',['../structtoolbox_1_1util_1_1TypeTraits_3_01std_1_1chrono_1_1duration_3_01RepT_00_01PeriodT_01_4_01_4.html',1,'toolbox::util']]],
   ['typetraits_3c_20std_3a_3astring_20_3e',['TypeTraits&lt; std::string &gt;',['../structtoolbox_1_1util_1_1TypeTraits_3_01std_1_1string_01_4.html',1,'toolbox::util']]],
   ['typetraits_3c_20std_3a_3astring_5fview_20_3e',['TypeTraits&lt; std::string_view &gt;',['../structtoolbox_1_1util_1_1TypeTraits_3_01std_1_1string__view_01_4.html',1,'toolbox::util']]],

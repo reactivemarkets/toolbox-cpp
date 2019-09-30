@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Toolbox: toolbox/sys/Thread.hpp File Reference</title>
+<title>Toolbox: toolbox/util/Path.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,42 +61,39 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_cb851817d6f77244316f2683559617a2.html">toolbox</a></li><li class="navelem"><a class="el" href="dir_19e227821c8b754c668304c27b3e5a0f.html">sys</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_cb851817d6f77244316f2683559617a2.html">toolbox</a></li><li class="navelem"><a class="el" href="dir_ef993a3e784ac3ef8e7464d3dccd4cb3.html">util</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
-<div class="title">Thread.hpp File Reference</div>  </div>
+<div class="title">Path.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="Config_8h_source.html">toolbox/Config.h</a>&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="TypeTraits_8hpp_source.html">toolbox/util/TypeTraits.hpp</a>&gt;</code><br />
+<code>#include &lt;experimental/filesystem&gt;</code><br />
 </div>
-<p><a href="Thread_8hpp_source.html">Go to the source code of this file.</a></p>
+<p><a href="Path_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1sys_1_1ThreadConfig.html">toolbox::sys::ThreadConfig</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structtoolbox_1_1sys_1_1ThreadConfig.html" title="ThreadConfig holds the thread attributes. ">ThreadConfig</a> holds the thread attributes.  <a href="structtoolbox_1_1sys_1_1ThreadConfig.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1TypeTraits_3_01Path_01_4.html">toolbox::util::TypeTraits&lt; Path &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacetoolbox"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox.html">toolbox</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespacetoolbox_1_1sys"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html">toolbox::sys</a></td></tr>
+<tr class="memitem:namespacetoolbox_1_1util"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html">toolbox::util</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a9fa73b8bbce9ea5180fa8cbf4d3b5e7d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> cpu_set_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a9fa73b8bbce9ea5180fa8cbf4d3b5e7d">toolbox::sys::parse_cpu_set</a> (std::string_view s) noexcept</td></tr>
-<tr class="separator:a9fa73b8bbce9ea5180fa8cbf4d3b5e7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a932f019e19eddcea7ce9c9b98151e509"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a932f019e19eddcea7ce9c9b98151e509">toolbox::sys::set_thread_attrs</a> (const ThreadConfig &amp;config)</td></tr>
-<tr class="separator:a932f019e19eddcea7ce9c9b98151e509"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a857c644a8f7c5da3b706ef0bb7a6d7ea"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a857c644a8f7c5da3b706ef0bb7a6d7ea">toolbox::util::Path</a> = std::experimental::filesystem::path</td></tr>
+<tr class="separator:a857c644a8f7c5da3b706ef0bb7a6d7ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

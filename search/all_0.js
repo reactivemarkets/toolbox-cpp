@@ -7,6 +7,7 @@ var searchData=
   ['addrinfofuture',['AddrInfoFuture',['../namespacetoolbox_1_1net.html#ac4480cb34e79fe172f654642e7d0089e',1,'toolbox::net']]],
   ['addrinfoptr',['AddrInfoPtr',['../namespacetoolbox_1_1net.html#a527fd7fbab8cb71aed64b28e782c6d8e',1,'toolbox::net']]],
   ['advance',['advance',['../namespacetoolbox_1_1io.html#ac4c6ee3c6f93a5851f9499705857f7ca',1,'toolbox::io']]],
+  ['affinity',['affinity',['../structtoolbox_1_1sys_1_1ThreadConfig.html#afc7940a0d7333894c14b41c8083c4242',1,'toolbox::sys::ThreadConfig']]],
   ['alarm',['Alarm',['../classtoolbox_1_1util_1_1Alarm.html',1,'toolbox::util::Alarm'],['../classtoolbox_1_1util_1_1Alarm.html#ae74b2d35da19f02449e2fd1f2244d693',1,'toolbox::util::Alarm::Alarm(std::chrono::duration&lt; RepT, PeriodT &gt; d, FnT fn) noexcept'],['../classtoolbox_1_1util_1_1Alarm.html#acc9be4d231e725d17255ed9519c90129',1,'toolbox::util::Alarm::Alarm(const Alarm &amp;)=delete'],['../classtoolbox_1_1util_1_1Alarm.html#ac7e97e563350be52d31d8d13b8a24465',1,'toolbox::util::Alarm::Alarm(Alarm &amp;&amp;)=delete']]],
   ['alarm_2ecpp',['Alarm.cpp',['../Alarm_8cpp.html',1,'']]],
   ['alarm_2ehpp',['Alarm.hpp',['../Alarm_8hpp.html',1,'']]],

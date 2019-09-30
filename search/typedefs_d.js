@@ -1,6 +1,7 @@
 var searchData=
 [
   ['pack',['Pack',['../structtoolbox_1_1util_1_1FunctionTraits_3_01ReturnT_07_5_08_07ArgsT_8_8_8_08_4.html#a96d5c9d616b2a25e87a7c064c430b44a',1,'toolbox::util::FunctionTraits&lt; ReturnT(*)(ArgsT...)&gt;']]],
+  ['path',['Path',['../namespacetoolbox_1_1util.html#a857c644a8f7c5da3b706ef0bb7a6d7ea',1,'toolbox::util']]],
   ['period',['period',['../structtoolbox_1_1sys_1_1MonoClock.html#abef29d91073c29fb19750dade189764a',1,'toolbox::sys::MonoClock::period()'],['../structtoolbox_1_1sys_1_1WallClock.html#add59408bab6135050b09235b147f58e2',1,'toolbox::sys::WallClock::period()']]],
   ['pidfile',['PidFile',['../namespacetoolbox_1_1sys.html#a90f0f82eec67b724f5e9f170e11192b2',1,'toolbox::sys']]],
   ['pointer',['pointer',['../structtoolbox_1_1ipc_1_1MmapDeleter.html#a82358010cb78ad4e9840c632f0627a85',1,'toolbox::ipc::MmapDeleter::pointer()'],['../classtoolbox_1_1util_1_1ArrayView.html#a3f7ca0213ada0ecfc7f75774dc04be0c',1,'toolbox::util::ArrayView::pointer()']]],
