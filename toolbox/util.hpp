@@ -28,6 +28,7 @@
 #include "util/Math.hpp"
 #include "util/MemAlloc.hpp"
 #include "util/Options.hpp"
+#include "util/Path.hpp"
 #include "util/RefCount.hpp"
 #include "util/RingBuffer.hpp"
 #include "util/Ryu.hpp"

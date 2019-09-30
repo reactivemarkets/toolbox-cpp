@@ -63,24 +63,24 @@ BOOST_AUTO_TEST_CASE(NaNCase)
 
 BOOST_AUTO_TEST_CASE(StatsCase)
 {
-    HdrHistogram h{1, 10000000, 3};
-    for (int i{0}; i < 1000000; ++i) {
+    HdrHistogram h{1, 100000, 4};
+    for (int i{1}; i <= 100000; ++i) {
         BOOST_TEST(h.record_value(i));
     }
 
-    BOOST_TEST(h.min() == 0);
-    BOOST_TEST(h.max() == 1000447);
+    BOOST_TEST(h.min() == 1);
+    BOOST_TEST(h.max() == 100003);
 
-    BOOST_TEST(value_at_percentile(h, 50) == 500223);
-    BOOST_TEST(value_at_percentile(h, 75) == 750079);
-    BOOST_TEST(value_at_percentile(h, 90) == 900095);
-    BOOST_TEST(value_at_percentile(h, 95) == 950271);
-    BOOST_TEST(value_at_percentile(h, 99) == 990207);
-    BOOST_TEST(value_at_percentile(h, 99.9) == 999423);
-    BOOST_TEST(value_at_percentile(h, 99.99) == 999935);
+    BOOST_TEST(value_at_percentile(h, 50) == 50001);
+    BOOST_TEST(value_at_percentile(h, 75) == 75003);
+    BOOST_TEST(value_at_percentile(h, 90) == 90003);
+    BOOST_TEST(value_at_percentile(h, 95) == 95003);
+    BOOST_TEST(value_at_percentile(h, 99) == 99003);
+    BOOST_TEST(value_at_percentile(h, 99.9) == 99903);
+    BOOST_TEST(value_at_percentile(h, 99.99) == 99991);
 
-    BOOST_TEST(mean(h) == 500000.013312);
-    BOOST_TEST(stddev(h) == 288675.1403682715);
+    BOOST_TEST(mean(h) == 50000.836179999998);
+    BOOST_TEST(stddev(h) == 28867.704262911586);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
