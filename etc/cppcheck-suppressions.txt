@@ -1,4 +1,5 @@
 cppcheckError:*/toolbox/util/IntTypes.ut.cpp
+syntaxError:*/toolbox/sys/Thread.cpp
 preprocessorErrorDirective:*/toolbox/net/Error.cpp
 preprocessorErrorDirective:*/toolbox/sys/Error.cpp
 returnDanglingLifetime:*/toolbox/io/Timer.cpp

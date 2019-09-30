@@ -24,9 +24,46 @@
 namespace toolbox {
 inline namespace sys {
 
+/// ThreadConfig holds the thread attributes.
 struct ThreadConfig {
+    ThreadConfig(std::string name, std::string affinity) noexcept
+    : name{std::move(name)}
+    , affinity{std::move(affinity)}
+    {
+    }
+    ThreadConfig(std::string name) noexcept
+    : name{std::move(name)}
+    {
+    }
+    ThreadConfig() noexcept = default;
+
+    // Copy.
+    ThreadConfig(const ThreadConfig&) = default;
+    ThreadConfig& operator=(const ThreadConfig&) = default;
+
+    // Move.
+    ThreadConfig(ThreadConfig&&) noexcept = default;
+    ThreadConfig& operator=(ThreadConfig&&) noexcept = default;
+
+    /// The thread's name.
     std::string name;
+    /// The thread's affinity.
+    std::string affinity;
 };
+
+/// Parse an isolcpus-style set of CPUs.
+///
+/// The CPU set is either a list: "<cpu>,...,<cpu>", or a range: "<cpu>-<cpu>", or a combination or
+/// both: "<cpu>,...,<cpu>-<cpu>", where "<cpu>" begins at 0 and the maximum value is "number of
+/// CPUs in system - 1". For example: "0,1,10-11,22-23".
+///
+/// \param s An isolcpus-style set of CPUs.
+/// \return a copy of the CPU set.
+TOOLBOX_API cpu_set_t parse_cpu_set(std::string_view s) noexcept;
+
+/// Set attributes for current thread from config.
+/// \param config The configuration.
+TOOLBOX_API void set_thread_attrs(const ThreadConfig& config);
 
 } // namespace sys
 } // namespace toolbox

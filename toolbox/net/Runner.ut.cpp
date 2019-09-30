@@ -31,7 +31,7 @@ BOOST_AUTO_TEST_CASE(ResolverRunnerCase)
     Resolver res;
 
     pthread_setname_np(pthread_self(), "main");
-    ResolverRunner resolver_runner{res, ThreadConfig{"resolver"s}};
+    ResolverRunner resolver_runner{res, "resolver"s};
 
     const auto uri1 = "tcp4://192.168.1.3:443"s;
     const auto uri2 = "tcp6://[fe80::c8bf:7d86:cbdc:bda9]:443"s;

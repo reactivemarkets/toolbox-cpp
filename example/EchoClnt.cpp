@@ -188,8 +188,8 @@ int main(int argc, char* argv[])
 
         // Start service threads.
         pthread_setname_np(pthread_self(), "main");
-        ReactorRunner reactor_runner{reactor, ThreadConfig{"reactor"s}};
-        ResolverRunner resolver_runner{resolver, ThreadConfig{"resolver"s}};
+        ReactorRunner reactor_runner{reactor, "reactor"s};
+        ResolverRunner resolver_runner{resolver, "resolver"s};
 
         // Wait for termination.
         SigWait sig_wait;
