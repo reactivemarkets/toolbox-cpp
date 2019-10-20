@@ -38,14 +38,13 @@ BOOST_AUTO_TEST_CASE(TupleApplyCase)
     expected = std::string{"foo"};
     toolbox::tuple_apply<2>(tuple, fn);
     BOOST_TEST(res == expected);
-
 }
 
 BOOST_AUTO_TEST_CASE(TupleForEachCase)
 {
     auto sstr = std::ostringstream();
     auto tuple = std::make_tuple(123, 45.6, "foo", " ", "bar");
-    toolbox::tuple_for_each(tuple, [&sstr](const auto& v){ sstr << v; });
+    toolbox::tuple_for_each(tuple, [&sstr](const auto& v) { sstr << v; });
     auto expected = std::string{"12345.6foo bar"};
     BOOST_TEST(sstr.str() == expected);
 }
