@@ -73,7 +73,8 @@ $(function() {
 <div class="title">Utility.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="Config_8h_source.html">toolbox/Config.h</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="Bits_8hpp_source.html">toolbox/util/Bits.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="Config_8h_source.html">toolbox/Config.h</a>&gt;</code><br />
 <code>#include &lt;cstdint&gt;</code><br />
 <code>#include &lt;string_view&gt;</code><br />
 <code>#include &lt;type_traits&gt;</code><br />
@@ -99,10 +100,11 @@ Functions</h2></td></tr>
 <tr class="separator:ac3642dbc3b0dcfbdf1531899de6613a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84d032eb09a2e0045099762aca24abb2"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a84d032eb09a2e0045099762aca24abb2">toolbox::util::isdigit</a> (int c) noexcept</td></tr>
 <tr class="separator:a84d032eb09a2e0045099762aca24abb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f5330b4e9fb42e24f165a19bb7eb3b6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a8f5330b4e9fb42e24f165a19bb7eb3b6">toolbox::util::dec_digits</a> (int64_t i) noexcept</td></tr>
-<tr class="separator:a8f5330b4e9fb42e24f165a19bb7eb3b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94d7587b8dd8b25f6041f6d500bf2c8e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a94d7587b8dd8b25f6041f6d500bf2c8e">toolbox::util::hex_digits</a> (int64_t i) noexcept</td></tr>
-<tr class="separator:a94d7587b8dd8b25f6041f6d500bf2c8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a629e37ae4aba1b149c9add28c0d109f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a629e37ae4aba1b149c9add28c0d109f4">toolbox::util::dec_digits</a> (std::int64_t i) noexcept</td></tr>
+<tr class="separator:a629e37ae4aba1b149c9add28c0d109f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa94d4db4a19eac86eed316eb4076d0d8"><td class="memTemplParams" colspan="2">template&lt;typename IntegerT &gt; </td></tr>
+<tr class="memitem:aa94d4db4a19eac86eed316eb4076d0d8"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#aa94d4db4a19eac86eed316eb4076d0d8">toolbox::util::hex_digits</a> (IntegerT i) noexcept</td></tr>
+<tr class="separator:aa94d4db4a19eac86eed316eb4076d0d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ca2b9b109af12f6b682b571030845f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a5ca2b9b109af12f6b682b571030845f9">toolbox::util::stob</a> (std::string_view sv, bool dfl=false) noexcept</td></tr>
 <tr class="separator:a5ca2b9b109af12f6b682b571030845f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4128af815607953377c817e18b4269ee"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a4128af815607953377c817e18b4269ee">toolbox::util::stod</a> (std::string_view sv) noexcept</td></tr>

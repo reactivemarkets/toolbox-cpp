@@ -19,6 +19,7 @@ var searchData=
   ['close',['close',['../structtoolbox_1_1io_1_1FilePolicy.html#a96765ca882f58d0abae36658afbd1878',1,'toolbox::io::FilePolicy::close()'],['../structtoolbox_1_1ipc_1_1ShmPolicy.html#a061b9ca96a47b5bdbe125c865d5b84c4',1,'toolbox::ipc::ShmPolicy::close()'],['../structtoolbox_1_1net_1_1Sock.html#a580d64c5bc9618d38cf5e6fb5a95276c',1,'toolbox::net::Sock::close()']]],
   ['close_5fall',['close_all',['../namespacetoolbox_1_1sys.html#a1232d62d0757da2ec5b0546be63b9a5b',1,'toolbox::sys']]],
   ['close_5fpid_5ffile',['close_pid_file',['../namespacetoolbox_1_1sys.html#a4737b7e561d9e3d75a5ba7b4b209b255',1,'toolbox::sys']]],
+  ['clz',['clz',['../namespacetoolbox_1_1util.html#a9bcb7067e97cd9ffcce933f0a1e48f6f',1,'toolbox::util']]],
   ['code',['code',['../classtoolbox_1_1util_1_1Exception.html#ab94724f7035df099766563699b225b8a',1,'toolbox::util::Exception']]],
   ['code_5fof_5fconduct_2emd',['CODE_OF_CONDUCT.md',['../CODE__OF__CONDUCT_8md.html',1,'']]],
   ['commit',['commit',['../classtoolbox_1_1http_1_1HttpBuf.html#abace82feed854c861e50ff84ee2e0ca3',1,'toolbox::http::HttpBuf::commit()'],['../classtoolbox_1_1http_1_1HttpStream.html#a4cea4c3509b084c015631b946eeaa084',1,'toolbox::http::HttpStream::commit()'],['../classtoolbox_1_1io_1_1Buffer.html#afaf922042867d40d477cb3368896d60f',1,'toolbox::io::Buffer::commit()']]],

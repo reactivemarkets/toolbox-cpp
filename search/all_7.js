@@ -25,7 +25,7 @@ var searchData=
   ['head',['head',['../structtoolbox_1_1util_1_1detail_1_1Struct_3_01Member_3_01TagT_00_01ValueT_01_4_00_01Member_3_01Tea64d071ebde2c801b1e9a32f0bf50cc.html#a3a0e4e9777852cb78fc763a4a60f1808',1,'toolbox::util::detail::Struct&lt; Member&lt; TagT, ValueT &gt;, Member&lt; TagsT, ValuesT &gt;... &gt;::head()'],['../namespacetoolbox_1_1http.html#a1090dccc3a45f4f6ba45d0d80cb77fdaa98921133d10fbdb0fb6dbb7b2648befe',1,'toolbox::http::Head()']]],
   ['headers',['headers',['../classtoolbox_1_1http_1_1HttpRequest.html#a0a5668f86e23fda5c75bba6fb53959f5',1,'toolbox::http::HttpRequest']]],
   ['help',['Help',['../classtoolbox_1_1util_1_1Help.html',1,'toolbox::util']]],
-  ['hex_5fdigits',['hex_digits',['../namespacetoolbox_1_1util.html#a94d7587b8dd8b25f6041f6d500bf2c8e',1,'toolbox::util']]],
+  ['hex_5fdigits',['hex_digits',['../namespacetoolbox_1_1util.html#aa94d4db4a19eac86eed316eb4076d0d8',1,'toolbox::util']]],
   ['high',['High',['../namespacetoolbox_1_1io.html#a3ebeb41d6195a7beeb4a1734379c4684a655d20c1ca69519ca647684edbb2db35',1,'toolbox::io']]],
   ['highest',['Highest',['../Histogram_8ut_8cpp.html#ab059227ef29fcab13eebbb37ef16c627',1,'Histogram.ut.cpp']]],
   ['highest_5fequivalent_5fvalue',['highest_equivalent_value',['../classtoolbox_1_1hdr_1_1HdrHistogram.html#a3d3a095f7d109ad2eab678b50257a766',1,'toolbox::hdr::HdrHistogram::highest_equivalent_value()'],['../classtoolbox_1_1hdr_1_1HdrIterator.html#a0af3a76583c49ac9d0723e4873e80267',1,'toolbox::hdr::HdrIterator::highest_equivalent_value()']]],

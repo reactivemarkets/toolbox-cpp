@@ -262,6 +262,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ab087d75dc13af66e514617e46fe17b10"><td class="memTemplParams" colspan="2">template&lt;typename ValueT , std::size_t SizeN&gt; </td></tr>
 <tr class="memitem:ab087d75dc13af66e514617e46fe17b10"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classtoolbox_1_1util_1_1ArrayView.html">ArrayView</a>&lt; std::remove_cv_t&lt; ValueT &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#ab087d75dc13af66e514617e46fe17b10">make_array_view</a> (ValueT(&amp;arr)[SizeN]) noexcept</td></tr>
 <tr class="separator:ab087d75dc13af66e514617e46fe17b10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bcb7067e97cd9ffcce933f0a1e48f6f"><td class="memTemplParams" colspan="2">template&lt;typename IntegerT &gt; </td></tr>
+<tr class="memitem:a9bcb7067e97cd9ffcce933f0a1e48f6f"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a9bcb7067e97cd9ffcce933f0a1e48f6f">clz</a> (IntegerT i) noexcept</td></tr>
+<tr class="separator:a9bcb7067e97cd9ffcce933f0a1e48f6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47b5dcc2b4883b91675e06a453119ea6"><td class="memTemplParams" colspan="2">template&lt;typename ValueT &gt; </td></tr>
 <tr class="memitem:a47b5dcc2b4883b91675e06a453119ea6"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a47b5dcc2b4883b91675e06a453119ea6">compare</a> (ValueT lhs, ValueT rhs) noexcept</td></tr>
 <tr class="separator:a47b5dcc2b4883b91675e06a453119ea6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -533,10 +536,8 @@ Functions</h2></td></tr>
 <tr class="memitem:a6104a08b52fd4b25c4b00752f49d8d23"><td class="memTemplParams" colspan="2">template&lt;typename TupleT , typename FnT , std::size_t IndexN = 0&gt; </td></tr>
 <tr class="memitem:a6104a08b52fd4b25c4b00752f49d8d23"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a6104a08b52fd4b25c4b00752f49d8d23">tuple_for_each</a> (const TupleT &amp;tpl, const FnT &amp;f)</td></tr>
 <tr class="separator:a6104a08b52fd4b25c4b00752f49d8d23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f5330b4e9fb42e24f165a19bb7eb3b6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a8f5330b4e9fb42e24f165a19bb7eb3b6">dec_digits</a> (int64_t i) noexcept</td></tr>
-<tr class="separator:a8f5330b4e9fb42e24f165a19bb7eb3b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94d7587b8dd8b25f6041f6d500bf2c8e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a94d7587b8dd8b25f6041f6d500bf2c8e">hex_digits</a> (int64_t i) noexcept</td></tr>
-<tr class="separator:a94d7587b8dd8b25f6041f6d500bf2c8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affc0ec0df766315cbe39425ee6b68de6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#affc0ec0df766315cbe39425ee6b68de6">dec_digits</a> (int64_t i) noexcept</td></tr>
+<tr class="separator:affc0ec0df766315cbe39425ee6b68de6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a477fb4306e41ea993fe92932ac25d954"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a477fb4306e41ea993fe92932ac25d954">stob</a> (string_view sv, bool dfl) noexcept</td></tr>
 <tr class="separator:a477fb4306e41ea993fe92932ac25d954"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4128af815607953377c817e18b4269ee"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a4128af815607953377c817e18b4269ee">stod</a> (std::string_view sv) noexcept</td></tr>
@@ -546,6 +547,11 @@ Functions</h2></td></tr>
 <tr class="separator:ac3642dbc3b0dcfbdf1531899de6613a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84d032eb09a2e0045099762aca24abb2"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a84d032eb09a2e0045099762aca24abb2">isdigit</a> (int c) noexcept</td></tr>
 <tr class="separator:a84d032eb09a2e0045099762aca24abb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a629e37ae4aba1b149c9add28c0d109f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a629e37ae4aba1b149c9add28c0d109f4">dec_digits</a> (std::int64_t i) noexcept</td></tr>
+<tr class="separator:a629e37ae4aba1b149c9add28c0d109f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa94d4db4a19eac86eed316eb4076d0d8"><td class="memTemplParams" colspan="2">template&lt;typename IntegerT &gt; </td></tr>
+<tr class="memitem:aa94d4db4a19eac86eed316eb4076d0d8"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#aa94d4db4a19eac86eed316eb4076d0d8">hex_digits</a> (IntegerT i) noexcept</td></tr>
+<tr class="separator:aa94d4db4a19eac86eed316eb4076d0d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ca2b9b109af12f6b682b571030845f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a5ca2b9b109af12f6b682b571030845f9">stob</a> (std::string_view sv, bool dfl=false) noexcept</td></tr>
 <tr class="separator:a5ca2b9b109af12f6b682b571030845f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8587d74e5bd033f12c4d2ccf5ec51ad3"><td class="memTemplParams" colspan="2">template&lt;typename ValueT &gt; </td></tr>
@@ -876,6 +882,52 @@ template&lt;typename ValueT , std::size_t SizeN&gt; </div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="Array_8hpp_source.html#l00131">131</a> of file <a class="el" href="Array_8hpp_source.html">Array.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a9bcb7067e97cd9ffcce933f0a1e48f6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bcb7067e97cd9ffcce933f0a1e48f6f">&#9670;&nbsp;</a></span>clz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename IntegerT &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto toolbox::util::clz </td>
+          <td>(</td>
+          <td class="paramtype">IntegerT&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the number of leading 0-bits, starting at the most significant bit position. The result is undefined for zero values.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ValueT</td><td>Integer type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Integer value. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the number of leading 0-bits. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Bits_8hpp_source.html#l00030">30</a> of file <a class="el" href="Bits_8hpp_source.html">Bits.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="util_2Utility_8hpp_source.html#l00064">hex_digits()</a>, and <a class="el" href="Math_8hpp_source.html#l00037">next_pow2()</a>.</p>
 
 </div>
 </div>
@@ -1306,7 +1358,7 @@ template&lt;typename PolicyT &gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>true if size is a power of two. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00029">29</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00031">31</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="MpmcQueue_8hpp_source.html#l00078">toolbox::ipc::MpmcQueue&lt; ValueT &gt;::MpmcQueue()</a>.</p>
 
@@ -1337,7 +1389,7 @@ template&lt;typename PolicyT &gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the next power of two. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00035">35</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00037">37</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Math_8ut_8cpp_source.html#l00028">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="MpmcQueue_8hpp_source.html#l00261">toolbox::ipc::create_mpmc_queue()</a>, <a class="el" href="MpmcQueue_8hpp_source.html#l00063">toolbox::ipc::MpmcQueue&lt; ValueT &gt;::MpmcQueue()</a>, and <a class="el" href="RingBuffer_8hpp_source.html#l00030">toolbox::util::RingBuffer&lt; ValueT &gt;::RingBuffer()</a>.</p>
 
@@ -1368,7 +1420,7 @@ template&lt;typename PolicyT &gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the next power of two. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00042">42</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00044">44</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
 </div>
 </div>
@@ -1398,7 +1450,7 @@ template&lt;int BitsN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00049">49</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00051">51</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
 </div>
 </div>
@@ -1426,9 +1478,9 @@ template&lt;int BitsN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00108">108</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00110">110</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Math_8ut_8cpp_source.html#l00028">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Math_8hpp_source.html#l00118">stdev()</a>, and <a class="el" href="Options_8hpp_source.html#l00068">toolbox::util::Value::Value()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Math_8ut_8cpp_source.html#l00028">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Math_8hpp_source.html#l00120">stdev()</a>, and <a class="el" href="Options_8hpp_source.html#l00068">toolbox::util::Value::Value()</a>.</p>
 
 </div>
 </div>
@@ -1456,9 +1508,9 @@ template&lt;int BitsN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00113">113</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00115">115</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Math_8ut_8cpp_source.html#l00028">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="Math_8hpp_source.html#l00123">stdevp()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Math_8ut_8cpp_source.html#l00028">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="Math_8hpp_source.html#l00125">stdevp()</a>.</p>
 
 </div>
 </div>
@@ -1486,7 +1538,7 @@ template&lt;int BitsN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00118">118</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00120">120</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Math_8ut_8cpp_source.html#l00028">BOOST_AUTO_TEST_CASE()</a>.</p>
 
@@ -1516,7 +1568,7 @@ template&lt;int BitsN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00123">123</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00125">125</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Math_8ut_8cpp_source.html#l00028">BOOST_AUTO_TEST_CASE()</a>.</p>
 
@@ -1562,7 +1614,7 @@ template&lt;int BitsN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00128">128</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00130">130</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
 </div>
 </div>
@@ -1600,7 +1652,7 @@ template&lt;int BitsN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00133">133</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00135">135</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
 </div>
 </div>
@@ -1638,7 +1690,7 @@ template&lt;int BitsN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00139">139</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00141">141</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
 </div>
 </div>
@@ -1676,7 +1728,7 @@ template&lt;int BitsN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00145">145</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00147">147</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
 </div>
 </div>
@@ -1715,7 +1767,7 @@ template&lt;int BitsN&gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the ceiling of dividend / divisor. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00152">152</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00154">154</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Math_8ut_8cpp_source.html#l00063">BOOST_AUTO_TEST_CASE()</a>.</p>
 
@@ -4152,7 +4204,7 @@ template&lt;typename... TagsT, typename... ValuesT&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="Struct_8hpp_source.html#l00098">98</a> of file <a class="el" href="Struct_8hpp_source.html">Struct.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="MemAlloc_8cpp_source.html#l00028">alloc()</a>, <a class="el" href="MpmcQueue_8hpp_source.html#l00139">toolbox::ipc::MpmcQueue&lt; ValueT &gt;::available()</a>, <a class="el" href="Array_8ut_8cpp_source.html#l00035">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Limits_8hpp_source.html#l00042">toolbox::sys::ceil_cache_line()</a>, <a class="el" href="Limits_8hpp_source.html#l00047">toolbox::sys::ceil_page()</a>, <a class="el" href="Math_8hpp_source.html#l00049">ceil_pow2()</a>, <a class="el" href="Buffer_8hpp_source.html#l00076">toolbox::io::Buffer::commit()</a>, <a class="el" href="Buffer_8cpp_source.html#l00022">toolbox::io::Buffer::consume()</a>, <a class="el" href="MpmcQueue_8hpp_source.html#l00261">toolbox::ipc::create_mpmc_queue()</a>, <a class="el" href="Buffer_8hpp_source.html#l00048">toolbox::io::Buffer::data()</a>, <a class="el" href="MemAlloc_8cpp_source.html#l00038">dealloc()</a>, <a class="el" href="EpollReactor_8cpp_source.html#l00133">toolbox::io::EpollReactor::do_poll()</a>, <a class="el" href="Buffer_8hpp_source.html#l00063">toolbox::io::Buffer::empty()</a>, <a class="el" href="Timer_8hpp_source.html#l00184">toolbox::io::TimerQueue::empty()</a>, <a class="el" href="Epoll_8hpp_source.html#l00030">toolbox::os::epoll_create()</a>, <a class="el" href="MpmcQueue_8hpp_source.html#l00137">toolbox::ipc::MpmcQueue&lt; ValueT &gt;::full()</a>, <a class="el" href="MpmcQueue_8hpp_source.html#l00063">toolbox::ipc::MpmcQueue&lt; ValueT &gt;::MpmcQueue()</a>, <a class="el" href="MemAlloc_8hpp_source.html#l00033">toolbox::util::MemAlloc::operator new()</a>, <a class="el" href="Url_8hpp_source.html#l00080">toolbox::http::BasicUrl&lt; Url &gt;::parse()</a>, <a class="el" href="MpmcQueue_8hpp_source.html#l00238">toolbox::ipc::MpmcQueue&lt; ValueT &gt;::push()</a>, <a class="el" href="Socket_8hpp_source.html#l00764">toolbox::net::Sock::set_rcv_buf()</a>, <a class="el" href="Socket_8hpp_source.html#l00776">toolbox::net::Sock::set_snd_buf()</a>, <a class="el" href="Socket_8hpp_source.html#l00682">toolbox::net::set_so_rcv_buf()</a>, <a class="el" href="Socket_8hpp_source.html#l00704">toolbox::net::set_so_snd_buf()</a>, <a class="el" href="Shm_8hpp_source.html#l00068">toolbox::os::shmget()</a>, and <a class="el" href="Buffer_8hpp_source.html#l00054">toolbox::io::Buffer::str()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="MemAlloc_8cpp_source.html#l00028">alloc()</a>, <a class="el" href="MpmcQueue_8hpp_source.html#l00139">toolbox::ipc::MpmcQueue&lt; ValueT &gt;::available()</a>, <a class="el" href="Array_8ut_8cpp_source.html#l00035">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Limits_8hpp_source.html#l00042">toolbox::sys::ceil_cache_line()</a>, <a class="el" href="Limits_8hpp_source.html#l00047">toolbox::sys::ceil_page()</a>, <a class="el" href="Math_8hpp_source.html#l00051">ceil_pow2()</a>, <a class="el" href="Buffer_8hpp_source.html#l00076">toolbox::io::Buffer::commit()</a>, <a class="el" href="Buffer_8cpp_source.html#l00022">toolbox::io::Buffer::consume()</a>, <a class="el" href="MpmcQueue_8hpp_source.html#l00261">toolbox::ipc::create_mpmc_queue()</a>, <a class="el" href="Buffer_8hpp_source.html#l00048">toolbox::io::Buffer::data()</a>, <a class="el" href="MemAlloc_8cpp_source.html#l00038">dealloc()</a>, <a class="el" href="EpollReactor_8cpp_source.html#l00133">toolbox::io::EpollReactor::do_poll()</a>, <a class="el" href="Buffer_8hpp_source.html#l00063">toolbox::io::Buffer::empty()</a>, <a class="el" href="Timer_8hpp_source.html#l00184">toolbox::io::TimerQueue::empty()</a>, <a class="el" href="Epoll_8hpp_source.html#l00030">toolbox::os::epoll_create()</a>, <a class="el" href="MpmcQueue_8hpp_source.html#l00137">toolbox::ipc::MpmcQueue&lt; ValueT &gt;::full()</a>, <a class="el" href="MpmcQueue_8hpp_source.html#l00063">toolbox::ipc::MpmcQueue&lt; ValueT &gt;::MpmcQueue()</a>, <a class="el" href="MemAlloc_8hpp_source.html#l00033">toolbox::util::MemAlloc::operator new()</a>, <a class="el" href="Url_8hpp_source.html#l00080">toolbox::http::BasicUrl&lt; Url &gt;::parse()</a>, <a class="el" href="MpmcQueue_8hpp_source.html#l00238">toolbox::ipc::MpmcQueue&lt; ValueT &gt;::push()</a>, <a class="el" href="Socket_8hpp_source.html#l00764">toolbox::net::Sock::set_rcv_buf()</a>, <a class="el" href="Socket_8hpp_source.html#l00776">toolbox::net::Sock::set_snd_buf()</a>, <a class="el" href="Socket_8hpp_source.html#l00682">toolbox::net::set_so_rcv_buf()</a>, <a class="el" href="Socket_8hpp_source.html#l00704">toolbox::net::set_so_snd_buf()</a>, <a class="el" href="Shm_8hpp_source.html#l00068">toolbox::os::shmget()</a>, and <a class="el" href="Buffer_8hpp_source.html#l00054">toolbox::io::Buffer::str()</a>.</p>
 
 </div>
 </div>
@@ -4393,12 +4445,12 @@ template&lt;typename TupleT , typename FnT , std::size_t IndexN = 0&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="Tuple_8hpp_source.html#l00037">37</a> of file <a class="el" href="Tuple_8hpp_source.html">Tuple.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Tuple_8ut_8cpp_source.html#l00044">BOOST_AUTO_TEST_CASE()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Tuple_8ut_8cpp_source.html#l00043">BOOST_AUTO_TEST_CASE()</a>.</p>
 
 </div>
 </div>
-<a id="a8f5330b4e9fb42e24f165a19bb7eb3b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f5330b4e9fb42e24f165a19bb7eb3b6">&#9670;&nbsp;</a></span>dec_digits()</h2>
+<a id="affc0ec0df766315cbe39425ee6b68de6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affc0ec0df766315cbe39425ee6b68de6">&#9670;&nbsp;</a></span>dec_digits() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -4407,7 +4459,7 @@ template&lt;typename TupleT , typename FnT , std::size_t IndexN = 0&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> int toolbox::util::dec_digits </td>
+          <td class="memname">int toolbox::util::dec_digits </td>
           <td>(</td>
           <td class="paramtype">int64_t&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
@@ -4420,42 +4472,10 @@ template&lt;typename TupleT , typename FnT , std::size_t IndexN = 0&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the number of decimal digits in a positive, signed integer. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>consider adding support for negative integers. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="util_2Utility_8cpp_source.html#l00026">26</a> of file <a class="el" href="util_2Utility_8cpp_source.html">Utility.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00150">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="util_2Utility_8hpp_source.html#l00039">isdigit()</a>.</p>
-
-</div>
-</div>
-<a id="a94d7587b8dd8b25f6041f6d500bf2c8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94d7587b8dd8b25f6041f6d500bf2c8e">&#9670;&nbsp;</a></span>hex_digits()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> int toolbox::util::hex_digits </td>
-          <td>(</td>
-          <td class="paramtype">int64_t&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Returns the number of hexadecimal digits in a positive, signed integer. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>consider adding support for negative integers. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8cpp_source.html#l00038">38</a> of file <a class="el" href="util_2Utility_8cpp_source.html">Utility.cpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00133">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="util_2Utility_8hpp_source.html#l00039">isdigit()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00150">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="util_2Utility_8hpp_source.html#l00044">isdigit()</a>.</p>
 
 </div>
 </div>
@@ -4493,9 +4513,9 @@ template&lt;typename TupleT , typename FnT , std::size_t IndexN = 0&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8cpp_source.html#l00043">43</a> of file <a class="el" href="util_2Utility_8cpp_source.html">Utility.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8cpp_source.html#l00038">38</a> of file <a class="el" href="util_2Utility_8cpp_source.html">Utility.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="String_8ut_8cpp_source.html#l00056">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="TypeTraits_8hpp_source.html#l00041">toolbox::util::TypeTraits&lt; bool &gt;::from_string()</a>, and <a class="el" href="util_2Utility_8hpp_source.html#l00039">isdigit()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="String_8ut_8cpp_source.html#l00056">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="TypeTraits_8hpp_source.html#l00041">toolbox::util::TypeTraits&lt; bool &gt;::from_string()</a>, and <a class="el" href="util_2Utility_8hpp_source.html#l00064">hex_digits()</a>.</p>
 
 </div>
 </div>
@@ -4523,9 +4543,9 @@ template&lt;typename TupleT , typename FnT , std::size_t IndexN = 0&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8cpp_source.html#l00106">106</a> of file <a class="el" href="util_2Utility_8cpp_source.html">Utility.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8cpp_source.html#l00101">101</a> of file <a class="el" href="util_2Utility_8cpp_source.html">Utility.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="String_8ut_8cpp_source.html#l00049">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="TypeTraits_8hpp_source.html#l00050">toolbox::util::TypeTraits&lt; double &gt;::from_string()</a>, <a class="el" href="util_2Utility_8hpp_source.html#l00039">isdigit()</a>, and <a class="el" href="util_2Utility_8hpp_source.html#l00057">ston()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="String_8ut_8cpp_source.html#l00049">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="TypeTraits_8hpp_source.html#l00050">toolbox::util::TypeTraits&lt; double &gt;::from_string()</a>, <a class="el" href="util_2Utility_8hpp_source.html#l00064">hex_digits()</a>, and <a class="el" href="util_2Utility_8hpp_source.html#l00078">ston()</a>.</p>
 
 </div>
 </div>
@@ -4555,7 +4575,7 @@ template&lt;typename ValueT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8hpp_source.html#l00034">34</a> of file <a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8hpp_source.html#l00039">39</a> of file <a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Endpoint_8cpp_source.html#l00163">operator&lt;&lt;()</a>.</p>
 
@@ -4585,9 +4605,91 @@ template&lt;typename ValueT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8hpp_source.html#l00039">39</a> of file <a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8hpp_source.html#l00044">44</a> of file <a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Time_8hpp_source.html#l00349">toolbox::sys::parse_nanos()</a>, <a class="el" href="Time_8hpp_source.html#l00388">toolbox::sys::parse_time_only()</a>, and <a class="el" href="util_2Utility_8hpp_source.html#l00057">ston()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Time_8hpp_source.html#l00349">toolbox::sys::parse_nanos()</a>, <a class="el" href="Time_8hpp_source.html#l00388">toolbox::sys::parse_time_only()</a>, and <a class="el" href="util_2Utility_8hpp_source.html#l00078">ston()</a>.</p>
+
+</div>
+</div>
+<a id="a629e37ae4aba1b149c9add28c0d109f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a629e37ae4aba1b149c9add28c0d109f4">&#9670;&nbsp;</a></span>dec_digits() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> int toolbox::util::dec_digits </td>
+          <td>(</td>
+          <td class="paramtype">std::int64_t&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the number of decimal digits in a positive, signed integer.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Integer value. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the number of decimal digits. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>consider adding support for negative integers. </dd></dl>
+
+</div>
+</div>
+<a id="aa94d4db4a19eac86eed316eb4076d0d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa94d4db4a19eac86eed316eb4076d0d8">&#9670;&nbsp;</a></span>hex_digits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename IntegerT &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int toolbox::util::hex_digits </td>
+          <td>(</td>
+          <td class="paramtype">IntegerT&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns the number of hexadecimal digits in a positive integer.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">IntegerT</td><td>Integer type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Integer value. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the number of hexadecimal digits. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>consider adding support for negative integers. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8hpp_source.html#l00064">64</a> of file <a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00133">BOOST_AUTO_TEST_CASE()</a>.</p>
 
 </div>
 </div>
@@ -4653,7 +4755,7 @@ template&lt;typename ValueT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8hpp_source.html#l00057">57</a> of file <a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8hpp_source.html#l00078">78</a> of file <a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
 
 </div>
 </div>
