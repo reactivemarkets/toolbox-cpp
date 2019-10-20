@@ -127,9 +127,14 @@ class TOOLBOX_API Config {
     std::size_t size() const noexcept { return map_.size(); }
     void clear() noexcept { map_.clear(); }
     std::istream& read_section(std::istream& is) { return read_section(is, nullptr); }
+    std::istream& read_section(std::istream&& is) { return read_section(is); }
     std::istream& read_section(std::istream& is, std::string& next)
     {
         return read_section(is, &next);
+    }
+    std::istream& read_section(std::istream&& is, std::string& next)
+    {
+        return read_section(is, next);
     }
     void set(std::string key, std::string val) { map_.emplace(std::move(key), std::move(val)); }
     void set_parent(Config& parent) noexcept { parent_ = &parent; }
@@ -155,6 +160,7 @@ class TOOLBOX_API MultiConfig {
 
     void clear() noexcept;
     void read(std::istream& is);
+    void read(std::istream&& is) { read(is); }
 
     const Config& root() const noexcept { return root_; }
     const Config& section(const std::string& name) const noexcept
