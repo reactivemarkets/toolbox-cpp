@@ -35,11 +35,6 @@ int dec_digits(int64_t i) noexcept
                                      : i < 1000000000000000000 ? 18 : 19;
 }
 
-int hex_digits(int64_t i) noexcept
-{
-    return 1 + ((63 - __builtin_clzl(i | 1)) / 4);
-}
-
 bool stob(string_view sv, bool dfl) noexcept
 {
     bool val{dfl};

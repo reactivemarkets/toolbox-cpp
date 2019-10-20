@@ -94,7 +94,6 @@ int dec_digits_less(int64_t i) noexcept
     return 19;
 }
 
-int hex_digits_bitshift(int64_t i) noexcept __attribute__((noinline));
 int hex_digits_bitshift(int64_t i) noexcept
 {
     int n{0};

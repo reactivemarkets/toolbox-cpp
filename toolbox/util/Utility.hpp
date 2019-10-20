@@ -17,6 +17,8 @@
 #ifndef TOOLBOX_UTIL_UTILITY_HPP
 #define TOOLBOX_UTIL_UTILITY_HPP
 
+#include <toolbox/util/Bits.hpp>
+
 #include <toolbox/Config.h>
 
 #include <cstdint>
@@ -25,6 +27,9 @@
 
 namespace toolbox {
 inline namespace util {
+
+static_assert(clz(std::int32_t{1}) == 31);
+static_assert(clz(std::int64_t{1}) == 63);
 
 template <typename T>
 struct AlwaysFalse : std::false_type {
@@ -43,12 +48,28 @@ constexpr bool isdigit(int c) noexcept
 static_assert(isdigit('0') && isdigit('9') && !isdigit('A'));
 
 /// Returns the number of decimal digits in a positive, signed integer.
+///
+/// \param i Integer value.
+/// \return the number of decimal digits.
 /// \todo consider adding support for negative integers.
-TOOLBOX_API int dec_digits(int64_t i) noexcept;
+TOOLBOX_API int dec_digits(std::int64_t i) noexcept;
 
-/// Returns the number of hexadecimal digits in a positive, signed integer.
+/// Returns the number of hexadecimal digits in a positive integer.
+///
+/// \tparam IntegerT Integer type.
+/// \param i Integer value.
+/// \return the number of hexadecimal digits.
 /// \todo consider adding support for negative integers.
-TOOLBOX_API int hex_digits(int64_t i) noexcept;
+template <typename IntegerT>
+constexpr int hex_digits(IntegerT i) noexcept
+{
+    constexpr auto Bits = sizeof(i) * 8;
+    return 1 + ((Bits - clz(i | 1) - 1) >> 2);
+}
+
+static_assert(hex_digits(0x0) == 1);
+static_assert(hex_digits(0x1) == 1);
+static_assert(hex_digits(std::int64_t{0xffffffffffff}) == 12);
 
 TOOLBOX_API bool stob(std::string_view sv, bool dfl = false) noexcept;
 TOOLBOX_API double stod(std::string_view sv) noexcept;
