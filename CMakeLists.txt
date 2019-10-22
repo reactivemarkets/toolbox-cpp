@@ -133,20 +133,6 @@ endif()
 
 find_package(Doxygen) # Optional.
 
-if(DOXYGEN_FOUND)
-  configure_file("${PROJECT_SOURCE_DIR}/Doxyfile.in"
-    "${PROJECT_BINARY_DIR}/Doxyfile" @ONLY)
-
-  add_custom_target(toolbox-doc
-    WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
-    COMMAND "${DOXYGEN_EXECUTABLE}" "${PROJECT_BINARY_DIR}/Doxyfile"
-    COMMAND "${CMAKE_COMMAND}" -E echo docs.toolbox.reactivemarkets.com
-           >"${PROJECT_BINARY_DIR}/doc/html/CNAME"
-    SOURCES "${PROJECT_BINARY_DIR}/Doxyfile")
-
-  add_dependencies(toolbox-doc toolbox-image)
-endif()
-
 include_directories(SYSTEM
   "${Boost_INCLUDE_DIRS}")
 
@@ -195,10 +181,20 @@ if (CLANG_TIDY)
         -p "${CMAKE_BINARY_DIR}")
 endif()
 
-add_subdirectory(image)
+install(FILES
+  CODE_OF_CONDUCT.md
+  CONTRIBUTING.md
+  LICENSE.md
+  README.md
+  DESTINATION doc
+  COMPONENT doc
+)
+
 add_subdirectory(toolbox)
 add_subdirectory(bench)
 add_subdirectory(example)
+add_subdirectory(image)
+add_subdirectory(doc)
 
 set(CPACK_GENERATOR "TGZ;RPM;DEB")
 

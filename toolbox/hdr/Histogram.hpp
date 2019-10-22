@@ -125,8 +125,6 @@ class TOOLBOX_API HdrHistogram {
     ///
     /// If you want to re-use an existing histogram, but reset everything back to zero, this is the
     /// routine to use.
-    ///
-    /// \param h The histogram you want to reset to empty.
     void reset() noexcept;
 
     /// Records a value in the histogram, will round this value of to a precision at or better than
