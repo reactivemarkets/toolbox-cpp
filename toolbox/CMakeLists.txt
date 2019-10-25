@@ -108,6 +108,7 @@ set(lib_SOURCES
   util/Options.cpp
   util/Path.cpp
   util/RingBuffer.cpp
+  util/RobinHood.cpp
   util/Ryu.cpp
   util/Slot.cpp
   util/Stream.cpp

@@ -15,10 +15,14 @@
 # limitations under the License.
 
 set(targets
+  toolbox-map-bench
   toolbox-time-bench
   toolbox-util-bench)
 
 add_custom_target(toolbox-bench DEPENDS ${targets})
+
+add_executable(toolbox-map-bench Map.bm.cpp)
+target_link_libraries(toolbox-map-bench ${toolbox_bm_LIBRARY})
 
 add_executable(toolbox-time-bench Time.bm.cpp)
 target_link_libraries(toolbox-time-bench ${toolbox_bm_LIBRARY})
