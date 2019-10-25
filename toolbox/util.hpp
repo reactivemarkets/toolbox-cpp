@@ -32,6 +32,7 @@
 #include "util/Path.hpp"
 #include "util/RefCount.hpp"
 #include "util/RingBuffer.hpp"
+#include "util/RobinHood.hpp"
 #include "util/Ryu.hpp"
 #include "util/Slot.hpp"
 #include "util/Stream.hpp"

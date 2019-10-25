@@ -17,6 +17,7 @@
 #include <toolbox/http.hpp>
 #include <toolbox/io.hpp>
 #include <toolbox/sys.hpp>
+#include <toolbox/util.hpp>
 
 using namespace std;
 using namespace toolbox;
@@ -36,7 +37,7 @@ void on_bar(const HttpRequest& req, HttpStream& os)
 class HttpApp : public HttpAppBase {
   public:
     using Slot = BasicSlot<const HttpRequest&, HttpStream&>;
-    using SlotMap = std::unordered_map<std::string, Slot>;
+    using SlotMap = RobinMap<std::string, Slot>;
 
     ~HttpApp() final = default;
     void bind(const std::string& path, Slot slot) { slot_map_[path] = slot; }
