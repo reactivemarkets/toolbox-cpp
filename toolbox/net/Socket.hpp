@@ -711,16 +711,58 @@ inline void set_so_snd_buf(int sockfd, int size)
     os::setsockopt(sockfd, SOL_SOCKET, SO_SNDBUF, &size, sizeof(size));
 }
 
+/// Enable or disable the Nagle algorithm.
+///
+/// This means that segments are always sent as soon as possible, even if there is only a small
+/// amount of data. When not set, data is buffered until there is a sufficient amount to send out,
+/// thereby avoiding the frequent sending of small packets, which results in poor utilization of the
+/// network.
+///
+/// \param sockfd The socket descriptor.
+/// \param enabled Boolean switch to enable or disable.
+/// \param ec Error-code set on failure.
 inline void set_tcp_no_delay(int sockfd, bool enabled, std::error_code& ec) noexcept
 {
     int optval{enabled ? 1 : 0};
     os::setsockopt(sockfd, IPPROTO_TCP, TCP_NODELAY, &optval, sizeof(optval), ec);
 }
 
+/// Enable or disable the Nagle algorithm.
+///
+/// This means that segments are always sent as soon as possible, even if there is only a small
+/// amount of data. When not set, data is buffered until there is a sufficient amount to send out,
+/// thereby avoiding the frequent sending of small packets, which results in poor utilization of the
+/// network.
+///
+/// \param sockfd The socket descriptor.
+/// \param enabled Boolean switch to enable or disable.
 inline void set_tcp_no_delay(int sockfd, bool enabled)
 {
     int optval{enabled ? 1 : 0};
     os::setsockopt(sockfd, IPPROTO_TCP, TCP_NODELAY, &optval, sizeof(optval));
+}
+
+/// Set the number of SYN retransmits that TCP should send before aborting the attempt to connect.
+///
+/// The number of retransmits cannot exceed 255.
+///
+/// \param sockfd The socket descriptor.
+/// \param retrans The number of retransmits.
+/// \param ec Error-code set on failure.
+inline void set_tcp_syn_nt(int sockfd, int retrans, std::error_code& ec) noexcept
+{
+    os::setsockopt(sockfd, IPPROTO_TCP, TCP_SYNCNT, &retrans, sizeof(retrans), ec);
+}
+
+/// Set the number of SYN retransmits that TCP should send before aborting the attempt to connect.
+///
+/// The number of retransmits cannot exceed 255.
+///
+/// \param sockfd The socket descriptor.
+/// \param retrans The number of retransmits.
+inline void set_tcp_syn_nt(int sockfd, int retrans)
+{
+    os::setsockopt(sockfd, IPPROTO_TCP, TCP_SYNCNT, &retrans, sizeof(retrans));
 }
 
 struct Sock {
