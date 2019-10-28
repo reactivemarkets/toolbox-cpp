@@ -275,6 +275,10 @@ Functions</h2></td></tr>
 <tr class="separator:a703fbd60ce47293ffd149f7e8479150f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85d0c43dec491bf4092190d78050b11c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#a85d0c43dec491bf4092190d78050b11c">set_tcp_no_delay</a> (int sockfd, bool enabled)</td></tr>
 <tr class="separator:a85d0c43dec491bf4092190d78050b11c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8628afa0ab773168f75f313980e50d64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#a8628afa0ab773168f75f313980e50d64">set_tcp_syn_nt</a> (int sockfd, int retrans, std::error_code &amp;ec) noexcept</td></tr>
+<tr class="separator:a8628afa0ab773168f75f313980e50d64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7433aa4517718c58a4fe2a1d14d9e10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#ab7433aa4517718c58a4fe2a1d14d9e10">set_tcp_syn_nt</a> (int sockfd, int retrans)</td></tr>
+<tr class="separator:ab7433aa4517718c58a4fe2a1d14d9e10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="ae6457375b929f03ca96cabd5a31fbfcf"></a>
@@ -2037,7 +2041,7 @@ template&lt;typename EndpointT &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00642">642</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00741">toolbox::net::Sock::get_error()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00783">toolbox::net::Sock::get_error()</a>.</p>
 
 </div>
 </div>
@@ -2105,7 +2109,7 @@ template&lt;typename EndpointT &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00658">658</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00747">toolbox::net::Sock::get_rcv_buf()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00789">toolbox::net::Sock::get_rcv_buf()</a>.</p>
 
 </div>
 </div>
@@ -2173,7 +2177,7 @@ template&lt;typename EndpointT &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00674">674</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00753">toolbox::net::Sock::get_snd_buf()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00795">toolbox::net::Sock::get_snd_buf()</a>.</p>
 
 </div>
 </div>
@@ -2257,7 +2261,7 @@ template&lt;typename EndpointT &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00687">687</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00764">toolbox::net::Sock::set_rcv_buf()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00806">toolbox::net::Sock::set_rcv_buf()</a>.</p>
 
 </div>
 </div>
@@ -2341,7 +2345,7 @@ template&lt;typename EndpointT &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00698">698</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00770">toolbox::net::Sock::set_reuse_addr()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00812">toolbox::net::Sock::set_reuse_addr()</a>.</p>
 
 </div>
 </div>
@@ -2425,7 +2429,7 @@ template&lt;typename EndpointT &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00709">709</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00776">toolbox::net::Sock::set_snd_buf()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00818">toolbox::net::Sock::set_snd_buf()</a>.</p>
 
 </div>
 </div>
@@ -2468,8 +2472,18 @@ template&lt;typename EndpointT &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Enable or disable the Nagle algorithm.</p>
+<p>This means that segments are always sent as soon as possible, even if there is only a small amount of data. When not set, data is buffered until there is a sufficient amount to send out, thereby avoiding the frequent sending of small packets, which results in poor utilization of the network.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sockfd</td><td>The socket descriptor. </td></tr>
+    <tr><td class="paramname">enabled</td><td>Boolean switch to enable or disable. </td></tr>
+    <tr><td class="paramname">ec</td><td>Error-code set on failure. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00714">714</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00724">724</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="StreamConnector_8hpp_source.html#l00047">toolbox::net::StreamConnector&lt; DerivedT &gt;::connect()</a>, and <a class="el" href="StreamAcceptor_8hpp_source.html#l00033">toolbox::net::StreamAcceptor&lt; DerivedT &gt;::StreamAcceptor()</a>.</p>
 
@@ -2508,8 +2522,118 @@ template&lt;typename EndpointT &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Enable or disable the Nagle algorithm.</p>
+<p>This means that segments are always sent as soon as possible, even if there is only a small amount of data. When not set, data is buffered until there is a sufficient amount to send out, thereby avoiding the frequent sending of small packets, which results in poor utilization of the network.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sockfd</td><td>The socket descriptor. </td></tr>
+    <tr><td class="paramname">enabled</td><td>Boolean switch to enable or disable. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00720">720</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00739">739</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a8628afa0ab773168f75f313980e50d64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8628afa0ab773168f75f313980e50d64">&#9670;&nbsp;</a></span>set_tcp_syn_nt() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toolbox::net::set_tcp_syn_nt </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sockfd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>retrans</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::error_code &amp;&#160;</td>
+          <td class="paramname"><em>ec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set the number of SYN retransmits that TCP should send before aborting the attempt to connect.</p>
+<p>The number of retransmits cannot exceed 255.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sockfd</td><td>The socket descriptor. </td></tr>
+    <tr><td class="paramname">retrans</td><td>The number of retransmits. </td></tr>
+    <tr><td class="paramname">ec</td><td>Error-code set on failure. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00752">752</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ab7433aa4517718c58a4fe2a1d14d9e10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7433aa4517718c58a4fe2a1d14d9e10">&#9670;&nbsp;</a></span>set_tcp_syn_nt() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void toolbox::net::set_tcp_syn_nt </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sockfd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>retrans</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set the number of SYN retransmits that TCP should send before aborting the attempt to connect.</p>
+<p>The number of retransmits cannot exceed 255.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sockfd</td><td>The socket descriptor. </td></tr>
+    <tr><td class="paramname">retrans</td><td>The number of retransmits. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00763">763</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
