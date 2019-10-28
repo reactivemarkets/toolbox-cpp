@@ -121,8 +121,15 @@ function(install_libraries)
   endforeach()
 endfunction()
 
-set(Boost_USE_STATIC_LIBS ON)
+include_directories(
+  "${PROJECT_SOURCE_DIR}"
+  "${CMAKE_BINARY_DIR}/include")
+
+if(NOT TOOLBOX_BUILD_SHARED)
+  set(Boost_USE_STATIC_LIBS ON)
+endif()
 find_package(Boost 1.67 REQUIRED COMPONENTS date_time unit_test_framework)
+include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
 install_libraries("${Boost_DATE_TIME_LIBRARY}")
 
 add_definitions(-DBOOST_NO_AUTO_PTR=1 -DBOOST_NO_RTTI=1 -DBOOST_NO_TYPEID=1)
@@ -132,13 +139,6 @@ if(NOT "${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}" MATCHES "\\.a$")
 endif()
 
 find_package(Doxygen) # Optional.
-
-include_directories(SYSTEM
-  "${Boost_INCLUDE_DIRS}")
-
-include_directories(
-  "${PROJECT_SOURCE_DIR}"
-  "${CMAKE_BINARY_DIR}/include")
 
 if(TOOLBOX_BUILD_SHARED)
   set(toolbox_LIBRARY toolbox-shared)

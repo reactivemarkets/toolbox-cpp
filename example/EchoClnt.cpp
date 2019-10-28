@@ -123,7 +123,14 @@ class EchoClnt : public StreamConnector<EchoClnt> {
     }
 
   private:
-    void on_sock_init(CyclTime now, IoSock& sock) {}
+    void on_sock_init(CyclTime now, IoSock& sock)
+    {
+        if (sock.is_ip_family()) {
+            // Set the number of SYN retransmits that TCP should send before aborting the attempt to
+            // connect.
+            set_tcp_syn_nt(sock.get(), 1);
+        }
+    }
     void on_sock_connect(CyclTime now, IoSock&& sock, const Endpoint& ep)
     {
         TOOLBOX_INFO << "connection opened: " << ep;
