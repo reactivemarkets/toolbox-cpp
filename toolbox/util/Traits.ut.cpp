@@ -156,7 +156,7 @@ BOOST_AUTO_TEST_CASE(TraitsConstLambdaCase)
 
 BOOST_AUTO_TEST_CASE(TraitsConstNoexceptLambdaCase)
 {
-    const auto fn = [](short, int, long) noexcept->double { return 0.0; };
+    const auto fn = [](short, int, long) noexcept -> double { return 0.0; };
 
     using Traits = FunctionTraits<decltype(fn)>;
     using Tuple = Traits::Pack<tuple>;
