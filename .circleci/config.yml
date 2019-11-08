@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Run Cppcheck
+          name: Run Cppcheck / ClangFormat
           command: |
             mkdir -p build
             cd build
@@ -16,6 +16,9 @@ jobs:
               -DCMAKE_C_COMPILER=gcc-8 \
               -DCMAKE_CXX_COMPILER=g++-8
             make -j2 cppcheck
+            make clang-format &&
+              [[ -z "$(git status --porcelain)" ]] ||
+                { echo "Please ensure files are formated by running target clang-format"; exit 1; }
   test_clang_debug:
     docker:
       - image: registry.gitlab.com/reactivemarkets/public-registry/toolchain-cpp:debian

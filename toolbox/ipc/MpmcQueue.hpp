@@ -226,19 +226,19 @@ class MpmcQueue {
     bool pop(ValueT& val) noexcept
     {
         static_assert(std::is_nothrow_move_assignable_v<ValueT>);
-        return read([&val](ValueT && ref) noexcept { val = std::move(ref); });
+        return read([&val](ValueT&& ref) noexcept { val = std::move(ref); });
     }
     /// Returns false if capacity is exceeded.
     bool push(const ValueT& val) noexcept
     {
         static_assert(std::is_nothrow_copy_assignable_v<ValueT>);
-        return write([&val](ValueT & ref) noexcept { ref = val; });
+        return write([&val](ValueT& ref) noexcept { ref = val; });
     }
     /// Returns false if capacity is exceeded.
     bool push(ValueT&& val) noexcept
     {
         static_assert(std::is_nothrow_move_assignable_v<ValueT>);
-        return write([&val](ValueT & ref) noexcept { ref = std::move(val); });
+        return write([&val](ValueT& ref) noexcept { ref = std::move(val); });
     }
 
   private:
