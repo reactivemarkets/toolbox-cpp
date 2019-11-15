@@ -56,21 +56,21 @@ class EchoConn {
         try {
             if (events & (EventIn | EventHup)) {
                 const auto size = os::read(fd, buf_.prepare(2048));
-                if (size > 0) {
-                    // Commit actual bytes read.
-                    buf_.commit(size);
+                if (size == 0) {
+                    dispose(now);
+                    return;
+                }
+                // Commit actual bytes read.
+                buf_.commit(size);
 
-                    // Parse each buffered line.
-                    auto fn = [this](std::string_view line) {
-                        ++count_;
-                        // Echo bytes back to client.
-                        TOOLBOX_INFO << "received: " << line;
-                    };
-                    buf_.consume(parse_line(buf_.str(), fn));
-                    if (count_ == 5) {
-                        dispose(now);
-                    }
-                } else {
+                // Parse each buffered line.
+                auto fn = [this](std::string_view line) {
+                    ++count_;
+                    // Echo bytes back to client.
+                    TOOLBOX_INFO << "received: " << line;
+                };
+                buf_.consume(parse_line(buf_.str(), fn));
+                if (count_ == 5) {
                     dispose(now);
                 }
             }
