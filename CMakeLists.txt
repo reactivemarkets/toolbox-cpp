@@ -128,13 +128,17 @@ include_directories(
 if(NOT TOOLBOX_BUILD_SHARED)
   set(Boost_USE_STATIC_LIBS ON)
 endif()
+set(Boost_REALPATH ON)
+
 find_package(Boost 1.67 REQUIRED COMPONENTS date_time unit_test_framework)
 include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
-install_libraries("${Boost_DATE_TIME_LIBRARY}")
+install_libraries("${Boost_DATE_TIME_LIBRARY_RELEASE}" "${Boost_UNIT_TEST_FRAMEWORK_LIBRARY_RELEASE}")
+message(STATUS "boost_date_time: ${Boost_DATE_TIME_LIBRARY_RELEASE}")
+message(STATUS "boost_unit_test_framework: ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY_RELEASE}")
 
 add_definitions(-DBOOST_NO_AUTO_PTR=1 -DBOOST_NO_RTTI=1 -DBOOST_NO_TYPEID=1)
 add_definitions(-DBOOST_ASIO_DISABLE_THREADS=1 -DBOOST_ASIO_HEADER_ONLY=1)
-if(NOT "${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}" MATCHES "\\.a$")
+if(NOT "${Boost_UNIT_TEST_FRAMEWORK_LIBRARY_RELEASE}" MATCHES "\\.a$")
   add_definitions(-DBOOST_TEST_DYN_LINK)
 endif()
 
