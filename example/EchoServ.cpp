@@ -57,30 +57,29 @@ class EchoConn {
     {
         try {
             if (events & (EventIn | EventHup)) {
-
                 const auto size = os::read(fd, buf_.prepare(2048));
-                if (size > 0) {
-                    // Commit actual bytes read.
-                    buf_.commit(size);
-
-                    // Parse each buffered line.
-                    auto fn = [fd](std::string_view line) {
-                        // Echo bytes back to client.
-                        std::string buf{line};
-                        buf += '\n';
-                        if (os::write(fd, {buf.data(), buf.size()}) < buf.size()) {
-                            throw runtime_error{"partial write"};
-                        }
-                    };
-                    buf_.consume(parse_line(buf_.str(), fn));
-
-                    // Reset timer.
-                    tmr_.cancel();
-                    tmr_ = reactor_.timer(now.mono_time() + IdleTimeout, Priority::Low,
-                                          bind<&EchoConn::on_timer>(this));
-                } else {
+                if (size == 0) {
                     dispose(now);
+                    return;
                 }
+                // Commit actual bytes read.
+                buf_.commit(size);
+
+                // Parse each buffered line.
+                auto fn = [fd](std::string_view line) {
+                    // Echo bytes back to client.
+                    std::string buf{line};
+                    buf += '\n';
+                    if (os::write(fd, {buf.data(), buf.size()}) < buf.size()) {
+                        throw runtime_error{"partial write"};
+                    }
+                };
+                buf_.consume(parse_line(buf_.str(), fn));
+
+                // Reset timer.
+                tmr_.cancel();
+                tmr_ = reactor_.timer(now.mono_time() + IdleTimeout, Priority::Low,
+                                      bind<&EchoConn::on_timer>(this));
             }
         } catch (const std::exception& e) {
             TOOLBOX_ERROR << "exception: " << e.what();

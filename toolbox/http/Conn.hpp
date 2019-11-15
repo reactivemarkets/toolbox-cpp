@@ -177,6 +177,21 @@ class BasicHttpConn
     void on_io_event(CyclTime now, int fd, unsigned events)
     {
         try {
+            if (events & (EventIn | EventHup)) {
+                const auto size = os::read(fd, in_.prepare(2048));
+                if (size == 0) {
+                    dispose(now);
+                    return;
+                }
+                // Commit actual bytes read.
+                in_.commit(size);
+                in_.consume(parse(now, in_.data()));
+
+                // Reset timer.
+                tmr_.cancel();
+                tmr_ = reactor_.timer(now.mono_time() + IdleTimeout, Priority::Low,
+                                      bind<&BasicHttpConn::on_timer>(this));
+            }
             if (events & EventOut) {
                 out_.consume(os::write(fd, out_.data()));
                 if (out_.empty()) {
@@ -186,21 +201,6 @@ class BasicHttpConn
                     } else {
                         dispose(now);
                     }
-                }
-            }
-            if (events & (EventIn | EventHup)) {
-                const auto size = os::read(fd, in_.prepare(2048));
-                if (size > 0) {
-                    // Commit actual bytes read.
-                    in_.commit(size);
-                    in_.consume(parse(now, in_.data()));
-
-                    // Reset timer.
-                    tmr_.cancel();
-                    tmr_ = reactor_.timer(now.mono_time() + IdleTimeout, Priority::Low,
-                                          bind<&BasicHttpConn::on_timer>(this));
-                } else {
-                    dispose(now);
                 }
             }
         } catch (const HttpException&) {
