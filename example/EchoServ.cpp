@@ -120,7 +120,7 @@ class EchoServ : public StreamAcceptor<EchoServ> {
     }
 
   private:
-    void on_sock_init(CyclTime now, IoSock& sock) {}
+    void on_sock_prepare(CyclTime now, IoSock& sock) {}
     void on_sock_accept(CyclTime now, IoSock&& sock, const Endpoint& ep)
     {
         TOOLBOX_INFO << "connection opened: " << ep;

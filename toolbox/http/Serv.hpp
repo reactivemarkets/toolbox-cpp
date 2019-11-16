@@ -60,7 +60,7 @@ class BasicHttpServ : public StreamAcceptor<BasicHttpServ<ConnT, AppT>> {
     BasicHttpServ& operator=(BasicHttpServ&&) = delete;
 
   private:
-    void on_sock_init(CyclTime now, IoSock& sock) {}
+    void on_sock_prepare(CyclTime now, IoSock& sock) {}
     void on_sock_accept(CyclTime now, IoSock&& sock, const Endpoint& ep)
     {
         auto* const conn = new Conn{now, reactor_, std::move(sock), ep, app_};
