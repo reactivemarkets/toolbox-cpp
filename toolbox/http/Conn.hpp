@@ -207,10 +207,12 @@ class BasicHttpConn
                 if (want_write_) {
                     // Restore read-only state after the buffer has been drained.
                     sub_.set_events(EventIn);
+                    want_write_ = false;
                 }
             } else if (!want_write_) {
                 // Set the state to read-write if the entire buffer could not be written.
                 sub_.set_events(EventIn | EventOut);
+                want_write_ = true;
             }
         } catch (const HttpException&) {
             // Do not call on_http_error() here, because it will have already been called in one of
