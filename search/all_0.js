@@ -16,7 +16,7 @@ var searchData=
   ['alwaysfalse',['AlwaysFalse',['../structtoolbox_1_1util_1_1AlwaysFalse.html',1,'toolbox::util']]],
   ['app_2ecpp',['App.cpp',['../App_8cpp.html',1,'']]],
   ['app_2ehpp',['App.hpp',['../App_8hpp.html',1,'']]],
-  ['app_5f',['app_',['../classtoolbox_1_1http_1_1BasicHttpConn.html#a212604b8d665d7beb151c9fb08b7e019',1,'toolbox::http::BasicHttpConn::app_()'],['../classtoolbox_1_1http_1_1BasicHttpServ.html#a9aebb824d60b3b27baf34b7e09684413',1,'toolbox::http::BasicHttpServ::app_()']]],
+  ['app_5f',['app_',['../classtoolbox_1_1http_1_1BasicHttpConn.html#a457483d26f5e730953a19c244bacea53',1,'toolbox::http::BasicHttpConn::app_()'],['../classtoolbox_1_1http_1_1BasicHttpServ.html#a9aebb824d60b3b27baf34b7e09684413',1,'toolbox::http::BasicHttpServ::app_()']]],
   ['append',['append',['../classtoolbox_1_1util_1_1VarAccum.html#ab7b908754264400a5b870f4ee5423648',1,'toolbox::util::VarAccum::append(double val) noexcept'],['../classtoolbox_1_1util_1_1VarAccum.html#ad253f2f453142ebf2bc55a687bbdb9ed',1,'toolbox::util::VarAccum::append(double first, ArgsT... args) noexcept'],['../classtoolbox_1_1util_1_1StringBuf.html#a3422516d6db952cafa1179751a4cda3c',1,'toolbox::util::StringBuf::append()'],['../Math_8ut_8cpp.html#a57261b541822acf7675b3e0560a38f55',1,'append():&#160;Math.ut.cpp']]],
   ['append_5fbody',['append_body',['../classtoolbox_1_1http_1_1HttpRequest.html#ab0802a9e41692198e3a90807af5c64a7',1,'toolbox::http::HttpRequest']]],
   ['append_5fheader_5ffield',['append_header_field',['../classtoolbox_1_1http_1_1HttpRequest.html#aee8ff0f43188dd12076b0e23e1d4c4e2',1,'toolbox::http::HttpRequest']]],
