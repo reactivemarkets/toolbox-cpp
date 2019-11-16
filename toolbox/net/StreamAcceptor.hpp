@@ -55,7 +55,7 @@ class StreamAcceptor {
     {
         Endpoint ep;
         IoSock sock{os::accept(fd, ep), serv_.family()};
-        static_cast<DerivedT*>(this)->on_sock_init(now, sock);
+        static_cast<DerivedT*>(this)->on_sock_prepare(now, sock);
         sock.set_non_block();
         if (sock.is_ip_family()) {
             set_tcp_no_delay(sock.get(), true);
