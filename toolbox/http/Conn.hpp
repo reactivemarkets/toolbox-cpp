@@ -56,10 +56,10 @@ class BasicHttpConn
 
     BasicHttpConn(CyclTime now, Reactor& r, IoSock&& sock, const Endpoint& ep, App& app)
     : BasicHttpParser<BasicHttpConn<RequestT, AppT>>{HttpType::Request}
-    , reactor_(r)
+    , reactor_{r}
     , sock_{std::move(sock)}
     , ep_{ep}
-    , app_(app)
+    , app_{app}
     {
         sub_ = r.subscribe(*sock_, EventIn, bind<&BasicHttpConn::on_io_event>(this));
         tmr_ = r.timer(now.mono_time() + IdleTimeout, Priority::Low,
@@ -79,7 +79,13 @@ class BasicHttpConn
     void clear() noexcept { req_.clear(); }
     void dispose(CyclTime now) noexcept
     {
-        app_.on_http_disconnect(now, ep_);
+        app_.on_http_disconnect(now, ep_); // noexcept
+        // Best effort to drain any data still pending in the write buffer before the socket is
+        // closed.
+        if (!out_.empty()) {
+            std::error_code ec;
+            os::write(sock_.get(), out_.data(), ec); // noexcept
+        }
         delete this;
     }
 
@@ -89,7 +95,8 @@ class BasicHttpConn
     ~BasicHttpConn() = default;
     bool on_message_begin(CyclTime now) noexcept
     {
-        ++pending_;
+        in_progress_ = true;
+        req_.clear();
         return true;
     }
     bool on_url(CyclTime now, std::string_view sv) noexcept
@@ -100,7 +107,7 @@ class BasicHttpConn
             ret = true;
         } catch (const std::exception& e) {
             app_.on_http_error(now, ep_, e, os_);
-            flush_and_dispose(now);
+            dispose(now);
         }
         return ret;
     }
@@ -117,7 +124,7 @@ class BasicHttpConn
             ret = true;
         } catch (const std::exception& e) {
             app_.on_http_error(now, ep_, e, os_);
-            flush_and_dispose(now);
+            dispose(now);
         }
         return ret;
     }
@@ -129,7 +136,7 @@ class BasicHttpConn
             ret = true;
         } catch (const std::exception& e) {
             app_.on_http_error(now, ep_, e, os_);
-            flush_and_dispose(now);
+            dispose(now);
         }
         return ret;
     }
@@ -146,7 +153,7 @@ class BasicHttpConn
             ret = true;
         } catch (const std::exception& e) {
             app_.on_http_error(now, ep_, e, os_);
-            flush_and_dispose(now);
+            dispose(now);
         }
         return ret;
     }
@@ -154,22 +161,14 @@ class BasicHttpConn
     {
         bool ret{false};
         try {
-            --pending_;
+            in_progress_ = false;
             req_.flush(); // May throw.
-
-            const auto was_empty = out_.empty();
             app_.on_http_message(now, ep_, req_, os_);
-
-            if (was_empty) {
-                // May throw.
-                sub_.set_events(EventIn | EventOut);
-            }
             ret = true;
         } catch (const std::exception& e) {
             app_.on_http_error(now, ep_, e, os_);
-            flush_and_dispose(now);
+            dispose(now);
         }
-        req_.clear();
         return ret;
     }
     bool on_chunk_header(CyclTime now, std::size_t len) noexcept { return true; }
@@ -178,37 +177,47 @@ class BasicHttpConn
     {
         try {
             if (events & (EventIn | EventHup)) {
-                const auto size = os::read(fd, in_.prepare(2048));
+                const auto size = os::read(fd, in_.prepare(2944));
                 if (size == 0) {
+                    // The socket is closed.
+                    // Clear the write buffer, so that dispose() does not try to flush.
+                    out_.clear();
                     dispose(now);
                     return;
                 }
                 // Commit actual bytes read.
                 in_.commit(size);
                 in_.consume(parse(now, in_.data()));
-
                 // Reset timer.
-                tmr_.cancel();
                 tmr_ = reactor_.timer(now.mono_time() + IdleTimeout, Priority::Low,
                                       bind<&BasicHttpConn::on_timer>(this));
             }
-            if (events & EventOut) {
-                out_.consume(os::write(fd, out_.data()));
-                if (out_.empty()) {
-                    if (!dispose_ && (pending_ || should_keep_alive())) {
-                        // May throw.
-                        sub_.set_events(EventIn);
-                    } else {
-                        dispose(now);
-                    }
+            // Do not attempt to flush the output buffer if it is empty or if we are still waiting
+            // for the socket to become writable.
+            if (out_.empty() || (want_write_ && !(events & EventOut))) {
+                return;
+            }
+            // Attempt to flush buffered data.
+            out_.consume(os::write(fd, out_.data()));
+            if (out_.empty()) {
+                if (!in_progress_ && !should_keep_alive()) {
+                    dispose(now);
+                    return;
                 }
+                if (want_write_) {
+                    // Restore read-only state after the buffer has been drained.
+                    sub_.set_events(EventIn);
+                }
+            } else if (!want_write_) {
+                // Set the state to read-write if the entire buffer could not be written.
+                sub_.set_events(EventIn | EventOut);
             }
         } catch (const HttpException&) {
             // Do not call on_http_error() here, because it will have already been called in one of
             // the noexcept parser callback functions.
         } catch (const std::exception& e) {
             app_.on_http_error(now, ep_, e, os_);
-            flush_and_dispose(now);
+            dispose(now);
         }
     }
     void on_timer(CyclTime now, Timer& tmr)
@@ -216,30 +225,14 @@ class BasicHttpConn
         app_.on_http_timeout(now, ep_);
         dispose(now);
     }
-    void flush_and_dispose(CyclTime now) noexcept
-    {
-        if (out_.empty()) {
-            dispose(now);
-        } else {
-            std::error_code ec;
-            sub_.set_events(EventIn | EventOut, ec);
-            if (ec) {
-                // Failed to set events.
-                dispose(now);
-            } else {
-                dispose_ = true;
-            }
-        }
-    }
 
     Reactor& reactor_;
     IoSock sock_;
     Endpoint ep_;
     App& app_;
     Reactor::Handle sub_;
+    bool in_progress_{false}, want_write_{false};
     Timer tmr_;
-    bool dispose_{false};
-    int pending_{0};
     Buffer in_, out_;
     Request req_;
     HttpStream os_{out_};

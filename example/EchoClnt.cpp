@@ -55,7 +55,7 @@ class EchoConn {
     {
         try {
             if (events & (EventIn | EventHup)) {
-                const auto size = os::read(fd, buf_.prepare(2048));
+                const auto size = os::read(fd, buf_.prepare(2944));
                 if (size == 0) {
                     dispose(now);
                     return;
