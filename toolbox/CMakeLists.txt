@@ -52,6 +52,7 @@ set(lib_SOURCES
   http/Types.cpp
   http/Url.cpp
   io/Buffer.cpp
+  io/Disposable.cpp
   io/Epoll.cpp
   io/EpollReactor.cpp
   io/Event.cpp
@@ -212,6 +213,7 @@ set(test_SOURCES
   http/Types.ut.cpp
   http/Url.ut.cpp
   io/Buffer.ut.cpp
+  io/Disposable.ut.cpp
   io/EpollReactor.ut.cpp
   io/Handle.ut.cpp
   io/Timer.ut.cpp

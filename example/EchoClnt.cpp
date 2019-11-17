@@ -72,6 +72,7 @@ class EchoConn {
                 buf_.consume(parse_line(buf_.str(), fn));
                 if (count_ == 5) {
                     dispose(now);
+                    return;
                 }
             }
         } catch (const std::exception& e) {

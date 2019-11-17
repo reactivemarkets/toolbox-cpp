@@ -20,6 +20,7 @@
 #include <toolbox/http/Parser.hpp>
 #include <toolbox/http/Request.hpp>
 #include <toolbox/http/Stream.hpp>
+#include <toolbox/io/Disposable.hpp>
 #include <toolbox/io/Event.hpp>
 #include <toolbox/io/Reactor.hpp>
 #include <toolbox/net/Endpoint.hpp>
@@ -35,8 +36,10 @@ class HttpAppBase;
 template <typename RequestT, typename AppT>
 class BasicHttpConn
 : public MemAlloc
+, public BasicDisposable<BasicHttpConn<RequestT, AppT>>
 , BasicHttpParser<BasicHttpConn<RequestT, AppT>> {
 
+    friend class BasicDisposable<BasicHttpConn<RequestT, AppT>>;
     friend class BasicHttpParser<BasicHttpConn<RequestT, AppT>>;
 
     using Request = RequestT;
@@ -77,7 +80,10 @@ class BasicHttpConn
 
     const Endpoint& endpoint() const noexcept { return ep_; }
     void clear() noexcept { req_.clear(); }
-    void dispose(CyclTime now) noexcept
+    boost::intrusive::list_member_hook<AutoUnlinkOption> list_hook;
+
+  protected:
+    void dispose_now(CyclTime now) noexcept
     {
         app_.on_http_disconnect(now, ep_); // noexcept
         // Best effort to drain any data still pending in the write buffer before the socket is
@@ -88,8 +94,6 @@ class BasicHttpConn
         }
         delete this;
     }
-
-    boost::intrusive::list_member_hook<AutoUnlinkOption> list_hook;
 
   private:
     ~BasicHttpConn() = default;
@@ -107,7 +111,7 @@ class BasicHttpConn
             ret = true;
         } catch (const std::exception& e) {
             app_.on_http_error(now, ep_, e, os_);
-            dispose(now);
+            this->dispose(now);
         }
         return ret;
     }
@@ -124,7 +128,7 @@ class BasicHttpConn
             ret = true;
         } catch (const std::exception& e) {
             app_.on_http_error(now, ep_, e, os_);
-            dispose(now);
+            this->dispose(now);
         }
         return ret;
     }
@@ -136,7 +140,7 @@ class BasicHttpConn
             ret = true;
         } catch (const std::exception& e) {
             app_.on_http_error(now, ep_, e, os_);
-            dispose(now);
+            this->dispose(now);
         }
         return ret;
     }
@@ -153,7 +157,7 @@ class BasicHttpConn
             ret = true;
         } catch (const std::exception& e) {
             app_.on_http_error(now, ep_, e, os_);
-            dispose(now);
+            this->dispose(now);
         }
         return ret;
     }
@@ -167,7 +171,7 @@ class BasicHttpConn
             ret = true;
         } catch (const std::exception& e) {
             app_.on_http_error(now, ep_, e, os_);
-            dispose(now);
+            this->dispose(now);
         }
         return ret;
     }
@@ -175,6 +179,7 @@ class BasicHttpConn
     bool on_chunk_end(CyclTime now) noexcept { return true; }
     void on_io_event(CyclTime now, int fd, unsigned events)
     {
+        auto lock = this->lock_this(now);
         try {
             if (events & (EventIn | EventHup)) {
                 const auto size = os::read(fd, in_.prepare(2944));
@@ -182,7 +187,7 @@ class BasicHttpConn
                     // The socket is closed.
                     // Clear the write buffer, so that dispose() does not try to flush.
                     out_.clear();
-                    dispose(now);
+                    this->dispose(now);
                     return;
                 }
                 // Commit actual bytes read.
@@ -201,7 +206,7 @@ class BasicHttpConn
             out_.consume(os::write(fd, out_.data()));
             if (out_.empty()) {
                 if (!in_progress_ && !should_keep_alive()) {
-                    dispose(now);
+                    this->dispose(now);
                     return;
                 }
                 if (want_write_) {
@@ -219,13 +224,14 @@ class BasicHttpConn
             // the noexcept parser callback functions.
         } catch (const std::exception& e) {
             app_.on_http_error(now, ep_, e, os_);
-            dispose(now);
+            this->dispose(now);
         }
     }
     void on_timer(CyclTime now, Timer& tmr)
     {
+        auto lock = this->lock_this(now);
         app_.on_http_timeout(now, ep_);
-        dispose(now);
+        this->dispose(now);
     }
 
     Reactor& reactor_;
