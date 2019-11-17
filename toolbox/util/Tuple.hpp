@@ -30,7 +30,7 @@ void tuple_apply(const TupleT& tpl, const FnT& f)
     f(v);
 }
 
-/// calling fn over each tuple element.
+/// Calling fn over each tuple element.
 /// N.B the limitation is function object must be an template lambda or function, accept
 /// all the types in the tuple.
 template <typename TupleT, typename FnT, std::size_t IndexN = 0>
@@ -42,6 +42,8 @@ void tuple_for_each(const TupleT& tpl, const FnT& f)
         tuple_for_each<TupleT, FnT, IndexN + 1>(tpl, f);
     }
 }
+
 } // namespace util
 } // namespace toolbox
-#endif //TOOLBOX_UTIL_TUPLE_HPP
+
+#endif // TOOLBOX_UTIL_TUPLE_HPP
