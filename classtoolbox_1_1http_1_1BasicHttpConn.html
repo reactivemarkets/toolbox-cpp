@@ -69,6 +69,7 @@ $(function() {
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classtoolbox_1_1http_1_1BasicHttpConn-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -83,7 +84,7 @@ Inheritance diagram for toolbox::http::BasicHttpConn&lt; RequestT, AppT &gt;:</d
  <div class="center">
   <img src="classtoolbox_1_1http_1_1BasicHttpConn.png" usemap="#toolbox::http::BasicHttpConn_3C_20RequestT_2C_20AppT_20_3E_map" alt=""/>
   <map id="toolbox::http::BasicHttpConn_3C_20RequestT_2C_20AppT_20_3E_map" name="toolbox::http::BasicHttpConn_3C_20RequestT_2C_20AppT_20_3E_map">
-<area href="classtoolbox_1_1http_1_1BasicHttpParser.html" alt="toolbox::http::BasicHttpParser&lt; BasicHttpConn&lt; RequestT, AppT &gt; &gt;" shape="rect" coords="406,0,802,24"/>
+<area href="classtoolbox_1_1http_1_1BasicHttpParser.html" alt="toolbox::http::BasicHttpParser&lt; BasicHttpConn&lt; RequestT, AppT &gt; &gt;" shape="rect" coords="812,0,1208,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -108,8 +109,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7036cb567c52f51e76e2c89354e28984"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cbf71da27a3c83885c908ae2234a111"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1http_1_1BasicHttpConn.html#a5cbf71da27a3c83885c908ae2234a111">clear</a> () noexcept</td></tr>
 <tr class="separator:a5cbf71da27a3c83885c908ae2234a111"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e8c12c312bb0e2480852ae83bad575a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1http_1_1BasicHttpConn.html#a0e8c12c312bb0e2480852ae83bad575a">dispose</a> (CyclTime now) noexcept</td></tr>
-<tr class="separator:a0e8c12c312bb0e2480852ae83bad575a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -124,8 +123,15 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a7629c88a8270fa4beb1969b6173d3e71"><td class="memItemLeft" align="right" valign="top">boost::intrusive::list_member_hook&lt; AutoUnlinkOption &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1http_1_1BasicHttpConn.html#a7629c88a8270fa4beb1969b6173d3e71">list_hook</a></td></tr>
 <tr class="separator:a7629c88a8270fa4beb1969b6173d3e71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a109c8b66be813580f9fda4d897d9a86a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1http_1_1BasicHttpConn.html#a109c8b66be813580f9fda4d897d9a86a">dispose_now</a> (CyclTime now) noexcept</td></tr>
+<tr class="separator:a109c8b66be813580f9fda4d897d9a86a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
+<tr class="memitem:a7fc3493e7a90e13bf69b5f28f2c01b85"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1http_1_1BasicHttpConn.html#a7fc3493e7a90e13bf69b5f28f2c01b85">BasicDisposable&lt; BasicHttpConn&lt; RequestT, AppT &gt; &gt;</a></td></tr>
+<tr class="separator:a7fc3493e7a90e13bf69b5f28f2c01b85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f97b26085a035e10ae215b65024c160"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1http_1_1BasicHttpConn.html#a6f97b26085a035e10ae215b65024c160">BasicHttpParser&lt; BasicHttpConn&lt; RequestT, AppT &gt; &gt;</a></td></tr>
 <tr class="separator:a6f97b26085a035e10ae215b65024c160"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -134,7 +140,7 @@ Friends</h2></td></tr>
 class toolbox::http::BasicHttpConn&lt; RequestT, AppT &gt;</h3>
 
 
-<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00036">36</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00037">37</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a3908dc0198dff6875f920ad013dcb1f0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3908dc0198dff6875f920ad013dcb1f0">&#9670;&nbsp;</a></span>Protocol</h2>
@@ -150,7 +156,7 @@ template&lt;typename RequestT , typename AppT &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00054">54</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00057">57</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
 
 </div>
 </div>
@@ -168,7 +174,7 @@ template&lt;typename RequestT , typename AppT &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00055">55</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00058">58</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
 
 </div>
 </div>
@@ -227,7 +233,7 @@ template&lt;typename RequestT , typename AppT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00057">57</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00060">60</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
 
 </div>
 </div>
@@ -341,7 +347,7 @@ template&lt;typename RequestT , typename AppT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00078">78</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00081">81</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
 
 </div>
 </div>
@@ -370,12 +376,12 @@ template&lt;typename RequestT , typename AppT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00079">79</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00082">82</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a0e8c12c312bb0e2480852ae83bad575a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e8c12c312bb0e2480852ae83bad575a">&#9670;&nbsp;</a></span>dispose()</h2>
+<a id="a109c8b66be813580f9fda4d897d9a86a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a109c8b66be813580f9fda4d897d9a86a">&#9670;&nbsp;</a></span>dispose_now()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -386,7 +392,7 @@ template&lt;typename RequestT , typename AppT &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classtoolbox_1_1http_1_1BasicHttpConn.html">toolbox::http::BasicHttpConn</a>&lt; RequestT, AppT &gt;::dispose </td>
+          <td class="memname">void <a class="el" href="classtoolbox_1_1http_1_1BasicHttpConn.html">toolbox::http::BasicHttpConn</a>&lt; RequestT, AppT &gt;::dispose_now </td>
           <td>(</td>
           <td class="paramtype">CyclTime&#160;</td>
           <td class="paramname"><em>now</em></td><td>)</td>
@@ -395,16 +401,42 @@ template&lt;typename RequestT , typename AppT &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00080">80</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00086">86</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a7fc3493e7a90e13bf69b5f28f2c01b85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fc3493e7a90e13bf69b5f28f2c01b85">&#9670;&nbsp;</a></span>BasicDisposable< BasicHttpConn< RequestT, AppT > ></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename RequestT , typename AppT &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class BasicDisposable&lt; <a class="el" href="classtoolbox_1_1http_1_1BasicHttpConn.html">BasicHttpConn</a>&lt; RequestT, AppT &gt; &gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00042">42</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a6f97b26085a035e10ae215b65024c160"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6f97b26085a035e10ae215b65024c160">&#9670;&nbsp;</a></span>BasicHttpParser< BasicHttpConn< RequestT, AppT > ></h2>
 
@@ -427,7 +459,7 @@ template&lt;typename RequestT , typename AppT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00040">40</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00043">43</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
 
 </div>
 </div>
@@ -446,7 +478,9 @@ template&lt;typename RequestT , typename AppT &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00059">59</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00062">62</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Conn_8hpp_source.html#l00086">toolbox::http::BasicHttpConn&lt; RequestT, AppT &gt;::dispose_now()</a>.</p>
 
 </div>
 </div>
@@ -464,9 +498,9 @@ template&lt;typename RequestT , typename AppT &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00060">60</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00063">63</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Conn_8hpp_source.html#l00080">toolbox::http::BasicHttpConn&lt; RequestT, AppT &gt;::dispose()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Conn_8hpp_source.html#l00086">toolbox::http::BasicHttpConn&lt; RequestT, AppT &gt;::dispose_now()</a>.</p>
 
 </div>
 </div>
@@ -484,9 +518,9 @@ template&lt;typename RequestT , typename AppT &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00061">61</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00064">64</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Conn_8hpp_source.html#l00080">toolbox::http::BasicHttpConn&lt; RequestT, AppT &gt;::dispose()</a>, and <a class="el" href="Conn_8hpp_source.html#l00078">toolbox::http::BasicHttpConn&lt; RequestT, AppT &gt;::endpoint()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Conn_8hpp_source.html#l00086">toolbox::http::BasicHttpConn&lt; RequestT, AppT &gt;::dispose_now()</a>, and <a class="el" href="Conn_8hpp_source.html#l00081">toolbox::http::BasicHttpConn&lt; RequestT, AppT &gt;::endpoint()</a>.</p>
 
 </div>
 </div>
@@ -504,9 +538,9 @@ template&lt;typename RequestT , typename AppT &gt; </div>
       </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">{app}</div><div class="line">    {</div><div class="line">        sub_ = r.subscribe(*<a class="code" href="classtoolbox_1_1http_1_1BasicHttpConn.html#a88b3f6e9e607dcb8abb8c7ef5b256b46">sock_</a>, <a class="code" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa39bad8c1517b28a926ce6c5e3d07a60c">EventIn</a>, bind&lt;&amp;BasicHttpConn::on_io_event&gt;(<span class="keyword">this</span>));</div><div class="line">        tmr_ = r.timer(now.mono_time() + IdleTimeout, Priority::Low,</div><div class="line">                       bind&lt;&amp;BasicHttpConn::on_timer&gt;(<span class="keyword">this</span>));</div><div class="line">        app.on_http_connect(now, <a class="code" href="classtoolbox_1_1http_1_1BasicHttpConn.html#af5ae638f71b82cddefaeaf5267e69d03">ep_</a>);</div><div class="line">    }</div><div class="line"></div><div class="line">    </div><div class="line">    <a class="code" href="classtoolbox_1_1http_1_1BasicHttpConn.html#a2339a78f1bdae91d32d3531d6c4ba6d9">BasicHttpConn</a>(<span class="keyword">const</span> <a class="code" href="classtoolbox_1_1http_1_1BasicHttpConn.html#a2339a78f1bdae91d32d3531d6c4ba6d9">BasicHttpConn</a>&amp;) = <span class="keyword">delete</span></div></div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00062">62</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00065">65</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Conn_8hpp_source.html#l00080">toolbox::http::BasicHttpConn&lt; RequestT, AppT &gt;::dispose()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Conn_8hpp_source.html#l00086">toolbox::http::BasicHttpConn&lt; RequestT, AppT &gt;::dispose_now()</a>.</p>
 
 </div>
 </div>
@@ -524,7 +558,7 @@ template&lt;typename RequestT , typename AppT &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00092">92</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00083">83</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
 
 </div>
 </div>

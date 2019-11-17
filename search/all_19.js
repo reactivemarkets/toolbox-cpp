@@ -4,6 +4,7 @@ var searchData=
   ['_7eargvlexer',['~ArgvLexer',['../classtoolbox_1_1util_1_1ArgvLexer.html#a36893ad8d21aabf9d41006f269cfa678',1,'toolbox::util::ArgvLexer']]],
   ['_7eargvsequence',['~ArgvSequence',['../classtoolbox_1_1util_1_1ArgvSequence.html#a56c251e812cbd8ce963cafbebcc978bf',1,'toolbox::util::ArgvSequence']]],
   ['_7earrayview',['~ArrayView',['../classtoolbox_1_1util_1_1ArrayView.html#a4195bbf5158ece45e625ace0c683d2e1',1,'toolbox::util::ArrayView']]],
+  ['_7ebasicdisposable',['~BasicDisposable',['../classtoolbox_1_1io_1_1BasicDisposable.html#a3ea607b5a44b72189428cbac277a7f30',1,'toolbox::io::BasicDisposable']]],
   ['_7ebasichandle',['~BasicHandle',['../classtoolbox_1_1io_1_1BasicHandle.html#a8d6fa5b51e5a6a8aaf264a3565c9cc76',1,'toolbox::io::BasicHandle']]],
   ['_7ebasichttpparser',['~BasicHttpParser',['../classtoolbox_1_1http_1_1BasicHttpParser.html#adc38aac28dfec872fd39af06ac17dbba',1,'toolbox::http::BasicHttpParser']]],
   ['_7ebasichttpserv',['~BasicHttpServ',['../classtoolbox_1_1http_1_1BasicHttpServ.html#aac366c873d067187aa26d002c712add2',1,'toolbox::http::BasicHttpServ']]],

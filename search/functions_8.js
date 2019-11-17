@@ -14,6 +14,7 @@ var searchData=
   ['ip6',['ip6',['../structtoolbox_1_1net_1_1DgramProtocol.html#a6ea59137e9e774dcff0ddcc2f22ce3a8',1,'toolbox::net::DgramProtocol::ip6()'],['../structtoolbox_1_1net_1_1StreamProtocol.html#a2108bab1ccf6ac79e3c825ad6ebd35da',1,'toolbox::net::StreamProtocol::ip6()']]],
   ['ipmcastgroup',['IpMcastGroup',['../structtoolbox_1_1net_1_1IpMcastGroup.html#a87c6b5cf27e05ae7cdca1977732d8b6e',1,'toolbox::net::IpMcastGroup::IpMcastGroup(const IpAddr &amp;addr, unsigned ifindex=0) noexcept'],['../structtoolbox_1_1net_1_1IpMcastGroup.html#ad13e470fb8f5783a5d4bd589475653dd',1,'toolbox::net::IpMcastGroup::IpMcastGroup(const IpAddr &amp;addr, const char *ifname, std::error_code &amp;ec) noexcept'],['../structtoolbox_1_1net_1_1IpMcastGroup.html#a91be551ca8480d10fe0fa1b2d884473a',1,'toolbox::net::IpMcastGroup::IpMcastGroup(const IpAddr &amp;addr, const char *ifname)']]],
   ['is_5fip_5ffamily',['is_ip_family',['../structtoolbox_1_1net_1_1Sock.html#af22d859c7b03e2b9a93dfd18c4679243',1,'toolbox::net::Sock']]],
+  ['is_5flocked',['is_locked',['../classtoolbox_1_1io_1_1BasicDisposable.html#a7b678cadc1f1bf1731df88d00eec90b0',1,'toolbox::io::BasicDisposable']]],
   ['is_5flog_5flevel',['is_log_level',['../namespacetoolbox_1_1sys.html#a303a8bbce54d723f35e8b944b57daff4',1,'toolbox::sys']]],
   ['is_5fpow2',['is_pow2',['../namespacetoolbox_1_1util.html#ae394a980aa18b25b418f9fe0010575f5',1,'toolbox::util']]],
   ['is_5fready',['is_ready',['../namespacetoolbox_1_1net.html#af39e6dfe6ec0eb1bef013811ce0e06ce',1,'toolbox::net']]],
