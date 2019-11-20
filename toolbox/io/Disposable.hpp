@@ -55,14 +55,11 @@ class BasicDisposable {
     ~BasicDisposable() = default;
 
     /// Returns true if the lock is held or the object has been disposed.
-    bool is_locked() const noexcept
-    {
-        return locks_ > 0;
-    }
+    bool is_locked() const noexcept { return locks_ > 0; }
 
     /// Returns a lock that prevents the disposable instance from being deleted while the lock is
     /// held.
-    auto lock_this(CyclTime now) noexcept
+    [[nodiscard]] auto lock_this(CyclTime now) noexcept
     {
         ++locks_;
         return make_finally([this, now]() noexcept {

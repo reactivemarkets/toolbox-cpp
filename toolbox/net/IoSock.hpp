@@ -29,37 +29,37 @@ struct IoSock : Sock {
 
     IoSock() noexcept = default;
 
-    void shutdown(int how) { return os::shutdown(*sock_, how); }
+    void shutdown(int how) { return os::shutdown(get(), how); }
 
     ssize_t recv(void* buf, std::size_t len, int flags, std::error_code& ec) noexcept
     {
-        return os::recv(*sock_, buf, len, flags, ec);
+        return os::recv(get(), buf, len, flags, ec);
     }
     std::size_t recv(void* buf, std::size_t len, int flags)
     {
-        return os::recv(*sock_, buf, len, flags);
+        return os::recv(get(), buf, len, flags);
     }
 
     ssize_t recv(MutableBuffer buf, int flags, std::error_code& ec) noexcept
     {
-        return os::recv(*sock_, buf, flags, ec);
+        return os::recv(get(), buf, flags, ec);
     }
-    std::size_t recv(MutableBuffer buf, int flags) { return os::recv(*sock_, buf, flags); }
+    std::size_t recv(MutableBuffer buf, int flags) { return os::recv(get(), buf, flags); }
 
     ssize_t send(const void* buf, std::size_t len, int flags, std::error_code& ec) noexcept
     {
-        return os::send(*sock_, buf, len, flags, ec);
+        return os::send(get(), buf, len, flags, ec);
     }
     std::size_t send(const void* buf, std::size_t len, int flags)
     {
-        return os::send(*sock_, buf, len, flags);
+        return os::send(get(), buf, len, flags);
     }
 
     ssize_t send(ConstBuffer buf, int flags, std::error_code& ec) noexcept
     {
-        return os::send(*sock_, buf, flags, ec);
+        return os::send(get(), buf, flags, ec);
     }
-    std::size_t send(ConstBuffer buf, int flags) { return os::send(*sock_, buf, flags); }
+    std::size_t send(ConstBuffer buf, int flags) { return os::send(get(), buf, flags); }
 };
 
 template <typename ProtocolT>

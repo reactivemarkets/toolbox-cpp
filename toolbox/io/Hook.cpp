@@ -14,22 +14,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef TOOLBOX_IO_HPP
-#define TOOLBOX_IO_HPP
+#include "Hook.hpp"
 
-#include "io/Buffer.hpp"
-#include "io/Disposable.hpp"
-#include "io/Epoll.hpp"
-#include "io/Event.hpp"
-#include "io/EventFd.hpp"
-#include "io/File.hpp"
-#include "io/Handle.hpp"
-#include "io/Hook.hpp"
-#include "io/Muxer.hpp"
-#include "io/Notifiable.hpp"
-#include "io/Reactor.hpp"
-#include "io/Runner.hpp"
-#include "io/Timer.hpp"
-#include "io/TimerFd.hpp"
+#include <toolbox/sys/Log.hpp>
 
-#endif // TOOLBOX_IO_HPP
+namespace toolbox {
+inline namespace io {
+
+void dispatch(CyclTime now, const HookList& l) noexcept
+{
+    auto it = l.begin();
+    while (it != l.end()) {
+        // Increment iterator before calling each hook, so that hooks can safely unhook themselves.
+        const auto prev = it++;
+        try {
+            prev->slot(now);
+        } catch (const std::exception& e) {
+            TOOLBOX_ERROR << "error handling hook: " << e.what();
+        }
+    }
+}
+
+} // namespace io
+} // namespace toolbox

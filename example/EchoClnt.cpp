@@ -190,7 +190,7 @@ int main(int argc, char* argv[])
 
         const auto start_time = CyclTime::now();
 
-        EpollReactor reactor{1024};
+        Reactor reactor{1024};
         Resolver resolver;
         EchoClnt echo_clnt{start_time, reactor, resolver, "tcp4://127.0.0.1:7777"};
 

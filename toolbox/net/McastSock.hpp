@@ -249,114 +249,114 @@ struct McastSock : IoSock {
     // Logically const.
     void get_sock_name(Endpoint& ep, std::error_code& ec) noexcept
     {
-        os::getsockname(*sock_, ep, ec);
+        os::getsockname(get(), ep, ec);
     }
-    void get_sock_name(Endpoint& ep) { os::getsockname(*sock_, ep); }
-    void bind(const Endpoint& ep, std::error_code& ec) noexcept { os::bind(*sock_, ep, ec); }
-    void bind(const Endpoint& ep) { os::bind(*sock_, ep); }
+    void get_sock_name(Endpoint& ep) { os::getsockname(get(), ep); }
+    void bind(const Endpoint& ep, std::error_code& ec) noexcept { os::bind(get(), ep, ec); }
+    void bind(const Endpoint& ep) { os::bind(get(), ep); }
     void connect(const Endpoint& ep, std::error_code& ec) noexcept
     {
-        return os::connect(*sock_, ep, ec);
+        return os::connect(get(), ep, ec);
     }
-    void connect(const Endpoint& ep) { return os::connect(*sock_, ep); }
+    void connect(const Endpoint& ep) { return os::connect(get(), ep); }
 
     ssize_t recvfrom(void* buf, std::size_t len, int flags, Endpoint& ep,
                      std::error_code& ec) noexcept
     {
-        return os::recvfrom(*sock_, buf, len, flags, ep, ec);
+        return os::recvfrom(get(), buf, len, flags, ep, ec);
     }
     std::size_t recvfrom(void* buf, std::size_t len, int flags, Endpoint& ep)
     {
-        return os::recvfrom(*sock_, buf, len, flags, ep);
+        return os::recvfrom(get(), buf, len, flags, ep);
     }
 
     ssize_t recvfrom(MutableBuffer buf, int flags, Endpoint& ep, std::error_code& ec) noexcept
     {
-        return os::recvfrom(*sock_, buf, flags, ep, ec);
+        return os::recvfrom(get(), buf, flags, ep, ec);
     }
     std::size_t recvfrom(MutableBuffer buf, int flags, Endpoint& ep)
     {
-        return os::recvfrom(*sock_, buf, flags, ep);
+        return os::recvfrom(get(), buf, flags, ep);
     }
 
     ssize_t sendto(const void* buf, std::size_t len, int flags, const Endpoint& ep,
                    std::error_code& ec) noexcept
     {
-        return os::sendto(*sock_, buf, len, flags, ep, ec);
+        return os::sendto(get(), buf, len, flags, ep, ec);
     }
     std::size_t sendto(const void* buf, std::size_t len, int flags, const Endpoint& ep)
     {
-        return os::sendto(*sock_, buf, len, flags, ep);
+        return os::sendto(get(), buf, len, flags, ep);
     }
 
     ssize_t sendto(ConstBuffer buf, int flags, const Endpoint& ep, std::error_code& ec) noexcept
     {
-        return os::sendto(*sock_, buf, flags, ep, ec);
+        return os::sendto(get(), buf, flags, ep, ec);
     }
     std::size_t sendto(ConstBuffer buf, int flags, const Endpoint& ep)
     {
-        return os::sendto(*sock_, buf, flags, ep);
+        return os::sendto(get(), buf, flags, ep);
     }
 
     void join_group(const IpAddr& addr, unsigned ifindex, std::error_code& ec) noexcept
     {
-        return toolbox::join_group(*sock_, addr, ifindex, ec);
+        return toolbox::join_group(get(), addr, ifindex, ec);
     }
     void join_group(const IpAddr& addr, unsigned ifindex)
     {
-        return toolbox::join_group(*sock_, addr, ifindex);
+        return toolbox::join_group(get(), addr, ifindex);
     }
 
     void join_group(const IpAddr& addr, const char* ifname, std::error_code& ec) noexcept
     {
-        return toolbox::join_group(*sock_, addr, ifname, ec);
+        return toolbox::join_group(get(), addr, ifname, ec);
     }
     void join_group(const IpAddr& addr, const char* ifname)
     {
-        return toolbox::join_group(*sock_, addr, ifname);
+        return toolbox::join_group(get(), addr, ifname);
     }
 
     void leave_group(const IpAddr& addr, unsigned ifindex, std::error_code& ec) noexcept
     {
-        return toolbox::leave_group(*sock_, addr, ifindex, ec);
+        return toolbox::leave_group(get(), addr, ifindex, ec);
     }
     void leave_group(const IpAddr& addr, unsigned ifindex)
     {
-        return toolbox::leave_group(*sock_, addr, ifindex);
+        return toolbox::leave_group(get(), addr, ifindex);
     }
 
     void leave_group(const IpAddr& addr, const char* ifname, std::error_code& ec) noexcept
     {
-        return toolbox::leave_group(*sock_, addr, ifname, ec);
+        return toolbox::leave_group(get(), addr, ifname, ec);
     }
     void leave_group(const IpAddr& addr, const char* ifname)
     {
-        return toolbox::leave_group(*sock_, addr, ifname);
+        return toolbox::leave_group(get(), addr, ifname);
     }
 
     void set_ip_mcast_if(const char* ifname, std::error_code& ec) noexcept
     {
-        return toolbox::set_ip_mcast_if(*sock_, family_, ifname, ec);
+        return toolbox::set_ip_mcast_if(get(), family(), ifname, ec);
     }
     void set_ip_mcast_if(const char* ifname)
     {
-        return toolbox::set_ip_mcast_if(*sock_, family_, ifname);
+        return toolbox::set_ip_mcast_if(get(), family(), ifname);
     }
 
     void set_ip_mcast_loop(bool enabled, std::error_code& ec) noexcept
     {
-        return toolbox::set_ip_mcast_loop(*sock_, family_, enabled, ec);
+        return toolbox::set_ip_mcast_loop(get(), family(), enabled, ec);
     }
     void set_ip_mcast_loop(bool enabled)
     {
-        return toolbox::set_ip_mcast_loop(*sock_, family_, enabled);
+        return toolbox::set_ip_mcast_loop(get(), family(), enabled);
     }
 
     void set_ip_mcast_ttl(int ttl, std::error_code& ec) noexcept
     {
-        return toolbox::set_ip_mcast_ttl(*sock_, family_, ttl, ec);
+        return toolbox::set_ip_mcast_ttl(get(), family(), ttl, ec);
     }
-    void set_ip_mcast_ttl(int ttl) { return toolbox::set_ip_mcast_ttl(*sock_, family_, ttl); }
+    void set_ip_mcast_ttl(int ttl) { return toolbox::set_ip_mcast_ttl(get(), family(), ttl); }
 };
 
 } // namespace net

@@ -17,6 +17,9 @@
 #ifndef TOOLBOX_IO_REACTOR_HPP
 #define TOOLBOX_IO_REACTOR_HPP
 
+#include <toolbox/io/EventFd.hpp>
+#include <toolbox/io/Hook.hpp>
+#include <toolbox/io/Muxer.hpp>
 #include <toolbox/io/Notifiable.hpp>
 #include <toolbox/io/Timer.hpp>
 
@@ -30,6 +33,7 @@ using IoSlot = BasicSlot<CyclTime, int, unsigned>;
 
 class TOOLBOX_API Reactor : public Notifiable {
   public:
+    using Event = typename Muxer::Event;
     class Handle {
       public:
         Handle(Reactor& reactor, int fd, int sid)
@@ -69,7 +73,7 @@ class TOOLBOX_API Reactor : public Notifiable {
         void reset(std::nullptr_t = nullptr) noexcept
         {
             if (reactor_) {
-                reactor_->do_unsubscribe(fd_, sid_);
+                reactor_->unsubscribe(fd_, sid_);
                 reactor_ = nullptr;
                 fd_ = -1;
                 sid_ = 0;
@@ -86,22 +90,22 @@ class TOOLBOX_API Reactor : public Notifiable {
         void set_events(unsigned events, IoSlot slot, std::error_code& ec) noexcept
         {
             assert(reactor_);
-            reactor_->do_set_events(fd_, sid_, events, slot, ec);
+            reactor_->set_events(fd_, sid_, events, slot, ec);
         }
         void set_events(unsigned events, IoSlot slot)
         {
             assert(reactor_);
-            reactor_->do_set_events(fd_, sid_, events, slot);
+            reactor_->set_events(fd_, sid_, events, slot);
         }
         void set_events(unsigned events, std::error_code& ec) noexcept
         {
             assert(reactor_);
-            reactor_->do_set_events(fd_, sid_, events, ec);
+            reactor_->set_events(fd_, sid_, events, ec);
         }
         void set_events(unsigned events)
         {
             assert(reactor_);
-            reactor_->do_set_events(fd_, sid_, events);
+            reactor_->set_events(fd_, sid_, events);
         }
 
       private:
@@ -109,8 +113,8 @@ class TOOLBOX_API Reactor : public Notifiable {
         int fd_{-1}, sid_{0};
     };
 
-    Reactor() noexcept = default;
-    ~Reactor() override;
+    explicit Reactor(std::size_t size_hint = 0);
+    ~Reactor();
 
     // Copy.
     Reactor(const Reactor&) = delete;
@@ -121,41 +125,50 @@ class TOOLBOX_API Reactor : public Notifiable {
     Reactor& operator=(Reactor&&) = delete;
 
     // clang-format off
-    [[nodiscard]] Handle subscribe(int fd, unsigned events, IoSlot slot)
-    {
-        return do_subscribe(fd, events, slot);
-    }
+    [[nodiscard]] Handle subscribe(int fd, unsigned events, IoSlot slot);
+
     /// Throws std::bad_alloc only.
     [[nodiscard]] Timer timer(MonoTime expiry, Duration interval, Priority priority, TimerSlot slot)
     {
-        return do_timer(expiry, interval, priority, slot);
+        return tqs_[static_cast<size_t>(priority)].insert(expiry, interval, slot);
     }
     /// Throws std::bad_alloc only.
     [[nodiscard]] Timer timer(MonoTime expiry, Priority priority, TimerSlot slot)
     {
-        return do_timer(expiry, priority, slot);
+        return tqs_[static_cast<size_t>(priority)].insert(expiry, slot);
     }
     // clang-format on
-    int poll(CyclTime now, Duration timeout = NoTimeout) { return do_poll(now, timeout); }
+
+    void add_hook(Hook& hook) noexcept { hooks_.push_back(hook); }
+    int poll(CyclTime now, Duration timeout = NoTimeout);
 
   protected:
-    virtual Handle do_subscribe(int fd, unsigned events, IoSlot slot) = 0;
-    virtual void do_unsubscribe(int fd, int sid) noexcept = 0;
+    /// Thread-safe.
+    void do_notify() noexcept final;
 
-    virtual void do_set_events(int fd, int sid, unsigned events, IoSlot slot,
-                               std::error_code& ec) noexcept
-        = 0;
-    virtual void do_set_events(int fd, int sid, unsigned events, IoSlot slot) = 0;
-    virtual void do_set_events(int fd, int sid, unsigned events, std::error_code& ec) noexcept = 0;
-    virtual void do_set_events(int fd, int sid, unsigned events) = 0;
+  private:
+    MonoTime next_expiry(MonoTime next) const;
 
-    /// Throws std::bad_alloc only.
-    virtual Timer do_timer(MonoTime expiry, Duration interval, Priority priority, TimerSlot slot)
-        = 0;
-    /// Throws std::bad_alloc only.
-    virtual Timer do_timer(MonoTime expiry, Priority priority, TimerSlot slot) = 0;
+    int dispatch(CyclTime now, Event* buf, int size);
+    void set_events(int fd, int sid, unsigned events, IoSlot slot, std::error_code& ec) noexcept;
+    void set_events(int fd, int sid, unsigned events, IoSlot slot);
+    void set_events(int fd, int sid, unsigned events, std::error_code& ec) noexcept;
+    void set_events(int fd, int sid, unsigned events);
+    void unsubscribe(int fd, int sid) noexcept;
 
-    virtual int do_poll(CyclTime now, Duration timeout) = 0;
+    struct Data {
+        int sid{};
+        unsigned events{};
+        IoSlot slot;
+    };
+    Muxer mux_;
+    std::vector<Data> data_;
+    EventFd notify_{0, EFD_NONBLOCK};
+    static_assert(static_cast<int>(Priority::High) == 0);
+    static_assert(static_cast<int>(Priority::Low) == 1);
+    TimerPool tp_;
+    std::array<TimerQueue, 2> tqs_{tp_, tp_};
+    HookList hooks_;
 };
 
 } // namespace io
