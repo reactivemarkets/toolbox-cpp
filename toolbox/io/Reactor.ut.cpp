@@ -14,7 +14,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "EpollReactor.hpp"
+#include "Reactor.hpp"
 
 #include <toolbox/net/Endpoint.hpp>
 #include <toolbox/net/IoSock.hpp>
@@ -41,13 +41,13 @@ struct TestHandler : RefCount<TestHandler, ThreadUnsafePolicy> {
 
 } // namespace
 
-BOOST_AUTO_TEST_SUITE(EpollReactorSuite)
+BOOST_AUTO_TEST_SUITE(ReactorSuite)
 
-BOOST_AUTO_TEST_CASE(EpollReactorLevelCase)
+BOOST_AUTO_TEST_CASE(ReactorLevelCase)
 {
     using namespace literals::chrono_literals;
 
-    EpollReactor r{1024};
+    Reactor r{1024};
     auto h = make_intrusive<TestHandler>();
 
     auto socks = socketpair(UnixStreamProtocol{});
@@ -75,11 +75,11 @@ BOOST_AUTO_TEST_CASE(EpollReactorLevelCase)
     BOOST_TEST(h->matches == 3);
 }
 
-BOOST_AUTO_TEST_CASE(EpollReactorEdgeCase)
+BOOST_AUTO_TEST_CASE(ReactorEdgeCase)
 {
     using namespace literals::chrono_literals;
 
-    EpollReactor r{1024};
+    Reactor r{1024};
     auto h = make_intrusive<TestHandler>();
 
     auto socks = socketpair(UnixStreamProtocol{});
@@ -112,6 +112,20 @@ BOOST_AUTO_TEST_CASE(EpollReactorEdgeCase)
 
     BOOST_TEST(r.poll(now, 0ms) == 0);
     BOOST_TEST(h->matches == 3);
+}
+
+BOOST_AUTO_TEST_CASE(ReactorHookCase)
+{
+    int i{0};
+    auto fn = [&i](CyclTime) { ++i; };
+
+    Reactor r{1024};
+
+    Hook h{bind(&fn)};
+    r.add_hook(h);
+
+    BOOST_TEST(r.poll(CyclTime::now(), 0ms) == 0);
+    BOOST_TEST(i == 1);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

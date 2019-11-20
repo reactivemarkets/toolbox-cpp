@@ -28,7 +28,7 @@
 namespace toolbox {
 inline namespace io {
 
-class EpollMuxer {
+class Muxer {
   public:
     using Event = epoll_event;
 
@@ -40,47 +40,23 @@ class EpollMuxer {
     {
         return static_cast<int>(ev.data.u64 >> 32);
     }
-    static constexpr unsigned events(const Event& ev) noexcept
-    {
-        unsigned n{};
-        if (ev.events & EPOLLIN) {
-            n |= EventIn;
-        }
-        if (ev.events & EPOLLPRI) {
-            n |= EventPri;
-        }
-        if (ev.events & EPOLLOUT) {
-            n |= EventOut;
-        }
-        if (ev.events & EPOLLERR) {
-            n |= EventErr;
-        }
-        if (ev.events & EPOLLHUP) {
-            n |= EventHup;
-        }
-        if (ev.events & EPOLLET) {
-            n |= EventEt;
-        }
-        return n;
-    }
-
-    explicit EpollMuxer(int flags = 0)
+    explicit Muxer(int flags = 0)
     : mux_{os::epoll_create1(flags)}
     , tfd_{TFD_NONBLOCK}
     {
         subscribe(tfd_.fd(), 0, EventIn);
     }
-    ~EpollMuxer() { unsubscribe(tfd_.fd()); }
+    ~Muxer() { unsubscribe(tfd_.fd()); }
 
     // Copy.
-    EpollMuxer(const EpollMuxer&) = delete;
-    EpollMuxer& operator=(const EpollMuxer&) = delete;
+    Muxer(const Muxer&) = delete;
+    Muxer& operator=(const Muxer&) = delete;
 
     // Move.
-    EpollMuxer(EpollMuxer&&) = default;
-    EpollMuxer& operator=(EpollMuxer&&) = default;
+    Muxer(Muxer&&) = default;
+    Muxer& operator=(Muxer&&) = default;
 
-    void swap(EpollMuxer& rhs) noexcept { std::swap(mux_, rhs.mux_); }
+    void swap(Muxer& rhs) noexcept { std::swap(mux_, rhs.mux_); }
     /// Returns the number of file descriptors that are ready.
     int wait(Event buf[], std::size_t size, std::error_code& ec)
     {
@@ -133,26 +109,7 @@ class EpollMuxer {
   private:
     static void set_events(Event& ev, int fd, int sid, unsigned events) noexcept
     {
-        unsigned n{};
-        if (events & EventIn) {
-            n |= EPOLLIN;
-        }
-        if (events & EventPri) {
-            n |= EPOLLPRI;
-        }
-        if (events & EventOut) {
-            n |= EPOLLOUT;
-        }
-        if (events & EventErr) {
-            n |= EPOLLERR;
-        }
-        if (events & EventHup) {
-            n |= EPOLLHUP;
-        }
-        if (events & EventEt) {
-            n |= EPOLLET;
-        }
-        ev.events = n;
+        ev.events = events;
         ev.data.u64 = static_cast<std::uint64_t>(sid) << 32 | fd;
     }
     FileHandle mux_;

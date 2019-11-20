@@ -765,64 +765,60 @@ inline void set_tcp_syn_nt(int sockfd, int retrans)
     os::setsockopt(sockfd, IPPROTO_TCP, TCP_SYNCNT, &retrans, sizeof(retrans));
 }
 
-struct Sock {
+struct Sock : FileHandle {
     Sock(FileHandle&& sock, int family)
-    : sock_{std::move(sock)}
+    : FileHandle{std::move(sock)}
     , family_{family}
     {
     }
     Sock() noexcept = default;
 
-    auto operator*() const noexcept { return *sock_; }
-    auto get() const noexcept { return sock_.get(); }
-    explicit operator bool() const noexcept { return static_cast<bool>(sock_); }
     int family() const noexcept { return family_; }
     bool is_ip_family() const noexcept { return family_ == AF_INET || family_ == AF_INET6; }
 
     // Logically const.
     std::error_code get_error(std::error_code& ec) const noexcept
     {
-        return toolbox::get_so_error(*sock_, ec);
+        return toolbox::get_so_error(get(), ec);
     }
-    std::error_code get_error() const { return toolbox::get_so_error(*sock_); }
+    std::error_code get_error() const { return toolbox::get_so_error(get()); }
 
     int get_rcv_buf(std::error_code& ec) const noexcept
     {
-        return toolbox::get_so_rcv_buf(*sock_, ec);
+        return toolbox::get_so_rcv_buf(get(), ec);
     }
-    int get_rcv_buf() const { return toolbox::get_so_rcv_buf(*sock_); }
+    int get_rcv_buf() const { return toolbox::get_so_rcv_buf(get()); }
 
     int get_snd_buf(std::error_code& ec) const noexcept
     {
-        return toolbox::get_so_snd_buf(*sock_, ec);
+        return toolbox::get_so_snd_buf(get(), ec);
     }
-    int get_snd_buf() const { return toolbox::get_so_snd_buf(*sock_); }
+    int get_snd_buf() const { return toolbox::get_so_snd_buf(get()); }
 
-    void close() { sock_.reset(); }
+    void close() { reset(); }
 
-    void set_non_block(std::error_code& ec) noexcept { toolbox::set_non_block(*sock_, ec); }
-    void set_non_block() { toolbox::set_non_block(*sock_); }
+    void set_non_block(std::error_code& ec) noexcept { toolbox::set_non_block(get(), ec); }
+    void set_non_block() { toolbox::set_non_block(get()); }
 
     void set_rcv_buf(int size, std::error_code& ec) noexcept
     {
-        toolbox::set_so_rcv_buf(*sock_, size, ec);
+        toolbox::set_so_rcv_buf(get(), size, ec);
     }
-    void set_rcv_buf(int size) { toolbox::set_so_rcv_buf(*sock_, size); }
+    void set_rcv_buf(int size) { toolbox::set_so_rcv_buf(get(), size); }
 
     void set_reuse_addr(bool enabled, std::error_code& ec) noexcept
     {
-        toolbox::set_so_reuse_addr(*sock_, enabled, ec);
+        toolbox::set_so_reuse_addr(get(), enabled, ec);
     }
-    void set_reuse_addr(bool enabled) { toolbox::set_so_reuse_addr(*sock_, enabled); }
+    void set_reuse_addr(bool enabled) { toolbox::set_so_reuse_addr(get(), enabled); }
 
     void set_snd_buf(int size, std::error_code& ec) noexcept
     {
-        toolbox::set_so_snd_buf(*sock_, size, ec);
+        toolbox::set_so_snd_buf(get(), size, ec);
     }
-    void set_snd_buf(int size) { toolbox::set_so_snd_buf(*sock_, size); }
+    void set_snd_buf(int size) { toolbox::set_so_snd_buf(get(), size); }
 
-  protected:
-    FileHandle sock_;
+  private:
     int family_{};
 };
 

@@ -21,16 +21,18 @@
 #include <type_traits>
 #include <utility>
 
+#include <sys/epoll.h>
+
 namespace toolbox {
 inline namespace io {
 
 enum : unsigned {
-    EventIn = 1 << 0,
-    EventPri = 1 << 1,
-    EventOut = 1 << 2,
-    EventErr = 1 << 3,
-    EventHup = 1 << 4,
-    EventEt = 1u << 31
+    EventIn = EPOLLIN,
+    EventPri = EPOLLPRI,
+    EventOut = EPOLLOUT,
+    EventErr = EPOLLERR,
+    EventHup = EPOLLHUP,
+    EventEt = EPOLLET
 };
 
 struct MsgEvent {

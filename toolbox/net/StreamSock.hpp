@@ -43,20 +43,20 @@ struct StreamSockServ : Sock {
     // Logically const.
     void get_sock_name(Endpoint& ep, std::error_code& ec) noexcept
     {
-        os::getsockname(*sock_, ep, ec);
+        os::getsockname(get(), ep, ec);
     }
-    void get_sock_name(Endpoint& ep) { os::getsockname(*sock_, ep); }
-    void bind(const Endpoint& ep, std::error_code& ec) noexcept { os::bind(*sock_, ep, ec); }
-    void bind(const Endpoint& ep) { os::bind(*sock_, ep); }
+    void get_sock_name(Endpoint& ep) { os::getsockname(get(), ep); }
+    void bind(const Endpoint& ep, std::error_code& ec) noexcept { os::bind(get(), ep, ec); }
+    void bind(const Endpoint& ep) { os::bind(get(), ep); }
 
-    void listen(int backlog, std::error_code& ec) noexcept { os::listen(*sock_, backlog, ec); }
-    void listen(int backlog) { os::listen(*sock_, backlog); }
+    void listen(int backlog, std::error_code& ec) noexcept { os::listen(get(), backlog, ec); }
+    void listen(int backlog) { os::listen(get(), backlog); }
 
     IoSock accept(Endpoint& ep, std::error_code& ec) noexcept
     {
-        return IoSock{os::accept(*sock_, ep, ec), family_};
+        return IoSock{os::accept(get(), ep, ec), family()};
     }
-    IoSock accept(Endpoint& ep) { return IoSock{os::accept(*sock_, ep), family_}; }
+    IoSock accept(Endpoint& ep) { return IoSock{os::accept(get(), ep), family()}; }
 };
 
 /// Active Client Stream Socket. All state is in base class, so object can be sliced.
@@ -79,14 +79,14 @@ struct StreamSockClnt : IoSock {
     // Logically const.
     void get_sock_name(Endpoint& ep, std::error_code& ec) noexcept
     {
-        os::getsockname(*sock_, ep, ec);
+        os::getsockname(get(), ep, ec);
     }
-    void get_sock_name(Endpoint& ep) { os::getsockname(*sock_, ep); }
+    void get_sock_name(Endpoint& ep) { os::getsockname(get(), ep); }
     void connect(const Endpoint& ep, std::error_code& ec) noexcept
     {
-        return os::connect(*sock_, ep, ec);
+        return os::connect(get(), ep, ec);
     }
-    void connect(const Endpoint& ep) { return os::connect(*sock_, ep); }
+    void connect(const Endpoint& ep) { return os::connect(get(), ep); }
 };
 
 } // namespace net

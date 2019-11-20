@@ -87,7 +87,7 @@ int main(int argc, char* argv[])
 
         const auto start_time = CyclTime::now();
 
-        EpollReactor reactor{1024};
+        Reactor reactor{1024};
         HttpApp app;
         app.bind("/foo", bind<on_foo>());
         app.bind("/bar", bind<on_bar>());
