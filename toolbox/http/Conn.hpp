@@ -65,8 +65,7 @@ class BasicHttpConn
     , app_{app}
     {
         sub_ = r.subscribe(*sock_, EventIn, bind<&BasicHttpConn::on_io_event>(this));
-        tmr_ = r.timer(now.mono_time() + IdleTimeout, Priority::Low,
-                       bind<&BasicHttpConn::on_timer>(this));
+        schedule_timeout(now);
         app.on_http_connect(now, ep_);
     }
 
@@ -177,48 +176,54 @@ class BasicHttpConn
     }
     bool on_chunk_header(CyclTime now, std::size_t len) noexcept { return true; }
     bool on_chunk_end(CyclTime now) noexcept { return true; }
+    void on_timeout_timer(CyclTime now, Timer& tmr)
+    {
+        auto lock = this->lock_this(now);
+        app_.on_http_timeout(now, ep_);
+        this->dispose(now);
+    }
     void on_io_event(CyclTime now, int fd, unsigned events)
     {
         auto lock = this->lock_this(now);
         try {
             if (events & (EventIn | EventHup)) {
-                const auto size = os::read(fd, in_.prepare(2944));
-                if (size == 0) {
-                    // The socket is closed.
-                    // Clear the write buffer, so that dispose() does not try to flush.
-                    out_.clear();
-                    this->dispose(now);
-                    return;
+                // Limit the number of reads to avoid starvation.
+                for (int i{0}; i < 4; ++i) {
+                    std::error_code ec;
+                    const auto buf = in_.prepare(2944);
+                    const auto size = os::read(fd, buf, ec);
+                    if (ec) {
+                        if (ec == std::errc::operation_would_block) {
+                            flush_input(now);
+                            break;
+                        }
+                        throw std::system_error{ec, "read"};
+                    }
+                    if (size == 0) {
+                        // N.B. the socket may still be writable if the peer has performed a
+                        // shutdown on the write side of the socket only.
+                        flush_input(now);
+                        this->dispose(now);
+                        return;
+                    }
+                    // Commit actual bytes read.
+                    in_.commit(size);
+                    // Assume that the TCP stream has been drained if we read less than the
+                    // requested amount.
+                    if (static_cast<size_t>(size) < buffer_size(buf)) {
+                        flush_input(now);
+                        break;
+                    }
                 }
-                // Commit actual bytes read.
-                in_.commit(size);
-                in_.consume(parse(now, in_.data()));
                 // Reset timer.
-                tmr_ = reactor_.timer(now.mono_time() + IdleTimeout, Priority::Low,
-                                      bind<&BasicHttpConn::on_timer>(this));
+                schedule_timeout(now);
             }
             // Do not attempt to flush the output buffer if it is empty or if we are still waiting
             // for the socket to become writable.
             if (out_.empty() || (want_write_ && !(events & EventOut))) {
                 return;
             }
-            // Attempt to flush buffered data.
-            out_.consume(os::write(fd, out_.data()));
-            if (out_.empty()) {
-                if (!in_progress_ && !should_keep_alive()) {
-                    this->dispose(now);
-                    return;
-                }
-                if (want_write_) {
-                    // Restore read-only state after the buffer has been drained.
-                    sub_.set_events(EventIn);
-                    want_write_ = false;
-                }
-            } else if (!want_write_) {
-                // Set the state to read-write if the entire buffer could not be written.
-                sub_.set_events(EventIn | EventOut);
-                want_write_ = true;
-            }
+            flush_output(now);
         } catch (const HttpException&) {
             // Do not call on_http_error() here, because it will have already been called in one of
             // the noexcept parser callback functions.
@@ -227,11 +232,31 @@ class BasicHttpConn
             this->dispose(now);
         }
     }
-    void on_timer(CyclTime now, Timer& tmr)
+    void flush_input(CyclTime now) { in_.consume(parse(now, in_.data())); }
+    void flush_output(CyclTime now)
     {
-        auto lock = this->lock_this(now);
-        app_.on_http_timeout(now, ep_);
-        this->dispose(now);
+        // Attempt to flush buffered data.
+        out_.consume(os::write(sock_.get(), out_.data()));
+        if (out_.empty()) {
+            if (!in_progress_ && !should_keep_alive()) {
+                this->dispose(now);
+                return;
+            }
+            if (want_write_) {
+                // Restore read-only state after the buffer has been drained.
+                sub_.set_events(EventIn);
+                want_write_ = false;
+            }
+        } else if (!want_write_) {
+            // Set the state to read-write if the entire buffer could not be written.
+            sub_.set_events(EventIn | EventOut);
+            want_write_ = true;
+        }
+    }
+    void schedule_timeout(CyclTime now)
+    {
+        const auto timeout = std::chrono::ceil<Seconds>(now.mono_time() + IdleTimeout);
+        tmr_ = reactor_.timer(timeout, Priority::Low, bind<&BasicHttpConn::on_timeout_timer>(this));
     }
 
     Reactor& reactor_;
@@ -239,11 +264,11 @@ class BasicHttpConn
     Endpoint ep_;
     App& app_;
     Reactor::Handle sub_;
-    bool in_progress_{false}, want_write_{false};
     Timer tmr_;
     Buffer in_, out_;
     Request req_;
     HttpStream os_{out_};
+    bool in_progress_{false}, want_write_{false};
 };
 
 using HttpConn = BasicHttpConn<HttpRequest, HttpAppBase>;

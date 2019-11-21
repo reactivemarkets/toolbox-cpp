@@ -78,7 +78,7 @@ class TOOLBOX_API Buffer {
     /// Remove characters from the read sequence.
     void consume(std::size_t count) noexcept;
 
-    /// Returns write buffer of specified size.
+    /// Returns write buffer of at least size bytes.
     MutableBuffer prepare(std::size_t size);
 
     /// Reserve storage.
@@ -87,7 +87,7 @@ class TOOLBOX_API Buffer {
   private:
     const char* rptr() const noexcept { return buf_.data() + rpos_; }
     char* wptr() noexcept { return buf_.data() + wpos_; }
-    std::size_t unused() const noexcept { return buf_.size() - wpos_; }
+    std::size_t available() const noexcept { return buf_.size() - wpos_; }
 
     std::size_t rpos_{}, wpos_{};
     std::vector<char> buf_;

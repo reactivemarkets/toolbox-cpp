@@ -56,7 +56,7 @@ class StreamConnector {
         std::error_code ec;
         sock.connect(ep, ec);
         if (ec) {
-            if (ec.value() != EINPROGRESS) {
+            if (ec != std::errc::operation_in_progress) {
                 throw std::system_error{ec, "connect"};
             }
             sub_
