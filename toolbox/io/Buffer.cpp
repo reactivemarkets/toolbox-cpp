@@ -47,13 +47,14 @@ void Buffer::consume(std::size_t count) noexcept
 
 MutableBuffer Buffer::prepare(std::size_t size)
 {
-    const auto n = unused();
-    if (size > n) {
+    auto avail = available();
+    if (size > avail) {
         // More buffer space required.
-        const auto d = size - n;
-        buf_.resize(buf_.size() + d);
+        const auto diff = size - avail;
+        buf_.resize(buf_.size() + diff);
+        avail = size;
     }
-    return {wptr(), size};
+    return {wptr(), avail};
 }
 
 ConstBuffer advance(ConstBuffer buf, std::size_t n) noexcept

@@ -17,6 +17,7 @@
 set(targets
   toolbox-map-bench
   toolbox-time-bench
+  toolbox-timer-bench
   toolbox-util-bench)
 
 add_custom_target(toolbox-bench DEPENDS ${targets})
@@ -26,6 +27,9 @@ target_link_libraries(toolbox-map-bench ${toolbox_bm_LIBRARY})
 
 add_executable(toolbox-time-bench Time.bm.cpp)
 target_link_libraries(toolbox-time-bench ${toolbox_bm_LIBRARY})
+
+add_executable(toolbox-timer-bench Timer.bm.cpp)
+target_link_libraries(toolbox-timer-bench ${toolbox_bm_LIBRARY})
 
 add_executable(toolbox-util-bench Util.bm.cpp)
 target_link_libraries(toolbox-util-bench ${toolbox_bm_LIBRARY})

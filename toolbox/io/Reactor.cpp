@@ -59,24 +59,24 @@ int Reactor::poll(CyclTime now, Duration timeout)
 
     // If timeout is zero then the wait_until time should also be zero to signify no wait.
     MonoTime wait_until{};
-    if (!is_zero(timeout)) {
+    if (!is_zero(timeout) && hooks_.empty()) {
         const MonoTime next
             = next_expiry(timeout == NoTimeout ? MonoClock::max() : now.mono_time() + timeout);
         if (next > now.mono_time()) {
             wait_until = next;
         }
     }
-
-    int n;
     // TODO: consider using a dynamic buffer that scales with increased demand.
     Event buf[MaxEvents];
+
+    int n;
     error_code ec;
-    if (wait_until == MonoClock::max()) {
-        // Block indefinitely.
-        n = mux_.wait(buf, MaxEvents, ec);
-    } else {
+    if (wait_until < MonoClock::max()) {
         // The wait function will not block if time is zero.
         n = mux_.wait(buf, MaxEvents, wait_until, ec);
+    } else {
+        // Block indefinitely.
+        n = mux_.wait(buf, MaxEvents, ec);
     }
     if (ec) {
         if (ec.value() != EINTR) {

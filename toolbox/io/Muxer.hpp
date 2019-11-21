@@ -58,23 +58,32 @@ class Muxer {
 
     void swap(Muxer& rhs) noexcept { std::swap(mux_, rhs.mux_); }
     /// Returns the number of file descriptors that are ready.
-    int wait(Event buf[], std::size_t size, std::error_code& ec)
+    int wait(Event buf[], std::size_t size, std::error_code& ec) noexcept
     {
-        // A zero timeout will disarm the timer.
-        tfd_.set_time(0, MonoTime{}, ec);
-        if (ec) {
-            return 0;
+        MonoTime timeout{};
+        // Only set the timer if it has changed.
+        if (timeout != timeout_) {
+            // A zero timeout will disarm the timer.
+            tfd_.set_time(0, timeout, ec);
+            if (ec) {
+                return 0;
+            }
+            timeout_ = timeout;
         }
         return os::epoll_wait(*mux_, buf, size, -1, ec);
     }
     /// Returns the number of file descriptors that are ready, or zero if no file descriptor became
     /// ready during before the operation timed-out.
-    int wait(Event buf[], std::size_t size, MonoTime timeout, std::error_code& ec)
+    int wait(Event buf[], std::size_t size, MonoTime timeout, std::error_code& ec) noexcept
     {
-        // A zero timeout will disarm the timer.
-        tfd_.set_time(0, timeout, ec);
-        if (ec) {
-            return 0;
+        // Only set the timer if it has changed.
+        if (timeout != timeout_) {
+            // A zero timeout will disarm the timer.
+            tfd_.set_time(0, timeout, ec);
+            if (ec) {
+                return 0;
+            }
+            timeout_ = timeout;
         }
         // Do not block if timer is zero.
         return os::epoll_wait(*mux_, buf, size, is_zero(timeout) ? 0 : -1, ec);
@@ -114,6 +123,7 @@ class Muxer {
     }
     FileHandle mux_;
     TimerFd<MonoClock> tfd_;
+    MonoTime timeout_{};
 };
 
 } // namespace io
