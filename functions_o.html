@@ -91,13 +91,12 @@ $(function() {
 , <a class="el" href="classtoolbox_1_1io_1_1Reactor_1_1Handle.html#a801d8c19069e618d5df183420624da70">toolbox::io::Reactor::Handle</a>
 , <a class="el" href="classtoolbox_1_1io_1_1Timer.html#a424ecc4f02f3c71f43efdb5e840cc244">toolbox::io::Timer</a>
 , <a class="el" href="classtoolbox_1_1ipc_1_1MmapPointer.html#ae4927542f21b3f1e1ce5dd972011b5d5">toolbox::ipc::MmapPointer</a>
-, <a class="el" href="structtoolbox_1_1net_1_1Sock.html#a6eed5a0dcdee9394d1039f518b9843fc">toolbox::net::Sock</a>
 , <a class="el" href="classtoolbox_1_1sys_1_1Log.html#ad84b8236a516813585382330c302ed95">toolbox::sys::Log</a>
 , <a class="el" href="classtoolbox_1_1util_1_1BasicSlot.html#af8cf3f1c3af0755fb753882ca181b6b7">toolbox::util::BasicSlot&lt; ArgsT &gt;</a>
 , <a class="el" href="structtoolbox_1_1util_1_1Version.html#a05dc3069c49c478e9d0b91290105d8b5">toolbox::util::Version</a>
 </li>
 <li>operator delete()
-: <a class="el" href="structtoolbox_1_1util_1_1MemAlloc.html#aa9d7b8fc1d1a743321c36accae612a3d">toolbox::util::MemAlloc</a>
+: <a class="el" href="structtoolbox_1_1util_1_1MemAlloc.html#a363028f7054352edfd03c1a38c3aaabe">toolbox::util::MemAlloc</a>
 </li>
 <li>operator new()
 : <a class="el" href="structtoolbox_1_1util_1_1MemAlloc.html#af078910e19cfa025c1299651ee2e1dd6">toolbox::util::MemAlloc</a>
@@ -132,7 +131,6 @@ $(function() {
 </li>
 <li>operator*()
 : <a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html#a4d149f880b18593e70f4681c5836b869">toolbox::io::BasicHandle&lt; PolicyT &gt;</a>
-, <a class="el" href="structtoolbox_1_1net_1_1Sock.html#a42cd1303b0c22716867bb57eacc67478">toolbox::net::Sock</a>
 , <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html#a718cd66dfe5a60589a75f39d88fa3dff">toolbox::util::IntWrapper&lt; PolicyT &gt;</a>
 </li>
 <li>operator*=()
@@ -204,12 +202,11 @@ $(function() {
 , <a class="el" href="classtoolbox_1_1io_1_1BasicDisposable.html#ad8a8672d2729b03dc58d1e7001aef760">toolbox::io::BasicDisposable&lt; DerivedT &gt;</a>
 , <a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html#a7267cba7dabbe31c5a54397a736e9d34">toolbox::io::BasicHandle&lt; PolicyT &gt;</a>
 , <a class="el" href="classtoolbox_1_1io_1_1Buffer.html#adc2643d69917f94be8fe1381f230b9f5">toolbox::io::Buffer</a>
-, <a class="el" href="classtoolbox_1_1io_1_1EpollMuxer.html#a3891018879001bb727316cb9c8a71c20">toolbox::io::EpollMuxer</a>
-, <a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html#a1ecd1cdeb87619f147fa873f0ce3a399">toolbox::io::EpollReactor</a>
 , <a class="el" href="classtoolbox_1_1io_1_1EventFd.html#a855951d3ea7d760ed0ea0b8325753f0f">toolbox::io::EventFd</a>
+, <a class="el" href="classtoolbox_1_1io_1_1Muxer.html#a7b8000c02abbc2676ef8af19a6aeb5b6">toolbox::io::Muxer</a>
 , <a class="el" href="classtoolbox_1_1io_1_1Notifiable.html#a560889c44e3dd85bfdcaf8467615f1c7">toolbox::io::Notifiable</a>
 , <a class="el" href="classtoolbox_1_1io_1_1Reactor_1_1Handle.html#a9a5e1cf5a81d57e707aeaa051c96584d">toolbox::io::Reactor::Handle</a>
-, <a class="el" href="classtoolbox_1_1io_1_1Reactor.html#ac8fdc0bd91ccc481bea24a6277d4e82c">toolbox::io::Reactor</a>
+, <a class="el" href="classtoolbox_1_1io_1_1Reactor.html#ac81578409d4df4c35561994b99c6acb8">toolbox::io::Reactor</a>
 , <a class="el" href="classtoolbox_1_1io_1_1ReactorRunner.html#a3316ce3905b4838de96f84381eff12bd">toolbox::io::ReactorRunner</a>
 , <a class="el" href="classtoolbox_1_1io_1_1Timer.html#ac46ae5f8bbf37a12d73656bf76dbecef">toolbox::io::Timer</a>
 , <a class="el" href="classtoolbox_1_1io_1_1TimerFd.html#af6472951628f9ea63eef4b50cf3641d9">toolbox::io::TimerFd&lt; ClockT &gt;</a>
@@ -223,21 +220,21 @@ $(function() {
 , <a class="el" href="classtoolbox_1_1sys_1_1Log.html#ad11e36c9e7a97a4c531e6fdda979684d">toolbox::sys::Log</a>
 , <a class="el" href="classtoolbox_1_1sys_1_1SigWait.html#a20261263192064afc5ed42b63ff12175">toolbox::sys::SigWait</a>
 , <a class="el" href="structtoolbox_1_1sys_1_1ThreadConfig.html#a9aebc40a27766c8ccb5df15f069f7847">toolbox::sys::ThreadConfig</a>
-, <a class="el" href="classtoolbox_1_1util_1_1Alarm.html#a788eeae62d3fe0730ff2b5eb8f6f2427">toolbox::util::Alarm</a>
-, <a class="el" href="classtoolbox_1_1util_1_1ArgvLexer.html#a6a1ce71ef3eeff20e27814b5e16f9130">toolbox::util::ArgvLexer</a>
-, <a class="el" href="classtoolbox_1_1util_1_1ArgvSequence.html#ad724cb4f46f45678ae29c568d2c89df1">toolbox::util::ArgvSequence</a>
+, <a class="el" href="classtoolbox_1_1util_1_1Alarm.html#a644d71175071999c9347f3a5a1ac42ca">toolbox::util::Alarm</a>
+, <a class="el" href="classtoolbox_1_1util_1_1ArgvLexer.html#ab16b3048031ba9c18791a1cb3df1bae0">toolbox::util::ArgvLexer</a>
+, <a class="el" href="classtoolbox_1_1util_1_1ArgvSequence.html#a0f7544536c228e9b8424648148b5e5a7">toolbox::util::ArgvSequence</a>
 , <a class="el" href="classtoolbox_1_1util_1_1ArrayView.html#acfcb00d51aff3170ce6780f2efcae276">toolbox::util::ArrayView&lt; ValueT &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1BasicSlot.html#a87e76ebf6ab9d7cd552fec9122f457d2">toolbox::util::BasicSlot&lt; ArgsT &gt;</a>
 , <a class="el" href="structtoolbox_1_1util_1_1Comparable.html#ab4dd841b6e3926e3e8806885349a3f63">toolbox::util::Comparable&lt; ValueT &gt;</a>
-, <a class="el" href="classtoolbox_1_1util_1_1Config.html#aedf93654a62a9fb44db663bf7ca6b159">toolbox::util::Config</a>
-, <a class="el" href="classtoolbox_1_1util_1_1Exception.html#ab9a556dfd68858d6b373ea2586eb1750">toolbox::util::Exception</a>
+, <a class="el" href="classtoolbox_1_1util_1_1Config.html#a20df6587eb3c6f5a9705eaf83bdd02ad">toolbox::util::Config</a>
+, <a class="el" href="classtoolbox_1_1util_1_1Exception.html#acd4ec50a5751a9062de5c48bf960c5b7">toolbox::util::Exception</a>
 , <a class="el" href="classtoolbox_1_1util_1_1Finally.html#ad1446a7beea21c9f352e802754f6606b">toolbox::util::Finally&lt; FnT &gt;</a>
 , <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html#a7c24e84b218dc3215242bda164f6496d">toolbox::util::IntWrapper&lt; PolicyT &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1MultiConfig.html#a9639cf3fc837f8ae18b341e0e3f6be41">toolbox::util::MultiConfig</a>
-, <a class="el" href="classtoolbox_1_1util_1_1RefCount.html#ae023dc679a7498ffb4ba3cd06c6798e3">toolbox::util::RefCount&lt; DerivedT, PolicyT &gt;</a>
+, <a class="el" href="classtoolbox_1_1util_1_1RefCount.html#a74a06dafa1b69cc07737cafc0bc266e2">toolbox::util::RefCount&lt; DerivedT, PolicyT &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1RingBuffer.html#ab618707ea321f71bdb3d03d54d37dda2">toolbox::util::RingBuffer&lt; ValueT &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1StaticBuf.html#ae0774a830a572753ab628a1ad32cff98">toolbox::util::StaticBuf&lt; MaxN &gt;</a>
-, <a class="el" href="classtoolbox_1_1util_1_1StaticStream.html#a3693f9635c12b0fae55825f15a2b59f3">toolbox::util::StaticStream&lt; MaxN &gt;</a>
+, <a class="el" href="classtoolbox_1_1util_1_1StaticStream.html#a18f5df99f020ab79d1a1e748d68ef50a">toolbox::util::StaticStream&lt; MaxN &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1StringBuf.html#a98b6e9642edecbeeeb0012fe4c3ea671">toolbox::util::StringBuf&lt; MaxN &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1Tokeniser.html#a94ce18d9d5b23b387260a160831c11cf">toolbox::util::Tokeniser</a>
 , <a class="el" href="classtoolbox_1_1util_1_1VarAccum.html#a9a7358cfc1efab916b174f76241dc3f9">toolbox::util::VarAccum</a>

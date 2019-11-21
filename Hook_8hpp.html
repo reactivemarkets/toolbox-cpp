@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Toolbox: toolbox/io/EpollReactor.cpp File Reference</title>
+<title>Toolbox: toolbox/io/Hook.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -66,23 +66,41 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">EpollReactor.cpp File Reference</div>  </div>
+<div class="title">Hook.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="EpollReactor_8hpp_source.html">EpollReactor.hpp</a>&quot;</code><br />
-<code>#include &lt;<a class="el" href="TimerFd_8hpp_source.html">toolbox/io/TimerFd.hpp</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="Log_8hpp_source.html">toolbox/sys/Log.hpp</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="Time_8hpp_source.html">toolbox/sys/Time.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="Slot_8hpp_source.html">toolbox/util/Slot.hpp</a>&gt;</code><br />
+<code>#include &lt;boost/intrusive/list.hpp&gt;</code><br />
 </div>
-<p><a href="EpollReactor_8cpp_source.html">Go to the source code of this file.</a></p>
+<p><a href="Hook_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1io_1_1Hook.html">toolbox::io::Hook</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacetoolbox"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox.html">toolbox</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacetoolbox_1_1io"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html">toolbox::io</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a61ae4d7ecb44580a91e3ef87b3ca2330"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#a61ae4d7ecb44580a91e3ef87b3ca2330">toolbox::io::HookList</a> = boost::intrusive::list&lt; Hook, boost::intrusive::constant_time_size&lt; false &gt; &gt;</td></tr>
+<tr class="separator:a61ae4d7ecb44580a91e3ef87b3ca2330"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a37a69d4e50d97d17ae90353a34c9b318"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#a37a69d4e50d97d17ae90353a34c9b318">toolbox::io::dispatch</a> (CyclTime now, const HookList &amp;l) noexcept</td></tr>
+<tr class="separator:a37a69d4e50d97d17ae90353a34c9b318"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

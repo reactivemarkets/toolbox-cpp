@@ -69,6 +69,7 @@ var searchData=
   ['multiconfig',['MultiConfig',['../classtoolbox_1_1util_1_1MultiConfig.html',1,'toolbox::util::MultiConfig'],['../classtoolbox_1_1util_1_1MultiConfig.html#a665d08b8c9735fcec38b7f0d24f94295',1,'toolbox::util::MultiConfig::MultiConfig()'],['../classtoolbox_1_1util_1_1MultiConfig.html#a25fc2c4673170476213cc306aee0ba79',1,'toolbox::util::MultiConfig::MultiConfig(const MultiConfig &amp;)=delete'],['../classtoolbox_1_1util_1_1MultiConfig.html#a1cb0e34013eb13cc33706d1f026009a2',1,'toolbox::util::MultiConfig::MultiConfig(MultiConfig &amp;&amp;)']]],
   ['multitoken',['multitoken',['../classtoolbox_1_1util_1_1Value.html#a28053e318b5dac04a8a1e8dd430220fa',1,'toolbox::util::Value']]],
   ['mutablebuffer',['MutableBuffer',['../namespacetoolbox_1_1io.html#a5f27399855673bfa5dc5f79c77fa61c1',1,'toolbox::io']]],
+  ['muxer',['Muxer',['../classtoolbox_1_1io_1_1Muxer.html',1,'toolbox::io::Muxer'],['../classtoolbox_1_1io_1_1Muxer.html#aa2d9ec1870212535dcec9cdfa0c2a54a',1,'toolbox::io::Muxer::Muxer(int flags=0)'],['../classtoolbox_1_1io_1_1Muxer.html#a7fac26847331fbd0a556f8624d5de7a6',1,'toolbox::io::Muxer::Muxer(const Muxer &amp;)=delete'],['../classtoolbox_1_1io_1_1Muxer.html#a8c2538c049f29da7cb0af2dd517085a3',1,'toolbox::io::Muxer::Muxer(Muxer &amp;&amp;)=default']]],
   ['muxer_2ecpp',['Muxer.cpp',['../Muxer_8cpp.html',1,'']]],
   ['muxer_2ehpp',['Muxer.hpp',['../Muxer_8hpp.html',1,'']]]
 ];

@@ -18,6 +18,7 @@ var searchData=
   ['hex_5fdigits',['hex_digits',['../namespacetoolbox_1_1util.html#aa94d4db4a19eac86eed316eb4076d0d8',1,'toolbox::util']]],
   ['highest_5fequivalent_5fvalue',['highest_equivalent_value',['../classtoolbox_1_1hdr_1_1HdrHistogram.html#a3d3a095f7d109ad2eab678b50257a766',1,'toolbox::hdr::HdrHistogram::highest_equivalent_value()'],['../classtoolbox_1_1hdr_1_1HdrIterator.html#a0af3a76583c49ac9d0723e4873e80267',1,'toolbox::hdr::HdrIterator::highest_equivalent_value()']]],
   ['highest_5ftrackable_5fvalue',['highest_trackable_value',['../classtoolbox_1_1hdr_1_1HdrHistogram.html#a7616e811a14bb24f1ab7821e24287ce6',1,'toolbox::hdr::HdrHistogram']]],
+  ['hook',['Hook',['../structtoolbox_1_1io_1_1Hook.html#a2c05790682d41e0c54a3e7fa19a072fd',1,'toolbox::io::Hook::Hook(Slot slot) noexcept'],['../structtoolbox_1_1io_1_1Hook.html#a287fb71a044fa28faae98af0d45b126c',1,'toolbox::io::Hook::Hook()=default']]],
   ['host',['host',['../classtoolbox_1_1http_1_1BasicUrl.html#a0f5a390c222459887dd4c70164058377',1,'toolbox::http::BasicUrl']]],
   ['http_5ferror_5fcategory',['http_error_category',['../namespacetoolbox_1_1http.html#aa66f7ba8bd47a90ef5647c3692b99591',1,'toolbox::http']]],
   ['http_5fmajor',['http_major',['../classtoolbox_1_1http_1_1BasicHttpParser.html#a0812ef058b1efe13281217cec2a5b99a',1,'toolbox::http::BasicHttpParser']]],

@@ -84,15 +84,15 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Buffer.html">Buffer</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollMuxer.html">EpollMuxer</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EpollReactor.html">EpollReactor</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EventFd.html">EventFd</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1io_1_1FilePolicy.html">FilePolicy</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1io_1_1Hook.html">Hook</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1io_1_1MsgEvent.html">MsgEvent</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Muxer.html">Muxer</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Notifiable.html">Notifiable</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -117,6 +117,8 @@ Typedefs</h2></td></tr>
 <tr class="separator:a5f27399855673bfa5dc5f79c77fa61c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0382b7b7f259044db618bbc41b273ee4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#a0382b7b7f259044db618bbc41b273ee4">FileHandle</a> = <a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">BasicHandle</a>&lt; <a class="el" href="structtoolbox_1_1io_1_1FilePolicy.html">FilePolicy</a> &gt;</td></tr>
 <tr class="separator:a0382b7b7f259044db618bbc41b273ee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61ae4d7ecb44580a91e3ef87b3ca2330"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#a61ae4d7ecb44580a91e3ef87b3ca2330">HookList</a> = boost::intrusive::list&lt; <a class="el" href="structtoolbox_1_1io_1_1Hook.html">Hook</a>, boost::intrusive::constant_time_size&lt; false &gt; &gt;</td></tr>
+<tr class="separator:a61ae4d7ecb44580a91e3ef87b3ca2330"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51270edb28d40f59f724a79e2e3ed0a6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#a51270edb28d40f59f724a79e2e3ed0a6">IoSlot</a> = BasicSlot&lt; CyclTime, int, unsigned &gt;</td></tr>
 <tr class="separator:a51270edb28d40f59f724a79e2e3ed0a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9637530ce7cb05e3d37b882576fbcaa4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#a9637530ce7cb05e3d37b882576fbcaa4">TimerSlot</a> = BasicSlot&lt; CyclTime, <a class="el" href="classtoolbox_1_1io_1_1Timer.html">Timer</a> &amp; &gt;</td></tr>
@@ -125,13 +127,13 @@ Typedefs</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:a8c6012aff2a0b404f18904f88facb62a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">: unsigned { <br />
-&#160;&#160;<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa39bad8c1517b28a926ce6c5e3d07a60c">EventIn</a> = 1 &lt;&lt; 0, 
-<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa4d35b776ba49961520c41b6ccf52c894">EventPri</a> = 1 &lt;&lt; 1, 
-<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aaf6265e81fa9f1ea06ae726fbfe4b02d0">EventOut</a> = 1 &lt;&lt; 2, 
-<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aaad050a1c0f6bc83467a71c7b01b9d022">EventErr</a> = 1 &lt;&lt; 3, 
+&#160;&#160;<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa39bad8c1517b28a926ce6c5e3d07a60c">EventIn</a> = EPOLLIN, 
+<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa4d35b776ba49961520c41b6ccf52c894">EventPri</a> = EPOLLPRI, 
+<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aaf6265e81fa9f1ea06ae726fbfe4b02d0">EventOut</a> = EPOLLOUT, 
+<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aaad050a1c0f6bc83467a71c7b01b9d022">EventErr</a> = EPOLLERR, 
 <br />
-&#160;&#160;<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aacbe8f1239a5afd14bd7e51201b76df99">EventHup</a> = 1 &lt;&lt; 4, 
-<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa50b8fe0826e16f46c790415bcb20e558">EventEt</a> = 1u &lt;&lt; 31
+&#160;&#160;<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aacbe8f1239a5afd14bd7e51201b76df99">EventHup</a> = EPOLLHUP, 
+<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa50b8fe0826e16f46c790415bcb20e558">EventEt</a> = EPOLLET
 <br />
  }</td></tr>
 <tr class="separator:a8c6012aff2a0b404f18904f88facb62a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,6 +174,8 @@ Functions</h2></td></tr>
 <tr class="memitem:acf929afa416469541f294c1f6c1ebe5a"><td class="memTemplParams" colspan="2">template&lt;typename PolicyT &gt; </td></tr>
 <tr class="memitem:acf929afa416469541f294c1f6c1ebe5a"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#acf929afa416469541f294c1f6c1ebe5a">operator!=</a> (const <a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">BasicHandle</a>&lt; PolicyT &gt; &amp;lhs, const <a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">BasicHandle</a>&lt; PolicyT &gt; &amp;rhs)</td></tr>
 <tr class="separator:acf929afa416469541f294c1f6c1ebe5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37a69d4e50d97d17ae90353a34c9b318"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#a37a69d4e50d97d17ae90353a34c9b318">dispatch</a> (CyclTime now, const <a class="el" href="namespacetoolbox_1_1io.html#a61ae4d7ecb44580a91e3ef87b3ca2330">HookList</a> &amp;l) noexcept</td></tr>
+<tr class="separator:a37a69d4e50d97d17ae90353a34c9b318"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c83f2f910a792f62df7bebec8f93af3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#a5c83f2f910a792f62df7bebec8f93af3">intrusive_ptr_release</a> (<a class="el" href="structtoolbox_1_1io_1_1Timer_1_1Impl.html">Timer::Impl</a> *impl) noexcept</td></tr>
 <tr class="separator:a5c83f2f910a792f62df7bebec8f93af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9f71c9a98ff74304dc92d38c8553762"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#ac9f71c9a98ff74304dc92d38c8553762">operator==</a> (const <a class="el" href="classtoolbox_1_1io_1_1Timer.html">Timer</a> &amp;lhs, const <a class="el" href="classtoolbox_1_1io_1_1Timer.html">Timer</a> &amp;rhs) noexcept</td></tr>
@@ -251,6 +255,22 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a61ae4d7ecb44580a91e3ef87b3ca2330"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61ae4d7ecb44580a91e3ef87b3ca2330">&#9670;&nbsp;</a></span>HookList</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacetoolbox_1_1io.html#a61ae4d7ecb44580a91e3ef87b3ca2330">toolbox::io::HookList</a> = typedef boost::intrusive::list&lt;<a class="el" href="structtoolbox_1_1io_1_1Hook.html">Hook</a>, boost::intrusive::constant_time_size&lt;false&gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Hook_8hpp_source.html#l00039">39</a> of file <a class="el" href="Hook_8hpp_source.html">Hook.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a51270edb28d40f59f724a79e2e3ed0a6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a51270edb28d40f59f724a79e2e3ed0a6">&#9670;&nbsp;</a></span>IoSlot</h2>
 
@@ -263,7 +283,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Reactor_8hpp_source.html#l00029">29</a> of file <a class="el" href="Reactor_8hpp_source.html">Reactor.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Reactor_8hpp_source.html#l00032">32</a> of file <a class="el" href="Reactor_8hpp_source.html">Reactor.hpp</a>.</p>
 
 </div>
 </div>
@@ -304,7 +324,7 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="a8c6012aff2a0b404f18904f88facb62aa50b8fe0826e16f46c790415bcb20e558"></a>EventEt&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="Event_8hpp_source.html#l00027">27</a> of file <a class="el" href="Event_8hpp_source.html">Event.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Event_8hpp_source.html#l00029">29</a> of file <a class="el" href="Event_8hpp_source.html">Event.hpp</a>.</p>
 
 </div>
 </div>
@@ -332,7 +352,7 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="a3ebeb41d6195a7beeb4a1734379c4684a28d0edd045e05cf5af64e35ae0c4c6ef"></a>Low&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="Reactor_8hpp_source.html#l00027">27</a> of file <a class="el" href="Reactor_8hpp_source.html">Reactor.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Reactor_8hpp_source.html#l00030">30</a> of file <a class="el" href="Reactor_8hpp_source.html">Reactor.hpp</a>.</p>
 
 </div>
 </div>
@@ -413,7 +433,7 @@ template&lt;typename DataT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Event_8hpp_source.html#l00044">44</a> of file <a class="el" href="Event_8hpp_source.html">Event.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Event_8hpp_source.html#l00046">46</a> of file <a class="el" href="Event_8hpp_source.html">Event.hpp</a>.</p>
 
 </div>
 </div>
@@ -459,7 +479,7 @@ template&lt;typename DataT , typename... ArgsT&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Event_8hpp_source.html#l00054">54</a> of file <a class="el" href="Event_8hpp_source.html">Event.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Event_8hpp_source.html#l00056">56</a> of file <a class="el" href="Event_8hpp_source.html">Event.hpp</a>.</p>
 
 </div>
 </div>
@@ -489,7 +509,7 @@ template&lt;typename DataT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Event_8hpp_source.html#l00064">64</a> of file <a class="el" href="Event_8hpp_source.html">Event.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Event_8hpp_source.html#l00066">66</a> of file <a class="el" href="Event_8hpp_source.html">Event.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="String_8ut_8cpp_source.html#l00171">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Options_8hpp_source.html#l00178">toolbox::util::Options::operator()()</a>, <a class="el" href="Url_8hpp_source.html#l00080">toolbox::http::BasicUrl&lt; Url &gt;::parse()</a>, and <a class="el" href="Options_8cpp_source.html#l00044">toolbox::util::Options::parse()</a>.</p>
 
@@ -521,7 +541,7 @@ template&lt;typename DataT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Event_8hpp_source.html#l00070">70</a> of file <a class="el" href="Event_8hpp_source.html">Event.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Event_8hpp_source.html#l00072">72</a> of file <a class="el" href="Event_8hpp_source.html">Event.hpp</a>.</p>
 
 </div>
 </div>
@@ -620,7 +640,7 @@ template&lt;typename DataT &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00253">253</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00803">toolbox::net::Sock::set_non_block()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00800">toolbox::net::Sock::set_non_block()</a>.</p>
 
 </div>
 </div>
@@ -713,6 +733,46 @@ template&lt;typename PolicyT &gt; </div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="Handle_8hpp_source.html#l00097">97</a> of file <a class="el" href="Handle_8hpp_source.html">Handle.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a37a69d4e50d97d17ae90353a34c9b318"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37a69d4e50d97d17ae90353a34c9b318">&#9670;&nbsp;</a></span>dispatch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> void toolbox::io::dispatch </td>
+          <td>(</td>
+          <td class="paramtype">CyclTime&#160;</td>
+          <td class="paramname"><em>now</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespacetoolbox_1_1io.html#a61ae4d7ecb44580a91e3ef87b3ca2330">HookList</a> &amp;&#160;</td>
+          <td class="paramname"><em>l</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Hook_8cpp_source.html#l00024">24</a> of file <a class="el" href="Hook_8cpp_source.html">Hook.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Reactor_8hpp_source.html#l00142">toolbox::io::Reactor::add_hook()</a>, <a class="el" href="Hook_8ut_8cpp_source.html#l00067">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Timer_8hpp_source.html#l00191">toolbox::io::TimerQueue::insert()</a>, and <a class="el" href="Reactor_8cpp_source.html#l00055">toolbox::io::Reactor::poll()</a>.</p>
 
 </div>
 </div>
@@ -1057,9 +1117,9 @@ template&lt;typename PolicyT &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Reactor_8hpp_source.html#l00026">26</a> of file <a class="el" href="Reactor_8hpp_source.html">Reactor.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Reactor_8hpp_source.html#l00029">29</a> of file <a class="el" href="Reactor_8hpp_source.html">Reactor.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="EpollReactor_8cpp_source.html#l00133">toolbox::io::EpollReactor::do_poll()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Reactor_8hpp_source.html#l00142">toolbox::io::Reactor::add_hook()</a>, and <a class="el" href="Reactor_8cpp_source.html#l00055">toolbox::io::Reactor::poll()</a>.</p>
 
 </div>
 </div>

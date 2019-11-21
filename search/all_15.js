@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['wait',['wait',['../classtoolbox_1_1io_1_1EpollMuxer.html#a8c35ba8937f3e058a1c4229e62b271a9',1,'toolbox::io::EpollMuxer::wait(Event buf[], std::size_t size, std::error_code &amp;ec)'],['../classtoolbox_1_1io_1_1EpollMuxer.html#aa847e4f3d0c6d751610cd1ca6b1f1ba7',1,'toolbox::io::EpollMuxer::wait(Event buf[], std::size_t size, MonoTime timeout, std::error_code &amp;ec)']]],
+  ['wait',['wait',['../classtoolbox_1_1io_1_1Muxer.html#a816e31df886d81754ca62c4b3eea89aa',1,'toolbox::io::Muxer::wait(Event buf[], std::size_t size, std::error_code &amp;ec)'],['../classtoolbox_1_1io_1_1Muxer.html#ada8a59343a2cd46a9536ef295a2076ee',1,'toolbox::io::Muxer::wait(Event buf[], std::size_t size, MonoTime timeout, std::error_code &amp;ec)']]],
   ['wall_5ftime',['wall_time',['../classtoolbox_1_1sys_1_1CyclTime.html#a72227dcbfe3723c038e3ecd6a05071eb',1,'toolbox::sys::CyclTime']]],
   ['wallclock',['WallClock',['../structtoolbox_1_1sys_1_1WallClock.html',1,'toolbox::sys']]],
   ['walltime',['WallTime',['../namespacetoolbox_1_1sys.html#a657ecd4f98265bd34f835f59975db04e',1,'toolbox::sys']]],
