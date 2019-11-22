@@ -30,8 +30,14 @@ void run_reactor(Reactor& r, ThreadConfig config, const std::atomic<bool>& stop)
     try {
         set_thread_attrs(config);
         TOOLBOX_NOTICE << "started " << config.name << " thread";
+        long i{0};
         while (!stop.load(std::memory_order_acquire)) {
-            r.poll(CyclTime::now());
+            // Busy-wait for a small number of cycles after work was done.
+            constexpr long BusyCycles{100};
+            if (r.poll(CyclTime::now(), i++ < BusyCycles ? 0s : NoTimeout) > 0) {
+                // Reset counter when work has been done.
+                i = 0;
+            }
         }
     } catch (const std::exception& e) {
         TOOLBOX_CRIT << "exception: " << e.what();
