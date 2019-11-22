@@ -98,11 +98,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abcbf105eb1fcec10586bb393db6be553"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47540b99045ec94ed5c99d5ff15b0168"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Muxer.html#a47540b99045ec94ed5c99d5ff15b0168">swap</a> (<a class="el" href="classtoolbox_1_1io_1_1Muxer.html">Muxer</a> &amp;rhs) noexcept</td></tr>
 <tr class="separator:a47540b99045ec94ed5c99d5ff15b0168"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a816e31df886d81754ca62c4b3eea89aa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Muxer.html#a816e31df886d81754ca62c4b3eea89aa">wait</a> (<a class="el" href="classtoolbox_1_1io_1_1Muxer.html#a3a30b78318c058a0fa2f007775009ff1">Event</a> buf[], std::size_t size, std::error_code &amp;ec)</td></tr>
-<tr class="memdesc:a816e31df886d81754ca62c4b3eea89aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of file descriptors that are ready.  <a href="#a816e31df886d81754ca62c4b3eea89aa">More...</a><br /></td></tr>
-<tr class="separator:a816e31df886d81754ca62c4b3eea89aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada8a59343a2cd46a9536ef295a2076ee"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Muxer.html#ada8a59343a2cd46a9536ef295a2076ee">wait</a> (<a class="el" href="classtoolbox_1_1io_1_1Muxer.html#a3a30b78318c058a0fa2f007775009ff1">Event</a> buf[], std::size_t size, MonoTime timeout, std::error_code &amp;ec)</td></tr>
-<tr class="separator:ada8a59343a2cd46a9536ef295a2076ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0230c164a5568e95c8b57957f936f9a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Muxer.html#ad0230c164a5568e95c8b57957f936f9a">wait</a> (<a class="el" href="classtoolbox_1_1io_1_1Muxer.html#a3a30b78318c058a0fa2f007775009ff1">Event</a> buf[], std::size_t size, std::error_code &amp;ec) noexcept</td></tr>
+<tr class="memdesc:ad0230c164a5568e95c8b57957f936f9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of file descriptors that are ready.  <a href="#ad0230c164a5568e95c8b57957f936f9a">More...</a><br /></td></tr>
+<tr class="separator:ad0230c164a5568e95c8b57957f936f9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab8d937a113a739a576a516f5c3ca251"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Muxer.html#aab8d937a113a739a576a516f5c3ca251">wait</a> (<a class="el" href="classtoolbox_1_1io_1_1Muxer.html#a3a30b78318c058a0fa2f007775009ff1">Event</a> buf[], std::size_t size, MonoTime timeout, std::error_code &amp;ec) noexcept</td></tr>
+<tr class="separator:aab8d937a113a739a576a516f5c3ca251"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a181415aeac522c8da64cddc9a84883e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Muxer.html#a181415aeac522c8da64cddc9a84883e6">subscribe</a> (int <a class="el" href="classtoolbox_1_1io_1_1Muxer.html#a262c2e5ecdff22c862f88cb8f2a166f9">fd</a>, int <a class="el" href="classtoolbox_1_1io_1_1Muxer.html#a22492ca67b278857fa125260bff8f2a4">sid</a>, unsigned events)</td></tr>
 <tr class="separator:a181415aeac522c8da64cddc9a84883e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ab8934d180a339d7d28cacca79745f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Muxer.html#a0ab8934d180a339d7d28cacca79745f0">unsubscribe</a> (int <a class="el" href="classtoolbox_1_1io_1_1Muxer.html#a262c2e5ecdff22c862f88cb8f2a166f9">fd</a>) noexcept</td></tr>
@@ -276,7 +276,7 @@ Static Public Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00035">35</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Muxer_8hpp_source.html#l00096">set_events()</a>, and <a class="el" href="Muxer_8hpp_source.html#l00088">unsubscribe()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Muxer_8hpp_source.html#l00105">set_events()</a>, and <a class="el" href="Muxer_8hpp_source.html#l00097">unsubscribe()</a>.</p>
 
 </div>
 </div>
@@ -306,7 +306,7 @@ Static Public Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00039">39</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Muxer_8hpp_source.html#l00096">set_events()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Muxer_8hpp_source.html#l00105">set_events()</a>.</p>
 
 </div>
 </div>
@@ -392,8 +392,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a816e31df886d81754ca62c4b3eea89aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a816e31df886d81754ca62c4b3eea89aa">&#9670;&nbsp;</a></span>wait() <span class="overload">[1/2]</span></h2>
+<a id="ad0230c164a5568e95c8b57957f936f9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0230c164a5568e95c8b57957f936f9a">&#9670;&nbsp;</a></span>wait() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -427,7 +427,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -438,8 +438,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ada8a59343a2cd46a9536ef295a2076ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada8a59343a2cd46a9536ef295a2076ee">&#9670;&nbsp;</a></span>wait() <span class="overload">[2/2]</span></h2>
+<a id="aab8d937a113a739a576a516f5c3ca251"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab8d937a113a739a576a516f5c3ca251">&#9670;&nbsp;</a></span>wait() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -479,13 +479,13 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <p>Returns the number of file descriptors that are ready, or zero if no file descriptor became ready during before the operation timed-out. </p>
 
-<p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00072">72</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00077">77</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
 
 </div>
 </div>
@@ -529,7 +529,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00082">82</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00091">91</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Muxer_8hpp_source.html#l00043">Muxer()</a>.</p>
 
@@ -559,7 +559,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00088">88</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00097">97</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Muxer_8hpp_source.html#l00049">~Muxer()</a>.</p>
 
@@ -611,9 +611,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00096">96</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00105">105</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Muxer_8hpp_source.html#l00102">set_events()</a>, and <a class="el" href="Muxer_8hpp_source.html#l00082">subscribe()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Muxer_8hpp_source.html#l00111">set_events()</a>, and <a class="el" href="Muxer_8hpp_source.html#l00091">subscribe()</a>.</p>
 
 </div>
 </div>
@@ -657,7 +657,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00102">102</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Muxer_8hpp_source.html#l00111">111</a> of file <a class="el" href="Muxer_8hpp_source.html">Muxer.hpp</a>.</p>
 
 </div>
 </div>

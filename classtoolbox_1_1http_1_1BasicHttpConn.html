@@ -347,7 +347,7 @@ template&lt;typename RequestT , typename AppT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00081">81</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00080">80</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
 
 </div>
 </div>
@@ -376,7 +376,7 @@ template&lt;typename RequestT , typename AppT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00082">82</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00081">81</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
 
 </div>
 </div>
@@ -406,7 +406,7 @@ template&lt;typename RequestT , typename AppT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00086">86</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00085">85</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
 
 </div>
 </div>
@@ -480,7 +480,7 @@ template&lt;typename RequestT , typename AppT &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00062">62</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Conn_8hpp_source.html#l00086">toolbox::http::BasicHttpConn&lt; RequestT, AppT &gt;::dispose_now()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Conn_8hpp_source.html#l00085">toolbox::http::BasicHttpConn&lt; RequestT, AppT &gt;::dispose_now()</a>.</p>
 
 </div>
 </div>
@@ -500,7 +500,7 @@ template&lt;typename RequestT , typename AppT &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00063">63</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Conn_8hpp_source.html#l00086">toolbox::http::BasicHttpConn&lt; RequestT, AppT &gt;::dispose_now()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Conn_8hpp_source.html#l00085">toolbox::http::BasicHttpConn&lt; RequestT, AppT &gt;::dispose_now()</a>.</p>
 
 </div>
 </div>
@@ -520,7 +520,7 @@ template&lt;typename RequestT , typename AppT &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00064">64</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Conn_8hpp_source.html#l00086">toolbox::http::BasicHttpConn&lt; RequestT, AppT &gt;::dispose_now()</a>, and <a class="el" href="Conn_8hpp_source.html#l00081">toolbox::http::BasicHttpConn&lt; RequestT, AppT &gt;::endpoint()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Conn_8hpp_source.html#l00085">toolbox::http::BasicHttpConn&lt; RequestT, AppT &gt;::dispose_now()</a>, and <a class="el" href="Conn_8hpp_source.html#l00080">toolbox::http::BasicHttpConn&lt; RequestT, AppT &gt;::endpoint()</a>.</p>
 
 </div>
 </div>
@@ -537,10 +537,10 @@ template&lt;typename RequestT , typename AppT &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{app}</div><div class="line">    {</div><div class="line">        sub_ = r.subscribe(*<a class="code" href="classtoolbox_1_1http_1_1BasicHttpConn.html#a88b3f6e9e607dcb8abb8c7ef5b256b46">sock_</a>, <a class="code" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa39bad8c1517b28a926ce6c5e3d07a60c">EventIn</a>, bind&lt;&amp;BasicHttpConn::on_io_event&gt;(<span class="keyword">this</span>));</div><div class="line">        tmr_ = r.timer(now.mono_time() + IdleTimeout, Priority::Low,</div><div class="line">                       bind&lt;&amp;BasicHttpConn::on_timer&gt;(<span class="keyword">this</span>));</div><div class="line">        app.on_http_connect(now, <a class="code" href="classtoolbox_1_1http_1_1BasicHttpConn.html#af5ae638f71b82cddefaeaf5267e69d03">ep_</a>);</div><div class="line">    }</div><div class="line"></div><div class="line">    </div><div class="line">    <a class="code" href="classtoolbox_1_1http_1_1BasicHttpConn.html#a2339a78f1bdae91d32d3531d6c4ba6d9">BasicHttpConn</a>(<span class="keyword">const</span> <a class="code" href="classtoolbox_1_1http_1_1BasicHttpConn.html#a2339a78f1bdae91d32d3531d6c4ba6d9">BasicHttpConn</a>&amp;) = <span class="keyword">delete</span></div></div><!-- fragment -->
+<b>Initial value:</b><div class="fragment"><div class="line">{app}</div><div class="line">    {</div><div class="line">        sub_ = r.subscribe(*<a class="code" href="classtoolbox_1_1http_1_1BasicHttpConn.html#a88b3f6e9e607dcb8abb8c7ef5b256b46">sock_</a>, <a class="code" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa39bad8c1517b28a926ce6c5e3d07a60c">EventIn</a>, bind&lt;&amp;BasicHttpConn::on_io_event&gt;(<span class="keyword">this</span>));</div><div class="line">        schedule_timeout(now);</div><div class="line">        app.on_http_connect(now, <a class="code" href="classtoolbox_1_1http_1_1BasicHttpConn.html#af5ae638f71b82cddefaeaf5267e69d03">ep_</a>);</div><div class="line">    }</div><div class="line"></div><div class="line">    </div><div class="line">    <a class="code" href="classtoolbox_1_1http_1_1BasicHttpConn.html#a2339a78f1bdae91d32d3531d6c4ba6d9">BasicHttpConn</a>(<span class="keyword">const</span> <a class="code" href="classtoolbox_1_1http_1_1BasicHttpConn.html#a2339a78f1bdae91d32d3531d6c4ba6d9">BasicHttpConn</a>&amp;) = <span class="keyword">delete</span></div></div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00065">65</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Conn_8hpp_source.html#l00086">toolbox::http::BasicHttpConn&lt; RequestT, AppT &gt;::dispose_now()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Conn_8hpp_source.html#l00085">toolbox::http::BasicHttpConn&lt; RequestT, AppT &gt;::dispose_now()</a>.</p>
 
 </div>
 </div>
@@ -558,7 +558,7 @@ template&lt;typename RequestT , typename AppT &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00083">83</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00082">82</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
 
 </div>
 </div>
