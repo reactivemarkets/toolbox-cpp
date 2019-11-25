@@ -258,7 +258,7 @@ class MpmcQueue {
 
 /// Initialise file-based MpmcQueue.
 template <typename ValueT>
-void create_mpmc_queue(FileHandle& fh, std::size_t capacity)
+void new_mpmc_queue(FileHandle& fh, std::size_t capacity)
 {
     using Elem = typename MpmcQueue<ValueT>::Elem;
     using Impl = typename MpmcQueue<ValueT>::Impl;
@@ -281,9 +281,9 @@ void create_mpmc_queue(FileHandle& fh, std::size_t capacity)
 
 /// Initialise file-based MpmcQueue.
 template <typename ValueT>
-void create_mpmc_queue(FileHandle&& fh, std::size_t capacity)
+void new_mpmc_queue(FileHandle&& fh, std::size_t capacity)
 {
-    return create_mpmc_queue<ValueT>(fh, capacity);
+    return new_mpmc_queue<ValueT>(fh, capacity);
 }
 
 } // namespace ipc
