@@ -25,14 +25,14 @@ inline namespace ipc {
 using MsgData = char[MaxMsgSize];
 using MsgQueue = MpmcQueue<MsgData>;
 
-inline void create_msg_queue(FileHandle& fh, std::size_t capacity)
+inline void new_msg_queue(FileHandle& fh, std::size_t capacity)
 {
-    create_mpmc_queue<MsgData>(fh, capacity);
+    new_mpmc_queue<MsgData>(fh, capacity);
 }
 
-inline void create_msg_queue(FileHandle&& fh, std::size_t capacity)
+inline void new_msg_queue(FileHandle&& fh, std::size_t capacity)
 {
-    create_mpmc_queue<MsgData>(fh, capacity);
+    new_mpmc_queue<MsgData>(fh, capacity);
 }
 
 } // namespace ipc
