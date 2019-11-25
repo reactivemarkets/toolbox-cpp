@@ -57,8 +57,6 @@ var searchData=
   ['counts_5findex_5f',['counts_index_',['../classtoolbox_1_1hdr_1_1HdrIterator.html#a40529104e6c185e810f1e4801db49e37',1,'toolbox::hdr::HdrIterator']]],
   ['counts_5flen',['counts_len',['../structtoolbox_1_1hdr_1_1HdrBucketConfig.html#ae3a802e1f2c4c504c30bb9310441a822',1,'toolbox::hdr::HdrBucketConfig::counts_len()'],['../classtoolbox_1_1hdr_1_1HdrHistogram.html#af83633c82abe83e9d56eb14fbeb3b769',1,'toolbox::hdr::HdrHistogram::counts_len()']]],
   ['crbegin',['crbegin',['../classtoolbox_1_1util_1_1ArrayView.html#a9df3c889b07361f17a69498b2d294d98',1,'toolbox::util::ArrayView']]],
-  ['create_5fmpmc_5fqueue',['create_mpmc_queue',['../namespacetoolbox_1_1ipc.html#ac6504780b9b7f04ad85370b3b0081a95',1,'toolbox::ipc::create_mpmc_queue(FileHandle &amp;fh, std::size_t capacity)'],['../namespacetoolbox_1_1ipc.html#aac7cd7eeea1db6f28853a3abc45265b9',1,'toolbox::ipc::create_mpmc_queue(FileHandle &amp;&amp;fh, std::size_t capacity)']]],
-  ['create_5fmsg_5fqueue',['create_msg_queue',['../namespacetoolbox_1_1ipc.html#a81d813a5e6f7ed295a6925343e9e28e1',1,'toolbox::ipc::create_msg_queue(FileHandle &amp;fh, std::size_t capacity)'],['../namespacetoolbox_1_1ipc.html#a95b189c6b99525a4cea6f6ec88c00d67',1,'toolbox::ipc::create_msg_queue(FileHandle &amp;&amp;fh, std::size_t capacity)']]],
   ['crend',['crend',['../classtoolbox_1_1util_1_1ArrayView.html#ab939b2dcaac9b02e912e6b863a2b7118',1,'toolbox::util::ArrayView']]],
   ['crit',['Crit',['../classtoolbox_1_1sys_1_1Log.html#a197218eb4d0ca7ff10b922b5d3914e9dab8159c7b3f509de803c8e908b15c5bce',1,'toolbox::sys::Log']]],
   ['ctx_2ecpp',['Ctx.cpp',['../Ctx_8cpp.html',1,'']]],

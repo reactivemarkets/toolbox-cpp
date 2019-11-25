@@ -30,8 +30,6 @@ var searchData=
   ['counts_5fget_5fnormalised',['counts_get_normalised',['../classtoolbox_1_1hdr_1_1HdrHistogram.html#aa0a0cbc1a7b403b04c9d135df905a1cc',1,'toolbox::hdr::HdrHistogram']]],
   ['counts_5flen',['counts_len',['../classtoolbox_1_1hdr_1_1HdrHistogram.html#af83633c82abe83e9d56eb14fbeb3b769',1,'toolbox::hdr::HdrHistogram']]],
   ['crbegin',['crbegin',['../classtoolbox_1_1util_1_1ArrayView.html#a9df3c889b07361f17a69498b2d294d98',1,'toolbox::util::ArrayView']]],
-  ['create_5fmpmc_5fqueue',['create_mpmc_queue',['../namespacetoolbox_1_1ipc.html#ac6504780b9b7f04ad85370b3b0081a95',1,'toolbox::ipc::create_mpmc_queue(FileHandle &amp;fh, std::size_t capacity)'],['../namespacetoolbox_1_1ipc.html#aac7cd7eeea1db6f28853a3abc45265b9',1,'toolbox::ipc::create_mpmc_queue(FileHandle &amp;&amp;fh, std::size_t capacity)']]],
-  ['create_5fmsg_5fqueue',['create_msg_queue',['../namespacetoolbox_1_1ipc.html#a81d813a5e6f7ed295a6925343e9e28e1',1,'toolbox::ipc::create_msg_queue(FileHandle &amp;fh, std::size_t capacity)'],['../namespacetoolbox_1_1ipc.html#a95b189c6b99525a4cea6f6ec88c00d67',1,'toolbox::ipc::create_msg_queue(FileHandle &amp;&amp;fh, std::size_t capacity)']]],
   ['crend',['crend',['../classtoolbox_1_1util_1_1ArrayView.html#ab939b2dcaac9b02e912e6b863a2b7118',1,'toolbox::util::ArrayView']]],
   ['cumulative_5fcount',['cumulative_count',['../classtoolbox_1_1hdr_1_1HdrIterator.html#ad79ab6adff2a9e153d527388f5040cfd',1,'toolbox::hdr::HdrIterator']]],
   ['current',['current',['../classtoolbox_1_1sys_1_1CyclTime.html#a6914bc691fe0f773d3d6d27a966f9443',1,'toolbox::sys::CyclTime']]]

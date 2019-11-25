@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['new_5fmpmc_5fqueue',['new_mpmc_queue',['../namespacetoolbox_1_1ipc.html#a36ddd1bb568a42f0f8dffe8a4520db49',1,'toolbox::ipc::new_mpmc_queue(FileHandle &amp;fh, std::size_t capacity)'],['../namespacetoolbox_1_1ipc.html#acddc3bb804a76722db4c3b8526ba7be9',1,'toolbox::ipc::new_mpmc_queue(FileHandle &amp;&amp;fh, std::size_t capacity)']]],
+  ['new_5fmsg_5fqueue',['new_msg_queue',['../namespacetoolbox_1_1ipc.html#ad457ce61765306042bbf3dbf6a7cb118',1,'toolbox::ipc::new_msg_queue(FileHandle &amp;fh, std::size_t capacity)'],['../namespacetoolbox_1_1ipc.html#afd541e0ff986cf2d4ab4aedc876677a0',1,'toolbox::ipc::new_msg_queue(FileHandle &amp;&amp;fh, std::size_t capacity)']]],
   ['next',['next',['../classtoolbox_1_1hdr_1_1HdrIterator.html#aea18fa0d680c0f5b0ec8595165a3da82',1,'toolbox::hdr::HdrIterator::next()'],['../classtoolbox_1_1util_1_1Tokeniser.html#a88183e17c45a32fe80a73b88895eb0b5',1,'toolbox::util::Tokeniser::next()']]],
   ['next_5fnon_5fequivalent_5fvalue',['next_non_equivalent_value',['../classtoolbox_1_1hdr_1_1HdrHistogram.html#a4bb47d96914b981c8f7c67dfc618e71f',1,'toolbox::hdr::HdrHistogram']]],
   ['next_5fpow2',['next_pow2',['../namespacetoolbox_1_1util.html#a68ac520e2e1f334b342eca07535f47b9',1,'toolbox::util::next_pow2(unsigned n) noexcept'],['../namespacetoolbox_1_1util.html#a9e34fdde5bf0ecd5e8d54e5bf122c88b',1,'toolbox::util::next_pow2(unsigned long n) noexcept']]],
