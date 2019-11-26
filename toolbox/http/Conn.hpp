@@ -187,36 +187,10 @@ class BasicHttpConn
         auto lock = this->lock_this(now);
         try {
             if (events & (EventIn | EventHup)) {
-                // Limit the number of reads to avoid starvation.
-                for (int i{0}; i < 4; ++i) {
-                    std::error_code ec;
-                    const auto buf = in_.prepare(2944);
-                    const auto size = os::read(fd, buf, ec);
-                    if (ec) {
-                        if (ec == std::errc::operation_would_block) {
-                            flush_input(now);
-                            break;
-                        }
-                        throw std::system_error{ec, "read"};
-                    }
-                    if (size == 0) {
-                        // N.B. the socket may still be writable if the peer has performed a
-                        // shutdown on the write side of the socket only.
-                        flush_input(now);
-                        this->dispose(now);
-                        return;
-                    }
-                    // Commit actual bytes read.
-                    in_.commit(size);
-                    // Assume that the TCP stream has been drained if we read less than the
-                    // requested amount.
-                    if (static_cast<size_t>(size) < buffer_size(buf)) {
-                        flush_input(now);
-                        break;
-                    }
+                if (!drain_input(now, fd)) {
+                    this->dispose(now);
+                    return;
                 }
-                // Reset timer.
-                schedule_timeout(now);
             }
             // Do not attempt to flush the output buffer if it is empty or if we are still waiting
             // for the socket to become writable.
@@ -231,6 +205,39 @@ class BasicHttpConn
             app_.on_http_error(now, ep_, e, os_);
             this->dispose(now);
         }
+    }
+    bool drain_input(CyclTime now, int fd)
+    {
+        // Limit the number of reads to avoid starvation.
+        for (int i{0}; i < 4; ++i) {
+            std::error_code ec;
+            const auto buf = in_.prepare(2944);
+            const auto size = os::read(fd, buf, ec);
+            if (ec) {
+                // No data available in socket buffer.
+                if (ec == std::errc::operation_would_block) {
+                    break;
+                }
+                throw std::system_error{ec, "read"};
+            }
+            if (size == 0) {
+                // N.B. the socket may still be writable if the peer has performed a shutdown on the
+                // write side of the socket only.
+                flush_input(now);
+                return false;
+            }
+            // Commit actual bytes read.
+            in_.commit(size);
+            // Assume that the TCP stream has been drained if we read less than the requested
+            // amount.
+            if (static_cast<size_t>(size) < buffer_size(buf)) {
+                break;
+            }
+        }
+        flush_input(now);
+        // Reset timer.
+        schedule_timeout(now);
+        return true;
     }
     void flush_input(CyclTime now) { in_.consume(parse(now, in_.data())); }
     void flush_output(CyclTime now)
