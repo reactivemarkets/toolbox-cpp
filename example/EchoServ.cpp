@@ -36,7 +36,7 @@ class EchoConn {
   public:
     template <typename EndpointT>
     EchoConn(CyclTime now, Reactor& r, IoSock&& sock, const EndpointT& ep)
-    : reactor_(r)
+    : reactor_{r}
     , sock_{move(sock)}
     , ep_{ep}
     {
@@ -110,7 +110,7 @@ class EchoServ : public StreamAcceptor<EchoServ> {
   public:
     EchoServ(CyclTime now, Reactor& r, const Endpoint& ep)
     : StreamAcceptor{r, ep}
-    , reactor_(r)
+    , reactor_{r}
     {
     }
     ~EchoServ()

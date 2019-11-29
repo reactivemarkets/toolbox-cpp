@@ -59,7 +59,15 @@ MutableBuffer Buffer::prepare(std::size_t size)
 
 ConstBuffer advance(ConstBuffer buf, std::size_t n) noexcept
 {
-    const auto* data = buffer_cast<const char*>(buf);
+    const auto* const data = buffer_cast<const char*>(buf);
+    const std::size_t size = buffer_size(buf);
+    const auto offset = std::min(n, size);
+    return {data + offset, size - offset};
+}
+
+MutableBuffer advance(MutableBuffer buf, std::size_t n) noexcept
+{
+    auto* const data = buffer_cast<char*>(buf);
     const std::size_t size = buffer_size(buf);
     const auto offset = std::min(n, size);
     return {data + offset, size - offset};

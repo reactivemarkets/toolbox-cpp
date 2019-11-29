@@ -71,8 +71,10 @@ set(lib_SOURCES
   ipc/Msg.cpp
   ipc/Shm.cpp
   net/DgramSock.cpp
+  net/Endian.cpp
   net/Endpoint.cpp
   net/Error.cpp
+  net/Frame.cpp
   net/IoSock.cpp
   net/IpAddr.cpp
   net/McastSock.cpp
@@ -219,6 +221,7 @@ set(test_SOURCES
   io/Reactor.ut.cpp
   io/Timer.ut.cpp
   net/Endpoint.ut.cpp
+  net/Frame.ut.cpp
   net/IoSock.ut.cpp
   net/Resolver.ut.cpp
   net/Runner.ut.cpp

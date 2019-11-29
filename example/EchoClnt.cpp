@@ -109,8 +109,8 @@ class EchoClnt : public StreamConnector<EchoClnt> {
 
   public:
     EchoClnt(CyclTime now, Reactor& reactor, Resolver& resolver, const string& uri)
-    : reactor_(reactor)
-    , resolver_(resolver)
+    : reactor_{reactor}
+    , resolver_{resolver}
     , uri_{uri}
     , ep_{parse_stream_endpoint(uri)}
     {

@@ -31,7 +31,7 @@ constexpr char TextPlain[]{"text/plain"};
 class TOOLBOX_API HttpBuf : public std::streambuf {
   public:
     explicit HttpBuf(Buffer& buf) noexcept
-    : buf_(buf)
+    : buf_{buf}
     {
     }
     ~HttpBuf() final;

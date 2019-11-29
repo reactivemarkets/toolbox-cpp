@@ -103,7 +103,7 @@ class Log {
 
     explicit Log(int level) noexcept
     : level_{level}
-    , msg_(log_msg())
+    , msg_{log_msg()}
     {
     }
     ~Log() { write_log(level_, msg_); }
