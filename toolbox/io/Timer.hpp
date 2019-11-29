@@ -168,7 +168,7 @@ class TOOLBOX_API TimerQueue {
     /// Implicit conversion from pool is allowed, so that TimerQueue arrays can be aggregate
     /// initialised.
     TimerQueue(TimerPool& pool)
-    : pool_(pool)
+    : pool_{pool}
     {
     }
 

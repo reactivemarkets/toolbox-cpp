@@ -194,7 +194,7 @@ class BasicHttpConn
             }
             // Do not attempt to flush the output buffer if it is empty or if we are still waiting
             // for the socket to become writable.
-            if (out_.empty() || (want_write_ && !(events & EventOut))) {
+            if (out_.empty() || (write_blocked_ && !(events & EventOut))) {
                 return;
             }
             flush_output(now);
@@ -249,15 +249,15 @@ class BasicHttpConn
                 this->dispose(now);
                 return;
             }
-            if (want_write_) {
+            if (write_blocked_) {
                 // Restore read-only state after the buffer has been drained.
                 sub_.set_events(EventIn);
-                want_write_ = false;
+                write_blocked_ = false;
             }
-        } else if (!want_write_) {
+        } else if (!write_blocked_) {
             // Set the state to read-write if the entire buffer could not be written.
             sub_.set_events(EventIn | EventOut);
-            want_write_ = true;
+            write_blocked_ = true;
         }
     }
     void schedule_timeout(CyclTime now)
@@ -275,7 +275,7 @@ class BasicHttpConn
     Buffer in_, out_;
     Request req_;
     HttpStream os_{out_};
-    bool in_progress_{false}, want_write_{false};
+    bool in_progress_{false}, write_blocked_{false};
 };
 
 using HttpConn = BasicHttpConn<HttpRequest, HttpAppBase>;

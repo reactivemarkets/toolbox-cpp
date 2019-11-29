@@ -41,8 +41,8 @@ class BasicHttpServ : public StreamAcceptor<BasicHttpServ<ConnT, AppT>> {
   public:
     BasicHttpServ(CyclTime now, Reactor& r, const Endpoint& ep, App& app)
     : StreamAcceptor<BasicHttpServ<ConnT, AppT>>{r, ep}
-    , reactor_(r)
-    , app_(app)
+    , reactor_{r}
+    , app_{app}
     {
     }
     ~BasicHttpServ()

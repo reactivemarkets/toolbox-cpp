@@ -94,6 +94,7 @@ class TOOLBOX_API Buffer {
 };
 
 TOOLBOX_API ConstBuffer advance(ConstBuffer buf, std::size_t n) noexcept;
+TOOLBOX_API MutableBuffer advance(MutableBuffer buf, std::size_t n) noexcept;
 
 } // namespace io
 } // namespace toolbox

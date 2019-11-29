@@ -44,7 +44,7 @@ void run_resolver(Resolver& r, ThreadConfig config)
 } // namespace
 
 ResolverRunner::ResolverRunner(Resolver& r, ThreadConfig config)
-: resolver_(r)
+: resolver_{r}
 , thread_{run_resolver, std::ref(r), config}
 {
 }

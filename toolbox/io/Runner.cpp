@@ -48,7 +48,7 @@ void run_reactor(Reactor& r, ThreadConfig config, const std::atomic<bool>& stop)
 } // namespace
 
 ReactorRunner::ReactorRunner(Reactor& r, ThreadConfig config)
-: reactor_(r)
+: reactor_{r}
 , thread_{run_reactor, std::ref(r), config, std::cref(stop_)}
 {
 }
