@@ -7,7 +7,6 @@ var searchData=
   ['_7ebasicdisposable',['~BasicDisposable',['../classtoolbox_1_1io_1_1BasicDisposable.html#a3ea607b5a44b72189428cbac277a7f30',1,'toolbox::io::BasicDisposable']]],
   ['_7ebasichandle',['~BasicHandle',['../classtoolbox_1_1io_1_1BasicHandle.html#a8d6fa5b51e5a6a8aaf264a3565c9cc76',1,'toolbox::io::BasicHandle']]],
   ['_7ebasichttpparser',['~BasicHttpParser',['../classtoolbox_1_1http_1_1BasicHttpParser.html#adc38aac28dfec872fd39af06ac17dbba',1,'toolbox::http::BasicHttpParser']]],
-  ['_7ebasichttpserv',['~BasicHttpServ',['../classtoolbox_1_1http_1_1BasicHttpServ.html#aac366c873d067187aa26d002c712add2',1,'toolbox::http::BasicHttpServ']]],
   ['_7ebasicslot',['~BasicSlot',['../classtoolbox_1_1util_1_1BasicSlot.html#a44e285e215b30e3a2421d444f8e11cc5',1,'toolbox::util::BasicSlot']]],
   ['_7ebasicurl',['~BasicUrl',['../classtoolbox_1_1http_1_1BasicUrl.html#a312f506cfc9b8f0ab5493be50a10d5a1',1,'toolbox::http::BasicUrl']]],
   ['_7ebenchmarkctx',['~BenchmarkCtx',['../classtoolbox_1_1bm_1_1BenchmarkCtx.html#a1d682701dafeb551a152dd0ebf940019',1,'toolbox::bm::BenchmarkCtx']]],

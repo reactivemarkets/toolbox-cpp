@@ -40,6 +40,8 @@ var searchData=
   ['hook_2eut_2ecpp',['Hook.ut.cpp',['../Hook_8ut_8cpp.html',1,'']]],
   ['hooklist',['HookList',['../namespacetoolbox_1_1io.html#a61ae4d7ecb44580a91e3ef87b3ca2330',1,'toolbox::io']]],
   ['host',['host',['../classtoolbox_1_1http_1_1BasicUrl.html#a0f5a390c222459887dd4c70164058377',1,'toolbox::http::BasicUrl']]],
+  ['htol',['htol',['../namespacetoolbox_1_1net.html#a1a805c3fecd8a29d798f6a04ef116f4e',1,'toolbox::net']]],
+  ['hton',['hton',['../namespacetoolbox_1_1net.html#ab08265fcc7339c197b4e6bd0e485d84c',1,'toolbox::net']]],
   ['http_2ehpp',['http.hpp',['../http_8hpp.html',1,'']]],
   ['http_5ferror_5fcategory',['http_error_category',['../namespacetoolbox_1_1http.html#aa66f7ba8bd47a90ef5647c3692b99591',1,'toolbox::http']]],
   ['http_5fmajor',['http_major',['../classtoolbox_1_1http_1_1BasicHttpParser.html#a0812ef058b1efe13281217cec2a5b99a',1,'toolbox::http::BasicHttpParser']]],

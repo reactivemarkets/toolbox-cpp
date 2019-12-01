@@ -5,6 +5,7 @@ var searchData=
   ['parse_5fdate',['parse_date',['../namespacetoolbox_1_1sys.html#aefb8eb5fd484ba7cfec0d30409682021',1,'toolbox::sys']]],
   ['parse_5fdgram_5fendpoint',['parse_dgram_endpoint',['../namespacetoolbox_1_1net.html#a14cc89e3b450ccb24c642087d7ed9d0b',1,'toolbox::net']]],
   ['parse_5fendpoint',['parse_endpoint',['../namespacetoolbox_1_1net.html#a2b5abe2a9d9f9f1f08bd3fa88e9c16b6',1,'toolbox::net']]],
+  ['parse_5fframe',['parse_frame',['../namespacetoolbox_1_1net.html#a68e77843ec14abe6b229f62982fbfb22',1,'toolbox::net::parse_frame(ConstBuffer buf, FnT fn)'],['../namespacetoolbox_1_1net.html#ae3f71288d325a75ae193b6f87b276992',1,'toolbox::net::parse_frame(std::string_view buf, FnT fn)']]],
   ['parse_5fline',['parse_line',['../namespacetoolbox_1_1util.html#ae8f89db1bba9859224a7d763fd886c9e',1,'toolbox::util']]],
   ['parse_5fnanos',['parse_nanos',['../namespacetoolbox_1_1sys.html#a6c97dd326b4ef3150369a6bc357badac',1,'toolbox::sys']]],
   ['parse_5fsection',['parse_section',['../namespacetoolbox_1_1util.html#a08f0ec5109e6ffa43f6ff2c1e93020d7',1,'toolbox::util']]],
@@ -33,6 +34,7 @@ var searchData=
   ['pstrcpyid',['pstrcpyid',['../namespacetoolbox_1_1util.html#a70b6d6a5819cf3c5e09d78c9f02150d9',1,'toolbox::util::pstrcpyid(char *dst, std::int64_t id, std::size_t n) noexcept'],['../namespacetoolbox_1_1util.html#a0409c61ec6d33526f76c1521d6c7a523',1,'toolbox::util::pstrcpyid(char(&amp;dst)[SizeN], std::int64_t id) noexcept']]],
   ['pstrlen',['pstrlen',['../namespacetoolbox_1_1util.html#a34a90928b6344edf6b937b87470dfed8',1,'toolbox::util::pstrlen(const char *src, std::size_t n) noexcept'],['../namespacetoolbox_1_1util.html#a25ca7d10ba1f0ad005b2b97f8b12b1da',1,'toolbox::util::pstrlen(const char(&amp;src)[SizeN]) noexcept']]],
   ['push',['push',['../classtoolbox_1_1ipc_1_1MpmcQueue.html#ac40caa2cec8f27f85810275b5bb3a716',1,'toolbox::ipc::MpmcQueue::push(const ValueT &amp;val) noexcept'],['../classtoolbox_1_1ipc_1_1MpmcQueue.html#a6baecca60bb5029f1051da9fcc1bdf98',1,'toolbox::ipc::MpmcQueue::push(ValueT &amp;&amp;val) noexcept'],['../classtoolbox_1_1util_1_1RingBuffer.html#a40623d2aa4adeddf7b97c6bce2b4c60c',1,'toolbox::util::RingBuffer::push()']]],
+  ['put_5flength',['put_length',['../namespacetoolbox_1_1net.html#aba0e0ed4640669e119a0f13d65672b11',1,'toolbox::net::put_length(char *buf, std::uint32_t len) noexcept'],['../namespacetoolbox_1_1net.html#a28af0c3abf2562bf5632c2d4667d75c5',1,'toolbox::net::put_length(MutableBuffer buf, std::uint32_t len) noexcept']]],
   ['put_5fpercentiles',['put_percentiles',['../namespacetoolbox_1_1hdr.html#a60c785036cc15c24f6f8bc13e02ca80a',1,'toolbox::hdr']]],
   ['put_5ftime',['put_time',['../namespacetoolbox_1_1sys.html#a3f4b3eaf88916c2596b456ce4958b662',1,'toolbox::sys']]]
 ];

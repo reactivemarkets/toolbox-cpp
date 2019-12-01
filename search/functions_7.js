@@ -20,6 +20,8 @@ var searchData=
   ['highest_5ftrackable_5fvalue',['highest_trackable_value',['../classtoolbox_1_1hdr_1_1HdrHistogram.html#a7616e811a14bb24f1ab7821e24287ce6',1,'toolbox::hdr::HdrHistogram']]],
   ['hook',['Hook',['../structtoolbox_1_1io_1_1Hook.html#a2c05790682d41e0c54a3e7fa19a072fd',1,'toolbox::io::Hook::Hook(Slot slot) noexcept'],['../structtoolbox_1_1io_1_1Hook.html#a287fb71a044fa28faae98af0d45b126c',1,'toolbox::io::Hook::Hook()=default']]],
   ['host',['host',['../classtoolbox_1_1http_1_1BasicUrl.html#a0f5a390c222459887dd4c70164058377',1,'toolbox::http::BasicUrl']]],
+  ['htol',['htol',['../namespacetoolbox_1_1net.html#a1a805c3fecd8a29d798f6a04ef116f4e',1,'toolbox::net']]],
+  ['hton',['hton',['../namespacetoolbox_1_1net.html#ab08265fcc7339c197b4e6bd0e485d84c',1,'toolbox::net']]],
   ['http_5ferror_5fcategory',['http_error_category',['../namespacetoolbox_1_1http.html#aa66f7ba8bd47a90ef5647c3692b99591',1,'toolbox::http']]],
   ['http_5fmajor',['http_major',['../classtoolbox_1_1http_1_1BasicHttpParser.html#a0812ef058b1efe13281217cec2a5b99a',1,'toolbox::http::BasicHttpParser']]],
   ['http_5fminor',['http_minor',['../classtoolbox_1_1http_1_1BasicHttpParser.html#a681854328753f5378736ed85a179ef82',1,'toolbox::http::BasicHttpParser']]],

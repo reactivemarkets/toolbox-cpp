@@ -5,6 +5,7 @@ var searchData=
   ['get_5fendpoint',['get_endpoint',['../namespacetoolbox_1_1net.html#a3103cebd4f3c38545246bf18a13737ac',1,'toolbox::net']]],
   ['get_5fenv',['get_env',['../namespacetoolbox_1_1util.html#a1fa1c623e484add7229a1228a095d7a0',1,'toolbox::util']]],
   ['get_5ferror',['get_error',['../structtoolbox_1_1net_1_1Sock.html#a4a3dd156c4281b92cee67a07ddcb6f15',1,'toolbox::net::Sock::get_error(std::error_code &amp;ec) const noexcept'],['../structtoolbox_1_1net_1_1Sock.html#acf5a15efd561842b6659fb5f2d4af015',1,'toolbox::net::Sock::get_error() const']]],
+  ['get_5flength',['get_length',['../namespacetoolbox_1_1net.html#ad6642b57738148f8340fa904a457352f',1,'toolbox::net::get_length(const char *buf) noexcept'],['../namespacetoolbox_1_1net.html#a8874314fa472fad8f23ea1135aa3922a',1,'toolbox::net::get_length(ConstBuffer buf) noexcept']]],
   ['get_5flog_5flevel',['get_log_level',['../namespacetoolbox_1_1sys.html#a3b7df9fed7318416dcb2b0735bed002f',1,'toolbox::sys']]],
   ['get_5flogger',['get_logger',['../namespacetoolbox_1_1sys.html#a18359c12fee88c95a2a2b8609f4e6ae3',1,'toolbox::sys']]],
   ['get_5frcv_5fbuf',['get_rcv_buf',['../structtoolbox_1_1net_1_1Sock.html#a440ef8817158546efc681f10a99281b5',1,'toolbox::net::Sock::get_rcv_buf(std::error_code &amp;ec) const noexcept'],['../structtoolbox_1_1net_1_1Sock.html#a6289e25ad6801ccba7389fe33efed4ca',1,'toolbox::net::Sock::get_rcv_buf() const']]],
