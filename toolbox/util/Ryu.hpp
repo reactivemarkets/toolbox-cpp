@@ -19,16 +19,52 @@
 
 #include <toolbox/Config.h>
 
-#include <cstddef> // size_t
+#include <string_view>
 
 namespace toolbox {
 inline namespace util {
 
-/// Maximum buffer space require for Ryu formatted doubles. This upper-bound is chosen based on the
-/// internal buffer allocation within the d2s function. See d2s.c for details.
-constexpr std::size_t MaxRyuBuf{24};
+/// Maximum precision supported Ryu fixed formatted doubles.
+constexpr int MaxRyuPrec{308};
 
-TOOLBOX_API std::size_t d2s_buffered_n(double f, char* result) noexcept;
+/// Calculates the maximum buffer space required for Ryu fixed formatted doubles.
+/// This upper bound is calculated as follows:
+/// - 1 character for sign;
+/// - 20 digits for max unsigned 64-bit integer;
+/// - 1 character for decimal point;
+/// - max precision digits.
+constexpr std::size_t max_ryu_fixed_buf(int prec = MaxRyuPrec) noexcept
+{
+    return 1 + 20 + 1 + prec;
+}
+
+/// Maximum buffer space require for Ryu formatted doubles.
+/// This upper bound is chosen based on the internal buffer allocation within the d2s function.
+/// See d2s.c for details.
+constexpr std::size_t MaxRyuDtosBuf{24};
+
+/// Maximum buffer space require for Ryu fixed formatted doubles.
+constexpr std::size_t MaxRyuFixedBuf{max_ryu_fixed_buf()};
+
+/// Convert double to string.
+/// Returns the size of the resulting string.
+/// The resulting string is not null terminated.
+TOOLBOX_API std::size_t dtos(char* dst, double d) noexcept;
+
+/// Convert double to string.
+/// Returns a string_view of the resulting string.
+/// The underlying buffer is allocated in thread local storage.
+TOOLBOX_API std::string_view dtos(double d) noexcept;
+
+/// Convert double to a fixed format string.
+/// Returns the size of the resulting string.
+/// The resulting string is not null terminated.
+TOOLBOX_API std::size_t dtofixed(char* dst, double d, int prec = 9) noexcept;
+
+/// Convert double to fixed format string.
+/// Returns a string_view of the resulting string.
+/// The underlying buffer is allocated in thread local storage.
+TOOLBOX_API std::string_view dtofixed(double d, int prec = 9) noexcept;
 
 } // namespace util
 } // namespace toolbox

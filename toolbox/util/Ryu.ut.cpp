@@ -18,30 +18,48 @@
 
 #include <boost/test/unit_test.hpp>
 
-namespace {
-std::string to_string(double f)
-{
-    char buf[toolbox::MaxRyuBuf];
-    return {buf, toolbox::d2s_buffered_n(f, buf)};
-}
-} // namespace
-
-using namespace toolbox;
+using namespace std::literals::string_view_literals;
 
 BOOST_AUTO_TEST_SUITE(RyuSuite)
 
-BOOST_AUTO_TEST_CASE(RyuCase)
+BOOST_AUTO_TEST_CASE(RyuDtosCase)
 {
-    BOOST_TEST(to_string(0) == "0");
-    BOOST_TEST(to_string(1) == "1");
-    BOOST_TEST(to_string(-1) == "-1");
-    BOOST_TEST(to_string(123) == "1.23E2");
-    BOOST_TEST(to_string(-123) == "-1.23E2");
-    BOOST_TEST(to_string(12.3) == "1.23E1");
-    BOOST_TEST(to_string(-12.3) == "-1.23E1");
-    BOOST_TEST(to_string(1.23) == "1.23");
-    BOOST_TEST(to_string(-1.23) == "-1.23");
-    BOOST_TEST(to_string(1.0 / 0.0) == "Infinity");
+    using toolbox::dtos;
+    BOOST_TEST(dtos(0) == "0"sv);
+    BOOST_TEST(dtos(1) == "1"sv);
+    BOOST_TEST(dtos(-1) == "-1"sv);
+    BOOST_TEST(dtos(123) == "1.23E2"sv);
+    BOOST_TEST(dtos(-123) == "-1.23E2"sv);
+    BOOST_TEST(dtos(12.3) == "1.23E1"sv);
+    BOOST_TEST(dtos(-12.3) == "-1.23E1"sv);
+    BOOST_TEST(dtos(1.23) == "1.23"sv);
+    BOOST_TEST(dtos(-1.23) == "-1.23"sv);
+    BOOST_TEST(dtos(1e6) == "1E6"sv);
+    BOOST_TEST(dtos(-1e6) == "-1E6"sv);
+    BOOST_TEST(dtos(1.0 / 0.0) == "Infinity"sv);
+}
+
+BOOST_AUTO_TEST_CASE(RyuFixedCase)
+{
+    using toolbox::dtofixed;
+    BOOST_TEST(dtofixed(0) == "0"sv);
+    BOOST_TEST(dtofixed(1) == "1"sv);
+    BOOST_TEST(dtofixed(-1) == "-1"sv);
+    BOOST_TEST(dtofixed(123) == "123"sv);
+    BOOST_TEST(dtofixed(-123) == "-123"sv);
+    BOOST_TEST(dtofixed(12.3) == "12.3"sv);
+    BOOST_TEST(dtofixed(-12.3) == "-12.3"sv);
+    BOOST_TEST(dtofixed(1.23) == "1.23"sv);
+    BOOST_TEST(dtofixed(-1.23) == "-1.23"sv);
+    BOOST_TEST(dtofixed(1e6) == "1000000"sv);
+    BOOST_TEST(dtofixed(-1e6) == "-1000000"sv);
+    BOOST_TEST(dtofixed(1.0 / 0.0) == "Infinity"sv);
+    BOOST_TEST(dtofixed(std::numeric_limits<std::int64_t>::max() * 10.0)
+               == "92233720368547758080"sv);
+    BOOST_TEST(dtofixed(std::numeric_limits<std::int64_t>::min() * 10.0)
+               == "-92233720368547758080"sv);
+    BOOST_TEST(dtofixed(std::numeric_limits<double>::max()).size() == 309);
+    BOOST_TEST(dtofixed(std::numeric_limits<double>::min(), toolbox::MaxRyuPrec).size() == 310);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

@@ -200,14 +200,14 @@ template <char PadC>
 inline std::size_t pstrcpyid(char* dst, std::int64_t id, std::size_t n) noexcept
 {
     const auto end = dst + n;
-    const auto [ptr, ec] = std::to_chars(dst, end, id);
+    const auto [eptr, ec] = std::to_chars(dst, end, id);
     if (ec == std::errc::value_too_large) {
         return 0;
     }
-    if (ptr < end) {
-        std::memset(ptr, PadC, end - ptr);
+    if (eptr < end) {
+        std::memset(eptr, PadC, end - eptr);
     }
-    return ptr - dst;
+    return eptr - dst;
 }
 
 template <char PadC, std::size_t SizeN>
