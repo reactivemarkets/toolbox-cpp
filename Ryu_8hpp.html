@@ -74,7 +74,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;<a class="el" href="Config_8h_source.html">toolbox/Config.h</a>&gt;</code><br />
-<code>#include &lt;cstddef&gt;</code><br />
+<code>#include &lt;string_view&gt;</code><br />
 </div>
 <p><a href="Ryu_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -87,13 +87,27 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ad2e70a8d01b46630ceeba2565a18ad2f"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#ad2e70a8d01b46630ceeba2565a18ad2f">toolbox::util::d2s_buffered_n</a> (double f, char *result) noexcept</td></tr>
-<tr class="separator:ad2e70a8d01b46630ceeba2565a18ad2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59ad4421850fcf6c863959e6694466e6"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a59ad4421850fcf6c863959e6694466e6">toolbox::util::max_ryu_fixed_buf</a> (int prec=MaxRyuPrec) noexcept</td></tr>
+<tr class="separator:a59ad4421850fcf6c863959e6694466e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a169e48d95bb87c1598416f56019102f8"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a169e48d95bb87c1598416f56019102f8">toolbox::util::dtos</a> (char *dst, double d) noexcept</td></tr>
+<tr class="separator:a169e48d95bb87c1598416f56019102f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0947c3d8582198308709003caf1467b1"><td class="memItemLeft" align="right" valign="top">string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a0947c3d8582198308709003caf1467b1">toolbox::util::dtos</a> (double d) noexcept</td></tr>
+<tr class="separator:a0947c3d8582198308709003caf1467b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b43565ae1916cd7b8a6cc185ad14bbc"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a2b43565ae1916cd7b8a6cc185ad14bbc">toolbox::util::dtofixed</a> (char *dst, double d, int prec) noexcept</td></tr>
+<tr class="separator:a2b43565ae1916cd7b8a6cc185ad14bbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d0ccc3fcf366fb8451f43adecf95b6b"><td class="memItemLeft" align="right" valign="top">string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a4d0ccc3fcf366fb8451f43adecf95b6b">toolbox::util::dtofixed</a> (double d, int prec) noexcept</td></tr>
+<tr class="separator:a4d0ccc3fcf366fb8451f43adecf95b6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ad134e0e14ab465da57c11932ae97a99a"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#ad134e0e14ab465da57c11932ae97a99a">toolbox::util::MaxRyuBuf</a> {24}</td></tr>
-<tr class="separator:ad134e0e14ab465da57c11932ae97a99a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47d8debfd5b70c7eafda243ab04c96a0"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a47d8debfd5b70c7eafda243ab04c96a0">toolbox::util::MaxRyuPrec</a> {308}</td></tr>
+<tr class="memdesc:a47d8debfd5b70c7eafda243ab04c96a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum precision supported Ryu fixed formatted doubles.  <a href="namespacetoolbox_1_1util.html#a47d8debfd5b70c7eafda243ab04c96a0">More...</a><br /></td></tr>
+<tr class="separator:a47d8debfd5b70c7eafda243ab04c96a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc85d4725a1f14d19663233d96977a33"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#abc85d4725a1f14d19663233d96977a33">toolbox::util::MaxRyuDtosBuf</a> {24}</td></tr>
+<tr class="separator:abc85d4725a1f14d19663233d96977a33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6ea434bdb6db69ebbcdbafb79a63edb"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#ae6ea434bdb6db69ebbcdbafb79a63edb">toolbox::util::MaxRyuFixedBuf</a> {max_ryu_fixed_buf()}</td></tr>
+<tr class="memdesc:ae6ea434bdb6db69ebbcdbafb79a63edb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum buffer space require for Ryu fixed formatted doubles.  <a href="namespacetoolbox_1_1util.html#ae6ea434bdb6db69ebbcdbafb79a63edb">More...</a><br /></td></tr>
+<tr class="separator:ae6ea434bdb6db69ebbcdbafb79a63edb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

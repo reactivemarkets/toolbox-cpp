@@ -366,8 +366,16 @@ Functions</h2></td></tr>
 <tr class="memitem:a74137e3ac6ec59cecfe100bc5c197689"><td class="memTemplParams" colspan="2">template&lt;typename ValueT , typename... ArgsT&gt; </td></tr>
 <tr class="memitem:a74137e3ac6ec59cecfe100bc5c197689"><td class="memTemplItemLeft" align="right" valign="top">boost::intrusive_ptr&lt; ValueT &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a74137e3ac6ec59cecfe100bc5c197689">make_intrusive</a> (ArgsT &amp;&amp;... args)</td></tr>
 <tr class="separator:a74137e3ac6ec59cecfe100bc5c197689"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2e70a8d01b46630ceeba2565a18ad2f"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#ad2e70a8d01b46630ceeba2565a18ad2f">d2s_buffered_n</a> (double f, char *result) noexcept</td></tr>
-<tr class="separator:ad2e70a8d01b46630ceeba2565a18ad2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a169e48d95bb87c1598416f56019102f8"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a169e48d95bb87c1598416f56019102f8">dtos</a> (char *dst, double d) noexcept</td></tr>
+<tr class="separator:a169e48d95bb87c1598416f56019102f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0947c3d8582198308709003caf1467b1"><td class="memItemLeft" align="right" valign="top">string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a0947c3d8582198308709003caf1467b1">dtos</a> (double d) noexcept</td></tr>
+<tr class="separator:a0947c3d8582198308709003caf1467b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b43565ae1916cd7b8a6cc185ad14bbc"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a2b43565ae1916cd7b8a6cc185ad14bbc">dtofixed</a> (char *dst, double d, int prec) noexcept</td></tr>
+<tr class="separator:a2b43565ae1916cd7b8a6cc185ad14bbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d0ccc3fcf366fb8451f43adecf95b6b"><td class="memItemLeft" align="right" valign="top">string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a4d0ccc3fcf366fb8451f43adecf95b6b">dtofixed</a> (double d, int prec) noexcept</td></tr>
+<tr class="separator:a4d0ccc3fcf366fb8451f43adecf95b6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59ad4421850fcf6c863959e6694466e6"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a59ad4421850fcf6c863959e6694466e6">max_ryu_fixed_buf</a> (int prec=<a class="el" href="namespacetoolbox_1_1util.html#a47d8debfd5b70c7eafda243ab04c96a0">MaxRyuPrec</a>) noexcept</td></tr>
+<tr class="separator:a59ad4421850fcf6c863959e6694466e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6030b93dcb44cc63913112e4b945869"><td class="memTemplParams" colspan="2">template&lt;auto FnT&gt; </td></tr>
 <tr class="memitem:af6030b93dcb44cc63913112e4b945869"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">bind</a> () noexcept</td></tr>
 <tr class="separator:af6030b93dcb44cc63913112e4b945869"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -590,8 +598,14 @@ Variables</h2></td></tr>
 <tr class="memitem:aa9ab7219b7714d4db926855c2b03b330"><td class="memTemplParams" colspan="2">template&lt;typename ValueT &gt; </td></tr>
 <tr class="memitem:aa9ab7219b7714d4db926855c2b03b330"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#aa9ab7219b7714d4db926855c2b03b330">is_int_wrapper</a> = std::is_base_of_v&lt;<a class="el" href="structtoolbox_1_1util_1_1IntBase.html">IntBase</a>, ValueT&gt;</td></tr>
 <tr class="separator:aa9ab7219b7714d4db926855c2b03b330"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad134e0e14ab465da57c11932ae97a99a"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#ad134e0e14ab465da57c11932ae97a99a">MaxRyuBuf</a> {24}</td></tr>
-<tr class="separator:ad134e0e14ab465da57c11932ae97a99a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47d8debfd5b70c7eafda243ab04c96a0"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a47d8debfd5b70c7eafda243ab04c96a0">MaxRyuPrec</a> {308}</td></tr>
+<tr class="memdesc:a47d8debfd5b70c7eafda243ab04c96a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum precision supported Ryu fixed formatted doubles.  <a href="#a47d8debfd5b70c7eafda243ab04c96a0">More...</a><br /></td></tr>
+<tr class="separator:a47d8debfd5b70c7eafda243ab04c96a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc85d4725a1f14d19663233d96977a33"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#abc85d4725a1f14d19663233d96977a33">MaxRyuDtosBuf</a> {24}</td></tr>
+<tr class="separator:abc85d4725a1f14d19663233d96977a33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6ea434bdb6db69ebbcdbafb79a63edb"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#ae6ea434bdb6db69ebbcdbafb79a63edb">MaxRyuFixedBuf</a> {<a class="el" href="namespacetoolbox_1_1util.html#a59ad4421850fcf6c863959e6694466e6">max_ryu_fixed_buf</a>()}</td></tr>
+<tr class="memdesc:ae6ea434bdb6db69ebbcdbafb79a63edb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum buffer space require for Ryu fixed formatted doubles.  <a href="#ae6ea434bdb6db69ebbcdbafb79a63edb">More...</a><br /></td></tr>
+<tr class="separator:ae6ea434bdb6db69ebbcdbafb79a63edb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a423a7e6275c1fd514196e626688e1cf5"><td class="memItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a423a7e6275c1fd514196e626688e1cf5">Struct</a> = <a class="el" href="structtoolbox_1_1util_1_1detail_1_1Struct.html">detail::Struct</a>&lt;&gt;{}</td></tr>
 <tr class="separator:a423a7e6275c1fd514196e626688e1cf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -2240,8 +2254,8 @@ template&lt;typename ValueT , typename... ArgsT&gt; </div>
 
 </div>
 </div>
-<a id="ad2e70a8d01b46630ceeba2565a18ad2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2e70a8d01b46630ceeba2565a18ad2f">&#9670;&nbsp;</a></span>d2s_buffered_n()</h2>
+<a id="a169e48d95bb87c1598416f56019102f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a169e48d95bb87c1598416f56019102f8">&#9670;&nbsp;</a></span>dtos() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2250,16 +2264,16 @@ template&lt;typename ValueT , typename... ArgsT&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> std::size_t toolbox::util::d2s_buffered_n </td>
+          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> std::size_t toolbox::util::dtos </td>
           <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>result</em>&#160;</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>d</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -2273,8 +2287,160 @@ template&lt;typename ValueT , typename... ArgsT&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Convert double to string. Returns the size of the resulting string. The resulting string is not null terminated. </p>
 
-<p class="definition">Definition at line <a class="el" href="Ryu_8cpp_source.html#l00024">24</a> of file <a class="el" href="Ryu_8cpp_source.html">Ryu.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Ryu_8cpp_source.html#l00029">29</a> of file <a class="el" href="Ryu_8cpp_source.html">Ryu.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Ryu_8ut_8cpp_source.html#l00025">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="Ryu_8cpp_source.html#l00039">dtos()</a>.</p>
+
+</div>
+</div>
+<a id="a0947c3d8582198308709003caf1467b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0947c3d8582198308709003caf1467b1">&#9670;&nbsp;</a></span>dtos() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> std::string_view toolbox::util::dtos </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Convert double to string. Returns a string_view of the resulting string. The underlying buffer is allocated in thread local storage. </p>
+
+<p class="definition">Definition at line <a class="el" href="Ryu_8cpp_source.html#l00039">39</a> of file <a class="el" href="Ryu_8cpp_source.html">Ryu.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a2b43565ae1916cd7b8a6cc185ad14bbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b43565ae1916cd7b8a6cc185ad14bbc">&#9670;&nbsp;</a></span>dtofixed() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> std::size_t toolbox::util::dtofixed </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>prec</em> = <code>9</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Convert double to a fixed format string. Returns the size of the resulting string. The resulting string is not null terminated. </p>
+
+<p class="definition">Definition at line <a class="el" href="Ryu_8cpp_source.html#l00045">45</a> of file <a class="el" href="Ryu_8cpp_source.html">Ryu.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Ryu_8ut_8cpp_source.html#l00042">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="Ryu_8cpp_source.html#l00059">dtofixed()</a>.</p>
+
+</div>
+</div>
+<a id="a4d0ccc3fcf366fb8451f43adecf95b6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d0ccc3fcf366fb8451f43adecf95b6b">&#9670;&nbsp;</a></span>dtofixed() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> std::string_view toolbox::util::dtofixed </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>prec</em> = <code>9</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Convert double to fixed format string. Returns a string_view of the resulting string. The underlying buffer is allocated in thread local storage. </p>
+
+<p class="definition">Definition at line <a class="el" href="Ryu_8cpp_source.html#l00059">59</a> of file <a class="el" href="Ryu_8cpp_source.html">Ryu.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a59ad4421850fcf6c863959e6694466e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59ad4421850fcf6c863959e6694466e6">&#9670;&nbsp;</a></span>max_ryu_fixed_buf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr std::size_t toolbox::util::max_ryu_fixed_buf </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>prec</em> = <code><a class="el" href="namespacetoolbox_1_1util.html#a47d8debfd5b70c7eafda243ab04c96a0">MaxRyuPrec</a></code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Calculates the maximum buffer space required for Ryu fixed formatted doubles. This upper bound is calculated as follows:</p><ul>
+<li>1 character for sign;</li>
+<li>20 digits for max unsigned 64-bit integer;</li>
+<li>1 character for decimal point;</li>
+<li>max precision digits. </li>
+</ul>
+
+<p class="definition">Definition at line <a class="el" href="Ryu_8hpp_source.html#l00036">36</a> of file <a class="el" href="Ryu_8hpp_source.html">Ryu.hpp</a>.</p>
 
 </div>
 </div>
@@ -4989,20 +5155,58 @@ template&lt;typename ValueT &gt; </div>
 
 </div>
 </div>
-<a id="ad134e0e14ab465da57c11932ae97a99a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad134e0e14ab465da57c11932ae97a99a">&#9670;&nbsp;</a></span>MaxRyuBuf</h2>
+<a id="a47d8debfd5b70c7eafda243ab04c96a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47d8debfd5b70c7eafda243ab04c96a0">&#9670;&nbsp;</a></span>MaxRyuPrec</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::size_t toolbox::util::MaxRyuBuf {24}</td>
+          <td class="memname">constexpr int toolbox::util::MaxRyuPrec {308}</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Maximum buffer space require for Ryu formatted doubles. This upper-bound is chosen based on the internal buffer allocation within the d2s function. See d2s.c for details. </p>
 
-<p class="definition">Definition at line <a class="el" href="Ryu_8hpp_source.html#l00029">29</a> of file <a class="el" href="Ryu_8hpp_source.html">Ryu.hpp</a>.</p>
+<p>Maximum precision supported Ryu fixed formatted doubles. </p>
+
+<p class="definition">Definition at line <a class="el" href="Ryu_8hpp_source.html#l00028">28</a> of file <a class="el" href="Ryu_8hpp_source.html">Ryu.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Ryu_8ut_8cpp_source.html#l00042">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="Ryu_8cpp_source.html#l00045">dtofixed()</a>.</p>
+
+</div>
+</div>
+<a id="abc85d4725a1f14d19663233d96977a33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc85d4725a1f14d19663233d96977a33">&#9670;&nbsp;</a></span>MaxRyuDtosBuf</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr std::size_t toolbox::util::MaxRyuDtosBuf {24}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Maximum buffer space require for Ryu formatted doubles. This upper bound is chosen based on the internal buffer allocation within the d2s function. See d2s.c for details. </p>
+
+<p class="definition">Definition at line <a class="el" href="Ryu_8hpp_source.html#l00044">44</a> of file <a class="el" href="Ryu_8hpp_source.html">Ryu.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ae6ea434bdb6db69ebbcdbafb79a63edb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6ea434bdb6db69ebbcdbafb79a63edb">&#9670;&nbsp;</a></span>MaxRyuFixedBuf</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr std::size_t toolbox::util::MaxRyuFixedBuf {<a class="el" href="namespacetoolbox_1_1util.html#a59ad4421850fcf6c863959e6694466e6">max_ryu_fixed_buf</a>()}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maximum buffer space require for Ryu fixed formatted doubles. </p>
+
+<p class="definition">Definition at line <a class="el" href="Ryu_8hpp_source.html#l00047">47</a> of file <a class="el" href="Ryu_8hpp_source.html">Ryu.hpp</a>.</p>
 
 </div>
 </div>

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['d2s_5fbuffered_5fn',['d2s_buffered_n',['../namespacetoolbox_1_1util.html#ad2e70a8d01b46630ceeba2565a18ad2f',1,'toolbox::util']]],
   ['daemon',['daemon',['../namespacetoolbox_1_1sys.html#a0234b56be003cdf0056711964c4d2da1',1,'toolbox::sys']]],
   ['daemon_2ecpp',['Daemon.cpp',['../Daemon_8cpp.html',1,'']]],
   ['daemon_2ehpp',['Daemon.hpp',['../Daemon_8hpp.html',1,'']]],
@@ -35,6 +34,8 @@ var searchData=
   ['do_5fon_5fhttp_5ferror',['do_on_http_error',['../classtoolbox_1_1http_1_1HttpAppBase.html#a34301cc889868b3d1de0d9afc021a8d4',1,'toolbox::http::HttpAppBase']]],
   ['do_5fon_5fhttp_5fmessage',['do_on_http_message',['../classtoolbox_1_1http_1_1HttpAppBase.html#a54a43c5828c93c3f8dba3d03aad9cb34',1,'toolbox::http::HttpAppBase']]],
   ['do_5fon_5fhttp_5ftimeout',['do_on_http_timeout',['../classtoolbox_1_1http_1_1HttpAppBase.html#a589a020876ee7273f29a42a96d151e9b',1,'toolbox::http::HttpAppBase']]],
+  ['dtofixed',['dtofixed',['../namespacetoolbox_1_1util.html#a2b43565ae1916cd7b8a6cc185ad14bbc',1,'toolbox::util::dtofixed(char *dst, double d, int prec) noexcept'],['../namespacetoolbox_1_1util.html#a4d0ccc3fcf366fb8451f43adecf95b6b',1,'toolbox::util::dtofixed(double d, int prec) noexcept']]],
+  ['dtos',['dtos',['../namespacetoolbox_1_1util.html#a169e48d95bb87c1598416f56019102f8',1,'toolbox::util::dtos(char *dst, double d) noexcept'],['../namespacetoolbox_1_1util.html#a0947c3d8582198308709003caf1467b1',1,'toolbox::util::dtos(double d) noexcept']]],
   ['duration',['duration',['../structtoolbox_1_1sys_1_1MonoClock.html#acd6c3d5b25ae158b2a8b71e7ae5ac01c',1,'toolbox::sys::MonoClock::duration()'],['../structtoolbox_1_1sys_1_1WallClock.html#af1bee96c8c817055f8482e762cf00ace',1,'toolbox::sys::WallClock::duration()'],['../namespacetoolbox_1_1sys.html#aedb936b32edd1672f938990ce346f0e2',1,'toolbox::sys::Duration()']]],
   ['data_20structures',['Data Structures',['../md_doc_DataStructures.html',1,'']]],
   ['dependencies',['Dependencies',['../md_doc_Dependencies.html',1,'']]]
