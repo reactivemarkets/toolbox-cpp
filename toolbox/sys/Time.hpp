@@ -61,6 +61,19 @@ struct MonoClock {
     }
 
     static time_point now() noexcept { return time_point{get_time(Id)}; }
+
+    static constexpr std::time_t to_time_t(const time_point& tp) noexcept
+    {
+        using namespace std::chrono;
+        return duration_cast<seconds>(tp.time_since_epoch()).count();
+    }
+
+    static constexpr time_point from_time_t(std::time_t t) noexcept
+    {
+        using namespace std::chrono;
+        using FromPoint = std::chrono::time_point<MonoClock, seconds>;
+        return time_point_cast<Duration>(FromPoint{seconds{t}});
+    }
 };
 
 struct WallClock {
