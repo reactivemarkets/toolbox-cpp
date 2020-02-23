@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   lint:
     docker:
-      - image: registry.gitlab.com/reactivemarkets/public-registry/toolchain-cpp:debian
+      - image: reactivemarkets/toolchain-cpp:debian
     steps:
       - checkout
       - run:
@@ -21,7 +21,7 @@ jobs:
                 { echo "Please ensure files are formated by running target clang-format"; exit 1; }
   test_clang_debug:
     docker:
-      - image: registry.gitlab.com/reactivemarkets/public-registry/toolchain-cpp:debian
+      - image: reactivemarkets/toolchain-cpp:debian
     steps:
       - checkout
       - run:
@@ -38,7 +38,7 @@ jobs:
             VERBOSE=1 make -j2 all test
   test_clang_release:
     docker:
-      - image: registry.gitlab.com/reactivemarkets/public-registry/toolchain-cpp:debian
+      - image: reactivemarkets/toolchain-cpp:debian
     steps:
       - checkout
       - run:
@@ -55,7 +55,7 @@ jobs:
             VERBOSE=1 make -j2 all test
   test_gcc_debug:
     docker:
-      - image: registry.gitlab.com/reactivemarkets/public-registry/toolchain-cpp:debian
+      - image: reactivemarkets/toolchain-cpp:debian
     steps:
       - checkout
       - run:
@@ -72,7 +72,7 @@ jobs:
             VERBOSE=1 make -j2 all test
   test_gcc_release:
     docker:
-      - image: registry.gitlab.com/reactivemarkets/public-registry/toolchain-cpp:debian
+      - image: reactivemarkets/toolchain-cpp:debian
     steps:
       - checkout
       - run:
@@ -89,7 +89,7 @@ jobs:
             VERBOSE=1 make -j2 all test
   build_doc:
     docker:
-      - image: registry.gitlab.com/reactivemarkets/public-registry/toolchain-cpp:debian
+      - image: reactivemarkets/toolchain-cpp:debian
     steps:
       - checkout
       - run:
@@ -107,7 +107,7 @@ jobs:
           paths: html
   build_release:
     docker:
-      - image: registry.gitlab.com/reactivemarkets/public-registry/toolchain-cpp:debian
+      - image: reactivemarkets/toolchain-cpp:debian
     steps:
       - checkout
       - run:
