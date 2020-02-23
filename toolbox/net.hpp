@@ -26,6 +26,7 @@
 #include "net/IpAddr.hpp"
 #include "net/McastSock.hpp"
 #include "net/Protocol.hpp"
+#include "net/RateLimit.hpp"
 #include "net/Resolver.hpp"
 #include "net/Runner.hpp"
 #include "net/Socket.hpp"

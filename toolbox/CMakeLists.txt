@@ -79,6 +79,7 @@ set(lib_SOURCES
   net/IpAddr.cpp
   net/McastSock.cpp
   net/Protocol.cpp
+  net/RateLimit.cpp
   net/Resolver.cpp
   net/Runner.cpp
   net/Socket.cpp
@@ -223,6 +224,7 @@ set(test_SOURCES
   net/Endpoint.ut.cpp
   net/Frame.ut.cpp
   net/IoSock.ut.cpp
+  net/RateLimit.ut.cpp
   net/Resolver.ut.cpp
   net/Runner.ut.cpp
   net/Socket.ut.cpp
