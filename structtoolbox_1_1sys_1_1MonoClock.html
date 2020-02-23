@@ -94,6 +94,10 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a9b8674d1699caa7458a19494900c0917"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78c2dcffdb585e2d3af8d5c0464696c5"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structtoolbox_1_1sys_1_1MonoClock.html#a26208ee27116c4794b296636e68fbc03">time_point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1sys_1_1MonoClock.html#a78c2dcffdb585e2d3af8d5c0464696c5">now</a> () noexcept</td></tr>
 <tr class="separator:a78c2dcffdb585e2d3af8d5c0464696c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7200db38b202e2f38f47a3d6ff9b7182"><td class="memItemLeft" align="right" valign="top">static constexpr std::time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1sys_1_1MonoClock.html#a7200db38b202e2f38f47a3d6ff9b7182">to_time_t</a> (const <a class="el" href="structtoolbox_1_1sys_1_1MonoClock.html#a26208ee27116c4794b296636e68fbc03">time_point</a> &amp;tp) noexcept</td></tr>
+<tr class="separator:a7200db38b202e2f38f47a3d6ff9b7182"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf0911ba3f5278c11000fd5eb334ca9d"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="structtoolbox_1_1sys_1_1MonoClock.html#a26208ee27116c4794b296636e68fbc03">time_point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1sys_1_1MonoClock.html#aaf0911ba3f5278c11000fd5eb334ca9d">from_time_t</a> (std::time_t t) noexcept</td></tr>
+<tr class="separator:aaf0911ba3f5278c11000fd5eb334ca9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -223,7 +227,63 @@ Static Public Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00063">63</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Time_8hpp_source.html#l00131">toolbox::sys::CyclTime::set_wall_time()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Time_8hpp_source.html#l00144">toolbox::sys::CyclTime::set_wall_time()</a>.</p>
+
+</div>
+</div>
+<a id="a7200db38b202e2f38f47a3d6ff9b7182"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7200db38b202e2f38f47a3d6ff9b7182">&#9670;&nbsp;</a></span>to_time_t()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static constexpr std::time_t toolbox::sys::MonoClock::to_time_t </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structtoolbox_1_1sys_1_1MonoClock.html#a26208ee27116c4794b296636e68fbc03">time_point</a> &amp;&#160;</td>
+          <td class="paramname"><em>tp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00065">65</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aaf0911ba3f5278c11000fd5eb334ca9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf0911ba3f5278c11000fd5eb334ca9d">&#9670;&nbsp;</a></span>from_time_t()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static constexpr <a class="el" href="structtoolbox_1_1sys_1_1MonoClock.html#a26208ee27116c4794b296636e68fbc03">time_point</a> toolbox::sys::MonoClock::from_time_t </td>
+          <td>(</td>
+          <td class="paramtype">std::time_t&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00071">71</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
 
 </div>
 </div>
