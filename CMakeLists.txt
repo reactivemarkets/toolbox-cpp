@@ -31,6 +31,8 @@ if (NOT "${TOOLBOX_TOOLCHAIN}" STREQUAL "")
   message(STATUS "TOOLBOX_TOOLCHAIN: ${TOOLBOX_TOOLCHAIN}")
 endif()
 
+set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${PROJECT_SOURCE_DIR}/etc/cmake")
+
 # Optimise for target architecture.
 set(CMAKE_C_FLAGS_RELEASE          "${CMAKE_C_FLAGS_RELEASE} -march=${TOOLBOX_BUILD_ARCH}")
 set(CMAKE_CXX_FLAGS_RELEASE        "${CMAKE_CXX_FLAGS_RELEASE} -march=${TOOLBOX_BUILD_ARCH}")
@@ -142,6 +144,13 @@ if(NOT "${Boost_UNIT_TEST_FRAMEWORK_LIBRARY_RELEASE}" MATCHES "\\.a$")
   add_definitions(-DBOOST_TEST_DYN_LINK)
 endif()
 
+find_package(SystemTap)
+if(SYSTEMTAP_FOUND)
+  set(TOOLBOX_HAVE_SYSTEMTAP 1)
+else()
+  set(TOOLBOX_HAVE_SYSTEMTAP 0)
+endif()
+
 find_package(Doxygen) # Optional.
 
 if(TOOLBOX_BUILD_SHARED)
@@ -199,6 +208,7 @@ add_subdirectory(bench)
 add_subdirectory(example)
 add_subdirectory(image)
 add_subdirectory(doc)
+add_subdirectory(etc)
 
 set(CPACK_GENERATOR "TGZ;RPM;DEB")
 

@@ -48,4 +48,9 @@
  */
 #define TOOLBOX_HAVE_REDIS @TOOLBOX_HAVE_REDIS@
 
+/**
+ * True if SystemTap support is enabled.
+ */
+#define TOOLBOX_HAVE_SYSTEMTAP @TOOLBOX_HAVE_SYSTEMTAP@
+
 #endif // TOOLBOX_CONFIG_H
