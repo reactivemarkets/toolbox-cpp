@@ -96,6 +96,7 @@ set(lib_SOURCES
   sys/System.cpp
   sys/Thread.cpp
   sys/Time.cpp
+  sys/Trace.cpp
   util/Alarm.cpp
   util/Argv.cpp
   util/Array.cpp
