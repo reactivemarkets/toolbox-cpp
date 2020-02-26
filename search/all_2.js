@@ -47,7 +47,7 @@ var searchData=
   ['consumed',['consumed',['../classtoolbox_1_1util_1_1Tokeniser.html#a43ec42f2e23b20cd21b48491554b0abe',1,'toolbox::util::Tokeniser']]],
   ['contributing_2emd',['CONTRIBUTING.md',['../CONTRIBUTING_8md.html',1,'']]],
   ['copy',['Copy',['../namespacetoolbox_1_1http.html#a1090dccc3a45f4f6ba45d0d80cb77fdaa5fb63579fc981698f97d55bfecb213ea',1,'toolbox::http']]],
-  ['count',['count',['../classtoolbox_1_1hdr_1_1HdrIterator.html#acd4f7f73b83f4b5b2db2d2f1bf037dd2',1,'toolbox::hdr::HdrIterator::count()'],['../structtoolbox_1_1util_1_1IntWrapper.html#ac631c6a2387b8c9c4db5c51350dd2e96',1,'toolbox::util::IntWrapper::count()']]],
+  ['count',['count',['../classtoolbox_1_1hdr_1_1HdrIterator.html#acd4f7f73b83f4b5b2db2d2f1bf037dd2',1,'toolbox::hdr::HdrIterator::count()'],['../classtoolbox_1_1net_1_1RateWindow.html#aa825e280fc136fbdf091734e61b942b0',1,'toolbox::net::RateWindow::count()'],['../structtoolbox_1_1util_1_1IntWrapper.html#ac631c6a2387b8c9c4db5c51350dd2e96',1,'toolbox::util::IntWrapper::count()']]],
   ['count_5f',['count_',['../classtoolbox_1_1hdr_1_1HdrIterator.html#ae299d629d4e8eb2e2c7829ce5cf1247f',1,'toolbox::hdr::HdrIterator']]],
   ['count_5fadded_5fin_5fthis_5fiteration_5fstep',['count_added_in_this_iteration_step',['../classtoolbox_1_1hdr_1_1HdrCountAddedIterator.html#a1a4b8013ceb24efe480ef1b51fee559e',1,'toolbox::hdr::HdrCountAddedIterator']]],
   ['count_5fadded_5fin_5fthis_5fiteration_5fstep_5f',['count_added_in_this_iteration_step_',['../classtoolbox_1_1hdr_1_1HdrCountAddedIterator.html#a0e48372e88db8d2cff875ef5657d2c72',1,'toolbox::hdr::HdrCountAddedIterator']]],

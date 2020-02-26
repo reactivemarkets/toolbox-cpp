@@ -37,6 +37,8 @@ var searchData=
   ['_7emulticonfig',['~MultiConfig',['../classtoolbox_1_1util_1_1MultiConfig.html#aca6d1c1a675dcf4e2f78ec2db448c540',1,'toolbox::util::MultiConfig']]],
   ['_7emuxer',['~Muxer',['../classtoolbox_1_1io_1_1Muxer.html#a75922eedbf8d840580be2e88139b2bf2',1,'toolbox::io::Muxer']]],
   ['_7enotifiable',['~Notifiable',['../classtoolbox_1_1io_1_1Notifiable.html#a38a93d3e3d878f79cf934ccba5f48e9a',1,'toolbox::io::Notifiable']]],
+  ['_7eratelimit',['~RateLimit',['../classtoolbox_1_1net_1_1RateLimit.html#afddec2f5095cb170ce7efd0391a591e4',1,'toolbox::net::RateLimit']]],
+  ['_7eratewindow',['~RateWindow',['../classtoolbox_1_1net_1_1RateWindow.html#ae16237b3ce1c5497ad2a186eb401391e',1,'toolbox::net::RateWindow']]],
   ['_7ereactor',['~Reactor',['../classtoolbox_1_1io_1_1Reactor.html#a6d037e6feaefcdb152a511ecf3db5f51',1,'toolbox::io::Reactor']]],
   ['_7ereactorrunner',['~ReactorRunner',['../classtoolbox_1_1io_1_1ReactorRunner.html#a9f633638b206f042671bbb527bbaaa42',1,'toolbox::io::ReactorRunner']]],
   ['_7erefcount',['~RefCount',['../classtoolbox_1_1util_1_1RefCount.html#aedad3da16a8de44f1409d8ff4f598a65',1,'toolbox::util::RefCount']]],

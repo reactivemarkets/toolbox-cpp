@@ -11,6 +11,7 @@ var searchData=
   ['parse_5fframe',['parse_frame',['../namespacetoolbox_1_1net.html#a68e77843ec14abe6b229f62982fbfb22',1,'toolbox::net::parse_frame(ConstBuffer buf, FnT fn)'],['../namespacetoolbox_1_1net.html#ae3f71288d325a75ae193b6f87b276992',1,'toolbox::net::parse_frame(std::string_view buf, FnT fn)']]],
   ['parse_5fline',['parse_line',['../namespacetoolbox_1_1util.html#ae8f89db1bba9859224a7d763fd886c9e',1,'toolbox::util']]],
   ['parse_5fnanos',['parse_nanos',['../namespacetoolbox_1_1sys.html#a6c97dd326b4ef3150369a6bc357badac',1,'toolbox::sys']]],
+  ['parse_5frate_5flimit',['parse_rate_limit',['../namespacetoolbox_1_1net.html#a9e36b85df46357ffbb6a5494691aac67',1,'toolbox::net']]],
   ['parse_5fsection',['parse_section',['../namespacetoolbox_1_1util.html#a08f0ec5109e6ffa43f6ff2c1e93020d7',1,'toolbox::util']]],
   ['parse_5fstream_5fendpoint',['parse_stream_endpoint',['../namespacetoolbox_1_1net.html#af40b1b5069a2f4e1b994f3ad882f2d9f',1,'toolbox::net']]],
   ['parse_5ftime',['parse_time',['../namespacetoolbox_1_1sys.html#afdc94d276405a9ed1a5bbf9f1c7b401a',1,'toolbox::sys']]],
