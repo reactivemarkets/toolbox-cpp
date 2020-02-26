@@ -36,8 +36,8 @@ class TOOLBOX_API RateLimit {
     ~RateLimit() = default;
 
     // Copy.
-    constexpr RateLimit(const RateLimit&) = default;
-    constexpr RateLimit& operator=(const RateLimit&) = default;
+    constexpr RateLimit(const RateLimit&) noexcept = default;
+    constexpr RateLimit& operator=(const RateLimit&) noexcept = default;
 
     // Move.
     constexpr RateLimit(RateLimit&&) noexcept = default;
@@ -66,8 +66,8 @@ class TOOLBOX_API RateWindow {
     RateWindow& operator=(const RateWindow&);
 
     // Move.
-    RateWindow(RateWindow&&) noexcept;
-    RateWindow& operator=(RateWindow&&) noexcept;
+    RateWindow(RateWindow&&);
+    RateWindow& operator=(RateWindow&&);
 
     std::size_t count() const noexcept { return count_; }
     /// Add count to time bucket.
