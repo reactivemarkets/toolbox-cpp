@@ -14,6 +14,8 @@ var searchData=
   ['tokeniser_2ecpp',['Tokeniser.cpp',['../Tokeniser_8cpp.html',1,'']]],
   ['tokeniser_2ehpp',['Tokeniser.hpp',['../Tokeniser_8hpp.html',1,'']]],
   ['tokeniser_2eut_2ecpp',['Tokeniser.ut.cpp',['../Tokeniser_8ut_8cpp.html',1,'']]],
+  ['trace_2ecpp',['Trace.cpp',['../Trace_8cpp.html',1,'']]],
+  ['trace_2ehpp',['Trace.hpp',['../Trace_8hpp.html',1,'']]],
   ['traits_2ecpp',['Traits.cpp',['../Traits_8cpp.html',1,'']]],
   ['traits_2ehpp',['Traits.hpp',['../Traits_8hpp.html',1,'']]],
   ['traits_2eut_2ecpp',['Traits.ut.cpp',['../Traits_8ut_8cpp.html',1,'']]],
