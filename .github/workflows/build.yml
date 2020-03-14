@@ -1,0 +1,77 @@
+# The Reactive C++ Toolbox.
+# Copyright (C) 2020 Reactive Markets Limited
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+name: CI Build
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    container: reactivemarkets/toolchain-cpp:debian
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v2
+
+      - name: Configure project
+        run: |
+          mkdir -p build
+          cd build
+          cmake .. -G "Unix Makefiles" \
+            -DCMAKE_C_COMPILER=gcc-8 \
+            -DCMAKE_CXX_COMPILER=g++-8
+
+      - name: Run cppcheck
+        run: cd build && make -j2 cppcheck
+
+      - name: Run clang-format
+        run: cd build && make clang-format &&
+          [[ -z "$(git status --porcelain)" ]] ||
+            { echo "Please ensure files are formated by running target clang-format"; exit 1; }
+
+  test:
+    runs-on: ubuntu-latest
+    container: reactivemarkets/toolchain-cpp:debian
+    needs: lint
+
+    strategy:
+      matrix:
+        build_type: [Debug, Release]
+        compiler:
+          - {cc: clang-7, cxx: clang++-7}
+          - {cc: gcc-8, cxx: g++-8}
+
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v2
+
+      - name: Configure project
+        run: |
+          mkdir -p build
+          cd build
+          cmake .. -G "Unix Makefiles" \
+            -DTOOLBOX_BUILD_SHARED=ON \
+            -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
+            -DCMAKE_C_COMPILER=${{ matrix.compiler.cc }} \
+            -DCMAKE_CXX_COMPILER=${{ matrix.compiler.cxx }}
+
+      - name: Build project
+        run: cd build && VERBOSE=1 make -j2 all
+
+      - name: Run tests
+        run: cd build && VERBOSE=1 make -j2 test
