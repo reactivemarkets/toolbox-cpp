@@ -1,0 +1,70 @@
+# The Reactive C++ Toolbox.
+# Copyright (C) 2020 Reactive Markets Limited
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+name: Package
+
+on: [push]
+
+# on:
+#   push:
+#     tags:
+#       - v*
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    container: reactivemarkets/toolchain-cpp:debian
+
+    strategy:
+      matrix:
+        build_type: [Release]
+        compiler:
+          - {cc: gcc-8, cxx: g++-8}
+
+    steps:
+      - name: Checkout the project
+        uses: actions/checkout@v2
+
+      - name: Define variables
+        run: |
+          VERSION=snapshot
+          [[ "${{ github.ref }}" == "refs/tags/"* ]] && \
+            VERSION=$(echo "${{ github.ref }}" | sed -e "s,^refs/tags/v,,")
+
+      - name: Print variables
+        run: |
+          echo "THE VERSION IS: $VERSION"
+
+      - name: Configure the project
+        run: |
+          mkdir -p build
+          cd build
+          cmake .. -G "Unix Makefiles" \
+            -DTOOLBOX_BUILD_SHARED=ON \
+            -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
+            -DCMAKE_C_COMPILER=${{ matrix.compiler.cc }} \
+            -DCMAKE_CXX_COMPILER=${{ matrix.compiler.cxx }}
+
+      - name: Build the project
+        run: cd build && make -j2 all
+
+      - name: Package build artefacts
+        run: cd build && make -j2 package
+
+      - name: Upload build artefacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: Tarball
+          path: build/dist/toolbox-cpp-snapshot-x86_64.tar.gz
