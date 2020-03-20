@@ -48,7 +48,7 @@ jobs:
           [[ -z "$(git status --porcelain)" ]] ||
             { echo "Please ensure files are formated by running target clang-format"; exit 1; }
 
-  test:
+  build:
     runs-on: ubuntu-latest
     container: reactivemarkets/toolchain-cpp:debian
     needs: lint
