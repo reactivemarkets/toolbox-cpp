@@ -56,7 +56,7 @@ ReactorRunner::ReactorRunner(Reactor& r, ThreadConfig config)
 ReactorRunner::~ReactorRunner()
 {
     stop_.store(true, std::memory_order_release);
-    reactor_.notify();
+    reactor_.wakeup();
     thread_.join();
 }
 

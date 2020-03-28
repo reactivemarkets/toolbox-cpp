@@ -97,7 +97,7 @@ int Reactor::poll(CyclTime now, Duration timeout)
     return n;
 }
 
-void Reactor::do_notify() noexcept
+void Reactor::do_wakeup() noexcept
 {
     // Best effort.
     std::error_code ec;

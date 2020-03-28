@@ -14,8 +14,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef TOOLBOX_IO_DISPOSABLE_HPP
-#define TOOLBOX_IO_DISPOSABLE_HPP
+#ifndef TOOLBOX_IO_DISPOSER_HPP
+#define TOOLBOX_IO_DISPOSER_HPP
 
 #include <toolbox/sys/Time.hpp>
 #include <toolbox/util/Finally.hpp>
@@ -23,20 +23,20 @@
 namespace toolbox {
 inline namespace io {
 
-/// The BasicDisposable class template exposes a public dispose method that may be safely called
+/// The BasicDisposer class template exposes a public dispose method that may be safely called
 /// from callback functions while a lock is held.
 template <typename DerivedT>
-class BasicDisposable {
+class BasicDisposer {
   public:
-    BasicDisposable() noexcept = default;
+    BasicDisposer() noexcept = default;
 
     // Copy.
-    BasicDisposable(const BasicDisposable&) = delete;
-    BasicDisposable& operator=(const BasicDisposable&) = delete;
+    BasicDisposer(const BasicDisposer&) = delete;
+    BasicDisposer& operator=(const BasicDisposer&) = delete;
 
     // Move.
-    BasicDisposable(BasicDisposable&&) = delete;
-    BasicDisposable& operator=(BasicDisposable&&) = delete;
+    BasicDisposer(BasicDisposer&&) = delete;
+    BasicDisposer& operator=(BasicDisposer&&) = delete;
 
     /// The dispose method may be safely called from callback functions while a lock is held.
     void dispose(CyclTime now) noexcept
@@ -52,12 +52,12 @@ class BasicDisposable {
     }
 
   protected:
-    ~BasicDisposable() = default;
+    ~BasicDisposer() = default;
 
     /// Returns true if the lock is held or the object has been disposed.
     bool is_locked() const noexcept { return locks_ > 0; }
 
-    /// Returns a lock that prevents the disposable instance from being deleted while the lock is
+    /// Returns a lock that prevents the disposer instance from being deleted while the lock is
     /// held.
     [[nodiscard]] auto lock_this(CyclTime now) noexcept
     {
@@ -80,4 +80,4 @@ class BasicDisposable {
 } // namespace io
 } // namespace toolbox
 
-#endif // TOOLBOX_IO_DISPOSABLE_HPP
+#endif // TOOLBOX_IO_DISPOSER_HPP

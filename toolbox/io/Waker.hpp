@@ -14,12 +14,36 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Notifiable.hpp"
+#ifndef TOOLBOX_IO_WAKER_HPP
+#define TOOLBOX_IO_WAKER_HPP
+
+#include <toolbox/Config.h>
 
 namespace toolbox {
 inline namespace io {
 
-Notifiable::~Notifiable() = default;
+/// The Waker is implemented by types that may be woken-up, interrupted or otherwise notified
+/// asynchronously.
+class TOOLBOX_API Waker {
+  public:
+    Waker() noexcept = default;
+    virtual ~Waker();
+
+    // Copy.
+    Waker(const Waker&) noexcept = default;
+    Waker& operator=(const Waker&) noexcept = default;
+
+    // Move.
+    Waker(Waker&&) noexcept = default;
+    Waker& operator=(Waker&&) noexcept = default;
+
+    void wakeup() noexcept { do_wakeup(); }
+
+  protected:
+    virtual void do_wakeup() noexcept = 0;
+};
 
 } // namespace io
 } // namespace toolbox
+
+#endif // TOOLBOX_IO_WAKER_HPP

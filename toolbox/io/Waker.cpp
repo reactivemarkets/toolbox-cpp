@@ -14,36 +14,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef TOOLBOX_IO_NOTIFIABLE_HPP
-#define TOOLBOX_IO_NOTIFIABLE_HPP
-
-#include <toolbox/Config.h>
+#include "Waker.hpp"
 
 namespace toolbox {
 inline namespace io {
 
-/// The Notifiable is implemented by types that may be woken-up, interrupted or otherwise notified
-/// of an asynchronous event.
-class TOOLBOX_API Notifiable {
-  public:
-    Notifiable() noexcept = default;
-    virtual ~Notifiable();
-
-    // Copy.
-    Notifiable(const Notifiable&) noexcept = default;
-    Notifiable& operator=(const Notifiable&) noexcept = default;
-
-    // Move.
-    Notifiable(Notifiable&&) noexcept = default;
-    Notifiable& operator=(Notifiable&&) noexcept = default;
-
-    void notify() noexcept { do_notify(); }
-
-  protected:
-    virtual void do_notify() noexcept = 0;
-};
+Waker::~Waker() = default;
 
 } // namespace io
 } // namespace toolbox
-
-#endif // TOOLBOX_IO_NOTIFIABLE_HPP

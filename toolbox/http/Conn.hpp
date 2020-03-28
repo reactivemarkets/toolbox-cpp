@@ -20,7 +20,7 @@
 #include <toolbox/http/Parser.hpp>
 #include <toolbox/http/Request.hpp>
 #include <toolbox/http/Stream.hpp>
-#include <toolbox/io/Disposable.hpp>
+#include <toolbox/io/Disposer.hpp>
 #include <toolbox/io/Event.hpp>
 #include <toolbox/io/Reactor.hpp>
 #include <toolbox/net/Endpoint.hpp>
@@ -36,10 +36,10 @@ class HttpAppBase;
 template <typename RequestT, typename AppT>
 class BasicHttpConn
 : public MemAlloc
-, public BasicDisposable<BasicHttpConn<RequestT, AppT>>
+, public BasicDisposer<BasicHttpConn<RequestT, AppT>>
 , BasicHttpParser<BasicHttpConn<RequestT, AppT>> {
 
-    friend class BasicDisposable<BasicHttpConn<RequestT, AppT>>;
+    friend class BasicDisposer<BasicHttpConn<RequestT, AppT>>;
     friend class BasicHttpParser<BasicHttpConn<RequestT, AppT>>;
 
     using Request = RequestT;

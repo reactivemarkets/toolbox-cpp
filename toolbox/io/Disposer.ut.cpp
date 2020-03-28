@@ -14,7 +14,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Disposable.hpp"
+#include "Disposer.hpp"
 
 #include <boost/test/unit_test.hpp>
 
@@ -22,9 +22,9 @@ using namespace std;
 using namespace toolbox;
 
 namespace {
-struct Disposable : BasicDisposable<Disposable> {
-    using BasicDisposable<Disposable>::is_locked;
-    using BasicDisposable<Disposable>::lock_this;
+struct Disposer : BasicDisposer<Disposer> {
+    using BasicDisposer<Disposer>::is_locked;
+    using BasicDisposer<Disposer>::lock_this;
     void dispose_now(CyclTime now) noexcept
     {
         // Ensure that dispose_now can safely call dispose.
@@ -36,12 +36,12 @@ struct Disposable : BasicDisposable<Disposable> {
 };
 } // namespace
 
-BOOST_AUTO_TEST_SUITE(DisposableSuite)
+BOOST_AUTO_TEST_SUITE(DisposerSuite)
 
-BOOST_AUTO_TEST_CASE(DisposableCase)
+BOOST_AUTO_TEST_CASE(DisposerCase)
 {
     const auto now = CyclTime::now();
-    Disposable d;
+    Disposer d;
     BOOST_TEST(!d.is_locked());
     BOOST_TEST(d.disposed == 0);
     {
