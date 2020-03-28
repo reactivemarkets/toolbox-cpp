@@ -78,11 +78,13 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1BasicDisposable.html">BasicDisposable</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1BasicDisposer.html">BasicDisposer</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">BasicHandle</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Buffer.html">Buffer</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Epoll.html">Epoll</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1EventFd.html">EventFd</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -91,10 +93,6 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1io_1_1Hook.html">Hook</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1io_1_1MsgEvent.html">MsgEvent</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Muxer.html">Muxer</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Notifiable.html">Notifiable</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Reactor.html">Reactor</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -108,6 +106,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1TimerQueue.html">TimerQueue</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Waker.html">Waker</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -115,6 +115,8 @@ Typedefs</h2></td></tr>
 <tr class="separator:a535ce4262aa4c1abf257ec28e85dc333"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f27399855673bfa5dc5f79c77fa61c1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#a5f27399855673bfa5dc5f79c77fa61c1">MutableBuffer</a> = boost::asio::mutable_buffer</td></tr>
 <tr class="separator:a5f27399855673bfa5dc5f79c77fa61c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa906343658b2f619691c0fc614f4f12e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#aa906343658b2f619691c0fc614f4f12e">EpollEvent</a> = epoll_event</td></tr>
+<tr class="separator:aa906343658b2f619691c0fc614f4f12e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0382b7b7f259044db618bbc41b273ee4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#a0382b7b7f259044db618bbc41b273ee4">FileHandle</a> = <a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">BasicHandle</a>&lt; <a class="el" href="structtoolbox_1_1io_1_1FilePolicy.html">FilePolicy</a> &gt;</td></tr>
 <tr class="separator:a0382b7b7f259044db618bbc41b273ee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61ae4d7ecb44580a91e3ef87b3ca2330"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#a61ae4d7ecb44580a91e3ef87b3ca2330">HookList</a> = boost::intrusive::list&lt; <a class="el" href="structtoolbox_1_1io_1_1Hook.html">Hook</a>, boost::intrusive::constant_time_size&lt; false &gt; &gt;</td></tr>
@@ -127,13 +129,15 @@ Typedefs</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:a8c6012aff2a0b404f18904f88facb62a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">: unsigned { <br />
-&#160;&#160;<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa39bad8c1517b28a926ce6c5e3d07a60c">EventIn</a> = EPOLLIN, 
-<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa4d35b776ba49961520c41b6ccf52c894">EventPri</a> = EPOLLPRI, 
-<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aaf6265e81fa9f1ea06ae726fbfe4b02d0">EventOut</a> = EPOLLOUT, 
-<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aaad050a1c0f6bc83467a71c7b01b9d022">EventErr</a> = EPOLLERR, 
+&#160;&#160;<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa410300e2d6016d4a3e3af942b5619bf4">EpollIn</a> = EPOLLIN, 
+<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa64f12ec901493aafde7a47fc7bab09f9">EpollOut</a> = EPOLLOUT, 
+<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa0d8d2cef5527a63cd92198862f8b7e39">EpollRdHup</a> = EPOLLRDHUP, 
+<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa93e3999c4b0401f97cae297a461c08dd">EpollPri</a> = EPOLLPRI, 
 <br />
-&#160;&#160;<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aacbe8f1239a5afd14bd7e51201b76df99">EventHup</a> = EPOLLHUP, 
-<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa50b8fe0826e16f46c790415bcb20e558">EventEt</a> = EPOLLET
+&#160;&#160;<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aae1dcb9d34c6436ceb7ba40b74fca291d">EpollErr</a> = EPOLLERR, 
+<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa2cbabe862a6dfc49b613d92050169d2c">EpollHup</a> = EPOLLHUP, 
+<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa6d5f81fa3afbf77d56eee34eb725e553">EpollEt</a> = EPOLLET, 
+<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa7284c13c92959dda91282cfd7afd187a">EpollOneShot</a> = EPOLLONESHOT
 <br />
  }</td></tr>
 <tr class="separator:a8c6012aff2a0b404f18904f88facb62a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -241,6 +245,22 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="aa906343658b2f619691c0fc614f4f12e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa906343658b2f619691c0fc614f4f12e">&#9670;&nbsp;</a></span>EpollEvent</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacetoolbox_1_1io.html#aa906343658b2f619691c0fc614f4f12e">toolbox::io::EpollEvent</a> = typedef epoll_event</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Epoll_8hpp_source.html#l00157">157</a> of file <a class="el" href="Epoll_8hpp_source.html">Epoll.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a0382b7b7f259044db618bbc41b273ee4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0382b7b7f259044db618bbc41b273ee4">&#9670;&nbsp;</a></span>FileHandle</h2>
 
@@ -318,15 +338,26 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a8c6012aff2a0b404f18904f88facb62aa39bad8c1517b28a926ce6c5e3d07a60c"></a>EventIn&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8c6012aff2a0b404f18904f88facb62aa4d35b776ba49961520c41b6ccf52c894"></a>EventPri&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8c6012aff2a0b404f18904f88facb62aaf6265e81fa9f1ea06ae726fbfe4b02d0"></a>EventOut&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8c6012aff2a0b404f18904f88facb62aaad050a1c0f6bc83467a71c7b01b9d022"></a>EventErr&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8c6012aff2a0b404f18904f88facb62aacbe8f1239a5afd14bd7e51201b76df99"></a>EventHup&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8c6012aff2a0b404f18904f88facb62aa50b8fe0826e16f46c790415bcb20e558"></a>EventEt&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a8c6012aff2a0b404f18904f88facb62aa410300e2d6016d4a3e3af942b5619bf4"></a>EpollIn&#160;</td><td class="fielddoc"><p>The associated file is available for read(2) operations. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8c6012aff2a0b404f18904f88facb62aa64f12ec901493aafde7a47fc7bab09f9"></a>EpollOut&#160;</td><td class="fielddoc"><p>The associated file is available for write(2) operations. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8c6012aff2a0b404f18904f88facb62aa0d8d2cef5527a63cd92198862f8b7e39"></a>EpollRdHup&#160;</td><td class="fielddoc"><p>Stream socket peer closed connection, or shut down writing half of connection. (This flag is especially useful for writing simple code to detect peer shutdown when using Edge-Triggered monitoring.) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8c6012aff2a0b404f18904f88facb62aa93e3999c4b0401f97cae297a461c08dd"></a>EpollPri&#160;</td><td class="fielddoc"><p>There is an exceptional condition on the file descriptor. See the discussion of POLLPRI in poll(2). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8c6012aff2a0b404f18904f88facb62aae1dcb9d34c6436ceb7ba40b74fca291d"></a>EpollErr&#160;</td><td class="fielddoc"><p>Error condition happened on the associated file descriptor. This event is also reported for the write end of a pipe when the read end has been closed. epoll_wait(2) will always report for this event; it is not necessary to set it in events. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8c6012aff2a0b404f18904f88facb62aa2cbabe862a6dfc49b613d92050169d2c"></a>EpollHup&#160;</td><td class="fielddoc"><p>Hang up happened on the associated file descriptor. epoll_wait(2) will always wait for this event; it is not necessary to set it in events.</p>
+<p>Note that when reading from a channel such as a pipe or a stream socket, this event merely indicates that the peer closed its end of the channel. Subsequent reads from the channel will return 0 (end of file) only after all outstanding data in the channel has been consumed. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8c6012aff2a0b404f18904f88facb62aa6d5f81fa3afbf77d56eee34eb725e553"></a>EpollEt&#160;</td><td class="fielddoc"><p>Sets the Edge-Triggered behavior for the associated file descriptor. The default behavior for epoll is Level-Triggered. See epoll(7) for more detailed information about Edge and Level-Triggered event distribution architectures. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8c6012aff2a0b404f18904f88facb62aa7284c13c92959dda91282cfd7afd187a"></a>EpollOneShot&#160;</td><td class="fielddoc"><p>Sets the one-shot behavior for the associated file descriptor. This means that after an event is pulled out with epoll_wait(2) the associated file descriptor is internally disabled and no other events will be reported by the epoll interface. The user must call <a class="el" href="namespacetoolbox_1_1os.html#a43c6fa31016ef3a2fbf6d98c80cb2210" title="Control interface for an epoll file descriptor. ">epoll_ctl()</a> with EPOLL_CTL_MOD to rearm the file descriptor with a new event mask. </p>
+</td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="Event_8hpp_source.html#l00029">29</a> of file <a class="el" href="Event_8hpp_source.html">Event.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Epoll_8hpp_source.html#l00115">115</a> of file <a class="el" href="Epoll_8hpp_source.html">Epoll.hpp</a>.</p>
 
 </div>
 </div>
@@ -473,7 +504,7 @@ template&lt;typename DataT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Event_8hpp_source.html#l00046">46</a> of file <a class="el" href="Event_8hpp_source.html">Event.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Event_8hpp_source.html#l00037">37</a> of file <a class="el" href="Event_8hpp_source.html">Event.hpp</a>.</p>
 
 </div>
 </div>
@@ -519,7 +550,7 @@ template&lt;typename DataT , typename... ArgsT&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Event_8hpp_source.html#l00056">56</a> of file <a class="el" href="Event_8hpp_source.html">Event.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Event_8hpp_source.html#l00047">47</a> of file <a class="el" href="Event_8hpp_source.html">Event.hpp</a>.</p>
 
 </div>
 </div>
@@ -549,7 +580,7 @@ template&lt;typename DataT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Event_8hpp_source.html#l00066">66</a> of file <a class="el" href="Event_8hpp_source.html">Event.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Event_8hpp_source.html#l00057">57</a> of file <a class="el" href="Event_8hpp_source.html">Event.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="String_8ut_8cpp_source.html#l00171">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Options_8hpp_source.html#l00178">toolbox::util::Options::operator()()</a>, <a class="el" href="Url_8hpp_source.html#l00080">toolbox::http::BasicUrl&lt; Url &gt;::parse()</a>, <a class="el" href="Options_8cpp_source.html#l00044">toolbox::util::Options::parse()</a>, and <a class="el" href="Frame_8hpp_source.html#l00088">toolbox::net::parse_frame()</a>.</p>
 
@@ -581,7 +612,7 @@ template&lt;typename DataT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Event_8hpp_source.html#l00072">72</a> of file <a class="el" href="Event_8hpp_source.html">Event.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Event_8hpp_source.html#l00063">63</a> of file <a class="el" href="Event_8hpp_source.html">Event.hpp</a>.</p>
 
 </div>
 </div>

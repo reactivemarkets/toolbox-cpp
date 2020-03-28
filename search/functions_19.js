@@ -4,7 +4,7 @@ var searchData=
   ['_7eargvlexer',['~ArgvLexer',['../classtoolbox_1_1util_1_1ArgvLexer.html#a36893ad8d21aabf9d41006f269cfa678',1,'toolbox::util::ArgvLexer']]],
   ['_7eargvsequence',['~ArgvSequence',['../classtoolbox_1_1util_1_1ArgvSequence.html#a56c251e812cbd8ce963cafbebcc978bf',1,'toolbox::util::ArgvSequence']]],
   ['_7earrayview',['~ArrayView',['../classtoolbox_1_1util_1_1ArrayView.html#a4195bbf5158ece45e625ace0c683d2e1',1,'toolbox::util::ArrayView']]],
-  ['_7ebasicdisposable',['~BasicDisposable',['../classtoolbox_1_1io_1_1BasicDisposable.html#a3ea607b5a44b72189428cbac277a7f30',1,'toolbox::io::BasicDisposable']]],
+  ['_7ebasicdisposer',['~BasicDisposer',['../classtoolbox_1_1io_1_1BasicDisposer.html#aa2bca770004e1c70a13bb4f65b9b2e76',1,'toolbox::io::BasicDisposer']]],
   ['_7ebasichandle',['~BasicHandle',['../classtoolbox_1_1io_1_1BasicHandle.html#a8d6fa5b51e5a6a8aaf264a3565c9cc76',1,'toolbox::io::BasicHandle']]],
   ['_7ebasichttpparser',['~BasicHttpParser',['../classtoolbox_1_1http_1_1BasicHttpParser.html#adc38aac28dfec872fd39af06ac17dbba',1,'toolbox::http::BasicHttpParser']]],
   ['_7ebasicslot',['~BasicSlot',['../classtoolbox_1_1util_1_1BasicSlot.html#a44e285e215b30e3a2421d444f8e11cc5',1,'toolbox::util::BasicSlot']]],
@@ -15,6 +15,7 @@ var searchData=
   ['_7ebuffer',['~Buffer',['../classtoolbox_1_1io_1_1Buffer.html#a785f44ebdc19ce599b676e19057ace0b',1,'toolbox::io::Buffer']]],
   ['_7ecomparable',['~Comparable',['../structtoolbox_1_1util_1_1Comparable.html#a5253a9512f6214a366167c6b67e5e5d4',1,'toolbox::util::Comparable']]],
   ['_7econfig',['~Config',['../classtoolbox_1_1util_1_1Config.html#a6520c97255cf6a52cca88afb4a3599df',1,'toolbox::util::Config']]],
+  ['_7eepoll',['~Epoll',['../classtoolbox_1_1io_1_1Epoll.html#a05b634e16909d79a7b294481e4e78b92',1,'toolbox::io::Epoll']]],
   ['_7eeventfd',['~EventFd',['../classtoolbox_1_1io_1_1EventFd.html#a3e778d73a6298782bcd903edba5f3a72',1,'toolbox::io::EventFd']]],
   ['_7eexception',['~Exception',['../classtoolbox_1_1util_1_1Exception.html#a54bceec898694e0a7945857a09ec725f',1,'toolbox::util::Exception']]],
   ['_7efinally',['~Finally',['../classtoolbox_1_1util_1_1Finally.html#ae2d66561bad70c4c049f6caeb3967fd5',1,'toolbox::util::Finally']]],
@@ -35,8 +36,6 @@ var searchData=
   ['_7ememalloc',['~MemAlloc',['../structtoolbox_1_1util_1_1MemAlloc.html#a68f3cc62cc6692e81bdb9e1175b10975',1,'toolbox::util::MemAlloc']]],
   ['_7empmcqueue',['~MpmcQueue',['../classtoolbox_1_1ipc_1_1MpmcQueue.html#ac6973b5a6fac38e7912c8994b5e78f35',1,'toolbox::ipc::MpmcQueue']]],
   ['_7emulticonfig',['~MultiConfig',['../classtoolbox_1_1util_1_1MultiConfig.html#aca6d1c1a675dcf4e2f78ec2db448c540',1,'toolbox::util::MultiConfig']]],
-  ['_7emuxer',['~Muxer',['../classtoolbox_1_1io_1_1Muxer.html#a75922eedbf8d840580be2e88139b2bf2',1,'toolbox::io::Muxer']]],
-  ['_7enotifiable',['~Notifiable',['../classtoolbox_1_1io_1_1Notifiable.html#a38a93d3e3d878f79cf934ccba5f48e9a',1,'toolbox::io::Notifiable']]],
   ['_7eratelimit',['~RateLimit',['../classtoolbox_1_1net_1_1RateLimit.html#afddec2f5095cb170ce7efd0391a591e4',1,'toolbox::net::RateLimit']]],
   ['_7eratewindow',['~RateWindow',['../classtoolbox_1_1net_1_1RateWindow.html#ae16237b3ce1c5497ad2a186eb401391e',1,'toolbox::net::RateWindow']]],
   ['_7ereactor',['~Reactor',['../classtoolbox_1_1io_1_1Reactor.html#a6d037e6feaefcdb152a511ecf3db5f51',1,'toolbox::io::Reactor']]],
@@ -56,5 +55,6 @@ var searchData=
   ['_7etokeniser',['~Tokeniser',['../classtoolbox_1_1util_1_1Tokeniser.html#a5de2a97a8b8fe6c05d784e412632ab4d',1,'toolbox::util::Tokeniser']]],
   ['_7evaraccum',['~VarAccum',['../classtoolbox_1_1util_1_1VarAccum.html#a32595401c1e950fc512d56e40e35d844',1,'toolbox::util::VarAccum']]],
   ['_7evarsub',['~VarSub',['../classtoolbox_1_1util_1_1VarSub.html#a2818a7ccc319ed4e2c960f9cfd100cd6',1,'toolbox::util::VarSub']]],
-  ['_7eversion',['~Version',['../structtoolbox_1_1util_1_1Version.html#a29c36dfa650f5ec2d9d378ec7e59e211',1,'toolbox::util::Version']]]
+  ['_7eversion',['~Version',['../structtoolbox_1_1util_1_1Version.html#a29c36dfa650f5ec2d9d378ec7e59e211',1,'toolbox::util::Version']]],
+  ['_7ewaker',['~Waker',['../classtoolbox_1_1io_1_1Waker.html#a708eaf679a37349f20e387b81036a269',1,'toolbox::io::Waker']]]
 ];

@@ -48,11 +48,12 @@ var searchData=
   ['mkactivity',['MkActivity',['../namespacetoolbox_1_1http.html#a1090dccc3a45f4f6ba45d0d80cb77fdaa7860be0b5977633991049ba7e2db928a',1,'toolbox::http']]],
   ['mkcalendar',['MkCalendar',['../namespacetoolbox_1_1http.html#a1090dccc3a45f4f6ba45d0d80cb77fdaafd8731b039d3bcb16908de23a2932d9a',1,'toolbox::http']]],
   ['mkcol',['MkCol',['../namespacetoolbox_1_1http.html#a1090dccc3a45f4f6ba45d0d80cb77fdaa0253c02f8d9e5333b541145dfbfc35a0',1,'toolbox::http']]],
-  ['mmap',['mmap',['../namespacetoolbox_1_1os.html#a00410c9868ab7d3b8761f57fd3b70d92',1,'toolbox::os::mmap(void *addr, size_t len, int prot, int flags, int fd, off_t off, std::error_code &amp;ec) noexcept'],['../namespacetoolbox_1_1os.html#ae4ceee628d5400c6f6e93e91bc3264fe',1,'toolbox::os::mmap(void *addr, size_t len, int prot, int flags, int fd, off_t off)'],['../namespacetoolbox_1_1ipc.html#abb1f0af1555a92b15e5df7e1d48ef174',1,'toolbox::ipc::Mmap()']]],
+  ['mmap',['Mmap',['../namespacetoolbox_1_1ipc.html#abb1f0af1555a92b15e5df7e1d48ef174',1,'toolbox::ipc::Mmap()'],['../namespacetoolbox_1_1os.html#a00410c9868ab7d3b8761f57fd3b70d92',1,'toolbox::os::mmap(void *addr, size_t len, int prot, int flags, int fd, off_t off, std::error_code &amp;ec) noexcept'],['../namespacetoolbox_1_1os.html#ae4ceee628d5400c6f6e93e91bc3264fe',1,'toolbox::os::mmap(void *addr, size_t len, int prot, int flags, int fd, off_t off)']]],
   ['mmap_2ecpp',['Mmap.cpp',['../Mmap_8cpp.html',1,'']]],
   ['mmap_2ehpp',['Mmap.hpp',['../Mmap_8hpp.html',1,'']]],
   ['mmapdeleter',['MmapDeleter',['../structtoolbox_1_1ipc_1_1MmapDeleter.html',1,'toolbox::ipc']]],
   ['mmappointer',['MmapPointer',['../classtoolbox_1_1ipc_1_1MmapPointer.html',1,'toolbox::ipc::MmapPointer'],['../classtoolbox_1_1ipc_1_1MmapPointer.html#a05df63cc23592f352e476a384e361a8b',1,'toolbox::ipc::MmapPointer::MmapPointer(std::nullptr_t=nullptr) noexcept'],['../classtoolbox_1_1ipc_1_1MmapPointer.html#adcc666e06152b15c2eda5542dceefd6c',1,'toolbox::ipc::MmapPointer::MmapPointer(void *ptr, std::size_t size) noexcept']]],
+  ['mod',['mod',['../classtoolbox_1_1io_1_1Epoll.html#a6a3bfec3bf674224a6b54a004d2bc494',1,'toolbox::io::Epoll::mod(int fd, int sid, unsigned events, std::error_code &amp;ec) noexcept'],['../classtoolbox_1_1io_1_1Epoll.html#ac11789d97b0b1657efccfe2a17a1e263',1,'toolbox::io::Epoll::mod(int fd, int sid, unsigned events)']]],
   ['mono_5ftime',['mono_time',['../classtoolbox_1_1sys_1_1CyclTime.html#a54d9cb4aa9e308bc346d7d5cf40a6ecb',1,'toolbox::sys::CyclTime']]],
   ['monoclock',['MonoClock',['../structtoolbox_1_1sys_1_1MonoClock.html',1,'toolbox::sys']]],
   ['monotime',['MonoTime',['../namespacetoolbox_1_1sys.html#a8370f3f6bd9eb78dd325ae3f4e582247',1,'toolbox::sys']]],
@@ -71,8 +72,5 @@ var searchData=
   ['msgqueue',['MsgQueue',['../namespacetoolbox_1_1ipc.html#a4ac949d9deeb81ab08d166170f99ca04',1,'toolbox::ipc']]],
   ['multiconfig',['MultiConfig',['../classtoolbox_1_1util_1_1MultiConfig.html',1,'toolbox::util::MultiConfig'],['../classtoolbox_1_1util_1_1MultiConfig.html#a665d08b8c9735fcec38b7f0d24f94295',1,'toolbox::util::MultiConfig::MultiConfig()'],['../classtoolbox_1_1util_1_1MultiConfig.html#a25fc2c4673170476213cc306aee0ba79',1,'toolbox::util::MultiConfig::MultiConfig(const MultiConfig &amp;)=delete'],['../classtoolbox_1_1util_1_1MultiConfig.html#a1cb0e34013eb13cc33706d1f026009a2',1,'toolbox::util::MultiConfig::MultiConfig(MultiConfig &amp;&amp;)']]],
   ['multitoken',['multitoken',['../classtoolbox_1_1util_1_1Value.html#a28053e318b5dac04a8a1e8dd430220fa',1,'toolbox::util::Value']]],
-  ['mutablebuffer',['MutableBuffer',['../namespacetoolbox_1_1io.html#a5f27399855673bfa5dc5f79c77fa61c1',1,'toolbox::io']]],
-  ['muxer',['Muxer',['../classtoolbox_1_1io_1_1Muxer.html',1,'toolbox::io::Muxer'],['../classtoolbox_1_1io_1_1Muxer.html#aa2d9ec1870212535dcec9cdfa0c2a54a',1,'toolbox::io::Muxer::Muxer(int flags=0)'],['../classtoolbox_1_1io_1_1Muxer.html#a7fac26847331fbd0a556f8624d5de7a6',1,'toolbox::io::Muxer::Muxer(const Muxer &amp;)=delete'],['../classtoolbox_1_1io_1_1Muxer.html#a8c2538c049f29da7cb0af2dd517085a3',1,'toolbox::io::Muxer::Muxer(Muxer &amp;&amp;)=default']]],
-  ['muxer_2ecpp',['Muxer.cpp',['../Muxer_8cpp.html',1,'']]],
-  ['muxer_2ehpp',['Muxer.hpp',['../Muxer_8hpp.html',1,'']]]
+  ['mutablebuffer',['MutableBuffer',['../namespacetoolbox_1_1io.html#a5f27399855673bfa5dc5f79c77fa61c1',1,'toolbox::io']]]
 ];

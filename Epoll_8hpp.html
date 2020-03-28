@@ -66,18 +66,28 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Epoll.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="Handle_8hpp_source.html">toolbox/io/Handle.hpp</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="Event_8hpp_source.html">toolbox/io/Event.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="Handle_8hpp_source.html">toolbox/io/Handle.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="TimerFd_8hpp_source.html">toolbox/io/TimerFd.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="sys_2Error_8hpp_source.html">toolbox/sys/Error.hpp</a>&gt;</code><br />
 <code>#include &lt;sys/epoll.h&gt;</code><br />
 </div>
 <p><a href="Epoll_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Epoll.html">toolbox::io::Epoll</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacetoolbox"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox.html">toolbox</a></td></tr>
@@ -86,6 +96,27 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacetoolbox_1_1io"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html">toolbox::io</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:aa906343658b2f619691c0fc614f4f12e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#aa906343658b2f619691c0fc614f4f12e">toolbox::io::EpollEvent</a> = epoll_event</td></tr>
+<tr class="separator:aa906343658b2f619691c0fc614f4f12e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a8c6012aff2a0b404f18904f88facb62a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">: unsigned { <br />
+&#160;&#160;<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa410300e2d6016d4a3e3af942b5619bf4">toolbox::io::EpollIn</a> = EPOLLIN, 
+<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa64f12ec901493aafde7a47fc7bab09f9">toolbox::io::EpollOut</a> = EPOLLOUT, 
+<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa0d8d2cef5527a63cd92198862f8b7e39">toolbox::io::EpollRdHup</a> = EPOLLRDHUP, 
+<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa93e3999c4b0401f97cae297a461c08dd">toolbox::io::EpollPri</a> = EPOLLPRI, 
+<br />
+&#160;&#160;<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aae1dcb9d34c6436ceb7ba40b74fca291d">toolbox::io::EpollErr</a> = EPOLLERR, 
+<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa2cbabe862a6dfc49b613d92050169d2c">toolbox::io::EpollHup</a> = EPOLLHUP, 
+<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa6d5f81fa3afbf77d56eee34eb725e553">toolbox::io::EpollEt</a> = EPOLLET, 
+<a class="el" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa7284c13c92959dda91282cfd7afd187a">toolbox::io::EpollOneShot</a> = EPOLLONESHOT
+<br />
+ }</td></tr>
+<tr class="separator:a8c6012aff2a0b404f18904f88facb62a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>

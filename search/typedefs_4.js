@@ -1,6 +1,7 @@
 var searchData=
 [
   ['endpoint',['Endpoint',['../classtoolbox_1_1http_1_1HttpAppBase.html#a23382c7a226b320570a2b5ab0f73c657',1,'toolbox::http::HttpAppBase::Endpoint()'],['../classtoolbox_1_1http_1_1BasicHttpConn.html#ab51f8d5ee978b544aae3dc858341947f',1,'toolbox::http::BasicHttpConn::Endpoint()'],['../structtoolbox_1_1net_1_1DgramSock.html#a3e9f01d1f6afc8f1cab9c353d1bc7833',1,'toolbox::net::DgramSock::Endpoint()'],['../structtoolbox_1_1net_1_1McastSock.html#aa0820d00091837078e666b13be5019a7',1,'toolbox::net::McastSock::Endpoint()'],['../classtoolbox_1_1net_1_1StreamAcceptor.html#aa1888c70791c7a636346a1027cbea627',1,'toolbox::net::StreamAcceptor::Endpoint()'],['../classtoolbox_1_1net_1_1StreamConnector.html#a8828f739e0010ef570703660c7285d83',1,'toolbox::net::StreamConnector::Endpoint()'],['../structtoolbox_1_1net_1_1StreamSockServ.html#a673e270733ce09cc6f1601f0faf521f3',1,'toolbox::net::StreamSockServ::Endpoint()'],['../structtoolbox_1_1net_1_1StreamSockClnt.html#a90dc5a202d651b3e1ba38b8971f27d4d',1,'toolbox::net::StreamSockClnt::Endpoint()']]],
+  ['epollevent',['EpollEvent',['../namespacetoolbox_1_1io.html#aa906343658b2f619691c0fc614f4f12e',1,'toolbox::io']]],
   ['errmsg',['ErrMsg',['../namespacetoolbox_1_1util.html#a5ab445cb4dd72d4d7896e26663fb0a7b',1,'toolbox::util']]],
-  ['event',['Event',['../classtoolbox_1_1io_1_1Muxer.html#a3a30b78318c058a0fa2f007775009ff1',1,'toolbox::io::Muxer::Event()'],['../classtoolbox_1_1io_1_1Reactor.html#a6da08658ae05da90d0c7ac09693f5b0a',1,'toolbox::io::Reactor::Event()']]]
+  ['event',['Event',['../classtoolbox_1_1io_1_1Epoll.html#aff631de541a2e78c4f86e265a85a9e63',1,'toolbox::io::Epoll::Event()'],['../classtoolbox_1_1io_1_1Reactor.html#a466ec457a5eaa88d847621cd642d265f',1,'toolbox::io::Reactor::Event()']]]
 ];

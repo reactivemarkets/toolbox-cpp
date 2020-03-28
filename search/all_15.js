@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['wait',['wait',['../classtoolbox_1_1io_1_1Muxer.html#ad0230c164a5568e95c8b57957f936f9a',1,'toolbox::io::Muxer::wait(Event buf[], std::size_t size, std::error_code &amp;ec) noexcept'],['../classtoolbox_1_1io_1_1Muxer.html#aab8d937a113a739a576a516f5c3ca251',1,'toolbox::io::Muxer::wait(Event buf[], std::size_t size, MonoTime timeout, std::error_code &amp;ec) noexcept']]],
+  ['wait',['wait',['../classtoolbox_1_1io_1_1Epoll.html#aa008f69bdc01ba83915c5176390ab951',1,'toolbox::io::Epoll::wait(Event buf[], std::size_t size, std::error_code &amp;ec) noexcept'],['../classtoolbox_1_1io_1_1Epoll.html#a68904fb4c064befe6f8507091f507dea',1,'toolbox::io::Epoll::wait(Event buf[], std::size_t size, MonoTime timeout, std::error_code &amp;ec) noexcept']]],
+  ['waker',['Waker',['../classtoolbox_1_1io_1_1Waker.html',1,'toolbox::io::Waker'],['../classtoolbox_1_1io_1_1Waker.html#ad07eff2f7bdbff50966c08a273364249',1,'toolbox::io::Waker::Waker() noexcept=default'],['../classtoolbox_1_1io_1_1Waker.html#ae8cd3dcd5b8db49dfc1ec46efe48c8ae',1,'toolbox::io::Waker::Waker(const Waker &amp;) noexcept=default'],['../classtoolbox_1_1io_1_1Waker.html#a984908521d66475187d7d87e94a0bd6e',1,'toolbox::io::Waker::Waker(Waker &amp;&amp;) noexcept=default']]],
+  ['waker_2ecpp',['Waker.cpp',['../Waker_8cpp.html',1,'']]],
+  ['waker_2ehpp',['Waker.hpp',['../Waker_8hpp.html',1,'']]],
+  ['wakeup',['wakeup',['../classtoolbox_1_1io_1_1Waker.html#a964db2dc971779107dedf0d172e830a6',1,'toolbox::io::Waker']]],
   ['wall_5ftime',['wall_time',['../classtoolbox_1_1sys_1_1CyclTime.html#a72227dcbfe3723c038e3ecd6a05071eb',1,'toolbox::sys::CyclTime']]],
   ['wallclock',['WallClock',['../structtoolbox_1_1sys_1_1WallClock.html',1,'toolbox::sys']]],
   ['walltime',['WallTime',['../namespacetoolbox_1_1sys.html#a657ecd4f98265bd34f835f59975db04e',1,'toolbox::sys']]],

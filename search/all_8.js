@@ -47,7 +47,7 @@ var searchData=
   ['is_5ferror_5fcode_5fenum_3c_20toolbox_3a_3ahttp_3a_3ahttpstatus_20_3e',['is_error_code_enum&lt; toolbox::http::HttpStatus &gt;',['../structstd_1_1is__error__code__enum_3_01toolbox_1_1http_1_1HttpStatus_01_4.html',1,'std']]],
   ['is_5fint_5fwrapper',['is_int_wrapper',['../namespacetoolbox_1_1util.html#aa9ab7219b7714d4db926855c2b03b330',1,'toolbox::util']]],
   ['is_5fip_5ffamily',['is_ip_family',['../structtoolbox_1_1net_1_1Sock.html#af22d859c7b03e2b9a93dfd18c4679243',1,'toolbox::net::Sock']]],
-  ['is_5flocked',['is_locked',['../classtoolbox_1_1io_1_1BasicDisposable.html#a7b678cadc1f1bf1731df88d00eec90b0',1,'toolbox::io::BasicDisposable']]],
+  ['is_5flocked',['is_locked',['../classtoolbox_1_1io_1_1BasicDisposer.html#a81a07aebe385744569d05a89f77b7621',1,'toolbox::io::BasicDisposer']]],
   ['is_5flog_5flevel',['is_log_level',['../namespacetoolbox_1_1sys.html#a303a8bbce54d723f35e8b944b57daff4',1,'toolbox::sys']]],
   ['is_5fpow2',['is_pow2',['../namespacetoolbox_1_1util.html#ae394a980aa18b25b418f9fe0010575f5',1,'toolbox::util']]],
   ['is_5fready',['is_ready',['../namespacetoolbox_1_1net.html#af39e6dfe6ec0eb1bef013811ce0e06ce',1,'toolbox::net']]],

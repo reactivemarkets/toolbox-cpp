@@ -130,8 +130,8 @@ Protected Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a7fc3493e7a90e13bf69b5f28f2c01b85"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1http_1_1BasicHttpConn.html#a7fc3493e7a90e13bf69b5f28f2c01b85">BasicDisposable&lt; BasicHttpConn&lt; RequestT, AppT &gt; &gt;</a></td></tr>
-<tr class="separator:a7fc3493e7a90e13bf69b5f28f2c01b85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab53e2e0acce2c0d6c0319ec49cae9aca"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1http_1_1BasicHttpConn.html#ab53e2e0acce2c0d6c0319ec49cae9aca">BasicDisposer&lt; BasicHttpConn&lt; RequestT, AppT &gt; &gt;</a></td></tr>
+<tr class="separator:ab53e2e0acce2c0d6c0319ec49cae9aca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f97b26085a035e10ae215b65024c160"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1http_1_1BasicHttpConn.html#a6f97b26085a035e10ae215b65024c160">BasicHttpParser&lt; BasicHttpConn&lt; RequestT, AppT &gt; &gt;</a></td></tr>
 <tr class="separator:a6f97b26085a035e10ae215b65024c160"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -411,8 +411,8 @@ template&lt;typename RequestT , typename AppT &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
-<a id="a7fc3493e7a90e13bf69b5f28f2c01b85"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fc3493e7a90e13bf69b5f28f2c01b85">&#9670;&nbsp;</a></span>BasicDisposable< BasicHttpConn< RequestT, AppT > ></h2>
+<a id="ab53e2e0acce2c0d6c0319ec49cae9aca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab53e2e0acce2c0d6c0319ec49cae9aca">&#9670;&nbsp;</a></span>BasicDisposer< BasicHttpConn< RequestT, AppT > ></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -423,7 +423,7 @@ template&lt;typename RequestT , typename AppT &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">friend class BasicDisposable&lt; <a class="el" href="classtoolbox_1_1http_1_1BasicHttpConn.html">BasicHttpConn</a>&lt; RequestT, AppT &gt; &gt;</td>
+          <td class="memname">friend class BasicDisposer&lt; <a class="el" href="classtoolbox_1_1http_1_1BasicHttpConn.html">BasicHttpConn</a>&lt; RequestT, AppT &gt; &gt;</td>
         </tr>
       </table>
   </td>
@@ -537,7 +537,7 @@ template&lt;typename RequestT , typename AppT &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{app}</div><div class="line">    {</div><div class="line">        sub_ = r.subscribe(*<a class="code" href="classtoolbox_1_1http_1_1BasicHttpConn.html#a88b3f6e9e607dcb8abb8c7ef5b256b46">sock_</a>, <a class="code" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa39bad8c1517b28a926ce6c5e3d07a60c">EventIn</a>, bind&lt;&amp;BasicHttpConn::on_io_event&gt;(<span class="keyword">this</span>));</div><div class="line">        schedule_timeout(now);</div><div class="line">        app.on_http_connect(now, <a class="code" href="classtoolbox_1_1http_1_1BasicHttpConn.html#af5ae638f71b82cddefaeaf5267e69d03">ep_</a>);</div><div class="line">    }</div><div class="line"></div><div class="line">    </div><div class="line">    <a class="code" href="classtoolbox_1_1http_1_1BasicHttpConn.html#a2339a78f1bdae91d32d3531d6c4ba6d9">BasicHttpConn</a>(<span class="keyword">const</span> <a class="code" href="classtoolbox_1_1http_1_1BasicHttpConn.html#a2339a78f1bdae91d32d3531d6c4ba6d9">BasicHttpConn</a>&amp;) = <span class="keyword">delete</span></div></div><!-- fragment -->
+<b>Initial value:</b><div class="fragment"><div class="line">{app}</div><div class="line">    {</div><div class="line">        sub_ = r.subscribe(*<a class="code" href="classtoolbox_1_1http_1_1BasicHttpConn.html#a88b3f6e9e607dcb8abb8c7ef5b256b46">sock_</a>, <a class="code" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa410300e2d6016d4a3e3af942b5619bf4">EpollIn</a>, bind&lt;&amp;BasicHttpConn::on_io_event&gt;(<span class="keyword">this</span>));</div><div class="line">        schedule_timeout(now);</div><div class="line">        app.on_http_connect(now, <a class="code" href="classtoolbox_1_1http_1_1BasicHttpConn.html#af5ae638f71b82cddefaeaf5267e69d03">ep_</a>);</div><div class="line">    }</div><div class="line"></div><div class="line">    </div><div class="line">    <a class="code" href="classtoolbox_1_1http_1_1BasicHttpConn.html#a2339a78f1bdae91d32d3531d6c4ba6d9">BasicHttpConn</a>(<span class="keyword">const</span> <a class="code" href="classtoolbox_1_1http_1_1BasicHttpConn.html#a2339a78f1bdae91d32d3531d6c4ba6d9">BasicHttpConn</a>&amp;) = <span class="keyword">delete</span></div></div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="Conn_8hpp_source.html#l00065">65</a> of file <a class="el" href="Conn_8hpp_source.html">Conn.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Conn_8hpp_source.html#l00085">toolbox::http::BasicHttpConn&lt; RequestT, AppT &gt;::dispose_now()</a>.</p>

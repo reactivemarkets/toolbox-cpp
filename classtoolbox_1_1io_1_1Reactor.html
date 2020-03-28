@@ -83,7 +83,7 @@ Inheritance diagram for toolbox::io::Reactor:</div>
  <div class="center">
   <img src="classtoolbox_1_1io_1_1Reactor.png" usemap="#toolbox::io::Reactor_map" alt=""/>
   <map id="toolbox::io::Reactor_map" name="toolbox::io::Reactor_map">
-<area href="classtoolbox_1_1io_1_1Notifiable.html" alt="toolbox::io::Notifiable" shape="rect" coords="0,0,127,24"/>
+<area href="classtoolbox_1_1io_1_1Waker.html" alt="toolbox::io::Waker" shape="rect" coords="0,0,118,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -94,8 +94,8 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a6da08658ae05da90d0c7ac09693f5b0a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Reactor.html#a6da08658ae05da90d0c7ac09693f5b0a">Event</a> = typename <a class="el" href="classtoolbox_1_1io_1_1Muxer.html#a3a30b78318c058a0fa2f007775009ff1">Muxer::Event</a></td></tr>
-<tr class="separator:a6da08658ae05da90d0c7ac09693f5b0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a466ec457a5eaa88d847621cd642d265f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Reactor.html#a466ec457a5eaa88d847621cd642d265f">Event</a> = <a class="el" href="namespacetoolbox_1_1io.html#aa906343658b2f619691c0fc614f4f12e">EpollEvent</a></td></tr>
+<tr class="separator:a466ec457a5eaa88d847621cd642d265f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -123,40 +123,40 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a434bd66186cc08dc3ec24752444624a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5a07e56db7390a3fee845aaedec4abb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Reactor.html#ab5a07e56db7390a3fee845aaedec4abb">poll</a> (CyclTime now, Duration timeout=<a class="el" href="namespacetoolbox_1_1io.html#a21ca3c18b252161e1a4c6efcb85d0e4b">NoTimeout</a>)</td></tr>
 <tr class="separator:ab5a07e56db7390a3fee845aaedec4abb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_classtoolbox_1_1io_1_1Notifiable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classtoolbox_1_1io_1_1Notifiable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classtoolbox_1_1io_1_1Notifiable.html">toolbox::io::Notifiable</a></td></tr>
-<tr class="memitem:ac4cf57ba321c70aa7ff49baf544074ce inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Notifiable.html#ac4cf57ba321c70aa7ff49baf544074ce">Notifiable</a> () noexcept=default</td></tr>
-<tr class="separator:ac4cf57ba321c70aa7ff49baf544074ce inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38a93d3e3d878f79cf934ccba5f48e9a inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Notifiable.html#a38a93d3e3d878f79cf934ccba5f48e9a">~Notifiable</a> ()</td></tr>
-<tr class="separator:a38a93d3e3d878f79cf934ccba5f48e9a inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b63107eed1a18446cd1049ed1366dde inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Notifiable.html#a3b63107eed1a18446cd1049ed1366dde">Notifiable</a> (const <a class="el" href="classtoolbox_1_1io_1_1Notifiable.html">Notifiable</a> &amp;) noexcept=default</td></tr>
-<tr class="separator:a3b63107eed1a18446cd1049ed1366dde inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a319c6c56a2ee732e1d42ac30e41ad219 inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtoolbox_1_1io_1_1Notifiable.html">Notifiable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Notifiable.html#a319c6c56a2ee732e1d42ac30e41ad219">operator=</a> (const <a class="el" href="classtoolbox_1_1io_1_1Notifiable.html">Notifiable</a> &amp;) noexcept=default</td></tr>
-<tr class="separator:a319c6c56a2ee732e1d42ac30e41ad219 inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf5c339339f3ef93810a941106deb928 inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Notifiable.html#acf5c339339f3ef93810a941106deb928">Notifiable</a> (<a class="el" href="classtoolbox_1_1io_1_1Notifiable.html">Notifiable</a> &amp;&amp;) noexcept=default</td></tr>
-<tr class="separator:acf5c339339f3ef93810a941106deb928 inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a560889c44e3dd85bfdcaf8467615f1c7 inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtoolbox_1_1io_1_1Notifiable.html">Notifiable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Notifiable.html#a560889c44e3dd85bfdcaf8467615f1c7">operator=</a> (<a class="el" href="classtoolbox_1_1io_1_1Notifiable.html">Notifiable</a> &amp;&amp;) noexcept=default</td></tr>
-<tr class="separator:a560889c44e3dd85bfdcaf8467615f1c7 inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5c788bb93dc1fc8dcf46a80cda853ee inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Notifiable.html#aa5c788bb93dc1fc8dcf46a80cda853ee">notify</a> () noexcept</td></tr>
-<tr class="separator:aa5c788bb93dc1fc8dcf46a80cda853ee inherit pub_methods_classtoolbox_1_1io_1_1Notifiable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classtoolbox_1_1io_1_1Waker"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classtoolbox_1_1io_1_1Waker')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classtoolbox_1_1io_1_1Waker.html">toolbox::io::Waker</a></td></tr>
+<tr class="memitem:ad07eff2f7bdbff50966c08a273364249 inherit pub_methods_classtoolbox_1_1io_1_1Waker"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Waker.html#ad07eff2f7bdbff50966c08a273364249">Waker</a> () noexcept=default</td></tr>
+<tr class="separator:ad07eff2f7bdbff50966c08a273364249 inherit pub_methods_classtoolbox_1_1io_1_1Waker"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a708eaf679a37349f20e387b81036a269 inherit pub_methods_classtoolbox_1_1io_1_1Waker"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Waker.html#a708eaf679a37349f20e387b81036a269">~Waker</a> ()</td></tr>
+<tr class="separator:a708eaf679a37349f20e387b81036a269 inherit pub_methods_classtoolbox_1_1io_1_1Waker"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8cd3dcd5b8db49dfc1ec46efe48c8ae inherit pub_methods_classtoolbox_1_1io_1_1Waker"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Waker.html#ae8cd3dcd5b8db49dfc1ec46efe48c8ae">Waker</a> (const <a class="el" href="classtoolbox_1_1io_1_1Waker.html">Waker</a> &amp;) noexcept=default</td></tr>
+<tr class="separator:ae8cd3dcd5b8db49dfc1ec46efe48c8ae inherit pub_methods_classtoolbox_1_1io_1_1Waker"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa234085a2a000cdbc316b543903d53b inherit pub_methods_classtoolbox_1_1io_1_1Waker"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtoolbox_1_1io_1_1Waker.html">Waker</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Waker.html#aaa234085a2a000cdbc316b543903d53b">operator=</a> (const <a class="el" href="classtoolbox_1_1io_1_1Waker.html">Waker</a> &amp;) noexcept=default</td></tr>
+<tr class="separator:aaa234085a2a000cdbc316b543903d53b inherit pub_methods_classtoolbox_1_1io_1_1Waker"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a984908521d66475187d7d87e94a0bd6e inherit pub_methods_classtoolbox_1_1io_1_1Waker"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Waker.html#a984908521d66475187d7d87e94a0bd6e">Waker</a> (<a class="el" href="classtoolbox_1_1io_1_1Waker.html">Waker</a> &amp;&amp;) noexcept=default</td></tr>
+<tr class="separator:a984908521d66475187d7d87e94a0bd6e inherit pub_methods_classtoolbox_1_1io_1_1Waker"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d74e42cbd333245f425d2418b18864e inherit pub_methods_classtoolbox_1_1io_1_1Waker"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtoolbox_1_1io_1_1Waker.html">Waker</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Waker.html#a9d74e42cbd333245f425d2418b18864e">operator=</a> (<a class="el" href="classtoolbox_1_1io_1_1Waker.html">Waker</a> &amp;&amp;) noexcept=default</td></tr>
+<tr class="separator:a9d74e42cbd333245f425d2418b18864e inherit pub_methods_classtoolbox_1_1io_1_1Waker"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a964db2dc971779107dedf0d172e830a6 inherit pub_methods_classtoolbox_1_1io_1_1Waker"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Waker.html#a964db2dc971779107dedf0d172e830a6">wakeup</a> () noexcept</td></tr>
+<tr class="separator:a964db2dc971779107dedf0d172e830a6 inherit pub_methods_classtoolbox_1_1io_1_1Waker"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a80ed114adb2eb836a31d46d50a020894"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Reactor.html#a80ed114adb2eb836a31d46d50a020894">do_notify</a> () noexcept final</td></tr>
-<tr class="memdesc:a80ed114adb2eb836a31d46d50a020894"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thread-safe.  <a href="#a80ed114adb2eb836a31d46d50a020894">More...</a><br /></td></tr>
-<tr class="separator:a80ed114adb2eb836a31d46d50a020894"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adde0102c9231dddf54587b768d8f7911"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Reactor.html#adde0102c9231dddf54587b768d8f7911">do_wakeup</a> () noexcept final</td></tr>
+<tr class="memdesc:adde0102c9231dddf54587b768d8f7911"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thread-safe.  <a href="#adde0102c9231dddf54587b768d8f7911">More...</a><br /></td></tr>
+<tr class="separator:adde0102c9231dddf54587b768d8f7911"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="Reactor_8hpp_source.html#l00034">34</a> of file <a class="el" href="Reactor_8hpp_source.html">Reactor.hpp</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a6da08658ae05da90d0c7ac09693f5b0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6da08658ae05da90d0c7ac09693f5b0a">&#9670;&nbsp;</a></span>Event</h2>
+<a id="a466ec457a5eaa88d847621cd642d265f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a466ec457a5eaa88d847621cd642d265f">&#9670;&nbsp;</a></span>Event</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classtoolbox_1_1io_1_1Reactor.html#a6da08658ae05da90d0c7ac09693f5b0a">toolbox::io::Reactor::Event</a> =  typename <a class="el" href="classtoolbox_1_1io_1_1Muxer.html#a3a30b78318c058a0fa2f007775009ff1">Muxer::Event</a></td>
+          <td class="memname">using <a class="el" href="classtoolbox_1_1io_1_1Reactor.html#a466ec457a5eaa88d847621cd642d265f">toolbox::io::Reactor::Event</a> =  <a class="el" href="namespacetoolbox_1_1io.html#aa906343658b2f619691c0fc614f4f12e">EpollEvent</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -510,8 +510,8 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a80ed114adb2eb836a31d46d50a020894"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80ed114adb2eb836a31d46d50a020894">&#9670;&nbsp;</a></span>do_notify()</h2>
+<a id="adde0102c9231dddf54587b768d8f7911"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adde0102c9231dddf54587b768d8f7911">&#9670;&nbsp;</a></span>do_wakeup()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -520,7 +520,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void toolbox::io::Reactor::do_notify </td>
+          <td class="memname">void toolbox::io::Reactor::do_wakeup </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -535,7 +535,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Thread-safe. </p>
 
-<p>Implements <a class="el" href="classtoolbox_1_1io_1_1Notifiable.html#adef80201650d43dcbad66578043d4f72">toolbox::io::Notifiable</a>.</p>
+<p>Implements <a class="el" href="classtoolbox_1_1io_1_1Waker.html#a79a3c154d358f01a200994287f577fc6">toolbox::io::Waker</a>.</p>
 
 <p class="definition">Definition at line <a class="el" href="Reactor_8cpp_source.html#l00100">100</a> of file <a class="el" href="Reactor_8cpp_source.html">Reactor.cpp</a>.</p>
 

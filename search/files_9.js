@@ -16,7 +16,5 @@ var searchData=
   ['mpmcqueue_2ecpp',['MpmcQueue.cpp',['../MpmcQueue_8cpp.html',1,'']]],
   ['mpmcqueue_2ehpp',['MpmcQueue.hpp',['../MpmcQueue_8hpp.html',1,'']]],
   ['msg_2ecpp',['Msg.cpp',['../Msg_8cpp.html',1,'']]],
-  ['msg_2ehpp',['Msg.hpp',['../Msg_8hpp.html',1,'']]],
-  ['muxer_2ecpp',['Muxer.cpp',['../Muxer_8cpp.html',1,'']]],
-  ['muxer_2ehpp',['Muxer.hpp',['../Muxer_8hpp.html',1,'']]]
+  ['msg_2ehpp',['Msg.hpp',['../Msg_8hpp.html',1,'']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['basicdisposable',['BasicDisposable',['../classtoolbox_1_1io_1_1BasicDisposable.html',1,'toolbox::io']]],
+  ['basicdisposer',['BasicDisposer',['../classtoolbox_1_1io_1_1BasicDisposer.html',1,'toolbox::io']]],
   ['basichandle',['BasicHandle',['../classtoolbox_1_1io_1_1BasicHandle.html',1,'toolbox::io']]],
   ['basichandle_3c_20filepolicy_20_3e',['BasicHandle&lt; FilePolicy &gt;',['../classtoolbox_1_1io_1_1BasicHandle.html',1,'toolbox::io']]],
   ['basichttpconn',['BasicHttpConn',['../classtoolbox_1_1http_1_1BasicHttpConn.html',1,'toolbox::http']]],
