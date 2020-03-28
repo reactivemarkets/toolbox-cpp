@@ -53,7 +53,7 @@ jobs:
             -DCMAKE_CXX_COMPILER=${{ matrix.compiler.cxx }}
 
       - name: Build documentation
-        run: cd build && make -j2 toolbox-doc
+        run: cd build && make -j2 tb-doc
 
       - name: Upload documentation
         uses: actions/upload-artifact@v1

@@ -15,25 +15,25 @@
 # limitations under the License.
 
 set(targets
-  toolbox-map-bench
-  toolbox-ryu-bench
-  toolbox-time-bench
-  toolbox-timer-bench
-  toolbox-util-bench)
+  tb-map-bench
+  tb-ryu-bench
+  tb-time-bench
+  tb-timer-bench
+  tb-util-bench)
 
-add_custom_target(toolbox-bench DEPENDS ${targets})
+add_custom_target(tb-bench DEPENDS ${targets})
 
-add_executable(toolbox-map-bench Map.bm.cpp)
-target_link_libraries(toolbox-map-bench ${toolbox_bm_LIBRARY})
+add_executable(tb-map-bench Map.bm.cpp)
+target_link_libraries(tb-map-bench ${tb_bm_LIBRARY})
 
-add_executable(toolbox-ryu-bench Ryu.bm.cpp)
-target_link_libraries(toolbox-ryu-bench ${toolbox_bm_LIBRARY})
+add_executable(tb-ryu-bench Ryu.bm.cpp)
+target_link_libraries(tb-ryu-bench ${tb_bm_LIBRARY})
 
-add_executable(toolbox-time-bench Time.bm.cpp)
-target_link_libraries(toolbox-time-bench ${toolbox_bm_LIBRARY})
+add_executable(tb-time-bench Time.bm.cpp)
+target_link_libraries(tb-time-bench ${tb_bm_LIBRARY})
 
-add_executable(toolbox-timer-bench Timer.bm.cpp)
-target_link_libraries(toolbox-timer-bench ${toolbox_bm_LIBRARY})
+add_executable(tb-timer-bench Timer.bm.cpp)
+target_link_libraries(tb-timer-bench ${tb_bm_LIBRARY})
 
-add_executable(toolbox-util-bench Util.bm.cpp)
-target_link_libraries(toolbox-util-bench ${toolbox_bm_LIBRARY})
+add_executable(tb-util-bench Util.bm.cpp)
+target_link_libraries(tb-util-bench ${tb_bm_LIBRARY})

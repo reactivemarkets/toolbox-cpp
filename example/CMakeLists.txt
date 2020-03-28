@@ -15,17 +15,17 @@
 # limitations under the License.
 
 set(targets
-  toolbox-echo-clnt
-  toolbox-echo-serv
-  toolbox-http-serv)
+  tb-echo-clnt
+  tb-echo-serv
+  tb-http-serv)
 
-add_custom_target(toolbox-example DEPENDS ${targets})
+add_custom_target(tb-example DEPENDS ${targets})
 
-add_executable(toolbox-echo-clnt EchoClnt.cpp)
-target_link_libraries(toolbox-echo-clnt ${toolbox_LIBRARY})
+add_executable(tb-echo-clnt EchoClnt.cpp)
+target_link_libraries(tb-echo-clnt ${tb_core_LIBRARY})
 
-add_executable(toolbox-echo-serv EchoServ.cpp)
-target_link_libraries(toolbox-echo-serv ${toolbox_LIBRARY})
+add_executable(tb-echo-serv EchoServ.cpp)
+target_link_libraries(tb-echo-serv ${tb_core_LIBRARY})
 
-add_executable(toolbox-http-serv HttpServ.cpp)
-target_link_libraries(toolbox-http-serv ${toolbox_LIBRARY})
+add_executable(tb-http-serv HttpServ.cpp)
+target_link_libraries(tb-http-serv ${tb_core_LIBRARY})

@@ -154,11 +154,11 @@ endif()
 find_package(Doxygen) # Optional.
 
 if(TOOLBOX_BUILD_SHARED)
-  set(toolbox_LIBRARY toolbox-shared)
-  set(toolbox_bm_LIBRARY toolbox-bm-shared)
+  set(tb_core_LIBRARY tb-core-shared)
+  set(tb_bm_LIBRARY tb-bm-shared)
 else()
-  set(toolbox_LIBRARY toolbox-static)
-  set(toolbox_bm_LIBRARY toolbox-bm-static)
+  set(tb_core_LIBRARY tb-core-static)
+  set(tb_bm_LIBRARY tb-bm-static)
 endif()
 
 enable_testing()

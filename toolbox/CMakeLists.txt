@@ -15,15 +15,15 @@
 # limitations under the License.
 
 if(TOOLBOX_BUILD_SHARED)
-  add_custom_target(toolbox DEPENDS
-    toolbox-static
-    toolbox-shared
-    toolbox-test
+  add_custom_target(tb-core DEPENDS
+    tb-core-static
+    tb-core-shared
+    tb-core-test
   )
 else()
-  add_custom_target(toolbox DEPENDS
-    toolbox-static
-    toolbox-test
+  add_custom_target(tb-core DEPENDS
+    tb-core-static
+    tb-core-test
   )
 endif()
 
@@ -129,16 +129,16 @@ set(lib_SOURCES
   util/Variant.cpp
   util/Version.cpp)
 
-add_library(toolbox-static STATIC ${lib_SOURCES})
-set_target_properties(toolbox-static PROPERTIES OUTPUT_NAME toolbox)
-target_link_libraries(toolbox-static pthread)
-install(TARGETS toolbox-static DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT static)
+add_library(tb-core-static STATIC ${lib_SOURCES})
+set_target_properties(tb-core-static PROPERTIES OUTPUT_NAME tb-core)
+target_link_libraries(tb-core-static pthread)
+install(TARGETS tb-core-static DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT static)
 
 if(TOOLBOX_BUILD_SHARED)
-  add_library(toolbox-shared SHARED ${lib_SOURCES})
-  set_target_properties(toolbox-shared PROPERTIES OUTPUT_NAME toolbox)
-  target_link_libraries(toolbox-shared pthread)
-  install(TARGETS toolbox-shared DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT shared)
+  add_library(tb-core-shared SHARED ${lib_SOURCES})
+  set_target_properties(tb-core-shared PROPERTIES OUTPUT_NAME tb-core)
+  target_link_libraries(tb-core-shared pthread)
+  install(TARGETS tb-core-shared DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT shared)
 endif()
 
 set(lib_bm_SOURCES
@@ -149,16 +149,16 @@ set(lib_bm_SOURCES
   bm/Suite.cpp
   bm/Utility.cpp)
 
-add_library(toolbox-bm-static STATIC ${lib_bm_SOURCES})
-set_target_properties(toolbox-bm-static PROPERTIES OUTPUT_NAME toolbox-bm)
-target_link_libraries(toolbox-bm-static ${toolbox_LIBRARY})
-install(TARGETS toolbox-bm-static DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT static)
+add_library(tb-bm-static STATIC ${lib_bm_SOURCES})
+set_target_properties(tb-bm-static PROPERTIES OUTPUT_NAME tb-bm)
+target_link_libraries(tb-bm-static ${tb_core_LIBRARY})
+install(TARGETS tb-bm-static DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT static)
 
 if(TOOLBOX_BUILD_SHARED)
-  add_library(toolbox-bm-shared SHARED ${lib_bm_SOURCES})
-  set_target_properties(toolbox-bm-shared PROPERTIES OUTPUT_NAME toolbox-bm)
-  target_link_libraries(toolbox-bm-shared ${toolbox_LIBRARY})
-  install(TARGETS toolbox-bm-shared DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT shared)
+  add_library(tb-bm-shared SHARED ${lib_bm_SOURCES})
+  set_target_properties(tb-bm-shared PROPERTIES OUTPUT_NAME tb-bm)
+  target_link_libraries(tb-bm-shared ${tb_core_LIBRARY})
+  install(TARGETS tb-bm-shared DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT shared)
 endif()
 
 install(FILES bm.hpp DESTINATION include/toolbox COMPONENT header)
@@ -259,14 +259,14 @@ set(test_SOURCES
   util/VarSub.ut.cpp
   util/Version.ut.cpp)
 
-add_executable(toolbox-test
+add_executable(tb-core-test
   ${test_SOURCES}
   Main.ut.cpp)
-target_link_libraries(toolbox-test
-  ${toolbox_LIBRARY} "${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}" stdc++fs)
+target_link_libraries(tb-core-test
+  ${tb_core_LIBRARY} "${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}" stdc++fs)
 
 foreach(file ${test_SOURCES})
   get_filename_component(dir  "${file}" DIRECTORY)
   get_filename_component(name "${file}" NAME_WE)
-  add_test(NAME ${dir}::${name}Suite COMMAND toolbox-test -l error -t ${name}Suite)
+  add_test(NAME ${dir}::${name}Suite COMMAND tb-core-test -l error -t ${name}Suite)
 endforeach()

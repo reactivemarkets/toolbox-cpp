@@ -32,7 +32,7 @@ if(DOT_EXECUTABLE)
 
   foreach(name ${names})
 
-    set(outfile "${CMAKE_BINARY_DIR}/image/toolbox-${name}.png")
+    set(outfile "${CMAKE_BINARY_DIR}/image/tb-${name}.png")
 
     add_custom_command(
       OUTPUT "${outfile}"
@@ -47,4 +47,4 @@ if(DOT_EXECUTABLE)
 
 endif()
 
-add_custom_target(toolbox-image ALL DEPENDS ${outfiles})
+add_custom_target(tb-image ALL DEPENDS ${outfiles})
