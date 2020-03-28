@@ -36,7 +36,7 @@ class StreamAcceptor {
         serv_.set_reuse_addr(true);
         serv_.bind(ep);
         serv_.listen(SOMAXCONN);
-        sub_ = r.subscribe(*serv_, EventIn, bind<&StreamAcceptor::on_io_event>(this));
+        sub_ = r.subscribe(*serv_, EpollIn, bind<&StreamAcceptor::on_io_event>(this));
     }
 
     // Copy.

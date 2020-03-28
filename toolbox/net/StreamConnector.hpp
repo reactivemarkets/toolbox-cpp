@@ -60,7 +60,7 @@ class StreamConnector {
                 throw std::system_error{ec, "connect"};
             }
             sub_
-                = r.subscribe(*sock, EventIn | EventOut, bind<&StreamConnector::on_io_event>(this));
+                = r.subscribe(*sock, EpollIn | EpollOut, bind<&StreamConnector::on_io_event>(this));
             ep_ = ep;
             sock_ = std::move(sock);
             return false;

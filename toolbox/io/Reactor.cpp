@@ -30,12 +30,12 @@ Reactor::Reactor(std::size_t size_hint)
 {
     const auto notify = notify_.fd();
     data_.resize(max<size_t>(notify + 1, size_hint));
-    mux_.subscribe(notify, 0, EventIn);
+    epoll_.add(notify, 0, EpollIn);
 }
 
 Reactor::~Reactor()
 {
-    mux_.unsubscribe(notify_.fd());
+    epoll_.del(notify_.fd());
 }
 
 Reactor::Handle Reactor::subscribe(int fd, unsigned events, IoSlot slot)
@@ -46,7 +46,7 @@ Reactor::Handle Reactor::subscribe(int fd, unsigned events, IoSlot slot)
         data_.resize(fd + 1);
     }
     auto& ref = data_[fd];
-    mux_.subscribe(fd, ++ref.sid, events);
+    epoll_.add(fd, ++ref.sid, events);
     ref.events = events;
     ref.slot = slot;
     return {*this, fd, ref.sid};
@@ -73,10 +73,10 @@ int Reactor::poll(CyclTime now, Duration timeout)
     error_code ec;
     if (wait_until < MonoClock::max()) {
         // The wait function will not block if time is zero.
-        n = mux_.wait(buf, MaxEvents, wait_until, ec);
+        n = epoll_.wait(buf, MaxEvents, wait_until, ec);
     } else {
         // Block indefinitely.
-        n = mux_.wait(buf, MaxEvents, ec);
+        n = epoll_.wait(buf, MaxEvents, ec);
     }
     if (ec) {
         if (ec.value() != EINTR) {
@@ -84,7 +84,7 @@ int Reactor::poll(CyclTime now, Duration timeout)
         }
         return 0;
     }
-    // If the muxer call was a blocking call, then acquire the current time.
+    // If the epoller call was a blocking call, then acquire the current time.
     if (!is_zero(wait_until)) {
         now = CyclTime::now();
     }
@@ -132,7 +132,7 @@ int Reactor::dispatch(CyclTime now, Event* buf, int size)
     for (int i{0}; i < size; ++i) {
 
         auto& ev = buf[i];
-        const auto fd = mux_.fd(ev);
+        const auto fd = epoll_.fd(ev);
         if (fd == notify_.fd()) {
             notify_.read();
             continue;
@@ -143,16 +143,16 @@ int Reactor::dispatch(CyclTime now, Event* buf, int size)
             continue;
         }
 
-        const auto sid = mux_.sid(ev);
+        const auto sid = epoll_.sid(ev);
         // Skip this socket if it was modified after the call to wait().
         if (ref.sid > sid) {
             continue;
         }
         // Apply the interest events to filter-out any events that the user may have removed from
         // the events since the call to wait() was made. This would typically happen via a reentrant
-        // call into the reactor from an event-handler. N.B. EventErr and EventHup are always
+        // call into the reactor from an event-handler. N.B. EpollErr and EpollHup are always
         // reported if they occur, regardless of whether they are specified in events.
-        const auto events = ev.events & (ref.events | EventErr | EventHup);
+        const auto events = ev.events & (ref.events | EpollErr | EpollHup);
         if (!events) {
             continue;
         }
@@ -172,7 +172,7 @@ void Reactor::set_events(int fd, int sid, unsigned events, IoSlot slot, error_co
     auto& ref = data_[fd];
     if (ref.sid == sid) {
         if (ref.events != events) {
-            mux_.set_events(fd, sid, events, ec);
+            epoll_.mod(fd, sid, events, ec);
             if (ec) {
                 return;
             }
@@ -187,7 +187,7 @@ void Reactor::set_events(int fd, int sid, unsigned events, IoSlot slot)
     auto& ref = data_[fd];
     if (ref.sid == sid) {
         if (ref.events != events) {
-            mux_.set_events(fd, sid, events);
+            epoll_.mod(fd, sid, events);
             ref.events = events;
         }
         ref.slot = slot;
@@ -198,7 +198,7 @@ void Reactor::set_events(int fd, int sid, unsigned events, error_code& ec) noexc
 {
     auto& ref = data_[fd];
     if (ref.sid == sid && ref.events != events) {
-        mux_.set_events(fd, sid, events, ec);
+        epoll_.mod(fd, sid, events, ec);
         if (ec) {
             return;
         }
@@ -210,7 +210,7 @@ void Reactor::set_events(int fd, int sid, unsigned events)
 {
     auto& ref = data_[fd];
     if (ref.sid == sid && ref.events != events) {
-        mux_.set_events(fd, sid, events);
+        epoll_.mod(fd, sid, events);
         ref.events = events;
     }
 }
@@ -219,7 +219,7 @@ void Reactor::unsubscribe(int fd, int sid) noexcept
 {
     auto& ref = data_[fd];
     if (ref.sid == sid) {
-        mux_.unsubscribe(fd);
+        epoll_.del(fd);
         ref.events = 0;
         ref.slot.reset();
     }

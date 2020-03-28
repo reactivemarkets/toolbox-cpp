@@ -64,7 +64,7 @@ class BasicHttpConn
     , ep_{ep}
     , app_{app}
     {
-        sub_ = r.subscribe(*sock_, EventIn, bind<&BasicHttpConn::on_io_event>(this));
+        sub_ = r.subscribe(*sock_, EpollIn, bind<&BasicHttpConn::on_io_event>(this));
         schedule_timeout(now);
         app.on_http_connect(now, ep_);
     }
@@ -186,7 +186,7 @@ class BasicHttpConn
     {
         auto lock = this->lock_this(now);
         try {
-            if (events & (EventIn | EventHup)) {
+            if (events & (EpollIn | EpollHup)) {
                 if (!drain_input(now, fd)) {
                     this->dispose(now);
                     return;
@@ -194,7 +194,7 @@ class BasicHttpConn
             }
             // Do not attempt to flush the output buffer if it is empty or if we are still waiting
             // for the socket to become writable.
-            if (out_.empty() || (write_blocked_ && !(events & EventOut))) {
+            if (out_.empty() || (write_blocked_ && !(events & EpollOut))) {
                 return;
             }
             flush_output(now);
@@ -251,12 +251,12 @@ class BasicHttpConn
             }
             if (write_blocked_) {
                 // Restore read-only state after the buffer has been drained.
-                sub_.set_events(EventIn);
+                sub_.set_events(EpollIn);
                 write_blocked_ = false;
             }
         } else if (!write_blocked_) {
             // Set the state to read-write if the entire buffer could not be written.
-            sub_.set_events(EventIn | EventOut);
+            sub_.set_events(EpollIn | EpollOut);
             write_blocked_ = true;
         }
     }

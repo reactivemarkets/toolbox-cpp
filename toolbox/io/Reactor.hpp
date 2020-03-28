@@ -17,9 +17,9 @@
 #ifndef TOOLBOX_IO_REACTOR_HPP
 #define TOOLBOX_IO_REACTOR_HPP
 
+#include <toolbox/io/Epoll.hpp>
 #include <toolbox/io/EventFd.hpp>
 #include <toolbox/io/Hook.hpp>
-#include <toolbox/io/Muxer.hpp>
 #include <toolbox/io/Waker.hpp>
 #include <toolbox/io/Timer.hpp>
 
@@ -33,7 +33,7 @@ using IoSlot = BasicSlot<CyclTime, int, unsigned>;
 
 class TOOLBOX_API Reactor : public Waker {
   public:
-    using Event = typename Muxer::Event;
+    using Event = EpollEvent;
     class Handle {
       public:
         Handle(Reactor& reactor, int fd, int sid)
@@ -161,7 +161,7 @@ class TOOLBOX_API Reactor : public Waker {
         unsigned events{};
         IoSlot slot;
     };
-    Muxer mux_;
+    Epoll epoll_;
     std::vector<Data> data_;
     EventFd notify_{0, EFD_NONBLOCK};
     static_assert(static_cast<int>(Priority::High) == 0);
