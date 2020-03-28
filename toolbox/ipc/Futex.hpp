@@ -41,7 +41,7 @@ inline int futex(int& uaddr, int futex_op, int val, const timespec* timeout = nu
 /// futex word at the address \p uaddr.
 ///
 /// \return the number of waiters that were woken up.
-inline int futex_notify(int& uaddr, int n, std::error_code& ec) noexcept
+inline int futex_wakeup(int& uaddr, int n, std::error_code& ec) noexcept
 {
     const auto ret = detail::futex(uaddr, FUTEX_WAKE, n);
     if (ret < 0) {
@@ -54,7 +54,7 @@ inline int futex_notify(int& uaddr, int n, std::error_code& ec) noexcept
 /// futex word at the address \p uaddr.
 ///
 /// \return the number of waiters that were woken up.
-inline int futex_notify(int& uaddr, int n)
+inline int futex_wakeup(int& uaddr, int n)
 {
     const auto ret = detail::futex(uaddr, FUTEX_WAKE, n);
     if (ret < 0) {
@@ -67,36 +67,36 @@ inline int futex_notify(int& uaddr, int n)
 /// at the address \p uaddr.
 ///
 /// \return the number of waiters that were woken up.
-inline int futex_notify_all(int& uaddr, std::error_code& ec) noexcept
+inline int futex_wakeup_all(int& uaddr, std::error_code& ec) noexcept
 {
-    return futex_notify(uaddr, std::numeric_limits<int>::max(), ec);
+    return futex_wakeup(uaddr, std::numeric_limits<int>::max(), ec);
 }
 
 /// This operation wakes all waiters that are waiting (e.g., inside `FUTEX_WAIT`) on the futex word
 /// at the address \p uaddr.
 ///
 /// \return the number of waiters that were woken up.
-inline int futex_notify_all(int& uaddr)
+inline int futex_wakeup_all(int& uaddr)
 {
-    return futex_notify(uaddr, std::numeric_limits<int>::max());
+    return futex_wakeup(uaddr, std::numeric_limits<int>::max());
 }
 
 /// This operation wakes at most a single waiter that is waiting (e.g., inside `FUTEX_WAIT`) on the
 /// futex word at the address \p uaddr.
 ///
 /// \return the number of waiters that were woken up.
-inline int futex_notify_one(int& uaddr, std::error_code& ec) noexcept
+inline int futex_wakeup_one(int& uaddr, std::error_code& ec) noexcept
 {
-    return futex_notify(uaddr, 1, ec);
+    return futex_wakeup(uaddr, 1, ec);
 }
 
 /// This operation wakes at most a single waiter that is waiting (e.g., inside `FUTEX_WAIT`) on the
 /// futex word at the address \p uaddr.
 ///
 /// \return the number of waiters that were woken up.
-inline int futex_notify_one(int& uaddr)
+inline int futex_wakeup_one(int& uaddr)
 {
-    return futex_notify(uaddr, 1);
+    return futex_wakeup(uaddr, 1);
 }
 
 /// This operation tests that the value at the futex word pointed to by the address \p uaddr still

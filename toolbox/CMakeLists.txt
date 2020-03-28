@@ -52,7 +52,7 @@ set(lib_SOURCES
   http/Types.cpp
   http/Url.cpp
   io/Buffer.cpp
-  io/Disposable.cpp
+  io/Disposer.cpp
   io/Epoll.cpp
   io/Event.cpp
   io/EventFd.cpp
@@ -60,7 +60,7 @@ set(lib_SOURCES
   io/Handle.cpp
   io/Hook.cpp
   io/Muxer.cpp
-  io/Notifiable.cpp
+  io/Waker.cpp
   io/Reactor.cpp
   io/Runner.cpp
   io/Timer.cpp
@@ -217,7 +217,7 @@ set(test_SOURCES
   http/Types.ut.cpp
   http/Url.ut.cpp
   io/Buffer.ut.cpp
-  io/Disposable.ut.cpp
+  io/Disposer.ut.cpp
   io/Handle.ut.cpp
   io/Hook.ut.cpp
   io/Reactor.ut.cpp

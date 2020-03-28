@@ -20,7 +20,7 @@
 #include <toolbox/io/EventFd.hpp>
 #include <toolbox/io/Hook.hpp>
 #include <toolbox/io/Muxer.hpp>
-#include <toolbox/io/Notifiable.hpp>
+#include <toolbox/io/Waker.hpp>
 #include <toolbox/io/Timer.hpp>
 
 namespace toolbox {
@@ -31,7 +31,7 @@ enum class Priority { High = 0, Low = 1 };
 
 using IoSlot = BasicSlot<CyclTime, int, unsigned>;
 
-class TOOLBOX_API Reactor : public Notifiable {
+class TOOLBOX_API Reactor : public Waker {
   public:
     using Event = typename Muxer::Event;
     class Handle {
@@ -144,7 +144,7 @@ class TOOLBOX_API Reactor : public Notifiable {
 
   protected:
     /// Thread-safe.
-    void do_notify() noexcept final;
+    void do_wakeup() noexcept final;
 
   private:
     MonoTime next_expiry(MonoTime next) const;

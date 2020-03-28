@@ -18,7 +18,7 @@
 #define TOOLBOX_IO_HPP
 
 #include "io/Buffer.hpp"
-#include "io/Disposable.hpp"
+#include "io/Disposer.hpp"
 #include "io/Epoll.hpp"
 #include "io/Event.hpp"
 #include "io/EventFd.hpp"
@@ -26,10 +26,10 @@
 #include "io/Handle.hpp"
 #include "io/Hook.hpp"
 #include "io/Muxer.hpp"
-#include "io/Notifiable.hpp"
 #include "io/Reactor.hpp"
 #include "io/Runner.hpp"
 #include "io/Timer.hpp"
 #include "io/TimerFd.hpp"
+#include "io/Waker.hpp"
 
 #endif // TOOLBOX_IO_HPP
