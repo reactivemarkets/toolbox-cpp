@@ -1,19 +1,19 @@
 # Dependencies
 
 ## Util Package
-![Util Package](@ref toolbox-util.png)
+![Util Package](@ref tb-util.png)
 
 ## Sys Package
-![Sys Package](@ref toolbox-sys.png)
+![Sys Package](@ref tb-sys.png)
 
 ## IO Package
-![IO Package](@ref toolbox-io.png)
+![IO Package](@ref tb-io.png)
 
 ## IPC Package
-![IPC Package](@ref toolbox-ipc.png)
+![IPC Package](@ref tb-ipc.png)
 
 ## Net Package
-![Net Package](@ref toolbox-net.png)
+![Net Package](@ref tb-net.png)
 
 ## Http Package
-![Http Package](@ref toolbox-http.png)
+![Http Package](@ref tb-http.png)

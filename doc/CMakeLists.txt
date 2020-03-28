@@ -32,15 +32,15 @@ set(doc_DEPENDS)
 if(DOXYGEN_FOUND)
   configure_file(Doxyfile.in "${PROJECT_BINARY_DIR}/doc/Doxyfile" @ONLY)
 
-  add_custom_target(toolbox-doxygen
+  add_custom_target(tb-doxygen
     WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
     COMMAND "${DOXYGEN_EXECUTABLE}" "${PROJECT_BINARY_DIR}/doc/Doxyfile"
     COMMAND "${CMAKE_COMMAND}" -E echo docs.toolbox.reactivemarkets.com
            >"${PROJECT_BINARY_DIR}/doc/html/CNAME"
     SOURCES "${PROJECT_BINARY_DIR}/doc/Doxyfile")
 
-  add_dependencies(toolbox-doxygen toolbox-image)
-  set(doc_DEPENDS ${doc_DEPENDS} toolbox-doxygen)
+  add_dependencies(tb-doxygen tb-image)
+  set(doc_DEPENDS ${doc_DEPENDS} tb-doxygen)
 endif()
 
-add_custom_target(toolbox-doc DEPENDS ${doc_DEPENDS})
+add_custom_target(tb-doc DEPENDS ${doc_DEPENDS})
