@@ -40,7 +40,7 @@ class EchoConn {
     , sock_{move(sock)}
     , ep_{ep}
     {
-        sub_ = r.subscribe(sock_.get(), EventIn, bind<&EchoConn::on_input>(this));
+        sub_ = r.subscribe(sock_.get(), EpollIn, bind<&EchoConn::on_input>(this));
         tmr_ = r.timer(now.mono_time() + IdleTimeout, Priority::Low,
                        bind<&EchoConn::on_timer>(this));
     }
@@ -56,7 +56,7 @@ class EchoConn {
     void on_input(CyclTime now, int fd, unsigned events)
     {
         try {
-            if (events & (EventIn | EventHup)) {
+            if (events & (EpollIn | EpollHup)) {
                 const auto size = os::read(fd, buf_.prepare(2944));
                 if (size == 0) {
                     dispose(now);

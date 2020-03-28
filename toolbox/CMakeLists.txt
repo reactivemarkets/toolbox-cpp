@@ -59,7 +59,6 @@ set(lib_SOURCES
   io/File.cpp
   io/Handle.cpp
   io/Hook.cpp
-  io/Muxer.cpp
   io/Waker.cpp
   io/Reactor.cpp
   io/Runner.cpp

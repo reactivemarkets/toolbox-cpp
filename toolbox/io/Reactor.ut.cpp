@@ -51,7 +51,7 @@ BOOST_AUTO_TEST_CASE(ReactorLevelCase)
     auto h = make_intrusive<TestHandler>();
 
     auto socks = socketpair(UnixStreamProtocol{});
-    const auto sub = r.subscribe(*socks.second, EventIn, bind<&TestHandler::on_input>(h.get()));
+    const auto sub = r.subscribe(*socks.second, EpollIn, bind<&TestHandler::on_input>(h.get()));
 
     const auto now = CyclTime::now();
     BOOST_TEST(r.poll(now, 0ms) == 0);
@@ -83,7 +83,7 @@ BOOST_AUTO_TEST_CASE(ReactorEdgeCase)
     auto h = make_intrusive<TestHandler>();
 
     auto socks = socketpair(UnixStreamProtocol{});
-    auto sub = r.subscribe(*socks.second, EventIn | EventEt, bind<&TestHandler::on_input>(h.get()));
+    auto sub = r.subscribe(*socks.second, EpollIn | EpollEt, bind<&TestHandler::on_input>(h.get()));
 
     const auto now = CyclTime::now();
     BOOST_TEST(r.poll(now, 0ms) == 0);
@@ -99,7 +99,7 @@ BOOST_AUTO_TEST_CASE(ReactorEdgeCase)
     BOOST_TEST(h->matches == 1);
 
     // Revert to level-triggered.
-    sub.set_events(EventIn);
+    sub.set_events(EpollIn);
     BOOST_TEST(r.poll(now, 0ms) == 1);
     BOOST_TEST(h->matches == 2);
 

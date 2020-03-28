@@ -26,15 +26,6 @@
 namespace toolbox {
 inline namespace io {
 
-enum : unsigned {
-    EventIn = EPOLLIN,
-    EventPri = EPOLLPRI,
-    EventOut = EPOLLOUT,
-    EventErr = EPOLLERR,
-    EventHup = EPOLLHUP,
-    EventEt = EPOLLET
-};
-
 struct MsgEvent {
     int type;
     char data[1524];
