@@ -20,10 +20,16 @@ project(toolbox-cpp)
 include(GNUInstallDirs)
 
 # Configuration options:
-set(TOOLBOX_BUILD_ARCH "native" CACHE STRING "Target architecture.")
-set(TOOLBOX_BUILD_SHARED ON CACHE BOOL "Enable shared libs.")
-set(TOOLBOX_VERSION "snapshot" CACHE STRING "Release version.")
-set(TOOLBOX_TOOLCHAIN "" CACHE PATH "Toolchain prefix.")
+set(REACTIVE_BUILD_ARCH "native" CACHE STRING "Target architecture.")
+set(REACTIVE_BUILD_SHARED ON CACHE BOOL "Enable shared libs.")
+set(REACTIVE_VERSION "snapshot" CACHE STRING "Release version.")
+set(REACTIVE_TOOLCHAIN "" CACHE PATH "Toolchain prefix.")
+
+# Toolbox options.
+set(TOOLBOX_BUILD_ARCH   "${REACTIVE_BUILD_ARCH}")
+set(TOOLBOX_BUILD_SHARED "${REACTIVE_BUILD_SHARED}")
+set(TOOLBOX_VERSION      "${REACTIVE_VERSION}")
+set(TOOLBOX_TOOLCHAIN    "${REACTIVE_TOOLCHAIN}")
 
 if (NOT "${TOOLBOX_TOOLCHAIN}" STREQUAL "")
   get_filename_component(TOOLBOX_TOOLCHAIN "${TOOLBOX_TOOLCHAIN}" REALPATH)
