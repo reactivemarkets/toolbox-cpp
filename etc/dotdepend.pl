@@ -23,7 +23,7 @@ my $cxx = $ENV{CXX} || 'g++';
 my $lib = shift;
 $lib or die "Library name not specified";
 
-my $makedepend = "$cxx -std=c++17 -MM -MG -I. toolbox/$lib/*.[ch]pp";
+my $makedepend = "$cxx -std=c++2a -MM -MG -I. toolbox/$lib/*.[ch]pp";
 my $tred = 'tred';
 
 sub ltrim {

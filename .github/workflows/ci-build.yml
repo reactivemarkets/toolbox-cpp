@@ -27,7 +27,7 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
-    container: reactivemarkets/toolchain-cpp:debian
+    container: reactivemarkets/toolchain-cpp:0.2.0
 
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
 
@@ -40,8 +40,8 @@ jobs:
           mkdir -p build
           cd build
           cmake .. -G "Unix Makefiles" \
-            -DCMAKE_C_COMPILER=gcc-8 \
-            -DCMAKE_CXX_COMPILER=g++-8
+            -DCMAKE_C_COMPILER=gcc-9 \
+            -DCMAKE_CXX_COMPILER=g++-9
 
       - name: Run cppcheck
         run: cd build && make -j2 cppcheck
@@ -53,7 +53,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    container: reactivemarkets/toolchain-cpp:debian
+    container: reactivemarkets/toolchain-cpp:0.2.0
     needs: lint
 
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
@@ -62,8 +62,8 @@ jobs:
       matrix:
         build_type: [Debug, Release]
         compiler:
-          - {cc: clang-7, cxx: clang++-7}
-          - {cc: gcc-8, cxx: g++-8}
+          - {cc: clang-9, cxx: clang++-9}
+          - {cc: gcc-9, cxx: g++-9}
 
     steps:
       - name: Checkout project

@@ -23,13 +23,13 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-    container: reactivemarkets/toolchain-cpp:debian
+    container: reactivemarkets/toolchain-cpp:0.2.0
 
     strategy:
       matrix:
         build_type: [Release]
         compiler:
-          - {cc: gcc-8, cxx: g++-8}
+          - {cc: gcc-9, cxx: g++-9}
 
     steps:
       - name: Checkout project

@@ -2,7 +2,7 @@
 
 ## What is Toolbox?
 
-The Reactive C++ Toolbox is an open source library of C++17 components designed for efficient
+The Reactive C++ Toolbox is an open source library of C++20 components designed for efficient
 aynchronous IO network applications on the Linux platform. Machine architectures currently supported
 are: AMD64, ARM and ARM32.
 
@@ -11,7 +11,7 @@ are: AMD64, ARM and ARM32.
 To build Toolbox from source, you will need:
 
 - [CMake](http://www.cmake.org/) for Makefile generation;
-- [GCC](http://gcc.gnu.org/) or [Clang](http://clang.llvm.org/) with support for C++17;
+- [GCC](http://gcc.gnu.org/) or [Clang](http://clang.llvm.org/) with support for C++20;
 - [Boost](http://www.boost.org/) for additional library dependencies.
 
 ## Getting Started

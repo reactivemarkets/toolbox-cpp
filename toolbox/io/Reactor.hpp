@@ -20,8 +20,8 @@
 #include <toolbox/io/Epoll.hpp>
 #include <toolbox/io/EventFd.hpp>
 #include <toolbox/io/Hook.hpp>
-#include <toolbox/io/Waker.hpp>
 #include <toolbox/io/Timer.hpp>
+#include <toolbox/io/Waker.hpp>
 
 namespace toolbox {
 inline namespace io {
