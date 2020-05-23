@@ -63,8 +63,7 @@ class TOOLBOX_API HttpAppBase {
     virtual void do_on_http_connect(CyclTime now, const Endpoint& ep) = 0;
     virtual void do_on_http_disconnect(CyclTime now, const Endpoint& ep) noexcept = 0;
     virtual void do_on_http_error(CyclTime now, const Endpoint& ep, const std::exception& e,
-                                  HttpStream& os) noexcept
-        = 0;
+                                  HttpStream& os) noexcept = 0;
     virtual void do_on_http_message(CyclTime now, const Endpoint& ep, const HttpRequest& req,
                                     HttpStream& os)
         = 0;

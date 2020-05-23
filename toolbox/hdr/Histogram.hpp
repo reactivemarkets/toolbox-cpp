@@ -147,8 +147,8 @@ class TOOLBOX_API HdrHistogram {
   private:
     std::int32_t normalize_index(std::int32_t index) const noexcept;
     std::int32_t get_bucket_index(std::int64_t value) const noexcept;
-    std::int32_t counts_index(std::int32_t bucket_index, std::int32_t sub_bucket_index) const
-        noexcept;
+    std::int32_t counts_index(std::int32_t bucket_index,
+                              std::int32_t sub_bucket_index) const noexcept;
     std::int32_t counts_index_for(std::int64_t value) const noexcept;
     std::int64_t non_zero_min() const noexcept;
 
