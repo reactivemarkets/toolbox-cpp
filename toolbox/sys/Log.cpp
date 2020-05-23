@@ -128,7 +128,7 @@ void std_logger(int level, string_view msg) noexcept
         {&tail, 1}                                   //
     };
 
-    int fd{level > Log::Warning ? STDOUT_FILENO : STDERR_FILENO};
+    int fd{level > Log::Error ? STDOUT_FILENO : STDERR_FILENO};
     // The following lock was required to avoid interleaving.
     lock_guard<mutex> lock{mutex_};
     // Best effort given that this is the logger.
