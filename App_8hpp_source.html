@@ -137,18 +137,17 @@ $(function() {
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> do_on_http_connect(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now, <span class="keyword">const</span> Endpoint&amp; ep) = 0;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> do_on_http_disconnect(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now, <span class="keyword">const</span> Endpoint&amp; ep) noexcept = 0;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> do_on_http_error(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now, <span class="keyword">const</span> Endpoint&amp; ep, <span class="keyword">const</span> std::exception&amp; e,</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                                  <a class="code" href="classtoolbox_1_1http_1_1HttpStream.html">HttpStream</a>&amp; os) noexcept</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        = 0;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> do_on_http_message(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now, <span class="keyword">const</span> Endpoint&amp; ep, <span class="keyword">const</span> <a class="code" href="classtoolbox_1_1http_1_1HttpRequest.html">HttpRequest</a>&amp; req,</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                                    <a class="code" href="classtoolbox_1_1http_1_1HttpStream.html">HttpStream</a>&amp; os)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        = 0;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> do_on_http_timeout(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now, <span class="keyword">const</span> Endpoint&amp; ep) noexcept = 0;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;};</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;} <span class="comment">// namespace http</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;} <span class="comment">// namespace toolbox</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#endif // TOOLBOX_HTTP_APP_HPP</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                                  <a class="code" href="classtoolbox_1_1http_1_1HttpStream.html">HttpStream</a>&amp; os) noexcept = 0;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> do_on_http_message(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now, <span class="keyword">const</span> Endpoint&amp; ep, <span class="keyword">const</span> <a class="code" href="classtoolbox_1_1http_1_1HttpRequest.html">HttpRequest</a>&amp; req,</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                                    <a class="code" href="classtoolbox_1_1http_1_1HttpStream.html">HttpStream</a>&amp; os)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        = 0;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> do_on_http_timeout(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now, <span class="keyword">const</span> Endpoint&amp; ep) noexcept = 0;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;} <span class="comment">// namespace http</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;} <span class="comment">// namespace toolbox</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#endif // TOOLBOX_HTTP_APP_HPP</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclasstoolbox_1_1http_1_1HttpAppBase_html"><div class="ttname"><a href="classtoolbox_1_1http_1_1HttpAppBase.html">toolbox::http::HttpAppBase</a></div><div class="ttdef"><b>Definition:</b> <a href="App_8hpp_source.html#l00030">App.hpp:30</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1http_1_1HttpAppBase_html_ad1607a83b444ad540d8953df7e62ecb4"><div class="ttname"><a href="classtoolbox_1_1http_1_1HttpAppBase.html#ad1607a83b444ad540d8953df7e62ecb4">toolbox::http::HttpAppBase::on_http_error</a></div><div class="ttdeci">void on_http_error(CyclTime now, const Endpoint &amp;ep, const std::exception &amp;e, HttpStream &amp;os) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="App_8hpp_source.html#l00051">App.hpp:51</a></div></div>
