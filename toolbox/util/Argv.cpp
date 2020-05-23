@@ -16,6 +16,8 @@
 
 #include "Argv.hpp"
 
+#include <stdexcept>
+
 namespace toolbox {
 inline namespace util {
 using namespace std;
