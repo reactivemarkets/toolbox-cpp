@@ -35,7 +35,7 @@ if(DOXYGEN_FOUND)
   add_custom_target(tb-doxygen
     WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
     COMMAND "${DOXYGEN_EXECUTABLE}" "${PROJECT_BINARY_DIR}/doc/Doxyfile"
-    COMMAND "${CMAKE_COMMAND}" -E echo docs.toolbox.reactivemarkets.com
+    COMMAND "${CMAKE_COMMAND}" -E echo toolbox-cpp.reactivemarkets.com
            >"${PROJECT_BINARY_DIR}/doc/html/CNAME"
     SOURCES "${PROJECT_BINARY_DIR}/doc/Doxyfile")
 

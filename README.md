@@ -1,4 +1,4 @@
-# Toolbox: The Reactive C++ Toolbox
+# The Reactive C++ Toolbox
 
 ## What is Toolbox?
 
@@ -28,20 +28,19 @@ $ make -j all test install
 
 ## Documentation
 
-The [latest Doxygen documentation](https://docs.toolbox.reactivemarkets.com) is available online.
+The [latest Doxygen documentation](https://toolbox-cpp.reactivemarkets.com) is available online.
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process
-for submitting pull requests.
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details
+on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
-We use [SemVer](https://semver.org/) for versioning. For the versions available, see the [tags on
-this repository](https://github.com/reactivemarkets/toolbox-cpp/tags).
+We use [SemVer](https://semver.org/) for versioning. For the versions available, see the [releases
+page](https://github.com/reactivemarkets/toolbox-cpp/releases).
 
 ## License
 
-This project is licensed under the [Apache 2.0
-License](https://www.apache.org/licenses/LICENSE-2.0). A copy of the license is available in the
-[LICENSE.md](LICENSE.md) file in the root directory of the source tree.
+This project is licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0).
+A copy of the license is available in the [LICENSE.md](LICENSE.md) file.
