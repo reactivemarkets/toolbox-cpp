@@ -76,7 +76,7 @@ class EchoConn {
                 }
             }
         } catch (const std::exception& e) {
-            TOOLBOX_ERROR << "failed to read data: " << e.what();
+            TOOLBOX_ERROR << "could not read data: " << e.what();
             dispose(now);
         }
     }
@@ -87,7 +87,7 @@ class EchoConn {
                 throw runtime_error{"partial write"};
             }
         } catch (const std::exception& e) {
-            TOOLBOX_ERROR << "failed to write data: " << e.what();
+            TOOLBOX_ERROR << "could not write data: " << e.what();
             dispose(now);
         }
     }
@@ -143,7 +143,7 @@ class EchoClnt : public StreamConnector<EchoClnt> {
     }
     void on_sock_connect_error(CyclTime now, const std::exception& e)
     {
-        TOOLBOX_ERROR << "failed to connect: " << e.what();
+        TOOLBOX_ERROR << "could not connect: " << e.what();
         aifuture_ = resolver_.resolve(uri_, SOCK_STREAM);
         inprogress_ = false;
     }
@@ -160,7 +160,7 @@ class EchoClnt : public StreamConnector<EchoClnt> {
             try {
                 ep_ = get_endpoint<Endpoint>(aifuture_);
             } catch (const std::exception& e) {
-                TOOLBOX_ERROR << "failed to resolve address: " << e.what();
+                TOOLBOX_ERROR << "could not resolve address: " << e.what();
                 aifuture_ = resolver_.resolve(uri_, SOCK_STREAM);
                 return;
             }
