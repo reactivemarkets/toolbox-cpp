@@ -28,13 +28,13 @@ constexpr char ApplicationJson[]{"application/json"};
 constexpr char TextHtml[]{"text/html"};
 constexpr char TextPlain[]{"text/plain"};
 
-class TOOLBOX_API HttpBuf : public std::streambuf {
+class TOOLBOX_API HttpBuf final : public std::streambuf {
   public:
     explicit HttpBuf(Buffer& buf) noexcept
     : buf_{buf}
     {
     }
-    ~HttpBuf() final;
+    ~HttpBuf() override;
 
     // Copy.
     HttpBuf(const HttpBuf&) = delete;
@@ -54,8 +54,8 @@ class TOOLBOX_API HttpBuf : public std::streambuf {
     void set_content_length(std::streamsize pos, std::streamsize len) noexcept;
 
   protected:
-    int_type overflow(int_type c) noexcept final;
-    std::streamsize xsputn(const char_type* s, std::streamsize count) noexcept final;
+    int_type overflow(int_type c) noexcept override;
+    std::streamsize xsputn(const char_type* s, std::streamsize count) noexcept override;
 
   private:
     Buffer& buf_;
@@ -63,7 +63,7 @@ class TOOLBOX_API HttpBuf : public std::streambuf {
     std::streamsize pcount_{0};
 };
 
-class TOOLBOX_API HttpStream : public std::ostream {
+class TOOLBOX_API HttpStream final : public std::ostream {
   public:
     explicit HttpStream(Buffer& buf) noexcept
     : std::ostream{nullptr}
@@ -71,7 +71,7 @@ class TOOLBOX_API HttpStream : public std::ostream {
     {
         rdbuf(&buf_);
     }
-    ~HttpStream() final;
+    ~HttpStream() override;
 
     // Copy.
     HttpStream(const HttpStream&) = delete;

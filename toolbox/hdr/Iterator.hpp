@@ -84,10 +84,10 @@ class TOOLBOX_API HdrIterator {
 };
 
 /// HdrPercentileIterator is a percentile iterator.
-class TOOLBOX_API HdrPercentileIterator : public HdrIterator {
+class TOOLBOX_API HdrPercentileIterator final : public HdrIterator {
   public:
     HdrPercentileIterator(const HdrHistogram& h, std::int32_t ticks_per_half_distance) noexcept;
-    ~HdrPercentileIterator() final = default;
+    ~HdrPercentileIterator() override = default;
 
     // Copy.
     HdrPercentileIterator(const HdrPercentileIterator&) = delete;
@@ -100,7 +100,7 @@ class TOOLBOX_API HdrPercentileIterator : public HdrIterator {
     double percentile() const noexcept { return percentile_; }
 
   protected:
-    bool do_next() noexcept final;
+    bool do_next() noexcept override;
 
   private:
     bool seen_last_value_;
@@ -133,10 +133,10 @@ class TOOLBOX_API HdrCountAddedIterator : public HdrIterator {
 };
 
 /// HdrRecordedIterator is a recorded value iterator.
-class TOOLBOX_API HdrRecordedIterator : public HdrCountAddedIterator {
+class TOOLBOX_API HdrRecordedIterator final : public HdrCountAddedIterator {
   public:
     HdrRecordedIterator(const HdrHistogram& h);
-    ~HdrRecordedIterator() final = default;
+    ~HdrRecordedIterator() override = default;
 
     // Copy.
     HdrRecordedIterator(const HdrRecordedIterator&) = delete;
@@ -147,14 +147,14 @@ class TOOLBOX_API HdrRecordedIterator : public HdrCountAddedIterator {
     HdrRecordedIterator& operator=(HdrRecordedIterator&&) = delete;
 
   protected:
-    bool do_next() noexcept final;
+    bool do_next() noexcept override;
 };
 
 /// HdrLinearIterator is a linear value iterator.
-class TOOLBOX_API HdrLinearIterator : public HdrCountAddedIterator {
+class TOOLBOX_API HdrLinearIterator final : public HdrCountAddedIterator {
   public:
     HdrLinearIterator(const HdrHistogram& h, std::int64_t value_units_per_bucket) noexcept;
-    ~HdrLinearIterator() final = default;
+    ~HdrLinearIterator() override = default;
 
     // Copy.
     HdrLinearIterator(const HdrLinearIterator&) = delete;
@@ -165,7 +165,7 @@ class TOOLBOX_API HdrLinearIterator : public HdrCountAddedIterator {
     HdrLinearIterator& operator=(HdrLinearIterator&&) = delete;
 
   protected:
-    bool do_next() noexcept final;
+    bool do_next() noexcept override;
 
   private:
     std::int64_t value_units_per_bucket_;
@@ -174,11 +174,11 @@ class TOOLBOX_API HdrLinearIterator : public HdrCountAddedIterator {
 };
 
 /// HdrLogIterator is a logarithmic value iterator.
-class TOOLBOX_API HdrLogIterator : public HdrCountAddedIterator {
+class TOOLBOX_API HdrLogIterator final : public HdrCountAddedIterator {
   public:
     HdrLogIterator(const HdrHistogram& h, std::int64_t value_units_first_bucket,
                    double log_base) noexcept;
-    ~HdrLogIterator() final = default;
+    ~HdrLogIterator() override = default;
 
     // Copy.
     HdrLogIterator(const HdrLogIterator&) = delete;
@@ -189,7 +189,7 @@ class TOOLBOX_API HdrLogIterator : public HdrCountAddedIterator {
     HdrLogIterator& operator=(HdrLogIterator&&) = delete;
 
   protected:
-    bool do_next() noexcept final;
+    bool do_next() noexcept override;
 
   private:
     double log_base_;
