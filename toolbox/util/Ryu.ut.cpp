@@ -54,7 +54,7 @@ BOOST_AUTO_TEST_CASE(RyuFixedCase)
     BOOST_TEST(dtofixed(1e6) == "1000000"sv);
     BOOST_TEST(dtofixed(-1e6) == "-1000000"sv);
     BOOST_TEST(dtofixed(1.0 / 0.0) == "Infinity"sv);
-    BOOST_TEST(dtofixed(std::numeric_limits<std::int64_t>::max() * 10.0)
+    BOOST_TEST(dtofixed(static_cast<double>(std::numeric_limits<std::int64_t>::max()) * 10.0)
                == "92233720368547758080"sv);
     BOOST_TEST(dtofixed(std::numeric_limits<std::int64_t>::min() * 10.0)
                == "-92233720368547758080"sv);

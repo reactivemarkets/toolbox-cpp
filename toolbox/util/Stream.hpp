@@ -30,10 +30,10 @@ inline namespace util {
 TOOLBOX_API void reset(std::ostream& os) noexcept;
 
 template <std::size_t MaxN>
-class StaticBuf : public std::streambuf {
+class StaticBuf final : public std::streambuf {
   public:
     StaticBuf() noexcept { reset(); }
-    ~StaticBuf() final = default;
+    ~StaticBuf() override = default;
 
     // Copy.
     StaticBuf(const StaticBuf&) = delete;
@@ -54,14 +54,14 @@ class StaticBuf : public std::streambuf {
 };
 
 template <std::size_t MaxN>
-class StaticStream : public std::ostream {
+class StaticStream final : public std::ostream {
   public:
     StaticStream()
     : std::ostream{nullptr}
     {
         rdbuf(&buf_);
     }
-    ~StaticStream() final = default;
+    ~StaticStream() override = default;
 
     // Copy.
     StaticStream(const StaticStream&) = delete;

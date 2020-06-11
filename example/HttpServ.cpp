@@ -34,30 +34,30 @@ void on_bar(const HttpRequest& req, HttpStream& os)
     os << "Hello, Bar!";
 }
 
-class HttpApp : public HttpAppBase {
+class HttpApp final : public HttpAppBase {
   public:
     using Slot = BasicSlot<const HttpRequest&, HttpStream&>;
     using SlotMap = RobinMap<std::string, Slot>;
 
-    ~HttpApp() final = default;
+    ~HttpApp() override = default;
     void bind(const std::string& path, Slot slot) { slot_map_[path] = slot; }
 
   protected:
-    void do_on_http_connect(CyclTime now, const Endpoint& ep) noexcept final
+    void do_on_http_connect(CyclTime now, const Endpoint& ep) noexcept override
     {
         TOOLBOX_INFO << "http session connected: " << ep;
     }
-    void do_on_http_disconnect(CyclTime now, const Endpoint& ep) noexcept final
+    void do_on_http_disconnect(CyclTime now, const Endpoint& ep) noexcept override
     {
         TOOLBOX_INFO << "http session disconnected: " << ep;
     }
     void do_on_http_error(CyclTime now, const Endpoint& ep, const std::exception& e,
-                          HttpStream& os) noexcept final
+                          HttpStream& os) noexcept override
     {
         TOOLBOX_ERROR << "http session error: " << ep << ": " << e.what();
     }
     void do_on_http_message(CyclTime now, const Endpoint& ep, const HttpRequest& req,
-                            HttpStream& os) final
+                            HttpStream& os) override
     {
         const auto it = slot_map_.find(string{req.path()});
         if (it != slot_map_.end()) {
@@ -69,7 +69,7 @@ class HttpApp : public HttpAppBase {
         }
         os.commit();
     }
-    void do_on_http_timeout(CyclTime now, const Endpoint& ep) noexcept final
+    void do_on_http_timeout(CyclTime now, const Endpoint& ep) noexcept override
     {
         TOOLBOX_WARNING << "http session timeout: " << ep;
     }
