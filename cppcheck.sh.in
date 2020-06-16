@@ -28,7 +28,7 @@
 errors=$("@CPPCHECK@" -j @CORE_COUNT@ \
                        --project="@CMAKE_BINARY_DIR@/compile_commands.json" \
                        --quiet \
-                       --std=c++14 \
+                       --std=c++20 \
                        --suppressions-list="@CMAKE_SOURCE_DIR@/etc/cppcheck-suppressions.txt" \
                        -DBOOST_AUTO_TEST_SUITE \
                        -DTOOLBOX_BENCHMARK \
