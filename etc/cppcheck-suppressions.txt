@@ -1,10 +1,6 @@
 bufferAccessOutOfBounds:*/toolbox/util/String.ut.cpp
-cppcheckError:*/toolbox/util/IntTypes.ut.cpp
 internalAstError:*/toolbox/io/Disposer.hpp
-internalAstError:*/toolbox/util/VarSub.ut.cpp
 preprocessorErrorDirective:*/toolbox/contrib/robin_hood.h
 preprocessorErrorDirective:*/toolbox/net/Error.cpp
-preprocessorErrorDirective:*/toolbox/sys/Error.cpp
 returnDanglingLifetime:*/toolbox/io/Timer.cpp
-syntaxError:*/toolbox/sys/Thread.cpp
 syntaxError:*/toolbox/util/Variant.hpp
