@@ -119,7 +119,7 @@ BOOST_AUTO_TEST_CASE(OptionsNoValueCase)
     const char* argv[] = {"executable_name", "-l"};
     int argc = 2;
 
-    BOOST_CHECK_THROW(opts.parse(argc, argv);, std::runtime_error);
+    BOOST_CHECK_THROW(opts.parse(argc, argv), std::runtime_error);
 }
 
 BOOST_AUTO_TEST_CASE(OptionsMultiToken)
