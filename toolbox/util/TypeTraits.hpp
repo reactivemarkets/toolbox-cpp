@@ -78,6 +78,14 @@ template <>
 struct is_string<std::string_view> : std::true_type {
 };
 
+template <typename TypeT, template <typename> class TemplateTypeT>
+struct is_instantiation_of : std::false_type {
+};
+
+template <typename TypeT, template <typename> class TemplateTypeT>
+struct is_instantiation_of<TemplateTypeT<TypeT>, TemplateTypeT> : std::true_type {
+};
+
 } // namespace util
 } // namespace toolbox
 

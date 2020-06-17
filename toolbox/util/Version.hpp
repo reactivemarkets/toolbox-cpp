@@ -17,7 +17,6 @@
 #ifndef TOOLBOX_UTIL_VERSION_HPP
 #define TOOLBOX_UTIL_VERSION_HPP
 
-#include <toolbox/util/Compare.hpp>
 #include <toolbox/util/String.hpp>
 
 #include <boost/functional/hash.hpp>
@@ -25,7 +24,7 @@
 namespace toolbox {
 inline namespace util {
 
-struct Version : protected Comparable<Version> {
+struct Version {
     constexpr Version(int major = 0, int minor = 0) noexcept
     : major{major}
     , minor{minor}
@@ -44,14 +43,7 @@ struct Version : protected Comparable<Version> {
     constexpr bool empty() const noexcept { return major == 0 && minor == 0; }
     constexpr explicit operator bool() const noexcept { return !empty(); }
 
-    constexpr int compare(const Version& rhs) const noexcept
-    {
-        auto i = toolbox::compare(major, rhs.major);
-        if (i == 0) {
-            i = toolbox::compare(minor, rhs.minor);
-        }
-        return i;
-    }
+    auto operator<=>(const Version& rhs) const = default;
     void clear() noexcept { major = minor = 0; }
     void swap(Version& rhs) noexcept
     {
