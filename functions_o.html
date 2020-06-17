@@ -82,6 +82,12 @@ $(function() {
 <li>on_http_timeout()
 : <a class="el" href="classtoolbox_1_1http_1_1HttpAppBase.html#a2f4627007d4be07fa52b9a8d1a808a10">toolbox::http::HttpAppBase</a>
 </li>
+<li>operator()
+: <a class="el" href="classtoolbox_1_1io_1_1Timer.html#a6fd119ac780ca28e29370dc6a5c1f15c">toolbox::io::Timer</a>
+, <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html#ac403ec13948e73bbc62c4f7db0d39cc1">toolbox::util::IntWrapper&lt; PolicyT &gt;</a>
+, <a class="el" href="classtoolbox_1_1util_1_1StringBuf.html#aeecea35507582b9b511eabee98017080">toolbox::util::StringBuf&lt; MaxN &gt;</a>
+, <a class="el" href="structtoolbox_1_1util_1_1Version.html#a0f8b8422fac4fd18152552e419c995b5">toolbox::util::Version</a>
+</li>
 <li>operator bool()
 : <a class="el" href="classtoolbox_1_1bm_1_1BenchmarkCtx.html#a3e7cee02595b7df789f939861ed41faa">toolbox::bm::BenchmarkCtx</a>
 , <a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html#aabbee0f150376833f9f941cd80db9aac">toolbox::io::BasicHandle&lt; PolicyT &gt;</a>
@@ -107,8 +113,6 @@ $(function() {
 , <a class="el" href="structtoolbox_1_1net_1_1TcpProtocol.html#a63ed2cfb8f6a67e53f0a708718fb6227">toolbox::net::TcpProtocol</a>
 , <a class="el" href="structtoolbox_1_1net_1_1UdpProtocol.html#a084f9989f1d3f927d31ed59a92e30296">toolbox::net::UdpProtocol</a>
 , <a class="el" href="classtoolbox_1_1util_1_1BasicSlot.html#a88bb899c26cd07b5a7b4a95d83c7233e">toolbox::util::BasicSlot&lt; ArgsT &gt;</a>
-, <a class="el" href="structtoolbox_1_1util_1_1Comparable.html#a1678e3e1fe2382bff081565283f7628f">toolbox::util::Comparable&lt; ValueT &gt;</a>
-, <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html#a074d854a28f0e273a0a38ba832657161">toolbox::util::IntWrapper&lt; PolicyT &gt;</a>
 </li>
 <li>operator%
 : <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html#a4f5b8b9c7bb30f315a036d070e21f7c8">toolbox::util::IntWrapper&lt; PolicyT &gt;</a>
@@ -164,10 +168,6 @@ $(function() {
 <li>operator/=()
 : <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html#ab7ec64d2c8213ced8cf83da85c8dd85e">toolbox::util::IntWrapper&lt; PolicyT &gt;</a>
 </li>
-<li>operator&lt;
-: <a class="el" href="structtoolbox_1_1util_1_1Comparable.html#a00ad61cd155441b9220a3ef36965730f">toolbox::util::Comparable&lt; ValueT &gt;</a>
-, <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html#a632c9fc660728a0376216669758f0211">toolbox::util::IntWrapper&lt; PolicyT &gt;</a>
-</li>
 <li>operator&lt;&lt;
 : <a class="el" href="classtoolbox_1_1sys_1_1Log.html#adccf5e0139cd9f74f294235ee0075333">toolbox::sys::Log</a>
 , <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html#a80c07e24056268fe0da5ca099de36f0a">toolbox::util::IntWrapper&lt; PolicyT &gt;</a>
@@ -175,10 +175,6 @@ $(function() {
 </li>
 <li>operator&lt;&lt;=()
 : <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html#a417c78cd4920888c7c758c634092e0aa">toolbox::util::IntWrapper&lt; PolicyT &gt;</a>
-</li>
-<li>operator&lt;=
-: <a class="el" href="structtoolbox_1_1util_1_1Comparable.html#aad0339881f0c082123e3ee46196d29d7">toolbox::util::Comparable&lt; ValueT &gt;</a>
-, <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html#a6f6e5ef4bcf371506d869481e0289dbd">toolbox::util::IntWrapper&lt; PolicyT &gt;</a>
 </li>
 <li>operator=()
 : <a class="el" href="classtoolbox_1_1bm_1_1BenchmarkCtx.html#ace69d5b8b8bfa662bde0060758fb4bd9">toolbox::bm::BenchmarkCtx</a>
@@ -207,43 +203,42 @@ $(function() {
 , <a class="el" href="classtoolbox_1_1io_1_1Buffer.html#adc2643d69917f94be8fe1381f230b9f5">toolbox::io::Buffer</a>
 , <a class="el" href="classtoolbox_1_1io_1_1Epoll.html#a8dab12b33acc72c616ecd165d283f86c">toolbox::io::Epoll</a>
 , <a class="el" href="classtoolbox_1_1io_1_1EventFd.html#a855951d3ea7d760ed0ea0b8325753f0f">toolbox::io::EventFd</a>
-, <a class="el" href="classtoolbox_1_1io_1_1Reactor_1_1Handle.html#a9df75073d650aadc52a510928fa6a74e">toolbox::io::Reactor::Handle</a>
-, <a class="el" href="classtoolbox_1_1io_1_1Reactor.html#ac8fdc0bd91ccc481bea24a6277d4e82c">toolbox::io::Reactor</a>
-, <a class="el" href="classtoolbox_1_1io_1_1ReactorRunner.html#a57c35577b86ffb9d39512b643461c5bf">toolbox::io::ReactorRunner</a>
-, <a class="el" href="classtoolbox_1_1io_1_1Timer.html#ac46ae5f8bbf37a12d73656bf76dbecef">toolbox::io::Timer</a>
+, <a class="el" href="classtoolbox_1_1io_1_1Reactor_1_1Handle.html#a9a5e1cf5a81d57e707aeaa051c96584d">toolbox::io::Reactor::Handle</a>
+, <a class="el" href="classtoolbox_1_1io_1_1Reactor.html#ac81578409d4df4c35561994b99c6acb8">toolbox::io::Reactor</a>
+, <a class="el" href="classtoolbox_1_1io_1_1ReactorRunner.html#a3316ce3905b4838de96f84381eff12bd">toolbox::io::ReactorRunner</a>
+, <a class="el" href="classtoolbox_1_1io_1_1Timer.html#a1d005b26323d660e6e23bc81ddeec066">toolbox::io::Timer</a>
 , <a class="el" href="classtoolbox_1_1io_1_1TimerFd.html#af6472951628f9ea63eef4b50cf3641d9">toolbox::io::TimerFd&lt; ClockT &gt;</a>
 , <a class="el" href="classtoolbox_1_1io_1_1TimerPool.html#a93bba951ff988b3620c39da00f41ba08">toolbox::io::TimerPool</a>
 , <a class="el" href="classtoolbox_1_1io_1_1TimerQueue.html#af43eaaca99d302d366ea520d26ecd72b">toolbox::io::TimerQueue</a>
 , <a class="el" href="classtoolbox_1_1io_1_1Waker.html#aaa234085a2a000cdbc316b543903d53b">toolbox::io::Waker</a>
 , <a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html#aaa8f7e94c0db57d2e16a5921ce211489">toolbox::ipc::MpmcQueue&lt; ValueT &gt;</a>
-, <a class="el" href="classtoolbox_1_1net_1_1RateLimit.html#a9e1a4bee55dac2fc316acf18cb08a0d6">toolbox::net::RateLimit</a>
+, <a class="el" href="classtoolbox_1_1net_1_1RateLimit.html#acb5af0ba00bd16fef523b4dd24f06be0">toolbox::net::RateLimit</a>
 , <a class="el" href="classtoolbox_1_1net_1_1RateWindow.html#ac476ff56b28c60a9a16140202546384c">toolbox::net::RateWindow</a>
 , <a class="el" href="classtoolbox_1_1net_1_1Resolver.html#a8412a14733043b83b7f82b96a7dc217d">toolbox::net::Resolver</a>
 , <a class="el" href="classtoolbox_1_1net_1_1ResolverRunner.html#a87c3631b4891c726bf378698cf4c40d8">toolbox::net::ResolverRunner</a>
-, <a class="el" href="classtoolbox_1_1net_1_1StreamAcceptor.html#a0039514c500f84745824b1c0a2cb2f01">toolbox::net::StreamAcceptor&lt; DerivedT &gt;</a>
-, <a class="el" href="classtoolbox_1_1net_1_1StreamConnector.html#a677a513dd7ccfddae5b253b06c40ae76">toolbox::net::StreamConnector&lt; DerivedT &gt;</a>
-, <a class="el" href="classtoolbox_1_1sys_1_1Log.html#ad11e36c9e7a97a4c531e6fdda979684d">toolbox::sys::Log</a>
+, <a class="el" href="classtoolbox_1_1net_1_1StreamAcceptor.html#ac8f952b2c8881e69f2e3af9919ed6d2f">toolbox::net::StreamAcceptor&lt; DerivedT &gt;</a>
+, <a class="el" href="classtoolbox_1_1net_1_1StreamConnector.html#ac6a41b483f7f179371080e1f37d4732c">toolbox::net::StreamConnector&lt; DerivedT &gt;</a>
+, <a class="el" href="classtoolbox_1_1sys_1_1Log.html#a158f96707dbb5855d8e1c45808550093">toolbox::sys::Log</a>
 , <a class="el" href="classtoolbox_1_1sys_1_1SigWait.html#a20261263192064afc5ed42b63ff12175">toolbox::sys::SigWait</a>
-, <a class="el" href="structtoolbox_1_1sys_1_1ThreadConfig.html#a9aebc40a27766c8ccb5df15f069f7847">toolbox::sys::ThreadConfig</a>
+, <a class="el" href="structtoolbox_1_1sys_1_1ThreadConfig.html#a35ff6004eb8ab0155cf26e1a4776ae44">toolbox::sys::ThreadConfig</a>
 , <a class="el" href="classtoolbox_1_1util_1_1Alarm.html#a788eeae62d3fe0730ff2b5eb8f6f2427">toolbox::util::Alarm</a>
-, <a class="el" href="classtoolbox_1_1util_1_1ArgvLexer.html#ab16b3048031ba9c18791a1cb3df1bae0">toolbox::util::ArgvLexer</a>
+, <a class="el" href="classtoolbox_1_1util_1_1ArgvLexer.html#a6a1ce71ef3eeff20e27814b5e16f9130">toolbox::util::ArgvLexer</a>
 , <a class="el" href="classtoolbox_1_1util_1_1ArgvSequence.html#a0f7544536c228e9b8424648148b5e5a7">toolbox::util::ArgvSequence</a>
 , <a class="el" href="classtoolbox_1_1util_1_1ArrayView.html#acfcb00d51aff3170ce6780f2efcae276">toolbox::util::ArrayView&lt; ValueT &gt;</a>
-, <a class="el" href="classtoolbox_1_1util_1_1BasicSlot.html#a87e76ebf6ab9d7cd552fec9122f457d2">toolbox::util::BasicSlot&lt; ArgsT &gt;</a>
-, <a class="el" href="structtoolbox_1_1util_1_1Comparable.html#ab4dd841b6e3926e3e8806885349a3f63">toolbox::util::Comparable&lt; ValueT &gt;</a>
-, <a class="el" href="classtoolbox_1_1util_1_1Config.html#aedf93654a62a9fb44db663bf7ca6b159">toolbox::util::Config</a>
+, <a class="el" href="classtoolbox_1_1util_1_1BasicSlot.html#a5d9722ba9c4ce89849c061e3eaad1cab">toolbox::util::BasicSlot&lt; ArgsT &gt;</a>
+, <a class="el" href="classtoolbox_1_1util_1_1Config.html#a20df6587eb3c6f5a9705eaf83bdd02ad">toolbox::util::Config</a>
 , <a class="el" href="classtoolbox_1_1util_1_1Exception.html#acd4ec50a5751a9062de5c48bf960c5b7">toolbox::util::Exception</a>
 , <a class="el" href="classtoolbox_1_1util_1_1Finally.html#ad1446a7beea21c9f352e802754f6606b">toolbox::util::Finally&lt; FnT &gt;</a>
 , <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html#a7c24e84b218dc3215242bda164f6496d">toolbox::util::IntWrapper&lt; PolicyT &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1MultiConfig.html#a9639cf3fc837f8ae18b341e0e3f6be41">toolbox::util::MultiConfig</a>
-, <a class="el" href="classtoolbox_1_1util_1_1RefCount.html#ae023dc679a7498ffb4ba3cd06c6798e3">toolbox::util::RefCount&lt; DerivedT, PolicyT &gt;</a>
+, <a class="el" href="classtoolbox_1_1util_1_1RefCount.html#a74a06dafa1b69cc07737cafc0bc266e2">toolbox::util::RefCount&lt; DerivedT, PolicyT &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1RingBuffer.html#ab618707ea321f71bdb3d03d54d37dda2">toolbox::util::RingBuffer&lt; ValueT &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1StaticBuf.html#ae0774a830a572753ab628a1ad32cff98">toolbox::util::StaticBuf&lt; MaxN &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1StaticStream.html#a3693f9635c12b0fae55825f15a2b59f3">toolbox::util::StaticStream&lt; MaxN &gt;</a>
-, <a class="el" href="classtoolbox_1_1util_1_1StringBuf.html#a98b6e9642edecbeeeb0012fe4c3ea671">toolbox::util::StringBuf&lt; MaxN &gt;</a>
+, <a class="el" href="classtoolbox_1_1util_1_1StringBuf.html#a48a0ecdb82ea606a673677cdb0701094">toolbox::util::StringBuf&lt; MaxN &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1Tokeniser.html#a94ce18d9d5b23b387260a160831c11cf">toolbox::util::Tokeniser</a>
-, <a class="el" href="classtoolbox_1_1util_1_1VarAccum.html#a9a7358cfc1efab916b174f76241dc3f9">toolbox::util::VarAccum</a>
-, <a class="el" href="classtoolbox_1_1util_1_1VarSub.html#ac5f6be74fcc286d5147dd310c7c02c6a">toolbox::util::VarSub</a>
+, <a class="el" href="classtoolbox_1_1util_1_1VarAccum.html#a737627866db1b3f7cc43da1d55c8414d">toolbox::util::VarAccum</a>
+, <a class="el" href="classtoolbox_1_1util_1_1VarSub.html#ac7b084addddbd60cd8b4d8d74b85f63e">toolbox::util::VarSub</a>
 , <a class="el" href="structtoolbox_1_1util_1_1Version.html#aa4a02296b978919432f8c37abfafa3a9">toolbox::util::Version</a>
 </li>
 <li>operator==
@@ -252,16 +247,7 @@ $(function() {
 , <a class="el" href="structtoolbox_1_1net_1_1TcpProtocol.html#ac2f2e7ff37a68c26d7a89a687111f14d">toolbox::net::TcpProtocol</a>
 , <a class="el" href="structtoolbox_1_1net_1_1UdpProtocol.html#a909070f914673f65d7f5b5e6b187b1e7">toolbox::net::UdpProtocol</a>
 , <a class="el" href="classtoolbox_1_1util_1_1BasicSlot.html#a971e78d1b5c3db567d9a9a6c8f1e879c">toolbox::util::BasicSlot&lt; ArgsT &gt;</a>
-, <a class="el" href="structtoolbox_1_1util_1_1Comparable.html#a6bae20f34371bf5699e4fd1290293434">toolbox::util::Comparable&lt; ValueT &gt;</a>
-, <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html#a48b66da0fb7fcde6031f9249045053b0">toolbox::util::IntWrapper&lt; PolicyT &gt;</a>
-</li>
-<li>operator&gt;
-: <a class="el" href="structtoolbox_1_1util_1_1Comparable.html#a935dc59aab33aac82e6d312629bacf9e">toolbox::util::Comparable&lt; ValueT &gt;</a>
-, <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html#a8d3bcd4f2c8564c0a4924027a970594d">toolbox::util::IntWrapper&lt; PolicyT &gt;</a>
-</li>
-<li>operator&gt;=
-: <a class="el" href="structtoolbox_1_1util_1_1Comparable.html#a683725f4faa7cb247c75ba5ec83225e4">toolbox::util::Comparable&lt; ValueT &gt;</a>
-, <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html#a130a53e85f01e4eb3170cbf02f547423">toolbox::util::IntWrapper&lt; PolicyT &gt;</a>
+, <a class="el" href="classtoolbox_1_1util_1_1StringBuf.html#ac996099dcf5f669cd89ed26819a17176">toolbox::util::StringBuf&lt; MaxN &gt;</a>
 </li>
 <li>operator&gt;&gt;
 : <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html#ae5fb90935d720e2d8cfd286db84093b0">toolbox::util::IntWrapper&lt; PolicyT &gt;</a>
@@ -271,7 +257,7 @@ $(function() {
 </li>
 <li>operator[]()
 : <a class="el" href="classtoolbox_1_1util_1_1ArrayView.html#a274fda6ead7b5c8a0cbddc44c4924c00">toolbox::util::ArrayView&lt; ValueT &gt;</a>
-, <a class="el" href="classtoolbox_1_1util_1_1Options.html#ae2042d452bef03449f7ecf31a5fb4c50">toolbox::util::Options</a>
+, <a class="el" href="classtoolbox_1_1util_1_1Options.html#aab240f72b232803767c199288cbf227b">toolbox::util::Options</a>
 </li>
 <li>operator^
 : <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html#a5af6047022881269b544699e5b4d2361">toolbox::util::IntWrapper&lt; PolicyT &gt;</a>
