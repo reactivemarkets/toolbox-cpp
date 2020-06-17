@@ -17,8 +17,7 @@
 #ifndef TOOLBOX_UTIL_STRINGBUF_HPP
 #define TOOLBOX_UTIL_STRINGBUF_HPP
 
-#include <toolbox/util/Compare.hpp>
-
+#include <compare>
 #include <cstring>
 #include <string_view>
 
@@ -62,12 +61,6 @@ class StringBuf {
         assign(rhs.data(), rhs.size());
         return *this;
     }
-    template <std::size_t MaxR>
-    int compare(const StringBuf<MaxR>& rhs) const noexcept
-    {
-        return compare(rhs.data(), rhs.size());
-    }
-    int compare(std::string_view rhs) const noexcept { return compare(rhs.data(), rhs.size()); }
     constexpr const char* data() const noexcept { return buf_; }
     constexpr bool empty() const noexcept { return len_ == 0; }
     constexpr std::size_t size() const noexcept { return len_; }
@@ -87,6 +80,18 @@ class StringBuf {
         return *this;
     }
 
+    template <typename TypeT>
+    auto operator<=>(const TypeT& rhs) const
+    {
+        return compare(rhs.data(), rhs.size());
+    };
+
+    template <typename TypeT>
+    bool operator==(const TypeT& rhs) const
+    {
+        return size() == rhs.size() && compare(rhs.data(), rhs.size()) == 0;
+    }
+
   private:
     void assign(const char* rdata, std::size_t rlen) noexcept
     {
@@ -103,11 +108,12 @@ class StringBuf {
             len_ += rlen;
         }
     }
-    int compare(const char* rdata, std::size_t rlen) const noexcept
+
+    auto compare(const char* rdata, std::size_t rlen) const noexcept
     {
-        int result{std::memcmp(buf_, rdata, std::min(size(), rlen))};
+        std::strong_ordering result{std::memcmp(buf_, rdata, std::min(size(), rlen)) <=> 0};
         if (result == 0) {
-            result = toolbox::compare(size(), rlen);
+            result = size() <=> rlen;
         }
         return result;
     }
@@ -121,114 +127,6 @@ template <std::size_t MaxN>
 constexpr std::string_view operator+(const StringBuf<MaxN>& s) noexcept
 {
     return {s.data(), s.size()};
-}
-
-template <std::size_t MaxL, std::size_t MaxR>
-bool operator==(const StringBuf<MaxL>& lhs, const StringBuf<MaxR>& rhs) noexcept
-{
-    return lhs.compare(rhs) == 0;
-}
-
-template <std::size_t MaxN>
-bool operator==(const StringBuf<MaxN>& lhs, std::string_view rhs) noexcept
-{
-    return lhs.compare(rhs) == 0;
-}
-
-template <std::size_t MaxN>
-bool operator==(std::string_view lhs, const StringBuf<MaxN>& rhs) noexcept
-{
-    return 0 == rhs.compare(lhs);
-}
-
-template <std::size_t MaxL, std::size_t MaxR>
-bool operator!=(const StringBuf<MaxL>& lhs, const StringBuf<MaxR>& rhs) noexcept
-{
-    return lhs.compare(rhs) != 0;
-}
-
-template <std::size_t MaxN>
-bool operator!=(const StringBuf<MaxN>& lhs, std::string_view rhs) noexcept
-{
-    return lhs.compare(rhs) != 0;
-}
-
-template <std::size_t MaxN>
-bool operator!=(std::string_view lhs, const StringBuf<MaxN>& rhs) noexcept
-{
-    return 0 != rhs.compare(lhs);
-}
-
-template <std::size_t MaxL, std::size_t MaxR>
-bool operator<(const StringBuf<MaxL>& lhs, const StringBuf<MaxR>& rhs) noexcept
-{
-    return lhs.compare(rhs) < 0;
-}
-
-template <std::size_t MaxN>
-bool operator<(const StringBuf<MaxN>& lhs, std::string_view rhs) noexcept
-{
-    return lhs.compare(rhs) < 0;
-}
-
-template <std::size_t MaxN>
-bool operator<(std::string_view lhs, const StringBuf<MaxN>& rhs) noexcept
-{
-    return 0 < rhs.compare(lhs);
-}
-
-template <std::size_t MaxL, std::size_t MaxR>
-bool operator<=(const StringBuf<MaxL>& lhs, const StringBuf<MaxR>& rhs) noexcept
-{
-    return lhs.compare(rhs) <= 0;
-}
-
-template <std::size_t MaxN>
-bool operator<=(const StringBuf<MaxN>& lhs, std::string_view rhs) noexcept
-{
-    return lhs.compare(rhs) <= 0;
-}
-
-template <std::size_t MaxN>
-bool operator<=(std::string_view lhs, const StringBuf<MaxN>& rhs) noexcept
-{
-    return 0 <= rhs.compare(lhs);
-}
-
-template <std::size_t MaxL, std::size_t MaxR>
-bool operator>(const StringBuf<MaxL>& lhs, const StringBuf<MaxR>& rhs) noexcept
-{
-    return lhs.compare(rhs) > 0;
-}
-
-template <std::size_t MaxN>
-bool operator>(const StringBuf<MaxN>& lhs, std::string_view rhs) noexcept
-{
-    return lhs.compare(rhs) > 0;
-}
-
-template <std::size_t MaxN>
-bool operator>(std::string_view lhs, const StringBuf<MaxN>& rhs) noexcept
-{
-    return 0 > rhs.compare(lhs);
-}
-
-template <std::size_t MaxL, std::size_t MaxR>
-bool operator>=(const StringBuf<MaxL>& lhs, const StringBuf<MaxR>& rhs) noexcept
-{
-    return lhs.compare(rhs) >= 0;
-}
-
-template <std::size_t MaxN>
-bool operator>=(const StringBuf<MaxN>& lhs, std::string_view rhs) noexcept
-{
-    return lhs.compare(rhs) >= 0;
-}
-
-template <std::size_t MaxN>
-bool operator>=(std::string_view lhs, const StringBuf<MaxN>& rhs) noexcept
-{
-    return 0 >= rhs.compare(lhs);
 }
 
 template <std::size_t MaxN>

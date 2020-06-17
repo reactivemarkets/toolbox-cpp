@@ -21,6 +21,7 @@
 
 #include <boost/functional/hash.hpp>
 
+#include <compare>
 #include <cstdint>
 #include <iosfwd>
 #include <limits>
@@ -39,11 +40,8 @@ using Int16Policy = IntPolicy<std::int16_t>;
 using Int32Policy = IntPolicy<std::int32_t>;
 using Int64Policy = IntPolicy<std::int64_t>;
 
-struct IntBase {
-};
-
 template <typename PolicyT>
-struct TOOLBOX_PACKED IntWrapper : IntBase {
+struct TOOLBOX_PACKED IntWrapper {
     using ValueType = typename PolicyT::ValueType;
 
     template <typename RhsT,
@@ -238,42 +236,7 @@ struct TOOLBOX_PACKED IntWrapper : IntBase {
     }
 
     // Comparison.
-
-    /// Equal to.
-    friend constexpr bool operator==(IntWrapper lhs, IntWrapper rhs) noexcept
-    {
-        return lhs.value_ == rhs.value_;
-    }
-
-    /// Not equal to.
-    friend constexpr bool operator!=(IntWrapper lhs, IntWrapper rhs) noexcept
-    {
-        return lhs.value_ != rhs.value_;
-    }
-
-    /// Less than.
-    friend constexpr bool operator<(IntWrapper lhs, IntWrapper rhs) noexcept
-    {
-        return lhs.value_ < rhs.value_;
-    }
-
-    /// Greater than.
-    friend constexpr bool operator>(IntWrapper lhs, IntWrapper rhs) noexcept
-    {
-        return lhs.value_ > rhs.value_;
-    }
-
-    /// Less than or equal to.
-    friend constexpr bool operator<=(IntWrapper lhs, IntWrapper rhs) noexcept
-    {
-        return lhs.value_ <= rhs.value_;
-    }
-
-    /// Greater than or equal to.
-    friend constexpr bool operator>=(IntWrapper lhs, IntWrapper rhs) noexcept
-    {
-        return lhs.value_ >= rhs.value_;
-    }
+    auto operator<=>(const IntWrapper&) const = default;
 
     // Stream.
 
@@ -290,7 +253,7 @@ static_assert(sizeof(IntWrapper<Int32Policy>) == 4, "must be specific size");
 static_assert(sizeof(IntWrapper<Int64Policy>) == 8, "must be specific size");
 
 template <typename ValueT>
-constexpr bool is_int_wrapper = std::is_base_of_v<IntBase, ValueT>;
+constexpr bool is_int_wrapper = is_instantiation_of<ValueT, IntWrapper>::value;
 
 template <typename PolicyT>
 std::size_t hash_value(IntWrapper<PolicyT> wrapper)

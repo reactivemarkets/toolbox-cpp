@@ -84,48 +84,20 @@ class TOOLBOX_API Timer {
     void swap(Timer& rhs) noexcept { impl_.swap(rhs.impl_); }
     void cancel() noexcept;
 
+    std::partial_ordering operator<=>(const Timer& rhs) const
+    {
+        if (!*this || !rhs) {
+            return std::partial_ordering::unordered;
+        }
+        return id() <=> rhs.id();
+    }
+
   private:
     void set_expiry(MonoTime expiry) noexcept { impl_->expiry = expiry; }
     TimerSlot& slot() noexcept { return impl_->slot; }
 
     boost::intrusive_ptr<Timer::Impl> impl_;
 };
-
-/// Equal to.
-inline bool operator==(const Timer& lhs, const Timer& rhs) noexcept
-{
-    return lhs.id() == rhs.id();
-}
-
-/// Not equal to.
-inline bool operator!=(const Timer& lhs, const Timer& rhs) noexcept
-{
-    return lhs.id() != rhs.id();
-}
-
-/// Less than.
-inline bool operator<(const Timer& lhs, const Timer& rhs) noexcept
-{
-    return lhs.id() < rhs.id();
-}
-
-/// Greater than.
-inline bool operator>(const Timer& lhs, const Timer& rhs) noexcept
-{
-    return lhs.id() > rhs.id();
-}
-
-/// Less than or equal to.
-inline bool operator<=(const Timer& lhs, const Timer& rhs) noexcept
-{
-    return lhs.id() <= rhs.id();
-}
-
-/// Greater than or equal to.
-inline bool operator>=(const Timer& lhs, const Timer& rhs) noexcept
-{
-    return lhs.id() >= rhs.id();
-}
 
 class TOOLBOX_API TimerPool {
     using SlabPtr = std::unique_ptr<Timer::Impl[]>;
