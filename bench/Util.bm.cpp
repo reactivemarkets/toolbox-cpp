@@ -190,7 +190,7 @@ TOOLBOX_BENCHMARK(dec_digits_less)
 TOOLBOX_BENCHMARK(hex_digits)
 {
     while (ctx) {
-        for (auto i : ctx.range(10000)) {
+        for (unsigned i : ctx.range(10000)) {
             auto x = util::hex_digits(i);
             bm::do_not_optimise(x);
         }
@@ -200,7 +200,7 @@ TOOLBOX_BENCHMARK(hex_digits)
 TOOLBOX_BENCHMARK(hex_digits_bitshift)
 {
     while (ctx) {
-        for (auto i : ctx.range(10000)) {
+        for (unsigned i : ctx.range(10000)) {
             auto x = ::hex_digits_bitshift(i);
             bm::do_not_optimise(x);
         }

@@ -20,7 +20,6 @@
 #include "util/Alarm.hpp"
 #include "util/Argv.hpp"
 #include "util/Array.hpp"
-#include "util/Bits.hpp"
 #include "util/Config.hpp"
 #include "util/Enum.hpp"
 #include "util/Exception.hpp"
