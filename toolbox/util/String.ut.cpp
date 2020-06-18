@@ -18,6 +18,8 @@
 
 #include <boost/test/unit_test.hpp>
 
+#include <filesystem>
+
 namespace std {
 template <typename T, typename U>
 ostream& operator<<(ostream& os, const pair<T, U>& p)
@@ -352,6 +354,16 @@ BOOST_AUTO_TEST_CASE(MakeStringCase)
 {
     auto res = make_string(1, 1.2, "foo");
     BOOST_TEST(res == "11.2foo");
+}
+
+BOOST_AUTO_TEST_CASE(FromString)
+{
+    BOOST_TEST(from_string<int>("42") == 42);
+    BOOST_TEST(from_string<std::string>("42") == "42");
+    BOOST_TEST(from_string<std::string>("42"sv) == "42");
+    BOOST_TEST(from_string<std::filesystem::path>("/toolbox") == std::filesystem::path("/toolbox"));
+    BOOST_TEST(from_string<std::filesystem::path>("/toolbox"sv)
+               == std::filesystem::path("/toolbox"));
 }
 
 BOOST_AUTO_TEST_SUITE_END()

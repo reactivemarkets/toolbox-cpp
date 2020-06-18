@@ -109,7 +109,6 @@ set(lib_SOURCES
   util/MemAlloc.cpp
   util/Options.cpp
   util/Options.cpp
-  util/Path.cpp
   util/RingBuffer.cpp
   util/RobinHood.cpp
   util/Ryu.cpp
@@ -241,7 +240,6 @@ set(test_SOURCES
   util/Math.ut.cpp
   util/MemAlloc.ut.cpp
   util/Options.ut.cpp
-  util/Path.ut.cpp
   util/RefCount.ut.cpp
   util/RingBuffer.ut.cpp
   util/Ryu.ut.cpp
