@@ -220,7 +220,7 @@ template <typename... ArgsT>
 std::string make_string(ArgsT&&... args)
 {
     std::stringstream os;
-    ([&os](auto&& arg) { os << arg; }(args), ...);
+    (os << ... << args);
     return os.str();
 }
 } // namespace util
