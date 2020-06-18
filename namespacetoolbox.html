@@ -1083,9 +1083,6 @@ Functions</h2></td></tr>
 <tr class="memitem:ab087d75dc13af66e514617e46fe17b10"><td class="memTemplParams" colspan="2">template&lt;typename ValueT , std::size_t SizeN&gt; </td></tr>
 <tr class="memitem:ab087d75dc13af66e514617e46fe17b10"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classtoolbox_1_1util_1_1ArrayView.html">ArrayView</a>&lt; std::remove_cv_t&lt; ValueT &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#ab087d75dc13af66e514617e46fe17b10">make_array_view</a> (ValueT(&amp;arr)[SizeN]) noexcept</td></tr>
 <tr class="separator:ab087d75dc13af66e514617e46fe17b10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bcb7067e97cd9ffcce933f0a1e48f6f"><td class="memTemplParams" colspan="2">template&lt;typename IntegerT &gt; </td></tr>
-<tr class="memitem:a9bcb7067e97cd9ffcce933f0a1e48f6f"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a9bcb7067e97cd9ffcce933f0a1e48f6f">clz</a> (IntegerT i) noexcept</td></tr>
-<tr class="separator:a9bcb7067e97cd9ffcce933f0a1e48f6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08f0ec5109e6ffa43f6ff2c1e93020d7"><td class="memTemplParams" colspan="2">template&lt;typename FnT &gt; </td></tr>
 <tr class="memitem:a08f0ec5109e6ffa43f6ff2c1e93020d7"><td class="memTemplItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a08f0ec5109e6ffa43f6ff2c1e93020d7">parse_section</a> (std::istream &amp;is, FnT fn, std::string *name=nullptr)</td></tr>
 <tr class="separator:a08f0ec5109e6ffa43f6ff2c1e93020d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1315,9 +1312,9 @@ Functions</h2></td></tr>
 <tr class="separator:a84d032eb09a2e0045099762aca24abb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a629e37ae4aba1b149c9add28c0d109f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a629e37ae4aba1b149c9add28c0d109f4">dec_digits</a> (std::int64_t i) noexcept</td></tr>
 <tr class="separator:a629e37ae4aba1b149c9add28c0d109f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa94d4db4a19eac86eed316eb4076d0d8"><td class="memTemplParams" colspan="2">template&lt;typename IntegerT &gt; </td></tr>
-<tr class="memitem:aa94d4db4a19eac86eed316eb4076d0d8"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#aa94d4db4a19eac86eed316eb4076d0d8">hex_digits</a> (IntegerT i) noexcept</td></tr>
-<tr class="separator:aa94d4db4a19eac86eed316eb4076d0d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52c9c48d75ab7f8d29a5c9ea9848f729"><td class="memTemplParams" colspan="2">template&lt;typename UIntegerT , typename  = std::enable_if&lt;std::is_unsigned_v&lt;UIntegerT&gt;&gt;&gt; </td></tr>
+<tr class="memitem:a52c9c48d75ab7f8d29a5c9ea9848f729"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a52c9c48d75ab7f8d29a5c9ea9848f729">hex_digits</a> (UIntegerT i) noexcept</td></tr>
+<tr class="separator:a52c9c48d75ab7f8d29a5c9ea9848f729"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8587d74e5bd033f12c4d2ccf5ec51ad3"><td class="memTemplParams" colspan="2">template&lt;typename ValueT &gt; </td></tr>
 <tr class="memitem:a8587d74e5bd033f12c4d2ccf5ec51ad3"><td class="memTemplItemLeft" align="right" valign="top">constexpr ValueT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a8587d74e5bd033f12c4d2ccf5ec51ad3">ston</a> (std::string_view sv) noexcept</td></tr>
 <tr class="separator:a8587d74e5bd033f12c4d2ccf5ec51ad3"><td class="memSeparator" colspan="2">&#160;</td></tr>

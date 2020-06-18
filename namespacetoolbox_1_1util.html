@@ -278,9 +278,6 @@ Functions</h2></td></tr>
 <tr class="memitem:ab087d75dc13af66e514617e46fe17b10"><td class="memTemplParams" colspan="2">template&lt;typename ValueT , std::size_t SizeN&gt; </td></tr>
 <tr class="memitem:ab087d75dc13af66e514617e46fe17b10"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classtoolbox_1_1util_1_1ArrayView.html">ArrayView</a>&lt; std::remove_cv_t&lt; ValueT &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#ab087d75dc13af66e514617e46fe17b10">make_array_view</a> (ValueT(&amp;arr)[SizeN]) noexcept</td></tr>
 <tr class="separator:ab087d75dc13af66e514617e46fe17b10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bcb7067e97cd9ffcce933f0a1e48f6f"><td class="memTemplParams" colspan="2">template&lt;typename IntegerT &gt; </td></tr>
-<tr class="memitem:a9bcb7067e97cd9ffcce933f0a1e48f6f"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a9bcb7067e97cd9ffcce933f0a1e48f6f">clz</a> (IntegerT i) noexcept</td></tr>
-<tr class="separator:a9bcb7067e97cd9ffcce933f0a1e48f6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08f0ec5109e6ffa43f6ff2c1e93020d7"><td class="memTemplParams" colspan="2">template&lt;typename FnT &gt; </td></tr>
 <tr class="memitem:a08f0ec5109e6ffa43f6ff2c1e93020d7"><td class="memTemplItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a08f0ec5109e6ffa43f6ff2c1e93020d7">parse_section</a> (std::istream &amp;is, FnT fn, std::string *name=nullptr)</td></tr>
 <tr class="separator:a08f0ec5109e6ffa43f6ff2c1e93020d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -510,9 +507,9 @@ Functions</h2></td></tr>
 <tr class="separator:a84d032eb09a2e0045099762aca24abb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a629e37ae4aba1b149c9add28c0d109f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a629e37ae4aba1b149c9add28c0d109f4">dec_digits</a> (std::int64_t i) noexcept</td></tr>
 <tr class="separator:a629e37ae4aba1b149c9add28c0d109f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa94d4db4a19eac86eed316eb4076d0d8"><td class="memTemplParams" colspan="2">template&lt;typename IntegerT &gt; </td></tr>
-<tr class="memitem:aa94d4db4a19eac86eed316eb4076d0d8"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#aa94d4db4a19eac86eed316eb4076d0d8">hex_digits</a> (IntegerT i) noexcept</td></tr>
-<tr class="separator:aa94d4db4a19eac86eed316eb4076d0d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52c9c48d75ab7f8d29a5c9ea9848f729"><td class="memTemplParams" colspan="2">template&lt;typename UIntegerT , typename  = std::enable_if&lt;std::is_unsigned_v&lt;UIntegerT&gt;&gt;&gt; </td></tr>
+<tr class="memitem:a52c9c48d75ab7f8d29a5c9ea9848f729"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a52c9c48d75ab7f8d29a5c9ea9848f729">hex_digits</a> (UIntegerT i) noexcept</td></tr>
+<tr class="separator:a52c9c48d75ab7f8d29a5c9ea9848f729"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8587d74e5bd033f12c4d2ccf5ec51ad3"><td class="memTemplParams" colspan="2">template&lt;typename ValueT &gt; </td></tr>
 <tr class="memitem:a8587d74e5bd033f12c4d2ccf5ec51ad3"><td class="memTemplItemLeft" align="right" valign="top">constexpr ValueT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a8587d74e5bd033f12c4d2ccf5ec51ad3">ston</a> (std::string_view sv) noexcept</td></tr>
 <tr class="separator:a8587d74e5bd033f12c4d2ccf5ec51ad3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -910,52 +907,6 @@ template&lt;typename ValueT , std::size_t SizeN&gt; </div>
 
 </div>
 </div>
-<a id="a9bcb7067e97cd9ffcce933f0a1e48f6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9bcb7067e97cd9ffcce933f0a1e48f6f">&#9670;&nbsp;</a></span>clz()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename IntegerT &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr auto toolbox::util::clz </td>
-          <td>(</td>
-          <td class="paramtype">IntegerT&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Returns the number of leading 0-bits, starting at the most significant bit position. The result is undefined for zero values.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">ValueT</td><td>Integer type. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">i</td><td>Integer value. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>the number of leading 0-bits. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="Bits_8hpp_source.html#l00030">30</a> of file <a class="el" href="Bits_8hpp_source.html">Bits.hpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="util_2Utility_8hpp_source.html#l00064">hex_digits()</a>, and <a class="el" href="Math_8hpp_source.html#l00037">next_pow2()</a>.</p>
-
-</div>
-</div>
 <a id="a08f0ec5109e6ffa43f6ff2c1e93020d7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a08f0ec5109e6ffa43f6ff2c1e93020d7">&#9670;&nbsp;</a></span>parse_section()</h2>
 
@@ -1331,7 +1282,7 @@ template&lt;typename PolicyT &gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>true if size is a power of two. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00031">31</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00030">30</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
 </div>
 </div>
@@ -1360,7 +1311,7 @@ template&lt;typename PolicyT &gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the next power of two. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00037">37</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00036">36</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="RingBuffer_8hpp_source.html#l00030">toolbox::util::RingBuffer&lt; ValueT &gt;::RingBuffer()</a>.</p>
 
@@ -1391,7 +1342,7 @@ template&lt;typename PolicyT &gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the next power of two. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00044">44</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00042">42</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
 </div>
 </div>
@@ -1421,7 +1372,7 @@ template&lt;int BitsN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00051">51</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00048">48</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
 </div>
 </div>
@@ -1449,9 +1400,9 @@ template&lt;int BitsN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00110">110</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00107">107</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Math_8hpp_source.html#l00120">stdev()</a>, and <a class="el" href="Options_8hpp_source.html#l00068">toolbox::util::Value::Value()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Math_8hpp_source.html#l00117">stdev()</a>, and <a class="el" href="Options_8hpp_source.html#l00068">toolbox::util::Value::Value()</a>.</p>
 
 </div>
 </div>
@@ -1479,9 +1430,9 @@ template&lt;int BitsN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00115">115</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00112">112</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Math_8hpp_source.html#l00125">stdevp()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Math_8hpp_source.html#l00122">stdevp()</a>.</p>
 
 </div>
 </div>
@@ -1509,7 +1460,7 @@ template&lt;int BitsN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00120">120</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00117">117</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
 </div>
 </div>
@@ -1537,7 +1488,7 @@ template&lt;int BitsN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00125">125</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00122">122</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
 </div>
 </div>
@@ -1581,7 +1532,7 @@ template&lt;int BitsN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00130">130</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00127">127</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
 </div>
 </div>
@@ -1619,7 +1570,7 @@ template&lt;int BitsN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00135">135</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00132">132</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
 </div>
 </div>
@@ -1657,7 +1608,7 @@ template&lt;int BitsN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00141">141</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00138">138</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
 </div>
 </div>
@@ -1695,7 +1646,7 @@ template&lt;int BitsN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00147">147</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00144">144</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
 </div>
 </div>
@@ -1734,7 +1685,7 @@ template&lt;int BitsN&gt; </div>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>the ceiling of dividend / divisor. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00154">154</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Math_8hpp_source.html#l00151">151</a> of file <a class="el" href="Math_8hpp_source.html">Math.hpp</a>.</p>
 
 </div>
 </div>
@@ -3539,7 +3490,7 @@ template&lt;typename... TagsT, typename... ValuesT&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="Struct_8hpp_source.html#l00098">98</a> of file <a class="el" href="Struct_8hpp_source.html">Struct.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="MemAlloc_8cpp_source.html#l00028">alloc()</a>, <a class="el" href="Math_8hpp_source.html#l00051">ceil_pow2()</a>, <a class="el" href="MemAlloc_8cpp_source.html#l00038">dealloc()</a>, <a class="el" href="MemAlloc_8hpp_source.html#l00035">toolbox::util::MemAlloc::operator delete()</a>, and <a class="el" href="MemAlloc_8hpp_source.html#l00033">toolbox::util::MemAlloc::operator new()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="MemAlloc_8cpp_source.html#l00028">alloc()</a>, <a class="el" href="Math_8hpp_source.html#l00048">ceil_pow2()</a>, <a class="el" href="MemAlloc_8cpp_source.html#l00038">dealloc()</a>, <a class="el" href="MemAlloc_8hpp_source.html#l00035">toolbox::util::MemAlloc::operator delete()</a>, and <a class="el" href="MemAlloc_8hpp_source.html#l00033">toolbox::util::MemAlloc::operator new()</a>.</p>
 
 </div>
 </div>
@@ -3902,7 +3853,7 @@ template&lt;typename TupleT , typename FnT , std::size_t IndexN = 0&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="util_2Utility_8cpp_source.html#l00101">101</a> of file <a class="el" href="util_2Utility_8cpp_source.html">Utility.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="TypeTraits_8hpp_source.html#l00056">toolbox::util::TypeTraits&lt; double &gt;::from_string()</a>, and <a class="el" href="util_2Utility_8hpp_source.html#l00078">ston()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="TypeTraits_8hpp_source.html#l00056">toolbox::util::TypeTraits&lt; double &gt;::from_string()</a>, and <a class="el" href="util_2Utility_8hpp_source.html#l00074">ston()</a>.</p>
 
 </div>
 </div>
@@ -3932,7 +3883,7 @@ template&lt;typename ValueT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8hpp_source.html#l00039">39</a> of file <a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8hpp_source.html#l00035">35</a> of file <a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
 
 </div>
 </div>
@@ -3960,9 +3911,9 @@ template&lt;typename ValueT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8hpp_source.html#l00044">44</a> of file <a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8hpp_source.html#l00040">40</a> of file <a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="util_2Utility_8hpp_source.html#l00078">ston()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="util_2Utility_8hpp_source.html#l00074">ston()</a>.</p>
 
 </div>
 </div>
@@ -4001,13 +3952,13 @@ template&lt;typename ValueT &gt; </div>
 
 </div>
 </div>
-<a id="aa94d4db4a19eac86eed316eb4076d0d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa94d4db4a19eac86eed316eb4076d0d8">&#9670;&nbsp;</a></span>hex_digits()</h2>
+<a id="a52c9c48d75ab7f8d29a5c9ea9848f729"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52c9c48d75ab7f8d29a5c9ea9848f729">&#9670;&nbsp;</a></span>hex_digits()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename IntegerT &gt; </div>
+template&lt;typename UIntegerT , typename  = std::enable_if&lt;std::is_unsigned_v&lt;UIntegerT&gt;&gt;&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -4015,7 +3966,7 @@ template&lt;typename IntegerT &gt; </div>
         <tr>
           <td class="memname">constexpr int toolbox::util::hex_digits </td>
           <td>(</td>
-          <td class="paramtype">IntegerT&#160;</td>
+          <td class="paramtype">UIntegerT&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
           <td></td>
         </tr>
@@ -4042,7 +3993,7 @@ template&lt;typename IntegerT &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>the number of hexadecimal digits. </dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>consider adding support for negative integers. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8hpp_source.html#l00064">64</a> of file <a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8hpp_source.html#l00060">60</a> of file <a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
 
 </div>
 </div>
@@ -4072,7 +4023,7 @@ template&lt;typename ValueT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8hpp_source.html#l00078">78</a> of file <a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8hpp_source.html#l00074">74</a> of file <a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
 
 </div>
 </div>
