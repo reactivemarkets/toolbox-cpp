@@ -118,7 +118,6 @@ set(lib_SOURCES
   util/Struct.cpp
   util/Tokeniser.cpp
   util/Traits.cpp
-  util/Tuple.cpp
   util/TypeTraits.cpp
   util/Utility.cpp
   util/VarSub.cpp
@@ -249,7 +248,6 @@ set(test_SOURCES
   util/Struct.ut.cpp
   util/Tokeniser.ut.cpp
   util/Traits.ut.cpp
-  util/Tuple.ut.cpp
   util/Utility.ut.cpp
   util/VarSub.ut.cpp
   util/Version.ut.cpp)

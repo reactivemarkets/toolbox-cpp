@@ -39,7 +39,6 @@
 #include "util/Struct.hpp"
 #include "util/Tokeniser.hpp"
 #include "util/Traits.hpp"
-#include "util/Tuple.hpp"
 #include "util/TypeTraits.hpp"
 #include "util/Utility.hpp"
 #include "util/VarSub.hpp"
