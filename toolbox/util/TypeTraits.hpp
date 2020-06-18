@@ -24,8 +24,14 @@
 namespace toolbox {
 inline namespace util {
 
-template <typename ValueT, typename EnableT = void>
-struct TypeTraits;
+template <typename ValueT, typename Enable = void>
+struct TypeTraits {
+    template <typename StringT>
+    static constexpr auto from_string(StringT&& s) noexcept(noexcept(ValueT{s}))
+    {
+        return ValueT{s};
+    }
+};
 
 template <typename ValueT>
 struct TypeTraits<ValueT, std::enable_if_t<std::is_integral_v<ValueT>>> {
@@ -64,8 +70,8 @@ struct TypeTraits<std::string_view> {
 
 template <>
 struct TypeTraits<std::string> {
-    static std::string from_string(std::string_view sv) noexcept { return {sv.data(), sv.size()}; }
-    static std::string from_string(const std::string& s) noexcept { return s; }
+    static std::string from_string(std::string_view sv) { return {sv.data(), sv.size()}; }
+    static std::string from_string(const std::string& s) { return s; }
 };
 
 template <typename TypeT>
