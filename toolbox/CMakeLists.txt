@@ -99,7 +99,6 @@ set(lib_SOURCES
   util/Alarm.cpp
   util/Argv.cpp
   util/Array.cpp
-  util/Bits.cpp
   util/Config.cpp
   util/Enum.cpp
   util/Exception.cpp

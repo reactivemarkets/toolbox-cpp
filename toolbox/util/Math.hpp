@@ -17,11 +17,10 @@
 #ifndef TOOLBOX_UTIL_MATH_HPP
 #define TOOLBOX_UTIL_MATH_HPP
 
-#include <toolbox/util/Bits.hpp>
-
 #include <toolbox/Config.h>
 
 #include <algorithm>
+#include <bit>
 #include <cmath>
 
 namespace toolbox {
@@ -36,15 +35,13 @@ constexpr bool is_pow2(std::size_t n) noexcept
 /// \return the next power of two.
 inline unsigned next_pow2(unsigned n) noexcept
 {
-    // The result of clz is undefined for zero values.
-    return n <= 1 ? 1 : 1 << (sizeof(n) * 8 - clz(n - 1));
+    return n <= 1 ? 1 : 1 << (sizeof(n) * 8 - std::countl_zero(n - 1));
 }
 
 /// \return the next power of two.
 inline unsigned long next_pow2(unsigned long n) noexcept
 {
-    // The result of clz is undefined for zero values.
-    return n <= 1 ? 1 : 1 << (sizeof(n) * 8 - clz(n - 1));
+    return n <= 1 ? 1 : 1 << (sizeof(n) * 8 - std::countl_zero(n - 1));
 }
 
 template <int BitsN>

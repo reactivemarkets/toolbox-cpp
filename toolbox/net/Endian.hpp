@@ -19,6 +19,7 @@
 
 #include <toolbox/Config.h>
 
+#include <bit>
 #include <cstdint>
 #include <type_traits>
 
@@ -56,65 +57,48 @@ constexpr std::int64_t bswap(std::int64_t n) noexcept
     return bswap(static_cast<std::uint64_t>(n));
 }
 
-#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
-
 template <typename ValueT, typename = std::enable_if_t<std::is_integral_v<ValueT>>>
 constexpr ValueT ntoh(ValueT n) noexcept
 {
-    return bswap(n);
+    if constexpr (std::endian::native == std::endian::little) {
+        return bswap(n);
+    } else {
+        return n;
+    }
 }
 
 template <typename ValueT, typename = std::enable_if_t<std::is_integral_v<ValueT>>>
 constexpr ValueT hton(ValueT n) noexcept
 {
-    return bswap(n);
+    if constexpr (std::endian::native == std::endian::little) {
+        return bswap(n);
+    } else {
+        return n;
+    }
 }
-
-// Little-endian variants.
 
 template <typename ValueT, typename = std::enable_if_t<std::is_integral_v<ValueT>>>
 constexpr ValueT ltoh(ValueT n) noexcept
 {
-    return n;
+    if constexpr (std::endian::native == std::endian::little) {
+        return n;
+    } else {
+        return bswap(n);
+    }
 }
 
 template <typename ValueT, typename = std::enable_if_t<std::is_integral_v<ValueT>>>
 constexpr ValueT htol(ValueT n) noexcept
 {
-    return n;
+    if constexpr (std::endian::native == std::endian::little) {
+        return n;
+    } else {
+        return bswap(n);
+    }
 }
-
-#elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
-
-template <typename ValueT, typename = std::enable_if_t<std::is_integral_v<ValueT>>>
-constexpr ValueT ntoh(ValueT n) noexcept
-{
-    return n;
-}
-
-template <typename ValueT, typename = std::enable_if_t<std::is_integral_v<ValueT>>>
-constexpr ValueT hton(ValueT n) noexcept
-{
-    return n;
-}
-
-// Little-endian variants.
-
-template <typename ValueT, typename = std::enable_if_t<std::is_integral_v<ValueT>>>
-constexpr ValueT ltoh(ValueT n) noexcept
-{
-    return bswap(n);
-}
-
-template <typename ValueT, typename = std::enable_if_t<std::is_integral_v<ValueT>>>
-constexpr ValueT htol(ValueT n) noexcept
-{
-    return bswap(n);
-}
-
-#else
-#error "__BYTE_ORDER__ not defined"
-#endif
+// Prevent corner case if mixed platform would use htol of big endian
+static_assert(std::endian::native == std::endian::little || std::endian::native == std::endian::big,
+              "Mixed endianness platforms are not supported");
 
 } // namespace net
 } // namespace toolbox

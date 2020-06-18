@@ -17,19 +17,15 @@
 #ifndef TOOLBOX_UTIL_UTILITY_HPP
 #define TOOLBOX_UTIL_UTILITY_HPP
 
-#include <toolbox/util/Bits.hpp>
-
 #include <toolbox/Config.h>
 
+#include <bit>
 #include <cstdint>
 #include <string_view>
 #include <type_traits>
 
 namespace toolbox {
 inline namespace util {
-
-static_assert(clz(std::int32_t{1}) == 31);
-static_assert(clz(std::int64_t{1}) == 63);
 
 template <typename T>
 struct AlwaysFalse : std::false_type {
@@ -60,16 +56,16 @@ TOOLBOX_API int dec_digits(std::int64_t i) noexcept;
 /// \param i Integer value.
 /// \return the number of hexadecimal digits.
 /// \todo consider adding support for negative integers.
-template <typename IntegerT>
-constexpr int hex_digits(IntegerT i) noexcept
+template <typename UIntegerT, typename = std::enable_if<std::is_unsigned_v<UIntegerT>>>
+constexpr int hex_digits(UIntegerT i) noexcept
 {
     constexpr auto Bits = sizeof(i) * 8;
-    return 1 + ((Bits - clz(i | 1) - 1) >> 2);
+    return 1 + ((Bits - std::countl_zero(i | 1) - 1) >> 2);
 }
 
-static_assert(hex_digits(0x0) == 1);
-static_assert(hex_digits(0x1) == 1);
-static_assert(hex_digits(std::int64_t{0xffffffffffff}) == 12);
+static_assert(hex_digits(0x0u) == 1);
+static_assert(hex_digits(0x1u) == 1);
+static_assert(hex_digits(std::uint64_t{0xffffffffffff}) == 12);
 
 TOOLBOX_API bool stob(std::string_view sv, bool dfl = false) noexcept;
 TOOLBOX_API double stod(std::string_view sv) noexcept;
