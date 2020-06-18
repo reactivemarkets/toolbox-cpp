@@ -192,8 +192,6 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1TypeTraits_3_01net_1_1RateLimit_01_4.html">TypeTraits&lt; net::RateLimit &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1TypeTraits_3_01Path_01_4.html">TypeTraits&lt; Path &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1TypeTraits_3_01std_1_1chrono_1_1duration_3_01RepT_00_01PeriodT_01_4_01_4.html">TypeTraits&lt; std::chrono::duration&lt; RepT, PeriodT &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1TypeTraits_3_01std_1_1string_01_4.html">TypeTraits&lt; std::string &gt;</a></td></tr>
@@ -239,8 +237,6 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a28d032cfe7fdd88ce36331647850c7df"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a28d032cfe7fdd88ce36331647850c7df">Id64</a> = <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html">IntWrapper</a>&lt; <a class="el" href="structtoolbox_1_1util_1_1Id64Policy.html">Id64Policy</a> &gt;</td></tr>
 <tr class="memdesc:a28d032cfe7fdd88ce36331647850c7df"><td class="mdescLeft">&#160;</td><td class="mdescRight">64 bit identifier.  <a href="namespacetoolbox_1_1util.html#a28d032cfe7fdd88ce36331647850c7df">More...</a><br /></td></tr>
 <tr class="separator:a28d032cfe7fdd88ce36331647850c7df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a857c644a8f7c5da3b706ef0bb7a6d7ea"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a857c644a8f7c5da3b706ef0bb7a6d7ea">Path</a> = std::experimental::filesystem::path</td></tr>
-<tr class="separator:a857c644a8f7c5da3b706ef0bb7a6d7ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4cde9cad0331618c0bd6b022bdf23a82"><td class="memTemplParams" colspan="2">template&lt;typename KeyT &gt; </td></tr>
 <tr class="memitem:a4cde9cad0331618c0bd6b022bdf23a82"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a4cde9cad0331618c0bd6b022bdf23a82">RobinHash</a> = robin_hood::hash&lt; KeyT &gt;</td></tr>
 <tr class="memdesc:a4cde9cad0331618c0bd6b022bdf23a82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Robin Hood hash function template.  <a href="namespacetoolbox_1_1util.html#a4cde9cad0331618c0bd6b022bdf23a82">More...</a><br /></td></tr>
@@ -665,22 +661,6 @@ Variables</h2></td></tr>
 <p>64 bit identifier. </p>
 
 <p class="definition">Definition at line <a class="el" href="IntTypes_8hpp_source.html#l00298">298</a> of file <a class="el" href="IntTypes_8hpp_source.html">IntTypes.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a857c644a8f7c5da3b706ef0bb7a6d7ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a857c644a8f7c5da3b706ef0bb7a6d7ea">&#9670;&nbsp;</a></span>Path</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespacetoolbox_1_1util.html#a857c644a8f7c5da3b706ef0bb7a6d7ea">toolbox::util::Path</a> = typedef std::experimental::filesystem::path</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Path_8hpp_source.html#l00026">26</a> of file <a class="el" href="Path_8hpp_source.html">Path.hpp</a>.</p>
 
 </div>
 </div>
@@ -2721,8 +2701,6 @@ template&lt;typename ValueT &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00032">32</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="TypeTraits_8hpp_source.html#l00033">toolbox::util::TypeTraits&lt; ValueT, std::enable_if_t&lt; std::is_integral_v&lt; ValueT &gt; &gt; &gt;::from_string()</a>, <a class="el" href="TypeTraits_8hpp_source.html#l00042">toolbox::util::TypeTraits&lt; bool &gt;::from_string()</a>, <a class="el" href="TypeTraits_8hpp_source.html#l00051">toolbox::util::TypeTraits&lt; double &gt;::from_string()</a>, and <a class="el" href="Version_8hpp_source.html#l00070">toolbox::util::TypeTraits&lt; Version &gt;::from_string()</a>.</p>
-
 </div>
 </div>
 <a id="ace6bc6ae4170a26ad856ae13e8289dbd"></a>
@@ -3894,7 +3872,7 @@ template&lt;typename TupleT , typename FnT , std::size_t IndexN = 0&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="util_2Utility_8cpp_source.html#l00038">38</a> of file <a class="el" href="util_2Utility_8cpp_source.html">Utility.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="TypeTraits_8hpp_source.html#l00041">toolbox::util::TypeTraits&lt; bool &gt;::from_string()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="TypeTraits_8hpp_source.html#l00047">toolbox::util::TypeTraits&lt; bool &gt;::from_string()</a>.</p>
 
 </div>
 </div>
@@ -3924,7 +3902,7 @@ template&lt;typename TupleT , typename FnT , std::size_t IndexN = 0&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="util_2Utility_8cpp_source.html#l00101">101</a> of file <a class="el" href="util_2Utility_8cpp_source.html">Utility.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="TypeTraits_8hpp_source.html#l00050">toolbox::util::TypeTraits&lt; double &gt;::from_string()</a>, and <a class="el" href="util_2Utility_8hpp_source.html#l00078">ston()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="TypeTraits_8hpp_source.html#l00056">toolbox::util::TypeTraits&lt; double &gt;::from_string()</a>, and <a class="el" href="util_2Utility_8hpp_source.html#l00078">ston()</a>.</p>
 
 </div>
 </div>

@@ -76,14 +76,16 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="String_8hpp_source.html">String.hpp</a>&quot;</code><br />
 <code>#include &lt;boost/test/unit_test.hpp&gt;</code><br />
+<code>#include &lt;filesystem&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for String.ut.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="String_8ut_8cpp__incl.png" border="0" usemap="#toolbox_2util_2String_8ut_8cpp" alt=""/></div>
 <map name="toolbox_2util_2String_8ut_8cpp" id="toolbox_2util_2String_8ut_8cpp">
-<area shape="rect" title=" " alt="" coords="633,5,816,32"/>
+<area shape="rect" title=" " alt="" coords="712,5,895,32"/>
 <area shape="rect" href="String_8hpp.html" title=" " alt="" coords="603,80,691,107"/>
 <area shape="rect" title=" " alt="" coords="715,80,891,107"/>
+<area shape="rect" title=" " alt="" coords="915,80,1006,107"/>
 <area shape="rect" href="TypeTraits_8hpp.html" title=" " alt="" coords="340,155,533,181"/>
 <area shape="rect" title=" " alt="" coords="557,155,639,181"/>
 <area shape="rect" title=" " alt="" coords="663,155,730,181"/>
@@ -127,6 +129,8 @@ Functions</h2></td></tr>
 <tr class="separator:a43d0213ced7241fb9eab1e282e841333"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ed0cec46a96b596ce7ae8b597d99c4a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="String_8ut_8cpp.html#a6ed0cec46a96b596ce7ae8b597d99c4a">BOOST_AUTO_TEST_CASE</a> (MakeStringCase)</td></tr>
 <tr class="separator:a6ed0cec46a96b596ce7ae8b597d99c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0400038839818a48aeb6054ba3292205"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="String_8ut_8cpp.html#a0400038839818a48aeb6054ba3292205">BOOST_AUTO_TEST_CASE</a> (FromString)</td></tr>
+<tr class="separator:a0400038839818a48aeb6054ba3292205"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a3f2604e1d51e6184e6aac8625053a579"></a>
@@ -162,7 +166,7 @@ template&lt;typename T , typename U &gt; </div>
 </div>
 </div>
 <a id="a6b88fa27c5fd1c50796359a0c61ba335"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b88fa27c5fd1c50796359a0c61ba335">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[1/11]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b88fa27c5fd1c50796359a0c61ba335">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[1/12]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -177,12 +181,12 @@ template&lt;typename T , typename U &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8ut_8cpp_source.html#l00034">34</a> of file <a class="el" href="String_8ut_8cpp_source.html">String.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8ut_8cpp_source.html#l00036">36</a> of file <a class="el" href="String_8ut_8cpp_source.html">String.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a7a8c8153491f691725e61e1b0e451a80"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a8c8153491f691725e61e1b0e451a80">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[2/11]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a8c8153491f691725e61e1b0e451a80">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[2/12]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -197,12 +201,12 @@ template&lt;typename T , typename U &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8ut_8cpp_source.html#l00049">49</a> of file <a class="el" href="String_8ut_8cpp_source.html">String.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8ut_8cpp_source.html#l00051">51</a> of file <a class="el" href="String_8ut_8cpp_source.html">String.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a555dbd47e331cf66aaff3786bed1fdde"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a555dbd47e331cf66aaff3786bed1fdde">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[3/11]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a555dbd47e331cf66aaff3786bed1fdde">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[3/12]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -217,12 +221,12 @@ template&lt;typename T , typename U &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8ut_8cpp_source.html#l00056">56</a> of file <a class="el" href="String_8ut_8cpp_source.html">String.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8ut_8cpp_source.html#l00058">58</a> of file <a class="el" href="String_8ut_8cpp_source.html">String.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a22084d3b35f159944b07ebb455db8ff1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22084d3b35f159944b07ebb455db8ff1">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[4/11]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a22084d3b35f159944b07ebb455db8ff1">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[4/12]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -237,12 +241,12 @@ template&lt;typename T , typename U &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8ut_8cpp_source.html#l00098">98</a> of file <a class="el" href="String_8ut_8cpp_source.html">String.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8ut_8cpp_source.html#l00100">100</a> of file <a class="el" href="String_8ut_8cpp_source.html">String.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a26c742d75b9eba32ab110154724f8caf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26c742d75b9eba32ab110154724f8caf">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[5/11]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a26c742d75b9eba32ab110154724f8caf">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[5/12]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -257,12 +261,12 @@ template&lt;typename T , typename U &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8ut_8cpp_source.html#l00111">111</a> of file <a class="el" href="String_8ut_8cpp_source.html">String.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8ut_8cpp_source.html#l00113">113</a> of file <a class="el" href="String_8ut_8cpp_source.html">String.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a418b3774130c1d1da0e501647ca812bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a418b3774130c1d1da0e501647ca812bb">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[6/11]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a418b3774130c1d1da0e501647ca812bb">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[6/12]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -277,12 +281,12 @@ template&lt;typename T , typename U &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8ut_8cpp_source.html#l00124">124</a> of file <a class="el" href="String_8ut_8cpp_source.html">String.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8ut_8cpp_source.html#l00126">126</a> of file <a class="el" href="String_8ut_8cpp_source.html">String.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a4461d494827d89dc88652e8871176f0d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4461d494827d89dc88652e8871176f0d">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[7/11]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4461d494827d89dc88652e8871176f0d">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[7/12]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -297,12 +301,12 @@ template&lt;typename T , typename U &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8ut_8cpp_source.html#l00137">137</a> of file <a class="el" href="String_8ut_8cpp_source.html">String.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8ut_8cpp_source.html#l00139">139</a> of file <a class="el" href="String_8ut_8cpp_source.html">String.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a244120549daf407af97cb67388dd1ac6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a244120549daf407af97cb67388dd1ac6">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[8/11]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a244120549daf407af97cb67388dd1ac6">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[8/12]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -317,12 +321,12 @@ template&lt;typename T , typename U &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8ut_8cpp_source.html#l00158">158</a> of file <a class="el" href="String_8ut_8cpp_source.html">String.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8ut_8cpp_source.html#l00160">160</a> of file <a class="el" href="String_8ut_8cpp_source.html">String.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a21a29b89fbeb0c18f519c1b488a4abdc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21a29b89fbeb0c18f519c1b488a4abdc">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[9/11]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a21a29b89fbeb0c18f519c1b488a4abdc">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[9/12]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -337,12 +341,12 @@ template&lt;typename T , typename U &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8ut_8cpp_source.html#l00171">171</a> of file <a class="el" href="String_8ut_8cpp_source.html">String.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8ut_8cpp_source.html#l00173">173</a> of file <a class="el" href="String_8ut_8cpp_source.html">String.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a43d0213ced7241fb9eab1e282e841333"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43d0213ced7241fb9eab1e282e841333">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[10/11]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a43d0213ced7241fb9eab1e282e841333">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[10/12]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -357,12 +361,12 @@ template&lt;typename T , typename U &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8ut_8cpp_source.html#l00273">273</a> of file <a class="el" href="String_8ut_8cpp_source.html">String.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8ut_8cpp_source.html#l00275">275</a> of file <a class="el" href="String_8ut_8cpp_source.html">String.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a6ed0cec46a96b596ce7ae8b597d99c4a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ed0cec46a96b596ce7ae8b597d99c4a">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[11/11]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ed0cec46a96b596ce7ae8b597d99c4a">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[11/12]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -377,7 +381,27 @@ template&lt;typename T , typename U &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8ut_8cpp_source.html#l00351">351</a> of file <a class="el" href="String_8ut_8cpp_source.html">String.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8ut_8cpp_source.html#l00353">353</a> of file <a class="el" href="String_8ut_8cpp_source.html">String.ut.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a0400038839818a48aeb6054ba3292205"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0400038839818a48aeb6054ba3292205">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[12/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOST_AUTO_TEST_CASE </td>
+          <td>(</td>
+          <td class="paramtype">FromString&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="String_8ut_8cpp_source.html#l00359">359</a> of file <a class="el" href="String_8ut_8cpp_source.html">String.ut.cpp</a>.</p>
 
 </div>
 </div>

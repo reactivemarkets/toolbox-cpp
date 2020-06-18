@@ -54,6 +54,6 @@ var searchData=
   ['options_2eut_2ecpp_619',['Options.ut.cpp',['../Options_8ut_8cpp.html',1,'']]],
   ['ostreamjoiner_620',['OStreamJoiner',['../namespacetoolbox_1_1util.html#a33f065adac243948f57cc49a55bbf348',1,'toolbox::OStreamJoiner()'],['../namespacetoolbox_1_1util.html#a33f065adac243948f57cc49a55bbf348',1,'toolbox::util::OStreamJoiner()']]],
   ['overflow_621',['overflow',['../classtoolbox_1_1http_1_1HttpBuf.html#a188679daeae8a6ca46e2599e7c4e8d7d',1,'toolbox::http::HttpBuf']]],
-  ['overloaded_622',['overloaded',['../structtoolbox_1_1util_1_1overloaded.html',1,'toolbox::util::overloaded&lt; Ts &gt;'],['../structtoolbox_1_1util_1_1overloaded.html',1,'toolbox::util::overloaded&lt; Ts &gt;'],['../namespacetoolbox_1_1util.html#a31e9fdbc12830f22df41030b2bc053a5',1,'toolbox::overloaded()'],['../namespacetoolbox_1_1util.html#a31e9fdbc12830f22df41030b2bc053a5',1,'toolbox::util::overloaded()']]],
+  ['overloaded_622',['overloaded',['../structtoolbox_1_1util_1_1overloaded.html',1,'toolbox::util::overloaded&lt; Ts &gt;'],['../structtoolbox_1_1util_1_1overloaded.html',1,'toolbox::util::overloaded&lt; Ts &gt;'],['../namespacetoolbox_1_1util.html#a31e9fdbc12830f22df41030b2bc053a5',1,'toolbox::overloaded(Ts...) -&gt; overloaded&lt; Ts... &gt;'],['../namespacetoolbox_1_1util.html#a31e9fdbc12830f22df41030b2bc053a5',1,'toolbox::util::overloaded()']]],
   ['string_5fview_623',['string_view',['../classtoolbox_1_1util_1_1StaticStream.html#a7e10bed8e9dcf7d88114b5b0426def7a',1,'toolbox::util::StaticStream']]]
 ];
