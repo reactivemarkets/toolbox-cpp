@@ -488,12 +488,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a8192541393d05b1e645312ede67cf8b8"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
 <tr class="memitem:a8192541393d05b1e645312ede67cf8b8"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a8192541393d05b1e645312ede67cf8b8">split</a> (std::string_view line, std::string_view delims, <a class="el" href="namespacetoolbox_1_1util.html#a97cd5976030ed2920933832609f7bacd">Row</a>&lt; N &gt; &amp;row) noexcept</td></tr>
 <tr class="separator:a8192541393d05b1e645312ede67cf8b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a345d50ecff0805152e214958782bfdb3"><td class="memTemplParams" colspan="2">template&lt;std::size_t IndexN, typename TupleT , typename FnT &gt; </td></tr>
-<tr class="memitem:a345d50ecff0805152e214958782bfdb3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a345d50ecff0805152e214958782bfdb3">tuple_apply</a> (const TupleT &amp;tpl, const FnT &amp;f)</td></tr>
-<tr class="separator:a345d50ecff0805152e214958782bfdb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6104a08b52fd4b25c4b00752f49d8d23"><td class="memTemplParams" colspan="2">template&lt;typename TupleT , typename FnT , std::size_t IndexN = 0&gt; </td></tr>
-<tr class="memitem:a6104a08b52fd4b25c4b00752f49d8d23"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a6104a08b52fd4b25c4b00752f49d8d23">tuple_for_each</a> (const TupleT &amp;tpl, const FnT &amp;f)</td></tr>
-<tr class="separator:a6104a08b52fd4b25c4b00752f49d8d23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affc0ec0df766315cbe39425ee6b68de6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#affc0ec0df766315cbe39425ee6b68de6">dec_digits</a> (int64_t i) noexcept</td></tr>
 <tr class="separator:affc0ec0df766315cbe39425ee6b68de6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02971d2bfcfc734253cafd92a59302ed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a02971d2bfcfc734253cafd92a59302ed">stob</a> (string_view sv, bool dfl) noexcept</td></tr>
@@ -3691,71 +3685,6 @@ template&lt;std::size_t N&gt; </div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="Tokeniser_8hpp_source.html#l00094">94</a> of file <a class="el" href="Tokeniser_8hpp_source.html">Tokeniser.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a345d50ecff0805152e214958782bfdb3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a345d50ecff0805152e214958782bfdb3">&#9670;&nbsp;</a></span>tuple_apply()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::size_t IndexN, typename TupleT , typename FnT &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void toolbox::util::tuple_apply </td>
-          <td>(</td>
-          <td class="paramtype">const TupleT &amp;&#160;</td>
-          <td class="paramname"><em>tpl</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const FnT &amp;&#160;</td>
-          <td class="paramname"><em>f</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Tuple_8hpp_source.html#l00027">27</a> of file <a class="el" href="Tuple_8hpp_source.html">Tuple.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a6104a08b52fd4b25c4b00752f49d8d23"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6104a08b52fd4b25c4b00752f49d8d23">&#9670;&nbsp;</a></span>tuple_for_each()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename TupleT , typename FnT , std::size_t IndexN = 0&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void toolbox::util::tuple_for_each </td>
-          <td>(</td>
-          <td class="paramtype">const TupleT &amp;&#160;</td>
-          <td class="paramname"><em>tpl</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const FnT &amp;&#160;</td>
-          <td class="paramname"><em>f</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Calling fn over each tuple element. N.B the limitation is function object must be an template lambda or function, accept all the types in the tuple. </p>
-
-<p class="definition">Definition at line <a class="el" href="Tuple_8hpp_source.html#l00037">37</a> of file <a class="el" href="Tuple_8hpp_source.html">Tuple.hpp</a>.</p>
 
 </div>
 </div>
