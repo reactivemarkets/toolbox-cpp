@@ -84,7 +84,7 @@ class TOOLBOX_API Timer {
     void swap(Timer& rhs) noexcept { impl_.swap(rhs.impl_); }
     void cancel() noexcept;
 
-    std::partial_ordering operator<=>(const Timer& rhs) const
+    std::partial_ordering operator<=>(const Timer& rhs) const noexcept
     {
         if (!*this || !rhs) {
             return std::partial_ordering::unordered;

@@ -236,7 +236,8 @@ struct TOOLBOX_PACKED IntWrapper {
     }
 
     // Comparison.
-    auto operator<=>(const IntWrapper&) const = default;
+    constexpr auto operator<=>(const IntWrapper&) const noexcept = default;
+    constexpr bool operator==(const IntWrapper&) const noexcept = default;
 
     // Stream.
 
@@ -246,6 +247,9 @@ struct TOOLBOX_PACKED IntWrapper {
   private:
     ValueType value_;
 };
+
+static_assert(IntWrapper<Int32Policy>{1} == IntWrapper<Int32Policy>{1});
+static_assert(IntWrapper<Int32Policy>{1} != IntWrapper<Int32Policy>{2});
 static_assert(std::is_standard_layout_v<
                   IntWrapper<Int32Policy>> && std::is_trivial_v<IntWrapper<Int32Policy>>);
 static_assert(sizeof(IntWrapper<Int16Policy>) == 2, "must be specific size");

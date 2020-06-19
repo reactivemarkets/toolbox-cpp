@@ -61,13 +61,6 @@ class StringBuf {
         assign(rhs.data(), rhs.size());
         return *this;
     }
-    constexpr const char* data() const noexcept { return buf_; }
-    constexpr bool empty() const noexcept { return len_ == 0; }
-    constexpr std::size_t size() const noexcept { return len_; }
-    constexpr void clear() noexcept { len_ = 0; }
-
-    void assign(std::string_view rhs) noexcept { assign(rhs.data(), rhs.size()); }
-    void append(std::string_view rhs) noexcept { append(rhs.data(), rhs.size()); }
     template <std::size_t MaxR>
     StringBuf& operator+=(const StringBuf<MaxR>& rhs) noexcept
     {
@@ -80,14 +73,21 @@ class StringBuf {
         return *this;
     }
 
-    template <typename TypeT>
-    auto operator<=>(const TypeT& rhs) const
-    {
-        return compare(rhs.data(), rhs.size());
-    };
+    constexpr const char* data() const noexcept { return buf_; }
+    constexpr bool empty() const noexcept { return len_ == 0; }
+    constexpr std::size_t size() const noexcept { return len_; }
+    constexpr void clear() noexcept { len_ = 0; }
+
+    void assign(std::string_view rhs) noexcept { assign(rhs.data(), rhs.size()); }
+    void append(std::string_view rhs) noexcept { append(rhs.data(), rhs.size()); }
 
     template <typename TypeT>
-    bool operator==(const TypeT& rhs) const
+    auto operator<=>(const TypeT& rhs) const noexcept
+    {
+        return compare(rhs.data(), rhs.size());
+    }
+    template <typename TypeT>
+    bool operator==(const TypeT& rhs) const noexcept
     {
         return size() == rhs.size() && compare(rhs.data(), rhs.size()) == 0;
     }
@@ -108,7 +108,6 @@ class StringBuf {
             len_ += rlen;
         }
     }
-
     auto compare(const char* rdata, std::size_t rlen) const noexcept
     {
         std::strong_ordering result{std::memcmp(buf_, rdata, std::min(size(), rlen)) <=> 0};
