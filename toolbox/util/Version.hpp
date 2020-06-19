@@ -43,13 +43,15 @@ struct Version {
     constexpr bool empty() const noexcept { return major == 0 && minor == 0; }
     constexpr explicit operator bool() const noexcept { return !empty(); }
 
-    auto operator<=>(const Version& rhs) const = default;
     void clear() noexcept { major = minor = 0; }
     void swap(Version& rhs) noexcept
     {
         std::swap(major, rhs.major);
         std::swap(minor, rhs.minor);
     }
+
+    constexpr auto operator<=>(const Version&) const noexcept = default;
+    constexpr bool operator==(const Version&) const noexcept = default;
 
     int major{0}, minor{0};
 };
