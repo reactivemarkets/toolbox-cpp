@@ -156,8 +156,8 @@ $(function() {
 <div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classtoolbox_1_1io_1_1Timer.html#aa317bd8095b73e0d46ec4b20ebe5231b">   84</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtoolbox_1_1io_1_1Timer.html#aa317bd8095b73e0d46ec4b20ebe5231b">swap</a>(<a class="code" href="classtoolbox_1_1io_1_1Timer.html">Timer</a>&amp; rhs) noexcept { impl_.swap(rhs.impl_); }</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> cancel() noexcept;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classtoolbox_1_1io_1_1Timer.html#a6fd119ac780ca28e29370dc6a5c1f15c">   87</a></span>&#160;    std::partial_ordering operator&lt;=&gt;(const <a class="code" href="classtoolbox_1_1io_1_1Timer.html">Timer</a>&amp; rhs)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classtoolbox_1_1io_1_1Timer.html#a1183c6c37091ee735a2e13e5eac7ab28">   87</a></span>&#160;    std::partial_ordering operator&lt;=&gt;(const <a class="code" href="classtoolbox_1_1io_1_1Timer.html">Timer</a>&amp; rhs) const noexcept</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    {</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">if</span> (!*<span class="keyword">this</span> || !rhs) {</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordflow">return</span> std::partial_ordering::unordered;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        }</div>
