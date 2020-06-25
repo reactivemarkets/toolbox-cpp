@@ -93,7 +93,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(COMMON_WARN "-Wall -Werror -Wextra -Wstrict-aliasing=2 -Wno-unused-parameter -Wno-unused-variable")
 set(COMMON_C_FLAGS "-fstrict-aliasing -fvisibility=hidden")
-set(COMMON_CXX_FLAGS "${COMMON_C_FLAGS} -faligned-new -fno-rtti")
+set(COMMON_CXX_FLAGS "${COMMON_C_FLAGS} -faligned-new")
 
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
   set(COMMON_WARN "${COMMON_WARN} -Wno-implicit-fallthrough -Wno-psabi")
@@ -151,8 +151,7 @@ install_libraries("${Boost_DATE_TIME_LIBRARY_RELEASE}" "${Boost_UNIT_TEST_FRAMEW
 message(STATUS "boost_date_time: ${Boost_DATE_TIME_LIBRARY_RELEASE}")
 message(STATUS "boost_unit_test_framework: ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY_RELEASE}")
 
-add_definitions(-DBOOST_NO_AUTO_PTR=1 -DBOOST_NO_RTTI=1 -DBOOST_NO_TYPEID=1)
-add_definitions(-DBOOST_ASIO_DISABLE_THREADS=1 -DBOOST_ASIO_HEADER_ONLY=1)
+add_definitions(-DBOOST_NO_AUTO_PTR=1 -DBOOST_ASIO_DISABLE_THREADS=1 -DBOOST_ASIO_HEADER_ONLY=1)
 if(NOT "${Boost_UNIT_TEST_FRAMEWORK_LIBRARY_RELEASE}" MATCHES "\\.a$")
   add_definitions(-DBOOST_TEST_DYN_LINK)
 endif()
