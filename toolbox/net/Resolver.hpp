@@ -59,6 +59,9 @@ class TOOLBOX_API Resolver {
     /// Clear task queue. Any pending tasks will be cancelled, resulting in a broken promise.
     void clear();
 
+    /// Reset resolver state.
+    void reset();
+
     /// Schedule a URI socket name resolution.
     AddrInfoFuture resolve(const std::string& uri, int type);
 

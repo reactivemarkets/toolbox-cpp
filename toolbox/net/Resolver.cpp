@@ -70,6 +70,12 @@ void Resolver::clear()
     return queue_.clear();
 }
 
+void Resolver::reset()
+{
+    Lock lock{mutex_};
+    stop_ = false;
+}
+
 AddrInfoFuture Resolver::resolve(const std::string& uri, int type)
 {
     Task task{[=]() -> AddrInfoPtr { return parse_endpoint(uri, type); }};
