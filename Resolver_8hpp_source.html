@@ -125,51 +125,54 @@ $(function() {
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespacetoolbox_1_1sys.html#aef1844501afd0408ab83ba0ab3596c10">clear</a>();</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="namespacetoolbox_1_1net.html#ac4480cb34e79fe172f654642e7d0089e">AddrInfoFuture</a> resolve(<span class="keyword">const</span> std::string&amp; uri, <span class="keywordtype">int</span> type);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="namespacetoolbox_1_1util.html#a8a0eb16df58aa50d817e4fa266392017">reset</a>();</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">mutable</span> std::mutex mutex_;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    std::condition_variable cond_;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    std::deque&lt;Task&gt; queue_;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">bool</span> stop_{<span class="keyword">false</span>};</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;};</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Endpo<span class="keywordtype">int</span>T&gt;</div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#a3103cebd4f3c38545246bf18a13737ac">   74</a></span>&#160;EndpointT <a class="code" href="namespacetoolbox_1_1net.html#a3103cebd4f3c38545246bf18a13737ac">get_endpoint</a>(<a class="code" href="namespacetoolbox_1_1net.html#ac4480cb34e79fe172f654642e7d0089e">AddrInfoFuture</a>&amp; future)</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> ai = future.get();</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    assert(!future.valid());</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">return</span> {ai-&gt;ai_addr, ai-&gt;ai_addrlen, ai-&gt;ai_protocol};</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ResultT&gt;</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#af39e6dfe6ec0eb1bef013811ce0e06ce">   83</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacetoolbox_1_1net.html#af39e6dfe6ec0eb1bef013811ce0e06ce">is_ready</a>(std::future&lt;ResultT&gt;&amp; future)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">switch</span> (future.wait_for(<a class="code" href="namespacetoolbox_1_1sys.html#a926e572d5ea62970f67ab8c44cc5dcf4">Seconds</a>{0})) {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">case</span> std::future_status::ready:</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">case</span> std::future_status::deferred:</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">case</span> std::future_status::timeout:</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;} <span class="comment">// namespace net</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;} <span class="comment">// namespace toolbox</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="namespacetoolbox_1_1net.html#ac4480cb34e79fe172f654642e7d0089e">AddrInfoFuture</a> resolve(<span class="keyword">const</span> std::string&amp; uri, <span class="keywordtype">int</span> type);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">mutable</span> std::mutex mutex_;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    std::condition_variable cond_;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    std::deque&lt;Task&gt; queue_;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">bool</span> stop_{<span class="keyword">false</span>};</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;};</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Endpo<span class="keywordtype">int</span>T&gt;</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#a3103cebd4f3c38545246bf18a13737ac">   77</a></span>&#160;EndpointT <a class="code" href="namespacetoolbox_1_1net.html#a3103cebd4f3c38545246bf18a13737ac">get_endpoint</a>(<a class="code" href="namespacetoolbox_1_1net.html#ac4480cb34e79fe172f654642e7d0089e">AddrInfoFuture</a>&amp; future)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> ai = future.get();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    assert(!future.valid());</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">return</span> {ai-&gt;ai_addr, ai-&gt;ai_addrlen, ai-&gt;ai_protocol};</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ResultT&gt;</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#af39e6dfe6ec0eb1bef013811ce0e06ce">   86</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacetoolbox_1_1net.html#af39e6dfe6ec0eb1bef013811ce0e06ce">is_ready</a>(std::future&lt;ResultT&gt;&amp; future)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;{</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">switch</span> (future.wait_for(<a class="code" href="namespacetoolbox_1_1sys.html#a926e572d5ea62970f67ab8c44cc5dcf4">Seconds</a>{0})) {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">case</span> std::future_status::ready:</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">case</span> std::future_status::deferred:</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">case</span> std::future_status::timeout:</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#endif // TOOLBOX_NET_RESOLVER_HPP</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;} <span class="comment">// namespace net</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;} <span class="comment">// namespace toolbox</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#endif // TOOLBOX_NET_RESOLVER_HPP</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespacetoolbox_1_1sys_html_aef1844501afd0408ab83ba0ab3596c10"><div class="ttname"><a href="namespacetoolbox_1_1sys.html#aef1844501afd0408ab83ba0ab3596c10">toolbox::sys::clear</a></div><div class="ttdeci">void clear(timeval &amp;tv) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Time_8hpp_source.html#l00296">Time.hpp:296</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1net_1_1Resolver_html"><div class="ttname"><a href="classtoolbox_1_1net_1_1Resolver.html">toolbox::net::Resolver</a></div><div class="ttdef"><b>Definition:</b> <a href="Resolver_8hpp_source.html#l00034">Resolver.hpp:34</a></div></div>
 <div class="ttc" id="anamespacetoolbox_html"><div class="ttname"><a href="namespacetoolbox.html">toolbox</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8cpp_source.html#l00026">Benchmark.cpp:26</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1sys_html_a926e572d5ea62970f67ab8c44cc5dcf4"><div class="ttname"><a href="namespacetoolbox_1_1sys.html#a926e572d5ea62970f67ab8c44cc5dcf4">toolbox::sys::Seconds</a></div><div class="ttdeci">std::chrono::seconds Seconds</div><div class="ttdef"><b>Definition:</b> <a href="Time_8hpp_source.html#l00036">Time.hpp:36</a></div></div>
-<div class="ttc" id="anamespacetoolbox_1_1net_html_af39e6dfe6ec0eb1bef013811ce0e06ce"><div class="ttname"><a href="namespacetoolbox_1_1net.html#af39e6dfe6ec0eb1bef013811ce0e06ce">toolbox::net::is_ready</a></div><div class="ttdeci">bool is_ready(std::future&lt; ResultT &gt; &amp;future)</div><div class="ttdoc">Returns true if future is ready.</div><div class="ttdef"><b>Definition:</b> <a href="Resolver_8hpp_source.html#l00083">Resolver.hpp:83</a></div></div>
+<div class="ttc" id="anamespacetoolbox_1_1util_html_a8a0eb16df58aa50d817e4fa266392017"><div class="ttname"><a href="namespacetoolbox_1_1util.html#a8a0eb16df58aa50d817e4fa266392017">toolbox::util::reset</a></div><div class="ttdeci">void reset(ostream &amp;os) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="util_2Stream_8cpp_source.html#l00023">Stream.cpp:23</a></div></div>
+<div class="ttc" id="anamespacetoolbox_1_1net_html_af39e6dfe6ec0eb1bef013811ce0e06ce"><div class="ttname"><a href="namespacetoolbox_1_1net.html#af39e6dfe6ec0eb1bef013811ce0e06ce">toolbox::net::is_ready</a></div><div class="ttdeci">bool is_ready(std::future&lt; ResultT &gt; &amp;future)</div><div class="ttdoc">Returns true if future is ready.</div><div class="ttdef"><b>Definition:</b> <a href="Resolver_8hpp_source.html#l00086">Resolver.hpp:86</a></div></div>
 <div class="ttc" id="aConfig_8h_html_ae1d5e2ff332359a2f7905596626f2bf3"><div class="ttname"><a href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a></div><div class="ttdeci">#define TOOLBOX_API</div><div class="ttdef"><b>Definition:</b> <a href="Config_8h_source.html#l00039">Config.h:39</a></div></div>
 <div class="ttc" id="aTime_8hpp_html"><div class="ttname"><a href="Time_8hpp.html">Time.hpp</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1sys_html_aedb936b32edd1672f938990ce346f0e2"><div class="ttname"><a href="namespacetoolbox_1_1sys.html#aedb936b32edd1672f938990ce346f0e2">toolbox::sys::Duration</a></div><div class="ttdeci">Nanos Duration</div><div class="ttdef"><b>Definition:</b> <a href="Time_8hpp_source.html#l00042">Time.hpp:42</a></div></div>
 <div class="ttc" id="aSocket_8hpp_html"><div class="ttname"><a href="Socket_8hpp.html">Socket.hpp</a></div></div>
-<div class="ttc" id="anamespacetoolbox_1_1net_html_a3103cebd4f3c38545246bf18a13737ac"><div class="ttname"><a href="namespacetoolbox_1_1net.html#a3103cebd4f3c38545246bf18a13737ac">toolbox::net::get_endpoint</a></div><div class="ttdeci">EndpointT get_endpoint(AddrInfoFuture &amp;future)</div><div class="ttdoc">Wait for future and convert result to endpoint.</div><div class="ttdef"><b>Definition:</b> <a href="Resolver_8hpp_source.html#l00074">Resolver.hpp:74</a></div></div>
+<div class="ttc" id="anamespacetoolbox_1_1net_html_a3103cebd4f3c38545246bf18a13737ac"><div class="ttname"><a href="namespacetoolbox_1_1net.html#a3103cebd4f3c38545246bf18a13737ac">toolbox::net::get_endpoint</a></div><div class="ttdeci">EndpointT get_endpoint(AddrInfoFuture &amp;future)</div><div class="ttdoc">Wait for future and convert result to endpoint.</div><div class="ttdef"><b>Definition:</b> <a href="Resolver_8hpp_source.html#l00077">Resolver.hpp:77</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1net_html_ac4480cb34e79fe172f654642e7d0089e"><div class="ttname"><a href="namespacetoolbox_1_1net.html#ac4480cb34e79fe172f654642e7d0089e">toolbox::net::AddrInfoFuture</a></div><div class="ttdeci">std::future&lt; AddrInfoPtr &gt; AddrInfoFuture</div><div class="ttdef"><b>Definition:</b> <a href="Resolver_8hpp_source.html#l00030">Resolver.hpp:30</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1net_html_a527fd7fbab8cb71aed64b28e782c6d8e"><div class="ttname"><a href="namespacetoolbox_1_1net.html#a527fd7fbab8cb71aed64b28e782c6d8e">toolbox::net::AddrInfoPtr</a></div><div class="ttdeci">std::unique_ptr&lt; addrinfo, void(*)(addrinfo *)&gt; AddrInfoPtr</div><div class="ttdef"><b>Definition:</b> <a href="Socket_8hpp_source.html#l00035">Socket.hpp:35</a></div></div>
 <!-- start footer part -->
