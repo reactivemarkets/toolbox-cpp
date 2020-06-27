@@ -19,7 +19,7 @@
 namespace toolbox {
 inline namespace http {
 
-HttpAppBase::~HttpAppBase() = default;
+HttpApp::~HttpApp() = default;
 
 } // namespace http
 } // namespace toolbox

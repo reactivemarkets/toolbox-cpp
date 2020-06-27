@@ -34,12 +34,12 @@ void on_bar(const HttpRequest& req, HttpStream& os)
     os << "Hello, Bar!";
 }
 
-class HttpApp final : public HttpAppBase {
+class ExampleApp final : public HttpApp {
   public:
     using Slot = BasicSlot<const HttpRequest&, HttpStream&>;
     using SlotMap = RobinMap<std::string, Slot>;
 
-    ~HttpApp() override = default;
+    ~ExampleApp() override = default;
     void bind(const std::string& path, Slot slot) { slot_map_[path] = slot; }
 
   protected:
@@ -88,7 +88,7 @@ int main(int argc, char* argv[])
         const auto start_time = CyclTime::now();
 
         Reactor reactor{1024};
-        HttpApp app;
+        ExampleApp app;
         app.bind("/foo", bind<on_foo>());
         app.bind("/bar", bind<on_bar>());
 

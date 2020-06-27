@@ -73,7 +73,7 @@ class BasicHttpServ : public StreamAcceptor<BasicHttpServ<ConnT, AppT>> {
     ConnList conn_list_;
 };
 
-using HttpServ = BasicHttpServ<HttpConn, HttpAppBase>;
+using HttpServ = BasicHttpServ<HttpConn, HttpApp>;
 
 } // namespace http
 } // namespace toolbox

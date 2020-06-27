@@ -27,21 +27,21 @@ inline namespace http {
 class HttpRequest;
 class HttpStream;
 
-class TOOLBOX_API HttpAppBase {
+class TOOLBOX_API HttpApp {
   public:
     using Protocol = StreamProtocol;
     using Endpoint = StreamEndpoint;
 
-    HttpAppBase() noexcept = default;
-    virtual ~HttpAppBase();
+    HttpApp() noexcept = default;
+    virtual ~HttpApp();
 
     // Copy.
-    constexpr HttpAppBase(const HttpAppBase&) noexcept = default;
-    HttpAppBase& operator=(const HttpAppBase&) noexcept = default;
+    constexpr HttpApp(const HttpApp&) noexcept = default;
+    HttpApp& operator=(const HttpApp&) noexcept = default;
 
     // Move.
-    constexpr HttpAppBase(HttpAppBase&&) noexcept = default;
-    HttpAppBase& operator=(HttpAppBase&&) noexcept = default;
+    constexpr HttpApp(HttpApp&&) noexcept = default;
+    HttpApp& operator=(HttpApp&&) noexcept = default;
 
     void on_http_connect(CyclTime now, const Endpoint& ep) { do_on_http_connect(now, ep); }
     void on_http_disconnect(CyclTime now, const Endpoint& ep) noexcept
