@@ -31,7 +31,7 @@
 
 namespace toolbox {
 inline namespace http {
-class HttpAppBase;
+class HttpApp;
 
 template <typename RequestT, typename AppT>
 class BasicHttpConn
@@ -278,7 +278,7 @@ class BasicHttpConn
     bool in_progress_{false}, write_blocked_{false};
 };
 
-using HttpConn = BasicHttpConn<HttpRequest, HttpAppBase>;
+using HttpConn = BasicHttpConn<HttpRequest, HttpApp>;
 
 } // namespace http
 } // namespace toolbox
