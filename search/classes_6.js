@@ -13,7 +13,7 @@ var searchData=
   ['hdrrecordediterator_1186',['HdrRecordedIterator',['../classtoolbox_1_1hdr_1_1HdrRecordedIterator.html',1,'toolbox::hdr::HdrRecordedIterator'],['../classtoolbox_1_1hdr_1_1HdrRecordedIterator.html',1,'toolbox::hdr::HdrRecordedIterator']]],
   ['help_1187',['Help',['../classtoolbox_1_1util_1_1Help.html',1,'toolbox::util::Help'],['../classtoolbox_1_1util_1_1Help.html',1,'toolbox::util::Help']]],
   ['hook_1188',['Hook',['../structtoolbox_1_1io_1_1Hook.html',1,'toolbox::io::Hook'],['../structtoolbox_1_1io_1_1Hook.html',1,'toolbox::io::Hook']]],
-  ['httpappbase_1189',['HttpAppBase',['../classtoolbox_1_1http_1_1HttpAppBase.html',1,'toolbox::http::HttpAppBase'],['../classtoolbox_1_1http_1_1HttpAppBase.html',1,'toolbox::http::HttpAppBase']]],
+  ['httpapp_1189',['HttpApp',['../classtoolbox_1_1http_1_1HttpApp.html',1,'toolbox::http::HttpApp'],['../classtoolbox_1_1http_1_1HttpApp.html',1,'toolbox::http::HttpApp']]],
   ['httpbuf_1190',['HttpBuf',['../classtoolbox_1_1http_1_1HttpBuf.html',1,'toolbox::http::HttpBuf'],['../classtoolbox_1_1http_1_1HttpBuf.html',1,'toolbox::http::HttpBuf']]],
   ['httpexception_1191',['HttpException',['../structtoolbox_1_1http_1_1HttpException.html',1,'toolbox::http::HttpException'],['../structtoolbox_1_1http_1_1HttpException.html',1,'toolbox::http::HttpException']]],
   ['httprequest_1192',['HttpRequest',['../classtoolbox_1_1http_1_1HttpRequest.html',1,'toolbox::http::HttpRequest'],['../classtoolbox_1_1http_1_1HttpRequest.html',1,'toolbox::http::HttpRequest']]],

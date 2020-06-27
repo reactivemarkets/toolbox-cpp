@@ -26,7 +26,7 @@ var searchData=
   ['_7ehdrlogiterator_1097',['~HdrLogIterator',['../classtoolbox_1_1hdr_1_1HdrLogIterator.html#ab747cd023cb454ea5e312edbad98272c',1,'toolbox::hdr::HdrLogIterator']]],
   ['_7ehdrpercentileiterator_1098',['~HdrPercentileIterator',['../classtoolbox_1_1hdr_1_1HdrPercentileIterator.html#a5d8dcb4db05900f4d46d637b5a65d4e1',1,'toolbox::hdr::HdrPercentileIterator']]],
   ['_7ehdrrecordediterator_1099',['~HdrRecordedIterator',['../classtoolbox_1_1hdr_1_1HdrRecordedIterator.html#aafadff697ad6a348b6667f538d16e3e0',1,'toolbox::hdr::HdrRecordedIterator']]],
-  ['_7ehttpappbase_1100',['~HttpAppBase',['../classtoolbox_1_1http_1_1HttpAppBase.html#a0959e21dbb807a6069b32e76e0a6cc4f',1,'toolbox::http::HttpAppBase']]],
+  ['_7ehttpapp_1100',['~HttpApp',['../classtoolbox_1_1http_1_1HttpApp.html#a184d4a97b0cbb630a6b36dd0e9524482',1,'toolbox::http::HttpApp']]],
   ['_7ehttpbuf_1101',['~HttpBuf',['../classtoolbox_1_1http_1_1HttpBuf.html#a4937fde385ee4e9e5d4745bea026e5c3',1,'toolbox::http::HttpBuf']]],
   ['_7ehttpexception_1102',['~HttpException',['../structtoolbox_1_1http_1_1HttpException.html#a08f85387322274a3ae187a93baca71b0',1,'toolbox::http::HttpException']]],
   ['_7ehttprequest_1103',['~HttpRequest',['../classtoolbox_1_1http_1_1HttpRequest.html#ab87d548e0496d21549f63e37eed08757',1,'toolbox::http::HttpRequest']]],
