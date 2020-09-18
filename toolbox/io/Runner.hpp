@@ -28,7 +28,17 @@ class Reactor;
 
 class TOOLBOX_API ReactorRunner {
   public:
-    ReactorRunner(Reactor& r, ThreadConfig config);
+    /// Constructs a ReactorRunner instance.
+    ///
+    /// When work is processed by the Reactor during a call to Reactor::poll, the next 'n' calls to
+    /// Reactor::poll, where 'n' is \a busy_cycles, will not cause the thread to block or yield if
+    /// no further work is available. This feature can be useful for keeping the reactor warm and
+    /// responsive for short periods of time immediately after work is processed.
+    ///
+    /// \param r The reactor.
+    /// \param busy_cycles The number of busy cycles after doing work.
+    /// \param config The thread configuration.
+    ReactorRunner(Reactor& r, long busy_cycles, ThreadConfig config);
     ~ReactorRunner();
 
     // Copy.

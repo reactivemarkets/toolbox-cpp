@@ -24,7 +24,7 @@
 namespace toolbox {
 inline namespace io {
 namespace {
-void run_reactor(Reactor& r, ThreadConfig config, const std::atomic<bool>& stop)
+void run_reactor(Reactor& r, long busy_cycles, ThreadConfig config, const std::atomic<bool>& stop)
 {
     sig_block_all();
     try {
@@ -32,9 +32,8 @@ void run_reactor(Reactor& r, ThreadConfig config, const std::atomic<bool>& stop)
         TOOLBOX_NOTICE << "started " << config.name << " thread";
         long i{0};
         while (!stop.load(std::memory_order_acquire)) {
-            // Busy-wait for a small number of cycles after work was done.
-            constexpr long BusyCycles{100};
-            if (r.poll(CyclTime::now(), i++ < BusyCycles ? 0s : NoTimeout) > 0) {
+            // Busy-wait for "busy cycles" after work was done.
+            if (r.poll(CyclTime::now(), i++ < busy_cycles ? 0s : NoTimeout) > 0) {
                 // Reset counter when work has been done.
                 i = 0;
             }
@@ -47,9 +46,9 @@ void run_reactor(Reactor& r, ThreadConfig config, const std::atomic<bool>& stop)
 }
 } // namespace
 
-ReactorRunner::ReactorRunner(Reactor& r, ThreadConfig config)
+ReactorRunner::ReactorRunner(Reactor& r, long busy_cycles, ThreadConfig config)
 : reactor_{r}
-, thread_{run_reactor, std::ref(r), config, std::cref(stop_)}
+, thread_{run_reactor, std::ref(r), busy_cycles, config, std::cref(stop_)}
 {
 }
 
