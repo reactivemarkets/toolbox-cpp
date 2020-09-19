@@ -80,8 +80,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a697a979c85f59d82c9ce2d813198f758"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1ReactorRunner.html#a697a979c85f59d82c9ce2d813198f758">ReactorRunner</a> (<a class="el" href="classtoolbox_1_1io_1_1Reactor.html">Reactor</a> &amp;r, <a class="el" href="structtoolbox_1_1sys_1_1ThreadConfig.html">ThreadConfig</a> config)</td></tr>
-<tr class="separator:a697a979c85f59d82c9ce2d813198f758"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66916c57b54e15058ba5ef140a462890"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1ReactorRunner.html#a66916c57b54e15058ba5ef140a462890">ReactorRunner</a> (<a class="el" href="classtoolbox_1_1io_1_1Reactor.html">Reactor</a> &amp;r, long busy_cycles, <a class="el" href="structtoolbox_1_1sys_1_1ThreadConfig.html">ThreadConfig</a> config)</td></tr>
+<tr class="separator:a66916c57b54e15058ba5ef140a462890"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f633638b206f042671bbb527bbaaa42"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1ReactorRunner.html#a9f633638b206f042671bbb527bbaaa42">~ReactorRunner</a> ()</td></tr>
 <tr class="separator:a9f633638b206f042671bbb527bbaaa42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0d3d6e9dea5db99e80dc48f30d32917"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1ReactorRunner.html#ad0d3d6e9dea5db99e80dc48f30d32917">ReactorRunner</a> (const <a class="el" href="classtoolbox_1_1io_1_1ReactorRunner.html">ReactorRunner</a> &amp;)=delete</td></tr>
@@ -97,8 +97,8 @@ Public Member Functions</h2></td></tr>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="io_2Runner_8hpp_source.html#l00029">29</a> of file <a class="el" href="io_2Runner_8hpp_source.html">Runner.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a697a979c85f59d82c9ce2d813198f758"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a697a979c85f59d82c9ce2d813198f758">&#9670;&nbsp;</a></span>ReactorRunner() <span class="overload">[1/3]</span></h2>
+<a id="a66916c57b54e15058ba5ef140a462890"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66916c57b54e15058ba5ef140a462890">&#9670;&nbsp;</a></span>ReactorRunner() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -108,6 +108,12 @@ Public Member Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classtoolbox_1_1io_1_1Reactor.html">Reactor</a> &amp;&#160;</td>
           <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>busy_cycles</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -122,8 +128,18 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Constructs a <a class="el" href="classtoolbox_1_1io_1_1ReactorRunner.html">ReactorRunner</a> instance.</p>
+<p>When work is processed by the <a class="el" href="classtoolbox_1_1io_1_1Reactor.html">Reactor</a> during a call to <a class="el" href="classtoolbox_1_1io_1_1Reactor.html#ab5a07e56db7390a3fee845aaedec4abb">Reactor::poll</a>, the next 'n' calls to <a class="el" href="classtoolbox_1_1io_1_1Reactor.html#ab5a07e56db7390a3fee845aaedec4abb">Reactor::poll</a>, where 'n' is <em>busy_cycles</em>, will not cause the thread to block or yield if no further work is available. This feature can be useful for keeping the reactor warm and responsive for short periods of time immediately after work is processed.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>The reactor. </td></tr>
+    <tr><td class="paramname">busy_cycles</td><td>The number of busy cycles after doing work. </td></tr>
+    <tr><td class="paramname">config</td><td>The thread configuration. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="io_2Runner_8cpp_source.html#l00050">50</a> of file <a class="el" href="io_2Runner_8cpp_source.html">Runner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="io_2Runner_8cpp_source.html#l00049">49</a> of file <a class="el" href="io_2Runner_8cpp_source.html">Runner.cpp</a>.</p>
 
 </div>
 </div>
@@ -142,7 +158,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="io_2Runner_8cpp_source.html#l00056">56</a> of file <a class="el" href="io_2Runner_8cpp_source.html">Runner.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="io_2Runner_8cpp_source.html#l00055">55</a> of file <a class="el" href="io_2Runner_8cpp_source.html">Runner.cpp</a>.</p>
 
 </div>
 </div>
