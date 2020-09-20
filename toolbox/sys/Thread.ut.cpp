@@ -36,6 +36,29 @@ uint32_t to_bitset(const cpu_set_t& cpuset) noexcept
 
 BOOST_AUTO_TEST_SUITE(ThreadSuite)
 
+BOOST_AUTO_TEST_CASE(ThreadConfigCase)
+{
+    auto config = ThreadConfig{};
+    BOOST_TEST(config.name.empty());
+    BOOST_TEST(config.affinity.empty());
+    BOOST_TEST(config.sched_policy.empty());
+
+    config = "foo"s;
+    BOOST_TEST(config.name == "foo"s);
+    BOOST_TEST(config.affinity.empty());
+    BOOST_TEST(config.sched_policy.empty());
+
+    config = ThreadConfig{"foo"s, "bar"s};
+    BOOST_TEST(config.name == "foo"s);
+    BOOST_TEST(config.affinity == "bar"s);
+    BOOST_TEST(config.sched_policy.empty());
+
+    config = ThreadConfig{"foo"s, "bar"s, "baz"s};
+    BOOST_TEST(config.name == "foo"s);
+    BOOST_TEST(config.affinity == "bar"s);
+    BOOST_TEST(config.sched_policy == "baz"s);
+}
+
 BOOST_AUTO_TEST_CASE(ThreadParseCpuSetCase)
 {
     BOOST_TEST(to_bitset(parse_cpu_set(""sv)) == 0b0);
