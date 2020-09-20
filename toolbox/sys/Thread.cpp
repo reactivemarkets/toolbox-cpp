@@ -47,6 +47,25 @@ cpu_set_t parse_cpu_set(string_view s) noexcept
     return bs;
 }
 
+int parse_sched_policy(string_view s)
+{
+    int policy;
+    if (s == "other"sv) {
+        policy = SCHED_OTHER;
+    } else if (s == "fifo"sv) {
+        policy = SCHED_FIFO;
+    } else if (s == "rr"sv) {
+        policy = SCHED_RR;
+    } else if (s == "batch"sv) {
+        policy = SCHED_BATCH;
+    } else if (s == "idle"sv) {
+        policy = SCHED_IDLE;
+    } else {
+        throw invalid_argument{"invalid sched policy"};
+    }
+    return policy;
+}
+
 void set_thread_attrs(const ThreadConfig& config)
 {
     const auto tid = pthread_self();
@@ -59,6 +78,17 @@ void set_thread_attrs(const ThreadConfig& config)
         const auto bs = parse_cpu_set(config.affinity);
         if (const auto err = pthread_setaffinity_np(tid, sizeof(bs), &bs); err != 0) {
             throw system_error{make_sys_error(err), "pthread_setaffinity_np"};
+        }
+    }
+    if (!config.sched_policy.empty()) {
+        const auto policy = parse_sched_policy(config.sched_policy);
+        const auto priority = sched_get_priority_max(policy);
+        if (priority == -1) {
+            throw system_error{make_sys_error(priority), "sched_get_priority_max"};
+        }
+        sched_param param{.sched_priority = priority};
+        if (const auto err = pthread_setschedparam(tid, policy, &param); err != 0) {
+            throw system_error{make_sys_error(err), "pthread_setschedparam"};
         }
     }
 }

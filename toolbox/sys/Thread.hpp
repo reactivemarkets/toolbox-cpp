@@ -26,13 +26,11 @@ inline namespace sys {
 
 /// ThreadConfig holds the thread attributes.
 struct ThreadConfig {
-    ThreadConfig(std::string name, std::string affinity) noexcept
+    ThreadConfig(std::string name, std::string affinity = {},
+                 std::string sched_policy = {}) noexcept
     : name{std::move(name)}
     , affinity{std::move(affinity)}
-    {
-    }
-    ThreadConfig(std::string name) noexcept
-    : name{std::move(name)}
+    , sched_policy{std::move(sched_policy)}
     {
     }
     ThreadConfig() noexcept = default;
@@ -49,6 +47,8 @@ struct ThreadConfig {
     std::string name;
     /// The thread's affinity.
     std::string affinity;
+    /// The thread's scheduling policy.
+    std::string sched_policy;
 };
 
 /// Parse an isolcpus-style set of CPUs.
@@ -60,6 +60,15 @@ struct ThreadConfig {
 /// \param s An isolcpus-style set of CPUs.
 /// \return a copy of the CPU set.
 TOOLBOX_API cpu_set_t parse_cpu_set(std::string_view s) noexcept;
+
+/// Parse scheduler policy name, where \param s is one of:
+/// other, fifo, rr, batch or idle.
+///
+/// Realtime scheduling policies are: fifo and rr.
+///
+/// \param s The policy name.
+/// \return the policy.
+TOOLBOX_API int parse_sched_policy(std::string_view s);
 
 /// Set attributes for current thread from config.
 /// \param config The configuration.
