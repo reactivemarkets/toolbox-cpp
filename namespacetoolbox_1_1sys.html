@@ -254,6 +254,8 @@ Functions</h2></td></tr>
 <tr class="separator:ae9cef8103b7d5c133dc1079811b4e151"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9b025641fd2f5dac21de84d98c0f6bc"><td class="memItemLeft" align="right" valign="top">cpu_set_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#ad9b025641fd2f5dac21de84d98c0f6bc">parse_cpu_set</a> (string_view s) noexcept</td></tr>
 <tr class="separator:ad9b025641fd2f5dac21de84d98c0f6bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab15963212849a94886895020c8b5cfcc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#ab15963212849a94886895020c8b5cfcc">parse_sched_policy</a> (string_view s)</td></tr>
+<tr class="separator:ab15963212849a94886895020c8b5cfcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a932f019e19eddcea7ce9c9b98151e509"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a932f019e19eddcea7ce9c9b98151e509">set_thread_attrs</a> (const <a class="el" href="structtoolbox_1_1sys_1_1ThreadConfig.html">ThreadConfig</a> &amp;config)</td></tr>
 <tr class="separator:a932f019e19eddcea7ce9c9b98151e509"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74e19434b48df09aa2891d1c00ace007"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Config_8h.html#a046dc47367ddddc297cabd91c5372a44">TOOLBOX_WEAK</a> <a class="el" href="namespacetoolbox_1_1sys.html#a982f28e6caaaa07ee95deca8f662b6ef">Nanos</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a74e19434b48df09aa2891d1c00ace007">get_time</a> (clockid_t clock_id) noexcept</td></tr>
@@ -1210,7 +1212,7 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="sys_2Error_8hpp_source.html#l00025">25</a> of file <a class="el" href="sys_2Error_8hpp_source.html">Error.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Daemon_8cpp_source.html#l00036">daemon()</a>, <a class="el" href="PidFile_8cpp_source.html#l00037">open_pid_file()</a>, <a class="el" href="Signal_8cpp_source.html#l00045">toolbox::sys::SigWait::operator()()</a>, <a class="el" href="Thread_8cpp_source.html#l00050">set_thread_attrs()</a>, <a class="el" href="Signal_8cpp_source.html#l00072">sig_block_all()</a>, <a class="el" href="Signal_8cpp_source.html#l00026">toolbox::sys::SigWait::SigWait()</a>, and <a class="el" href="PidFile_8cpp_source.html#l00057">write_pid_file()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Daemon_8cpp_source.html#l00036">daemon()</a>, <a class="el" href="PidFile_8cpp_source.html#l00037">open_pid_file()</a>, <a class="el" href="Signal_8cpp_source.html#l00045">toolbox::sys::SigWait::operator()()</a>, <a class="el" href="Thread_8cpp_source.html#l00069">set_thread_attrs()</a>, <a class="el" href="Signal_8cpp_source.html#l00072">sig_block_all()</a>, <a class="el" href="Signal_8cpp_source.html#l00026">toolbox::sys::SigWait::SigWait()</a>, and <a class="el" href="PidFile_8cpp_source.html#l00057">write_pid_file()</a>.</p>
 
 </div>
 </div>
@@ -1782,7 +1784,43 @@ CPUs in system - 1". For example: "0,1,10-11,22-23".</p>
 
 <p class="definition">Definition at line <a class="el" href="Thread_8cpp_source.html#l00034">34</a> of file <a class="el" href="Thread_8cpp_source.html">Thread.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Thread_8cpp_source.html#l00050">set_thread_attrs()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Thread_8cpp_source.html#l00069">set_thread_attrs()</a>.</p>
+
+</div>
+</div>
+<a id="ab15963212849a94886895020c8b5cfcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab15963212849a94886895020c8b5cfcc">&#9670;&nbsp;</a></span>parse_sched_policy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> int toolbox::sys::parse_sched_policy </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Parse scheduler policy name, where</p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>is one of: other, fifo, rr, batch or idle.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Realtime scheduling policies are: fifo and rr.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>The policy name. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the policy. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Thread_8cpp_source.html#l00050">50</a> of file <a class="el" href="Thread_8cpp_source.html">Thread.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Thread_8cpp_source.html#l00069">set_thread_attrs()</a>.</p>
 
 </div>
 </div>
@@ -1808,7 +1846,7 @@ CPUs in system - 1". For example: "0,1,10-11,22-23".</p>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Thread_8cpp_source.html#l00050">50</a> of file <a class="el" href="Thread_8cpp_source.html">Thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Thread_8cpp_source.html#l00069">69</a> of file <a class="el" href="Thread_8cpp_source.html">Thread.cpp</a>.</p>
 
 </div>
 </div>

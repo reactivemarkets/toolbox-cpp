@@ -1,7 +1,7 @@
 var searchData=
 [
   ['name_543',['name',['../structtoolbox_1_1bm_1_1Benchmark.html#a58a66c870d09792e3ab871fc773df637',1,'toolbox::bm::Benchmark::name()'],['../structtoolbox_1_1sys_1_1ThreadConfig.html#adc99679ef1e4fecd2c2c87576a66dc88',1,'toolbox::sys::ThreadConfig::name()']]],
-  ['nanos_544',['Nanos',['../namespacetoolbox_1_1sys.html#a982f28e6caaaa07ee95deca8f662b6ef',1,'toolbox::sys::Nanos()'],['../namespacetoolbox_1_1sys.html#a982f28e6caaaa07ee95deca8f662b6ef',1,'toolbox::Nanos()']]],
+  ['nanos_544',['Nanos',['../namespacetoolbox_1_1sys.html#a982f28e6caaaa07ee95deca8f662b6ef',1,'toolbox::Nanos()'],['../namespacetoolbox_1_1sys.html#a982f28e6caaaa07ee95deca8f662b6ef',1,'toolbox::sys::Nanos()']]],
   ['nanotime_545',['NanoTime',['../namespacetoolbox_1_1sys.html#acfccec6381072b1852453855e64a7e7c',1,'toolbox::sys::NanoTime()'],['../namespacetoolbox_1_1sys.html#acfccec6381072b1852453855e64a7e7c',1,'toolbox::NanoTime()']]],
   ['net_2ehpp_546',['net.hpp',['../net_8hpp.html',1,'']]],
   ['new_5fmpmc_5fqueue_547',['new_mpmc_queue',['../namespacetoolbox_1_1ipc.html#a36ddd1bb568a42f0f8dffe8a4520db49',1,'toolbox::new_mpmc_queue()'],['../namespacetoolbox_1_1ipc.html#a36ddd1bb568a42f0f8dffe8a4520db49',1,'toolbox::ipc::new_mpmc_queue()'],['../namespacetoolbox_1_1ipc.html#acddc3bb804a76722db4c3b8526ba7be9',1,'toolbox::new_mpmc_queue()'],['../namespacetoolbox_1_1ipc.html#acddc3bb804a76722db4c3b8526ba7be9',1,'toolbox::ipc::new_mpmc_queue()']]],
