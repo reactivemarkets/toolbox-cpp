@@ -18,16 +18,7 @@
 #ifndef TOOLBOX_CONTRIB_LIBUTIL_H
 #define TOOLBOX_CONTRIB_LIBUTIL_H
 
-/* See https://github.com/LuaDist/libbsd */
-
 static const char* getprogname(void) { return program_invocation_short_name; }
-
-struct pidfh {
-    int pf_fd;
-    char* pf_path;
-    dev_t pf_dev;
-    ino_t pf_ino;
-};
 
 int flopen(const char *path, int flags, ...);
 int pidfile_write(struct pidfh* pfh);
