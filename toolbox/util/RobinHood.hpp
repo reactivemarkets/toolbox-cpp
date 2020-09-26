@@ -46,7 +46,26 @@ using RobinFlatMap
 /// Robin Hood unordered node map.
 template <typename KeyT, typename ValueT, typename HashT = RobinHash<KeyT>,
           typename KeyEqualT = std::equal_to<KeyT>, std::size_t MaxLoadFactor100N = 80>
-using RobinNodeMap = robin_hood::unordered_map<KeyT, ValueT, HashT, KeyEqualT, MaxLoadFactor100N>;
+using RobinNodeMap
+    = robin_hood::unordered_node_map<KeyT, ValueT, HashT, KeyEqualT, MaxLoadFactor100N>;
+
+/// Robin Hood unordered set.
+///
+/// Robin Hood unordered set is a replacement for std::unordered_set which is both faster and more
+/// memory efficient for real-world use cases.
+template <typename KeyT, typename HashT = RobinHash<KeyT>, typename KeyEqualT = std::equal_to<KeyT>,
+          std::size_t MaxLoadFactor100N = 80>
+using RobinSet = robin_hood::unordered_set<KeyT, HashT, KeyEqualT, MaxLoadFactor100N>;
+
+/// Robin Hood unordered flat set.
+template <typename KeyT, typename HashT = RobinHash<KeyT>, typename KeyEqualT = std::equal_to<KeyT>,
+          std::size_t MaxLoadFactor100N = 80>
+using RobinFlatSet = robin_hood::unordered_flat_set<KeyT, HashT, KeyEqualT, MaxLoadFactor100N>;
+
+/// Robin Hood unordered node set.
+template <typename KeyT, typename HashT = RobinHash<KeyT>, typename KeyEqualT = std::equal_to<KeyT>,
+          std::size_t MaxLoadFactor100N = 80>
+using RobinNodeSet = robin_hood::unordered_node_set<KeyT, HashT, KeyEqualT, MaxLoadFactor100N>;
 
 } // namespace util
 } // namespace toolbox
