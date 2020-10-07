@@ -31,6 +31,7 @@ errors=$("@CPPCHECK@" -j @CORE_COUNT@ \
                        --std=c++20 \
                        --suppressions-list="@CMAKE_SOURCE_DIR@/etc/cppcheck-suppressions.txt" \
                        -DBOOST_AUTO_TEST_SUITE \
+                       -DSIZE_MAX=UINT64_MAX \
                        -DTOOLBOX_BENCHMARK \
                        -DTOOLBOX_BENCHMARK_MAIN \
                        2>&1 | tee /dev/stderr | wc -l)
