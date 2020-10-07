@@ -38,6 +38,7 @@ class TOOLBOX_API SigWait {
     SigWait& operator=(SigWait&&) = delete;
 
     int operator()() const;
+    /// Returns zero on timeout.
     int operator()(Duration timeout) const;
 
     template <typename RepT, typename PeriodT>

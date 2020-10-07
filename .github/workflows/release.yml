@@ -23,7 +23,7 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-    container: reactivemarkets/toolchain-cpp:0.3.0
+    container: reactivemarkets/toolchain-cpp:0.4.0
 
     strategy:
       matrix:
