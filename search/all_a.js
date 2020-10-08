@@ -15,7 +15,7 @@ var searchData=
   ['log_2ecpp_455',['Log.cpp',['../Log_8cpp.html',1,'']]],
   ['log_2ehpp_456',['Log.hpp',['../Log_8hpp.html',1,'']]],
   ['log_2eut_2ecpp_457',['Log.ut.cpp',['../Log_8ut_8cpp.html',1,'']]],
-  ['log_5flabel_458',['log_label',['../namespacetoolbox_1_1sys.html#a12a424cddf0bab8201adf54976c0f5e4',1,'toolbox::log_label()'],['../namespacetoolbox_1_1sys.html#a12a424cddf0bab8201adf54976c0f5e4',1,'toolbox::sys::log_label()']]],
+  ['log_5flabel_458',['log_label',['../namespacetoolbox_1_1sys.html#a8e94adb25bb4343e70f491798575ec9e',1,'toolbox::log_label()'],['../namespacetoolbox_1_1sys.html#a8e94adb25bb4343e70f491798575ec9e',1,'toolbox::sys::log_label()']]],
   ['log_5fmsg_459',['log_msg',['../namespacetoolbox_1_1sys.html#a9ac7030b49068c3a5e98546320d81619',1,'toolbox::log_msg()'],['../namespacetoolbox_1_1sys.html#a9ac7030b49068c3a5e98546320d81619',1,'toolbox::sys::log_msg()']]],
   ['logger_460',['Logger',['../namespacetoolbox_1_1sys.html#ad30773ec4571816fa4459ed92884acdc',1,'toolbox::Logger()'],['../namespacetoolbox_1_1sys.html#ad30773ec4571816fa4459ed92884acdc',1,'toolbox::sys::Logger()']]],
   ['logmsg_461',['LogMsg',['../namespacetoolbox_1_1sys.html#a16158a8cb63ed525b556394583d01a22',1,'toolbox::LogMsg()'],['../namespacetoolbox_1_1sys.html#a16158a8cb63ed525b556394583d01a22',1,'toolbox::sys::LogMsg()']]],

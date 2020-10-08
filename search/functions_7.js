@@ -22,7 +22,7 @@ var searchData=
   ['host_1718',['host',['../classtoolbox_1_1http_1_1BasicUrl.html#a0f5a390c222459887dd4c70164058377',1,'toolbox::http::BasicUrl']]],
   ['htol_1719',['htol',['../namespacetoolbox_1_1net.html#a1a805c3fecd8a29d798f6a04ef116f4e',1,'toolbox::htol()'],['../namespacetoolbox_1_1net.html#a1a805c3fecd8a29d798f6a04ef116f4e',1,'toolbox::net::htol()']]],
   ['hton_1720',['hton',['../namespacetoolbox_1_1net.html#ab08265fcc7339c197b4e6bd0e485d84c',1,'toolbox::hton()'],['../namespacetoolbox_1_1net.html#ab08265fcc7339c197b4e6bd0e485d84c',1,'toolbox::net::hton()']]],
-  ['http_5ferror_5fcategory_1721',['http_error_category',['../namespacetoolbox_1_1http.html#a1245c5a5b43ad716b812e4174c3e1f91',1,'toolbox::http_error_category()'],['../namespacetoolbox_1_1http.html#a1245c5a5b43ad716b812e4174c3e1f91',1,'toolbox::http::http_error_category()']]],
+  ['http_5ferror_5fcategory_1721',['http_error_category',['../namespacetoolbox_1_1http.html#aa66f7ba8bd47a90ef5647c3692b99591',1,'toolbox::http_error_category()'],['../namespacetoolbox_1_1http.html#aa66f7ba8bd47a90ef5647c3692b99591',1,'toolbox::http::http_error_category()']]],
   ['http_5fmajor_1722',['http_major',['../classtoolbox_1_1http_1_1BasicHttpParser.html#a0812ef058b1efe13281217cec2a5b99a',1,'toolbox::http::BasicHttpParser']]],
   ['http_5fminor_1723',['http_minor',['../classtoolbox_1_1http_1_1BasicHttpParser.html#a681854328753f5378736ed85a179ef82',1,'toolbox::http::BasicHttpParser']]],
   ['http_5fstatus_1724',['http_status',['../namespacetoolbox_1_1http.html#a3998a223fcb768c9d520101e3f57d3f3',1,'toolbox::http_status()'],['../namespacetoolbox_1_1http.html#a3998a223fcb768c9d520101e3f57d3f3',1,'toolbox::http::http_status()']]],

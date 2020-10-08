@@ -35,7 +35,7 @@ var searchData=
   ['const_5fpointer_120',['const_pointer',['../classtoolbox_1_1util_1_1ArrayView.html#a53535708d9dcbd2087be2ba2255389b6',1,'toolbox::util::ArrayView']]],
   ['const_5freference_121',['const_reference',['../classtoolbox_1_1util_1_1ArrayView.html#acd8b9a0e824fad20ba56cd829d9e7baa',1,'toolbox::util::ArrayView']]],
   ['const_5freverse_5fiterator_122',['const_reverse_iterator',['../classtoolbox_1_1util_1_1ArrayView.html#a45aed75ee166fa90ccef840af227c79d',1,'toolbox::util::ArrayView']]],
-  ['constbuffer_123',['ConstBuffer',['../namespacetoolbox_1_1io.html#a535ce4262aa4c1abf257ec28e85dc333',1,'toolbox::io::ConstBuffer()'],['../namespacetoolbox_1_1io.html#a535ce4262aa4c1abf257ec28e85dc333',1,'toolbox::ConstBuffer()']]],
+  ['constbuffer_123',['ConstBuffer',['../namespacetoolbox_1_1io.html#a535ce4262aa4c1abf257ec28e85dc333',1,'toolbox::ConstBuffer()'],['../namespacetoolbox_1_1io.html#a535ce4262aa4c1abf257ec28e85dc333',1,'toolbox::io::ConstBuffer()']]],
   ['constiterator_124',['ConstIterator',['../classtoolbox_1_1util_1_1ArgvSequence.html#a9eeec63268fa871c328fa46f8c3ba8df',1,'toolbox::util::ArgvSequence::ConstIterator()'],['../classtoolbox_1_1util_1_1ArgvLexer.html#aaa78c4267cbf31dbaa611936304f2596',1,'toolbox::util::ArgvLexer::ConstIterator()']]],
   ['consume_125',['consume',['../classtoolbox_1_1io_1_1Buffer.html#a6c27bf06343079ac396c0981cf87c8f9',1,'toolbox::io::Buffer']]],
   ['consumed_126',['consumed',['../classtoolbox_1_1util_1_1Tokeniser.html#a43ec42f2e23b20cd21b48491554b0abe',1,'toolbox::util::Tokeniser']]],

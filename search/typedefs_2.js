@@ -6,6 +6,6 @@ var searchData=
   ['const_5fpointer_2186',['const_pointer',['../classtoolbox_1_1util_1_1ArrayView.html#a53535708d9dcbd2087be2ba2255389b6',1,'toolbox::util::ArrayView']]],
   ['const_5freference_2187',['const_reference',['../classtoolbox_1_1util_1_1ArrayView.html#acd8b9a0e824fad20ba56cd829d9e7baa',1,'toolbox::util::ArrayView']]],
   ['const_5freverse_5fiterator_2188',['const_reverse_iterator',['../classtoolbox_1_1util_1_1ArrayView.html#a45aed75ee166fa90ccef840af227c79d',1,'toolbox::util::ArrayView']]],
-  ['constbuffer_2189',['ConstBuffer',['../namespacetoolbox_1_1io.html#a535ce4262aa4c1abf257ec28e85dc333',1,'toolbox::io::ConstBuffer()'],['../namespacetoolbox_1_1io.html#a535ce4262aa4c1abf257ec28e85dc333',1,'toolbox::ConstBuffer()']]],
+  ['constbuffer_2189',['ConstBuffer',['../namespacetoolbox_1_1io.html#a535ce4262aa4c1abf257ec28e85dc333',1,'toolbox::ConstBuffer()'],['../namespacetoolbox_1_1io.html#a535ce4262aa4c1abf257ec28e85dc333',1,'toolbox::io::ConstBuffer()']]],
   ['constiterator_2190',['ConstIterator',['../classtoolbox_1_1util_1_1ArgvSequence.html#a9eeec63268fa871c328fa46f8c3ba8df',1,'toolbox::util::ArgvSequence::ConstIterator()'],['../classtoolbox_1_1util_1_1ArgvLexer.html#aaa78c4267cbf31dbaa611936304f2596',1,'toolbox::util::ArgvLexer::ConstIterator()']]]
 ];

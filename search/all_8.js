@@ -27,7 +27,7 @@ var searchData=
   ['invoke_392',['invoke',['../classtoolbox_1_1util_1_1BasicSlot.html#a0918f08188a84c560d91f7c9bccccb94',1,'toolbox::util::BasicSlot']]],
   ['io_2ehpp_393',['io.hpp',['../io_8hpp.html',1,'']]],
   ['ioslot_394',['IoSlot',['../namespacetoolbox_1_1io.html#a51270edb28d40f59f724a79e2e3ed0a6',1,'toolbox::IoSlot()'],['../namespacetoolbox_1_1io.html#a51270edb28d40f59f724a79e2e3ed0a6',1,'toolbox::io::IoSlot()']]],
-  ['iosock_395',['IoSock',['../structtoolbox_1_1net_1_1IoSock.html',1,'toolbox::net::IoSock'],['../structtoolbox_1_1net_1_1IoSock.html',1,'toolbox::net::IoSock'],['../structtoolbox_1_1net_1_1IoSock.html#aac26e5ab602e4dda03967354447032e7',1,'toolbox::net::IoSock::IoSock()']]],
+  ['iosock_395',['IoSock',['../structtoolbox_1_1net_1_1IoSock.html',1,'toolbox::net::IoSock'],['../structtoolbox_1_1net_1_1IoSock.html',1,'toolbox::net::IoSock'],['../structtoolbox_1_1net_1_1IoSock.html#aac26e5ab602e4dda03967354447032e7',1,'toolbox::net::IoSock::IoSock()'],['../structtoolbox_1_1net_1_1DgramSock.html#aac26e5ab602e4dda03967354447032e7',1,'toolbox::net::DgramSock::IoSock()'],['../structtoolbox_1_1net_1_1McastSock.html#aac26e5ab602e4dda03967354447032e7',1,'toolbox::net::McastSock::IoSock()'],['../structtoolbox_1_1net_1_1StreamSockClnt.html#aac26e5ab602e4dda03967354447032e7',1,'toolbox::net::StreamSockClnt::IoSock()']]],
   ['iosock_2ecpp_396',['IoSock.cpp',['../IoSock_8cpp.html',1,'']]],
   ['iosock_2ehpp_397',['IoSock.hpp',['../IoSock_8hpp.html',1,'']]],
   ['iosock_2eut_2ecpp_398',['IoSock.ut.cpp',['../IoSock_8ut_8cpp.html',1,'']]],
