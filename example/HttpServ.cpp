@@ -24,19 +24,19 @@ using namespace toolbox;
 
 namespace {
 
-void on_foo(const HttpRequest& req, HttpStream& os)
+void on_foo(const Request& req, Stream& os)
 {
     os << "Hello, Foo!";
 }
 
-void on_bar(const HttpRequest& req, HttpStream& os)
+void on_bar(const Request& req, Stream& os)
 {
     os << "Hello, Bar!";
 }
 
-class ExampleApp final : public HttpApp {
+class ExampleApp final : public App {
   public:
-    using Slot = BasicSlot<const HttpRequest&, HttpStream&>;
+    using Slot = BasicSlot<const Request&, Stream&>;
     using SlotMap = RobinMap<std::string, Slot>;
 
     ~ExampleApp() override = default;
@@ -52,19 +52,19 @@ class ExampleApp final : public HttpApp {
         TOOLBOX_INFO << "http session disconnected: " << ep;
     }
     void do_on_http_error(CyclTime now, const Endpoint& ep, const std::exception& e,
-                          HttpStream& os) noexcept override
+                          Stream& os) noexcept override
     {
         TOOLBOX_ERROR << "http session error: " << ep << ": " << e.what();
     }
-    void do_on_http_message(CyclTime now, const Endpoint& ep, const HttpRequest& req,
-                            HttpStream& os) override
+    void do_on_http_message(CyclTime now, const Endpoint& ep, const Request& req,
+                            Stream& os) override
     {
         const auto it = slot_map_.find(string{req.path()});
         if (it != slot_map_.end()) {
-            os.reset(HttpStatus::Ok, TextPlain);
+            os.reset(Status::Ok, TextPlain);
             it->second(req, os);
         } else {
-            os.reset(HttpStatus::NotFound, TextPlain);
+            os.reset(Status::NotFound, TextPlain);
             os << "Error 404 - Page not found";
         }
         os.commit();
@@ -93,7 +93,7 @@ int main(int argc, char* argv[])
         app.bind("/bar", bind<on_bar>());
 
         const TcpEndpoint ep{TcpProtocol::v4(), 8888};
-        HttpServ http_serv{start_time, reactor, ep, app};
+        Serv http_serv{start_time, reactor, ep, app};
 
         // Start service threads.
         pthread_setname_np(pthread_self(), "main");

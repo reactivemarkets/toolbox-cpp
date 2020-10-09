@@ -33,7 +33,7 @@ inline FileHandle epoll_create(int size, std::error_code& ec) noexcept
 {
     const auto ret = ::epoll_create(size);
     if (ret < 0) {
-        ec = make_sys_error(errno);
+        ec = make_error(errno);
     }
     return ret;
 }
@@ -44,7 +44,7 @@ inline FileHandle epoll_create(int size)
 {
     const auto fd = ::epoll_create(size);
     if (fd < 0) {
-        throw std::system_error{make_sys_error(errno), "epoll_create"};
+        throw std::system_error{make_error(errno), "epoll_create"};
     }
     return fd;
 }
@@ -54,7 +54,7 @@ inline FileHandle epoll_create1(int flags, std::error_code& ec) noexcept
 {
     const auto ret = ::epoll_create1(flags);
     if (ret < 0) {
-        ec = make_sys_error(errno);
+        ec = make_error(errno);
     }
     return ret;
 }
@@ -64,7 +64,7 @@ inline FileHandle epoll_create1(int flags)
 {
     const auto fd = ::epoll_create1(flags);
     if (fd < 0) {
-        throw std::system_error{make_sys_error(errno), "epoll_create1"};
+        throw std::system_error{make_error(errno), "epoll_create1"};
     }
     return fd;
 }
@@ -74,7 +74,7 @@ inline int epoll_ctl(int epfd, int op, int fd, epoll_event event, std::error_cod
 {
     const auto ret = ::epoll_ctl(epfd, op, fd, &event);
     if (ret < 0) {
-        ec = make_sys_error(errno);
+        ec = make_error(errno);
     }
     return ret;
 }
@@ -84,7 +84,7 @@ inline void epoll_ctl(int epfd, int op, int fd, epoll_event event)
 {
     const auto ret = ::epoll_ctl(epfd, op, fd, &event);
     if (ret < 0) {
-        throw std::system_error{make_sys_error(errno), "epoll_ctl"};
+        throw std::system_error{make_error(errno), "epoll_ctl"};
     }
 }
 
@@ -94,7 +94,7 @@ inline int epoll_wait(int epfd, epoll_event* events, int maxevents, int timeout,
 {
     const auto ret = ::epoll_wait(epfd, events, maxevents, timeout);
     if (ret < 0) {
-        ec = make_sys_error(errno);
+        ec = make_error(errno);
     }
     return ret;
 }
@@ -104,7 +104,7 @@ inline int epoll_wait(int epfd, epoll_event* events, int maxevents, int timeout)
 {
     const auto ret = ::epoll_wait(epfd, events, maxevents, timeout);
     if (ret < 0) {
-        throw std::system_error{make_sys_error(errno), "epoll_wait"};
+        throw std::system_error{make_error(errno), "epoll_wait"};
     }
     return ret;
 }
@@ -181,8 +181,8 @@ class Epoll {
     Epoll& operator=(const Epoll&) = delete;
 
     // Move.
-    Epoll(Epoll&&) = default;
-    Epoll& operator=(Epoll&&) = default;
+    Epoll(Epoll&&) noexcept = default;
+    Epoll& operator=(Epoll&&) noexcept = default;
 
     /// Returns the timer file descriptor.
     /// Exposing the timer file descriptor allows callers to check if one of the signalled events

@@ -87,12 +87,10 @@ inline std::size_t hash_value(toolbox::Version ver)
 } // namespace toolbox
 
 namespace std {
-
 template <>
 struct hash<toolbox::Version> {
     inline std::size_t operator()(toolbox::Version ver) const { return hash_value(ver); }
 };
-
 } // namespace std
 
 #endif // TOOLBOX_UTIL_VERSION_HPP

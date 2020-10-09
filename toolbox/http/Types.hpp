@@ -28,7 +28,7 @@ enum class First : bool { No = false, Yes = true };
 
 enum class NoCache : bool { No = false, Yes = true };
 
-enum class HttpMethod : int {
+enum class Method : int {
     Delete = HTTP_DELETE,
     Get = HTTP_GET,
     Head = HTTP_HEAD,
@@ -65,17 +65,17 @@ enum class HttpMethod : int {
     Source = HTTP_SOURCE
 };
 
-inline const char* enum_string(HttpMethod method) noexcept
+inline const char* enum_string(Method method) noexcept
 {
     return http_method_str(static_cast<http_method>(method));
 }
 
-inline std::ostream& operator<<(std::ostream& os, HttpMethod method)
+inline std::ostream& operator<<(std::ostream& os, Method method)
 {
     return os << enum_string(method);
 }
 
-enum class HttpStatus : int {
+enum class Status : int {
     Ok = HTTP_STATUS_OK,
     NoContent = HTTP_STATUS_NO_CONTENT,
     BadRequest = HTTP_STATUS_BAD_REQUEST,
@@ -87,14 +87,14 @@ enum class HttpStatus : int {
     ServiceUnavailable = HTTP_STATUS_SERVICE_UNAVAILABLE
 };
 
-TOOLBOX_API const char* enum_string(HttpStatus status) noexcept;
+TOOLBOX_API const char* enum_string(Status status) noexcept;
 
-inline std::ostream& operator<<(std::ostream& os, HttpStatus status)
+inline std::ostream& operator<<(std::ostream& os, Status status)
 {
     return os << static_cast<int>(status);
 }
 
-enum class HttpType : int { Request = HTTP_REQUEST, Response = HTTP_RESPONSE };
+enum class Type : int { Request = HTTP_REQUEST, Response = HTTP_RESPONSE };
 
 } // namespace http
 } // namespace toolbox

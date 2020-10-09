@@ -22,7 +22,7 @@
 namespace toolbox {
 inline namespace sys {
 
-inline std::error_code make_sys_error(int err) noexcept
+inline std::error_code make_error(int err) noexcept
 {
     return std::error_code{err, std::system_category()};
 }

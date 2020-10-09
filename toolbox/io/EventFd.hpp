@@ -29,7 +29,7 @@ inline FileHandle eventfd(unsigned intval, int flags, std::error_code& ec) noexc
 {
     const auto fd = ::eventfd(intval, flags);
     if (fd < 0) {
-        ec = make_sys_error(errno);
+        ec = make_error(errno);
     }
     return fd;
 }
@@ -39,7 +39,7 @@ inline FileHandle eventfd(unsigned intval, int flags)
 {
     const auto fd = ::eventfd(intval, flags);
     if (fd < 0) {
-        throw std::system_error{make_sys_error(errno), "eventfd"};
+        throw std::system_error{make_error(errno), "eventfd"};
     }
     return fd;
 }
@@ -60,8 +60,8 @@ class EventFd {
     EventFd& operator=(const EventFd&) = delete;
 
     // Move.
-    EventFd(EventFd&&) = default;
-    EventFd& operator=(EventFd&&) = default;
+    EventFd(EventFd&&) noexcept = default;
+    EventFd& operator=(EventFd&&) noexcept = default;
 
     int fd() const noexcept { return fh_.get(); }
     std::int64_t read()

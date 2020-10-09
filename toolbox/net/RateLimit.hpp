@@ -65,8 +65,8 @@ class TOOLBOX_API RateWindow {
     RateWindow& operator=(const RateWindow&);
 
     // Move.
-    RateWindow(RateWindow&&);
-    RateWindow& operator=(RateWindow&&);
+    RateWindow(RateWindow&&) noexcept;
+    RateWindow& operator=(RateWindow&&) noexcept;
 
     std::size_t count() const noexcept { return count_; }
     /// Add count to time bucket.

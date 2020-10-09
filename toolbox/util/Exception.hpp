@@ -42,8 +42,8 @@ class TOOLBOX_API Exception : public std::runtime_error {
     Exception& operator=(const Exception&) = default;
 
     // Move.
-    Exception(Exception&&) = default;
-    Exception& operator=(Exception&&) = default;
+    Exception(Exception&&) noexcept = default;
+    Exception& operator=(Exception&&) noexcept = default;
 
     /// Format exception as a OpenAPI JSON response message.
     /// \param os The output stream.

@@ -32,7 +32,7 @@ constexpr auto Bitness = 64;
 
 BOOST_AUTO_TEST_CASE(HistogramBasicCase)
 {
-    HdrHistogram h{Lowest, Highest, Significant};
+    Histogram h{Lowest, Highest, Significant};
     const auto expected_bucket_count = Bitness == 64 ? 22 : 21;
     const auto expected_counts_len = Bitness == 64 ? 23552 : 22528;
 
@@ -46,14 +46,14 @@ BOOST_AUTO_TEST_CASE(HistogramBasicCase)
 
 BOOST_AUTO_TEST_CASE(HistogramEmptyCase)
 {
-    HdrHistogram h{1, 100000000, 1};
+    Histogram h{1, 100000000, 1};
     BOOST_TEST(h.min() == numeric_limits<int64_t>::max());
     BOOST_TEST(h.max() == 0);
 }
 
 BOOST_AUTO_TEST_CASE(HistogramRecordValueCase)
 {
-    HdrHistogram h{Lowest, Highest, Significant};
+    Histogram h{Lowest, Highest, Significant};
     h.record_value(TestValueLevel);
     BOOST_TEST(h.count_at_value(TestValueLevel) == 1);
     BOOST_TEST(h.total_count() == 1);
@@ -61,27 +61,27 @@ BOOST_AUTO_TEST_CASE(HistogramRecordValueCase)
 
 BOOST_AUTO_TEST_CASE(HistogramInvalidSigFigCase)
 {
-    BOOST_CHECK_THROW(HdrHistogram(1, 36000000, -1), invalid_argument);
-    BOOST_CHECK_THROW(HdrHistogram(1, 36000000, 0), invalid_argument);
-    BOOST_CHECK_THROW(HdrHistogram(1, 36000000, 6), invalid_argument);
+    BOOST_CHECK_THROW(Histogram(1, 36000000, -1), invalid_argument);
+    BOOST_CHECK_THROW(Histogram(1, 36000000, 0), invalid_argument);
+    BOOST_CHECK_THROW(Histogram(1, 36000000, 6), invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(HistogramInvalidInitCase)
 {
-    BOOST_CHECK_THROW(HdrHistogram(0, 64 * 1024, 2), invalid_argument);
-    BOOST_CHECK_THROW(HdrHistogram(80, 110, 5), invalid_argument);
+    BOOST_CHECK_THROW(Histogram(0, 64 * 1024, 2), invalid_argument);
+    BOOST_CHECK_THROW(Histogram(80, 110, 5), invalid_argument);
 }
 
 BOOST_AUTO_TEST_CASE(HistogramOutOfRangeCase)
 {
-    HdrHistogram h{1, 1000, 4};
+    Histogram h{1, 1000, 4};
     BOOST_TEST(h.record_value(32767));
     BOOST_TEST(!h.record_value(32768));
 }
 
 BOOST_AUTO_TEST_CASE(HistogramResetCase)
 {
-    HdrHistogram h{1, 10000000, 3};
+    Histogram h{1, 10000000, 3};
     for (int i{0}; i < 1000; ++i) {
         BOOST_TEST(h.record_value(i));
     }
@@ -91,7 +91,7 @@ BOOST_AUTO_TEST_CASE(HistogramResetCase)
 
 BOOST_AUTO_TEST_CASE(HistogramTotalCountCase)
 {
-    HdrHistogram h{1, 10000000, 3};
+    Histogram h{1, 10000000, 3};
     for (int i{0}; i < 1000; ++i) {
         BOOST_TEST(h.record_value(i));
         BOOST_TEST(h.total_count() == i + 1);
@@ -100,7 +100,7 @@ BOOST_AUTO_TEST_CASE(HistogramTotalCountCase)
 
 BOOST_AUTO_TEST_CASE(HistogramRecordEquivalentValueCase)
 {
-    HdrHistogram h{Lowest, Highest, Significant};
+    Histogram h{Lowest, Highest, Significant};
     BOOST_TEST(8183 * 1024 + 1023 == h.highest_equivalent_value(8180 * 1024));
     BOOST_TEST(8191 * 1024 + 1023 == h.highest_equivalent_value(8191 * 1024));
     BOOST_TEST(8199 * 1024 + 1023 == h.highest_equivalent_value(8193 * 1024));

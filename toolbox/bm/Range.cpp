@@ -22,7 +22,7 @@
 namespace toolbox::bm {
 using namespace std;
 
-BenchmarkRange::BenchmarkRange(HdrHistogram& hist, int first, int last) noexcept
+BenchmarkRange::BenchmarkRange(Histogram& hist, int first, int last) noexcept
 : hist_{hist}
 , first_{first}
 , last_{last}

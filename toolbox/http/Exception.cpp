@@ -19,7 +19,7 @@
 namespace toolbox {
 inline namespace http {
 
-HttpException::~HttpException() = default;
+Exception::~Exception() = default;
 
 } // namespace http
 } // namespace toolbox

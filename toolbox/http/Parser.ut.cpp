@@ -37,15 +37,15 @@ using namespace toolbox;
 
 namespace {
 
-class HttpParser
-: public BasicHttpParser<HttpParser>
-, public BasicUrl<HttpParser> {
-    friend class BasicHttpParser<HttpParser>;
-    friend class BasicUrl<HttpParser>;
+class Parser
+: public BasicParser<Parser>
+, public BasicUrl<Parser> {
+    friend class BasicParser<Parser>;
+    friend class BasicUrl<Parser>;
 
   public:
-    using BasicHttpParser<HttpParser>::BasicHttpParser;
-    ~HttpParser() = default;
+    using BasicParser<Parser>::BasicParser;
+    ~Parser() = default;
 
     const auto& url() const noexcept { return url_; }
     const auto& status() const noexcept { return status_; }
@@ -59,12 +59,12 @@ class HttpParser
         headers_.clear();
         body_.clear();
     }
-    using BasicHttpParser<HttpParser>::parse;
+    using BasicParser<Parser>::parse;
 
   private:
     bool on_message_begin(CyclTime now) noexcept
     {
-        BasicUrl<HttpParser>::reset();
+        BasicUrl<Parser>::reset();
         clear();
         return true;
     }
@@ -103,7 +103,7 @@ class HttpParser
         bool ret{false};
         try {
             if (!url_.empty()) {
-                BasicUrl<HttpParser>::parse();
+                BasicUrl<Parser>::parse();
             }
             ret = true;
         } catch (const std::exception& e) {
@@ -124,33 +124,33 @@ class HttpParser
 
 BOOST_AUTO_TEST_SUITE(ParserSuite)
 
-BOOST_AUTO_TEST_CASE(HttpInitialRequestLineCase)
+BOOST_AUTO_TEST_CASE(InitialRequestLineCase)
 {
     constexpr auto Message =                        //
         "GET /path/to/file/index.html HTTP/1.0\r\n" //
         "\r\n"sv;
 
-    HttpParser h{HttpType::Request};
+    Parser h{Type::Request};
     const auto now = CyclTime::now();
     BOOST_TEST(h.parse(now, {Message.data(), Message.size()}) == Message.size());
     BOOST_TEST(!h.should_keep_alive());
     BOOST_TEST(h.http_major() == 1);
     BOOST_TEST(h.http_minor() == 0);
 
-    BOOST_TEST(h.method() == HttpMethod::Get);
+    BOOST_TEST(h.method() == Method::Get);
     BOOST_TEST(h.url() == "/path/to/file/index.html"s);
 
     BOOST_TEST(h.headers().empty());
     BOOST_TEST(h.body().empty());
 }
 
-BOOST_AUTO_TEST_CASE(HttpInitialResponseLineCase)
+BOOST_AUTO_TEST_CASE(InitialResponseLineCase)
 {
     constexpr auto Message =         //
         "HTTP/1.0 404 Not Found\r\n" //
         "\r\n"sv;
 
-    HttpParser h{HttpType::Response};
+    Parser h{Type::Response};
     const auto now = CyclTime::now();
     BOOST_TEST(h.parse(now, {Message.data(), Message.size()}) == Message.size());
     BOOST_TEST(!h.should_keep_alive());
@@ -164,7 +164,7 @@ BOOST_AUTO_TEST_CASE(HttpInitialResponseLineCase)
     BOOST_TEST(h.body().empty());
 }
 
-BOOST_AUTO_TEST_CASE(HttpBasicRequestCase)
+BOOST_AUTO_TEST_CASE(BasicRequestCase)
 {
     constexpr auto Message =                     //
         "GET /path/file.html HTTP/1.0\r\n"       //
@@ -172,14 +172,14 @@ BOOST_AUTO_TEST_CASE(HttpBasicRequestCase)
         "User-Agent: HTTPTool/1.0\r\n"           //
         "\r\n"sv;
 
-    HttpParser h{HttpType::Request};
+    Parser h{Type::Request};
     const auto now = CyclTime::now();
     BOOST_TEST(h.parse(now, {Message.data(), Message.size()}) == Message.size());
     BOOST_TEST(!h.should_keep_alive());
     BOOST_TEST(h.http_major() == 1);
     BOOST_TEST(h.http_minor() == 0);
 
-    BOOST_TEST(h.method() == HttpMethod::Get);
+    BOOST_TEST(h.method() == Method::Get);
     BOOST_TEST(h.url() == "/path/file.html"s);
 
     BOOST_TEST(h.headers().size() == 2U);
@@ -189,7 +189,7 @@ BOOST_AUTO_TEST_CASE(HttpBasicRequestCase)
     BOOST_TEST(h.body().empty());
 }
 
-BOOST_AUTO_TEST_CASE(HttpBasicResponseCase)
+BOOST_AUTO_TEST_CASE(BasicResponseCase)
 {
     constexpr auto Message =                      //
         "HTTP/1.0 200 OK\r\n"                     //
@@ -199,7 +199,7 @@ BOOST_AUTO_TEST_CASE(HttpBasicResponseCase)
         "\r\n"                                    //
         "Hello, World!"sv;
 
-    HttpParser h{HttpType::Response};
+    Parser h{Type::Response};
     const auto now = CyclTime::now();
     BOOST_TEST(h.parse(now, {Message.data(), Message.size()}) == Message.size());
     BOOST_TEST(!h.should_keep_alive());
@@ -217,7 +217,7 @@ BOOST_AUTO_TEST_CASE(HttpBasicResponseCase)
     BOOST_TEST(h.body() == "Hello, World!"s);
 }
 
-BOOST_AUTO_TEST_CASE(HttpPostRequestCase)
+BOOST_AUTO_TEST_CASE(PostRequestCase)
 {
     constexpr auto Message =                                  //
         "POST /path/script.cgi HTTP/1.0\r\n"                  //
@@ -228,14 +228,14 @@ BOOST_AUTO_TEST_CASE(HttpPostRequestCase)
         "\r\n"                                                //
         "home=Cosby&favorite+flavor=flies"sv;
 
-    HttpParser h{HttpType::Request};
+    Parser h{Type::Request};
     const auto now = CyclTime::now();
     BOOST_TEST(h.parse(now, {Message.data(), Message.size()}) == Message.size());
     BOOST_TEST(!h.should_keep_alive());
     BOOST_TEST(h.http_major() == 1);
     BOOST_TEST(h.http_minor() == 0);
 
-    BOOST_TEST(h.method() == HttpMethod::Post);
+    BOOST_TEST(h.method() == Method::Post);
     BOOST_TEST(h.url() == "/path/script.cgi"s);
 
     BOOST_TEST(h.headers().size() == 4U);
@@ -247,21 +247,21 @@ BOOST_AUTO_TEST_CASE(HttpPostRequestCase)
     BOOST_TEST(h.body() == "home=Cosby&favorite+flavor=flies"s);
 }
 
-BOOST_AUTO_TEST_CASE(HttpKeepAliveRequestCase)
+BOOST_AUTO_TEST_CASE(KeepAliveRequestCase)
 {
     constexpr auto Message =               //
         "GET /path/file.html HTTP/1.1\r\n" //
         "Host: www.host1.com:80\r\n"       //
         "\r\n"sv;
 
-    HttpParser h{HttpType::Request};
+    Parser h{Type::Request};
     const auto now = CyclTime::now();
     BOOST_TEST(h.parse(now, {Message.data(), Message.size()}) == Message.size());
     BOOST_TEST(h.should_keep_alive());
     BOOST_TEST(h.http_major() == 1);
     BOOST_TEST(h.http_minor() == 1);
 
-    BOOST_TEST(h.method() == HttpMethod::Get);
+    BOOST_TEST(h.method() == Method::Get);
     BOOST_TEST(h.url() == "/path/file.html"s);
 
     BOOST_TEST(h.headers().size() == 1U);
@@ -270,7 +270,7 @@ BOOST_AUTO_TEST_CASE(HttpKeepAliveRequestCase)
     BOOST_TEST(h.body().empty());
 }
 
-BOOST_AUTO_TEST_CASE(HttpChunkedResponseCase)
+BOOST_AUTO_TEST_CASE(ChunkedResponseCase)
 {
     constexpr auto Message =                      //
         "HTTP/1.1 200 OK\r\n"                     //
@@ -287,7 +287,7 @@ BOOST_AUTO_TEST_CASE(HttpChunkedResponseCase)
         "another-footer: another-value\r\n"       //
         "\r\n"sv;
 
-    HttpParser h{HttpType::Response};
+    Parser h{Type::Response};
     const auto now = CyclTime::now();
     BOOST_TEST(h.parse(now, {Message.data(), Message.size()}) == Message.size());
     BOOST_TEST(h.should_keep_alive());
@@ -307,7 +307,7 @@ BOOST_AUTO_TEST_CASE(HttpChunkedResponseCase)
     BOOST_TEST(h.body() == "abcdefghijklmnopqrstuvwxyz1234567890abcdef"s);
 }
 
-BOOST_AUTO_TEST_CASE(HttpMultiResponseCase)
+BOOST_AUTO_TEST_CASE(MultiResponseCase)
 {
     constexpr auto Message =                 //
         "POST /path/script.cgi HTTP/1.1\r\n" //
@@ -321,14 +321,14 @@ BOOST_AUTO_TEST_CASE(HttpMultiResponseCase)
         "\r\n"                               //
         "second"sv;
 
-    HttpParser h{HttpType::Request};
+    Parser h{Type::Request};
     const auto now = CyclTime::now();
     BOOST_TEST(h.parse(now, {Message.data(), Message.size()}) == Message.size());
     BOOST_TEST(h.should_keep_alive());
     BOOST_TEST(h.http_major() == 1);
     BOOST_TEST(h.http_minor() == 1);
 
-    BOOST_TEST(h.method() == HttpMethod::Post);
+    BOOST_TEST(h.method() == Method::Post);
     BOOST_TEST(h.url() == "/path/script.cgi"s);
 
     BOOST_TEST(h.headers().size() == 2U);

@@ -30,7 +30,7 @@ inline FileHandle timerfd_create(int clock_id, int flags, std::error_code& ec) n
 {
     const auto fd = ::timerfd_create(clock_id, flags);
     if (fd < 0) {
-        ec = make_sys_error(errno);
+        ec = make_error(errno);
     }
     return fd;
 }
@@ -40,7 +40,7 @@ inline FileHandle timerfd_create(int clock_id, int flags)
 {
     const auto fd = ::timerfd_create(clock_id, flags);
     if (fd < 0) {
-        throw std::system_error{make_sys_error(errno), "timerfd_create"};
+        throw std::system_error{make_error(errno), "timerfd_create"};
     }
     return fd;
 }
@@ -51,7 +51,7 @@ inline void timerfd_settime(int fd, int flags, const itimerspec& new_value, itim
 {
     const auto ret = ::timerfd_settime(fd, flags, &new_value, &old_value);
     if (ret < 0) {
-        ec = make_sys_error(errno);
+        ec = make_error(errno);
     }
 }
 
@@ -60,7 +60,7 @@ inline void timerfd_settime(int fd, int flags, const itimerspec& new_value, itim
 {
     const auto ret = ::timerfd_settime(fd, flags, &new_value, &old_value);
     if (ret < 0) {
-        throw std::system_error{make_sys_error(errno), "timerfd_settime"};
+        throw std::system_error{make_error(errno), "timerfd_settime"};
     }
 }
 
@@ -70,7 +70,7 @@ inline void timerfd_settime(int fd, int flags, const itimerspec& new_value,
 {
     const auto ret = ::timerfd_settime(fd, flags, &new_value, nullptr);
     if (ret < 0) {
-        ec = make_sys_error(errno);
+        ec = make_error(errno);
     }
 }
 
@@ -79,7 +79,7 @@ inline void timerfd_settime(int fd, int flags, const itimerspec& new_value)
 {
     const auto ret = ::timerfd_settime(fd, flags, &new_value, nullptr);
     if (ret < 0) {
-        throw std::system_error{make_sys_error(errno), "timerfd_settime"};
+        throw std::system_error{make_error(errno), "timerfd_settime"};
     }
 }
 
@@ -136,8 +136,8 @@ class TimerFd {
     TimerFd& operator=(const TimerFd&) = delete;
 
     // Move.
-    TimerFd(TimerFd&&) = default;
-    TimerFd& operator=(TimerFd&&) = default;
+    TimerFd(TimerFd&&) noexcept = default;
+    TimerFd& operator=(TimerFd&&) noexcept = default;
 
     int fd() const noexcept { return fh_.get(); }
 

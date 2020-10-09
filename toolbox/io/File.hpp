@@ -34,7 +34,7 @@ inline FileHandle open(const char* path, int flags, mode_t mode, std::error_code
 {
     const auto fd = ::open(path, flags, mode);
     if (fd < 0) {
-        ec = make_sys_error(errno);
+        ec = make_error(errno);
     }
     return fd;
 }
@@ -44,7 +44,7 @@ inline FileHandle open(const char* path, int flags, mode_t mode)
 {
     const auto fd = ::open(path, flags, mode);
     if (fd < 0) {
-        throw std::system_error{make_sys_error(errno), "open"};
+        throw std::system_error{make_error(errno), "open"};
     }
     return fd;
 }
@@ -54,7 +54,7 @@ inline FileHandle open(const char* path, int flags, std::error_code& ec) noexcep
 {
     const auto fd = ::open(path, flags);
     if (fd < 0) {
-        ec = make_sys_error(errno);
+        ec = make_error(errno);
     }
     return fd;
 }
@@ -64,7 +64,7 @@ inline FileHandle open(const char* path, int flags)
 {
     const auto fd = ::open(path, flags);
     if (fd < 0) {
-        throw std::system_error{make_sys_error(errno), "open"};
+        throw std::system_error{make_error(errno), "open"};
     }
     return fd;
 }
@@ -74,7 +74,7 @@ inline std::pair<FileHandle, FileHandle> pipe2(int flags, std::error_code& ec) n
 {
     int pipefd[2];
     if (::pipe2(pipefd, flags) < 0) {
-        ec = make_sys_error(errno);
+        ec = make_error(errno);
     }
     return {FileHandle{pipefd[0]}, FileHandle{pipefd[1]}};
 }
@@ -84,7 +84,7 @@ inline std::pair<FileHandle, FileHandle> pipe2(int flags)
 {
     int pipefd[2];
     if (::pipe2(pipefd, flags) < 0) {
-        throw std::system_error{make_sys_error(errno), "pipe2"};
+        throw std::system_error{make_error(errno), "pipe2"};
     }
     return {FileHandle{pipefd[0]}, FileHandle{pipefd[1]}};
 }
@@ -94,7 +94,7 @@ inline void fstat(int fd, struct stat& statbuf, std::error_code& ec) noexcept
 {
     const auto ret = ::fstat(fd, &statbuf);
     if (ret < 0) {
-        ec = make_sys_error(errno);
+        ec = make_error(errno);
     }
 }
 
@@ -103,7 +103,7 @@ inline void fstat(int fd, struct stat& statbuf)
 {
     const auto ret = ::fstat(fd, &statbuf);
     if (ret < 0) {
-        throw std::system_error{make_sys_error(errno), "fstat"};
+        throw std::system_error{make_error(errno), "fstat"};
     }
 }
 
@@ -112,7 +112,7 @@ inline void ftruncate(int fd, off_t length, std::error_code& ec) noexcept
 {
     const auto ret = ::ftruncate(fd, length);
     if (ret < 0) {
-        ec = make_sys_error(errno);
+        ec = make_error(errno);
     }
 }
 
@@ -121,7 +121,7 @@ inline void ftruncate(int fd, off_t length)
 {
     const auto ret = ::ftruncate(fd, length);
     if (ret < 0) {
-        throw std::system_error{make_sys_error(errno), "ftruncate"};
+        throw std::system_error{make_error(errno), "ftruncate"};
     }
 }
 
@@ -130,7 +130,7 @@ inline ssize_t read(int fd, void* buf, std::size_t len, std::error_code& ec) noe
 {
     const auto ret = ::read(fd, buf, len);
     if (ret < 0) {
-        ec = make_sys_error(errno);
+        ec = make_error(errno);
     }
     return ret;
 }
@@ -140,7 +140,7 @@ inline std::size_t read(int fd, void* buf, std::size_t len)
 {
     const auto ret = ::read(fd, buf, len);
     if (ret < 0) {
-        throw std::system_error{make_sys_error(errno), "read"};
+        throw std::system_error{make_error(errno), "read"};
     }
     return ret;
 }
@@ -162,7 +162,7 @@ inline ssize_t write(int fd, const void* buf, std::size_t len, std::error_code& 
 {
     const auto ret = ::write(fd, buf, len);
     if (ret < 0) {
-        ec = make_sys_error(errno);
+        ec = make_error(errno);
     }
     return ret;
 }
@@ -172,7 +172,7 @@ inline std::size_t write(int fd, const void* buf, std::size_t len)
 {
     const auto ret = ::write(fd, buf, len);
     if (ret < 0) {
-        throw std::system_error{make_sys_error(errno), "write"};
+        throw std::system_error{make_error(errno), "write"};
     }
     return ret;
 }
@@ -194,7 +194,7 @@ inline int fcntl(int fd, int cmd, std::error_code& ec) noexcept
 {
     const auto ret = ::fcntl(fd, cmd);
     if (ret < 0) {
-        ec = make_sys_error(errno);
+        ec = make_error(errno);
     }
     return ret;
 }
@@ -205,7 +205,7 @@ inline int fcntl(int fd, int cmd, ArgT arg, std::error_code& ec) noexcept
 {
     const auto ret = ::fcntl(fd, cmd, arg);
     if (ret < 0) {
-        ec = make_sys_error(errno);
+        ec = make_error(errno);
     }
     return ret;
 }
@@ -215,7 +215,7 @@ inline int fcntl(int fd, int cmd)
 {
     const auto ret = ::fcntl(fd, cmd);
     if (ret < 0) {
-        throw std::system_error{make_sys_error(errno), "fcntl"};
+        throw std::system_error{make_error(errno), "fcntl"};
     }
     return ret;
 }
@@ -226,7 +226,7 @@ inline int fcntl(int fd, int cmd, ArgT arg)
 {
     const auto ret = ::fcntl(fd, cmd, arg);
     if (ret < 0) {
-        throw std::system_error{make_sys_error(errno), "fcntl"};
+        throw std::system_error{make_error(errno), "fcntl"};
     }
     return ret;
 }

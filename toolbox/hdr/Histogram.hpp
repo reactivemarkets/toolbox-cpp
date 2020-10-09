@@ -24,8 +24,8 @@ namespace toolbox {
 /// A C++ port of HdrHistogram_c written Michael Barker and released to the public domain.
 inline namespace hdr {
 /// Bucket configuration.
-struct TOOLBOX_API HdrBucketConfig {
-    /// Construct HdrBucketConfig.
+struct TOOLBOX_API BucketConfig {
+    /// Construct BucketConfig.
     ///
     /// Due to the size of the histogram being the result of some reasonably involved math on the
     /// input parameters.
@@ -36,16 +36,16 @@ struct TOOLBOX_API HdrBucketConfig {
     /// figures in a decimal number that will be maintained. E.g. a value of 3 will mean the results
     /// from the histogram will be accurate up to the first three digits. Must be a value between 1
     /// and 5 (inclusive).
-    HdrBucketConfig(std::int64_t lowest_trackable_value, std::int64_t highest_trackable_value,
-                    int significant_figures);
+    BucketConfig(std::int64_t lowest_trackable_value, std::int64_t highest_trackable_value,
+                 int significant_figures);
 
     // Copy.
-    HdrBucketConfig(const HdrBucketConfig&) noexcept = default;
-    HdrBucketConfig& operator=(const HdrBucketConfig&) noexcept = default;
+    BucketConfig(const BucketConfig&) noexcept = default;
+    BucketConfig& operator=(const BucketConfig&) noexcept = default;
 
     // Move.
-    HdrBucketConfig(HdrBucketConfig&&) noexcept = default;
-    HdrBucketConfig& operator=(HdrBucketConfig&&) noexcept = default;
+    BucketConfig(BucketConfig&&) noexcept = default;
+    BucketConfig& operator=(BucketConfig&&) noexcept = default;
 
     std::int64_t lowest_trackable_value;
     std::int64_t highest_trackable_value;
@@ -60,19 +60,19 @@ struct TOOLBOX_API HdrBucketConfig {
 };
 
 /// A High Dynamic Range (HDR) Histogram.
-class TOOLBOX_API HdrHistogram {
+class TOOLBOX_API Histogram {
   public:
-    HdrHistogram(const HdrBucketConfig& config);
-    HdrHistogram(std::int64_t lowest_trackable_value, std::int64_t highest_trackable_value,
-                 std::int32_t significant_figures);
+    Histogram(const BucketConfig& config);
+    Histogram(std::int64_t lowest_trackable_value, std::int64_t highest_trackable_value,
+              std::int32_t significant_figures);
 
     // Copy.
-    HdrHistogram(const HdrHistogram&) = default;
-    HdrHistogram& operator=(const HdrHistogram&) = default;
+    Histogram(const Histogram&) = default;
+    Histogram& operator=(const Histogram&) = default;
 
     // Move.
-    HdrHistogram(HdrHistogram&&) noexcept = default;
-    HdrHistogram& operator=(HdrHistogram&&) noexcept = default;
+    Histogram(Histogram&&) noexcept = default;
+    Histogram& operator=(Histogram&&) noexcept = default;
 
     std::int64_t lowest_trackable_value() const noexcept { return lowest_trackable_value_; }
     std::int64_t highest_trackable_value() const noexcept { return highest_trackable_value_; }

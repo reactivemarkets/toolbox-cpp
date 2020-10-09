@@ -30,7 +30,7 @@ BOOST_AUTO_TEST_SUITE(IteratorSuite)
 
 BOOST_AUTO_TEST_CASE(IteratorLinearIteratorCase)
 {
-    HdrHistogram h{1, 255, 2};
+    Histogram h{1, 255, 2};
     BOOST_TEST(h.record_value(193));
     BOOST_TEST(h.record_value(255));
     BOOST_TEST(h.record_value(0));
@@ -41,7 +41,7 @@ BOOST_AUTO_TEST_CASE(IteratorLinearIteratorCase)
     int step_count{0};
     int64_t total_count{0};
 
-    HdrLinearIterator iter{h, 64};
+    LinearIterator iter{h, 64};
     while (iter.next()) {
         total_count += iter.count_added_in_this_iteration_step();
         if (step_count == 0) {

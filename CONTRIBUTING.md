@@ -105,6 +105,10 @@ $ make clang-format
 - types and integer constants start with an upper-case character;
 - trailing underscore for private data-members.
 
+Namespaces can be used to disambiguate conflicting type names, so there is no need to prefix type
+names with the namespace name. The HTTP server in the http namespace, for example, is called Serv,
+not HttpServ.
+
 ### Class Layout
 
 The `public` section is first, followed by `protected` and then `private`. Within each section,

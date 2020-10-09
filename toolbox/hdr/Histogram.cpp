@@ -65,8 +65,8 @@ int32_t get_sub_bucket_half_count_magnitude(int64_t significant_figures) noexcep
 
 } // namespace
 
-HdrBucketConfig::HdrBucketConfig(int64_t lowest_trackable_value, int64_t highest_trackable_value,
-                                 int32_t significant_figures)
+BucketConfig::BucketConfig(int64_t lowest_trackable_value, int64_t highest_trackable_value,
+                           int32_t significant_figures)
 : lowest_trackable_value{lowest_trackable_value}
 , highest_trackable_value{highest_trackable_value}
 , significant_figures{significant_figures}
@@ -93,7 +93,7 @@ HdrBucketConfig::HdrBucketConfig(int64_t lowest_trackable_value, int64_t highest
     }
 }
 
-HdrHistogram::HdrHistogram(const HdrBucketConfig& config)
+Histogram::Histogram(const BucketConfig& config)
 : lowest_trackable_value_{config.lowest_trackable_value}
 , highest_trackable_value_{config.highest_trackable_value}
 , significant_figures_{config.significant_figures}
@@ -111,14 +111,13 @@ HdrHistogram::HdrHistogram(const HdrBucketConfig& config)
     counts_.resize(config.counts_len);
 }
 
-HdrHistogram::HdrHistogram(int64_t lowest_trackable_value, int64_t highest_trackable_value,
-                           int significant_figures)
-: HdrHistogram{
-    HdrBucketConfig{lowest_trackable_value, highest_trackable_value, significant_figures}}
+Histogram::Histogram(int64_t lowest_trackable_value, int64_t highest_trackable_value,
+                     int significant_figures)
+: Histogram{BucketConfig{lowest_trackable_value, highest_trackable_value, significant_figures}}
 {
 }
 
-int64_t HdrHistogram::min() const noexcept
+int64_t Histogram::min() const noexcept
 {
     if (count_at_index(0) > 0) {
         return 0;
@@ -126,7 +125,7 @@ int64_t HdrHistogram::min() const noexcept
     return non_zero_min();
 }
 
-int64_t HdrHistogram::max() const noexcept
+int64_t Histogram::max() const noexcept
 {
     if (max_value_ == 0) {
         return 0;
@@ -134,34 +133,34 @@ int64_t HdrHistogram::max() const noexcept
     return highest_equivalent_value(max_value_);
 }
 
-bool HdrHistogram::values_are_equivalent(int64_t a, int64_t b) const noexcept
+bool Histogram::values_are_equivalent(int64_t a, int64_t b) const noexcept
 {
     return lowest_equivalent_value(a) == lowest_equivalent_value(b);
 }
 
-int64_t HdrHistogram::lowest_equivalent_value(int64_t value) const noexcept
+int64_t Histogram::lowest_equivalent_value(int64_t value) const noexcept
 {
     const int32_t bucket_index{get_bucket_index(value)};
     const int32_t sub_bucket_index{get_sub_bucket_index(value, bucket_index, unit_magnitude_)};
     return value_from_index(bucket_index, sub_bucket_index, unit_magnitude_);
 }
 
-int64_t HdrHistogram::highest_equivalent_value(int64_t value) const noexcept
+int64_t Histogram::highest_equivalent_value(int64_t value) const noexcept
 {
     return next_non_equivalent_value(value) - 1;
 }
 
-int64_t HdrHistogram::count_at_value(int64_t value) const noexcept
+int64_t Histogram::count_at_value(int64_t value) const noexcept
 {
     return counts_get_normalised(counts_index_for(value));
 }
 
-int64_t HdrHistogram::count_at_index(int32_t index) const noexcept
+int64_t Histogram::count_at_index(int32_t index) const noexcept
 {
     return counts_get_normalised(index);
 }
 
-int64_t HdrHistogram::value_at_index(int32_t index) const noexcept
+int64_t Histogram::value_at_index(int32_t index) const noexcept
 {
     int32_t bucket_index{(index >> sub_bucket_half_count_magnitude_) - 1};
     int32_t sub_bucket_index{(index & (sub_bucket_half_count_ - 1)) + sub_bucket_half_count_};
@@ -173,7 +172,7 @@ int64_t HdrHistogram::value_at_index(int32_t index) const noexcept
     return value_from_index(bucket_index, sub_bucket_index, unit_magnitude_);
 }
 
-int64_t HdrHistogram::size_of_equivalent_value_range(int64_t value) const noexcept
+int64_t Histogram::size_of_equivalent_value_range(int64_t value) const noexcept
 {
     const int32_t bucket_index{get_bucket_index(value)};
     const int32_t sub_bucket_index{get_sub_bucket_index(value, bucket_index, unit_magnitude_)};
@@ -182,22 +181,22 @@ int64_t HdrHistogram::size_of_equivalent_value_range(int64_t value) const noexce
     return int64_t{1} << (unit_magnitude_ + adjusted_bucket);
 }
 
-int64_t HdrHistogram::next_non_equivalent_value(int64_t value) const noexcept
+int64_t Histogram::next_non_equivalent_value(int64_t value) const noexcept
 {
     return lowest_equivalent_value(value) + size_of_equivalent_value_range(value);
 }
 
-int64_t HdrHistogram::median_equivalent_value(int64_t value) const noexcept
+int64_t Histogram::median_equivalent_value(int64_t value) const noexcept
 {
     return lowest_equivalent_value(value) + (size_of_equivalent_value_range(value) >> 1);
 }
 
-int64_t HdrHistogram::counts_get_normalised(int32_t index) const noexcept
+int64_t Histogram::counts_get_normalised(int32_t index) const noexcept
 {
     return counts_[normalize_index(index)];
 }
 
-void HdrHistogram::reset() noexcept
+void Histogram::reset() noexcept
 {
     min_value_ = numeric_limits<int64_t>::max();
     max_value_ = 0;
@@ -205,12 +204,12 @@ void HdrHistogram::reset() noexcept
     fill(counts_.begin(), counts_.end(), 0);
 }
 
-bool HdrHistogram::record_value(int64_t value) noexcept
+bool Histogram::record_value(int64_t value) noexcept
 {
     return record_values(value, 1);
 }
 
-bool HdrHistogram::record_values(int64_t value, int64_t count) noexcept
+bool Histogram::record_values(int64_t value, int64_t count) noexcept
 {
     if (value < 0) {
         return false;
@@ -224,7 +223,7 @@ bool HdrHistogram::record_values(int64_t value, int64_t count) noexcept
     return true;
 }
 
-int32_t HdrHistogram::normalize_index(int32_t index) const noexcept
+int32_t Histogram::normalize_index(int32_t index) const noexcept
 {
     if (normalizing_index_offset_ == 0) {
         return index;
@@ -241,14 +240,14 @@ int32_t HdrHistogram::normalize_index(int32_t index) const noexcept
     return normalized_index + adjustment;
 }
 
-int32_t HdrHistogram::get_bucket_index(int64_t value) const noexcept
+int32_t Histogram::get_bucket_index(int64_t value) const noexcept
 {
     // Smallest power of 2 containing value.
     const int32_t pow2ceiling{64 - count_leading_zeros_64(value | sub_bucket_mask_)};
     return pow2ceiling - unit_magnitude_ - (sub_bucket_half_count_magnitude_ + 1);
 }
 
-int32_t HdrHistogram::counts_index(int32_t bucket_index, int32_t sub_bucket_index) const noexcept
+int32_t Histogram::counts_index(int32_t bucket_index, int32_t sub_bucket_index) const noexcept
 {
     // Calculate the index for the first entry in the bucket.
     // The following is the equivalent of ((bucket_index + 1) * subBucketHalfCount)).
@@ -260,14 +259,14 @@ int32_t HdrHistogram::counts_index(int32_t bucket_index, int32_t sub_bucket_inde
     return bucket_base_index + offset_in_bucket;
 }
 
-int32_t HdrHistogram::counts_index_for(int64_t value) const noexcept
+int32_t Histogram::counts_index_for(int64_t value) const noexcept
 {
     const int32_t bucket_index{get_bucket_index(value)};
     const int32_t sub_bucket_index{get_sub_bucket_index(value, bucket_index, unit_magnitude_)};
     return counts_index(bucket_index, sub_bucket_index);
 }
 
-int64_t HdrHistogram::non_zero_min() const noexcept
+int64_t Histogram::non_zero_min() const noexcept
 {
     if (min_value_ == numeric_limits<int64_t>::max()) {
         return min_value_;
@@ -275,14 +274,14 @@ int64_t HdrHistogram::non_zero_min() const noexcept
     return lowest_equivalent_value(min_value_);
 }
 
-void HdrHistogram::counts_inc_normalised(int32_t index, int64_t value) noexcept
+void Histogram::counts_inc_normalised(int32_t index, int64_t value) noexcept
 {
     const int32_t normalised_index{normalize_index(index)};
     counts_[normalised_index] += value;
     total_count_ += value;
 }
 
-void HdrHistogram::update_min_max(int64_t value) noexcept
+void Histogram::update_min_max(int64_t value) noexcept
 {
     if (value != 0) {
         min_value_ = std::min(min_value_, value);

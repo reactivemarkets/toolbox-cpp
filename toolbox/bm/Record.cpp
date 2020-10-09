@@ -22,7 +22,7 @@
 namespace toolbox::bm {
 using namespace std;
 
-BenchmarkRecord::BenchmarkRecord(HdrHistogram& hist, int count) noexcept
+BenchmarkRecord::BenchmarkRecord(Histogram& hist, int count) noexcept
 : hist_{hist}
 , count_{count}
 , start_{chrono::high_resolution_clock::now()}

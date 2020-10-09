@@ -28,21 +28,21 @@ constexpr char ApplicationJson[]{"application/json"};
 constexpr char TextHtml[]{"text/html"};
 constexpr char TextPlain[]{"text/plain"};
 
-class TOOLBOX_API HttpBuf final : public std::streambuf {
+class TOOLBOX_API StreamBuf final : public std::streambuf {
   public:
-    explicit HttpBuf(Buffer& buf) noexcept
+    explicit StreamBuf(Buffer& buf) noexcept
     : buf_{buf}
     {
     }
-    ~HttpBuf() override;
+    ~StreamBuf() override;
 
     // Copy.
-    HttpBuf(const HttpBuf&) = delete;
-    HttpBuf& operator=(const HttpBuf&) = delete;
+    StreamBuf(const StreamBuf&) = delete;
+    StreamBuf& operator=(const StreamBuf&) = delete;
 
     // Move.
-    HttpBuf(HttpBuf&&) = delete;
-    HttpBuf& operator=(HttpBuf&&) = delete;
+    StreamBuf(StreamBuf&&) = delete;
+    StreamBuf& operator=(StreamBuf&&) = delete;
 
     std::streamsize pcount() const noexcept { return pcount_; }
     void commit() noexcept { buf_.commit(pcount_); }
@@ -63,23 +63,23 @@ class TOOLBOX_API HttpBuf final : public std::streambuf {
     std::streamsize pcount_{0};
 };
 
-class TOOLBOX_API HttpStream final : public std::ostream {
+class TOOLBOX_API Stream final : public std::ostream {
   public:
-    explicit HttpStream(Buffer& buf) noexcept
+    explicit Stream(Buffer& buf) noexcept
     : std::ostream{nullptr}
     , buf_{buf}
     {
         rdbuf(&buf_);
     }
-    ~HttpStream() override;
+    ~Stream() override;
 
     // Copy.
-    HttpStream(const HttpStream&) = delete;
-    HttpStream& operator=(const HttpStream&) = delete;
+    Stream(const Stream&) = delete;
+    Stream& operator=(const Stream&) = delete;
 
     // Move.
-    HttpStream(HttpStream&&) = delete;
-    HttpStream& operator=(HttpStream&&) = delete;
+    Stream(Stream&&) = delete;
+    Stream& operator=(Stream&&) = delete;
 
     std::streamsize pcount() const noexcept { return buf_.pcount(); }
     void commit() noexcept;
@@ -89,10 +89,10 @@ class TOOLBOX_API HttpStream final : public std::ostream {
         toolbox::reset(*this);
         cloff_ = hcount_ = 0;
     }
-    void reset(HttpStatus status, const char* content_type, NoCache no_cache = NoCache::Yes);
+    void reset(Status status, const char* content_type, NoCache no_cache = NoCache::Yes);
 
   private:
-    HttpBuf buf_;
+    StreamBuf buf_;
     /// Content-Length offset.
     std::streamsize cloff_{0};
     /// Header size.

@@ -23,7 +23,7 @@ namespace toolbox {
 inline namespace hdr {
 using namespace std;
 
-HdrIterator::HdrIterator(const HdrHistogram& h) noexcept
+Iterator::Iterator(const Histogram& h) noexcept
 : h_{h}
 , counts_index_{-1}
 , total_count_{h.total_count()}
@@ -36,9 +36,9 @@ HdrIterator::HdrIterator(const HdrHistogram& h) noexcept
 {
 }
 
-HdrIterator::~HdrIterator() = default;
+Iterator::~Iterator() = default;
 
-bool HdrIterator::do_next() noexcept
+bool Iterator::do_next() noexcept
 {
     bool result = move_next();
     if (result) {
@@ -47,22 +47,22 @@ bool HdrIterator::do_next() noexcept
     return result;
 }
 
-bool HdrIterator::has_buckets() const noexcept
+bool Iterator::has_buckets() const noexcept
 {
     return counts_index_ < h_.counts_len();
 }
 
-bool HdrIterator::has_next() const noexcept
+bool Iterator::has_next() const noexcept
 {
     return cumulative_count_ < total_count_;
 }
 
-int64_t HdrIterator::peek_next_value_from_index() const noexcept
+int64_t Iterator::peek_next_value_from_index() const noexcept
 {
     return h_.value_at_index(counts_index_ + 1);
 }
 
-bool HdrIterator::next_value_greater_than_reporting_level_upper_bound(
+bool Iterator::next_value_greater_than_reporting_level_upper_bound(
     int64_t reporting_level_upper_bound) const noexcept
 {
     if (counts_index_ >= h_.counts_len()) {
@@ -71,7 +71,7 @@ bool HdrIterator::next_value_greater_than_reporting_level_upper_bound(
     return peek_next_value_from_index() > reporting_level_upper_bound;
 }
 
-bool HdrIterator::basic_next() noexcept
+bool Iterator::basic_next() noexcept
 {
     if (!has_next() || counts_index_ >= h_.counts_len()) {
         return false;
@@ -80,7 +80,7 @@ bool HdrIterator::basic_next() noexcept
     return true;
 }
 
-bool HdrIterator::move_next() noexcept
+bool Iterator::move_next() noexcept
 {
     counts_index_++;
 
@@ -98,15 +98,14 @@ bool HdrIterator::move_next() noexcept
     return true;
 }
 
-void HdrIterator::update_iterated_values(int64_t new_value_iterated_to) noexcept
+void Iterator::update_iterated_values(int64_t new_value_iterated_to) noexcept
 {
     value_iterated_from_ = value_iterated_to_;
     value_iterated_to_ = new_value_iterated_to;
 }
 
-HdrPercentileIterator::HdrPercentileIterator(const HdrHistogram& h,
-                                             int32_t ticks_per_half_distance) noexcept
-: HdrIterator{h}
+PercentileIterator::PercentileIterator(const Histogram& h, int32_t ticks_per_half_distance) noexcept
+: Iterator{h}
 , seen_last_value_{false}
 , ticks_per_half_distance_{ticks_per_half_distance}
 , percentile_to_iterate_to_{0.0}
@@ -114,7 +113,7 @@ HdrPercentileIterator::HdrPercentileIterator(const HdrHistogram& h,
 {
 }
 
-bool HdrPercentileIterator::do_next() noexcept
+bool PercentileIterator::do_next() noexcept
 {
     if (!has_next()) {
         if (seen_last_value_) {
@@ -146,19 +145,19 @@ bool HdrPercentileIterator::do_next() noexcept
     return true;
 }
 
-HdrCountAddedIterator::HdrCountAddedIterator(const HdrHistogram& h)
-: HdrIterator{h}
+CountAddedIterator::CountAddedIterator(const Histogram& h)
+: Iterator{h}
 {
 }
 
-HdrCountAddedIterator::~HdrCountAddedIterator() = default;
+CountAddedIterator::~CountAddedIterator() = default;
 
-HdrRecordedIterator::HdrRecordedIterator(const HdrHistogram& h)
-: HdrCountAddedIterator{h}
+RecordedIterator::RecordedIterator(const Histogram& h)
+: CountAddedIterator{h}
 {
 }
 
-bool HdrRecordedIterator::do_next() noexcept
+bool RecordedIterator::do_next() noexcept
 {
     while (basic_next()) {
         if (count_ != 0) {
@@ -170,15 +169,15 @@ bool HdrRecordedIterator::do_next() noexcept
     return false;
 }
 
-HdrLinearIterator::HdrLinearIterator(const HdrHistogram& h, int64_t value_units_per_bucket) noexcept
-: HdrCountAddedIterator{h}
+LinearIterator::LinearIterator(const Histogram& h, int64_t value_units_per_bucket) noexcept
+: CountAddedIterator{h}
 , value_units_per_bucket_{value_units_per_bucket}
 , next_value_reporting_level_{value_units_per_bucket}
 , next_value_reporting_level_lowest_equivalent_{h.lowest_equivalent_value(value_units_per_bucket)}
 {
 }
 
-bool HdrLinearIterator::do_next() noexcept
+bool LinearIterator::do_next() noexcept
 {
     count_added_in_this_iteration_step_ = 0;
 
@@ -204,16 +203,16 @@ bool HdrLinearIterator::do_next() noexcept
     return false;
 }
 
-HdrLogIterator::HdrLogIterator(const HdrHistogram& h, int64_t value_units_first_bucket,
-                               double log_base) noexcept
-: HdrCountAddedIterator{h}
+LogIterator::LogIterator(const Histogram& h, int64_t value_units_first_bucket,
+                         double log_base) noexcept
+: CountAddedIterator{h}
 , log_base_{log_base}
 , next_value_reporting_level_{value_units_first_bucket}
 , next_value_reporting_level_lowest_equivalent_{h.lowest_equivalent_value(value_units_first_bucket)}
 {
 }
 
-bool HdrLogIterator::do_next() noexcept
+bool LogIterator::do_next() noexcept
 {
     count_added_in_this_iteration_step_ = 0;
 

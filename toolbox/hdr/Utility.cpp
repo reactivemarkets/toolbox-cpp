@@ -28,7 +28,7 @@ namespace toolbox {
 inline namespace hdr {
 using namespace std;
 namespace {
-int64_t get_count_at_percentile(const HdrHistogram& h, double percentile) noexcept
+int64_t get_count_at_percentile(const Histogram& h, double percentile) noexcept
 {
     if (percentile > 100.0) {
         percentile = 100.0;
@@ -38,22 +38,22 @@ int64_t get_count_at_percentile(const HdrHistogram& h, double percentile) noexce
 }
 } // namespace
 
-int64_t min(const HdrHistogram& h) noexcept
+int64_t min(const Histogram& h) noexcept
 {
     return h.min();
 }
 
-int64_t max(const HdrHistogram& h) noexcept
+int64_t max(const Histogram& h) noexcept
 {
     return h.max();
 }
 
-int64_t value_at_percentile(const HdrHistogram& h, double percentile) noexcept
+int64_t value_at_percentile(const Histogram& h, double percentile) noexcept
 {
     const int64_t count_at_percentile{get_count_at_percentile(h, percentile)};
 
     int64_t total{0};
-    HdrIterator iter{h};
+    Iterator iter{h};
     while (iter.next()) {
         total += iter.count();
         if (total >= count_at_percentile) {
@@ -63,12 +63,12 @@ int64_t value_at_percentile(const HdrHistogram& h, double percentile) noexcept
     return 0;
 }
 
-double mean(const HdrHistogram& h) noexcept
+double mean(const Histogram& h) noexcept
 {
     const auto total_count = h.total_count();
 
     int64_t total{0};
-    HdrIterator iter{h};
+    Iterator iter{h};
     while (iter.next()) {
         if (iter.count() != 0) {
             total += iter.count() * h.median_equivalent_value(iter.value());
@@ -77,13 +77,13 @@ double mean(const HdrHistogram& h) noexcept
     return double(total) / total_count;
 }
 
-double stddev(const HdrHistogram& h) noexcept
+double stddev(const Histogram& h) noexcept
 {
     const int64_t total_count{h.total_count()};
     const double mean_val{mean(h)};
 
     double geometric_dev_total{0.0};
-    HdrIterator iter{h};
+    Iterator iter{h};
     while (iter.next()) {
         if (iter.count() != 0) {
             const double dev{h.median_equivalent_value(iter.value()) - mean_val};
@@ -100,7 +100,7 @@ ostream& operator<<(ostream& os, PutPercentiles pp)
 
     os << "       Value     Percentile TotalCount 1/(1-Percentile)\n\n";
 
-    HdrPercentileIterator iter{pp.h, pp.ticks_per_half_distance};
+    PercentileIterator iter{pp.h, pp.ticks_per_half_distance};
     while (iter.next()) {
         const double value{iter.highest_equivalent_value() / pp.value_scale};
         const double percentile{iter.percentile() / 100.0};

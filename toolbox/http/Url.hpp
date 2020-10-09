@@ -82,7 +82,7 @@ class BasicUrl {
         const auto rc
             = http_parser_parse_url(url().data(), url().size(), is_connect ? 1 : 0, &parser_);
         if (rc != 0) {
-            throw HttpException{HttpStatus::BadRequest, err_msg() << "invalid url: " << url()};
+            throw Exception{Status::BadRequest, err_msg() << "invalid url: " << url()};
         }
     }
 
@@ -104,8 +104,8 @@ class Url : public BasicUrl<Url> {
     Url& operator=(const Url&) = default;
 
     // Move.
-    Url(Url&&) = default;
-    Url& operator=(Url&&) = default;
+    Url(Url&&) noexcept = default;
+    Url& operator=(Url&&) noexcept = default;
 
     const auto& url() const noexcept { return url_; }
 

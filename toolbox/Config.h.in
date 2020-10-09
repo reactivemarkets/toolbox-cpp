@@ -39,13 +39,15 @@
 #define TOOLBOX_API __attribute__((visibility("default")))
 
 /**
- * True if debug build is enabled.
- */
-#define TOOLBOX_BUILD_DEBUG @TOOLBOX_BUILD_DEBUG@
-
-/**
  * True if SystemTap support is enabled.
  */
 #define TOOLBOX_HAVE_SYSTEMTAP @TOOLBOX_HAVE_SYSTEMTAP@
+
+/**
+ * True if debug build is enabled.
+ */
+#ifndef TOOLBOX_BUILD_DEBUG
+#define TOOLBOX_BUILD_DEBUG @TOOLBOX_BUILD_DEBUG@
+#endif
 
 #endif // TOOLBOX_CONFIG_H

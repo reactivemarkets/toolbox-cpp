@@ -17,13 +17,15 @@
 #ifndef TOOLBOX_NET_ERROR_HPP
 #define TOOLBOX_NET_ERROR_HPP
 
+#include <toolbox/Config.h>
+
 #include <system_error>
 
 namespace toolbox {
 inline namespace net {
 
-const std::error_category& gai_error_category() noexcept;
-std::error_code make_gai_error_code(int err) noexcept;
+TOOLBOX_API const std::error_category& gai_error_category() noexcept;
+TOOLBOX_API std::error_code make_gai_error_code(int err) noexcept;
 
 } // namespace net
 } // namespace toolbox

@@ -24,24 +24,24 @@
 namespace toolbox {
 inline namespace http {
 
-class HttpRequest;
-class HttpStream;
+class Request;
+class Stream;
 
-class TOOLBOX_API HttpApp {
+class TOOLBOX_API App {
   public:
     using Protocol = StreamProtocol;
     using Endpoint = StreamEndpoint;
 
-    HttpApp() noexcept = default;
-    virtual ~HttpApp();
+    App() noexcept = default;
+    virtual ~App();
 
     // Copy.
-    constexpr HttpApp(const HttpApp&) noexcept = default;
-    HttpApp& operator=(const HttpApp&) noexcept = default;
+    constexpr App(const App&) noexcept = default;
+    App& operator=(const App&) noexcept = default;
 
     // Move.
-    constexpr HttpApp(HttpApp&&) noexcept = default;
-    HttpApp& operator=(HttpApp&&) noexcept = default;
+    constexpr App(App&&) noexcept = default;
+    App& operator=(App&&) noexcept = default;
 
     void on_http_connect(CyclTime now, const Endpoint& ep) { do_on_http_connect(now, ep); }
     void on_http_disconnect(CyclTime now, const Endpoint& ep) noexcept
@@ -49,11 +49,11 @@ class TOOLBOX_API HttpApp {
         do_on_http_disconnect(now, ep);
     }
     void on_http_error(CyclTime now, const Endpoint& ep, const std::exception& e,
-                       HttpStream& os) noexcept
+                       Stream& os) noexcept
     {
         do_on_http_error(now, ep, e, os);
     }
-    void on_http_message(CyclTime now, const Endpoint& ep, const HttpRequest& req, HttpStream& os)
+    void on_http_message(CyclTime now, const Endpoint& ep, const Request& req, Stream& os)
     {
         do_on_http_message(now, ep, req, os);
     }
@@ -63,9 +63,9 @@ class TOOLBOX_API HttpApp {
     virtual void do_on_http_connect(CyclTime now, const Endpoint& ep) = 0;
     virtual void do_on_http_disconnect(CyclTime now, const Endpoint& ep) noexcept = 0;
     virtual void do_on_http_error(CyclTime now, const Endpoint& ep, const std::exception& e,
-                                  HttpStream& os) noexcept = 0;
-    virtual void do_on_http_message(CyclTime now, const Endpoint& ep, const HttpRequest& req,
-                                    HttpStream& os)
+                                  Stream& os) noexcept = 0;
+    virtual void do_on_http_message(CyclTime now, const Endpoint& ep, const Request& req,
+                                    Stream& os)
         = 0;
     virtual void do_on_http_timeout(CyclTime now, const Endpoint& ep) noexcept = 0;
 };

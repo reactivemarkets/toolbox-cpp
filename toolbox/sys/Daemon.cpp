@@ -57,7 +57,7 @@ void daemon()
     close(STDIN_FILENO);
     const auto fd = ::open("/dev/null", O_RDONLY);
     if (fd < 0) {
-        throw std::system_error{make_sys_error(errno), "open"};
+        throw std::system_error{make_error(errno), "open"};
     }
 }
 

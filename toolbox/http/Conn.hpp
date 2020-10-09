@@ -31,16 +31,16 @@
 
 namespace toolbox {
 inline namespace http {
-class HttpApp;
+class App;
 
 template <typename RequestT, typename AppT>
-class BasicHttpConn
+class BasicConn
 : public MemAlloc
-, public BasicDisposer<BasicHttpConn<RequestT, AppT>>
-, BasicHttpParser<BasicHttpConn<RequestT, AppT>> {
+, public BasicDisposer<BasicConn<RequestT, AppT>>
+, BasicParser<BasicConn<RequestT, AppT>> {
 
-    friend class BasicDisposer<BasicHttpConn<RequestT, AppT>>;
-    friend class BasicHttpParser<BasicHttpConn<RequestT, AppT>>;
+    friend class BasicDisposer<BasicConn<RequestT, AppT>>;
+    friend class BasicParser<BasicConn<RequestT, AppT>>;
 
     using Request = RequestT;
     using App = AppT;
@@ -49,33 +49,33 @@ class BasicHttpConn
 
     static constexpr auto IdleTimeout = 5s;
 
-    using BasicHttpParser<BasicHttpConn<RequestT, AppT>>::method;
-    using BasicHttpParser<BasicHttpConn<RequestT, AppT>>::parse;
-    using BasicHttpParser<BasicHttpConn<RequestT, AppT>>::should_keep_alive;
+    using BasicParser<BasicConn<RequestT, AppT>>::method;
+    using BasicParser<BasicConn<RequestT, AppT>>::parse;
+    using BasicParser<BasicConn<RequestT, AppT>>::should_keep_alive;
 
   public:
     using Protocol = StreamProtocol;
     using Endpoint = StreamEndpoint;
 
-    BasicHttpConn(CyclTime now, Reactor& r, IoSock&& sock, const Endpoint& ep, App& app)
-    : BasicHttpParser<BasicHttpConn<RequestT, AppT>>{HttpType::Request}
+    BasicConn(CyclTime now, Reactor& r, IoSock&& sock, const Endpoint& ep, App& app)
+    : BasicParser<BasicConn<RequestT, AppT>>{Type::Request}
     , reactor_{r}
     , sock_{std::move(sock)}
     , ep_{ep}
     , app_{app}
     {
-        sub_ = r.subscribe(*sock_, EpollIn, bind<&BasicHttpConn::on_io_event>(this));
+        sub_ = r.subscribe(*sock_, EpollIn, bind<&BasicConn::on_io_event>(this));
         schedule_timeout(now);
         app.on_http_connect(now, ep_);
     }
 
     // Copy.
-    BasicHttpConn(const BasicHttpConn&) = delete;
-    BasicHttpConn& operator=(const BasicHttpConn&) = delete;
+    BasicConn(const BasicConn&) = delete;
+    BasicConn& operator=(const BasicConn&) = delete;
 
     // Move.
-    BasicHttpConn(BasicHttpConn&&) = delete;
-    BasicHttpConn& operator=(BasicHttpConn&&) = delete;
+    BasicConn(BasicConn&&) = delete;
+    BasicConn& operator=(BasicConn&&) = delete;
 
     const Endpoint& endpoint() const noexcept { return ep_; }
     void clear() noexcept { req_.clear(); }
@@ -95,7 +95,7 @@ class BasicHttpConn
     }
 
   private:
-    ~BasicHttpConn() = default;
+    ~BasicConn() = default;
     bool on_message_begin(CyclTime now) noexcept
     {
         in_progress_ = true;
@@ -198,7 +198,7 @@ class BasicHttpConn
                 return;
             }
             flush_output(now);
-        } catch (const HttpException&) {
+        } catch (const Exception&) {
             // Do not call on_http_error() here, because it will have already been called in one of
             // the noexcept parser callback functions.
         } catch (const std::exception& e) {
@@ -263,7 +263,7 @@ class BasicHttpConn
     void schedule_timeout(CyclTime now)
     {
         const auto timeout = std::chrono::ceil<Seconds>(now.mono_time() + IdleTimeout);
-        tmr_ = reactor_.timer(timeout, Priority::Low, bind<&BasicHttpConn::on_timeout_timer>(this));
+        tmr_ = reactor_.timer(timeout, Priority::Low, bind<&BasicConn::on_timeout_timer>(this));
     }
 
     Reactor& reactor_;
@@ -274,11 +274,11 @@ class BasicHttpConn
     Timer tmr_;
     Buffer in_, out_;
     Request req_;
-    HttpStream os_{out_};
+    Stream os_{out_};
     bool in_progress_{false}, write_blocked_{false};
 };
 
-using HttpConn = BasicHttpConn<HttpRequest, HttpApp>;
+using Conn = BasicConn<Request, App>;
 
 } // namespace http
 } // namespace toolbox

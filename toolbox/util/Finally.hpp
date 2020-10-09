@@ -37,8 +37,8 @@ class Finally {
     Finally& operator=(const Finally&) = delete;
 
     // Move.
-    Finally(Finally&&) = default;
-    Finally& operator=(Finally&&) = delete;
+    Finally(Finally&&) noexcept = default;
+    Finally& operator=(Finally&&) noexcept = delete;
 
   private:
     FnT fn_;

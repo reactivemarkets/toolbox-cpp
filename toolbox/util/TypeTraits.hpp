@@ -77,9 +77,11 @@ struct TypeTraits<std::string> {
 template <typename TypeT>
 struct is_string : std::is_same<char*, std::remove_cv_t<typename std::decay_t<TypeT>>>::type {
 };
+
 template <>
 struct is_string<std::string> : std::true_type {
 };
+
 template <>
 struct is_string<std::string_view> : std::true_type {
 };

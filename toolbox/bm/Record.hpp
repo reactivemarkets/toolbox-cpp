@@ -22,7 +22,7 @@
 
 namespace toolbox {
 inline namespace hdr {
-class HdrHistogram;
+class Histogram;
 } // namespace hdr
 } // namespace toolbox
 
@@ -30,10 +30,10 @@ namespace toolbox::bm {
 
 /// The BenchmarkRecord class records the time elapsed during object lifetime,
 /// i.e., between construction and destruction.
-/// The elapsed time is recorded in the HdrHistogram object during destruction.
+/// The elapsed time is recorded in the Histogram object during destruction.
 class TOOLBOX_API BenchmarkRecord {
   public:
-    BenchmarkRecord(HdrHistogram& hist, int count = 1) noexcept;
+    BenchmarkRecord(Histogram& hist, int count = 1) noexcept;
     ~BenchmarkRecord();
 
     // Copy.
@@ -45,7 +45,7 @@ class TOOLBOX_API BenchmarkRecord {
     BenchmarkRecord& operator=(BenchmarkRecord&&) = delete;
 
   private:
-    HdrHistogram& hist_;
+    Histogram& hist_;
     const int count_;
     std::chrono::time_point<std::chrono::high_resolution_clock> start_;
 };

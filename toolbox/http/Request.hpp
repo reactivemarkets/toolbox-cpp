@@ -25,35 +25,35 @@
 namespace toolbox {
 inline namespace http {
 
-using HttpHeaders = std::vector<std::pair<std::string, std::string>>;
+using Headers = std::vector<std::pair<std::string, std::string>>;
 
-class TOOLBOX_API HttpRequest : public BasicUrl<HttpRequest> {
+class TOOLBOX_API Request : public BasicUrl<Request> {
   public:
-    HttpRequest() = default;
-    ~HttpRequest();
+    Request() = default;
+    ~Request();
 
     // Copy.
-    HttpRequest(const HttpRequest&) = delete;
-    HttpRequest& operator=(const HttpRequest&) = delete;
+    Request(const Request&) = delete;
+    Request& operator=(const Request&) = delete;
 
     // Move.
-    HttpRequest(HttpRequest&&) = delete;
-    HttpRequest& operator=(HttpRequest&&) = delete;
+    Request(Request&&) = delete;
+    Request& operator=(Request&&) = delete;
 
-    HttpMethod method() const noexcept { return method_; }
+    Method method() const noexcept { return method_; }
     const std::string& url() const noexcept { return url_; }
-    const HttpHeaders& headers() const noexcept { return headers_; }
+    const Headers& headers() const noexcept { return headers_; }
     const std::string& body() const noexcept { return body_; }
 
     void clear() noexcept
     {
-        method_ = HttpMethod::Get;
+        method_ = Method::Get;
         url_.clear();
         headers_.clear();
         body_.clear();
     }
     void flush() { parse(); }
-    void set_method(HttpMethod method) noexcept { method_ = method; }
+    void set_method(Method method) noexcept { method_ = method; }
     void append_url(std::string_view sv) { url_.append(sv.data(), sv.size()); }
     void append_header_field(std::string_view sv, First first)
     {
@@ -70,11 +70,12 @@ class TOOLBOX_API HttpRequest : public BasicUrl<HttpRequest> {
     void append_body(std::string_view sv) { body_.append(sv.data(), sv.size()); }
 
   private:
-    HttpMethod method_{HttpMethod::Get};
+    Method method_{Method::Get};
     std::string url_;
-    HttpHeaders headers_;
+    Headers headers_;
     std::string body_;
 };
+
 } // namespace http
 } // namespace toolbox
 

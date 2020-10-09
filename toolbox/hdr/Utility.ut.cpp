@@ -32,7 +32,7 @@ BOOST_AUTO_TEST_SUITE(UtilitySuite)
 
 BOOST_AUTO_TEST_CASE(CreateWithLargeValuesCase)
 {
-    HdrHistogram h{20000000, 100000000, 5};
+    Histogram h{20000000, 100000000, 5};
     BOOST_TEST(h.record_value(100000000));
     BOOST_TEST(h.record_value(20000000));
     BOOST_TEST(h.record_value(30000000));
@@ -47,7 +47,7 @@ BOOST_AUTO_TEST_CASE(HighSignificantFiguresCase)
 {
     const std::initializer_list<int64_t> vals{459876,  669187,  711612,  816326,  931423,
                                               1033197, 1131895, 2477317, 3964974, 12718782};
-    HdrHistogram h{459876, 12718782, 5};
+    Histogram h{459876, 12718782, 5};
     for (const auto val : vals) {
         BOOST_TEST(h.record_value(val));
     }
@@ -56,14 +56,14 @@ BOOST_AUTO_TEST_CASE(HighSignificantFiguresCase)
 
 BOOST_AUTO_TEST_CASE(NaNCase)
 {
-    HdrHistogram h{1, 100000, 3};
+    Histogram h{1, 100000, 3};
     BOOST_TEST(isnan(mean(h)));
     BOOST_TEST(isnan(stddev(h)));
 }
 
 BOOST_AUTO_TEST_CASE(StatsCase)
 {
-    HdrHistogram h{1, 100000, 4};
+    Histogram h{1, 100000, 4};
     for (int i{1}; i <= 100000; ++i) {
         BOOST_TEST(h.record_value(i));
     }

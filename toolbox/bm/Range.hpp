@@ -22,7 +22,7 @@
 
 namespace toolbox {
 inline namespace hdr {
-class HdrHistogram;
+class Histogram;
 } // namespace hdr
 } // namespace toolbox
 
@@ -30,7 +30,7 @@ namespace toolbox::bm {
 
 /// The BenchmarkRange class records the time elapsed during object lifetime,
 /// i.e., between construction and destruction.
-/// The elapsed time is recorded in the HdrHistogram object during destruction.
+/// The elapsed time is recorded in the Histogram object during destruction.
 class TOOLBOX_API BenchmarkRange {
     class Iterator {
         friend constexpr bool operator==(Iterator lhs, Iterator rhs) noexcept
@@ -59,7 +59,7 @@ class TOOLBOX_API BenchmarkRange {
     };
 
   public:
-    BenchmarkRange(HdrHistogram& hist, int first, int last) noexcept;
+    BenchmarkRange(Histogram& hist, int first, int last) noexcept;
     ~BenchmarkRange();
 
     // Copy.
@@ -74,7 +74,7 @@ class TOOLBOX_API BenchmarkRange {
     auto end() const noexcept { return Iterator{last_}; }
 
   private:
-    HdrHistogram& hist_;
+    Histogram& hist_;
     const int first_;
     const int last_;
     std::chrono::time_point<std::chrono::high_resolution_clock> start_;

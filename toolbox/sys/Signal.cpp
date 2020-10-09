@@ -32,7 +32,7 @@ SigWait::SigWait(std::initializer_list<int> mask)
 
     const auto err = pthread_sigmask(SIG_BLOCK, &new_mask_, &old_mask_);
     if (err != 0) {
-        throw std::system_error{make_sys_error(err), "pthread_sigmask"};
+        throw std::system_error{make_error(err), "pthread_sigmask"};
     }
 }
 
@@ -52,7 +52,7 @@ int SigWait::operator()() const
                 // Restart if interrupted by unblocked signal.
                 continue;
             }
-            throw std::system_error{make_sys_error(errno), "sigwaitinfo"};
+            throw std::system_error{make_error(errno), "sigwaitinfo"};
         }
         return info.si_signo;
     }
@@ -73,7 +73,7 @@ int SigWait::operator()(Duration timeout) const
                 // Timeout.
                 return 0;
             }
-            throw std::system_error{make_sys_error(errno), "sigtimedwait"};
+            throw std::system_error{make_error(errno), "sigtimedwait"};
         }
         return info.si_signo;
     }
@@ -85,7 +85,7 @@ void sig_block_all()
     sigfillset(&ss);
     const auto err = pthread_sigmask(SIG_SETMASK, &ss, nullptr);
     if (err != 0) {
-        throw std::system_error{make_sys_error(err), "pthread_sigmask"};
+        throw std::system_error{make_error(err), "pthread_sigmask"};
     }
 }
 

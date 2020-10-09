@@ -48,7 +48,7 @@ inline key_t ftok(const char* path, int proj_id, std::error_code& ec) noexcept
 {
     const auto key = ::ftok(path, proj_id);
     if (key < 0) {
-        ec = make_sys_error(errno);
+        ec = make_error(errno);
     }
     return key;
 }
@@ -59,7 +59,7 @@ inline key_t ftok(const char* path, int proj_id)
     const auto key = ::ftok(path, proj_id);
     // N.B. Negative values other than -1 are valid keys.
     if (key == -1) {
-        throw std::system_error{make_sys_error(errno), "ftok"};
+        throw std::system_error{make_error(errno), "ftok"};
     }
     return key;
 }
@@ -69,7 +69,7 @@ inline int shmget(key_t key, std::size_t size, int shmflg, std::error_code& ec) 
 {
     const auto id = ::shmget(key, size, shmflg);
     if (id < 0) {
-        ec = make_sys_error(errno);
+        ec = make_error(errno);
     }
     return id;
 }
@@ -79,7 +79,7 @@ inline int shmget(key_t key, std::size_t size, int shmflg)
 {
     const auto id = ::shmget(key, size, shmflg);
     if (id < 0) {
-        throw std::system_error{make_sys_error(errno), "shmget"};
+        throw std::system_error{make_error(errno), "shmget"};
     }
     return id;
 }
@@ -91,7 +91,7 @@ ShmPtr<ValueT> shmat(int shmid, const ValueT* shmaddr, int shmflg, std::error_co
 {
     void* const addr = ::shmat(shmid, shmaddr, shmflg);
     if (reinterpret_cast<long>(addr) == -1) {
-        ec = make_sys_error(errno);
+        ec = make_error(errno);
         return {nullptr, [](const void*) -> int { return 0; }};
     }
     return {static_cast<ValueT*>(addr), shmdt};
@@ -104,7 +104,7 @@ ShmPtr<ValueT> shmat(int shmid, const ValueT* shmaddr, int shmflg)
 {
     void* const addr = ::shmat(shmid, shmaddr, shmflg);
     if (reinterpret_cast<long>(addr) == -1) {
-        throw std::system_error{make_sys_error(errno), "shmat"};
+        throw std::system_error{make_error(errno), "shmat"};
     }
     return {static_cast<ValueT*>(addr), shmdt};
 }
