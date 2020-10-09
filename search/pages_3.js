@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['data_20structures_2395',['Data Structures',['../md_doc_DataStructures.html',1,'']]],
-  ['dependencies_2396',['Dependencies',['../md_doc_Dependencies.html',1,'']]]
+  ['data_20structures_2393',['Data Structures',['../md_doc_DataStructures.html',1,'']]],
+  ['dependencies_2394',['Dependencies',['../md_doc_Dependencies.html',1,'']]]
 ];
