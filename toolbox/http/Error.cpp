@@ -20,44 +20,41 @@ namespace toolbox {
 using namespace std::literals::string_literals;
 inline namespace http {
 namespace {
-struct HttpErrorCategory final : std::error_category {
-    constexpr HttpErrorCategory() noexcept = default;
-    ~HttpErrorCategory() override = default;
+struct ErrorCategory final : std::error_category {
+    constexpr ErrorCategory() noexcept = default;
+    ~ErrorCategory() override = default;
 
     // Copy.
-    HttpErrorCategory(const HttpErrorCategory&) = delete;
-    HttpErrorCategory& operator=(const HttpErrorCategory&) = delete;
+    ErrorCategory(const ErrorCategory&) = delete;
+    ErrorCategory& operator=(const ErrorCategory&) = delete;
 
     // Move.
-    HttpErrorCategory(HttpErrorCategory&&) = delete;
-    HttpErrorCategory& operator=(HttpErrorCategory&&) = delete;
+    ErrorCategory(ErrorCategory&&) = delete;
+    ErrorCategory& operator=(ErrorCategory&&) = delete;
 
     const char* name() const noexcept override { return "http"; }
-    std::string message(int err) const override
-    {
-        return enum_string(static_cast<HttpStatus>(err));
-    }
+    std::string message(int err) const override { return enum_string(static_cast<Status>(err)); }
 };
 
-const HttpErrorCategory ecat_{};
+const ErrorCategory ecat_{};
 } // namespace
 
-const std::error_category& http_error_category() noexcept
+const std::error_category& error_category() noexcept
 {
     return ecat_;
 }
 
-std::error_code make_error_code(HttpStatus status)
+std::error_code make_error_code(Status status)
 {
     return {static_cast<int>(status), ecat_};
 }
 
-HttpStatus http_status(const std::error_code& ec)
+Status http_status(const std::error_code& ec)
 {
-    if (ec.category() != http_error_category()) {
-        return HttpStatus::InternalServerError;
+    if (ec.category() != error_category()) {
+        return Status::InternalServerError;
     }
-    return static_cast<HttpStatus>(ec.value());
+    return static_cast<Status>(ec.value());
 }
 
 } // namespace http

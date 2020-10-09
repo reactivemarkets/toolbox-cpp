@@ -49,12 +49,12 @@ class BasicHandle {
     BasicHandle& operator=(const BasicHandle&) = delete;
 
     // Move.
-    constexpr BasicHandle(BasicHandle&& rhs)
+    constexpr BasicHandle(BasicHandle&& rhs) noexcept
     : id_{rhs.id_}
     {
         rhs.id_ = invalid();
     }
-    BasicHandle& operator=(BasicHandle&& rhs)
+    BasicHandle& operator=(BasicHandle&& rhs) noexcept
     {
         reset();
         swap(rhs);

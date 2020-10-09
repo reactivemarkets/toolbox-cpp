@@ -25,9 +25,9 @@ namespace toolbox {
 inline namespace http {
 
 template <typename ConnT, typename AppT>
-class BasicHttpServ : public StreamAcceptor<BasicHttpServ<ConnT, AppT>> {
+class BasicServ : public StreamAcceptor<BasicServ<ConnT, AppT>> {
 
-    friend StreamAcceptor<BasicHttpServ<ConnT, AppT>>;
+    friend StreamAcceptor<BasicServ<ConnT, AppT>>;
 
     using Conn = ConnT;
     using App = AppT;
@@ -36,28 +36,28 @@ class BasicHttpServ : public StreamAcceptor<BasicHttpServ<ConnT, AppT>> {
         = boost::intrusive::member_hook<Conn, decltype(Conn::list_hook), &Conn::list_hook>;
     using ConnList = boost::intrusive::list<Conn, ConstantTimeSizeOption, MemberHookOption>;
 
-    using typename StreamAcceptor<BasicHttpServ<ConnT, AppT>>::Endpoint;
+    using typename StreamAcceptor<BasicServ<ConnT, AppT>>::Endpoint;
 
   public:
-    BasicHttpServ(CyclTime now, Reactor& r, const Endpoint& ep, App& app)
-    : StreamAcceptor<BasicHttpServ<ConnT, AppT>>{r, ep}
+    BasicServ(CyclTime now, Reactor& r, const Endpoint& ep, App& app)
+    : StreamAcceptor<BasicServ<ConnT, AppT>>{r, ep}
     , reactor_{r}
     , app_{app}
     {
     }
-    ~BasicHttpServ()
+    ~BasicServ()
     {
         const auto now = CyclTime::current();
         conn_list_.clear_and_dispose([now](auto* conn) { conn->dispose(now); });
     }
 
     // Copy.
-    BasicHttpServ(const BasicHttpServ&) = delete;
-    BasicHttpServ& operator=(const BasicHttpServ&) = delete;
+    BasicServ(const BasicServ&) = delete;
+    BasicServ& operator=(const BasicServ&) = delete;
 
     // Move.
-    BasicHttpServ(BasicHttpServ&&) = delete;
-    BasicHttpServ& operator=(BasicHttpServ&&) = delete;
+    BasicServ(BasicServ&&) = delete;
+    BasicServ& operator=(BasicServ&&) = delete;
 
   private:
     void on_sock_prepare(CyclTime now, IoSock& sock) {}
@@ -73,7 +73,7 @@ class BasicHttpServ : public StreamAcceptor<BasicHttpServ<ConnT, AppT>> {
     ConnList conn_list_;
 };
 
-using HttpServ = BasicHttpServ<HttpConn, HttpApp>;
+using Serv = BasicServ<Conn, App>;
 
 } // namespace http
 } // namespace toolbox

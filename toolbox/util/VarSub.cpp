@@ -35,8 +35,8 @@ VarSub::VarSub(const VarSub&) = default;
 VarSub& VarSub::operator=(const VarSub&) = default;
 
 // Move.
-VarSub::VarSub(VarSub&&) = default;
-VarSub& VarSub::operator=(VarSub&&) = default;
+VarSub::VarSub(VarSub&&) noexcept = default;
+VarSub& VarSub::operator=(VarSub&&) noexcept = default;
 
 bool VarSub::substitute(string& s, const size_t i, size_t j, set<string>* outer) const
 {

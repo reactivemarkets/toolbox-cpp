@@ -23,19 +23,19 @@
 namespace toolbox {
 inline namespace http {
 
-struct TOOLBOX_API HttpException : Exception {
-    explicit HttpException(HttpStatus status)
-    : Exception{status}
+struct TOOLBOX_API Exception : util::Exception {
+    explicit Exception(Status status)
+    : util::Exception{status}
     {
     }
-    HttpException(HttpStatus status, std::string_view what)
-    : Exception{status, what}
+    Exception(Status status, std::string_view what)
+    : util::Exception{status, what}
     {
     }
-    ~HttpException() override;
+    ~Exception() override;
 
   protected:
-    using Exception::Exception;
+    using util::Exception::Exception;
 };
 
 } // namespace http

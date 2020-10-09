@@ -19,7 +19,7 @@
 namespace toolbox {
 inline namespace http {
 
-HttpRequest::~HttpRequest() = default;
+Request::~Request() = default;
 
 } // namespace http
 } // namespace toolbox

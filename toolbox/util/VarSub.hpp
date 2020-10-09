@@ -42,8 +42,8 @@ class TOOLBOX_API VarSub {
     VarSub& operator=(const VarSub&);
 
     // Move.
-    VarSub(VarSub&&);
-    VarSub& operator=(VarSub&&);
+    VarSub(VarSub&&) noexcept;
+    VarSub& operator=(VarSub&&) noexcept;
 
     void operator()(std::string& s) const { substitute(s, std::string::npos, 0); }
 

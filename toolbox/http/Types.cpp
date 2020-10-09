@@ -19,7 +19,7 @@
 namespace toolbox {
 inline namespace http {
 
-const char* enum_string(HttpStatus status) noexcept
+const char* enum_string(Status status) noexcept
 {
     switch (static_cast<int>(status)) {
 #define XX(num, name, string)                                                                      \

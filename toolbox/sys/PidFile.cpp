@@ -42,7 +42,7 @@ PidFile open_pid_file(const char* path, mode_t mode)
         if (errno == EEXIST) {
             throw std::runtime_error{"daemon already running, pid: "s + to_string(pid)};
         }
-        throw std::system_error{make_sys_error(errno), "pidfile_open"};
+        throw std::system_error{make_error(errno), "pidfile_open"};
     }
     return pf;
 }
@@ -57,7 +57,7 @@ void close_pid_file(PidFile& pf) noexcept
 void write_pid_file(PidFile& pf)
 {
     if (pf && pidfile_write(pf.get()) < 0) {
-        throw std::system_error{make_sys_error(errno), "pidfile_write"};
+        throw std::system_error{make_error(errno), "pidfile_write"};
     }
 }
 

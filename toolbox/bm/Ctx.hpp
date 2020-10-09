@@ -25,7 +25,7 @@ namespace toolbox::bm {
 
 class TOOLBOX_API BenchmarkCtx {
   public:
-    explicit BenchmarkCtx(HdrHistogram& hist)
+    explicit BenchmarkCtx(Histogram& hist)
     : hist_{hist}
     {
     }
@@ -46,7 +46,7 @@ class TOOLBOX_API BenchmarkCtx {
     void stop() noexcept { stop_ = true; }
 
   private:
-    HdrHistogram& hist_;
+    Histogram& hist_;
     std::atomic_bool stop_{false};
 };
 

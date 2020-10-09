@@ -46,7 +46,7 @@ BenchmarkSuite::BenchmarkSuite(std::ostream& os, double value_scale)
     os << setw(120) << setfill('-') << '-' << setfill(' ') << endl;
 }
 
-void BenchmarkSuite::report(const char* name, HdrHistogram& h)
+void BenchmarkSuite::report(const char* name, Histogram& h)
 {
     boost::io::ios_all_saver all_saver{os_};
 

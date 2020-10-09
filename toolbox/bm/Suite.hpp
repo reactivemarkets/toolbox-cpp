@@ -32,13 +32,13 @@ class TOOLBOX_API BenchmarkSuite {
         using namespace std::literals::chrono_literals;
         constexpr auto duration = 3s;
 
-        HdrHistogram hist{1, 1'000'000'000, 5};
+        Histogram hist{1, 1'000'000'000, 5};
         BenchmarkCtx ctx{hist};
         Alarm alarm{duration, [&ctx]() { ctx.stop(); }};
         fn(ctx);
         report(name, hist);
     }
-    void report(const char* name, HdrHistogram& hist);
+    void report(const char* name, Histogram& hist);
 
   private:
     std::ostream& os_;

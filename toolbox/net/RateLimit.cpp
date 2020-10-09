@@ -53,8 +53,8 @@ RateWindow::RateWindow(const RateWindow&) = default;
 RateWindow& RateWindow::operator=(const RateWindow&) = default;
 
 // Move.
-RateWindow::RateWindow(RateWindow&&) = default;
-RateWindow& RateWindow::operator=(RateWindow&&) = default;
+RateWindow::RateWindow(RateWindow&&) noexcept = default;
+RateWindow& RateWindow::operator=(RateWindow&&) noexcept = default;
 
 void RateWindow::add(MonoTime time, size_t count) noexcept
 {

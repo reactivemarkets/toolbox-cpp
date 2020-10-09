@@ -28,9 +28,9 @@ namespace toolbox {
 inline namespace http {
 
 template <typename DerivedT>
-class BasicHttpParser {
+class BasicParser {
   public:
-    explicit BasicHttpParser(HttpType type) noexcept
+    explicit BasicParser(Type type) noexcept
     : type_{type}
     {
         // The http_parser_init() function preserves "data".
@@ -41,24 +41,24 @@ class BasicHttpParser {
     }
 
     // Copy.
-    BasicHttpParser(const BasicHttpParser&) noexcept = default;
-    BasicHttpParser& operator=(const BasicHttpParser&) noexcept = default;
+    BasicParser(const BasicParser&) noexcept = default;
+    BasicParser& operator=(const BasicParser&) noexcept = default;
 
     // Move.
-    BasicHttpParser(BasicHttpParser&&) noexcept = default;
-    BasicHttpParser& operator=(BasicHttpParser&&) noexcept = default;
+    BasicParser(BasicParser&&) noexcept = default;
+    BasicParser& operator=(BasicParser&&) noexcept = default;
 
     int http_major() const noexcept { return parser_.http_major; }
     int http_minor() const noexcept { return parser_.http_minor; }
     int status_code() const noexcept { return parser_.status_code; }
-    HttpMethod method() const noexcept { return static_cast<HttpMethod>(parser_.method); }
+    Method method() const noexcept { return static_cast<Method>(parser_.method); }
     bool should_keep_alive() const noexcept { return http_should_keep_alive(&parser_) != 0; }
     bool body_is_final() const noexcept { return http_body_is_final(&parser_) != 0; }
 
     void pause() noexcept { http_parser_pause(&parser_, 1); }
 
   protected:
-    ~BasicHttpParser() = default;
+    ~BasicParser() = default;
 
     void reset() noexcept
     {
@@ -77,9 +77,9 @@ class BasicHttpParser {
                 // Clear pause state.
                 http_parser_pause(&parser_, 0);
             } else {
-                throw HttpException{HttpStatus::BadRequest,
-                                    err_msg() << http_errno_name(err) << ": "
-                                              << http_errno_description(err)};
+                throw Exception{Status::BadRequest,
+                                err_msg()
+                                    << http_errno_name(err) << ": " << http_errno_description(err)};
             }
         }
         return rc;
@@ -168,7 +168,7 @@ class BasicHttpParser {
     {
         return static_cast<DerivedT*>(parser->data)->on_chunk_end(CyclTime::current()) ? 0 : -1;
     }
-    HttpType type_;
+    Type type_;
     http_parser parser_;
     enum { None = 0, Field, Value } last_header_elem_;
 };

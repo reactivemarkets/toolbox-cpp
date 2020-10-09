@@ -20,7 +20,7 @@ namespace toolbox {
 inline namespace http {
 using namespace std;
 
-void HttpBuf::set_content_length(std::streamsize pos, std::streamsize len) noexcept
+void StreamBuf::set_content_length(std::streamsize pos, std::streamsize len) noexcept
 {
     auto it = pbase_ + pos;
     do {
@@ -30,9 +30,9 @@ void HttpBuf::set_content_length(std::streamsize pos, std::streamsize len) noexc
     } while (len > 0);
 }
 
-HttpBuf::~HttpBuf() = default;
+StreamBuf::~StreamBuf() = default;
 
-HttpBuf::int_type HttpBuf::overflow(int_type c) noexcept
+StreamBuf::int_type StreamBuf::overflow(int_type c) noexcept
 {
     if (c != traits_type::eof()) {
         auto buf = buf_.prepare(pcount_ + 1);
@@ -42,7 +42,7 @@ HttpBuf::int_type HttpBuf::overflow(int_type c) noexcept
     return c;
 }
 
-streamsize HttpBuf::xsputn(const char_type* s, streamsize count) noexcept
+streamsize StreamBuf::xsputn(const char_type* s, streamsize count) noexcept
 {
     auto buf = buf_.prepare(pcount_ + count);
     pbase_ = buffer_cast<char*>(buf);
@@ -51,9 +51,9 @@ streamsize HttpBuf::xsputn(const char_type* s, streamsize count) noexcept
     return count;
 }
 
-HttpStream::~HttpStream() = default;
+Stream::~Stream() = default;
 
-void HttpStream::commit() noexcept
+void Stream::commit() noexcept
 {
     if (cloff_ > 0) {
         buf_.set_content_length(cloff_, pcount() - hcount_);
@@ -61,7 +61,7 @@ void HttpStream::commit() noexcept
     buf_.commit();
 }
 
-void HttpStream::reset(HttpStatus status, const char* content_type, NoCache no_cache)
+void Stream::reset(Status status, const char* content_type, NoCache no_cache)
 {
     buf_.reset();
     toolbox::reset(*this);

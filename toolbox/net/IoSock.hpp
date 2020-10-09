@@ -31,6 +31,18 @@ struct IoSock : Sock {
 
     void shutdown(int how) { return os::shutdown(get(), how); }
 
+    ssize_t read(void* buf, std::size_t len, std::error_code& ec) noexcept
+    {
+        return os::read(get(), buf, len, ec);
+    }
+    std::size_t read(void* buf, std::size_t len) { return os::read(get(), buf, len); }
+
+    ssize_t read(MutableBuffer buf, std::error_code& ec) noexcept
+    {
+        return os::read(get(), buf, ec);
+    }
+    std::size_t read(MutableBuffer buf) { return os::read(get(), buf); }
+
     ssize_t recv(void* buf, std::size_t len, int flags, std::error_code& ec) noexcept
     {
         return os::recv(get(), buf, len, flags, ec);
@@ -45,6 +57,18 @@ struct IoSock : Sock {
         return os::recv(get(), buf, flags, ec);
     }
     std::size_t recv(MutableBuffer buf, int flags) { return os::recv(get(), buf, flags); }
+
+    ssize_t write(const void* buf, std::size_t len, std::error_code& ec) noexcept
+    {
+        return os::write(get(), buf, len, ec);
+    }
+    std::size_t write(const void* buf, std::size_t len) { return os::write(get(), buf, len); }
+
+    ssize_t write(ConstBuffer buf, std::error_code& ec) noexcept
+    {
+        return os::write(get(), buf, ec);
+    }
+    std::size_t write(ConstBuffer buf) { return os::write(get(), buf); }
 
     ssize_t send(const void* buf, std::size_t len, int flags, std::error_code& ec) noexcept
     {

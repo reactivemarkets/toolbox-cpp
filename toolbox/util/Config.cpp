@@ -30,8 +30,8 @@ Config::Config(const Config&) = default;
 Config& Config::operator=(const Config&) = default;
 
 // Move.
-Config::Config(Config&&) = default;
-Config& Config::operator=(Config&&) = default;
+Config::Config(Config&&) noexcept = default;
+Config& Config::operator=(Config&&) noexcept = default;
 
 const std::string& Config::get(const std::string& key) const
 {
@@ -69,8 +69,8 @@ istream& Config::read_section(istream& is, string* next)
 MultiConfig::MultiConfig() = default;
 MultiConfig::~MultiConfig() = default;
 
-MultiConfig::MultiConfig(MultiConfig&&) = default;
-MultiConfig& MultiConfig::operator=(MultiConfig&&) = default;
+MultiConfig::MultiConfig(MultiConfig&&) noexcept = default;
+MultiConfig& MultiConfig::operator=(MultiConfig&&) noexcept = default;
 
 void MultiConfig::clear() noexcept
 {

@@ -76,8 +76,8 @@ class TOOLBOX_API Config {
     Config& operator=(const Config&);
 
     // Move.
-    Config(Config&&);
-    Config& operator=(Config&&);
+    Config(Config&&) noexcept;
+    Config& operator=(Config&&) noexcept;
 
     /// Throws std::runtime_error if key does not exist.
     const std::string& get(const std::string& key) const;
@@ -155,8 +155,8 @@ class TOOLBOX_API MultiConfig {
     MultiConfig& operator=(const MultiConfig&) = delete;
 
     // Move.
-    MultiConfig(MultiConfig&&);
-    MultiConfig& operator=(MultiConfig&&);
+    MultiConfig(MultiConfig&&) noexcept;
+    MultiConfig& operator=(MultiConfig&&) noexcept;
 
     void clear() noexcept;
     void read(std::istream& is);

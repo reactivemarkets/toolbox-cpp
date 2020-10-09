@@ -45,7 +45,7 @@ inline int futex_wakeup(int& uaddr, int n, std::error_code& ec) noexcept
 {
     const auto ret = detail::futex(uaddr, FUTEX_WAKE, n);
     if (ret < 0) {
-        ec = make_sys_error(errno);
+        ec = make_error(errno);
     }
     return ret;
 }
@@ -58,7 +58,7 @@ inline int futex_wakeup(int& uaddr, int n)
 {
     const auto ret = detail::futex(uaddr, FUTEX_WAKE, n);
     if (ret < 0) {
-        throw std::system_error{make_sys_error(errno), "futex"};
+        throw std::system_error{make_error(errno), "futex"};
     }
     return ret;
 }
@@ -106,7 +106,7 @@ inline int futex_wakeup_one(int& uaddr)
 inline void futex_wait(int& uaddr, int expected, std::error_code& ec) noexcept
 {
     if (detail::futex(uaddr, FUTEX_WAIT, expected) < 0) {
-        ec = make_sys_error(errno);
+        ec = make_error(errno);
     }
 }
 
@@ -121,7 +121,7 @@ inline bool futex_wait(int& uaddr, int expected)
         if (errno == EAGAIN) {
             return false;
         }
-        throw std::system_error{make_sys_error(errno), "futex"};
+        throw std::system_error{make_error(errno), "futex"};
     }
     return true;
 }

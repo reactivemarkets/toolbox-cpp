@@ -71,24 +71,24 @@ void set_thread_attrs(const ThreadConfig& config)
     const auto tid = pthread_self();
     if (!config.name.empty()) {
         if (const auto err = pthread_setname_np(tid, config.name.c_str()); err != 0) {
-            throw system_error{make_sys_error(err), "pthread_setname_np"};
+            throw system_error{make_error(err), "pthread_setname_np"};
         }
     }
     if (!config.affinity.empty()) {
         const auto bs = parse_cpu_set(config.affinity);
         if (const auto err = pthread_setaffinity_np(tid, sizeof(bs), &bs); err != 0) {
-            throw system_error{make_sys_error(err), "pthread_setaffinity_np"};
+            throw system_error{make_error(err), "pthread_setaffinity_np"};
         }
     }
     if (!config.sched_policy.empty()) {
         const auto policy = parse_sched_policy(config.sched_policy);
         const auto priority = sched_get_priority_max(policy);
         if (priority == -1) {
-            throw system_error{make_sys_error(priority), "sched_get_priority_max"};
+            throw system_error{make_error(priority), "sched_get_priority_max"};
         }
         sched_param param{.sched_priority = priority};
         if (const auto err = pthread_setschedparam(tid, policy, &param); err != 0) {
-            throw system_error{make_sys_error(err), "pthread_setschedparam"};
+            throw system_error{make_error(err), "pthread_setschedparam"};
         }
     }
 }

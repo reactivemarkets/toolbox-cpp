@@ -24,16 +24,16 @@
 namespace toolbox {
 inline namespace http {
 
-TOOLBOX_API HttpStatus http_status(const std::error_code& ec);
-TOOLBOX_API const std::error_category& http_error_category() noexcept;
-TOOLBOX_API std::error_code make_error_code(HttpStatus err);
+TOOLBOX_API Status http_status(const std::error_code& ec);
+TOOLBOX_API const std::error_category& error_category() noexcept;
+TOOLBOX_API std::error_code make_error_code(Status err);
 
 } // namespace http
 } // namespace toolbox
 
 namespace std {
 template <>
-struct is_error_code_enum<toolbox::http::HttpStatus> : true_type {
+struct is_error_code_enum<toolbox::http::Status> : true_type {
 };
 } // namespace std
 

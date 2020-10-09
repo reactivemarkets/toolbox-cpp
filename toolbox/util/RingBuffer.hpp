@@ -40,8 +40,8 @@ class RingBuffer {
     RingBuffer& operator=(const RingBuffer&) = delete;
 
     // Move.
-    RingBuffer(RingBuffer&&) = default;
-    RingBuffer& operator=(RingBuffer&&) = default;
+    RingBuffer(RingBuffer&&) noexcept = default;
+    RingBuffer& operator=(RingBuffer&&) noexcept = default;
 
     /// Returns true if the container is empty.
     bool empty() const noexcept { return rpos_ == wpos_; }
