@@ -39,14 +39,9 @@
 #define TOOLBOX_API __attribute__((visibility("default")))
 
 /**
- * True if MySQL support is enabled.
+ * True if debug build is enabled.
  */
-#define TOOLBOX_HAVE_MYSQL @TOOLBOX_HAVE_MYSQL@
-
-/**
- * True if Redis support is enabled.
- */
-#define TOOLBOX_HAVE_REDIS @TOOLBOX_HAVE_REDIS@
+#define TOOLBOX_BUILD_DEBUG @TOOLBOX_BUILD_DEBUG@
 
 /**
  * True if SystemTap support is enabled.
