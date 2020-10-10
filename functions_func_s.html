@@ -84,7 +84,7 @@ $(function() {
 : <a class="el" href="classtoolbox_1_1util_1_1Config.html#acd98f99b91df9d2a098289ca0a529129">toolbox::util::Config</a>
 </li>
 <li>set_content_length()
-: <a class="el" href="classtoolbox_1_1http_1_1HttpBuf.html#a9737a476e8091bc88bb29ca79ba6491c">toolbox::http::HttpBuf</a>
+: <a class="el" href="classtoolbox_1_1http_1_1StreamBuf.html#ad0dc10c8ad2a3cc7cccfd3e35a0167b4">toolbox::http::StreamBuf</a>
 </li>
 <li>set_events()
 : <a class="el" href="classtoolbox_1_1io_1_1Reactor_1_1Handle.html#aa73085faba38c8573a7e814b10f98985">toolbox::io::Reactor::Handle</a>
@@ -102,7 +102,7 @@ $(function() {
 : <a class="el" href="structtoolbox_1_1net_1_1McastSock.html#a369847b4a98c2b17830b42c582562656">toolbox::net::McastSock</a>
 </li>
 <li>set_method()
-: <a class="el" href="classtoolbox_1_1http_1_1HttpRequest.html#a166209898588b30a115c2a42fa077f8d">toolbox::http::HttpRequest</a>
+: <a class="el" href="classtoolbox_1_1http_1_1Request.html#a397607b8ac3cb62308f513ce594c4dda">toolbox::http::Request</a>
 </li>
 <li>set_non_block()
 : <a class="el" href="structtoolbox_1_1net_1_1Sock.html#abc0c5f47d5960f59a26b3ea0d41534bf">toolbox::net::Sock</a>
@@ -126,7 +126,7 @@ $(function() {
 : <a class="el" href="classtoolbox_1_1sys_1_1CyclTime.html#af1db5b33a8ec4c9998b066c1454244c6">toolbox::sys::CyclTime</a>
 </li>
 <li>should_keep_alive()
-: <a class="el" href="classtoolbox_1_1http_1_1BasicHttpParser.html#aae2e417bd579e48fea54e6be813b6b7a">toolbox::http::BasicHttpParser&lt; DerivedT &gt;</a>
+: <a class="el" href="classtoolbox_1_1http_1_1BasicParser.html#a84ee1c607e2ebae58851772c6728f9af">toolbox::http::BasicParser&lt; DerivedT &gt;</a>
 </li>
 <li>shutdown()
 : <a class="el" href="structtoolbox_1_1net_1_1IoSock.html#a10a6f4914ebc1002be22612f48d3417b">toolbox::net::IoSock</a>
@@ -136,7 +136,7 @@ $(function() {
 , <a class="el" href="classtoolbox_1_1io_1_1Reactor_1_1Handle.html#abe22d98e12d822c69ea96851c69e22e9">toolbox::io::Reactor::Handle</a>
 </li>
 <li>significant_figures()
-: <a class="el" href="classtoolbox_1_1hdr_1_1HdrHistogram.html#a24e090f7767f878c8d5011924c6e7b30">toolbox::hdr::HdrHistogram</a>
+: <a class="el" href="classtoolbox_1_1hdr_1_1Histogram.html#a20fb9f8b12b88181d9b7668f51f5aae0">toolbox::hdr::Histogram</a>
 </li>
 <li>SigWait()
 : <a class="el" href="classtoolbox_1_1sys_1_1SigWait.html#a556e96bbff73aea8a86492401e5a2f71">toolbox::sys::SigWait</a>
@@ -155,7 +155,7 @@ $(function() {
 , <a class="el" href="classtoolbox_1_1util_1_1VarAccum.html#a7a38f5b37d6ba27c634c7d0c339f0466">toolbox::util::VarAccum</a>
 </li>
 <li>size_of_equivalent_value_range()
-: <a class="el" href="classtoolbox_1_1hdr_1_1HdrHistogram.html#aead82feff939adfa293830501347c0c1">toolbox::hdr::HdrHistogram</a>
+: <a class="el" href="classtoolbox_1_1hdr_1_1Histogram.html#ab2ad70d49fca341f2dd3fa2cb6401895">toolbox::hdr::Histogram</a>
 </li>
 <li>slice()
 : <a class="el" href="structtoolbox_1_1util_1_1detail_1_1Struct_3_01Member_3_01TagT_00_01ValueT_01_4_00_01Member_3_01Tea64d071ebde2c801b1e9a32f0bf50cc.html#a8acd82bcf98523b6f730adcefc889688">toolbox::util::detail::Struct&lt; Member&lt; TagT, ValueT &gt;, Member&lt; TagsT, ValuesT &gt;... &gt;</a>
@@ -173,7 +173,7 @@ $(function() {
 : <a class="el" href="classtoolbox_1_1util_1_1StaticStream.html#afe519434be1612a3d3bd33f27092690b">toolbox::util::StaticStream&lt; MaxN &gt;</a>
 </li>
 <li>status_code()
-: <a class="el" href="classtoolbox_1_1http_1_1BasicHttpParser.html#ae198395e51ebcfa11efd940db0a5eb09">toolbox::http::BasicHttpParser&lt; DerivedT &gt;</a>
+: <a class="el" href="classtoolbox_1_1http_1_1BasicParser.html#ae52b1c0881b73fc895d4215484484384">toolbox::http::BasicParser&lt; DerivedT &gt;</a>
 </li>
 <li>stop()
 : <a class="el" href="classtoolbox_1_1bm_1_1BenchmarkCtx.html#adec225499691bac4531cb1d1e27c7cf7">toolbox::bm::BenchmarkCtx</a>
@@ -184,29 +184,35 @@ $(function() {
 , <a class="el" href="classtoolbox_1_1util_1_1StaticBuf.html#ad0e1463670d740912f9cbfc6f0ec82a3">toolbox::util::StaticBuf&lt; MaxN &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1StaticStream.html#ab0b515b1f2ff5d4ef08dbe2092151c47">toolbox::util::StaticStream&lt; MaxN &gt;</a>
 </li>
+<li>Stream()
+: <a class="el" href="classtoolbox_1_1http_1_1Stream.html#a93953ad1b4aa2e89c9cbd84eaecdb0ed">toolbox::http::Stream</a>
+</li>
 <li>StreamAcceptor()
 : <a class="el" href="classtoolbox_1_1net_1_1StreamAcceptor.html#aae220e292b55209b5587fda73194a17d">toolbox::net::StreamAcceptor&lt; DerivedT &gt;</a>
 </li>
+<li>StreamBuf()
+: <a class="el" href="classtoolbox_1_1http_1_1StreamBuf.html#a3ce3b0d126fcc3d1254d8dd7ee0f3838">toolbox::http::StreamBuf</a>
+</li>
 <li>StreamConnector()
-: <a class="el" href="classtoolbox_1_1net_1_1StreamConnector.html#a8e49eea0b96e2dc38a240a1f753e4746">toolbox::net::StreamConnector&lt; DerivedT &gt;</a>
+: <a class="el" href="classtoolbox_1_1net_1_1StreamConnector.html#a0bf6776280413627c8eba8d498619799">toolbox::net::StreamConnector&lt; DerivedT &gt;</a>
 </li>
 <li>StreamProtocol()
 : <a class="el" href="structtoolbox_1_1net_1_1StreamProtocol.html#a388c75f972f6d9dadb8cc64bbd38c5f1">toolbox::net::StreamProtocol</a>
 </li>
 <li>StreamSockClnt()
-: <a class="el" href="structtoolbox_1_1net_1_1StreamSockClnt.html#a4e18935973e48dc809e55de84aaa8b70">toolbox::net::StreamSockClnt</a>
+: <a class="el" href="structtoolbox_1_1net_1_1StreamSockClnt.html#ab73c2f0773895f7206d5f26902ff2ea1">toolbox::net::StreamSockClnt</a>
 </li>
 <li>StreamSockServ()
-: <a class="el" href="structtoolbox_1_1net_1_1StreamSockServ.html#a074bafba8a6134f7c37fbebc20112ad7">toolbox::net::StreamSockServ</a>
+: <a class="el" href="structtoolbox_1_1net_1_1StreamSockServ.html#a5bdbe06f25d287456f801a92fc9a3d54">toolbox::net::StreamSockServ</a>
 </li>
 <li>StringBuf()
-: <a class="el" href="classtoolbox_1_1util_1_1StringBuf.html#ab700a014d8bf10a8c28ca8e84d29d9b8">toolbox::util::StringBuf&lt; MaxN &gt;</a>
+: <a class="el" href="classtoolbox_1_1util_1_1StringBuf.html#aeab7a07bca899420670eeaf98faaa942">toolbox::util::StringBuf&lt; MaxN &gt;</a>
 </li>
 <li>Struct()
-: <a class="el" href="structtoolbox_1_1util_1_1detail_1_1Struct_3_01Member_3_01TagT_00_01ValueT_01_4_00_01Member_3_01Tea64d071ebde2c801b1e9a32f0bf50cc.html#aadf887f16aa5c79dc5789470c03bed3c">toolbox::util::detail::Struct&lt; Member&lt; TagT, ValueT &gt;, Member&lt; TagsT, ValuesT &gt;... &gt;</a>
+: <a class="el" href="structtoolbox_1_1util_1_1detail_1_1Struct_3_01Member_3_01TagT_00_01ValueT_01_4_00_01Member_3_01Tea64d071ebde2c801b1e9a32f0bf50cc.html#a1d3e9a3b73e2eac7418618e8d5600f96">toolbox::util::detail::Struct&lt; Member&lt; TagT, ValueT &gt;, Member&lt; TagsT, ValuesT &gt;... &gt;</a>
 </li>
 <li>sub_bucket_count()
-: <a class="el" href="classtoolbox_1_1hdr_1_1HdrHistogram.html#a62e440b642212bcc19b24def20f1af17">toolbox::hdr::HdrHistogram</a>
+: <a class="el" href="classtoolbox_1_1hdr_1_1Histogram.html#ab73f2047cba24baf3d74d2c5897d5142">toolbox::hdr::Histogram</a>
 </li>
 <li>subscribe()
 : <a class="el" href="classtoolbox_1_1io_1_1Reactor.html#a7237020831062908db028bc2c6fdb1bb">toolbox::io::Reactor</a>

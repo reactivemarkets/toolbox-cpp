@@ -96,7 +96,7 @@ $(function() {
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetoolbox.html">toolbox</a> {</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">inline</span> <span class="keyword">namespace </span>hdr {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">class </span>HdrHistogram;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">class </span>Histogram;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;} <span class="comment">// namespace hdr</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;} <span class="comment">// namespace toolbox</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
@@ -104,7 +104,7 @@ $(function() {
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classtoolbox_1_1bm_1_1BenchmarkRecord.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> <a class="code" href="classtoolbox_1_1bm_1_1BenchmarkRecord.html">BenchmarkRecord</a> {</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classtoolbox_1_1bm_1_1BenchmarkRecord.html">BenchmarkRecord</a>(<a class="code" href="classtoolbox_1_1hdr_1_1HdrHistogram.html">HdrHistogram</a>&amp; hist, <span class="keywordtype">int</span> count = 1) noexcept;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="classtoolbox_1_1bm_1_1BenchmarkRecord.html">BenchmarkRecord</a>(<a class="code" href="classtoolbox_1_1hdr_1_1Histogram.html">Histogram</a>&amp; hist, <span class="keywordtype">int</span> count = 1) noexcept;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    ~<a class="code" href="classtoolbox_1_1bm_1_1BenchmarkRecord.html">BenchmarkRecord</a>();</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">// Copy.</span></div>
@@ -116,7 +116,7 @@ $(function() {
 <div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classtoolbox_1_1bm_1_1BenchmarkRecord.html#a282df55267628be43167bce0cebf8307">   45</a></span>&#160;    <a class="code" href="classtoolbox_1_1bm_1_1BenchmarkRecord.html">BenchmarkRecord</a>&amp; <a class="code" href="classtoolbox_1_1bm_1_1BenchmarkRecord.html#a282df55267628be43167bce0cebf8307">operator=</a>(<a class="code" href="classtoolbox_1_1bm_1_1BenchmarkRecord.html">BenchmarkRecord</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="classtoolbox_1_1hdr_1_1HdrHistogram.html">HdrHistogram</a>&amp; hist_;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="classtoolbox_1_1hdr_1_1Histogram.html">Histogram</a>&amp; hist_;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> count_;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    std::chrono::time_point&lt;std::chrono::high_resolution_clock&gt; start_;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
@@ -131,8 +131,8 @@ $(function() {
 <div class="ttc" id="anamespacetoolbox_html"><div class="ttname"><a href="namespacetoolbox.html">toolbox</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8cpp_source.html#l00026">Benchmark.cpp:26</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1bm_1_1BenchmarkRecord_html_a4667e64dcaca960647c114097b22adb8"><div class="ttname"><a href="classtoolbox_1_1bm_1_1BenchmarkRecord.html#a4667e64dcaca960647c114097b22adb8">toolbox::bm::BenchmarkRecord::BenchmarkRecord</a></div><div class="ttdeci">BenchmarkRecord(BenchmarkRecord &amp;&amp;)=delete</div></div>
 <div class="ttc" id="aclasstoolbox_1_1bm_1_1BenchmarkRecord_html_a4a318c9cba0c76c2c1077fbd4b728414"><div class="ttname"><a href="classtoolbox_1_1bm_1_1BenchmarkRecord.html#a4a318c9cba0c76c2c1077fbd4b728414">toolbox::bm::BenchmarkRecord::operator=</a></div><div class="ttdeci">BenchmarkRecord &amp; operator=(const BenchmarkRecord &amp;)=delete</div></div>
+<div class="ttc" id="aclasstoolbox_1_1hdr_1_1Histogram_html"><div class="ttname"><a href="classtoolbox_1_1hdr_1_1Histogram.html">toolbox::hdr::Histogram</a></div><div class="ttdoc">A High Dynamic Range (HDR) Histogram.</div><div class="ttdef"><b>Definition:</b> <a href="Histogram_8hpp_source.html#l00063">Histogram.hpp:63</a></div></div>
 <div class="ttc" id="aConfig_8h_html_ae1d5e2ff332359a2f7905596626f2bf3"><div class="ttname"><a href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a></div><div class="ttdeci">#define TOOLBOX_API</div><div class="ttdef"><b>Definition:</b> <a href="Config_8h_source.html#l00039">Config.h:39</a></div></div>
-<div class="ttc" id="aclasstoolbox_1_1hdr_1_1HdrHistogram_html"><div class="ttname"><a href="classtoolbox_1_1hdr_1_1HdrHistogram.html">toolbox::hdr::HdrHistogram</a></div><div class="ttdoc">A High Dynamic Range (HDR) Histogram.</div><div class="ttdef"><b>Definition:</b> <a href="Histogram_8hpp_source.html#l00063">Histogram.hpp:63</a></div></div>
 <div class="ttc" id="aConfig_8h_html"><div class="ttname"><a href="Config_8h.html">Config.h</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1bm_html"><div class="ttname"><a href="namespacetoolbox_1_1bm.html">toolbox::bm</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8cpp_source.html#l00026">Benchmark.cpp:26</a></div></div>
 <!-- start footer part -->

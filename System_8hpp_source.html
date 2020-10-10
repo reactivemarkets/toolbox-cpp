@@ -102,7 +102,7 @@ $(function() {
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> ret = <a class="code" href="namespacetoolbox_1_1os.html#a041f66cb428e43ce25de3b3ef9ebaeed">::chdir</a>(path);</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">if</span> (ret &lt; 0) {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
@@ -110,7 +110,7 @@ $(function() {
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> ret = <a class="code" href="namespacetoolbox_1_1os.html#a041f66cb428e43ce25de3b3ef9ebaeed">::chdir</a>(path);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">if</span> (ret &lt; 0) {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;chdir&quot;</span>};</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;chdir&quot;</span>};</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
@@ -118,7 +118,7 @@ $(function() {
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> pid = <a class="code" href="namespacetoolbox_1_1os.html#a51dfa10ad043e71636f1cc10f5d3e736">::fork</a>();</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">if</span> (pid &lt; 0) {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> pid;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
@@ -127,7 +127,7 @@ $(function() {
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> pid = <a class="code" href="namespacetoolbox_1_1os.html#a51dfa10ad043e71636f1cc10f5d3e736">::fork</a>();</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">if</span> (pid &lt; 0) {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;fork&quot;</span>};</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;fork&quot;</span>};</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">return</span> pid;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
@@ -136,7 +136,7 @@ $(function() {
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;{</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> sid = <a class="code" href="namespacetoolbox_1_1os.html#a986aad066d9211479c3460b3cdd5306a">::setsid</a>();</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">if</span> (sid &lt; 0) {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">return</span> sid;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
@@ -145,19 +145,17 @@ $(function() {
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;{</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> sid = <a class="code" href="namespacetoolbox_1_1os.html#a986aad066d9211479c3460b3cdd5306a">::setsid</a>();</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">if</span> (sid &lt; 0) {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;setsid&quot;</span>};</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;setsid&quot;</span>};</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">return</span> sid;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;} <span class="comment">// namespace os</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">inline</span> <span class="keyword">namespace </span>sys {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;} <span class="comment">// namespace sys</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;} <span class="comment">// namespace toolbox</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#endif // TOOLBOX_SYS_SYSTEM_HPP</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;} <span class="comment">// namespace toolbox</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#endif // TOOLBOX_SYS_SYSTEM_HPP</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="anamespacetoolbox_1_1sys_html_aab82f87b2fc080cf9294be6b964e696c"><div class="ttname"><a href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">toolbox::sys::make_sys_error</a></div><div class="ttdeci">std::error_code make_sys_error(int err) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="sys_2Error_8hpp_source.html#l00025">Error.hpp:25</a></div></div>
+<div class="ttc" id="anamespacetoolbox_1_1sys_html_a97345ee7c1b3c7b60ac04921359cf9ec"><div class="ttname"><a href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">toolbox::sys::make_error</a></div><div class="ttdeci">std::error_code make_error(int err) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="sys_2Error_8hpp_source.html#l00025">Error.hpp:25</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1os_html_a51dfa10ad043e71636f1cc10f5d3e736"><div class="ttname"><a href="namespacetoolbox_1_1os.html#a51dfa10ad043e71636f1cc10f5d3e736">toolbox::os::fork</a></div><div class="ttdeci">pid_t fork(std::error_code &amp;ec) noexcept</div><div class="ttdoc">Create a child process.</div><div class="ttdef"><b>Definition:</b> <a href="System_8hpp_source.html#l00046">System.hpp:46</a></div></div>
 <div class="ttc" id="asys_2Error_8hpp_html"><div class="ttname"><a href="sys_2Error_8hpp.html">Error.hpp</a></div></div>
 <div class="ttc" id="anamespacetoolbox_html"><div class="ttname"><a href="namespacetoolbox.html">toolbox</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8cpp_source.html#l00026">Benchmark.cpp:26</a></div></div>

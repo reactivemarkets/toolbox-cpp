@@ -105,7 +105,7 @@ $(function() {
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> ret = <a class="code" href="namespacetoolbox_1_1os.html#adac2e0f68b0d1b4042e2370b3681268e">::epoll_create</a>(<a class="code" href="namespacetoolbox_1_1util.html#a60794730274ecfa3f74f93c43396f774">size</a>);</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">if</span> (ret &lt; 0) {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
@@ -114,7 +114,7 @@ $(function() {
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> fd = <a class="code" href="namespacetoolbox_1_1os.html#adac2e0f68b0d1b4042e2370b3681268e">::epoll_create</a>(<a class="code" href="namespacetoolbox_1_1util.html#a60794730274ecfa3f74f93c43396f774">size</a>);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">if</span> (fd &lt; 0) {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;epoll_create&quot;</span>};</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;epoll_create&quot;</span>};</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">return</span> fd;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
@@ -123,7 +123,7 @@ $(function() {
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> ret = <a class="code" href="namespacetoolbox_1_1os.html#ac0dc822550bee359e0d6eeca6bc8efc0">::epoll_create1</a>(flags);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">if</span> (ret &lt; 0) {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
@@ -132,7 +132,7 @@ $(function() {
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> fd = <a class="code" href="namespacetoolbox_1_1os.html#ac0dc822550bee359e0d6eeca6bc8efc0">::epoll_create1</a>(flags);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">if</span> (fd &lt; 0) {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;epoll_create1&quot;</span>};</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;epoll_create1&quot;</span>};</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    }</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">return</span> fd;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
@@ -141,7 +141,7 @@ $(function() {
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> ret = <a class="code" href="namespacetoolbox_1_1os.html#a7814d6fdbef16e828aed007e77e374ed">::epoll_ctl</a>(epfd, op, fd, &amp;event);</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">if</span> (ret &lt; 0) {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
@@ -150,7 +150,7 @@ $(function() {
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> ret = <a class="code" href="namespacetoolbox_1_1os.html#a7814d6fdbef16e828aed007e77e374ed">::epoll_ctl</a>(epfd, op, fd, &amp;event);</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">if</span> (ret &lt; 0) {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;epoll_ctl&quot;</span>};</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;epoll_ctl&quot;</span>};</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
@@ -159,7 +159,7 @@ $(function() {
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;{</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> ret = <a class="code" href="namespacetoolbox_1_1os.html#a0b670c6f098409e34af9878ecae9fc01">::epoll_wait</a>(epfd, events, maxevents, timeout);</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">if</span> (ret &lt; 0) {</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
@@ -168,7 +168,7 @@ $(function() {
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;{</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> ret = <a class="code" href="namespacetoolbox_1_1os.html#a0b670c6f098409e34af9878ecae9fc01">::epoll_wait</a>(epfd, events, maxevents, timeout);</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">if</span> (ret &lt; 0) {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;epoll_wait&quot;</span>};</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;epoll_wait&quot;</span>};</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div>
@@ -221,8 +221,8 @@ $(function() {
 <div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="classtoolbox_1_1io_1_1Epoll.html#a8dab12b33acc72c616ecd165d283f86c">  181</a></span>&#160;    <a class="code" href="classtoolbox_1_1io_1_1Epoll.html">Epoll</a>&amp; <a class="code" href="classtoolbox_1_1io_1_1Epoll.html#a8dab12b33acc72c616ecd165d283f86c">operator=</a>(<span class="keyword">const</span> <a class="code" href="classtoolbox_1_1io_1_1Epoll.html">Epoll</a>&amp;) = <span class="keyword">delete</span>;</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="comment">// Move.</span></div>
-<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="classtoolbox_1_1io_1_1Epoll.html#a4d8facde3bc6f31ae2a4bd072189db7a">  184</a></span>&#160;    <a class="code" href="classtoolbox_1_1io_1_1Epoll.html#a4d8facde3bc6f31ae2a4bd072189db7a">Epoll</a>(<a class="code" href="classtoolbox_1_1io_1_1Epoll.html">Epoll</a>&amp;&amp;) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="classtoolbox_1_1io_1_1Epoll.html#ade1b2702f481bee1caa87dad69b04df2">  185</a></span>&#160;    <a class="code" href="classtoolbox_1_1io_1_1Epoll.html">Epoll</a>&amp; <a class="code" href="classtoolbox_1_1io_1_1Epoll.html#ade1b2702f481bee1caa87dad69b04df2">operator=</a>(<a class="code" href="classtoolbox_1_1io_1_1Epoll.html">Epoll</a>&amp;&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="classtoolbox_1_1io_1_1Epoll.html#ae37285b529f53abdbfd67a5f0948de35">  184</a></span>&#160;    <a class="code" href="classtoolbox_1_1io_1_1Epoll.html#ae37285b529f53abdbfd67a5f0948de35">Epoll</a>(<a class="code" href="classtoolbox_1_1io_1_1Epoll.html">Epoll</a>&amp;&amp;) noexcept = default;</div>
+<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="classtoolbox_1_1io_1_1Epoll.html#a1c0575d459aba57986d86dbf38ba8e4d">  185</a></span>&#160;    <a class="code" href="classtoolbox_1_1io_1_1Epoll.html">Epoll</a>&amp; operator=(<a class="code" href="classtoolbox_1_1io_1_1Epoll.html">Epoll</a>&amp;&amp;) noexcept = default;</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
 <div class="line"><a name="l00190"></a><span class="lineno"><a class="line" href="classtoolbox_1_1io_1_1Epoll.html#a2a3355fc9f0ce9670a823ebeb6a9b3a8">  190</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classtoolbox_1_1io_1_1Epoll.html#a2a3355fc9f0ce9670a823ebeb6a9b3a8">timer_fd</a>() const noexcept { <span class="keywordflow">return</span> tfd_.fd(); }</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
@@ -299,7 +299,6 @@ $(function() {
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="preprocessor">#endif // TOOLBOX_IO_EPOLL_HPP</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="anamespacetoolbox_1_1sys_html_aab82f87b2fc080cf9294be6b964e696c"><div class="ttname"><a href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">toolbox::sys::make_sys_error</a></div><div class="ttdeci">std::error_code make_sys_error(int err) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="sys_2Error_8hpp_source.html#l00025">Error.hpp:25</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1Epoll_html_a05b634e16909d79a7b294481e4e78b92"><div class="ttname"><a href="classtoolbox_1_1io_1_1Epoll.html#a05b634e16909d79a7b294481e4e78b92">toolbox::io::Epoll::~Epoll</a></div><div class="ttdeci">~Epoll()</div><div class="ttdef"><b>Definition:</b> <a href="Epoll_8hpp_source.html#l00177">Epoll.hpp:177</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1BasicHandle_html"><div class="ttname"><a href="classtoolbox_1_1io_1_1BasicHandle.html">toolbox::io::BasicHandle</a></div><div class="ttdef"><b>Definition:</b> <a href="Handle_8hpp_source.html#l00029">Handle.hpp:29</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1Epoll_html_ad9a5af223496198ba0446754f9545d28"><div class="ttname"><a href="classtoolbox_1_1io_1_1Epoll.html#ad9a5af223496198ba0446754f9545d28">toolbox::io::Epoll::Epoll</a></div><div class="ttdeci">Epoll(int flags=0)</div><div class="ttdef"><b>Definition:</b> <a href="Epoll_8hpp_source.html#l00171">Epoll.hpp:171</a></div></div>
@@ -311,9 +310,8 @@ $(function() {
 <div class="ttc" id="aTimerFd_8hpp_html"><div class="ttname"><a href="TimerFd_8hpp.html">TimerFd.hpp</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1io_html_a8c6012aff2a0b404f18904f88facb62aa93e3999c4b0401f97cae297a461c08dd"><div class="ttname"><a href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa93e3999c4b0401f97cae297a461c08dd">toolbox::io::EpollPri</a></div><div class="ttdeci">@ EpollPri</div><div class="ttdef"><b>Definition:</b> <a href="Epoll_8hpp_source.html#l00129">Epoll.hpp:129</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1Epoll_html_a6be282c77c7ad8fbd26e7e5544eeb770"><div class="ttname"><a href="classtoolbox_1_1io_1_1Epoll.html#a6be282c77c7ad8fbd26e7e5544eeb770">toolbox::io::Epoll::fd</a></div><div class="ttdeci">static constexpr int fd(const Event &amp;ev) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Epoll_8hpp_source.html#l00163">Epoll.hpp:163</a></div></div>
+<div class="ttc" id="anamespacetoolbox_1_1sys_html_a97345ee7c1b3c7b60ac04921359cf9ec"><div class="ttname"><a href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">toolbox::sys::make_error</a></div><div class="ttdeci">std::error_code make_error(int err) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="sys_2Error_8hpp_source.html#l00025">Error.hpp:25</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1Epoll_html_a7d5416c01888854edb534aaecdcf3212"><div class="ttname"><a href="classtoolbox_1_1io_1_1Epoll.html#a7d5416c01888854edb534aaecdcf3212">toolbox::io::Epoll::add</a></div><div class="ttdeci">void add(int fd, int sid, unsigned events)</div><div class="ttdef"><b>Definition:</b> <a href="Epoll_8hpp_source.html#l00227">Epoll.hpp:227</a></div></div>
-<div class="ttc" id="aclasstoolbox_1_1io_1_1Epoll_html_ade1b2702f481bee1caa87dad69b04df2"><div class="ttname"><a href="classtoolbox_1_1io_1_1Epoll.html#ade1b2702f481bee1caa87dad69b04df2">toolbox::io::Epoll::operator=</a></div><div class="ttdeci">Epoll &amp; operator=(Epoll &amp;&amp;)=default</div></div>
-<div class="ttc" id="aclasstoolbox_1_1io_1_1Epoll_html_a4d8facde3bc6f31ae2a4bd072189db7a"><div class="ttname"><a href="classtoolbox_1_1io_1_1Epoll.html#a4d8facde3bc6f31ae2a4bd072189db7a">toolbox::io::Epoll::Epoll</a></div><div class="ttdeci">Epoll(Epoll &amp;&amp;)=default</div></div>
 <div class="ttc" id="asys_2Error_8hpp_html"><div class="ttname"><a href="sys_2Error_8hpp.html">Error.hpp</a></div></div>
 <div class="ttc" id="anamespacetoolbox_html"><div class="ttname"><a href="namespacetoolbox.html">toolbox</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8cpp_source.html#l00026">Benchmark.cpp:26</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1Epoll_html_aff631de541a2e78c4f86e265a85a9e63"><div class="ttname"><a href="classtoolbox_1_1io_1_1Epoll.html#aff631de541a2e78c4f86e265a85a9e63">toolbox::io::Epoll::Event</a></div><div class="ttdeci">EpollEvent Event</div><div class="ttdef"><b>Definition:</b> <a href="Epoll_8hpp_source.html#l00161">Epoll.hpp:161</a></div></div>
@@ -337,6 +335,7 @@ $(function() {
 <div class="ttc" id="anamespacetoolbox_1_1io_html_a8c6012aff2a0b404f18904f88facb62aa410300e2d6016d4a3e3af942b5619bf4"><div class="ttname"><a href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa410300e2d6016d4a3e3af942b5619bf4">toolbox::io::EpollIn</a></div><div class="ttdeci">@ EpollIn</div><div class="ttdoc">The associated file is available for read(2) operations.</div><div class="ttdef"><b>Definition:</b> <a href="Epoll_8hpp_source.html#l00117">Epoll.hpp:117</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1Epoll_html_a1d18f1a53c3ee5416275e7c0872c9bba"><div class="ttname"><a href="classtoolbox_1_1io_1_1Epoll.html#a1d18f1a53c3ee5416275e7c0872c9bba">toolbox::io::Epoll::sid</a></div><div class="ttdeci">static constexpr int sid(const Event &amp;ev) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Epoll_8hpp_source.html#l00167">Epoll.hpp:167</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1Epoll_html_ac11789d97b0b1657efccfe2a17a1e263"><div class="ttname"><a href="classtoolbox_1_1io_1_1Epoll.html#ac11789d97b0b1657efccfe2a17a1e263">toolbox::io::Epoll::mod</a></div><div class="ttdeci">void mod(int fd, int sid, unsigned events)</div><div class="ttdef"><b>Definition:</b> <a href="Epoll_8hpp_source.html#l00247">Epoll.hpp:247</a></div></div>
+<div class="ttc" id="aclasstoolbox_1_1io_1_1Epoll_html_ae37285b529f53abdbfd67a5f0948de35"><div class="ttname"><a href="classtoolbox_1_1io_1_1Epoll.html#ae37285b529f53abdbfd67a5f0948de35">toolbox::io::Epoll::Epoll</a></div><div class="ttdeci">Epoll(Epoll &amp;&amp;) noexcept=default</div></div>
 <div class="ttc" id="anamespacetoolbox_1_1io_html_a8c6012aff2a0b404f18904f88facb62aa6d5f81fa3afbf77d56eee34eb725e553"><div class="ttname"><a href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa6d5f81fa3afbf77d56eee34eb725e553">toolbox::io::EpollEt</a></div><div class="ttdeci">@ EpollEt</div><div class="ttdef"><b>Definition:</b> <a href="Epoll_8hpp_source.html#l00148">Epoll.hpp:148</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1io_html_a8c6012aff2a0b404f18904f88facb62aa7284c13c92959dda91282cfd7afd187a"><div class="ttname"><a href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa7284c13c92959dda91282cfd7afd187a">toolbox::io::EpollOneShot</a></div><div class="ttdeci">@ EpollOneShot</div><div class="ttdef"><b>Definition:</b> <a href="Epoll_8hpp_source.html#l00154">Epoll.hpp:154</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1Epoll_html_a4fcb5c4d52c990a294b346e9219e198b"><div class="ttname"><a href="classtoolbox_1_1io_1_1Epoll.html#a4fcb5c4d52c990a294b346e9219e198b">toolbox::io::Epoll::del</a></div><div class="ttdeci">void del(int fd) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Epoll_8hpp_source.html#l00233">Epoll.hpp:233</a></div></div>

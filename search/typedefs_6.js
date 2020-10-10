@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['hooklist_2199',['HookList',['../namespacetoolbox_1_1io.html#a61ae4d7ecb44580a91e3ef87b3ca2330',1,'toolbox::HookList()'],['../namespacetoolbox_1_1io.html#a61ae4d7ecb44580a91e3ef87b3ca2330',1,'toolbox::io::HookList()']]],
-  ['httpconn_2200',['HttpConn',['../namespacetoolbox_1_1http.html#a9d6ad73f72e8bc518274a64bd8b31f2a',1,'toolbox::HttpConn()'],['../namespacetoolbox_1_1http.html#a9d6ad73f72e8bc518274a64bd8b31f2a',1,'toolbox::http::HttpConn()']]],
-  ['httpheaders_2201',['HttpHeaders',['../namespacetoolbox_1_1http.html#a0987052ff092d017cb269f8bf7daa397',1,'toolbox::HttpHeaders()'],['../namespacetoolbox_1_1http.html#a0987052ff092d017cb269f8bf7daa397',1,'toolbox::http::HttpHeaders()']]],
-  ['httpserv_2202',['HttpServ',['../namespacetoolbox_1_1http.html#afb2005ffa2b0ee499ab5fb60f7702bdb',1,'toolbox::HttpServ()'],['../namespacetoolbox_1_1http.html#afb2005ffa2b0ee499ab5fb60f7702bdb',1,'toolbox::http::HttpServ()']]]
+  ['headers_2190',['Headers',['../namespacetoolbox_1_1http.html#ab0900fff7c2ac72f1a04141df49d6421',1,'toolbox::Headers()'],['../namespacetoolbox_1_1http.html#ab0900fff7c2ac72f1a04141df49d6421',1,'toolbox::http::Headers()']]],
+  ['hooklist_2191',['HookList',['../namespacetoolbox_1_1io.html#a61ae4d7ecb44580a91e3ef87b3ca2330',1,'toolbox::HookList()'],['../namespacetoolbox_1_1io.html#a61ae4d7ecb44580a91e3ef87b3ca2330',1,'toolbox::io::HookList()']]]
 ];

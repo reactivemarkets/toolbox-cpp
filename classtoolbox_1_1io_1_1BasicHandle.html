@@ -97,10 +97,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7ddb45b107a55fc9d46d5ba3abe196b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7267cba7dabbe31c5a54397a736e9d34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">BasicHandle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html#a7267cba7dabbe31c5a54397a736e9d34">operator=</a> (const <a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">BasicHandle</a> &amp;)=delete</td></tr>
 <tr class="separator:a7267cba7dabbe31c5a54397a736e9d34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c12ed9b0437261abf6097c7d68fb7e9"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html#a1c12ed9b0437261abf6097c7d68fb7e9">BasicHandle</a> (<a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">BasicHandle</a> &amp;&amp;rhs)</td></tr>
-<tr class="separator:a1c12ed9b0437261abf6097c7d68fb7e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73b29668170e5dbb812eca2e9e7c9fd8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">BasicHandle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html#a73b29668170e5dbb812eca2e9e7c9fd8">operator=</a> (<a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">BasicHandle</a> &amp;&amp;rhs)</td></tr>
-<tr class="separator:a73b29668170e5dbb812eca2e9e7c9fd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4b937aa3e9f0bdedf23abdd25d8913c"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html#ae4b937aa3e9f0bdedf23abdd25d8913c">BasicHandle</a> (<a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">BasicHandle</a> &amp;&amp;rhs) noexcept</td></tr>
+<tr class="separator:ae4b937aa3e9f0bdedf23abdd25d8913c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a609a677feb827eba5337b06ed7d0abbf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">BasicHandle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html#a609a677feb827eba5337b06ed7d0abbf">operator=</a> (<a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html">BasicHandle</a> &amp;&amp;rhs) noexcept</td></tr>
+<tr class="separator:a609a677feb827eba5337b06ed7d0abbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51f79dcac943978fd9850ee17e13def2"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html#a51f79dcac943978fd9850ee17e13def2">empty</a> () const noexcept</td></tr>
 <tr class="separator:a51f79dcac943978fd9850ee17e13def2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabbee0f150376833f9f941cd80db9aac"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1BasicHandle.html#aabbee0f150376833f9f941cd80db9aac">operator bool</a> () const noexcept</td></tr>
@@ -266,8 +266,8 @@ template&lt;typename PolicyT &gt; </div>
 
 </div>
 </div>
-<a id="a1c12ed9b0437261abf6097c7d68fb7e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c12ed9b0437261abf6097c7d68fb7e9">&#9670;&nbsp;</a></span>BasicHandle() <span class="overload">[4/4]</span></h2>
+<a id="ae4b937aa3e9f0bdedf23abdd25d8913c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4b937aa3e9f0bdedf23abdd25d8913c">&#9670;&nbsp;</a></span>BasicHandle() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -287,7 +287,7 @@ template&lt;typename PolicyT &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -356,8 +356,8 @@ template&lt;typename PolicyT &gt; </div>
 
 </div>
 </div>
-<a id="a73b29668170e5dbb812eca2e9e7c9fd8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73b29668170e5dbb812eca2e9e7c9fd8">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="a609a677feb827eba5337b06ed7d0abbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a609a677feb827eba5337b06ed7d0abbf">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -377,7 +377,7 @@ template&lt;typename PolicyT &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

@@ -1396,7 +1396,7 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00129">129</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Buffer_8ut_8cpp_source.html#l00054">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="EventFd_8hpp_source.html#l00067">toolbox::io::EventFd::read()</a>, and <a class="el" href="File_8hpp_source.html#l00139">read()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Buffer_8ut_8cpp_source.html#l00054">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="EventFd_8hpp_source.html#l00067">toolbox::io::EventFd::read()</a>, <a class="el" href="File_8hpp_source.html#l00139">read()</a>, and <a class="el" href="IoSock_8hpp_source.html#l00034">toolbox::net::IoSock::read()</a>.</p>
 
 </div>
 </div>
@@ -1582,7 +1582,7 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00161">161</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Buffer_8ut_8cpp_source.html#l00054">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Conn_8hpp_source.html#l00085">toolbox::http::BasicHttpConn&lt; RequestT, AppT &gt;::dispose_now()</a>, <a class="el" href="File_8hpp_source.html#l00171">write()</a>, and <a class="el" href="EventFd_8hpp_source.html#l00076">toolbox::io::EventFd::write()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Buffer_8ut_8cpp_source.html#l00054">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Conn_8hpp_source.html#l00085">toolbox::http::BasicConn&lt; RequestT, AppT &gt;::dispose_now()</a>, <a class="el" href="IoSock_8hpp_source.html#l00061">toolbox::net::IoSock::write()</a>, <a class="el" href="File_8hpp_source.html#l00171">write()</a>, and <a class="el" href="EventFd_8hpp_source.html#l00076">toolbox::io::EventFd::write()</a>.</p>
 
 </div>
 </div>
@@ -3458,7 +3458,7 @@ template&lt;typename ProtocolT &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00162">162</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00173">socketpair()</a>, and <a class="el" href="IoSock_8hpp_source.html#l00066">toolbox::net::socketpair()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00173">socketpair()</a>, and <a class="el" href="IoSock_8hpp_source.html#l00090">toolbox::net::socketpair()</a>.</p>
 
 </div>
 </div>
@@ -3632,7 +3632,7 @@ template&lt;typename ProtocolT &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00198">198</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="StreamSock_8hpp_source.html#l00055">toolbox::net::StreamSockServ::accept()</a>, <a class="el" href="Socket_8hpp_source.html#l00211">accept()</a>, and <a class="el" href="classtoolbox_1_1net_1_1StreamAcceptor.html#a45e990d0ff62d8fce4b9f088a6972cd1">toolbox::net::StreamAcceptor&lt; BasicHttpServ&lt; ConnT, AppT &gt; &gt;::~StreamAcceptor()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="StreamSock_8hpp_source.html#l00055">toolbox::net::StreamSockServ::accept()</a>, <a class="el" href="Socket_8hpp_source.html#l00211">accept()</a>, and <a class="el" href="classtoolbox_1_1net_1_1StreamAcceptor.html#a45e990d0ff62d8fce4b9f088a6972cd1">toolbox::net::StreamAcceptor&lt; BasicServ&lt; ConnT, AppT &gt; &gt;::~StreamAcceptor()</a>.</p>
 
 </div>
 </div>
@@ -4454,7 +4454,7 @@ template&lt;typename EndpointT &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00358">358</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00368">recv()</a>, and <a class="el" href="IoSock_8hpp_source.html#l00034">toolbox::net::IoSock::recv()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00368">recv()</a>, and <a class="el" href="IoSock_8hpp_source.html#l00046">toolbox::net::IoSock::recv()</a>.</p>
 
 </div>
 </div>
@@ -5040,7 +5040,7 @@ template&lt;typename EndpointT &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00454">454</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="IoSock_8hpp_source.html#l00049">toolbox::net::IoSock::send()</a>, and <a class="el" href="Socket_8hpp_source.html#l00465">send()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="IoSock_8hpp_source.html#l00073">toolbox::net::IoSock::send()</a>, and <a class="el" href="Socket_8hpp_source.html#l00465">send()</a>.</p>
 
 </div>
 </div>

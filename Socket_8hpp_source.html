@@ -116,7 +116,7 @@ $(function() {
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    addrinfo* ai{<span class="keyword">nullptr</span>};</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> err = <a class="code" href="namespacetoolbox_1_1os.html#a813d0699be5608bb67c1a9ff69ae2ed4">::getaddrinfo</a>(node, service, &amp;hints, &amp;ai);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">if</span> (err != 0) {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1net.html#a63aebb6a507a4f9c79db7574c4a83e45">make_gai_error_code</a>(err);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1net.html#a91de8504237f550e20b0bf30a163f01e">make_gai_error_code</a>(err);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">return</span> {ai, freeaddrinfo};</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
@@ -126,7 +126,7 @@ $(function() {
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    addrinfo* ai{<span class="keyword">nullptr</span>};</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> err = <a class="code" href="namespacetoolbox_1_1os.html#a813d0699be5608bb67c1a9ff69ae2ed4">::getaddrinfo</a>(node, service, &amp;hints, &amp;ai);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">if</span> (err != 0) {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1net.html#a63aebb6a507a4f9c79db7574c4a83e45">make_gai_error_code</a>(err), <span class="stringliteral">&quot;getaddrinfo&quot;</span>};</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1net.html#a91de8504237f550e20b0bf30a163f01e">make_gai_error_code</a>(err), <span class="stringliteral">&quot;getaddrinfo&quot;</span>};</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">return</span> {ai, freeaddrinfo};</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
@@ -173,7 +173,7 @@ $(function() {
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">unsigned</span> ifindex{0};</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">if</span> (ifname) {</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">if</span> (!(ifindex = ::<a class="code" href="namespacetoolbox_1_1os.html#aa9d8299ca5a6677c7d66cbca46e51780">if_nametoindex</a>(ifname))) {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        }</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    }</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">return</span> ifindex;</div>
@@ -184,7 +184,7 @@ $(function() {
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordtype">unsigned</span> ifindex{0};</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">if</span> (ifname) {</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordflow">if</span> (!(ifindex = ::<a class="code" href="namespacetoolbox_1_1os.html#aa9d8299ca5a6677c7d66cbca46e51780">if_nametoindex</a>(ifname))) {</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;if_nametoindex&quot;</span>};</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;if_nametoindex&quot;</span>};</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        }</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    }</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">return</span> ifindex;</div>
@@ -194,7 +194,7 @@ $(function() {
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;{</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> sockfd = <a class="code" href="namespacetoolbox_1_1os.html#abcd138a0f8e98708f7ff51d1c7cfed10">::socket</a>(family, type, protocol);</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">if</span> (sockfd &lt; 0) {</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    }</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordflow">return</span> sockfd;</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}</div>
@@ -203,7 +203,7 @@ $(function() {
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;{</div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> sockfd = <a class="code" href="namespacetoolbox_1_1os.html#abcd138a0f8e98708f7ff51d1c7cfed10">::socket</a>(family, type, protocol);</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keywordflow">if</span> (sockfd &lt; 0) {</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;socket&quot;</span>};</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;socket&quot;</span>};</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    }</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordflow">return</span> sockfd;</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;}</div>
@@ -225,7 +225,7 @@ $(function() {
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;{</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">int</span> sv[2];</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordflow">if</span> (::<a class="code" href="namespacetoolbox_1_1os.html#abdf5f46c672dfa7ee7821b460b8bbe1c">socketpair</a>(family, type, protocol, sv) &lt; 0) {</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    }</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordflow">return</span> {<a class="code" href="classtoolbox_1_1io_1_1BasicHandle.html">FileHandle</a>{sv[0]}, <a class="code" href="classtoolbox_1_1io_1_1BasicHandle.html">FileHandle</a>{sv[1]}};</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;}</div>
@@ -234,7 +234,7 @@ $(function() {
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;{</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordtype">int</span> sv[2];</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordflow">if</span> (::<a class="code" href="namespacetoolbox_1_1os.html#abdf5f46c672dfa7ee7821b460b8bbe1c">socketpair</a>(family, type, protocol, sv) &lt; 0) {</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;socketpair&quot;</span>};</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;socketpair&quot;</span>};</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    }</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordflow">return</span> {<a class="code" href="classtoolbox_1_1io_1_1BasicHandle.html">FileHandle</a>{sv[0]}, <a class="code" href="classtoolbox_1_1io_1_1BasicHandle.html">FileHandle</a>{sv[1]}};</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;}</div>
@@ -259,7 +259,7 @@ $(function() {
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="comment">// The returned address is truncated if the buffer provided is too small.</span></div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> fd = <a class="code" href="namespacetoolbox_1_1os.html#a07f25b243221bfcf92b27b50945929b2">::accept</a>(sockfd, &amp;addr, &amp;addrlen);</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordflow">if</span> (fd &lt; 0) {</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    }</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keywordflow">return</span> fd;</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;}</div>
@@ -270,7 +270,7 @@ $(function() {
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="comment">// The returned address is truncated if the buffer provided is too small.</span></div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> fd = <a class="code" href="namespacetoolbox_1_1os.html#a07f25b243221bfcf92b27b50945929b2">::accept</a>(sockfd, &amp;addr, &amp;addrlen);</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordflow">if</span> (fd &lt; 0) {</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;accept&quot;</span>};</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;accept&quot;</span>};</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    }</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keywordflow">return</span> fd;</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;}</div>
@@ -279,7 +279,7 @@ $(function() {
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;{</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> fd = <a class="code" href="namespacetoolbox_1_1os.html#a07f25b243221bfcf92b27b50945929b2">::accept</a>(sockfd, <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="keywordflow">if</span> (fd &lt; 0) {</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    }</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordflow">return</span> fd;</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;}</div>
@@ -288,7 +288,7 @@ $(function() {
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;{</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> fd = <a class="code" href="namespacetoolbox_1_1os.html#a07f25b243221bfcf92b27b50945929b2">::accept</a>(sockfd, <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordflow">if</span> (fd &lt; 0) {</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;accept&quot;</span>};</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;accept&quot;</span>};</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    }</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="keywordflow">return</span> fd;</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;}</div>
@@ -316,14 +316,14 @@ $(function() {
 <div class="line"><a name="l00265"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">  265</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">bind</a>(<span class="keywordtype">int</span> sockfd, <span class="keyword">const</span> sockaddr&amp; addr, socklen_t addrlen, std::error_code&amp; ec) noexcept</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;{</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keywordflow">if</span> (::<a class="code" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">bind</a>(sockfd, &amp;addr, addrlen) &lt; 0) {</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    }</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;}</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
 <div class="line"><a name="l00273"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1os.html#aa02a2b3e7377475ac04862b6d0f9f872">  273</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">bind</a>(<span class="keywordtype">int</span> sockfd, <span class="keyword">const</span> sockaddr&amp; addr, socklen_t addrlen)</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;{</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keywordflow">if</span> (::<a class="code" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">bind</a>(sockfd, &amp;addr, addrlen) &lt; 0) {</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;bind&quot;</span>};</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;bind&quot;</span>};</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    }</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;}</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160; </div>
@@ -343,14 +343,14 @@ $(function() {
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;                    std::error_code&amp; ec) noexcept</div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;{</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <span class="keywordflow">if</span> (::<a class="code" href="namespacetoolbox_1_1os.html#ae7c0ab4612dcb1c55e2c75659074b0a1">connect</a>(sockfd, &amp;addr, addrlen) &lt; 0) {</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    }</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;}</div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
 <div class="line"><a name="l00304"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1os.html#af3e3c326180c17d9391853c17839de75">  304</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="namespacetoolbox_1_1os.html#ae7c0ab4612dcb1c55e2c75659074b0a1">connect</a>(<span class="keywordtype">int</span> sockfd, <span class="keyword">const</span> sockaddr&amp; addr, socklen_t addrlen)</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;{</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    <span class="keywordflow">if</span> (::<a class="code" href="namespacetoolbox_1_1os.html#ae7c0ab4612dcb1c55e2c75659074b0a1">connect</a>(sockfd, &amp;addr, addrlen) &lt; 0) {</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;connect&quot;</span>};</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;connect&quot;</span>};</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    }</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;}</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; </div>
@@ -369,28 +369,28 @@ $(function() {
 <div class="line"><a name="l00326"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1os.html#a8780504a196b00e0b5650b2cbe399786">  326</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="namespacetoolbox_1_1os.html#a8780504a196b00e0b5650b2cbe399786">listen</a>(<span class="keywordtype">int</span> sockfd, <span class="keywordtype">int</span> backlog, std::error_code&amp; ec) noexcept</div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;{</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keywordflow">if</span> (::<a class="code" href="namespacetoolbox_1_1os.html#a8780504a196b00e0b5650b2cbe399786">listen</a>(sockfd, backlog) &lt; 0) {</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    }</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;}</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160; </div>
 <div class="line"><a name="l00334"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1os.html#a69d33a27537a4df265fb3c8a21e86b3b">  334</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="namespacetoolbox_1_1os.html#a8780504a196b00e0b5650b2cbe399786">listen</a>(<span class="keywordtype">int</span> sockfd, <span class="keywordtype">int</span> backlog)</div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;{</div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="keywordflow">if</span> (::<a class="code" href="namespacetoolbox_1_1os.html#a8780504a196b00e0b5650b2cbe399786">listen</a>(sockfd, backlog) &lt; 0) {</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;listen&quot;</span>};</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;listen&quot;</span>};</div>
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    }</div>
 <div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;}</div>
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160; </div>
 <div class="line"><a name="l00342"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1os.html#ae503e90ed4ff0a03ec6bff673f8b0db4">  342</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="namespacetoolbox_1_1os.html#ae503e90ed4ff0a03ec6bff673f8b0db4">shutdown</a>(<span class="keywordtype">int</span> sockfd, <span class="keywordtype">int</span> how, std::error_code&amp; ec) noexcept</div>
 <div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;{</div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    <span class="keywordflow">if</span> (::<a class="code" href="namespacetoolbox_1_1os.html#ae503e90ed4ff0a03ec6bff673f8b0db4">shutdown</a>(sockfd, how) &lt; 0) {</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    }</div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;}</div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; </div>
 <div class="line"><a name="l00350"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1os.html#a99a6709f5ac3509c9a80c0cb622aad3b">  350</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="namespacetoolbox_1_1os.html#ae503e90ed4ff0a03ec6bff673f8b0db4">shutdown</a>(<span class="keywordtype">int</span> sockfd, <span class="keywordtype">int</span> how)</div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;{</div>
 <div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    <span class="keywordflow">if</span> (::<a class="code" href="namespacetoolbox_1_1os.html#ae503e90ed4ff0a03ec6bff673f8b0db4">shutdown</a>(sockfd, how) &lt; 0) {</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;shutdown&quot;</span>};</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;shutdown&quot;</span>};</div>
 <div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    }</div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;}</div>
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160; </div>
@@ -398,7 +398,7 @@ $(function() {
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;{</div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> ret = <a class="code" href="namespacetoolbox_1_1os.html#afaa5844dfdf900f96a4ee748e6b5c1d0">::recv</a>(sockfd, buf, len, flags);</div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    <span class="keywordflow">if</span> (ret &lt; 0) {</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    }</div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;}</div>
@@ -407,7 +407,7 @@ $(function() {
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;{</div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> ret = <a class="code" href="namespacetoolbox_1_1os.html#afaa5844dfdf900f96a4ee748e6b5c1d0">::recv</a>(sockfd, buf, len, flags);</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <span class="keywordflow">if</span> (ret &lt; 0) {</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;recv&quot;</span>};</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;recv&quot;</span>};</div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    }</div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;}</div>
@@ -429,7 +429,7 @@ $(function() {
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    <span class="comment">// The returned address is truncated if the buffer provided is too small.</span></div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> ret = <a class="code" href="namespacetoolbox_1_1os.html#a976b72125cffd1df410e1ea0a3ca9d30">::recvfrom</a>(sockfd, buf, len, flags, &amp;addr, &amp;addrlen);</div>
 <div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    <span class="keywordflow">if</span> (ret &lt; 0) {</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    }</div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;}</div>
@@ -441,7 +441,7 @@ $(function() {
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    <span class="comment">// The returned address is truncated if the buffer provided is too small.</span></div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> ret = <a class="code" href="namespacetoolbox_1_1os.html#a976b72125cffd1df410e1ea0a3ca9d30">::recvfrom</a>(sockfd, buf, len, flags, &amp;addr, &amp;addrlen);</div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    <span class="keywordflow">if</span> (ret &lt; 0) {</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;recvfrom&quot;</span>};</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;recvfrom&quot;</span>};</div>
 <div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    }</div>
 <div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;}</div>
@@ -485,7 +485,7 @@ $(function() {
 <div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;{</div>
 <div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> ret = <a class="code" href="namespacetoolbox_1_1os.html#ac721eedd573e53950dabdaffd4abd577">::send</a>(sockfd, buf, len, flags);</div>
 <div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;    <span class="keywordflow">if</span> (ret &lt; 0) {</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;    }</div>
 <div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;}</div>
@@ -494,7 +494,7 @@ $(function() {
 <div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;{</div>
 <div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> ret = <a class="code" href="namespacetoolbox_1_1os.html#ac721eedd573e53950dabdaffd4abd577">::send</a>(sockfd, buf, len, flags);</div>
 <div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    <span class="keywordflow">if</span> (ret &lt; 0) {</div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;send&quot;</span>};</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;send&quot;</span>};</div>
 <div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    }</div>
 <div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;}</div>
@@ -514,7 +514,7 @@ $(function() {
 <div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;{</div>
 <div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> ret = <a class="code" href="namespacetoolbox_1_1os.html#aee9ab074d6aaf1361899889e9b4344c7">::sendto</a>(sockfd, buf, len, flags, &amp;addr, addrlen);</div>
 <div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;    <span class="keywordflow">if</span> (ret &lt; 0) {</div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;    }</div>
 <div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;}</div>
@@ -524,7 +524,7 @@ $(function() {
 <div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;{</div>
 <div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> ret = <a class="code" href="namespacetoolbox_1_1os.html#aee9ab074d6aaf1361899889e9b4344c7">::sendto</a>(sockfd, buf, len, flags, &amp;addr, addrlen);</div>
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;    <span class="keywordflow">if</span> (ret &lt; 0) {</div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;sendto&quot;</span>};</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;sendto&quot;</span>};</div>
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;    }</div>
 <div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;}</div>
@@ -564,7 +564,7 @@ $(function() {
 <div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;    <span class="comment">// The addrlen argument is updated to contain the actual size of the source address.</span></div>
 <div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;    <span class="comment">// The returned address is truncated if the buffer provided is too small.</span></div>
 <div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;    <span class="keywordflow">if</span> (::<a class="code" href="namespacetoolbox_1_1os.html#a9de5b3c77f20c5b76c338bd79d9d7832">getsockname</a>(sockfd, &amp;addr, &amp;addrlen) &lt; 0) {</div>
-<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;    }</div>
 <div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;}</div>
 <div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160; </div>
@@ -573,7 +573,7 @@ $(function() {
 <div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;    <span class="comment">// The addrlen argument is updated to contain the actual size of the source address.</span></div>
 <div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;    <span class="comment">// The returned address is truncated if the buffer provided is too small.</span></div>
 <div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;    <span class="keywordflow">if</span> (::<a class="code" href="namespacetoolbox_1_1os.html#a9de5b3c77f20c5b76c338bd79d9d7832">getsockname</a>(sockfd, &amp;addr, &amp;addrlen) &lt; 0) {</div>
-<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;getsockname&quot;</span>};</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;getsockname&quot;</span>};</div>
 <div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;    }</div>
 <div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;}</div>
 <div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160; </div>
@@ -599,14 +599,14 @@ $(function() {
 <div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;                       std::error_code&amp; ec) noexcept</div>
 <div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;{</div>
 <div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;    <span class="keywordflow">if</span> (::<a class="code" href="namespacetoolbox_1_1os.html#a1832bdf48abcfe22a564df93f5238914">getsockopt</a>(sockfd, level, optname, optval, &amp;optlen) &lt; 0) {</div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;    }</div>
 <div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;}</div>
 <div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160; </div>
 <div class="line"><a name="l00592"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1os.html#aa4b9cbe8965bba361fad1bf599ef5541">  592</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="namespacetoolbox_1_1os.html#a1832bdf48abcfe22a564df93f5238914">getsockopt</a>(<span class="keywordtype">int</span> sockfd, <span class="keywordtype">int</span> level, <span class="keywordtype">int</span> optname, <span class="keywordtype">void</span>* optval, socklen_t&amp; optlen)</div>
 <div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;{</div>
 <div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;    <span class="keywordflow">if</span> (::<a class="code" href="namespacetoolbox_1_1os.html#a1832bdf48abcfe22a564df93f5238914">getsockopt</a>(sockfd, level, optname, optval, &amp;optlen) &lt; 0) {</div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;getsockopt&quot;</span>};</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;getsockopt&quot;</span>};</div>
 <div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;    }</div>
 <div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;}</div>
 <div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160; </div>
@@ -614,14 +614,14 @@ $(function() {
 <div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;                       std::error_code&amp; ec) noexcept</div>
 <div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;{</div>
 <div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;    <span class="keywordflow">if</span> (::<a class="code" href="namespacetoolbox_1_1os.html#a5cb722e6547ea67c8ad4e41cc8611717">setsockopt</a>(sockfd, level, optname, optval, optlen) &lt; 0) {</div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;    }</div>
 <div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;}</div>
 <div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160; </div>
 <div class="line"><a name="l00609"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1os.html#ad45008bedf5ca021727ff2836718242d">  609</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="namespacetoolbox_1_1os.html#a5cb722e6547ea67c8ad4e41cc8611717">setsockopt</a>(<span class="keywordtype">int</span> sockfd, <span class="keywordtype">int</span> level, <span class="keywordtype">int</span> optname, <span class="keyword">const</span> <span class="keywordtype">void</span>* optval, socklen_t optlen)</div>
 <div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;{</div>
 <div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;    <span class="keywordflow">if</span> (::<a class="code" href="namespacetoolbox_1_1os.html#a5cb722e6547ea67c8ad4e41cc8611717">setsockopt</a>(sockfd, level, optname, optval, optlen) &lt; 0) {</div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;setsockopt&quot;</span>};</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;setsockopt&quot;</span>};</div>
 <div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;    }</div>
 <div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;}</div>
 <div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160; </div>
@@ -647,7 +647,7 @@ $(function() {
 <div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;    <span class="keywordtype">int</span> optval{};</div>
 <div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;    socklen_t optlen{<span class="keyword">sizeof</span>(optval)};</div>
 <div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;    <a class="code" href="namespacetoolbox_1_1os.html#a1832bdf48abcfe22a564df93f5238914">os::getsockopt</a>(sockfd, SOL_SOCKET, SO_ERROR, &amp;optval, optlen, ec);</div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(optval);</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(optval);</div>
 <div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;}</div>
 <div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160; </div>
 <div class="line"><a name="l00642"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#a7ea24105769c4536745dbe102d9c7c4d">  642</a></span>&#160;<span class="keyword">inline</span> std::error_code <a class="code" href="namespacetoolbox_1_1net.html#a6467d0036489d53da97fd36e90de2e47">get_so_error</a>(<span class="keywordtype">int</span> sockfd)</div>
@@ -655,7 +655,7 @@ $(function() {
 <div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;    <span class="keywordtype">int</span> optval{};</div>
 <div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;    socklen_t optlen{<span class="keyword">sizeof</span>(optval)};</div>
 <div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;    <a class="code" href="namespacetoolbox_1_1os.html#a1832bdf48abcfe22a564df93f5238914">os::getsockopt</a>(sockfd, SOL_SOCKET, SO_ERROR, &amp;optval, optlen);</div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(optval);</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(optval);</div>
 <div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;}</div>
 <div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160; </div>
 <div class="line"><a name="l00650"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#ae5631ccb0cc2453ee88450f87e0509fa">  650</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="namespacetoolbox_1_1net.html#ae5631ccb0cc2453ee88450f87e0509fa">get_so_rcv_buf</a>(<span class="keywordtype">int</span> sockfd, std::error_code&amp; ec) noexcept</div>
@@ -807,7 +807,6 @@ $(function() {
 <div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;<span class="preprocessor">#endif // TOOLBOX_NET_SOCKET_HPP</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespacetoolbox_1_1os_html_a64188db4aa869e6449814391ab830727"><div class="ttname"><a href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">toolbox::os::bind</a></div><div class="ttdeci">void bind(int sockfd, const sockaddr &amp;addr, socklen_t addrlen, std::error_code &amp;ec) noexcept</div><div class="ttdoc">Bind a name to a socket.</div><div class="ttdef"><b>Definition:</b> <a href="Socket_8hpp_source.html#l00265">Socket.hpp:265</a></div></div>
-<div class="ttc" id="anamespacetoolbox_1_1sys_html_aab82f87b2fc080cf9294be6b964e696c"><div class="ttname"><a href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">toolbox::sys::make_sys_error</a></div><div class="ttdeci">std::error_code make_sys_error(int err) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="sys_2Error_8hpp_source.html#l00025">Error.hpp:25</a></div></div>
 <div class="ttc" id="astructtoolbox_1_1net_1_1Sock_html_a450ee580679e4b4a0cacaa3e6c2b79af"><div class="ttname"><a href="structtoolbox_1_1net_1_1Sock.html#a450ee580679e4b4a0cacaa3e6c2b79af">toolbox::net::Sock::get_snd_buf</a></div><div class="ttdeci">int get_snd_buf() const</div><div class="ttdef"><b>Definition:</b> <a href="Socket_8hpp_source.html#l00796">Socket.hpp:796</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1BasicHandle_html"><div class="ttname"><a href="classtoolbox_1_1io_1_1BasicHandle.html">toolbox::io::BasicHandle&lt; FilePolicy &gt;</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1util_html_a60794730274ecfa3f74f93c43396f774"><div class="ttname"><a href="namespacetoolbox_1_1util.html#a60794730274ecfa3f74f93c43396f774">toolbox::util::size</a></div><div class="ttdeci">constexpr std::size_t size(const detail::Struct&lt; detail::Member&lt; TagsT, ValuesT &gt;... &gt; &amp;s)</div><div class="ttdef"><b>Definition:</b> <a href="Struct_8hpp_source.html#l00098">Struct.hpp:98</a></div></div>
@@ -823,6 +822,7 @@ $(function() {
 <div class="ttc" id="astructtoolbox_1_1net_1_1Sock_html_acf5a15efd561842b6659fb5f2d4af015"><div class="ttname"><a href="structtoolbox_1_1net_1_1Sock.html#acf5a15efd561842b6659fb5f2d4af015">toolbox::net::Sock::get_error</a></div><div class="ttdeci">std::error_code get_error() const</div><div class="ttdef"><b>Definition:</b> <a href="Socket_8hpp_source.html#l00784">Socket.hpp:784</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1os_html_a976b72125cffd1df410e1ea0a3ca9d30"><div class="ttname"><a href="namespacetoolbox_1_1os.html#a976b72125cffd1df410e1ea0a3ca9d30">toolbox::os::recvfrom</a></div><div class="ttdeci">ssize_t recvfrom(int sockfd, void *buf, std::size_t len, int flags, sockaddr &amp;addr, socklen_t &amp;addrlen, std::error_code &amp;ec) noexcept</div><div class="ttdoc">Receive a message from a socket.</div><div class="ttdef"><b>Definition:</b> <a href="Socket_8hpp_source.html#l00390">Socket.hpp:390</a></div></div>
 <div class="ttc" id="astructtoolbox_1_1net_1_1Sock_html_af22d859c7b03e2b9a93dfd18c4679243"><div class="ttname"><a href="structtoolbox_1_1net_1_1Sock.html#af22d859c7b03e2b9a93dfd18c4679243">toolbox::net::Sock::is_ip_family</a></div><div class="ttdeci">bool is_ip_family() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Socket_8hpp_source.html#l00777">Socket.hpp:777</a></div></div>
+<div class="ttc" id="anamespacetoolbox_1_1sys_html_a97345ee7c1b3c7b60ac04921359cf9ec"><div class="ttname"><a href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">toolbox::sys::make_error</a></div><div class="ttdeci">std::error_code make_error(int err) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="sys_2Error_8hpp_source.html#l00025">Error.hpp:25</a></div></div>
 <div class="ttc" id="astructtoolbox_1_1net_1_1Sock_html_a4a3dd156c4281b92cee67a07ddcb6f15"><div class="ttname"><a href="structtoolbox_1_1net_1_1Sock.html#a4a3dd156c4281b92cee67a07ddcb6f15">toolbox::net::Sock::get_error</a></div><div class="ttdeci">std::error_code get_error(std::error_code &amp;ec) const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Socket_8hpp_source.html#l00780">Socket.hpp:780</a></div></div>
 <div class="ttc" id="astructtoolbox_1_1net_1_1Sock_html_a6289e25ad6801ccba7389fe33efed4ca"><div class="ttname"><a href="structtoolbox_1_1net_1_1Sock.html#a6289e25ad6801ccba7389fe33efed4ca">toolbox::net::Sock::get_rcv_buf</a></div><div class="ttdeci">int get_rcv_buf() const</div><div class="ttdef"><b>Definition:</b> <a href="Socket_8hpp_source.html#l00790">Socket.hpp:790</a></div></div>
 <div class="ttc" id="astructtoolbox_1_1net_1_1Sock_html_a2ccec49b54ec0bfffb5451a1d1f167ad"><div class="ttname"><a href="structtoolbox_1_1net_1_1Sock.html#a2ccec49b54ec0bfffb5451a1d1f167ad">toolbox::net::Sock::set_reuse_addr</a></div><div class="ttdeci">void set_reuse_addr(bool enabled)</div><div class="ttdef"><b>Definition:</b> <a href="Socket_8hpp_source.html#l00813">Socket.hpp:813</a></div></div>
@@ -841,7 +841,6 @@ $(function() {
 <div class="ttc" id="astructtoolbox_1_1net_1_1Sock_html_ad2e231fbfcd057727ca7c69bda9160a1"><div class="ttname"><a href="structtoolbox_1_1net_1_1Sock.html#ad2e231fbfcd057727ca7c69bda9160a1">toolbox::net::Sock::set_snd_buf</a></div><div class="ttdeci">void set_snd_buf(int size, std::error_code &amp;ec) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Socket_8hpp_source.html#l00815">Socket.hpp:815</a></div></div>
 <div class="ttc" id="astructtoolbox_1_1net_1_1Sock_html_a4f6f477c7ada5624abf1026cbe57ba69"><div class="ttname"><a href="structtoolbox_1_1net_1_1Sock.html#a4f6f477c7ada5624abf1026cbe57ba69">toolbox::net::Sock::set_rcv_buf</a></div><div class="ttdeci">void set_rcv_buf(int size)</div><div class="ttdef"><b>Definition:</b> <a href="Socket_8hpp_source.html#l00807">Socket.hpp:807</a></div></div>
 <div class="ttc" id="aConfig_8h_html_ae1d5e2ff332359a2f7905596626f2bf3"><div class="ttname"><a href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a></div><div class="ttdeci">#define TOOLBOX_API</div><div class="ttdef"><b>Definition:</b> <a href="Config_8h_source.html#l00039">Config.h:39</a></div></div>
-<div class="ttc" id="anamespacetoolbox_1_1net_html_a63aebb6a507a4f9c79db7574c4a83e45"><div class="ttname"><a href="namespacetoolbox_1_1net.html#a63aebb6a507a4f9c79db7574c4a83e45">toolbox::net::make_gai_error_code</a></div><div class="ttdeci">std::error_code make_gai_error_code(int err) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="net_2Error_8cpp_source.html#l00054">Error.cpp:54</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1net_html_a6467d0036489d53da97fd36e90de2e47"><div class="ttname"><a href="namespacetoolbox_1_1net.html#a6467d0036489d53da97fd36e90de2e47">toolbox::net::get_so_error</a></div><div class="ttdeci">std::error_code get_so_error(int sockfd, std::error_code &amp;ec) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Socket_8hpp_source.html#l00634">Socket.hpp:634</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1net_html_a8628afa0ab773168f75f313980e50d64"><div class="ttname"><a href="namespacetoolbox_1_1net.html#a8628afa0ab773168f75f313980e50d64">toolbox::net::set_tcp_syn_nt</a></div><div class="ttdeci">void set_tcp_syn_nt(int sockfd, int retrans, std::error_code &amp;ec) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Socket_8hpp_source.html#l00752">Socket.hpp:752</a></div></div>
 <div class="ttc" id="astructtoolbox_1_1net_1_1Sock_html_aabf537836ae1fbc46e39b2eee0ab907c"><div class="ttname"><a href="structtoolbox_1_1net_1_1Sock.html#aabf537836ae1fbc46e39b2eee0ab907c">toolbox::net::Sock::set_reuse_addr</a></div><div class="ttdeci">void set_reuse_addr(bool enabled, std::error_code &amp;ec) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Socket_8hpp_source.html#l00809">Socket.hpp:809</a></div></div>
@@ -865,6 +864,7 @@ $(function() {
 <div class="ttc" id="anamespacetoolbox_1_1net_html_a89b0837fd0bab753ea1da4a2267cd830"><div class="ttname"><a href="namespacetoolbox_1_1net.html#a89b0837fd0bab753ea1da4a2267cd830">toolbox::net::get_sock_name</a></div><div class="ttdeci">void get_sock_name(int sockfd, EndpointT &amp;ep, std::error_code &amp;ec) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Socket_8hpp_source.html#l00623">Socket.hpp:623</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1io_html_a5f27399855673bfa5dc5f79c77fa61c1"><div class="ttname"><a href="namespacetoolbox_1_1io.html#a5f27399855673bfa5dc5f79c77fa61c1">toolbox::io::MutableBuffer</a></div><div class="ttdeci">boost::asio::mutable_buffer MutableBuffer</div><div class="ttdef"><b>Definition:</b> <a href="Buffer_8hpp_source.html#l00028">Buffer.hpp:28</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1os_html_ae7c0ab4612dcb1c55e2c75659074b0a1"><div class="ttname"><a href="namespacetoolbox_1_1os.html#ae7c0ab4612dcb1c55e2c75659074b0a1">toolbox::os::connect</a></div><div class="ttdeci">void connect(int sockfd, const sockaddr &amp;addr, socklen_t addrlen, std::error_code &amp;ec) noexcept</div><div class="ttdoc">Initiate a connection on a socket.</div><div class="ttdef"><b>Definition:</b> <a href="Socket_8hpp_source.html#l00295">Socket.hpp:295</a></div></div>
+<div class="ttc" id="anamespacetoolbox_1_1net_html_a91de8504237f550e20b0bf30a163f01e"><div class="ttname"><a href="namespacetoolbox_1_1net.html#a91de8504237f550e20b0bf30a163f01e">toolbox::net::make_gai_error_code</a></div><div class="ttdeci">std::error_code make_gai_error_code(int err) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="net_2Error_8cpp_source.html#l00054">Error.cpp:54</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20

@@ -103,7 +103,7 @@ $(function() {
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> fd = <a class="code" href="namespacetoolbox_1_1os.html#a7bb8bf3ff0964670e9df8630eb9109f4">::timerfd_create</a>(clock_id, flags);</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">if</span> (fd &lt; 0) {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">return</span> fd;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
@@ -112,7 +112,7 @@ $(function() {
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> fd = <a class="code" href="namespacetoolbox_1_1os.html#a7bb8bf3ff0964670e9df8630eb9109f4">::timerfd_create</a>(clock_id, flags);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">if</span> (fd &lt; 0) {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;timerfd_create&quot;</span>};</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;timerfd_create&quot;</span>};</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">return</span> fd;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
@@ -122,7 +122,7 @@ $(function() {
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> ret = <a class="code" href="namespacetoolbox_1_1os.html#a00cbab20ba86079ac0b2e42e4cd381a4">::timerfd_settime</a>(fd, flags, &amp;new_value, &amp;old_value);</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">if</span> (ret &lt; 0) {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
@@ -130,7 +130,7 @@ $(function() {
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> ret = <a class="code" href="namespacetoolbox_1_1os.html#a00cbab20ba86079ac0b2e42e4cd381a4">::timerfd_settime</a>(fd, flags, &amp;new_value, &amp;old_value);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">if</span> (ret &lt; 0) {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;timerfd_settime&quot;</span>};</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;timerfd_settime&quot;</span>};</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
@@ -139,7 +139,7 @@ $(function() {
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;{</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> ret = <a class="code" href="namespacetoolbox_1_1os.html#a00cbab20ba86079ac0b2e42e4cd381a4">::timerfd_settime</a>(fd, flags, &amp;new_value, <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">if</span> (ret &lt; 0) {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
@@ -147,7 +147,7 @@ $(function() {
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> ret = <a class="code" href="namespacetoolbox_1_1os.html#a00cbab20ba86079ac0b2e42e4cd381a4">::timerfd_settime</a>(fd, flags, &amp;new_value, <span class="keyword">nullptr</span>);</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">if</span> (ret &lt; 0) {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;timerfd_settime&quot;</span>};</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;timerfd_settime&quot;</span>};</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
@@ -200,8 +200,8 @@ $(function() {
 <div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="classtoolbox_1_1io_1_1TimerFd.html#af6472951628f9ea63eef4b50cf3641d9">  136</a></span>&#160;    <a class="code" href="classtoolbox_1_1io_1_1TimerFd.html">TimerFd</a>&amp; <a class="code" href="classtoolbox_1_1io_1_1TimerFd.html#af6472951628f9ea63eef4b50cf3641d9">operator=</a>(<span class="keyword">const</span> <a class="code" href="classtoolbox_1_1io_1_1TimerFd.html">TimerFd</a>&amp;) = <span class="keyword">delete</span>;</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="comment">// Move.</span></div>
-<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="classtoolbox_1_1io_1_1TimerFd.html#a9e84816382d6e0183023d997f41cf229">  139</a></span>&#160;    <a class="code" href="classtoolbox_1_1io_1_1TimerFd.html#a9e84816382d6e0183023d997f41cf229">TimerFd</a>(<a class="code" href="classtoolbox_1_1io_1_1TimerFd.html">TimerFd</a>&amp;&amp;) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="classtoolbox_1_1io_1_1TimerFd.html#a0e496f0eaee6c1442d4298b7d582222d">  140</a></span>&#160;    <a class="code" href="classtoolbox_1_1io_1_1TimerFd.html">TimerFd</a>&amp; <a class="code" href="classtoolbox_1_1io_1_1TimerFd.html#a0e496f0eaee6c1442d4298b7d582222d">operator=</a>(<a class="code" href="classtoolbox_1_1io_1_1TimerFd.html">TimerFd</a>&amp;&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="classtoolbox_1_1io_1_1TimerFd.html#a96d7f115a2e2e8368b9446cbeb2db8be">  139</a></span>&#160;    <a class="code" href="classtoolbox_1_1io_1_1TimerFd.html#a96d7f115a2e2e8368b9446cbeb2db8be">TimerFd</a>(<a class="code" href="classtoolbox_1_1io_1_1TimerFd.html">TimerFd</a>&amp;&amp;) noexcept = default;</div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="classtoolbox_1_1io_1_1TimerFd.html#a64ae623786c76091d3c51dc696fd6ea7">  140</a></span>&#160;    <a class="code" href="classtoolbox_1_1io_1_1TimerFd.html">TimerFd</a>&amp; operator=(<a class="code" href="classtoolbox_1_1io_1_1TimerFd.html">TimerFd</a>&amp;&amp;) noexcept = default;</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
 <div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="classtoolbox_1_1io_1_1TimerFd.html#a5f5f3699b5c6866399fedfcd139a5c9e">  142</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classtoolbox_1_1io_1_1TimerFd.html#a5f5f3699b5c6866399fedfcd139a5c9e">fd</a>() const noexcept { <span class="keywordflow">return</span> fh_.<a class="code" href="classtoolbox_1_1io_1_1BasicHandle.html#a6cb446829643a07497975b6ff89f8f21">get</a>(); }</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
@@ -228,12 +228,12 @@ $(function() {
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="preprocessor">#endif // TOOLBOX_IO_TIMERFD_HPP</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="anamespacetoolbox_1_1sys_html_aab82f87b2fc080cf9294be6b964e696c"><div class="ttname"><a href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">toolbox::sys::make_sys_error</a></div><div class="ttdeci">std::error_code make_sys_error(int err) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="sys_2Error_8hpp_source.html#l00025">Error.hpp:25</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1TimerFd_html_a5f5f3699b5c6866399fedfcd139a5c9e"><div class="ttname"><a href="classtoolbox_1_1io_1_1TimerFd.html#a5f5f3699b5c6866399fedfcd139a5c9e">toolbox::io::TimerFd::fd</a></div><div class="ttdeci">int fd() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="TimerFd_8hpp_source.html#l00142">TimerFd.hpp:142</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1TimerFd_html_a9260a1f9b6bc59e074b0e211ae99720e"><div class="ttname"><a href="classtoolbox_1_1io_1_1TimerFd.html#a9260a1f9b6bc59e074b0e211ae99720e">toolbox::io::TimerFd::TimerFd</a></div><div class="ttdeci">TimerFd(int flags)</div><div class="ttdef"><b>Definition:</b> <a href="TimerFd_8hpp_source.html#l00128">TimerFd.hpp:128</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1BasicHandle_html"><div class="ttname"><a href="classtoolbox_1_1io_1_1BasicHandle.html">toolbox::io::BasicHandle</a></div><div class="ttdef"><b>Definition:</b> <a href="Handle_8hpp_source.html#l00029">Handle.hpp:29</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1TimerFd_html_af6472951628f9ea63eef4b50cf3641d9"><div class="ttname"><a href="classtoolbox_1_1io_1_1TimerFd.html#af6472951628f9ea63eef4b50cf3641d9">toolbox::io::TimerFd::operator=</a></div><div class="ttdeci">TimerFd &amp; operator=(const TimerFd &amp;)=delete</div></div>
-<div class="ttc" id="aclasstoolbox_1_1io_1_1TimerFd_html_a0e496f0eaee6c1442d4298b7d582222d"><div class="ttname"><a href="classtoolbox_1_1io_1_1TimerFd.html#a0e496f0eaee6c1442d4298b7d582222d">toolbox::io::TimerFd::operator=</a></div><div class="ttdeci">TimerFd &amp; operator=(TimerFd &amp;&amp;)=default</div></div>
+<div class="ttc" id="anamespacetoolbox_1_1sys_html_a97345ee7c1b3c7b60ac04921359cf9ec"><div class="ttname"><a href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">toolbox::sys::make_error</a></div><div class="ttdeci">std::error_code make_error(int err) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="sys_2Error_8hpp_source.html#l00025">Error.hpp:25</a></div></div>
+<div class="ttc" id="aclasstoolbox_1_1io_1_1TimerFd_html_a96d7f115a2e2e8368b9446cbeb2db8be"><div class="ttname"><a href="classtoolbox_1_1io_1_1TimerFd.html#a96d7f115a2e2e8368b9446cbeb2db8be">toolbox::io::TimerFd::TimerFd</a></div><div class="ttdeci">TimerFd(TimerFd &amp;&amp;) noexcept=default</div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1TimerFd_html_acc5b1a7b11ac6e92973b959972be84d9"><div class="ttname"><a href="classtoolbox_1_1io_1_1TimerFd.html#acc5b1a7b11ac6e92973b959972be84d9">toolbox::io::TimerFd::~TimerFd</a></div><div class="ttdeci">~TimerFd()=default</div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1TimerFd_html_ad5a329132fba8de0008358561d558f8b"><div class="ttname"><a href="classtoolbox_1_1io_1_1TimerFd.html#ad5a329132fba8de0008358561d558f8b">toolbox::io::TimerFd::set_time</a></div><div class="ttdeci">void set_time(int flags, TimePoint expiry, std::error_code &amp;ec) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="TimerFd_8hpp_source.html#l00152">TimerFd.hpp:152</a></div></div>
 <div class="ttc" id="anamespacetoolbox_html"><div class="ttname"><a href="namespacetoolbox.html">toolbox</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8cpp_source.html#l00026">Benchmark.cpp:26</a></div></div>
@@ -250,7 +250,6 @@ $(function() {
 <div class="ttc" id="aclasstoolbox_1_1io_1_1TimerFd_html_afe73b3b2635f7c61f663967e5aeb8db9"><div class="ttname"><a href="classtoolbox_1_1io_1_1TimerFd.html#afe73b3b2635f7c61f663967e5aeb8db9">toolbox::io::TimerFd::set_time</a></div><div class="ttdeci">void set_time(int flags, TimePoint expiry, Duration interval, std::error_code &amp;ec) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="TimerFd_8hpp_source.html#l00144">TimerFd.hpp:144</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1TimerFd_html_a9fed0a771b49f87c8de2b72493ec6d63"><div class="ttname"><a href="classtoolbox_1_1io_1_1TimerFd.html#a9fed0a771b49f87c8de2b72493ec6d63">toolbox::io::TimerFd::TimerFd</a></div><div class="ttdeci">TimerFd(const TimerFd &amp;)=delete</div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1TimerFd_html_a658162a8544610c7c122bf4e843bef5c"><div class="ttname"><a href="classtoolbox_1_1io_1_1TimerFd.html#a658162a8544610c7c122bf4e843bef5c">toolbox::io::TimerFd::set_time</a></div><div class="ttdeci">void set_time(int flags, TimePoint expiry, Duration interval)</div><div class="ttdef"><b>Definition:</b> <a href="TimerFd_8hpp_source.html#l00148">TimerFd.hpp:148</a></div></div>
-<div class="ttc" id="aclasstoolbox_1_1io_1_1TimerFd_html_a9e84816382d6e0183023d997f41cf229"><div class="ttname"><a href="classtoolbox_1_1io_1_1TimerFd.html#a9e84816382d6e0183023d997f41cf229">toolbox::io::TimerFd::TimerFd</a></div><div class="ttdeci">TimerFd(TimerFd &amp;&amp;)=default</div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1TimerFd_html"><div class="ttname"><a href="classtoolbox_1_1io_1_1TimerFd.html">toolbox::io::TimerFd</a></div><div class="ttdef"><b>Definition:</b> <a href="TimerFd_8hpp_source.html#l00123">TimerFd.hpp:123</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

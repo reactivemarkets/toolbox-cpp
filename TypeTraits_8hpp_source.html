@@ -149,27 +149,29 @@ $(function() {
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TypeT&gt;</div>
 <div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="structtoolbox_1_1util_1_1is__string.html">   78</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtoolbox_1_1util_1_1is__string.html">is_string</a> : std::is_same&lt;char*, std::remove_cv_t&lt;typename std::decay_t&lt;TypeT&gt;&gt;&gt;::type {</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="structtoolbox_1_1util_1_1is__string_3_01std_1_1string_01_4.html">   81</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtoolbox_1_1util_1_1is__string.html">is_string</a>&lt;std::string&gt; : std::true_type {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;};</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="structtoolbox_1_1util_1_1is__string_3_01std_1_1string__view_01_4.html">   84</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtoolbox_1_1util_1_1is__string.html">is_string</a>&lt;std::string_view&gt; : std::true_type {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TypeT, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">class </span>TemplateTypeT&gt;</div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="structtoolbox_1_1util_1_1is__instantiation__of.html">   88</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtoolbox_1_1util_1_1is__instantiation__of.html">is_instantiation_of</a> : std::false_type {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;};</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TypeT, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">class </span>TemplateTypeT&gt;</div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="structtoolbox_1_1util_1_1is__instantiation__of_3_01TemplateTypeT_3_01TypeT_01_4_00_01TemplateTypeT_01_4.html">   92</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtoolbox_1_1util_1_1is__instantiation__of.html">is_instantiation_of</a>&lt;TemplateTypeT&lt;TypeT&gt;, TemplateTypeT&gt; : std::true_type {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;};</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;} <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;} <span class="comment">// namespace toolbox</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#endif // TOOLBOX_UTIL_TYPETRAITS_HPP</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="structtoolbox_1_1util_1_1is__string_3_01std_1_1string_01_4.html">   82</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtoolbox_1_1util_1_1is__string.html">is_string</a>&lt;std::string&gt; : std::true_type {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;};</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">template</span> &lt;&gt;</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="structtoolbox_1_1util_1_1is__string_3_01std_1_1string__view_01_4.html">   86</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtoolbox_1_1util_1_1is__string.html">is_string</a>&lt;std::string_view&gt; : std::true_type {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;};</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TypeT, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">class </span>TemplateTypeT&gt;</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="structtoolbox_1_1util_1_1is__instantiation__of.html">   90</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtoolbox_1_1util_1_1is__instantiation__of.html">is_instantiation_of</a> : std::false_type {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;};</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TypeT, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">class </span>TemplateTypeT&gt;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="structtoolbox_1_1util_1_1is__instantiation__of_3_01TemplateTypeT_3_01TypeT_01_4_00_01TemplateTypeT_01_4.html">   94</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtoolbox_1_1util_1_1is__instantiation__of.html">is_instantiation_of</a>&lt;TemplateTypeT&lt;TypeT&gt;, TemplateTypeT&gt; : std::true_type {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;};</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;} <span class="comment">// namespace util</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;} <span class="comment">// namespace toolbox</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#endif // TOOLBOX_UTIL_TYPETRAITS_HPP</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="astructtoolbox_1_1util_1_1is__instantiation__of_html"><div class="ttname"><a href="structtoolbox_1_1util_1_1is__instantiation__of.html">toolbox::util::is_instantiation_of</a></div><div class="ttdef"><b>Definition:</b> <a href="TypeTraits_8hpp_source.html#l00088">TypeTraits.hpp:88</a></div></div>
+<div class="ttc" id="astructtoolbox_1_1util_1_1is__instantiation__of_html"><div class="ttname"><a href="structtoolbox_1_1util_1_1is__instantiation__of.html">toolbox::util::is_instantiation_of</a></div><div class="ttdef"><b>Definition:</b> <a href="TypeTraits_8hpp_source.html#l00090">TypeTraits.hpp:90</a></div></div>
 <div class="ttc" id="astructtoolbox_1_1util_1_1TypeTraits_3_01std_1_1string__view_01_4_html_a6e06b57cb86c21072929086e52efcaee"><div class="ttname"><a href="structtoolbox_1_1util_1_1TypeTraits_3_01std_1_1string__view_01_4.html#a6e06b57cb86c21072929086e52efcaee">toolbox::util::TypeTraits&lt; std::string_view &gt;::from_string</a></div><div class="ttdeci">static std::string_view from_string(const std::string &amp;s)=delete</div></div>
 <div class="ttc" id="anamespacetoolbox_1_1util_html_a4128af815607953377c817e18b4269ee"><div class="ttname"><a href="namespacetoolbox_1_1util.html#a4128af815607953377c817e18b4269ee">toolbox::util::stod</a></div><div class="ttdeci">double stod(std::string_view sv) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="util_2Utility_8cpp_source.html#l00101">Utility.cpp:101</a></div></div>
 <div class="ttc" id="astructtoolbox_1_1util_1_1TypeTraits_3_01std_1_1string__view_01_4_html_a37415e9611d73c3709dd7d167e11fb46"><div class="ttname"><a href="structtoolbox_1_1util_1_1TypeTraits_3_01std_1_1string__view_01_4.html#a37415e9611d73c3709dd7d167e11fb46">toolbox::util::TypeTraits&lt; std::string_view &gt;::from_string</a></div><div class="ttdeci">static constexpr auto from_string(std::string_view sv) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="TypeTraits_8hpp_source.html#l00065">TypeTraits.hpp:65</a></div></div>

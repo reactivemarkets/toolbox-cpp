@@ -119,7 +119,7 @@ $(function() {
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> key = <a class="code" href="namespacetoolbox_1_1os.html#ab7933f65b8a9d98cd9c56b8bdbd9746a">::ftok</a>(path, proj_id);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">if</span> (key &lt; 0) {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">return</span> key;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
@@ -129,7 +129,7 @@ $(function() {
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> key = <a class="code" href="namespacetoolbox_1_1os.html#ab7933f65b8a9d98cd9c56b8bdbd9746a">::ftok</a>(path, proj_id);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">// N.B. Negative values other than -1 are valid keys.</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">if</span> (key == -1) {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;ftok&quot;</span>};</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;ftok&quot;</span>};</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> key;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
@@ -138,7 +138,7 @@ $(function() {
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> <span class="keywordtype">id</span> = <a class="code" href="namespacetoolbox_1_1os.html#a6528ccff094ef345b33268ee7afa6e9c">::shmget</a>(key, <a class="code" href="namespacetoolbox_1_1util.html#a60794730274ecfa3f74f93c43396f774">size</a>, shmflg);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">if</span> (<span class="keywordtype">id</span> &lt; 0) {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">return</span> id;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
@@ -147,7 +147,7 @@ $(function() {
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> <span class="keywordtype">id</span> = <a class="code" href="namespacetoolbox_1_1os.html#a6528ccff094ef345b33268ee7afa6e9c">::shmget</a>(key, <a class="code" href="namespacetoolbox_1_1util.html#a60794730274ecfa3f74f93c43396f774">size</a>, shmflg);</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">if</span> (<span class="keywordtype">id</span> &lt; 0) {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;shmget&quot;</span>};</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;shmget&quot;</span>};</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">return</span> id;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}</div>
@@ -157,7 +157,7 @@ $(function() {
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">void</span>* <span class="keyword">const</span> addr = <a class="code" href="namespacetoolbox_1_1os.html#af7368400c1558e0849a4e3e32340cb4f">::shmat</a>(shmid, shmaddr, shmflg);</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">long</span><span class="keyword">&gt;</span>(addr) == -1) {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        ec = <a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno);</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">return</span> {<span class="keyword">nullptr</span>, [](<span class="keyword">const</span> <span class="keywordtype">void</span>*) -&gt; <span class="keywordtype">int</span> { <span class="keywordflow">return</span> 0; }};</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">return</span> {<span class="keyword">static_cast&lt;</span>ValueT*<span class="keyword">&gt;</span>(addr), shmdt};</div>
@@ -168,7 +168,7 @@ $(function() {
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;{</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">void</span>* <span class="keyword">const</span> addr = <a class="code" href="namespacetoolbox_1_1os.html#af7368400c1558e0849a4e3e32340cb4f">::shmat</a>(shmid, shmaddr, shmflg);</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">long</span><span class="keyword">&gt;</span>(addr) == -1) {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">make_sys_error</a>(errno), <span class="stringliteral">&quot;shmat&quot;</span>};</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">throw</span> std::system_error{<a class="code" href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">make_error</a>(errno), <span class="stringliteral">&quot;shmat&quot;</span>};</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">return</span> {<span class="keyword">static_cast&lt;</span>ValueT*<span class="keyword">&gt;</span>(addr), shmdt};</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div>
@@ -180,11 +180,11 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespacetoolbox_1_1os_html_a6528ccff094ef345b33268ee7afa6e9c"><div class="ttname"><a href="namespacetoolbox_1_1os.html#a6528ccff094ef345b33268ee7afa6e9c">toolbox::os::shmget</a></div><div class="ttdeci">int shmget(key_t key, std::size_t size, int shmflg, std::error_code &amp;ec) noexcept</div><div class="ttdoc">Returns the shared-memory identifier associated with key.</div><div class="ttdef"><b>Definition:</b> <a href="Shm_8hpp_source.html#l00068">Shm.hpp:68</a></div></div>
 <div class="ttc" id="astructtoolbox_1_1ipc_1_1ShmPolicy_html"><div class="ttname"><a href="structtoolbox_1_1ipc_1_1ShmPolicy.html">toolbox::ipc::ShmPolicy</a></div><div class="ttdef"><b>Definition:</b> <a href="Shm_8hpp_source.html#l00030">Shm.hpp:30</a></div></div>
-<div class="ttc" id="anamespacetoolbox_1_1sys_html_aab82f87b2fc080cf9294be6b964e696c"><div class="ttname"><a href="namespacetoolbox_1_1sys.html#aab82f87b2fc080cf9294be6b964e696c">toolbox::sys::make_sys_error</a></div><div class="ttdeci">std::error_code make_sys_error(int err) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="sys_2Error_8hpp_source.html#l00025">Error.hpp:25</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1BasicHandle_html"><div class="ttname"><a href="classtoolbox_1_1io_1_1BasicHandle.html">toolbox::io::BasicHandle</a></div><div class="ttdef"><b>Definition:</b> <a href="Handle_8hpp_source.html#l00029">Handle.hpp:29</a></div></div>
 <div class="ttc" id="astructtoolbox_1_1ipc_1_1ShmPolicy_html_a061b9ca96a47b5bdbe125c865d5b84c4"><div class="ttname"><a href="structtoolbox_1_1ipc_1_1ShmPolicy.html#a061b9ca96a47b5bdbe125c865d5b84c4">toolbox::ipc::ShmPolicy::close</a></div><div class="ttdeci">static void close(int id) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Shm_8hpp_source.html#l00033">Shm.hpp:33</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1util_html_a60794730274ecfa3f74f93c43396f774"><div class="ttname"><a href="namespacetoolbox_1_1util.html#a60794730274ecfa3f74f93c43396f774">toolbox::util::size</a></div><div class="ttdeci">constexpr std::size_t size(const detail::Struct&lt; detail::Member&lt; TagsT, ValuesT &gt;... &gt; &amp;s)</div><div class="ttdef"><b>Definition:</b> <a href="Struct_8hpp_source.html#l00098">Struct.hpp:98</a></div></div>
 <div class="ttc" id="astructtoolbox_1_1ipc_1_1ShmPolicy_html_a39b67e6acfc96c35c59179433fc5751a"><div class="ttname"><a href="structtoolbox_1_1ipc_1_1ShmPolicy.html#a39b67e6acfc96c35c59179433fc5751a">toolbox::ipc::ShmPolicy::invalid</a></div><div class="ttdeci">static constexpr int invalid() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Shm_8hpp_source.html#l00032">Shm.hpp:32</a></div></div>
+<div class="ttc" id="anamespacetoolbox_1_1sys_html_a97345ee7c1b3c7b60ac04921359cf9ec"><div class="ttname"><a href="namespacetoolbox_1_1sys.html#a97345ee7c1b3c7b60ac04921359cf9ec">toolbox::sys::make_error</a></div><div class="ttdeci">std::error_code make_error(int err) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="sys_2Error_8hpp_source.html#l00025">Error.hpp:25</a></div></div>
 <div class="ttc" id="asys_2Error_8hpp_html"><div class="ttname"><a href="sys_2Error_8hpp.html">Error.hpp</a></div></div>
 <div class="ttc" id="anamespacetoolbox_html"><div class="ttname"><a href="namespacetoolbox.html">toolbox</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8cpp_source.html#l00026">Benchmark.cpp:26</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1ipc_html_a019b350b3e10d2358441ede7fe18f5e4"><div class="ttname"><a href="namespacetoolbox_1_1ipc.html#a019b350b3e10d2358441ede7fe18f5e4">toolbox::ipc::ShmPtr</a></div><div class="ttdeci">std::unique_ptr&lt; ValueT, int(*)(const void *)&gt; ShmPtr</div><div class="ttdef"><b>Definition:</b> <a href="Shm_8hpp_source.html#l00041">Shm.hpp:41</a></div></div>

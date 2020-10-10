@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xsputn_2047',['xsputn',['../classtoolbox_1_1http_1_1HttpBuf.html#a3628d17f470201a6bb67af40944bc8bb',1,'toolbox::http::HttpBuf']]]
+  ['xsputn_2038',['xsputn',['../classtoolbox_1_1http_1_1StreamBuf.html#af339cc66e490111f27110e7c25d66820',1,'toolbox::http::StreamBuf']]]
 ];
