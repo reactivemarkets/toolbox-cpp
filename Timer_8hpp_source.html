@@ -257,7 +257,7 @@ $(function() {
 <div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="classtoolbox_1_1io_1_1Timer.html#aa08cf3754e4b1f277660fc1859bb96f4">  192</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classtoolbox_1_1io_1_1Timer.html#aa08cf3754e4b1f277660fc1859bb96f4">Timer::cancel</a>() noexcept</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;{</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="comment">// If pending, then reset the slot and inform the queue that the timer has been cancelled.</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordflow">if</span> (impl_-&gt;slot) {</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordflow">if</span> (impl_ &amp;&amp; impl_-&gt;slot) {</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        impl_-&gt;slot.reset();</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        impl_-&gt;tq-&gt;cancel();</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    }</div>
