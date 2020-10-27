@@ -192,7 +192,7 @@ TOOLBOX_API void intrusive_ptr_release(Timer::Impl* impl) noexcept;
 inline void Timer::cancel() noexcept
 {
     // If pending, then reset the slot and inform the queue that the timer has been cancelled.
-    if (impl_->slot) {
+    if (impl_ && impl_->slot) {
         impl_->slot.reset();
         impl_->tq->cancel();
     }
