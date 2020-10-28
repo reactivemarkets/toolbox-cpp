@@ -26,35 +26,35 @@ using namespace toolbox;
 
 BOOST_AUTO_TEST_SUITE(StreamSuite)
 
-BOOST_AUTO_TEST_CASE(StaticStreamCase)
+BOOST_AUTO_TEST_CASE(OStaticStreamCase)
 {
-    StaticStream<7> ss;
-    BOOST_TEST(ss.empty());
-    ss << "foo";
-    BOOST_TEST(ss.size() == 3U);
-    BOOST_TEST(ss.str() == "foo");
-    ss << ',' << "bar";
-    BOOST_TEST(ss.size() == 7U);
-    BOOST_TEST(ss.str() == "foo,bar");
+    OStaticStream<7> os;
+    BOOST_TEST(os.empty());
+    os << "foo";
+    BOOST_TEST(os.size() == 3U);
+    BOOST_TEST(os.str() == "foo");
+    os << ',' << "bar";
+    BOOST_TEST(os.size() == 7U);
+    BOOST_TEST(os.str() == "foo,bar");
 
-    ss.reset();
-    BOOST_TEST(ss.empty());
-    ss << 12345678;
-    BOOST_TEST(ss.size() == 7U);
-    BOOST_TEST(ss.str() == "1234567");
-    BOOST_TEST(!ss);
+    os.reset();
+    BOOST_TEST(os.empty());
+    os << 12345678;
+    BOOST_TEST(os.size() == 7U);
+    BOOST_TEST(os.str() == "1234567");
+    BOOST_TEST(!os);
 
-    ss.reset();
-    BOOST_TEST(!!ss);
-    BOOST_TEST((ss << "test").str() == "test");
+    os.reset();
+    BOOST_TEST(!!os);
+    BOOST_TEST((os << "test").str() == "test");
 }
 
 BOOST_AUTO_TEST_CASE(OStreamJoinerCase)
 {
     array<string, 3> arr{{"foo", "bar", "baz"}};
-    stringstream ss;
-    copy(arr.begin(), arr.end(), OStreamJoiner{ss, ','});
-    BOOST_TEST(ss.str() == "foo,bar,baz");
+    stringstream os;
+    copy(arr.begin(), arr.end(), OStreamJoiner{os, ','});
+    BOOST_TEST(os.str() == "foo,bar,baz");
 }
 
 BOOST_AUTO_TEST_SUITE_END()

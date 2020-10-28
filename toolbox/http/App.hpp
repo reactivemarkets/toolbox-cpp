@@ -24,8 +24,8 @@
 namespace toolbox {
 inline namespace http {
 
+class OStream;
 class Request;
-class Stream;
 
 class TOOLBOX_API App {
   public:
@@ -49,11 +49,11 @@ class TOOLBOX_API App {
         do_on_http_disconnect(now, ep);
     }
     void on_http_error(CyclTime now, const Endpoint& ep, const std::exception& e,
-                       Stream& os) noexcept
+                       OStream& os) noexcept
     {
         do_on_http_error(now, ep, e, os);
     }
-    void on_http_message(CyclTime now, const Endpoint& ep, const Request& req, Stream& os)
+    void on_http_message(CyclTime now, const Endpoint& ep, const Request& req, OStream& os)
     {
         do_on_http_message(now, ep, req, os);
     }
@@ -63,9 +63,9 @@ class TOOLBOX_API App {
     virtual void do_on_http_connect(CyclTime now, const Endpoint& ep) = 0;
     virtual void do_on_http_disconnect(CyclTime now, const Endpoint& ep) noexcept = 0;
     virtual void do_on_http_error(CyclTime now, const Endpoint& ep, const std::exception& e,
-                                  Stream& os) noexcept = 0;
+                                  OStream& os) noexcept = 0;
     virtual void do_on_http_message(CyclTime now, const Endpoint& ep, const Request& req,
-                                    Stream& os)
+                                    OStream& os)
         = 0;
     virtual void do_on_http_timeout(CyclTime now, const Endpoint& ep) noexcept = 0;
 };

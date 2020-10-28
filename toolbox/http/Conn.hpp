@@ -274,7 +274,7 @@ class BasicConn
     Timer tmr_;
     Buffer in_, out_;
     Request req_;
-    Stream os_{out_};
+    OStream os_{out_};
     bool in_progress_{false}, write_blocked_{false};
 };
 
