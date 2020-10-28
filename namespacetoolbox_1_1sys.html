@@ -117,9 +117,9 @@ Typedefs</h2></td></tr>
 <tr class="memitem:ad30773ec4571816fa4459ed92884acdc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#ad30773ec4571816fa4459ed92884acdc">Logger</a> = void(*)(int, std::string_view)</td></tr>
 <tr class="memdesc:ad30773ec4571816fa4459ed92884acdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger callback function.  <a href="namespacetoolbox_1_1sys.html#ad30773ec4571816fa4459ed92884acdc">More...</a><br /></td></tr>
 <tr class="separator:ad30773ec4571816fa4459ed92884acdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16158a8cb63ed525b556394583d01a22"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a16158a8cb63ed525b556394583d01a22">LogMsg</a> = <a class="el" href="classtoolbox_1_1util_1_1StaticStream.html">StaticStream</a>&lt; <a class="el" href="namespacetoolbox_1_1sys.html#a5c730f2f9701593805e3100310236dafa88e91031a9e456a72e2cbe9a70929086">MaxMsgSize</a> &gt;</td></tr>
-<tr class="memdesc:a16158a8cb63ed525b556394583d01a22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger callback function.  <a href="namespacetoolbox_1_1sys.html#a16158a8cb63ed525b556394583d01a22">More...</a><br /></td></tr>
-<tr class="separator:a16158a8cb63ed525b556394583d01a22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9bd56a50a4529fcd89afa14443ba7e0"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#af9bd56a50a4529fcd89afa14443ba7e0">LogMsg</a> = <a class="el" href="classtoolbox_1_1util_1_1OStaticStream.html">OStaticStream</a>&lt; <a class="el" href="namespacetoolbox_1_1sys.html#a5c730f2f9701593805e3100310236dafa88e91031a9e456a72e2cbe9a70929086">MaxMsgSize</a> &gt;</td></tr>
+<tr class="memdesc:af9bd56a50a4529fcd89afa14443ba7e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger callback function.  <a href="namespacetoolbox_1_1sys.html#af9bd56a50a4529fcd89afa14443ba7e0">More...</a><br /></td></tr>
+<tr class="separator:af9bd56a50a4529fcd89afa14443ba7e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90f0f82eec67b724f5e9f170e11192b2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a90f0f82eec67b724f5e9f170e11192b2">PidFile</a> = std::unique_ptr&lt; pidfh, <a class="el" href="structtoolbox_1_1sys_1_1detail_1_1PidFileDeleter.html">detail::PidFileDeleter</a> &gt;</td></tr>
 <tr class="separator:a90f0f82eec67b724f5e9f170e11192b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a926e572d5ea62970f67ab8c44cc5dcf4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a926e572d5ea62970f67ab8c44cc5dcf4">Seconds</a> = std::chrono::seconds</td></tr>
@@ -236,7 +236,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a80a58709e8a2799f52346b3182b9c15c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a80a58709e8a2799f52346b3182b9c15c">sys_logger</a> (int level, std::string_view msg) noexcept</td></tr>
 <tr class="memdesc:a80a58709e8a2799f52346b3182b9c15c"><td class="mdescLeft">&#160;</td><td class="mdescRight">System logger. This logger calls syslog().  <a href="namespacetoolbox_1_1sys.html#a80a58709e8a2799f52346b3182b9c15c">More...</a><br /></td></tr>
 <tr class="separator:a80a58709e8a2799f52346b3182b9c15c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ac7030b49068c3a5e98546320d81619"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1sys.html#a16158a8cb63ed525b556394583d01a22">LogMsg</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a9ac7030b49068c3a5e98546320d81619">log_msg</a> () noexcept</td></tr>
+<tr class="memitem:a9ac7030b49068c3a5e98546320d81619"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1sys.html#af9bd56a50a4529fcd89afa14443ba7e0">LogMsg</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a9ac7030b49068c3a5e98546320d81619">log_msg</a> () noexcept</td></tr>
 <tr class="separator:a9ac7030b49068c3a5e98546320d81619"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a303a8bbce54d723f35e8b944b57daff4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a303a8bbce54d723f35e8b944b57daff4">is_log_level</a> (int level) noexcept</td></tr>
 <tr class="memdesc:a303a8bbce54d723f35e8b944b57daff4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if level is less than or equal to current log level.  <a href="namespacetoolbox_1_1sys.html#a303a8bbce54d723f35e8b944b57daff4">More...</a><br /></td></tr>
@@ -386,14 +386,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a16158a8cb63ed525b556394583d01a22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16158a8cb63ed525b556394583d01a22">&#9670;&nbsp;</a></span>LogMsg</h2>
+<a id="af9bd56a50a4529fcd89afa14443ba7e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9bd56a50a4529fcd89afa14443ba7e0">&#9670;&nbsp;</a></span>LogMsg</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespacetoolbox_1_1sys.html#a16158a8cb63ed525b556394583d01a22">toolbox::sys::LogMsg</a> = typedef <a class="el" href="classtoolbox_1_1util_1_1StaticStream.html">StaticStream</a>&lt;<a class="el" href="namespacetoolbox_1_1sys.html#a5c730f2f9701593805e3100310236dafa88e91031a9e456a72e2cbe9a70929086">MaxMsgSize</a>&gt;</td>
+          <td class="memname">using <a class="el" href="namespacetoolbox_1_1sys.html#af9bd56a50a4529fcd89afa14443ba7e0">toolbox::sys::LogMsg</a> = typedef <a class="el" href="classtoolbox_1_1util_1_1OStaticStream.html">OStaticStream</a>&lt;<a class="el" href="namespacetoolbox_1_1sys.html#a5c730f2f9701593805e3100310236dafa88e91031a9e456a72e2cbe9a70929086">MaxMsgSize</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1596,7 +1596,7 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> <a class="el" href="namespacetoolbox_1_1sys.html#a16158a8cb63ed525b556394583d01a22">LogMsg</a> &amp; toolbox::sys::log_msg </td>
+          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> <a class="el" href="namespacetoolbox_1_1sys.html#af9bd56a50a4529fcd89afa14443ba7e0">LogMsg</a> &amp; toolbox::sys::log_msg </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1608,7 +1608,7 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Thread-local log message. This thread-local instance of <a class="el" href="classtoolbox_1_1util_1_1StaticStream.html">StaticStream</a> can be used to format log messages before writing to the log. Note that the <a class="el" href="classtoolbox_1_1util_1_1StaticStream.html">StaticStream</a> is reset each time this function is called. </p>
+<p>Thread-local log message. This thread-local instance of <a class="el" href="classtoolbox_1_1util_1_1OStaticStream.html">OStaticStream</a> can be used to format log messages before writing to the log. Note that the <a class="el" href="classtoolbox_1_1util_1_1OStaticStream.html">OStaticStream</a> is reset each time this function is called. </p>
 
 <p class="definition">Definition at line <a class="el" href="Log_8cpp_source.html#l00166">166</a> of file <a class="el" href="Log_8cpp_source.html">Log.cpp</a>.</p>
 

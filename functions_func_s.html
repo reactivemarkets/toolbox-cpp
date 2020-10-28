@@ -148,9 +148,9 @@ $(function() {
 , <a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html#aa3676d87b264342236980b1572ad5905">toolbox::ipc::MpmcQueue&lt; ValueT &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1ArrayView.html#a16e2d59fe182cf0be2e0db53f8973d25">toolbox::util::ArrayView&lt; ValueT &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1Config.html#a769462eab2a40225398b36585c40a733">toolbox::util::Config</a>
+, <a class="el" href="classtoolbox_1_1util_1_1OStaticStream.html#a9871273d5a3f3fd2de12b6f0bcd5baed">toolbox::util::OStaticStream&lt; MaxN &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1RingBuffer.html#a5757e08b548db023c7b13823ff0680a8">toolbox::util::RingBuffer&lt; ValueT &gt;</a>
-, <a class="el" href="classtoolbox_1_1util_1_1StaticBuf.html#a61a42411c0a3cefa14a37bc748a41b9e">toolbox::util::StaticBuf&lt; MaxN &gt;</a>
-, <a class="el" href="classtoolbox_1_1util_1_1StaticStream.html#a1439cbf9712ce62abde7a8a189967db8">toolbox::util::StaticStream&lt; MaxN &gt;</a>
+, <a class="el" href="classtoolbox_1_1util_1_1StaticStreamBuf.html#a9af04ff7b1aa084451b9ff75c654fa60">toolbox::util::StaticStreamBuf&lt; MaxN &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1StringBuf.html#acc9c28454918a02c6e22f63c8513d281">toolbox::util::StringBuf&lt; MaxN &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1VarAccum.html#a7a38f5b37d6ba27c634c7d0c339f0466">toolbox::util::VarAccum</a>
 </li>
@@ -166,11 +166,8 @@ $(function() {
 , <a class="el" href="structtoolbox_1_1net_1_1Sock.html#a903c114fef4862ca73223f8e41b591d0">toolbox::net::Sock</a>
 , <a class="el" href="structtoolbox_1_1net_1_1StreamSockServ.html#a903c114fef4862ca73223f8e41b591d0">toolbox::net::StreamSockServ</a>
 </li>
-<li>StaticBuf()
-: <a class="el" href="classtoolbox_1_1util_1_1StaticBuf.html#a8d9b5f741e34a9392b5086b297d393f0">toolbox::util::StaticBuf&lt; MaxN &gt;</a>
-</li>
-<li>StaticStream()
-: <a class="el" href="classtoolbox_1_1util_1_1StaticStream.html#afe519434be1612a3d3bd33f27092690b">toolbox::util::StaticStream&lt; MaxN &gt;</a>
+<li>StaticStreamBuf()
+: <a class="el" href="classtoolbox_1_1util_1_1StaticStreamBuf.html#a458fa76bf1752c1fdbd6c830011ce097">toolbox::util::StaticStreamBuf&lt; MaxN &gt;</a>
 </li>
 <li>status_code()
 : <a class="el" href="classtoolbox_1_1http_1_1BasicParser.html#ae52b1c0881b73fc895d4215484484384">toolbox::http::BasicParser&lt; DerivedT &gt;</a>
@@ -180,36 +177,33 @@ $(function() {
 , <a class="el" href="classtoolbox_1_1net_1_1Resolver.html#aa74126384b330df916c66b6f1a0a3fbd">toolbox::net::Resolver</a>
 </li>
 <li>str()
-: <a class="el" href="classtoolbox_1_1io_1_1Buffer.html#aa17a7c8746919c9ad3992d1baebabd3e">toolbox::io::Buffer</a>
-, <a class="el" href="classtoolbox_1_1util_1_1StaticBuf.html#ad0e1463670d740912f9cbfc6f0ec82a3">toolbox::util::StaticBuf&lt; MaxN &gt;</a>
-, <a class="el" href="classtoolbox_1_1util_1_1StaticStream.html#ab0b515b1f2ff5d4ef08dbe2092151c47">toolbox::util::StaticStream&lt; MaxN &gt;</a>
-</li>
-<li>Stream()
-: <a class="el" href="classtoolbox_1_1http_1_1Stream.html#a93953ad1b4aa2e89c9cbd84eaecdb0ed">toolbox::http::Stream</a>
+: <a class="el" href="classtoolbox_1_1io_1_1Buffer.html#a9bbc1a2b1bbbec1aa015600726ab236c">toolbox::io::Buffer</a>
+, <a class="el" href="classtoolbox_1_1util_1_1OStaticStream.html#aca70fb71a20c13a589c68b8f2a7465ce">toolbox::util::OStaticStream&lt; MaxN &gt;</a>
+, <a class="el" href="classtoolbox_1_1util_1_1StaticStreamBuf.html#a5d54a43e2cfbb17187a4d9d445cd98f0">toolbox::util::StaticStreamBuf&lt; MaxN &gt;</a>
 </li>
 <li>StreamAcceptor()
-: <a class="el" href="classtoolbox_1_1net_1_1StreamAcceptor.html#aae220e292b55209b5587fda73194a17d">toolbox::net::StreamAcceptor&lt; DerivedT &gt;</a>
+: <a class="el" href="classtoolbox_1_1net_1_1StreamAcceptor.html#a6addf21e7c8533152cb54496067af748">toolbox::net::StreamAcceptor&lt; DerivedT &gt;</a>
 </li>
 <li>StreamBuf()
 : <a class="el" href="classtoolbox_1_1http_1_1StreamBuf.html#a3ce3b0d126fcc3d1254d8dd7ee0f3838">toolbox::http::StreamBuf</a>
 </li>
 <li>StreamConnector()
-: <a class="el" href="classtoolbox_1_1net_1_1StreamConnector.html#a0bf6776280413627c8eba8d498619799">toolbox::net::StreamConnector&lt; DerivedT &gt;</a>
+: <a class="el" href="classtoolbox_1_1net_1_1StreamConnector.html#a8e49eea0b96e2dc38a240a1f753e4746">toolbox::net::StreamConnector&lt; DerivedT &gt;</a>
 </li>
 <li>StreamProtocol()
 : <a class="el" href="structtoolbox_1_1net_1_1StreamProtocol.html#a388c75f972f6d9dadb8cc64bbd38c5f1">toolbox::net::StreamProtocol</a>
 </li>
 <li>StreamSockClnt()
-: <a class="el" href="structtoolbox_1_1net_1_1StreamSockClnt.html#ab73c2f0773895f7206d5f26902ff2ea1">toolbox::net::StreamSockClnt</a>
+: <a class="el" href="structtoolbox_1_1net_1_1StreamSockClnt.html#a4e18935973e48dc809e55de84aaa8b70">toolbox::net::StreamSockClnt</a>
 </li>
 <li>StreamSockServ()
-: <a class="el" href="structtoolbox_1_1net_1_1StreamSockServ.html#a5bdbe06f25d287456f801a92fc9a3d54">toolbox::net::StreamSockServ</a>
+: <a class="el" href="structtoolbox_1_1net_1_1StreamSockServ.html#a074bafba8a6134f7c37fbebc20112ad7">toolbox::net::StreamSockServ</a>
 </li>
 <li>StringBuf()
-: <a class="el" href="classtoolbox_1_1util_1_1StringBuf.html#aeab7a07bca899420670eeaf98faaa942">toolbox::util::StringBuf&lt; MaxN &gt;</a>
+: <a class="el" href="classtoolbox_1_1util_1_1StringBuf.html#ab700a014d8bf10a8c28ca8e84d29d9b8">toolbox::util::StringBuf&lt; MaxN &gt;</a>
 </li>
 <li>Struct()
-: <a class="el" href="structtoolbox_1_1util_1_1detail_1_1Struct_3_01Member_3_01TagT_00_01ValueT_01_4_00_01Member_3_01Tea64d071ebde2c801b1e9a32f0bf50cc.html#a1d3e9a3b73e2eac7418618e8d5600f96">toolbox::util::detail::Struct&lt; Member&lt; TagT, ValueT &gt;, Member&lt; TagsT, ValuesT &gt;... &gt;</a>
+: <a class="el" href="structtoolbox_1_1util_1_1detail_1_1Struct_3_01Member_3_01TagT_00_01ValueT_01_4_00_01Member_3_01Tea64d071ebde2c801b1e9a32f0bf50cc.html#aadf887f16aa5c79dc5789470c03bed3c">toolbox::util::detail::Struct&lt; Member&lt; TagT, ValueT &gt;, Member&lt; TagsT, ValuesT &gt;... &gt;</a>
 </li>
 <li>sub_bucket_count()
 : <a class="el" href="classtoolbox_1_1hdr_1_1Histogram.html#ab73f2047cba24baf3d74d2c5897d5142">toolbox::hdr::Histogram</a>

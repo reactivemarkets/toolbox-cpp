@@ -1,11 +1,9 @@
 var searchData=
 [
-  ['shmpolicy_1232',['ShmPolicy',['../structtoolbox_1_1ipc_1_1ShmPolicy.html',1,'toolbox::ipc::ShmPolicy'],['../structtoolbox_1_1ipc_1_1ShmPolicy.html',1,'toolbox::ipc::ShmPolicy']]],
-  ['sigwait_1233',['SigWait',['../classtoolbox_1_1sys_1_1SigWait.html',1,'toolbox::sys::SigWait'],['../classtoolbox_1_1sys_1_1SigWait.html',1,'toolbox::sys::SigWait']]],
-  ['sock_1234',['Sock',['../structtoolbox_1_1net_1_1Sock.html',1,'toolbox::net::Sock'],['../structtoolbox_1_1net_1_1Sock.html',1,'toolbox::net::Sock']]],
-  ['staticbuf_1235',['StaticBuf',['../classtoolbox_1_1util_1_1StaticBuf.html',1,'toolbox::util::StaticBuf&lt; MaxN &gt;'],['../classtoolbox_1_1util_1_1StaticBuf.html',1,'toolbox::util::StaticBuf&lt; MaxN &gt;']]],
-  ['staticstream_1236',['StaticStream',['../classtoolbox_1_1util_1_1StaticStream.html',1,'toolbox::util::StaticStream&lt; MaxN &gt;'],['../classtoolbox_1_1util_1_1StaticStream.html',1,'toolbox::util::StaticStream&lt; MaxN &gt;']]],
-  ['stream_1237',['Stream',['../classtoolbox_1_1http_1_1Stream.html',1,'toolbox::http::Stream'],['../classtoolbox_1_1http_1_1Stream.html',1,'toolbox::http::Stream']]],
+  ['shmpolicy_1234',['ShmPolicy',['../structtoolbox_1_1ipc_1_1ShmPolicy.html',1,'toolbox::ipc::ShmPolicy'],['../structtoolbox_1_1ipc_1_1ShmPolicy.html',1,'toolbox::ipc::ShmPolicy']]],
+  ['sigwait_1235',['SigWait',['../classtoolbox_1_1sys_1_1SigWait.html',1,'toolbox::sys::SigWait'],['../classtoolbox_1_1sys_1_1SigWait.html',1,'toolbox::sys::SigWait']]],
+  ['sock_1236',['Sock',['../structtoolbox_1_1net_1_1Sock.html',1,'toolbox::net::Sock'],['../structtoolbox_1_1net_1_1Sock.html',1,'toolbox::net::Sock']]],
+  ['staticstreambuf_1237',['StaticStreamBuf',['../classtoolbox_1_1util_1_1StaticStreamBuf.html',1,'toolbox::util::StaticStreamBuf&lt; MaxN &gt;'],['../classtoolbox_1_1util_1_1StaticStreamBuf.html',1,'toolbox::util::StaticStreamBuf&lt; MaxN &gt;']]],
   ['streamacceptor_1238',['StreamAcceptor',['../classtoolbox_1_1net_1_1StreamAcceptor.html',1,'toolbox::net::StreamAcceptor&lt; DerivedT &gt;'],['../classtoolbox_1_1net_1_1StreamAcceptor.html',1,'toolbox::net::StreamAcceptor&lt; DerivedT &gt;']]],
   ['streamacceptor_3c_20basicserv_3c_20connt_2c_20appt_20_3e_20_3e_1239',['StreamAcceptor&lt; BasicServ&lt; ConnT, AppT &gt; &gt;',['../classtoolbox_1_1net_1_1StreamAcceptor.html',1,'toolbox::net']]],
   ['streambuf_1240',['StreamBuf',['../classtoolbox_1_1http_1_1StreamBuf.html',1,'toolbox::http::StreamBuf'],['../classtoolbox_1_1http_1_1StreamBuf.html',1,'toolbox::http::StreamBuf']]],
