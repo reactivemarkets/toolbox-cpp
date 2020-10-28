@@ -51,9 +51,9 @@ streamsize StreamBuf::xsputn(const char_type* s, streamsize count) noexcept
     return count;
 }
 
-Stream::~Stream() = default;
+OStream::~OStream() = default;
 
-void Stream::commit() noexcept
+void OStream::commit() noexcept
 {
     if (cloff_ > 0) {
         buf_.set_content_length(cloff_, pcount() - hcount_);
@@ -61,7 +61,7 @@ void Stream::commit() noexcept
     buf_.commit();
 }
 
-void Stream::reset(Status status, const char* content_type, NoCache no_cache)
+void OStream::reset(Status status, const char* content_type, NoCache no_cache)
 {
     buf_.reset();
     toolbox::reset(*this);

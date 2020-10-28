@@ -63,23 +63,23 @@ class TOOLBOX_API StreamBuf final : public std::streambuf {
     std::streamsize pcount_{0};
 };
 
-class TOOLBOX_API Stream final : public std::ostream {
+class TOOLBOX_API OStream final : public std::ostream {
   public:
-    explicit Stream(Buffer& buf) noexcept
+    explicit OStream(Buffer& buf) noexcept
     : std::ostream{nullptr}
     , buf_{buf}
     {
         rdbuf(&buf_);
     }
-    ~Stream() override;
+    ~OStream() override;
 
     // Copy.
-    Stream(const Stream&) = delete;
-    Stream& operator=(const Stream&) = delete;
+    OStream(const OStream&) = delete;
+    OStream& operator=(const OStream&) = delete;
 
     // Move.
-    Stream(Stream&&) = delete;
-    Stream& operator=(Stream&&) = delete;
+    OStream(OStream&&) = delete;
+    OStream& operator=(OStream&&) = delete;
 
     std::streamsize pcount() const noexcept { return buf_.pcount(); }
     void commit() noexcept;

@@ -27,7 +27,7 @@ inline namespace util {
 /// Maximum error message length.
 constexpr std::size_t MaxErrSize{511};
 
-using ErrMsg = StaticStream<MaxErrSize>;
+using ErrMsg = OStaticStream<MaxErrSize>;
 
 class TOOLBOX_API Exception : public std::runtime_error {
   public:
@@ -71,8 +71,8 @@ class TOOLBOX_API Exception : public std::runtime_error {
     std::error_code ec_;
 };
 
-/// Thread-local error message. This thread-local instance of StaticStream can be used to format
-/// error messages before throwing. Note that the StaticStream is reset each time this function is
+/// Thread-local error message. This thread-local instance of OStaticStream can be used to format
+/// error messages before throwing. Note that the OStaticStream is reset each time this function is
 /// called.
 TOOLBOX_API ErrMsg& err_msg() noexcept;
 

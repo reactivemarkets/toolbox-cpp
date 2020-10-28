@@ -63,10 +63,10 @@ TOOLBOX_API void std_logger(int level, std::string_view msg) noexcept;
 TOOLBOX_API void sys_logger(int level, std::string_view msg) noexcept;
 
 /// Logger callback function.
-using LogMsg = StaticStream<MaxMsgSize>;
+using LogMsg = OStaticStream<MaxMsgSize>;
 
-/// Thread-local log message. This thread-local instance of StaticStream can be used to format log
-/// messages before writing to the log. Note that the StaticStream is reset each time this function
+/// Thread-local log message. This thread-local instance of OStaticStream can be used to format log
+/// messages before writing to the log. Note that the OStaticStream is reset each time this function
 /// is called.
 TOOLBOX_API LogMsg& log_msg() noexcept;
 

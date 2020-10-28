@@ -30,18 +30,18 @@ inline namespace util {
 TOOLBOX_API void reset(std::ostream& os) noexcept;
 
 template <std::size_t MaxN>
-class StaticBuf final : public std::streambuf {
+class StaticStreamBuf final : public std::streambuf {
   public:
-    StaticBuf() noexcept { reset(); }
-    ~StaticBuf() override = default;
+    StaticStreamBuf() noexcept { reset(); }
+    ~StaticStreamBuf() override = default;
 
     // Copy.
-    StaticBuf(const StaticBuf&) = delete;
-    StaticBuf& operator=(const StaticBuf&) = delete;
+    StaticStreamBuf(const StaticStreamBuf&) = delete;
+    StaticStreamBuf& operator=(const StaticStreamBuf&) = delete;
 
     // Move.
-    StaticBuf(StaticBuf&&) = delete;
-    StaticBuf& operator=(StaticBuf&&) = delete;
+    StaticStreamBuf(StaticStreamBuf&&) = delete;
+    StaticStreamBuf& operator=(StaticStreamBuf&&) = delete;
 
     const char* data() const noexcept { return pbase(); }
     bool empty() const noexcept { return pbase() == pptr(); }
@@ -54,22 +54,22 @@ class StaticBuf final : public std::streambuf {
 };
 
 template <std::size_t MaxN>
-class StaticStream final : public std::ostream {
+class OStaticStream final : public std::ostream {
   public:
-    StaticStream()
+    OStaticStream()
     : std::ostream{nullptr}
     {
         rdbuf(&buf_);
     }
-    ~StaticStream() override = default;
+    ~OStaticStream() override = default;
 
     // Copy.
-    StaticStream(const StaticStream&) = delete;
-    StaticStream& operator=(const StaticStream&) = delete;
+    OStaticStream(const OStaticStream&) = delete;
+    OStaticStream& operator=(const OStaticStream&) = delete;
 
     // Move.
-    StaticStream(StaticStream&&) = delete;
-    StaticStream& operator=(StaticStream&&) = delete;
+    OStaticStream(OStaticStream&&) = delete;
+    OStaticStream& operator=(OStaticStream&&) = delete;
 
     const char* data() const noexcept { return buf_.data(); }
     bool empty() const noexcept { return buf_.empty(); }
@@ -83,14 +83,14 @@ class StaticStream final : public std::ostream {
     };
 
   private:
-    StaticBuf<MaxN> buf_;
+    StaticStreamBuf<MaxN> buf_;
 };
 
 template <std::size_t MaxN, typename ValueT>
-auto& operator<<(StaticStream<MaxN>& ss, ValueT&& val)
+auto& operator<<(OStaticStream<MaxN>& os, ValueT&& val)
 {
-    static_cast<std::ostream&>(ss) << std::forward<ValueT>(val);
-    return ss;
+    static_cast<std::ostream&>(os) << std::forward<ValueT>(val);
+    return os;
 }
 
 using OStreamJoiner = std::experimental::ostream_joiner<char>;
