@@ -103,9 +103,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9bbc1a2b1bbbec1aa015600726ab236c"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Buffer.html#a9bbc1a2b1bbbec1aa015600726ab236c">str</a> () const noexcept</td></tr>
 <tr class="memdesc:a9bbc1a2b1bbbec1aa015600726ab236c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns available data as a string view.  <a href="classtoolbox_1_1io_1_1Buffer.html#a9bbc1a2b1bbbec1aa015600726ab236c">More...</a><br /></td></tr>
 <tr class="separator:a9bbc1a2b1bbbec1aa015600726ab236c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa17a7c8746919c9ad3992d1baebabd3e"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Buffer.html#aa17a7c8746919c9ad3992d1baebabd3e">str</a> (std::size_t limit) const noexcept</td></tr>
-<tr class="memdesc:aa17a7c8746919c9ad3992d1baebabd3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns slice of available data as a string view.  <a href="classtoolbox_1_1io_1_1Buffer.html#aa17a7c8746919c9ad3992d1baebabd3e">More...</a><br /></td></tr>
-<tr class="separator:aa17a7c8746919c9ad3992d1baebabd3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4155b5e875248a1abb481fad96eb2b1"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Buffer.html#af4155b5e875248a1abb481fad96eb2b1">front</a> (std::size_t <a class="el" href="classtoolbox_1_1io_1_1Buffer.html#a4343d5a935bb663538c9569e6527e98f">size</a>) const noexcept</td></tr>
+<tr class="memdesc:af4155b5e875248a1abb481fad96eb2b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns slice of available data at the front of the buffer.  <a href="classtoolbox_1_1io_1_1Buffer.html#af4155b5e875248a1abb481fad96eb2b1">More...</a><br /></td></tr>
+<tr class="separator:af4155b5e875248a1abb481fad96eb2b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae017ad2d2c39302b61f529e4be8795c8"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Buffer.html#ae017ad2d2c39302b61f529e4be8795c8">back</a> (std::size_t <a class="el" href="classtoolbox_1_1io_1_1Buffer.html#a4343d5a935bb663538c9569e6527e98f">size</a>) const noexcept</td></tr>
+<tr class="memdesc:ae017ad2d2c39302b61f529e4be8795c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns slice of available data at the back of the buffer.  <a href="classtoolbox_1_1io_1_1Buffer.html#ae017ad2d2c39302b61f529e4be8795c8">More...</a><br /></td></tr>
+<tr class="separator:ae017ad2d2c39302b61f529e4be8795c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab543ed308de821d290735b033f7f8f14"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Buffer.html#ab543ed308de821d290735b033f7f8f14">empty</a> () const noexcept</td></tr>
 <tr class="memdesc:ab543ed308de821d290735b033f7f8f14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if read buffer is empty.  <a href="classtoolbox_1_1io_1_1Buffer.html#ab543ed308de821d290735b033f7f8f14">More...</a><br /></td></tr>
 <tr class="separator:ab543ed308de821d290735b033f7f8f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -377,7 +380,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a id="a9bbc1a2b1bbbec1aa015600726ab236c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9bbc1a2b1bbbec1aa015600726ab236c">&#9670;&nbsp;</a></span>str() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bbc1a2b1bbbec1aa015600726ab236c">&#9670;&nbsp;</a></span>str()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -405,8 +408,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa17a7c8746919c9ad3992d1baebabd3e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa17a7c8746919c9ad3992d1baebabd3e">&#9670;&nbsp;</a></span>str() <span class="overload">[2/2]</span></h2>
+<a id="af4155b5e875248a1abb481fad96eb2b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4155b5e875248a1abb481fad96eb2b1">&#9670;&nbsp;</a></span>front()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -415,10 +418,10 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string_view toolbox::io::Buffer::str </td>
+          <td class="memname">std::string_view toolbox::io::Buffer::front </td>
           <td>(</td>
           <td class="paramtype">std::size_t&#160;</td>
-          <td class="paramname"><em>limit</em></td><td>)</td>
+          <td class="paramname"><em>size</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -429,9 +432,39 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns slice of available data as a string view. </p>
+<p>Returns slice of available data at the front of the buffer. </p>
 
 <p class="definition">Definition at line <a class="el" href="Buffer_8hpp_source.html#l00057">57</a> of file <a class="el" href="Buffer_8hpp_source.html">Buffer.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ae017ad2d2c39302b61f529e4be8795c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae017ad2d2c39302b61f529e4be8795c8">&#9670;&nbsp;</a></span>back()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string_view toolbox::io::Buffer::back </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>size</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns slice of available data at the back of the buffer. </p>
+
+<p class="definition">Definition at line <a class="el" href="Buffer_8hpp_source.html#l00063">63</a> of file <a class="el" href="Buffer_8hpp_source.html">Buffer.hpp</a>.</p>
 
 </div>
 </div>
@@ -460,7 +493,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Returns true if read buffer is empty. </p>
 
-<p class="definition">Definition at line <a class="el" href="Buffer_8hpp_source.html#l00063">63</a> of file <a class="el" href="Buffer_8hpp_source.html">Buffer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Buffer_8hpp_source.html#l00071">71</a> of file <a class="el" href="Buffer_8hpp_source.html">Buffer.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Buffer_8ut_8cpp_source.html#l00054">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="Conn_8hpp_source.html#l00085">toolbox::http::BasicConn&lt; RequestT, AppT &gt;::dispose_now()</a>.</p>
 
@@ -491,7 +524,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Returns number of bytes available for read. </p>
 
-<p class="definition">Definition at line <a class="el" href="Buffer_8hpp_source.html#l00066">66</a> of file <a class="el" href="Buffer_8hpp_source.html">Buffer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Buffer_8hpp_source.html#l00074">74</a> of file <a class="el" href="Buffer_8hpp_source.html">Buffer.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Buffer_8ut_8cpp_source.html#l00054">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="Buffer_8cpp_source.html#l00048">prepare()</a>.</p>
 
@@ -522,7 +555,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Clear buffer. </p>
 
-<p class="definition">Definition at line <a class="el" href="Buffer_8hpp_source.html#l00069">69</a> of file <a class="el" href="Buffer_8hpp_source.html">Buffer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Buffer_8hpp_source.html#l00077">77</a> of file <a class="el" href="Buffer_8hpp_source.html">Buffer.hpp</a>.</p>
 
 </div>
 </div>
@@ -552,7 +585,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Move characters from the write sequence to the read sequence. </p>
 
-<p class="definition">Definition at line <a class="el" href="Buffer_8hpp_source.html#l00076">76</a> of file <a class="el" href="Buffer_8hpp_source.html">Buffer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Buffer_8hpp_source.html#l00084">84</a> of file <a class="el" href="Buffer_8hpp_source.html">Buffer.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Buffer_8ut_8cpp_source.html#l00091">BOOST_AUTO_TEST_CASE()</a>.</p>
 
@@ -640,7 +673,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Reserve storage. </p>
 
-<p class="definition">Definition at line <a class="el" href="Buffer_8hpp_source.html#l00085">85</a> of file <a class="el" href="Buffer_8hpp_source.html">Buffer.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Buffer_8hpp_source.html#l00093">93</a> of file <a class="el" href="Buffer_8hpp_source.html">Buffer.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Buffer_8ut_8cpp_source.html#l00091">BOOST_AUTO_TEST_CASE()</a>.</p>
 

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['back_42',['back',['../classtoolbox_1_1util_1_1ArrayView.html#a7902d38df97c87cb31d1a93cb80b1048',1,'toolbox::util::ArrayView::back()'],['../classtoolbox_1_1util_1_1RingBuffer.html#acd49d578a904005339f5f25d1cdf0081',1,'toolbox::util::RingBuffer::back() const noexcept'],['../classtoolbox_1_1util_1_1RingBuffer.html#a4ffdd1e4823483a835778556c8513a9a',1,'toolbox::util::RingBuffer::back() noexcept']]],
+  ['back_42',['back',['../classtoolbox_1_1io_1_1Buffer.html#ae017ad2d2c39302b61f529e4be8795c8',1,'toolbox::io::Buffer::back()'],['../classtoolbox_1_1util_1_1ArrayView.html#a7902d38df97c87cb31d1a93cb80b1048',1,'toolbox::util::ArrayView::back()'],['../classtoolbox_1_1util_1_1RingBuffer.html#acd49d578a904005339f5f25d1cdf0081',1,'toolbox::util::RingBuffer::back() const noexcept'],['../classtoolbox_1_1util_1_1RingBuffer.html#a4ffdd1e4823483a835778556c8513a9a',1,'toolbox::util::RingBuffer::back() noexcept']]],
   ['badrequest_43',['BadRequest',['../namespacetoolbox_1_1http.html#aa155f89ef95e501ee8878301aa4320e7a9edf8fbf00a57d95a0af4923c9a1ec6f',1,'toolbox::http']]],
   ['bar_44',['Bar',['../namespacetoolbox_1_1util.html#afb1bdeda157805a64f20ded302b55ceeaddc35f88fa71b6ef142ae61f35364653',1,'toolbox::util']]],
   ['basic_5fnext_45',['basic_next',['../classtoolbox_1_1hdr_1_1Iterator.html#a6e37d4c839725d2efbc6ab0004c25970',1,'toolbox::hdr::Iterator']]],
