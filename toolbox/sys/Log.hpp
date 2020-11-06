@@ -117,6 +117,12 @@ class Log {
     Log& operator=(Log&&) = delete;
 
     constexpr explicit operator bool() const { return true; }
+    /// The function operator is provided for writing unformatted data to the log.
+    Log& operator()(const char* data, std::streamsize size)
+    {
+        msg_.write(data, size);
+        return *this;
+    }
 
   private:
     const int level_;
