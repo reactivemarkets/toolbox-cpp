@@ -53,10 +53,18 @@ class TOOLBOX_API Buffer {
     /// Returns available data as a string view.
     std::string_view str() const noexcept { return {rptr(), size()}; }
 
-    /// Returns slice of available data as a string view.
-    std::string_view str(std::size_t limit) const noexcept
+    /// Returns slice of available data at the front of the buffer.
+    std::string_view front(std::size_t size) const noexcept
     {
-        return {rptr(), std::min(limit, size())};
+        const auto limit = this->size();
+        return {rptr(), std::min(size, limit)};
+    }
+    /// Returns slice of available data at the back of the buffer.
+    std::string_view back(std::size_t size) const noexcept
+    {
+        const auto limit = this->size();
+        size = std::min(size, limit);
+        return {rptr() + limit - size, size};
     }
 
     /// Returns true if read buffer is empty.
