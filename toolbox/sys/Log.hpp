@@ -78,12 +78,6 @@ class Log {
         log.msg_ << std::forward<ValueT>(val);
         return log;
     }
-    template <typename ValueT>
-    friend Log& operator<<(Log&& log, ValueT&& val)
-    {
-        log.msg_ << std::forward<ValueT>(val);
-        return log;
-    }
 
   public:
     enum : int {
@@ -117,12 +111,14 @@ class Log {
     Log& operator=(Log&&) = delete;
 
     constexpr explicit operator bool() const { return true; }
-    /// The function operator is provided for writing unformatted data to the log.
+    /// Function operator provided for writing unformatted data to the log.
     Log& operator()(const char* data, std::streamsize size)
     {
         msg_.write(data, size);
         return *this;
     }
+    /// Function operator provided for rvalue to lvalue conversion.
+    Log& operator()() noexcept { return *this; }
 
   private:
     const int level_;
@@ -133,7 +129,7 @@ class Log {
 } // namespace toolbox
 
 // clang-format off
-#define TOOLBOX_LOG(LEVEL) toolbox::is_log_level(LEVEL) && toolbox::Log{LEVEL}
+#define TOOLBOX_LOG(LEVEL) toolbox::is_log_level(LEVEL) && toolbox::Log{LEVEL}()
 
 #define TOOLBOX_CRIT TOOLBOX_LOG(toolbox::Log::Crit)
 #define TOOLBOX_ERROR TOOLBOX_LOG(toolbox::Log::Error)
@@ -144,7 +140,7 @@ class Log {
 #if TOOLBOX_BUILD_DEBUG
 #define TOOLBOX_DEBUG TOOLBOX_LOG(toolbox::Log::Debug)
 #else
-#define TOOLBOX_DEBUG false && toolbox::Log{toolbox::Log::Debug}
+#define TOOLBOX_DEBUG false && toolbox::Log{toolbox::Log::Debug}()
 #endif
 // clang-format on
 
