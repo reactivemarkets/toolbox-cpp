@@ -21,11 +21,20 @@
 #include <boost/test/unit_test.hpp>
 
 #include <cstring>
+#include <iomanip>
+#include <string_view>
 
 using namespace std;
 using namespace toolbox;
 
 namespace {
+namespace noformat {
+// Specific Log operator<< to allow non formatted writing.
+Log& operator<<(Log& log, std::string_view str)
+{
+    return log(str.data(), str.size());
+}
+} // namespace noformat
 
 template <typename T, typename U>
 struct Foo {
@@ -102,6 +111,13 @@ BOOST_AUTO_TEST_CASE(LogMacroCase)
     TOOLBOX_DEBUG << "test7: " << Foo<int, int>{10, 20};
     BOOST_TEST(last_level == Log::Info);
     BOOST_TEST(last_msg == "test6: (10,20)");
+
+    // This will log a non formatted string view, the formatting shows up on the next "formatable"
+    // parameter.
+    using namespace noformat;
+    TOOLBOX_LOG(Log::Info) << setw(3) << setfill('*') << "test8: "sv << Foo<int, int>{10, 20};
+    BOOST_TEST(last_level == Log::Info);
+    BOOST_TEST(last_msg == "test8: **(10,20)");
 }
 
 BOOST_AUTO_TEST_SUITE_END()
