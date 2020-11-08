@@ -76,11 +76,7 @@ class OStaticStream final : public std::ostream {
     std::size_t size() const noexcept { return buf_.size(); }
     std::string_view str() const noexcept { return buf_.str(); }
     operator std::string_view() const noexcept { return buf_.str(); }
-    void reset() noexcept
-    {
-        buf_.reset();
-        toolbox::reset(*this);
-    };
+    void reset() noexcept { buf_.reset(); };
 
   private:
     StaticStreamBuf<MaxN> buf_;
