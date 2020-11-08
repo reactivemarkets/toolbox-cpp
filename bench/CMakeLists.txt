@@ -15,14 +15,17 @@
 # limitations under the License.
 
 set(targets
+  tb-log-bench
   tb-map-bench
   tb-ryu-bench
   tb-time-bench
   tb-timer-bench
-  tb-util-bench
-  tb-log-bench)
+  tb-util-bench)
 
 add_custom_target(tb-bench DEPENDS ${targets})
+
+add_executable(tb-log-bench Log.bm.cpp)
+target_link_libraries(tb-log-bench ${tb_bm_LIBRARY})
 
 add_executable(tb-map-bench Map.bm.cpp)
 target_link_libraries(tb-map-bench ${tb_bm_LIBRARY})
@@ -38,6 +41,3 @@ target_link_libraries(tb-timer-bench ${tb_bm_LIBRARY})
 
 add_executable(tb-util-bench Util.bm.cpp)
 target_link_libraries(tb-util-bench ${tb_bm_LIBRARY})
-
-add_executable(tb-log-bench Log.bm.cpp)
-target_link_libraries(tb-log-bench ${tb_bm_LIBRARY})

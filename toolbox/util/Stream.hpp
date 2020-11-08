@@ -26,6 +26,16 @@
 
 namespace toolbox {
 inline namespace util {
+namespace detail {
+
+struct ResetState {
+};
+TOOLBOX_API std::ostream& operator<<(std::ostream& os, ResetState) noexcept;
+
+} // namespace detail
+
+/// I/O manipulator that resets I/O state.
+constexpr detail::ResetState reset_state{};
 
 TOOLBOX_API void reset(std::ostream& os) noexcept;
 

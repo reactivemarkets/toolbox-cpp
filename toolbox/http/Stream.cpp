@@ -64,7 +64,7 @@ void OStream::commit() noexcept
 void OStream::reset(Status status, const char* content_type, NoCache no_cache)
 {
     buf_.reset();
-    toolbox::reset(*this);
+    *this << reset_state;
 
     *this << "HTTP/1.1 " << status << ' ' << enum_string(status);
     if (no_cache == NoCache::Yes) {
