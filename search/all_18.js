@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['zero_1070',['zero',['../structtoolbox_1_1util_1_1IntWrapper.html#ac7869453f255527d860b1e4edb98bb14',1,'toolbox::util::IntWrapper']]],
-  ['zscore_1071',['zscore',['../namespacetoolbox_1_1util.html#aa0bde62eba051327efd6154fb787813e',1,'toolbox::zscore()'],['../namespacetoolbox_1_1util.html#aa0bde62eba051327efd6154fb787813e',1,'toolbox::util::zscore()']]]
+  ['zero_1071',['zero',['../structtoolbox_1_1util_1_1IntWrapper.html#ac7869453f255527d860b1e4edb98bb14',1,'toolbox::util::IntWrapper']]],
+  ['zscore_1072',['zscore',['../namespacetoolbox_1_1util.html#aa0bde62eba051327efd6154fb787813e',1,'toolbox::zscore()'],['../namespacetoolbox_1_1util.html#aa0bde62eba051327efd6154fb787813e',1,'toolbox::util::zscore()']]]
 ];
