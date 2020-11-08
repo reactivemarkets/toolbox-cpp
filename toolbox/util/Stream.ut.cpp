@@ -37,6 +37,7 @@ BOOST_AUTO_TEST_CASE(OStaticStreamCase)
     BOOST_TEST(os.size() == 7U);
     BOOST_TEST(os.str() == "foo,bar");
 
+    os.clear();
     os.reset();
     BOOST_TEST(os.empty());
     os << 12345678;
@@ -44,6 +45,7 @@ BOOST_AUTO_TEST_CASE(OStaticStreamCase)
     BOOST_TEST(os.str() == "1234567");
     BOOST_TEST(!os);
 
+    os.clear();
     os.reset();
     BOOST_TEST(!!os);
     BOOST_TEST((os << "test").str() == "test");

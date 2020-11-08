@@ -165,7 +165,6 @@ void sys_logger(int level, string_view msg) noexcept
 
 LogMsg& log_msg() noexcept
 {
-    log_msg_.reset();
     return log_msg_;
 }
 

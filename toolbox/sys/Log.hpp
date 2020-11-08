@@ -66,8 +66,7 @@ TOOLBOX_API void sys_logger(int level, std::string_view msg) noexcept;
 using LogMsg = OStaticStream<MaxMsgSize>;
 
 /// Thread-local log message. This thread-local instance of OStaticStream can be used to format log
-/// messages before writing to the log. Note that the OStaticStream is reset each time this function
-/// is called.
+/// messages before writing to the log.
 TOOLBOX_API LogMsg& log_msg() noexcept;
 
 // Inspired by techniques developed by Rodrigo Fernandes.
@@ -100,7 +99,11 @@ class Log {
     , msg_{log_msg()}
     {
     }
-    ~Log() { write_log(level_, msg_); }
+    ~Log()
+    {
+        write_log(level_, msg_);
+        msg_.reset();
+    }
 
     // Copy.
     Log(const Log&) = delete;
