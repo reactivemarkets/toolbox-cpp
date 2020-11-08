@@ -19,15 +19,18 @@
 namespace toolbox {
 inline namespace util {
 using namespace std;
+namespace detail {
 
-void reset(ostream& os) noexcept
+ostream& operator<<(ostream& os, ResetState) noexcept
 {
     os.clear();
     os.fill(os.widen(' '));
     os.flags(ios_base::skipws | ios_base::dec);
     os.precision(6);
     os.width(0);
+    return os;
 }
 
+} // namespace detail
 } // namespace util
 } // namespace toolbox

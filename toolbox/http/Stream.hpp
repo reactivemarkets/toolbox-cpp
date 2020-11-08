@@ -86,7 +86,7 @@ class TOOLBOX_API OStream final : public std::ostream {
     void reset() noexcept
     {
         buf_.reset();
-        toolbox::reset(*this);
+        *this << reset_state;
         cloff_ = hcount_ = 0;
     }
     void reset(Status status, const char* content_type, NoCache no_cache = NoCache::Yes);
