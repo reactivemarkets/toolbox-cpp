@@ -72,7 +72,8 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">Stream.hpp File Reference</div>  </div>
 </div><!--header-->
@@ -143,6 +144,8 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1detail_1_1ResetState.html">toolbox::util::detail::ResetState</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1util_1_1StaticStreamBuf.html">toolbox::util::StaticStreamBuf&lt; MaxN &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1util_1_1OStaticStream.html">toolbox::util::OStaticStream&lt; MaxN &gt;</a></td></tr>
@@ -154,6 +157,8 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacetoolbox_1_1util"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html">toolbox::util</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacetoolbox_1_1util_1_1detail"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util_1_1detail.html">toolbox::util::detail</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacestd_1_1experimental"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestd_1_1experimental.html">std::experimental</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -164,8 +169,10 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8a0eb16df58aa50d817e4fa266392017"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a8a0eb16df58aa50d817e4fa266392017">toolbox::util::reset</a> (ostream &amp;os) noexcept</td></tr>
-<tr class="separator:a8a0eb16df58aa50d817e4fa266392017"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c1a0cfa910eacd509e0534ab1ba4868"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util_1_1detail.html#a4c1a0cfa910eacd509e0534ab1ba4868">toolbox::util::detail::operator&lt;&lt;</a> (ostream &amp;os, ResetState) noexcept</td></tr>
+<tr class="separator:a4c1a0cfa910eacd509e0534ab1ba4868"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12e933f09d08f3d4e212107b35ff6587"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a12e933f09d08f3d4e212107b35ff6587">toolbox::util::reset</a> (std::ostream &amp;os) noexcept</td></tr>
+<tr class="separator:a12e933f09d08f3d4e212107b35ff6587"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af52a5ed58199725842e82fcb0b9a7472"><td class="memTemplParams" colspan="2">template&lt;std::size_t MaxN, typename ValueT &gt; </td></tr>
 <tr class="memitem:af52a5ed58199725842e82fcb0b9a7472"><td class="memTemplItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#af52a5ed58199725842e82fcb0b9a7472">toolbox::util::operator&lt;&lt;</a> (OStaticStream&lt; MaxN &gt; &amp;os, ValueT &amp;&amp;val)</td></tr>
 <tr class="separator:af52a5ed58199725842e82fcb0b9a7472"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -175,6 +182,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a618b69daabadb4bfb2c6b40bf4bc4246"><td class="memTemplParams" colspan="2">template&lt;typename ValueT &gt; </td></tr>
 <tr class="memitem:a618b69daabadb4bfb2c6b40bf4bc4246"><td class="memTemplItemLeft" align="right" valign="top">ostream_joiner&lt; char &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacestd_1_1experimental.html#a618b69daabadb4bfb2c6b40bf4bc4246">std::experimental::operator&lt;&lt;</a> (ostream_joiner&lt; char &gt; &amp;osj, const ValueT &amp;value)</td></tr>
 <tr class="separator:a618b69daabadb4bfb2c6b40bf4bc4246"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a03a4d256b11589552b8d561ed6eabcbe"><td class="memItemLeft" align="right" valign="top">constexpr detail::ResetState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a03a4d256b11589552b8d561ed6eabcbe">toolbox::util::reset_state</a> {}</td></tr>
+<tr class="memdesc:a03a4d256b11589552b8d561ed6eabcbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">I/O manipulator that resets I/O state.  <a href="namespacetoolbox_1_1util.html#a03a4d256b11589552b8d561ed6eabcbe">More...</a><br /></td></tr>
+<tr class="separator:a03a4d256b11589552b8d561ed6eabcbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
