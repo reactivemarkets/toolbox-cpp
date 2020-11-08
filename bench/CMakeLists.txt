@@ -19,7 +19,8 @@ set(targets
   tb-ryu-bench
   tb-time-bench
   tb-timer-bench
-  tb-util-bench)
+  tb-util-bench
+  tb-log-bench)
 
 add_custom_target(tb-bench DEPENDS ${targets})
 
@@ -37,3 +38,6 @@ target_link_libraries(tb-timer-bench ${tb_bm_LIBRARY})
 
 add_executable(tb-util-bench Util.bm.cpp)
 target_link_libraries(tb-util-bench ${tb_bm_LIBRARY})
+
+add_executable(tb-log-bench Log.bm.cpp)
+target_link_libraries(tb-log-bench ${tb_bm_LIBRARY})
