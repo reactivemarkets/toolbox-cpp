@@ -41,3 +41,13 @@ target_link_libraries(tb-timer-bench ${tb_bm_LIBRARY})
 
 add_executable(tb-util-bench Util.bm.cpp)
 target_link_libraries(tb-util-bench ${tb_bm_LIBRARY})
+
+# Generate plots for all the benchmarks
+add_custom_target(tb-bench-plot
+  COMMAND tb-log-bench --style=full | "${CMAKE_SOURCE_DIR}/bench/bench-plot.sh" > "${CMAKE_BINARY_DIR}/tb-bench-log.svg"
+  COMMAND tb-map-bench --style=full | "${CMAKE_SOURCE_DIR}/bench/bench-plot.sh" > "${CMAKE_BINARY_DIR}/tb-map-bench.svg"
+  COMMAND tb-ryu-bench --style=full | "${CMAKE_SOURCE_DIR}/bench/bench-plot.sh" > "${CMAKE_BINARY_DIR}/tb-ryu-bench.svg"
+  COMMAND tb-time-bench --style=full | "${CMAKE_SOURCE_DIR}/bench/bench-plot.sh" > "${CMAKE_BINARY_DIR}/tb-time-bench.svg"
+  COMMAND tb-timer-bench --style=full | "${CMAKE_SOURCE_DIR}/bench/bench-plot.sh" > "${CMAKE_BINARY_DIR}/tb-timer-bench.svg"
+  COMMAND tb-util-bench --style=full | "${CMAKE_SOURCE_DIR}/bench/bench-plot.sh" > "${CMAKE_BINARY_DIR}/tb-util-bench.svg"
+  VERBATIM)

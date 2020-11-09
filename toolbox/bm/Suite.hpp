@@ -20,11 +20,15 @@
 
 #include <toolbox/hdr/Histogram.hpp>
 
+#include <toolbox/util/TypeTraits.hpp>
+
 namespace toolbox::bm {
 
 class TOOLBOX_API BenchmarkSuite {
   public:
-    explicit BenchmarkSuite(std::ostream& os, double value_scale = 1.0);
+    enum class ReportStyle { FULL, SUMMARY };
+
+    BenchmarkSuite(std::ostream& os, ReportStyle report_style, double value_scale = 1.0);
 
     template <typename FnT>
     void run(const char* name, FnT fn)
@@ -36,15 +40,40 @@ class TOOLBOX_API BenchmarkSuite {
         BenchmarkCtx ctx{hist};
         Alarm alarm{duration, [&ctx]() { ctx.stop(); }};
         fn(ctx);
-        report(name, hist);
+        switch (report_style_) {
+        case ReportStyle::SUMMARY:
+            summary(name, hist);
+            break;
+        case ReportStyle::FULL:
+            full(name, hist);
+            break;
+        }
     }
-    void report(const char* name, Histogram& hist);
 
   private:
+    void summary(const char* name, Histogram& hist);
+    void full(const char* name, Histogram& hist);
+
     std::ostream& os_;
+    ReportStyle report_style_;
     double value_scale_;
 };
 
 } // namespace toolbox::bm
+
+namespace toolbox {
+
+template <>
+struct TypeTraits<bm::BenchmarkSuite::ReportStyle> {
+    static auto from_string(std::string_view sv) noexcept
+    {
+        if (sv == "summary") {
+            return bm::BenchmarkSuite::ReportStyle::SUMMARY;
+        } else (sv == "full") {
+            return bm::BenchmarkSuite::ReportStyle::FULL;
+        }
+    }
+};
+} // namespace toolbox
 
 #endif // TOOLBOX_BM_SUITE_HPP

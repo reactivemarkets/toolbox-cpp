@@ -47,7 +47,8 @@ class BenchmarkStore {
             os << runnable.first << '\n';
         }
     }
-    void run(ostream& os, const string& regex_str, bool randomise)
+    void run(ostream& os, const string& regex_str, bool randomise,
+             BenchmarkSuite::ReportStyle report_style)
     {
         vector<Benchmark*> filtered;
 
@@ -64,7 +65,7 @@ class BenchmarkStore {
         }
 
         if (!filtered.empty()) {
-            BenchmarkSuite suite{os, 1000.0};
+            BenchmarkSuite suite{os, report_style, 1000.0};
             for (auto* bm : filtered) {
                 suite.run(bm->name, bm->fn);
             }
@@ -95,12 +96,15 @@ int main(int argc, char* argv[])
         bool list{false};
         bool randomise{false};
 
+        BenchmarkSuite::ReportStyle report_style;
+
         Options opts{"benchmark options [options]"};
         // clang-format off
         opts('f', "filter", Value{regex}, "run benchmarks matching regex")
             ('l', "list", Switch{list}, "list available benchmarks")
             ('h', "help", Help{})
             ('r', "random", Switch{randomise}, "run benchmarks in random order")
+            ('s', "style", Value{report_style}.default_value("summary"), "report style [summary*, full]")
             ;
         // clang-format on
 
@@ -111,7 +115,7 @@ int main(int argc, char* argv[])
             store.list(cout);
             return 0;
         }
-        store.run(cout, regex, randomise);
+        store.run(cout, regex, randomise, report_style);
         ret = 0;
     } catch (const exception& e) {
         cerr << "error: " << e.what();

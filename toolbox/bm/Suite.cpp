@@ -24,29 +24,38 @@
 namespace toolbox::bm {
 using namespace std;
 
-BenchmarkSuite::BenchmarkSuite(std::ostream& os, double value_scale)
+BenchmarkSuite::BenchmarkSuite(std::ostream& os, ReportStyle report_style, double value_scale)
 : os_{os}
+, report_style_{report_style}
 , value_scale_{value_scale}
 {
-    boost::io::ios_all_saver all_saver{os};
+    // Print header depending on style
+    switch (report_style_) {
+    case ReportStyle::SUMMARY: {
+        boost::io::ios_all_saver all_saver{os};
 
-    // clang-format off
-    os << left << setw(45) << "NAME"
-       << right << setw(15) << "COUNT"
-       << right << setw(10) << "MIN"
-       << right << setw(10) << "%50"
-       << right << setw(10) << "%95"
-       << right << setw(10) << "%99"
-       << right << setw(10) << "%99.9"
-       << right << setw(10) << "%99.99"
-       << endl;
-    // clang-format on
+        // clang-format off
+        os << left << setw(45) << "NAME"
+          << right << setw(15) << "COUNT"
+          << right << setw(10) << "MIN"
+          << right << setw(10) << "%50"
+          << right << setw(10) << "%95"
+          << right << setw(10) << "%99"
+          << right << setw(10) << "%99.9"
+          << right << setw(10) << "%99.99"
+          << endl;
+        // clang-format on
 
-    // Separator.
-    os << setw(120) << setfill('-') << '-' << setfill(' ') << endl;
+        // Separator.
+        os << setw(120) << setfill('-') << '-' << setfill(' ') << endl;
+        break;
+    }
+    default:
+        break;
+    }
 }
 
-void BenchmarkSuite::report(const char* name, Histogram& h)
+void BenchmarkSuite::summary(const char* name, Histogram& h)
 {
     boost::io::ios_all_saver all_saver{os_};
 
@@ -61,6 +70,12 @@ void BenchmarkSuite::report(const char* name, Histogram& h)
         << right << setw(10) << value_at_percentile(h, 99.99) / value_scale_
         << endl;
     // clang-format on
+}
+
+void BenchmarkSuite::full(const char* name, Histogram& h)
+{
+    boost::io::ios_all_saver all_saver{os_};
+    os_ << "#Name: " << name << "\n" << put_percentiles(h, 1, 1) << "\n\n";
 }
 
 } // namespace toolbox::bm
