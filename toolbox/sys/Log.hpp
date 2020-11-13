@@ -63,7 +63,7 @@ TOOLBOX_API void std_logger(int level, std::string_view msg) noexcept;
 TOOLBOX_API void sys_logger(int level, std::string_view msg) noexcept;
 
 /// Logger callback function.
-using LogMsg = OStaticStream<MaxMsgSize>;
+using LogMsg = OStaticStream<MaxLogLine>;
 
 /// Thread-local log message. This thread-local instance of OStaticStream can be used to format log
 /// messages before writing to the log.
