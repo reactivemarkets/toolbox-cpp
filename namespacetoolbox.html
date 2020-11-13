@@ -460,9 +460,9 @@ Typedefs</h2></td></tr>
 <tr class="memitem:ad30773ec4571816fa4459ed92884acdc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#ad30773ec4571816fa4459ed92884acdc">Logger</a> = void(*)(int, std::string_view)</td></tr>
 <tr class="memdesc:ad30773ec4571816fa4459ed92884acdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger callback function.  <a href="namespacetoolbox_1_1sys.html#ad30773ec4571816fa4459ed92884acdc">More...</a><br /></td></tr>
 <tr class="separator:ad30773ec4571816fa4459ed92884acdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9bd56a50a4529fcd89afa14443ba7e0"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#af9bd56a50a4529fcd89afa14443ba7e0">LogMsg</a> = <a class="el" href="classtoolbox_1_1util_1_1OStaticStream.html">OStaticStream</a>&lt; <a class="el" href="namespacetoolbox_1_1sys.html#a5c730f2f9701593805e3100310236dafa88e91031a9e456a72e2cbe9a70929086">MaxMsgSize</a> &gt;</td></tr>
-<tr class="memdesc:af9bd56a50a4529fcd89afa14443ba7e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger callback function.  <a href="namespacetoolbox_1_1sys.html#af9bd56a50a4529fcd89afa14443ba7e0">More...</a><br /></td></tr>
-<tr class="separator:af9bd56a50a4529fcd89afa14443ba7e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79611e48f7c9a068f68fb860146797ce"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a79611e48f7c9a068f68fb860146797ce">LogMsg</a> = <a class="el" href="classtoolbox_1_1util_1_1OStaticStream.html">OStaticStream</a>&lt; <a class="el" href="namespacetoolbox_1_1sys.html#a5c730f2f9701593805e3100310236dafacd948f993ddc09a59b17766ef1480db2">MaxLogLine</a> &gt;</td></tr>
+<tr class="memdesc:a79611e48f7c9a068f68fb860146797ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger callback function.  <a href="namespacetoolbox_1_1sys.html#a79611e48f7c9a068f68fb860146797ce">More...</a><br /></td></tr>
+<tr class="separator:a79611e48f7c9a068f68fb860146797ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90f0f82eec67b724f5e9f170e11192b2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a90f0f82eec67b724f5e9f170e11192b2">PidFile</a> = std::unique_ptr&lt; pidfh, detail::PidFileDeleter &gt;</td></tr>
 <tr class="separator:a90f0f82eec67b724f5e9f170e11192b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a926e572d5ea62970f67ab8c44cc5dcf4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a926e572d5ea62970f67ab8c44cc5dcf4">Seconds</a> = std::chrono::seconds</td></tr>
@@ -628,7 +628,8 @@ Enumerations</h2></td></tr>
 <a class="el" href="namespacetoolbox_1_1sys.html#a5c730f2f9701593805e3100310236dafafa816557b7d97f578485cd83d9555f22">PageBits</a> = 12, 
 <a class="el" href="namespacetoolbox_1_1sys.html#a5c730f2f9701593805e3100310236dafad1e6d271ad05c69c2e122b91d2ed23c6">PageSize</a> = 1 &lt;&lt; PageBits, 
 <br />
-&#160;&#160;<a class="el" href="namespacetoolbox_1_1sys.html#a5c730f2f9701593805e3100310236dafa88e91031a9e456a72e2cbe9a70929086">MaxMsgSize</a> = 1400
+&#160;&#160;<a class="el" href="namespacetoolbox_1_1sys.html#a5c730f2f9701593805e3100310236dafacd948f993ddc09a59b17766ef1480db2">MaxLogLine</a> = 3072, 
+<a class="el" href="namespacetoolbox_1_1sys.html#a5c730f2f9701593805e3100310236dafa88e91031a9e456a72e2cbe9a70929086">MaxMsgSize</a> = 1400
 <br />
  }</td></tr>
 <tr class="separator:a5c730f2f9701593805e3100310236daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -993,7 +994,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a80a58709e8a2799f52346b3182b9c15c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a80a58709e8a2799f52346b3182b9c15c">sys_logger</a> (int level, std::string_view msg) noexcept</td></tr>
 <tr class="memdesc:a80a58709e8a2799f52346b3182b9c15c"><td class="mdescLeft">&#160;</td><td class="mdescRight">System logger. This logger calls syslog().  <a href="namespacetoolbox_1_1sys.html#a80a58709e8a2799f52346b3182b9c15c">More...</a><br /></td></tr>
 <tr class="separator:a80a58709e8a2799f52346b3182b9c15c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ac7030b49068c3a5e98546320d81619"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1sys.html#af9bd56a50a4529fcd89afa14443ba7e0">LogMsg</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a9ac7030b49068c3a5e98546320d81619">log_msg</a> () noexcept</td></tr>
+<tr class="memitem:a9ac7030b49068c3a5e98546320d81619"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1sys.html#a79611e48f7c9a068f68fb860146797ce">LogMsg</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a9ac7030b49068c3a5e98546320d81619">log_msg</a> () noexcept</td></tr>
 <tr class="separator:a9ac7030b49068c3a5e98546320d81619"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a303a8bbce54d723f35e8b944b57daff4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a303a8bbce54d723f35e8b944b57daff4">is_log_level</a> (int level) noexcept</td></tr>
 <tr class="memdesc:a303a8bbce54d723f35e8b944b57daff4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if level is less than or equal to current log level.  <a href="namespacetoolbox_1_1sys.html#a303a8bbce54d723f35e8b944b57daff4">More...</a><br /></td></tr>
