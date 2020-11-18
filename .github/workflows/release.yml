@@ -39,7 +39,7 @@ jobs:
         run: |
           release_tag=$(echo ${GITHUB_REF##*/})
           echo "RELEASE_TAG=$release_tag" >>$GITHUB_ENV
-          echo "RELEASE_VERSION=$(echo $release_tag | sed 's,^v,,')" >>$GITHUB_ENV
+          echo "RELEASE_VERSION=${release_tag#v}" >>$GITHUB_ENV
 
       - name: Configure project
         run: |
