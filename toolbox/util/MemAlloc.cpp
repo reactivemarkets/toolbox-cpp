@@ -17,7 +17,6 @@
 #include "MemAlloc.hpp"
 
 namespace toolbox {
-inline namespace util {
 using namespace std;
 
 TOOLBOX_WEAK void* alloc(size_t size);
@@ -53,5 +52,4 @@ void dealloc(void* ptr, size_t size, align_val_t al) noexcept
 #endif
 }
 
-} // namespace util
 } // namespace toolbox
