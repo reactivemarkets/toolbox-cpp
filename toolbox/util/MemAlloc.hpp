@@ -22,12 +22,13 @@
 #include <new>
 
 namespace toolbox {
-inline namespace util {
 
 TOOLBOX_API void* alloc(std::size_t size);
 TOOLBOX_API void* alloc(std::size_t size, std::align_val_t al);
 TOOLBOX_API void dealloc(void* ptr, std::size_t size) noexcept;
 TOOLBOX_API void dealloc(void* ptr, std::size_t size, std::align_val_t al) noexcept;
+
+inline namespace util {
 
 struct MemAlloc {
     static void* operator new(std::size_t size) { return alloc(size); }
