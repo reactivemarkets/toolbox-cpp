@@ -74,7 +74,7 @@ $(function() {
 <div class="contents">
 <a href="Timer_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The Reactive C++ Toolbox.</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2013-2019 Swirly Cloud Limited</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2020 Reactive Markets Limited</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2021 Reactive Markets Limited</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">// you may not use this file except in compliance with the License.</span></div>
@@ -142,7 +142,7 @@ $(function() {
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    assert(slot);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    heap_.reserve(heap_.size() + 1);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> tmr = <a class="code" href="namespacetoolbox_1_1util.html#aa782478b9ccf319f33ccb6421bb6b4a3">alloc</a>(expiry, interval, slot);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> tmr = <a class="code" href="namespacetoolbox.html#a36b422c4b29cbe7d871df1d94186361c">alloc</a>(expiry, interval, slot);</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">// Cannot fail.</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    heap_.push_back(tmr);</div>
@@ -279,6 +279,7 @@ $(function() {
 <div class="ttc" id="astructtoolbox_1_1io_1_1Timer_1_1Impl_html_aa099016dcd855981775495c3f00cb593"><div class="ttname"><a href="structtoolbox_1_1io_1_1Timer_1_1Impl.html#aa099016dcd855981775495c3f00cb593">toolbox::io::Timer::Impl::tq</a></div><div class="ttdeci">TimerQueue * tq</div><div class="ttdef"><b>Definition:</b> <a href="Timer_8hpp_source.html#l00045">Timer.hpp:45</a></div></div>
 <div class="ttc" id="anamespacetoolbox_html"><div class="ttname"><a href="namespacetoolbox.html">toolbox</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8cpp_source.html#l00026">Benchmark.cpp:26</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1Timer_html"><div class="ttname"><a href="classtoolbox_1_1io_1_1Timer.html">toolbox::io::Timer</a></div><div class="ttdef"><b>Definition:</b> <a href="Timer_8hpp_source.html#l00037">Timer.hpp:37</a></div></div>
+<div class="ttc" id="anamespacetoolbox_html_a36b422c4b29cbe7d871df1d94186361c"><div class="ttname"><a href="namespacetoolbox.html#a36b422c4b29cbe7d871df1d94186361c">toolbox::alloc</a></div><div class="ttdeci">TOOLBOX_WEAK void * alloc(size_t size)</div><div class="ttdef"><b>Definition:</b> <a href="MemAlloc_8cpp_source.html#l00027">MemAlloc.cpp:27</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1sys_1_1CyclTime_html_a54d9cb4aa9e308bc346d7d5cf40a6ecb"><div class="ttname"><a href="classtoolbox_1_1sys_1_1CyclTime.html#a54d9cb4aa9e308bc346d7d5cf40a6ecb">toolbox::sys::CyclTime::mono_time</a></div><div class="ttdeci">MonoTime mono_time() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Time_8hpp_source.html#l00142">Time.hpp:142</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1sys_html_a8370f3f6bd9eb78dd325ae3f4e582247"><div class="ttname"><a href="namespacetoolbox_1_1sys.html#a8370f3f6bd9eb78dd325ae3f4e582247">toolbox::sys::MonoTime</a></div><div class="ttdeci">MonoClock::time_point MonoTime</div><div class="ttdef"><b>Definition:</b> <a href="Time_8hpp_source.html#l00112">Time.hpp:112</a></div></div>
 <div class="ttc" id="astructtoolbox_1_1io_1_1Timer_1_1Impl_html"><div class="ttname"><a href="structtoolbox_1_1io_1_1Timer_1_1Impl.html">toolbox::io::Timer::Impl</a></div><div class="ttdef"><b>Definition:</b> <a href="Timer_8hpp_source.html#l00041">Timer.hpp:41</a></div></div>
@@ -292,7 +293,6 @@ $(function() {
 <div class="ttc" id="aLog_8hpp_html_aca90da8a175ed216c67a7b0d6f517eda"><div class="ttname"><a href="Log_8hpp.html#aca90da8a175ed216c67a7b0d6f517eda">TOOLBOX_ERROR</a></div><div class="ttdeci">#define TOOLBOX_ERROR</div><div class="ttdef"><b>Definition:</b> <a href="Log_8hpp_source.html#l00138">Log.hpp:138</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1sys_1_1CyclTime_html"><div class="ttname"><a href="classtoolbox_1_1sys_1_1CyclTime.html">toolbox::sys::CyclTime</a></div><div class="ttdef"><b>Definition:</b> <a href="Time_8hpp_source.html#l00128">Time.hpp:128</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1util_1_1BasicSlot_html"><div class="ttname"><a href="classtoolbox_1_1util_1_1BasicSlot.html">toolbox::util::BasicSlot</a></div><div class="ttdef"><b>Definition:</b> <a href="Slot_8hpp_source.html#l00028">Slot.hpp:28</a></div></div>
-<div class="ttc" id="anamespacetoolbox_1_1util_html_aa782478b9ccf319f33ccb6421bb6b4a3"><div class="ttname"><a href="namespacetoolbox_1_1util.html#aa782478b9ccf319f33ccb6421bb6b4a3">toolbox::util::alloc</a></div><div class="ttdeci">TOOLBOX_WEAK void * alloc(size_t size)</div><div class="ttdef"><b>Definition:</b> <a href="MemAlloc_8cpp_source.html#l00028">MemAlloc.cpp:28</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
