@@ -18,6 +18,7 @@
 #define TOOLBOX_UTIL_HPP
 
 #include "util/Alarm.hpp"
+#include "util/Allocator.hpp"
 #include "util/Argv.hpp"
 #include "util/Array.hpp"
 #include "util/Config.hpp"
@@ -26,13 +27,13 @@
 #include "util/Finally.hpp"
 #include "util/IntTypes.hpp"
 #include "util/Math.hpp"
-#include "util/MemAlloc.hpp"
 #include "util/Options.hpp"
 #include "util/RefCount.hpp"
 #include "util/RingBuffer.hpp"
 #include "util/RobinHood.hpp"
 #include "util/Ryu.hpp"
 #include "util/Slot.hpp"
+#include "util/Storage.hpp"
 #include "util/Stream.hpp"
 #include "util/String.hpp"
 #include "util/StringBuf.hpp"

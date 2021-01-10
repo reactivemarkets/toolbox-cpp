@@ -37,7 +37,7 @@ bool is_after(const Timer& lhs, const Timer& rhs)
 
 } // namespace
 
-Timer::Impl* TimerPool::alloc(MonoTime expiry, Duration interval, TimerSlot slot)
+Timer::Impl* TimerPool::allocate(MonoTime expiry, Duration interval, TimerSlot slot)
 {
     Timer::Impl* impl;
 
@@ -68,7 +68,7 @@ Timer TimerQueue::insert(MonoTime expiry, Duration interval, TimerSlot slot)
     assert(slot);
 
     heap_.reserve(heap_.size() + 1);
-    const auto tmr = alloc(expiry, interval, slot);
+    const auto tmr = allocate(expiry, interval, slot);
 
     // Cannot fail.
     heap_.push_back(tmr);
@@ -98,9 +98,9 @@ int TimerQueue::dispatch(CyclTime now)
     return work;
 }
 
-Timer TimerQueue::alloc(MonoTime expiry, Duration interval, TimerSlot slot)
+Timer TimerQueue::allocate(MonoTime expiry, Duration interval, TimerSlot slot)
 {
-    Timer::Impl* impl{pool_.alloc(expiry, interval, slot)};
+    Timer::Impl* impl{pool_.allocate(expiry, interval, slot)};
 
     impl->tq = this;
     impl->ref_count = 1;
@@ -192,7 +192,7 @@ void intrusive_ptr_release(Timer::Impl* impl) noexcept
             impl->tq->cancel();
         }
     } else if (impl->ref_count == 0) {
-        impl->tq->pool_.dealloc(impl);
+        impl->tq->pool_.deallocate(impl);
     }
 }
 

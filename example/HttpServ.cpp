@@ -24,19 +24,19 @@ using namespace toolbox;
 
 namespace {
 
-void on_foo(const Request& req, OStream& os)
+void on_foo(const Request& req, http::OStream& os)
 {
     os << "Hello, Foo!";
 }
 
-void on_bar(const Request& req, OStream& os)
+void on_bar(const Request& req, http::OStream& os)
 {
     os << "Hello, Bar!";
 }
 
 class ExampleApp final : public App {
   public:
-    using Slot = BasicSlot<const Request&, OStream&>;
+    using Slot = BasicSlot<const Request&, http::OStream&>;
     using SlotMap = RobinMap<std::string, Slot>;
 
     ~ExampleApp() override = default;
@@ -52,12 +52,12 @@ class ExampleApp final : public App {
         TOOLBOX_INFO << "http session disconnected: " << ep;
     }
     void do_on_http_error(CyclTime now, const Endpoint& ep, const std::exception& e,
-                          OStream& os) noexcept override
+                          http::OStream& os) noexcept override
     {
         TOOLBOX_ERROR << "http session error: " << ep << ": " << e.what();
     }
     void do_on_http_message(CyclTime now, const Endpoint& ep, const Request& req,
-                            OStream& os) override
+                            http::OStream& os) override
     {
         const auto it = slot_map_.find(string{req.path()});
         if (it != slot_map_.end()) {

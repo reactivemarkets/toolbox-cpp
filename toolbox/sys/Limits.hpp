@@ -32,7 +32,7 @@ enum : std::size_t {
     PageBits = 12,
     PageSize = 1 << PageBits,
     /// Maximum log line size.
-    MaxLogLine = 3072,
+    MaxLogLine = 4096,
     /// Maximum message size.
     /// A sensible upper-bound for message payloads is 1400 bytes:
     /// - Max Datagram (1472) - Aeron Header (32) = 1440

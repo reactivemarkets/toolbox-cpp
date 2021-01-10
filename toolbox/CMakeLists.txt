@@ -105,13 +105,14 @@ set(lib_SOURCES
   util/Finally.cpp
   util/IntTypes.cpp
   util/Math.cpp
-  util/MemAlloc.cpp
+  util/Allocator.cpp
   util/Options.cpp
   util/Options.cpp
   util/RingBuffer.cpp
   util/RobinHood.cpp
   util/Ryu.cpp
   util/Slot.cpp
+  util/Storage.cpp
   util/Stream.cpp
   util/String.cpp
   util/StringBuf.cpp
@@ -236,7 +237,7 @@ set(test_SOURCES
   util/Finally.ut.cpp
   util/IntTypes.ut.cpp
   util/Math.ut.cpp
-  util/MemAlloc.ut.cpp
+  util/Allocator.ut.cpp
   util/Options.ut.cpp
   util/RefCount.ut.cpp
   util/RingBuffer.ut.cpp

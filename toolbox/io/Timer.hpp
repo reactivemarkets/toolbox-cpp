@@ -113,8 +113,8 @@ class TOOLBOX_API TimerPool {
     TimerPool(TimerPool&&) = delete;
     TimerPool& operator=(TimerPool&&) = delete;
 
-    Timer::Impl* alloc(MonoTime expiry, Duration interval, TimerSlot slot);
-    void dealloc(Timer::Impl* impl) noexcept
+    Timer::Impl* allocate(MonoTime expiry, Duration interval, TimerSlot slot);
+    void deallocate(Timer::Impl* impl) noexcept
     {
         assert(impl);
         impl->next = free_;
@@ -169,7 +169,7 @@ class TOOLBOX_API TimerQueue {
     int dispatch(CyclTime now);
 
   private:
-    Timer alloc(MonoTime expiry, Duration interval, TimerSlot slot);
+    Timer allocate(MonoTime expiry, Duration interval, TimerSlot slot);
     void cancel() noexcept;
     void expire(CyclTime now);
     void gc() noexcept;

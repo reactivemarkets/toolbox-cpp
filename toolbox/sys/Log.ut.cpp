@@ -50,10 +50,10 @@ ostream& operator<<(ostream& os, const Foo<int, int>& val)
 int last_level{};
 string last_msg{};
 
-void test_logger(int level, string_view msg)
+void test_logger(int level, LogMsgPtr msg, std::size_t size)
 {
     last_level = level;
-    last_msg.assign(msg.data(), msg.size());
+    last_msg.assign(msg->data(), size);
 }
 
 } // namespace

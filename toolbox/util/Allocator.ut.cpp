@@ -14,7 +14,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "MemAlloc.hpp"
+#include "Allocator.hpp"
 
 #include <toolbox/util/RefCount.hpp>
 
@@ -51,9 +51,9 @@ struct alignas(64) Foo : RefCount<Foo, ThreadUnsafePolicy> {
 
 } // namespace
 
-BOOST_AUTO_TEST_SUITE(MemAllocSuite)
+BOOST_AUTO_TEST_SUITE(AllocatorSuite)
 
-BOOST_AUTO_TEST_CASE(MemAllocCase)
+BOOST_AUTO_TEST_CASE(AllocatorCase)
 {
     {
         auto h = make_intrusive<Foo>();

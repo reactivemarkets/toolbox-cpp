@@ -18,7 +18,6 @@
 
 #include <toolbox/sys/Time.hpp>
 
-#include <algorithm> // max()
 #include <atomic>
 #include <mutex>
 
@@ -53,7 +52,7 @@ inline Logger acquire_logger() noexcept
     return logger_.load(memory_order_acquire);
 }
 
-thread_local LogMsg log_msg_;
+thread_local LogStream log_stream_{nullptr};
 
 // The gettid() function is a Linux-specific function call.
 #if defined(__linux__)
@@ -95,14 +94,14 @@ Logger set_logger(Logger logger) noexcept
     return logger_.exchange(logger ? logger : null_logger, memory_order_acq_rel);
 }
 
-void write_log(int level, string_view msg) noexcept
+void write_log(int level, LogMsgPtr msg, std::size_t size) noexcept
 {
-    acquire_logger()(level, msg);
+    acquire_logger()(level, move(msg), size);
 }
 
-void null_logger(int level, string_view msg) noexcept {}
+void null_logger(int, LogMsgPtr, std::size_t) noexcept {}
 
-void std_logger(int level, string_view msg) noexcept
+void std_logger(int level, LogMsgPtr msg, std::size_t size) noexcept
 {
     const auto now = WallClock::now();
     const auto t = WallClock::to_time_t(now);
@@ -123,9 +122,9 @@ void std_logger(int level, string_view msg) noexcept
                     static_cast<int>(gettid()));
     char tail{'\n'};
     iovec iov[] = {
-        {head, hlen},                                //
-        {const_cast<char*>(msg.data()), msg.size()}, //
-        {&tail, 1}                                   //
+        {head, hlen},        //
+        {msg->data(), size}, //
+        {&tail, 1}           //
     };
 
     int fd{level > Log::Error ? STDOUT_FILENO : STDERR_FILENO};
@@ -138,7 +137,7 @@ void std_logger(int level, string_view msg) noexcept
 #pragma GCC diagnostic pop
 }
 
-void sys_logger(int level, string_view msg) noexcept
+void sys_logger(int level, LogMsgPtr msg, std::size_t size) noexcept
 {
     int prio;
     switch (level) {
@@ -160,12 +159,12 @@ void sys_logger(int level, string_view msg) noexcept
     default:
         prio = LOG_DEBUG;
     }
-    syslog(prio, "%.*s", static_cast<int>(msg.size()), msg.data());
+    syslog(prio, "%.*s", static_cast<int>(size), msg->data());
 }
 
-LogMsg& log_msg() noexcept
+LogStream& log_stream() noexcept
 {
-    return log_msg_;
+    return log_stream_;
 }
 
 } // namespace sys
