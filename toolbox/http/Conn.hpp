@@ -25,7 +25,7 @@
 #include <toolbox/io/Reactor.hpp>
 #include <toolbox/net/Endpoint.hpp>
 #include <toolbox/net/IoSock.hpp>
-#include <toolbox/util/MemAlloc.hpp>
+#include <toolbox/util/Allocator.hpp>
 
 #include <boost/intrusive/list.hpp>
 
@@ -35,7 +35,7 @@ class App;
 
 template <typename RequestT, typename AppT>
 class BasicConn
-: public MemAlloc
+: public Allocator
 , public BasicDisposer<BasicConn<RequestT, AppT>>
 , BasicParser<BasicConn<RequestT, AppT>> {
 

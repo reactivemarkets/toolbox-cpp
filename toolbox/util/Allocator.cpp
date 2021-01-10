@@ -14,27 +14,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "MemAlloc.hpp"
+#include "Allocator.hpp"
 
 namespace toolbox {
 using namespace std;
 
-TOOLBOX_WEAK void* alloc(size_t size);
-TOOLBOX_WEAK void* alloc(size_t size, align_val_t al);
-TOOLBOX_WEAK void dealloc(void* ptr, size_t size) noexcept;
-TOOLBOX_WEAK void dealloc(void* ptr, size_t size, align_val_t al) noexcept;
+TOOLBOX_WEAK void* allocate(size_t size);
+TOOLBOX_WEAK void* allocate(size_t size, align_val_t al);
+TOOLBOX_WEAK void deallocate(void* ptr, size_t size) noexcept;
+TOOLBOX_WEAK void deallocate(void* ptr, size_t size, align_val_t al) noexcept;
 
-void* alloc(size_t size)
+void* allocate(size_t size)
 {
     return ::operator new(size);
 }
 
-void* alloc(size_t size, align_val_t al)
+void* allocate(size_t size, align_val_t al)
 {
     return ::operator new(size, al);
 }
 
-void dealloc(void* ptr, size_t size) noexcept
+void deallocate(void* ptr, size_t size) noexcept
 {
 #if __cpp_sized_deallocation
     ::operator delete(ptr, size);
@@ -43,7 +43,7 @@ void dealloc(void* ptr, size_t size) noexcept
 #endif
 }
 
-void dealloc(void* ptr, size_t size, align_val_t al) noexcept
+void deallocate(void* ptr, size_t size, align_val_t al) noexcept
 {
 #if __cpp_sized_deallocation
     ::operator delete(ptr, size, al);

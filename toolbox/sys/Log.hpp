@@ -23,8 +23,11 @@
 namespace toolbox {
 inline namespace sys {
 
+using LogMsg = Storage<MaxLogLine>;
+using LogMsgPtr = StoragePtr<MaxLogLine>;
+
 /// Logger callback function.
-using Logger = void (*)(int, std::string_view);
+using Logger = void (*)(int, LogMsgPtr, std::size_t);
 
 /// Return log label for given log level.
 TOOLBOX_API const char* log_label(int level) noexcept;
@@ -50,31 +53,31 @@ TOOLBOX_API Logger set_logger(Logger logger) noexcept;
 /// Unconditionally write log message to the logger. Specifically, this function does not check that
 /// level is allowed by the current log level; users are expected to call is_log_level() first,
 /// before formatting the log message.
-TOOLBOX_API void write_log(int level, std::string_view msg) noexcept;
+TOOLBOX_API void write_log(int level, LogMsgPtr msg, std::size_t size) noexcept;
 
 /// Null logger. This logger does nothing and is effectively /dev/null.
-TOOLBOX_API void null_logger(int level, std::string_view msg) noexcept;
+TOOLBOX_API void null_logger(int level, LogMsgPtr msg, std::size_t size) noexcept;
 
 /// Standard logger. This logger writes to stdout if the log level is greater than LogWarn, and
 /// stdout otherwise.
-TOOLBOX_API void std_logger(int level, std::string_view msg) noexcept;
+TOOLBOX_API void std_logger(int level, LogMsgPtr msg, std::size_t size) noexcept;
 
 /// System logger. This logger calls syslog().
-TOOLBOX_API void sys_logger(int level, std::string_view msg) noexcept;
+TOOLBOX_API void sys_logger(int level, LogMsgPtr msg, std::size_t size) noexcept;
 
 /// Logger callback function.
-using LogMsg = OStaticStream<MaxLogLine>;
+using LogStream = util::OStream<MaxLogLine>;
 
-/// Thread-local log message. This thread-local instance of OStaticStream can be used to format log
+/// Thread-local log stream. This thread-local instance of OStaticStream can be used to format log
 /// messages before writing to the log.
-TOOLBOX_API LogMsg& log_msg() noexcept;
+TOOLBOX_API LogStream& log_stream() noexcept;
 
 // Inspired by techniques developed by Rodrigo Fernandes.
 class Log {
     template <typename ValueT>
     friend Log& operator<<(Log& log, ValueT&& val)
     {
-        log.msg_ << std::forward<ValueT>(val);
+        log.os_ << std::forward<ValueT>(val);
         return log;
     }
 
@@ -96,13 +99,14 @@ class Log {
 
     explicit Log(int level) noexcept
     : level_{level}
-    , msg_{log_msg()}
+    , os_{log_stream()}
     {
+        os_.set_storage(os_.make_storage());
     }
     ~Log()
     {
-        write_log(level_, msg_);
-        msg_.reset();
+        const auto size = os_.size();
+        write_log(level_, os_.release_storage(), size);
     }
 
     // Copy.
@@ -117,7 +121,7 @@ class Log {
     /// Function operator provided for writing unformatted data to the log.
     Log& operator()(const char* data, std::streamsize size)
     {
-        msg_.write(data, size);
+        os_.write(data, size);
         return *this;
     }
     /// Function operator provided for rvalue to lvalue conversion.
@@ -125,7 +129,7 @@ class Log {
 
   private:
     const int level_;
-    LogMsg& msg_;
+    LogStream& os_;
 };
 
 } // namespace sys

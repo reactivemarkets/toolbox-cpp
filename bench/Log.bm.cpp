@@ -17,8 +17,6 @@
 
 #include <toolbox/bm.hpp>
 
-#include <cstring>
-
 TOOLBOX_BENCHMARK_MAIN
 
 using namespace std;
@@ -36,19 +34,19 @@ Log& operator<<(Log& log, std::string_view str)
 auto prev_level = set_log_level(Log::Info);
 auto prev_logger = set_logger(null_logger);
 
-TOOLBOX_BENCHMARK(log_formated)
+TOOLBOX_BENCHMARK(log_formatted)
 {
     while (ctx) {
-        for (auto _ : ctx.range(5000)) {
+        for (auto _ : ctx.range(1000)) {
             TOOLBOX_LOG(Log::Info) << "BenchmarkString"sv;
         }
     }
 }
 
-TOOLBOX_BENCHMARK(log_unformated)
+TOOLBOX_BENCHMARK(log_unformatted)
 {
     while (ctx) {
-        for (auto _ : ctx.range(5000)) {
+        for (auto _ : ctx.range(1000)) {
             using namespace noformat;
             TOOLBOX_LOG(Log::Info) << "BenchmarkString"sv;
         }
