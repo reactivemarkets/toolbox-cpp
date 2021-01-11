@@ -46,7 +46,7 @@ class StreamBuf final : public std::streambuf {
     /// Constructor for initialising the StreamBuf with a null buffer.
     explicit StreamBuf(std::nullptr_t) noexcept {}
     StreamBuf()
-    : storage_{new Storage<MaxN>}
+    : storage_{make_storage<MaxN>}
     {
         setp(storage_->begin(), storage_->end());
     }
@@ -79,7 +79,8 @@ class StreamBuf final : public std::streambuf {
     {
         storage_.swap(storage);
         if (storage_) {
-            setp(storage_->begin(), storage_->end());
+            auto* const begin = static_cast<char*>(storage_.get());
+            setp(begin, begin + MaxN);
         } else {
             setp(nullptr, nullptr);
         }
@@ -122,10 +123,7 @@ class OStream final : public std::ostream {
     OStream(OStream&&) = delete;
     OStream& operator=(OStream&&) = delete;
 
-    static StoragePtr<MaxN> make_storage()
-    {
-        return std::unique_ptr<Storage<MaxN>>{new Storage<MaxN>};
-    }
+    static StoragePtr<MaxN> make_storage() { return util::make_storage<MaxN>(); }
     const char* data() const noexcept { return buf_.data(); }
     bool empty() const noexcept { return buf_.empty(); }
     std::size_t size() const noexcept { return buf_.size(); }

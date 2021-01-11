@@ -20,18 +20,11 @@ namespace toolbox {
 using namespace std;
 
 TOOLBOX_WEAK void* allocate(size_t size);
-TOOLBOX_WEAK void* allocate(size_t size, align_val_t al);
 TOOLBOX_WEAK void deallocate(void* ptr, size_t size) noexcept;
-TOOLBOX_WEAK void deallocate(void* ptr, size_t size, align_val_t al) noexcept;
 
 void* allocate(size_t size)
 {
     return ::operator new(size);
-}
-
-void* allocate(size_t size, align_val_t al)
-{
-    return ::operator new(size, al);
 }
 
 void deallocate(void* ptr, size_t size) noexcept
@@ -40,15 +33,6 @@ void deallocate(void* ptr, size_t size) noexcept
     ::operator delete(ptr, size);
 #else
     ::operator delete(ptr);
-#endif
-}
-
-void deallocate(void* ptr, size_t size, align_val_t al) noexcept
-{
-#if __cpp_sized_deallocation
-    ::operator delete(ptr, size, al);
-#else
-    ::operator delete(ptr, al);
 #endif
 }
 

@@ -122,9 +122,9 @@ void std_logger(int level, LogMsgPtr msg, std::size_t size) noexcept
                     static_cast<int>(gettid()));
     char tail{'\n'};
     iovec iov[] = {
-        {head, hlen},        //
-        {msg->data(), size}, //
-        {&tail, 1}           //
+        {head, hlen},      //
+        {msg.get(), size}, //
+        {&tail, 1}         //
     };
 
     int fd{level > Log::Error ? STDOUT_FILENO : STDERR_FILENO};
@@ -159,7 +159,7 @@ void sys_logger(int level, LogMsgPtr msg, std::size_t size) noexcept
     default:
         prio = LOG_DEBUG;
     }
-    syslog(prio, "%.*s", static_cast<int>(size), msg->data());
+    syslog(prio, "%.*s", static_cast<int>(size), static_cast<const char*>(msg.get()));
 }
 
 LogStream& log_stream() noexcept
