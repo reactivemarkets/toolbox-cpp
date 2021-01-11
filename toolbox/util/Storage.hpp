@@ -20,74 +20,25 @@
 #include <toolbox/util/Allocator.hpp>
 
 #include <iterator>
+#include <memory>
 
 namespace toolbox {
 inline namespace util {
-
-/// Storage represents a dynamic block of storage acquired from the custom allocator.
+namespace detail {
 template <std::size_t SizeN>
-class Storage : public Allocator {
-  public:
-    using value_type = char;
-
-    using pointer = char*;
-    using const_pointer = const char*;
-
-    using reference = char&;
-    using const_reference = const char&;
-
-    using iterator = char*;
-    using const_iterator = const char*;
-
-    using reverse_iterator = std::reverse_iterator<iterator>;
-    using const_reverse_iterator = std::reverse_iterator<const_iterator>;
-
-    using difference_type = std::ptrdiff_t;
-    using size_type = std::size_t;
-
-    constexpr iterator begin() noexcept { return iterator(data()); }
-    constexpr const_iterator begin() const noexcept { return const_iterator(data()); }
-    constexpr iterator end() noexcept { return iterator(data() + SizeN); }
-    constexpr const_iterator end() const noexcept { return const_iterator(data() + SizeN); }
-    constexpr reverse_iterator rbegin() noexcept { return reverse_iterator(end()); }
-    constexpr const_reverse_iterator rbegin() const noexcept
-    {
-        return const_reverse_iterator(end());
-    }
-    constexpr reverse_iterator rend() noexcept { return reverse_iterator(begin()); }
-    constexpr const_reverse_iterator rend() const noexcept
-    {
-        return const_reverse_iterator(begin());
-    }
-    constexpr const_iterator cbegin() const noexcept { return const_iterator(data()); }
-    constexpr const_iterator cend() const noexcept { return const_iterator(data() + SizeN); }
-    constexpr const_reverse_iterator crbegin() const noexcept
-    {
-        return const_reverse_iterator(end());
-    }
-    constexpr const_reverse_iterator crend() const noexcept
-    {
-        return const_reverse_iterator(begin());
-    }
-    constexpr size_type size() const noexcept { return SizeN; }
-    constexpr size_type max_size() const noexcept { return SizeN; }
-    constexpr reference operator[](size_type pos) noexcept { return data_[pos]; }
-    constexpr const_reference operator[](size_type pos) const noexcept { return data_[pos]; }
-    constexpr pointer data() noexcept { return data_; }
-    constexpr const_pointer data() const noexcept { return data_; }
-
-  private:
-    char data_[SizeN];
+struct StorageDeleter {
+    void operator()(void* ptr) const noexcept { deallocate(ptr, SizeN); }
 };
+} // namespace detail
 
 template <std::size_t SizeN>
-using StoragePtr = std::unique_ptr<Storage<SizeN>>;
+using StoragePtr = std::unique_ptr<void, detail::StorageDeleter<SizeN>>;
 
-/// Returns a block of dynamic block of storage acquired from the custom allocator.
+/// Returns a block of dynamic storage acquired from the custom allocator.
 template <std::size_t SizeN>
 StoragePtr<SizeN> make_storage()
 {
-    return std::unique_ptr<Storage<SizeN>>{new Storage<SizeN>};
+    return StoragePtr<SizeN>{allocate(SizeN)};
 }
 
 } // namespace util

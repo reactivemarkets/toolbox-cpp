@@ -23,7 +23,6 @@
 namespace toolbox {
 inline namespace sys {
 
-using LogMsg = Storage<MaxLogLine>;
 using LogMsgPtr = StoragePtr<MaxLogLine>;
 
 /// Logger callback function.
@@ -68,8 +67,8 @@ TOOLBOX_API void sys_logger(int level, LogMsgPtr msg, std::size_t size) noexcept
 /// Logger callback function.
 using LogStream = util::OStream<MaxLogLine>;
 
-/// Thread-local log stream. This thread-local instance of OStaticStream can be used to format log
-/// messages before writing to the log.
+/// Thread-local log stream. This thread-local instance of OStream can be used to format log
+/// messages before writing them the log.
 TOOLBOX_API LogStream& log_stream() noexcept;
 
 // Inspired by techniques developed by Rodrigo Fernandes.

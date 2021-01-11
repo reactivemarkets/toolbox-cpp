@@ -53,7 +53,7 @@ string last_msg{};
 void test_logger(int level, LogMsgPtr msg, std::size_t size)
 {
     last_level = level;
-    last_msg.assign(msg->data(), size);
+    last_msg.assign(static_cast<const char*>(msg.get()), size);
 }
 
 } // namespace

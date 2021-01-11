@@ -19,46 +19,25 @@
 
 #include <toolbox/Config.h>
 
-#include <memory>
+#include <new>
 
 namespace toolbox {
 
 TOOLBOX_API void* allocate(std::size_t size);
-TOOLBOX_API void* allocate(std::size_t size, std::align_val_t al);
 TOOLBOX_API void deallocate(void* ptr, std::size_t size) noexcept;
-TOOLBOX_API void deallocate(void* ptr, std::size_t size, std::align_val_t al) noexcept;
 
 inline namespace util {
 
 struct Allocator {
     static void* operator new(std::size_t size) { return allocate(size); }
-    static void* operator new(std::size_t size, std::align_val_t al) { return allocate(size, al); }
     static void operator delete(void* ptr, std::size_t size) noexcept
     {
         return deallocate(ptr, size);
-    }
-    static void operator delete(void* ptr, std::size_t size, std::align_val_t al) noexcept
-    {
-        return deallocate(ptr, size, al);
     }
 
   protected:
     ~Allocator() = default;
 };
-
-using VoidPtr = std::unique_ptr<void, void (*)(void*)>;
-
-template <std::size_t SizeN>
-VoidPtr allocate_unique()
-{
-    return VoidPtr{allocate(SizeN), [](void* ptr) { deallocate(ptr, SizeN); }};
-}
-
-template <std::size_t SizeN, std::align_val_t AlignN>
-VoidPtr allocate_unique()
-{
-    return VoidPtr{allocate(SizeN, AlignN), [](void* ptr) { deallocate(ptr, SizeN, AlignN); }};
-}
 
 } // namespace util
 } // namespace toolbox
