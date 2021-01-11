@@ -81,8 +81,10 @@ $(function() {
 , <a class="el" href="classtoolbox_1_1util_1_1ArrayView.html#a4e23fce4ba90f226b33ad03cae687a3f">toolbox::util::ArrayView&lt; ValueT &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1BasicSlot.html#ae62001e594a32e750d959195a86775bf">toolbox::util::BasicSlot&lt; ArgsT &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1OStaticStream.html#a93d2b698884aa05929321eee50b2a257">toolbox::util::OStaticStream&lt; MaxN &gt;</a>
+, <a class="el" href="classtoolbox_1_1util_1_1OStream.html#ad93ad7bac7c70cda67dcf8b3285ab73f">toolbox::util::OStream&lt; MaxN &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1RingBuffer.html#aca1cc6de396c32d2659f32fafdc20088">toolbox::util::RingBuffer&lt; ValueT &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1StaticStreamBuf.html#a0dfdca6d8ad896e18f7eaef881c292ae">toolbox::util::StaticStreamBuf&lt; MaxN &gt;</a>
+, <a class="el" href="classtoolbox_1_1util_1_1StreamBuf.html#a1bee0f5020e94b6ba429d0ef92cb1399">toolbox::util::StreamBuf&lt; MaxN &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1StringBuf.html#a9da40cd2c78ffc6378cb4f2bb0b8b6be">toolbox::util::StringBuf&lt; MaxN &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1Tokeniser.html#af2ef0dae94e8c5355d79b2eddd630f95">toolbox::util::Tokeniser</a>
 , <a class="el" href="classtoolbox_1_1util_1_1VarAccum.html#afe45a8cd54c2ab9e5106a3f55dab7812">toolbox::util::VarAccum</a>
@@ -92,16 +94,17 @@ $(function() {
 : <a class="el" href="classtoolbox_1_1bm_1_1BenchmarkRange.html#a716f63897dcd96146db3c8b3ef83cdc5">toolbox::bm::BenchmarkRange</a>
 , <a class="el" href="classtoolbox_1_1util_1_1ArgvSequence.html#a4098fc923884301d1522d3815c601e4b">toolbox::util::ArgvSequence</a>
 , <a class="el" href="classtoolbox_1_1util_1_1ArrayView.html#a025f3a3792022bb50eef5709ac076e5d">toolbox::util::ArrayView&lt; ValueT &gt;</a>
+, <a class="el" href="classtoolbox_1_1util_1_1Storage.html#a284017f1cca01f19103c4c334ed8fa7a">toolbox::util::Storage&lt; SizeN &gt;</a>
 </li>
 <li>Endpoint
 : <a class="el" href="classtoolbox_1_1http_1_1App.html#a55080f5ca877c1a0bcd302250e5cb95b">toolbox::http::App</a>
-, <a class="el" href="classtoolbox_1_1http_1_1BasicConn.html#a89e8aaed7593000d27ed775e1a0e9944">toolbox::http::BasicConn&lt; RequestT, AppT &gt;</a>
 </li>
 <li>endpoint()
 : <a class="el" href="classtoolbox_1_1http_1_1BasicConn.html#ad679584d3388b38b87b7bb3fde66127a">toolbox::http::BasicConn&lt; RequestT, AppT &gt;</a>
 </li>
 <li>Endpoint
-: <a class="el" href="structtoolbox_1_1net_1_1DgramSock.html#a3e9f01d1f6afc8f1cab9c353d1bc7833">toolbox::net::DgramSock</a>
+: <a class="el" href="classtoolbox_1_1http_1_1BasicConn.html#a89e8aaed7593000d27ed775e1a0e9944">toolbox::http::BasicConn&lt; RequestT, AppT &gt;</a>
+, <a class="el" href="structtoolbox_1_1net_1_1DgramSock.html#a3e9f01d1f6afc8f1cab9c353d1bc7833">toolbox::net::DgramSock</a>
 , <a class="el" href="structtoolbox_1_1net_1_1McastSock.html#aa0820d00091837078e666b13be5019a7">toolbox::net::McastSock</a>
 , <a class="el" href="classtoolbox_1_1net_1_1StreamAcceptor.html#aa1888c70791c7a636346a1027cbea627">toolbox::net::StreamAcceptor&lt; DerivedT &gt;</a>
 , <a class="el" href="classtoolbox_1_1net_1_1StreamConnector.html#a8828f739e0010ef570703660c7285d83">toolbox::net::StreamConnector&lt; DerivedT &gt;</a>
@@ -109,7 +112,7 @@ $(function() {
 , <a class="el" href="structtoolbox_1_1net_1_1StreamSockServ.html#a673e270733ce09cc6f1601f0faf521f3">toolbox::net::StreamSockServ</a>
 </li>
 <li>Epoll()
-: <a class="el" href="classtoolbox_1_1io_1_1Epoll.html#ae37285b529f53abdbfd67a5f0948de35">toolbox::io::Epoll</a>
+: <a class="el" href="classtoolbox_1_1io_1_1Epoll.html#ad9a5af223496198ba0446754f9545d28">toolbox::io::Epoll</a>
 </li>
 <li>Error
 : <a class="el" href="classtoolbox_1_1sys_1_1Log.html#a197218eb4d0ca7ff10b922b5d3914e9da353508a6085917c2a44ad866b0b8b948">toolbox::sys::Log</a>
@@ -123,7 +126,7 @@ $(function() {
 </li>
 <li>Exception()
 : <a class="el" href="structtoolbox_1_1http_1_1Exception.html#a5753959793025d7c30527b03d18ad9d3">toolbox::http::Exception</a>
-, <a class="el" href="classtoolbox_1_1util_1_1Exception.html#a55ecfa6445f269c540c50cb37eafa055">toolbox::util::Exception</a>
+, <a class="el" href="classtoolbox_1_1util_1_1Exception.html#a9d904f8e149c2388cb129498e31acc98">toolbox::util::Exception</a>
 </li>
 <li>expiry()
 : <a class="el" href="classtoolbox_1_1io_1_1Timer.html#ac9ce0aa4f627d1f357072b0d06469ac1">toolbox::io::Timer</a>

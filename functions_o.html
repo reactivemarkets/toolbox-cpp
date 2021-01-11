@@ -93,10 +93,10 @@ $(function() {
 , <a class="el" href="structtoolbox_1_1util_1_1Version.html#a05dc3069c49c478e9d0b91290105d8b5">toolbox::util::Version</a>
 </li>
 <li>operator delete()
-: <a class="el" href="structtoolbox_1_1util_1_1MemAlloc.html#a363028f7054352edfd03c1a38c3aaabe">toolbox::util::MemAlloc</a>
+: <a class="el" href="structtoolbox_1_1util_1_1Allocator.html#a075cc733e928655d211a22db6d03a6d9">toolbox::util::Allocator</a>
 </li>
 <li>operator new()
-: <a class="el" href="structtoolbox_1_1util_1_1MemAlloc.html#af078910e19cfa025c1299651ee2e1dd6">toolbox::util::MemAlloc</a>
+: <a class="el" href="structtoolbox_1_1util_1_1Allocator.html#aa768c12d8e37ab62dfefc4ecde6ce4ef">toolbox::util::Allocator</a>
 </li>
 <li>operator std::string_view()
 : <a class="el" href="classtoolbox_1_1util_1_1OStaticStream.html#a5626a64a244606ffc6b04b9294d4d407">toolbox::util::OStaticStream&lt; MaxN &gt;</a>
@@ -222,23 +222,25 @@ $(function() {
 , <a class="el" href="classtoolbox_1_1sys_1_1Log.html#a158f96707dbb5855d8e1c45808550093">toolbox::sys::Log</a>
 , <a class="el" href="classtoolbox_1_1sys_1_1SigWait.html#a20261263192064afc5ed42b63ff12175">toolbox::sys::SigWait</a>
 , <a class="el" href="structtoolbox_1_1sys_1_1ThreadConfig.html#a35ff6004eb8ab0155cf26e1a4776ae44">toolbox::sys::ThreadConfig</a>
-, <a class="el" href="classtoolbox_1_1util_1_1Alarm.html#a644d71175071999c9347f3a5a1ac42ca">toolbox::util::Alarm</a>
+, <a class="el" href="classtoolbox_1_1util_1_1Alarm.html#a788eeae62d3fe0730ff2b5eb8f6f2427">toolbox::util::Alarm</a>
 , <a class="el" href="classtoolbox_1_1util_1_1ArgvLexer.html#a6a1ce71ef3eeff20e27814b5e16f9130">toolbox::util::ArgvLexer</a>
 , <a class="el" href="classtoolbox_1_1util_1_1ArgvSequence.html#ad724cb4f46f45678ae29c568d2c89df1">toolbox::util::ArgvSequence</a>
 , <a class="el" href="classtoolbox_1_1util_1_1ArrayView.html#aa6b4fb4e91c15a33952e72a57663250d">toolbox::util::ArrayView&lt; ValueT &gt;</a>
-, <a class="el" href="classtoolbox_1_1util_1_1BasicSlot.html#a5d9722ba9c4ce89849c061e3eaad1cab">toolbox::util::BasicSlot&lt; ArgsT &gt;</a>
-, <a class="el" href="classtoolbox_1_1util_1_1Config.html#a0ede08bedd62729f36746f8f6e195d9b">toolbox::util::Config</a>
-, <a class="el" href="classtoolbox_1_1util_1_1Exception.html#a9ba923002c70d498a10e8272aa4951e4">toolbox::util::Exception</a>
-, <a class="el" href="classtoolbox_1_1util_1_1Finally.html#ad1446a7beea21c9f352e802754f6606b">toolbox::util::Finally&lt; FnT &gt;</a>
-, <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html#a3e526e4e03e147eed56f963fb5495c09">toolbox::util::IntWrapper&lt; PolicyT &gt;</a>
+, <a class="el" href="classtoolbox_1_1util_1_1BasicSlot.html#a87e76ebf6ab9d7cd552fec9122f457d2">toolbox::util::BasicSlot&lt; ArgsT &gt;</a>
+, <a class="el" href="classtoolbox_1_1util_1_1Config.html#a20df6587eb3c6f5a9705eaf83bdd02ad">toolbox::util::Config</a>
+, <a class="el" href="classtoolbox_1_1util_1_1Exception.html#acd4ec50a5751a9062de5c48bf960c5b7">toolbox::util::Exception</a>
+, <a class="el" href="classtoolbox_1_1util_1_1Finally.html#ab732aa0746cfafc989070fa86b0d7cb2">toolbox::util::Finally&lt; FnT &gt;</a>
+, <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html#a7c24e84b218dc3215242bda164f6496d">toolbox::util::IntWrapper&lt; PolicyT &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1MultiConfig.html#ad78a128f338708843104276f3c7e5d99">toolbox::util::MultiConfig</a>
-, <a class="el" href="classtoolbox_1_1util_1_1OStaticStream.html#a83623114c8ae043fdaf53ce01fa20b76">toolbox::util::OStaticStream&lt; MaxN &gt;</a>
-, <a class="el" href="classtoolbox_1_1util_1_1RefCount.html#a74a06dafa1b69cc07737cafc0bc266e2">toolbox::util::RefCount&lt; DerivedT, PolicyT &gt;</a>
+, <a class="el" href="classtoolbox_1_1util_1_1OStaticStream.html#a55d4f29560e6c3b8e65f20da4e51824d">toolbox::util::OStaticStream&lt; MaxN &gt;</a>
+, <a class="el" href="classtoolbox_1_1util_1_1OStream.html#aa47e1eb1d8b8c42527ee63d1acc8ee1b">toolbox::util::OStream&lt; MaxN &gt;</a>
+, <a class="el" href="classtoolbox_1_1util_1_1RefCount.html#ae023dc679a7498ffb4ba3cd06c6798e3">toolbox::util::RefCount&lt; DerivedT, PolicyT &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1RingBuffer.html#ab618707ea321f71bdb3d03d54d37dda2">toolbox::util::RingBuffer&lt; ValueT &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1StaticStreamBuf.html#a594b0b5de467377f5fb918143e785d9d">toolbox::util::StaticStreamBuf&lt; MaxN &gt;</a>
-, <a class="el" href="classtoolbox_1_1util_1_1StringBuf.html#a42539e0b1f28efb8bfdc14009288585d">toolbox::util::StringBuf&lt; MaxN &gt;</a>
+, <a class="el" href="classtoolbox_1_1util_1_1StreamBuf.html#aa6d5072219ddcf30798852890fd7609d">toolbox::util::StreamBuf&lt; MaxN &gt;</a>
+, <a class="el" href="classtoolbox_1_1util_1_1StringBuf.html#a48a0ecdb82ea606a673677cdb0701094">toolbox::util::StringBuf&lt; MaxN &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1Tokeniser.html#a94ce18d9d5b23b387260a160831c11cf">toolbox::util::Tokeniser</a>
-, <a class="el" href="classtoolbox_1_1util_1_1VarAccum.html#a737627866db1b3f7cc43da1d55c8414d">toolbox::util::VarAccum</a>
+, <a class="el" href="classtoolbox_1_1util_1_1VarAccum.html#a9a7358cfc1efab916b174f76241dc3f9">toolbox::util::VarAccum</a>
 , <a class="el" href="classtoolbox_1_1util_1_1VarSub.html#ab15ed1991f40d3a154e790d87907bfe8">toolbox::util::VarSub</a>
 , <a class="el" href="structtoolbox_1_1util_1_1Version.html#aa4a02296b978919432f8c37abfafa3a9">toolbox::util::Version</a>
 </li>
@@ -261,6 +263,7 @@ $(function() {
 <li>operator[]()
 : <a class="el" href="classtoolbox_1_1util_1_1ArrayView.html#a274fda6ead7b5c8a0cbddc44c4924c00">toolbox::util::ArrayView&lt; ValueT &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1Options.html#aab240f72b232803767c199288cbf227b">toolbox::util::Options</a>
+, <a class="el" href="classtoolbox_1_1util_1_1Storage.html#ada46a0b4696ca1f399ca79278c1ec1c1">toolbox::util::Storage&lt; SizeN &gt;</a>
 </li>
 <li>operator^
 : <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html#a5af6047022881269b544699e5b4d2361">toolbox::util::IntWrapper&lt; PolicyT &gt;</a>
@@ -289,10 +292,11 @@ $(function() {
 , <a class="el" href="classtoolbox_1_1util_1_1Value.html#abfa275a2475993fcbc4c531048fac09a">toolbox::util::Value</a>
 </li>
 <li>OStaticStream()
-: <a class="el" href="classtoolbox_1_1util_1_1OStaticStream.html#a4c27e65caed00e4514b3a7828c1f33a9">toolbox::util::OStaticStream&lt; MaxN &gt;</a>
+: <a class="el" href="classtoolbox_1_1util_1_1OStaticStream.html#ab31c3376b83f22d0bddb72d3b9b3d224">toolbox::util::OStaticStream&lt; MaxN &gt;</a>
 </li>
 <li>OStream()
-: <a class="el" href="classtoolbox_1_1http_1_1OStream.html#ad63d471a3941b35c30e3986a0875825c">toolbox::http::OStream</a>
+: <a class="el" href="classtoolbox_1_1http_1_1OStream.html#ae56460db1a2d403c9378a853ecf225da">toolbox::http::OStream</a>
+, <a class="el" href="classtoolbox_1_1util_1_1OStream.html#ad71e3e3c781f044858103f8aa3c38889">toolbox::util::OStream&lt; MaxN &gt;</a>
 </li>
 <li>overflow()
 : <a class="el" href="classtoolbox_1_1http_1_1StreamBuf.html#a5051a0ca187337de4a1f581efed17f79">toolbox::http::StreamBuf</a>

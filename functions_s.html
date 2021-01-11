@@ -125,6 +125,10 @@ $(function() {
 <li>set_snd_buf()
 : <a class="el" href="structtoolbox_1_1net_1_1Sock.html#ad2e231fbfcd057727ca7c69bda9160a1">toolbox::net::Sock</a>
 </li>
+<li>set_storage()
+: <a class="el" href="classtoolbox_1_1util_1_1OStream.html#acf24eb3c527556c1d0f071edf23c5ea0">toolbox::util::OStream&lt; MaxN &gt;</a>
+, <a class="el" href="classtoolbox_1_1util_1_1StreamBuf.html#a62745e083e8d214e28c415df8a70e238">toolbox::util::StreamBuf&lt; MaxN &gt;</a>
+</li>
 <li>set_time()
 : <a class="el" href="classtoolbox_1_1io_1_1TimerFd.html#afe73b3b2635f7c61f663967e5aeb8db9">toolbox::io::TimerFd&lt; ClockT &gt;</a>
 </li>
@@ -162,8 +166,11 @@ $(function() {
 </li>
 <li>size()
 : <a class="el" href="classtoolbox_1_1util_1_1OStaticStream.html#a9871273d5a3f3fd2de12b6f0bcd5baed">toolbox::util::OStaticStream&lt; MaxN &gt;</a>
+, <a class="el" href="classtoolbox_1_1util_1_1OStream.html#ab4581067c01e3306f5b37151957e7171">toolbox::util::OStream&lt; MaxN &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1RingBuffer.html#a5757e08b548db023c7b13823ff0680a8">toolbox::util::RingBuffer&lt; ValueT &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1StaticStreamBuf.html#a9af04ff7b1aa084451b9ff75c654fa60">toolbox::util::StaticStreamBuf&lt; MaxN &gt;</a>
+, <a class="el" href="classtoolbox_1_1util_1_1Storage.html#ac46e16d484598a1d2d972f2afcb21c70">toolbox::util::Storage&lt; SizeN &gt;</a>
+, <a class="el" href="classtoolbox_1_1util_1_1StreamBuf.html#a1a6f7e36b6447889d2d69d6deae00fa9">toolbox::util::StreamBuf&lt; MaxN &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1StringBuf.html#acc9c28454918a02c6e22f63c8513d281">toolbox::util::StringBuf&lt; MaxN &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1VarAccum.html#a7a38f5b37d6ba27c634c7d0c339f0466">toolbox::util::VarAccum</a>
 </li>
@@ -172,10 +179,11 @@ $(function() {
 </li>
 <li>size_type
 : <a class="el" href="classtoolbox_1_1util_1_1ArrayView.html#a97fbbbfe53b4f4b97009712d2c487f47">toolbox::util::ArrayView&lt; ValueT &gt;</a>
+, <a class="el" href="classtoolbox_1_1util_1_1Storage.html#addc1c84ff303af0104df14f0a3942503">toolbox::util::Storage&lt; SizeN &gt;</a>
 </li>
 <li>slice()
 : <a class="el" href="structtoolbox_1_1util_1_1detail_1_1Struct_3_01Member_3_01TagT_00_01ValueT_01_4_00_01Member_3_01Tea64d071ebde2c801b1e9a32f0bf50cc.html#a8acd82bcf98523b6f730adcefc889688">toolbox::util::detail::Struct&lt; Member&lt; TagT, ValueT &gt;, Member&lt; TagsT, ValuesT &gt;... &gt;</a>
-, <a class="el" href="structtoolbox_1_1util_1_1detail_1_1Struct_3_4.html#a661b69907ae09b9fd4fb874144055eeb">toolbox::util::detail::Struct&lt;&gt;</a>
+, <a class="el" href="structtoolbox_1_1util_1_1detail_1_1Struct_3_4.html#a308a4ae7626255edf62506aa58d11aba">toolbox::util::detail::Struct&lt;&gt;</a>
 </li>
 <li>Slot
 : <a class="el" href="structtoolbox_1_1io_1_1Hook.html#af583f3f8d2105b0450cea6c72418a446">toolbox::io::Hook</a>
@@ -187,7 +195,7 @@ $(function() {
 <li>Sock()
 : <a class="el" href="structtoolbox_1_1net_1_1IoSock.html#a903c114fef4862ca73223f8e41b591d0">toolbox::net::IoSock</a>
 , <a class="el" href="structtoolbox_1_1net_1_1Sock.html#a903c114fef4862ca73223f8e41b591d0">toolbox::net::Sock</a>
-, <a class="el" href="structtoolbox_1_1net_1_1StreamSockServ.html#a903c114fef4862ca73223f8e41b591d0">toolbox::net::StreamSockServ</a>
+, <a class="el" href="structtoolbox_1_1net_1_1StreamSockServ.html#a8bf77e0fc7cadb35bdeccf4a4b2c13cb">toolbox::net::StreamSockServ</a>
 </li>
 <li>StaticStreamBuf()
 : <a class="el" href="classtoolbox_1_1util_1_1StaticStreamBuf.html#a458fa76bf1752c1fdbd6c830011ce097">toolbox::util::StaticStreamBuf&lt; MaxN &gt;</a>
@@ -205,13 +213,14 @@ $(function() {
 , <a class="el" href="classtoolbox_1_1util_1_1StaticStreamBuf.html#a5d54a43e2cfbb17187a4d9d445cd98f0">toolbox::util::StaticStreamBuf&lt; MaxN &gt;</a>
 </li>
 <li>StreamAcceptor()
-: <a class="el" href="classtoolbox_1_1net_1_1StreamAcceptor.html#aae220e292b55209b5587fda73194a17d">toolbox::net::StreamAcceptor&lt; DerivedT &gt;</a>
+: <a class="el" href="classtoolbox_1_1net_1_1StreamAcceptor.html#a505e8dd409bca911ac785d56b67f972d">toolbox::net::StreamAcceptor&lt; DerivedT &gt;</a>
 </li>
 <li>StreamBuf()
 : <a class="el" href="classtoolbox_1_1http_1_1StreamBuf.html#a3ce3b0d126fcc3d1254d8dd7ee0f3838">toolbox::http::StreamBuf</a>
+, <a class="el" href="classtoolbox_1_1util_1_1StreamBuf.html#a40efdb35c0208daeef908ddc3468312e">toolbox::util::StreamBuf&lt; MaxN &gt;</a>
 </li>
 <li>StreamConnector()
-: <a class="el" href="classtoolbox_1_1net_1_1StreamConnector.html#a8e49eea0b96e2dc38a240a1f753e4746">toolbox::net::StreamConnector&lt; DerivedT &gt;</a>
+: <a class="el" href="classtoolbox_1_1net_1_1StreamConnector.html#a5cdc1975a91103e3f44730b8ceb12687">toolbox::net::StreamConnector&lt; DerivedT &gt;</a>
 </li>
 <li>StreamProtocol()
 : <a class="el" href="structtoolbox_1_1net_1_1StreamProtocol.html#a388c75f972f6d9dadb8cc64bbd38c5f1">toolbox::net::StreamProtocol</a>
@@ -220,13 +229,13 @@ $(function() {
 : <a class="el" href="structtoolbox_1_1net_1_1StreamSockClnt.html#a0e86242990a72ce9467ebcc95f0d84cd">toolbox::net::StreamSockClnt</a>
 </li>
 <li>StreamSockServ()
-: <a class="el" href="structtoolbox_1_1net_1_1StreamSockServ.html#a074bafba8a6134f7c37fbebc20112ad7">toolbox::net::StreamSockServ</a>
+: <a class="el" href="structtoolbox_1_1net_1_1StreamSockServ.html#a5bdbe06f25d287456f801a92fc9a3d54">toolbox::net::StreamSockServ</a>
 </li>
 <li>StringBuf()
-: <a class="el" href="classtoolbox_1_1util_1_1StringBuf.html#a2fbf7c93924289cde765e78c304d8015">toolbox::util::StringBuf&lt; MaxN &gt;</a>
+: <a class="el" href="classtoolbox_1_1util_1_1StringBuf.html#ab700a014d8bf10a8c28ca8e84d29d9b8">toolbox::util::StringBuf&lt; MaxN &gt;</a>
 </li>
 <li>Struct()
-: <a class="el" href="structtoolbox_1_1util_1_1detail_1_1Struct_3_01Member_3_01TagT_00_01ValueT_01_4_00_01Member_3_01Tea64d071ebde2c801b1e9a32f0bf50cc.html#a1d3e9a3b73e2eac7418618e8d5600f96">toolbox::util::detail::Struct&lt; Member&lt; TagT, ValueT &gt;, Member&lt; TagsT, ValuesT &gt;... &gt;</a>
+: <a class="el" href="structtoolbox_1_1util_1_1detail_1_1Struct_3_01Member_3_01TagT_00_01ValueT_01_4_00_01Member_3_01Tea64d071ebde2c801b1e9a32f0bf50cc.html#aadf887f16aa5c79dc5789470c03bed3c">toolbox::util::detail::Struct&lt; Member&lt; TagT, ValueT &gt;, Member&lt; TagsT, ValuesT &gt;... &gt;</a>
 </li>
 <li>sub_bucket_count
 : <a class="el" href="structtoolbox_1_1hdr_1_1BucketConfig.html#aaec07134d48a0f365e8fd5717a27b301">toolbox::hdr::BucketConfig</a>
@@ -255,6 +264,10 @@ $(function() {
 , <a class="el" href="classtoolbox_1_1ipc_1_1MpmcQueue.html#a7791f186abac00f07b8b93e4278e9d75">toolbox::ipc::MpmcQueue&lt; ValueT &gt;</a>
 , <a class="el" href="classtoolbox_1_1util_1_1ArrayView.html#a429b0a2e008b934c10b5f133d62bcd6f">toolbox::util::ArrayView&lt; ValueT &gt;</a>
 , <a class="el" href="structtoolbox_1_1util_1_1Version.html#aba7e2ca8e50c591398d1bd4e5b841f6b">toolbox::util::Version</a>
+</li>
+<li>swap_storage()
+: <a class="el" href="classtoolbox_1_1util_1_1OStream.html#a7a301ff10aa8e5e82e0a8525e41a6d74">toolbox::util::OStream&lt; MaxN &gt;</a>
+, <a class="el" href="classtoolbox_1_1util_1_1StreamBuf.html#a2b79c1841a7d2683b44517b509c9ee08">toolbox::util::StreamBuf&lt; MaxN &gt;</a>
 </li>
 <li>Switch()
 : <a class="el" href="classtoolbox_1_1util_1_1Switch.html#a0fe1260cfd83a7c4b4240059bb98ec10">toolbox::util::Switch</a>

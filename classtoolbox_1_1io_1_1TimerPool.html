@@ -90,10 +90,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a53c69e3f3f6125c38926c2e8ae0d5e67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a733368d802a4e6927e2407a576c2decf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtoolbox_1_1io_1_1TimerPool.html">TimerPool</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1TimerPool.html#a733368d802a4e6927e2407a576c2decf">operator=</a> (<a class="el" href="classtoolbox_1_1io_1_1TimerPool.html">TimerPool</a> &amp;&amp;)=delete</td></tr>
 <tr class="separator:a733368d802a4e6927e2407a576c2decf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc7dd4601ed07c868f4277f697380570"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtoolbox_1_1io_1_1Timer_1_1Impl.html">Timer::Impl</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1TimerPool.html#acc7dd4601ed07c868f4277f697380570">alloc</a> (<a class="el" href="namespacetoolbox_1_1sys.html#a8370f3f6bd9eb78dd325ae3f4e582247">MonoTime</a> expiry, <a class="el" href="namespacetoolbox_1_1sys.html#aedb936b32edd1672f938990ce346f0e2">Duration</a> interval, <a class="el" href="namespacetoolbox_1_1io.html#a9637530ce7cb05e3d37b882576fbcaa4">TimerSlot</a> slot)</td></tr>
-<tr class="separator:acc7dd4601ed07c868f4277f697380570"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2af0e8c38a663fa23363bf1e4605a20c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1TimerPool.html#a2af0e8c38a663fa23363bf1e4605a20c">dealloc</a> (<a class="el" href="structtoolbox_1_1io_1_1Timer_1_1Impl.html">Timer::Impl</a> *impl) noexcept</td></tr>
-<tr class="separator:a2af0e8c38a663fa23363bf1e4605a20c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01a503d82451fcfad3283d1366fea827"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtoolbox_1_1io_1_1Timer_1_1Impl.html">Timer::Impl</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1TimerPool.html#a01a503d82451fcfad3283d1366fea827">allocate</a> (<a class="el" href="namespacetoolbox_1_1sys.html#a8370f3f6bd9eb78dd325ae3f4e582247">MonoTime</a> expiry, <a class="el" href="namespacetoolbox_1_1sys.html#aedb936b32edd1672f938990ce346f0e2">Duration</a> interval, <a class="el" href="namespacetoolbox_1_1io.html#a9637530ce7cb05e3d37b882576fbcaa4">TimerSlot</a> slot)</td></tr>
+<tr class="separator:a01a503d82451fcfad3283d1366fea827"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5f40c2efc514bc5b946a514bee49e79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1TimerPool.html#ab5f40c2efc514bc5b946a514bee49e79">deallocate</a> (<a class="el" href="structtoolbox_1_1io_1_1Timer_1_1Impl.html">Timer::Impl</a> *impl) noexcept</td></tr>
+<tr class="separator:ab5f40c2efc514bc5b946a514bee49e79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -229,14 +229,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="acc7dd4601ed07c868f4277f697380570"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc7dd4601ed07c868f4277f697380570">&#9670;&nbsp;</a></span>alloc()</h2>
+<a id="a01a503d82451fcfad3283d1366fea827"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01a503d82451fcfad3283d1366fea827">&#9670;&nbsp;</a></span>allocate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structtoolbox_1_1io_1_1Timer_1_1Impl.html">Timer::Impl</a> * toolbox::io::TimerPool::alloc </td>
+          <td class="memname"><a class="el" href="structtoolbox_1_1io_1_1Timer_1_1Impl.html">Timer::Impl</a> * toolbox::io::TimerPool::allocate </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#a8370f3f6bd9eb78dd325ae3f4e582247">MonoTime</a>&#160;</td>
           <td class="paramname"><em>expiry</em>, </td>
@@ -265,8 +265,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a2af0e8c38a663fa23363bf1e4605a20c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2af0e8c38a663fa23363bf1e4605a20c">&#9670;&nbsp;</a></span>dealloc()</h2>
+<a id="ab5f40c2efc514bc5b946a514bee49e79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5f40c2efc514bc5b946a514bee49e79">&#9670;&nbsp;</a></span>deallocate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -275,7 +275,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void toolbox::io::TimerPool::dealloc </td>
+          <td class="memname">void toolbox::io::TimerPool::deallocate </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structtoolbox_1_1io_1_1Timer_1_1Impl.html">Timer::Impl</a> *&#160;</td>
           <td class="paramname"><em>impl</em></td><td>)</td>
