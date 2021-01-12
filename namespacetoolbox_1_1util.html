@@ -174,9 +174,6 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1util_1_1StaticStreamBuf.html">StaticStreamBuf</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1util_1_1Storage.html">Storage</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classtoolbox_1_1util_1_1Storage.html" title="Storage represents a dynamic block of storage acquired from the custom allocator.">Storage</a> represents a dynamic block of storage acquired from the custom allocator.  <a href="classtoolbox_1_1util_1_1Storage.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1util_1_1StreamBuf.html">StreamBuf</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classtoolbox_1_1util_1_1StreamBuf.html" title="StreamBuf uses a dynamic storage acquired from the custom allocator.">StreamBuf</a> uses a dynamic storage acquired from the custom allocator.  <a href="classtoolbox_1_1util_1_1StreamBuf.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -229,8 +226,6 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a24e256dd4d7b539822ea5050b45cbac1"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a24e256dd4d7b539822ea5050b45cbac1">VoidPtr</a> = std::unique_ptr&lt; void, void(*)(void *)&gt;</td></tr>
-<tr class="separator:a24e256dd4d7b539822ea5050b45cbac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49ad4a9aee7b84172348dd73aba35d1b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a49ad4a9aee7b84172348dd73aba35d1b">ErrMsg</a> = <a class="el" href="classtoolbox_1_1util_1_1OStaticStream.html">OStaticStream</a>&lt; <a class="el" href="namespacetoolbox_1_1util.html#ab588e9899a383d1ab776239feded256b">MaxErrSize</a> &gt;</td></tr>
 <tr class="separator:a49ad4a9aee7b84172348dd73aba35d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4170773b23543d06eb783e2223cf31e6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a4170773b23543d06eb783e2223cf31e6">Int16Policy</a> = <a class="el" href="structtoolbox_1_1util_1_1IntPolicy.html">IntPolicy</a>&lt; std::int16_t &gt;</td></tr>
@@ -274,9 +269,9 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a65aa6834208e528b978d08279e5c4346"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a65aa6834208e528b978d08279e5c4346">RobinNodeSet</a> = robin_hood::unordered_node_set&lt; KeyT, HashT, KeyEqualT, MaxLoadFactor100N &gt;</td></tr>
 <tr class="memdesc:a65aa6834208e528b978d08279e5c4346"><td class="mdescLeft">&#160;</td><td class="mdescRight">Robin Hood unordered node set.  <a href="namespacetoolbox_1_1util.html#a65aa6834208e528b978d08279e5c4346">More...</a><br /></td></tr>
 <tr class="separator:a65aa6834208e528b978d08279e5c4346"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abafd8dd00225184ad55b6319d397c267"><td class="memTemplParams" colspan="2">template&lt;std::size_t SizeN&gt; </td></tr>
-<tr class="memitem:abafd8dd00225184ad55b6319d397c267"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#abafd8dd00225184ad55b6319d397c267">StoragePtr</a> = std::unique_ptr&lt; <a class="el" href="classtoolbox_1_1util_1_1Storage.html">Storage</a>&lt; SizeN &gt; &gt;</td></tr>
-<tr class="separator:abafd8dd00225184ad55b6319d397c267"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad09444d2adeb2a837168654823968f43"><td class="memTemplParams" colspan="2">template&lt;std::size_t SizeN&gt; </td></tr>
+<tr class="memitem:ad09444d2adeb2a837168654823968f43"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#ad09444d2adeb2a837168654823968f43">StoragePtr</a> = std::unique_ptr&lt; void, <a class="el" href="structtoolbox_1_1util_1_1detail_1_1StorageDeleter.html">detail::StorageDeleter</a>&lt; SizeN &gt; &gt;</td></tr>
+<tr class="separator:ad09444d2adeb2a837168654823968f43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33f065adac243948f57cc49a55bbf348"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a33f065adac243948f57cc49a55bbf348">OStreamJoiner</a> = std::experimental::ostream_joiner&lt; char &gt;</td></tr>
 <tr class="separator:a33f065adac243948f57cc49a55bbf348"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97cd5976030ed2920933832609f7bacd"><td class="memTemplParams" colspan="2">template&lt;std::size_t N&gt; </td></tr>
@@ -294,12 +289,6 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:acc82753b998488cfd52f66b20c82c6cd"><td class="memTemplParams" colspan="2">template&lt;std::size_t SizeN&gt; </td></tr>
-<tr class="memitem:acc82753b998488cfd52f66b20c82c6cd"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#a24e256dd4d7b539822ea5050b45cbac1">VoidPtr</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#acc82753b998488cfd52f66b20c82c6cd">allocate_unique</a> ()</td></tr>
-<tr class="separator:acc82753b998488cfd52f66b20c82c6cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af359511481adfa731fde39f54e8bbc5f"><td class="memTemplParams" colspan="2">template&lt;std::size_t SizeN, std::align_val_t AlignN&gt; </td></tr>
-<tr class="memitem:af359511481adfa731fde39f54e8bbc5f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#a24e256dd4d7b539822ea5050b45cbac1">VoidPtr</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#af359511481adfa731fde39f54e8bbc5f">allocate_unique</a> ()</td></tr>
-<tr class="separator:af359511481adfa731fde39f54e8bbc5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6e2b4a14d77b7232a232a7b4ec326df"><td class="memTemplParams" colspan="2">template&lt;typename ValueT , std::size_t SizeN&gt; </td></tr>
 <tr class="memitem:ac6e2b4a14d77b7232a232a7b4ec326df"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#ac6e2b4a14d77b7232a232a7b4ec326df">array_size</a> (const ValueT(&amp;)[SizeN]) noexcept</td></tr>
 <tr class="separator:ac6e2b4a14d77b7232a232a7b4ec326df"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -396,8 +385,8 @@ Functions</h2></td></tr>
 <tr class="memitem:a028182935b91d8e4d7b794a0c9479aa5"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a028182935b91d8e4d7b794a0c9479aa5">bind</a> (ClassT *obj) noexcept</td></tr>
 <tr class="separator:a028182935b91d8e4d7b794a0c9479aa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49767abcbe5b33d7a5398fcfbe5cc206"><td class="memTemplParams" colspan="2">template&lt;std::size_t SizeN&gt; </td></tr>
-<tr class="memitem:a49767abcbe5b33d7a5398fcfbe5cc206"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#abafd8dd00225184ad55b6319d397c267">StoragePtr</a>&lt; SizeN &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a49767abcbe5b33d7a5398fcfbe5cc206">make_storage</a> ()</td></tr>
-<tr class="memdesc:a49767abcbe5b33d7a5398fcfbe5cc206"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a block of dynamic block of storage acquired from the custom allocator.  <a href="namespacetoolbox_1_1util.html#a49767abcbe5b33d7a5398fcfbe5cc206">More...</a><br /></td></tr>
+<tr class="memitem:a49767abcbe5b33d7a5398fcfbe5cc206"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#ad09444d2adeb2a837168654823968f43">StoragePtr</a>&lt; SizeN &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a49767abcbe5b33d7a5398fcfbe5cc206">make_storage</a> ()</td></tr>
+<tr class="memdesc:a49767abcbe5b33d7a5398fcfbe5cc206"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a block of dynamic storage acquired from the custom allocator.  <a href="namespacetoolbox_1_1util.html#a49767abcbe5b33d7a5398fcfbe5cc206">More...</a><br /></td></tr>
 <tr class="separator:a49767abcbe5b33d7a5398fcfbe5cc206"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12e933f09d08f3d4e212107b35ff6587"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a12e933f09d08f3d4e212107b35ff6587">reset</a> (std::ostream &amp;os) noexcept</td></tr>
 <tr class="separator:a12e933f09d08f3d4e212107b35ff6587"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -559,22 +548,6 @@ Variables</h2></td></tr>
 <tr class="separator:a423a7e6275c1fd514196e626688e1cf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
-<a id="a24e256dd4d7b539822ea5050b45cbac1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24e256dd4d7b539822ea5050b45cbac1">&#9670;&nbsp;</a></span>VoidPtr</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespacetoolbox_1_1util.html#a24e256dd4d7b539822ea5050b45cbac1">toolbox::util::VoidPtr</a> = typedef std::unique_ptr&lt;void, void (*)(void*)&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Allocator_8hpp_source.html#l00049">49</a> of file <a class="el" href="Allocator_8hpp_source.html">Allocator.hpp</a>.</p>
-
-</div>
-</div>
 <a id="a49ad4a9aee7b84172348dd73aba35d1b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a49ad4a9aee7b84172348dd73aba35d1b">&#9670;&nbsp;</a></span>ErrMsg</h2>
 
@@ -833,8 +806,8 @@ template&lt;typename KeyT , typename HashT  = RobinHash&lt;KeyT&gt;, typename Ke
 
 </div>
 </div>
-<a id="abafd8dd00225184ad55b6319d397c267"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abafd8dd00225184ad55b6319d397c267">&#9670;&nbsp;</a></span>StoragePtr</h2>
+<a id="ad09444d2adeb2a837168654823968f43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad09444d2adeb2a837168654823968f43">&#9670;&nbsp;</a></span>StoragePtr</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -842,12 +815,12 @@ template&lt;typename KeyT , typename HashT  = RobinHash&lt;KeyT&gt;, typename Ke
 template&lt;std::size_t SizeN&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespacetoolbox_1_1util.html#abafd8dd00225184ad55b6319d397c267">toolbox::util::StoragePtr</a> = typedef std::unique_ptr&lt;<a class="el" href="classtoolbox_1_1util_1_1Storage.html">Storage</a>&lt;SizeN&gt; &gt;</td>
+          <td class="memname">using <a class="el" href="namespacetoolbox_1_1util.html#ad09444d2adeb2a837168654823968f43">toolbox::util::StoragePtr</a> = typedef std::unique_ptr&lt;void, <a class="el" href="structtoolbox_1_1util_1_1detail_1_1StorageDeleter.html">detail::StorageDeleter</a>&lt;SizeN&gt; &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Storage_8hpp_source.html#l00084">84</a> of file <a class="el" href="Storage_8hpp_source.html">Storage.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Storage_8hpp_source.html#l00035">35</a> of file <a class="el" href="Storage_8hpp_source.html">Storage.hpp</a>.</p>
 
 </div>
 </div>
@@ -863,7 +836,7 @@ template&lt;std::size_t SizeN&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Stream_8hpp_source.html#l00213">213</a> of file <a class="el" href="util_2Stream_8hpp_source.html">Stream.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Stream_8hpp_source.html#l00211">211</a> of file <a class="el" href="util_2Stream_8hpp_source.html">Stream.hpp</a>.</p>
 
 </div>
 </div>
@@ -917,48 +890,6 @@ template&lt;std::size_t N&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="acc82753b998488cfd52f66b20c82c6cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc82753b998488cfd52f66b20c82c6cd">&#9670;&nbsp;</a></span>allocate_unique() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::size_t SizeN&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacetoolbox_1_1util.html#a24e256dd4d7b539822ea5050b45cbac1">VoidPtr</a> toolbox::util::allocate_unique </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Allocator_8hpp_source.html#l00052">52</a> of file <a class="el" href="Allocator_8hpp_source.html">Allocator.hpp</a>.</p>
-
-</div>
-</div>
-<a id="af359511481adfa731fde39f54e8bbc5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af359511481adfa731fde39f54e8bbc5f">&#9670;&nbsp;</a></span>allocate_unique() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::size_t SizeN, std::align_val_t AlignN&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacetoolbox_1_1util.html#a24e256dd4d7b539822ea5050b45cbac1">VoidPtr</a> toolbox::util::allocate_unique </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Allocator_8hpp_source.html#l00058">58</a> of file <a class="el" href="Allocator_8hpp_source.html">Allocator.hpp</a>.</p>
-
-</div>
-</div>
 <a id="ac6e2b4a14d77b7232a232a7b4ec326df"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac6e2b4a14d77b7232a232a7b4ec326df">&#9670;&nbsp;</a></span>array_size()</h2>
 
@@ -2241,7 +2172,7 @@ template&lt;auto MemFnT, typename ClassT  = typename FunctionTraits&lt;decltype(
 template&lt;std::size_t SizeN&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacetoolbox_1_1util.html#abafd8dd00225184ad55b6319d397c267">StoragePtr</a>&lt;SizeN&gt; toolbox::util::make_storage </td>
+          <td class="memname"><a class="el" href="namespacetoolbox_1_1util.html#ad09444d2adeb2a837168654823968f43">StoragePtr</a>&lt;SizeN&gt; toolbox::util::make_storage </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -2249,9 +2180,9 @@ template&lt;std::size_t SizeN&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Returns a block of dynamic block of storage acquired from the custom allocator. </p>
+<p>Returns a block of dynamic storage acquired from the custom allocator. </p>
 
-<p class="definition">Definition at line <a class="el" href="Storage_8hpp_source.html#l00088">88</a> of file <a class="el" href="Storage_8hpp_source.html">Storage.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Storage_8hpp_source.html#l00039">39</a> of file <a class="el" href="Storage_8hpp_source.html">Storage.hpp</a>.</p>
 
 </div>
 </div>
@@ -2309,7 +2240,7 @@ template&lt;std::size_t MaxN, typename ValueT &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Stream_8hpp_source.html#l00207">207</a> of file <a class="el" href="util_2Stream_8hpp_source.html">Stream.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Stream_8hpp_source.html#l00205">205</a> of file <a class="el" href="util_2Stream_8hpp_source.html">Stream.hpp</a>.</p>
 
 </div>
 </div>
@@ -2347,7 +2278,7 @@ template&lt;auto DelimT, typename ArgT , typename... ArgsT&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Stream_8hpp_source.html#l00216">216</a> of file <a class="el" href="util_2Stream_8hpp_source.html">Stream.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Stream_8hpp_source.html#l00214">214</a> of file <a class="el" href="util_2Stream_8hpp_source.html">Stream.hpp</a>.</p>
 
 </div>
 </div>
@@ -3403,7 +3334,7 @@ template&lt;typename... TagsT, typename... ValuesT&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="Struct_8hpp_source.html#l00098">98</a> of file <a class="el" href="Struct_8hpp_source.html">Struct.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Math_8hpp_source.html#l00048">ceil_pow2()</a>, <a class="el" href="Allocator_8hpp_source.html#l00036">toolbox::util::Allocator::operator delete()</a>, and <a class="el" href="Allocator_8hpp_source.html#l00034">toolbox::util::Allocator::operator new()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Math_8hpp_source.html#l00048">ceil_pow2()</a>, <a class="el" href="Allocator_8hpp_source.html#l00033">toolbox::util::Allocator::operator delete()</a>, and <a class="el" href="Allocator_8hpp_source.html#l00032">toolbox::util::Allocator::operator new()</a>.</p>
 
 </div>
 </div>

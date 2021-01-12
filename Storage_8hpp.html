@@ -79,16 +79,18 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &lt;<a class="el" href="Allocator_8hpp_source.html">toolbox/util/Allocator.hpp</a>&gt;</code><br />
 <code>#include &lt;iterator&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Storage.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="Storage_8hpp__incl.png" border="0" usemap="#atoolbox_2util_2Storage_8hpp" alt=""/></div>
 <map name="toolbox_2util_2Storage_8hpp" id="atoolbox_2util_2Storage_8hpp">
-<area shape="rect" title=" " alt="" coords="119,5,297,32"/>
-<area shape="rect" href="Allocator_8hpp.html" title=" " alt="" coords="39,80,225,107"/>
-<area shape="rect" title=" " alt="" coords="249,80,319,107"/>
+<area shape="rect" title=" " alt="" coords="188,5,367,32"/>
+<area shape="rect" href="Allocator_8hpp.html" title=" " alt="" coords="33,80,218,107"/>
+<area shape="rect" title=" " alt="" coords="242,80,313,107"/>
+<area shape="rect" title=" " alt="" coords="337,80,415,107"/>
 <area shape="rect" href="Config_8h.html" title=" " alt="" coords="5,155,133,181"/>
-<area shape="rect" title=" " alt="" coords="157,155,235,181"/>
+<area shape="rect" title=" " alt="" coords="158,155,207,181"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -143,8 +145,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1util_1_1Storage.html">toolbox::util::Storage&lt; SizeN &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classtoolbox_1_1util_1_1Storage.html" title="Storage represents a dynamic block of storage acquired from the custom allocator.">Storage</a> represents a dynamic block of storage acquired from the custom allocator.  <a href="classtoolbox_1_1util_1_1Storage.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1detail_1_1StorageDeleter.html">toolbox::util::detail::StorageDeleter&lt; SizeN &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -153,18 +154,20 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacetoolbox_1_1util"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html">toolbox::util</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespacetoolbox_1_1util_1_1detail"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util_1_1detail.html">toolbox::util::detail</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:abafd8dd00225184ad55b6319d397c267"><td class="memTemplParams" colspan="2">template&lt;std::size_t SizeN&gt; </td></tr>
-<tr class="memitem:abafd8dd00225184ad55b6319d397c267"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#abafd8dd00225184ad55b6319d397c267">toolbox::util::StoragePtr</a> = std::unique_ptr&lt; Storage&lt; SizeN &gt; &gt;</td></tr>
-<tr class="separator:abafd8dd00225184ad55b6319d397c267"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad09444d2adeb2a837168654823968f43"><td class="memTemplParams" colspan="2">template&lt;std::size_t SizeN&gt; </td></tr>
+<tr class="memitem:ad09444d2adeb2a837168654823968f43"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#ad09444d2adeb2a837168654823968f43">toolbox::util::StoragePtr</a> = std::unique_ptr&lt; void, detail::StorageDeleter&lt; SizeN &gt; &gt;</td></tr>
+<tr class="separator:ad09444d2adeb2a837168654823968f43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a49767abcbe5b33d7a5398fcfbe5cc206"><td class="memTemplParams" colspan="2">template&lt;std::size_t SizeN&gt; </td></tr>
 <tr class="memitem:a49767abcbe5b33d7a5398fcfbe5cc206"><td class="memTemplItemLeft" align="right" valign="top">StoragePtr&lt; SizeN &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a49767abcbe5b33d7a5398fcfbe5cc206">toolbox::util::make_storage</a> ()</td></tr>
-<tr class="memdesc:a49767abcbe5b33d7a5398fcfbe5cc206"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a block of dynamic block of storage acquired from the custom allocator.  <a href="namespacetoolbox_1_1util.html#a49767abcbe5b33d7a5398fcfbe5cc206">More...</a><br /></td></tr>
+<tr class="memdesc:a49767abcbe5b33d7a5398fcfbe5cc206"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a block of dynamic storage acquired from the custom allocator.  <a href="namespacetoolbox_1_1util.html#a49767abcbe5b33d7a5398fcfbe5cc206">More...</a><br /></td></tr>
 <tr class="separator:a49767abcbe5b33d7a5398fcfbe5cc206"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
