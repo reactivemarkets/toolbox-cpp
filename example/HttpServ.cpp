@@ -121,7 +121,7 @@ int main(int argc, char* argv[])
         ret = 0;
 
     } catch (const std::exception& e) {
-        TOOLBOX_ERROR << "exception: " << e.what();
+        TOOLBOX_ERROR << "exception on main thread: " << e.what();
     }
     return ret;
 }

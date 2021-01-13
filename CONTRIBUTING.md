@@ -142,7 +142,7 @@ runtime_error{"something bad"}` not `throw runtime_error{"Something bad"}`, so t
 below formats without a spurious capital letter mid-message.
 
 ```c++
-TOOLBOX_ERROR << "exception: " << e.what();
+TOOLBOX_ERROR << "exception on main thread: " << e.what();
 ```
 
 ### Logging

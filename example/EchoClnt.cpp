@@ -76,7 +76,7 @@ class EchoConn {
                 }
             }
         } catch (const std::exception& e) {
-            TOOLBOX_ERROR << "could not read data: " << e.what();
+            TOOLBOX_ERROR << "exception on input: " << e.what();
             dispose(now);
         }
     }
@@ -87,7 +87,7 @@ class EchoConn {
                 throw runtime_error{"partial write"};
             }
         } catch (const std::exception& e) {
-            TOOLBOX_ERROR << "could not write data: " << e.what();
+            TOOLBOX_ERROR << "exception on timer: " << e.what();
             dispose(now);
         }
     }
@@ -221,7 +221,7 @@ int main(int argc, char* argv[])
         ret = 0;
 
     } catch (const std::exception& e) {
-        TOOLBOX_ERROR << "exception: " << e.what();
+        TOOLBOX_ERROR << "exception on main thread: " << e.what();
     }
     return ret;
 }

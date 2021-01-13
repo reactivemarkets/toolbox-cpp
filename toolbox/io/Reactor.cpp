@@ -160,7 +160,7 @@ int Reactor::dispatch(CyclTime now, Event* buf, int size)
         try {
             ref.slot(now, fd, events);
         } catch (const std::exception& e) {
-            TOOLBOX_ERROR << "error handling io event: " << e.what();
+            TOOLBOX_ERROR << "exception in i/o event handler: " << e.what();
         }
         ++work;
     }
