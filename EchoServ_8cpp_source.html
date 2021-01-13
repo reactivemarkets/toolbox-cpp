@@ -156,7 +156,7 @@ $(function() {
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                                      bind&lt;&amp;EchoConn::on_timer&gt;(<span class="keyword">this</span>));</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            }</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <a class="code" href="Log_8hpp.html#aca90da8a175ed216c67a7b0d6f517eda">TOOLBOX_ERROR</a> &lt;&lt; <span class="stringliteral">&quot;exception: &quot;</span> &lt;&lt; e.what();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <a class="code" href="Log_8hpp.html#aca90da8a175ed216c67a7b0d6f517eda">TOOLBOX_ERROR</a> &lt;&lt; <span class="stringliteral">&quot;exception on input: &quot;</span> &lt;&lt; e.what();</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            dispose(now);</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
@@ -246,7 +246,7 @@ $(function() {
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        ret = 0;</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <a class="code" href="Log_8hpp.html#aca90da8a175ed216c67a7b0d6f517eda">TOOLBOX_ERROR</a> &lt;&lt; <span class="stringliteral">&quot;exception: &quot;</span> &lt;&lt; e.what();</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <a class="code" href="Log_8hpp.html#aca90da8a175ed216c67a7b0d6f517eda">TOOLBOX_ERROR</a> &lt;&lt; <span class="stringliteral">&quot;exception on main thread: &quot;</span> &lt;&lt; e.what();</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    }</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;}</div>

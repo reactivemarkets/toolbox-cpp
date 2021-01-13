@@ -161,7 +161,7 @@ $(function() {
 <h2>Exceptions</h2>
 <p>Exception messages should not be capitalised (unless beginning with proper nouns or acronyms) or end with punctuation, since they are usually printed following other context. That is, use <code>throw runtime_error{"something bad"}</code> not <code>throw runtime_error{"Something bad"}</code>, so that the example below formats without a spurious capital letter mid-message.</p>
 <div class="fragment"><div class="line"> {c++}</div>
-<div class="line">TOOLBOX_ERROR &lt;&lt; &quot;exception: &quot; &lt;&lt; e.what();</div>
+<div class="line">TOOLBOX_ERROR &lt;&lt; &quot;exception on main thread: &quot; &lt;&lt; e.what();</div>
 </div><!-- fragment --><h2>Logging</h2>
 <p>Long running applications and services should log exceptional conditions and life-cycle events. Logging in library code, where the run-time context is often unknown, is generally frowned upon and should be kept to a minimum. Log files should be kept clean and readable; they should not be used to trace the normal flow of execution in production code.</p>
 <h1>License</h1>
