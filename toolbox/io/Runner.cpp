@@ -39,7 +39,7 @@ void run_reactor(Reactor& r, long busy_cycles, ThreadConfig config, const std::a
             }
         }
     } catch (const std::exception& e) {
-        TOOLBOX_CRIT << "exception: " << e.what();
+        TOOLBOX_CRIT << "exception on " << config.name << " thread: " << e.what();
         kill(getpid(), SIGTERM);
     }
     TOOLBOX_NOTICE << "stopping " << config.name << " thread";

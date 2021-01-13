@@ -135,7 +135,7 @@ void TimerQueue::expire(CyclTime now)
         // Notify user.
         tmr.slot().invoke(now, tmr);
     } catch (const std::exception& e) {
-        TOOLBOX_ERROR << "error handling timer event: " << e.what();
+        TOOLBOX_ERROR << "exception in i/o timer handler: " << e.what();
     }
 
     // If timer was not cancelled during the callback.

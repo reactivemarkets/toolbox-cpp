@@ -30,7 +30,7 @@ void dispatch(CyclTime now, const HookList& l) noexcept
         try {
             prev->slot(now);
         } catch (const std::exception& e) {
-            TOOLBOX_ERROR << "error handling hook: " << e.what();
+            TOOLBOX_ERROR << "exception in i/o hook: " << e.what();
         }
     }
 }

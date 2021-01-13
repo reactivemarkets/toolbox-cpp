@@ -36,7 +36,7 @@ void run_resolver(Resolver& r, ThreadConfig config)
         while (r.run() >= 0)
             ;
     } catch (const std::exception& e) {
-        TOOLBOX_CRIT << "exception: " << e.what();
+        TOOLBOX_CRIT << "exception on " << config.name << " thread: " << e.what();
         kill(getpid(), SIGTERM);
     }
     TOOLBOX_NOTICE << "stopping " << config.name << " thread";
