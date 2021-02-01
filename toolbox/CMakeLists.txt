@@ -110,7 +110,6 @@ set(lib_SOURCES
   util/Options.cpp
   util/RingBuffer.cpp
   util/RobinHood.cpp
-  util/Ryu.cpp
   util/Slot.cpp
   util/Storage.cpp
   util/Stream.cpp
@@ -241,7 +240,6 @@ set(test_SOURCES
   util/Options.ut.cpp
   util/RefCount.ut.cpp
   util/RingBuffer.ut.cpp
-  util/Ryu.ut.cpp
   util/Slot.ut.cpp
   util/Stream.ut.cpp
   util/String.ut.cpp

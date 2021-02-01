@@ -17,7 +17,6 @@
 set(targets
   tb-log-bench
   tb-map-bench
-  tb-ryu-bench
   tb-time-bench
   tb-timer-bench
   tb-util-bench)
@@ -29,9 +28,6 @@ target_link_libraries(tb-log-bench ${tb_bm_LIBRARY})
 
 add_executable(tb-map-bench Map.bm.cpp)
 target_link_libraries(tb-map-bench ${tb_bm_LIBRARY})
-
-add_executable(tb-ryu-bench Ryu.bm.cpp)
-target_link_libraries(tb-ryu-bench ${tb_bm_LIBRARY})
 
 add_executable(tb-time-bench Time.bm.cpp)
 target_link_libraries(tb-time-bench ${tb_bm_LIBRARY})
