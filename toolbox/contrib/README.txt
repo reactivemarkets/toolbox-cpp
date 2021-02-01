@@ -12,6 +12,3 @@ https://gitlab.freedesktop.org/libbsd/libbsd/-/raw/master/src/pidfile.c
 
 robin-hood-hashing:
 https://raw.githubusercontent.com/martinus/robin-hood-hashing/master/src/include/robin_hood.h
-
-ryu:
-git@github.com:ulfjack/ryu.git
