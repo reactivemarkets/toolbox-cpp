@@ -175,7 +175,7 @@ BOOST_AUTO_TEST_CASE(PstrcpyCase)
     struct TOOLBOX_PACKED {
         char data[8];
         char canary;
-    } buf;
+    } buf{};
 
     auto clear = [&]() { memset(buf.data, '#', sizeof(buf.data) + 1); };
 
@@ -277,7 +277,7 @@ BOOST_AUTO_TEST_CASE(PstrcpyidCase)
     struct TOOLBOX_PACKED {
         char data[8];
         char canary;
-    } buf;
+    } buf{};
 
     auto clear = [&]() { memset(buf.data, '#', sizeof(buf.data) + 1); };
 
