@@ -64,11 +64,6 @@ set(lib_SOURCES
   io/Runner.cpp
   io/Timer.cpp
   io/TimerFd.cpp
-  ipc/Futex.cpp
-  ipc/Mmap.cpp
-  ipc/MpmcQueue.cpp
-  ipc/Msg.cpp
-  ipc/Shm.cpp
   net/DgramSock.cpp
   net/Endian.cpp
   net/Endpoint.cpp
@@ -160,7 +155,6 @@ install(FILES bm.hpp DESTINATION include/toolbox COMPONENT header)
 install(FILES hdr.hpp DESTINATION include/toolbox COMPONENT header)
 install(FILES http.hpp DESTINATION include/toolbox COMPONENT header)
 install(FILES io.hpp DESTINATION include/toolbox COMPONENT header)
-install(FILES ipc.hpp DESTINATION include/toolbox COMPONENT header)
 install(FILES net.hpp DESTINATION include/toolbox COMPONENT header)
 install(FILES sys.hpp DESTINATION include/toolbox COMPONENT header)
 install(FILES util.hpp DESTINATION include/toolbox COMPONENT header)
