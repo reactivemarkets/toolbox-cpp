@@ -9,9 +9,6 @@
 ## IO Package
 ![IO Package](@ref tb-io.png)
 
-## IPC Package
-![IPC Package](@ref tb-ipc.png)
-
 ## Net Package
 ![Net Package](@ref tb-net.png)
 

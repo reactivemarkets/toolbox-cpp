@@ -25,7 +25,6 @@ if(DOT_EXECUTABLE)
     util
     sys
     io
-    ipc
     net
     http
   )
