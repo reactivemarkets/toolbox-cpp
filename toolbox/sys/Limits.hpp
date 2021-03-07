@@ -32,13 +32,7 @@ enum : std::size_t {
     PageBits = 12,
     PageSize = 1 << PageBits,
     /// Maximum log line size.
-    MaxLogLine = 4096,
-    /// Maximum message size.
-    /// A sensible upper-bound for message payloads is 1400 bytes:
-    /// - Max Datagram (1472) - Aeron Header (32) = 1440
-    /// - Round-down to cache-line boundary: (1440 & ~63) = 1408
-    /// - Subtract MPMC queue header: 1408 - 8 = 1400
-    MaxMsgSize = 1400
+    MaxLogLine = 4096
 };
 
 constexpr std::size_t ceil_cache_line(std::size_t size) noexcept
