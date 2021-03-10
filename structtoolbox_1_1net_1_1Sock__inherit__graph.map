@@ -2,7 +2,7 @@
 <area shape="rect" id="node1" title=" " alt="" coords="335,80,474,107"/>
 <area shape="rect" id="node3" href="$structtoolbox_1_1net_1_1IoSock.html" title=" " alt="" coords="227,155,377,181"/>
 <area shape="rect" id="node7" href="$structtoolbox_1_1net_1_1StreamSockServ.html" title="Passive Server Stream Socket. All state is in base class, so object can be sliced." alt="" coords="401,155,616,181"/>
-<area shape="rect" id="node2" href="$classtoolbox_1_1io_1_1BasicHandle.html" title=" " alt="" coords="359,5,450,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="359,5,450,32"/>
 <area shape="rect" id="node4" href="$structtoolbox_1_1net_1_1DgramSock.html" title="Connectionless Datagram Socket. All state is in base class, so object can be sliced." alt="" coords="5,229,188,256"/>
 <area shape="rect" id="node5" href="$structtoolbox_1_1net_1_1McastSock.html" title="Connectionless Datagram Socket. All state is in base class, so object can be sliced." alt="" coords="213,229,391,256"/>
 <area shape="rect" id="node6" href="$structtoolbox_1_1net_1_1StreamSockClnt.html" title="Active Client Stream Socket. All state is in base class, so object can be sliced." alt="" coords="416,229,628,256"/>
