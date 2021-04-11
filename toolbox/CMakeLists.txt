@@ -178,7 +178,7 @@ install(FILES contrib/http_parser.h
 
 if(${CMAKE_CXX_COMPILER_ID} MATCHES GNU AND ${CMAKE_BUILD_TYPE} MATCHES COVERAGE)
   find_program (gcovr gcovr)
-  if (gcovr)
+  if(gcovr)
       message (STATUS "Enabled coverage report generation target 'gcovr'")
       add_custom_target (gcovr
           COMMENT "Generating coverage report: ${CMAKE_BINARY_DIR}/gcovr/index.html"
