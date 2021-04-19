@@ -82,18 +82,18 @@ $(function() {
 <div class="line">$ cmake $SOURCE_DIR/toolbox-cpp -DCMAKE_INSTALL_PREFIX=$TOOLBOX_HOME</div>
 </div><!-- fragment --><p>This step will produce Unix Makefiles by default. The build-type and compiler can be set using the following options:</p>
 <div class="fragment"><div class="line">$ cmake $SOURCE_DIR/toolbox-cpp -G &quot;Unix Makefiles&quot; \</div>
-<div class="line">  -DCMAKE_BUILD_TYPE=RELEASE \</div>
+<div class="line">  -DCMAKE_BUILD_TYPE=Release \</div>
 <div class="line">  -DCMAKE_INSTALL_PREFIX=$TOOLBOX_HOME \</div>
 <div class="line">  -DCMAKE_C_COMPILER=gcc \</div>
 <div class="line">  -DCMAKE_CXX_COMPILER=g++</div>
 </div><!-- fragment --><p>Build times can be reduced during development by disabling shared libraries and compiler optimisations:</p>
 <div class="fragment"><div class="line">$ cmake $SOURCE_DIR/toolbox-cpp -G &quot;Unix Makefiles&quot; \</div>
-<div class="line">  -DCMAKE_BUILD_TYPE=DEBUG \</div>
+<div class="line">  -DCMAKE_BUILD_TYPE=Debug \</div>
 <div class="line">  -DTOOLBOX_BUILD_SHARED=OFF</div>
 </div><!-- fragment --><p>Note that both shared and static libraries are built by default.</p>
 <p>Architecture-specific optimisation flags can be specified for release builds:</p>
 <div class="fragment"><div class="line">$ cmake $SOURCE_DIR/toolbox-cpp -G &quot;Unix Makefiles&quot; \</div>
-<div class="line">  -DCMAKE_BUILD_TYPE=RELEASE \</div>
+<div class="line">  -DCMAKE_BUILD_TYPE=Release \</div>
 <div class="line">  -DCMAKE_C_FLAGS_RELEASE=&quot;-march=native -O3&quot; \</div>
 <div class="line">  -DCMAKE_CXX_FLAGS_RELEASE=&quot;-march=native -O3&quot;</div>
 </div><!-- fragment --><p>See <a href="https://cmake.org/documentation">CMake Documentation</a> for further information.</p>
