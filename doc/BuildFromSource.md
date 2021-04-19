@@ -31,7 +31,7 @@ following options:
 
 ``` bash
 $ cmake $SOURCE_DIR/toolbox-cpp -G "Unix Makefiles" \
-  -DCMAKE_BUILD_TYPE=RELEASE \
+  -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_INSTALL_PREFIX=$TOOLBOX_HOME \
   -DCMAKE_C_COMPILER=gcc \
   -DCMAKE_CXX_COMPILER=g++
@@ -42,7 +42,7 @@ optimisations:
 
 ``` bash
 $ cmake $SOURCE_DIR/toolbox-cpp -G "Unix Makefiles" \
-  -DCMAKE_BUILD_TYPE=DEBUG \
+  -DCMAKE_BUILD_TYPE=Debug \
   -DTOOLBOX_BUILD_SHARED=OFF
 ```
 
@@ -52,7 +52,7 @@ Architecture-specific optimisation flags can be specified for release builds:
 
 ``` bash
 $ cmake $SOURCE_DIR/toolbox-cpp -G "Unix Makefiles" \
-  -DCMAKE_BUILD_TYPE=RELEASE \
+  -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_C_FLAGS_RELEASE="-march=native -O3" \
   -DCMAKE_CXX_FLAGS_RELEASE="-march=native -O3"
 ```
