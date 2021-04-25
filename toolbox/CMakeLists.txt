@@ -121,13 +121,13 @@ set(lib_SOURCES
   util/Version.cpp)
 
 add_library(tb-core-static STATIC ${lib_SOURCES})
-set_target_properties(tb-core-static PROPERTIES OUTPUT_NAME tb-core)
+set_target_properties(tb-core-static PROPERTIES OUTPUT_NAME tb_core)
 target_link_libraries(tb-core-static pthread)
 install(TARGETS tb-core-static DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT static)
 
 if(TOOLBOX_BUILD_SHARED)
   add_library(tb-core-shared SHARED ${lib_SOURCES})
-  set_target_properties(tb-core-shared PROPERTIES OUTPUT_NAME tb-core)
+  set_target_properties(tb-core-shared PROPERTIES OUTPUT_NAME tb_core)
   target_link_libraries(tb-core-shared pthread)
   install(TARGETS tb-core-shared DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT shared)
 endif()
@@ -141,13 +141,13 @@ set(lib_bm_SOURCES
   bm/Utility.cpp)
 
 add_library(tb-bm-static STATIC ${lib_bm_SOURCES})
-set_target_properties(tb-bm-static PROPERTIES OUTPUT_NAME tb-bm)
+set_target_properties(tb-bm-static PROPERTIES OUTPUT_NAME tb_bm)
 target_link_libraries(tb-bm-static ${tb_core_LIBRARY})
 install(TARGETS tb-bm-static DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT static)
 
 if(TOOLBOX_BUILD_SHARED)
   add_library(tb-bm-shared SHARED ${lib_bm_SOURCES})
-  set_target_properties(tb-bm-shared PROPERTIES OUTPUT_NAME tb-bm)
+  set_target_properties(tb-bm-shared PROPERTIES OUTPUT_NAME tb_bm)
   target_link_libraries(tb-bm-shared ${tb_core_LIBRARY})
   install(TARGETS tb-bm-shared DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT shared)
 endif()
