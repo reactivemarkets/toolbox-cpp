@@ -29,18 +29,18 @@ include(GNUInstallDirs)
 set(REACTIVE_BUILD_ARCH "native" CACHE STRING "Target architecture.")
 set(REACTIVE_BUILD_SHARED ON CACHE BOOL "Enable shared libs.")
 set(REACTIVE_VERSION "snapshot" CACHE STRING "Release version.")
-set(REACTIVE_TOOLCHAIN "" CACHE PATH "Toolchain prefix.")
+set(REACTIVE_TOOLSET "" CACHE PATH "Toolset prefix.")
 
 # Toolbox options.
 set(TOOLBOX_BUILD_ARCH   "${REACTIVE_BUILD_ARCH}")
 set(TOOLBOX_BUILD_SHARED "${REACTIVE_BUILD_SHARED}")
 set(TOOLBOX_VERSION      "${REACTIVE_VERSION}")
-set(TOOLBOX_TOOLCHAIN    "${REACTIVE_TOOLCHAIN}")
+set(TOOLBOX_TOOLSET      "${REACTIVE_TOOLSET}")
 
-if(NOT "${TOOLBOX_TOOLCHAIN}" STREQUAL "")
-  get_filename_component(TOOLBOX_TOOLCHAIN "${TOOLBOX_TOOLCHAIN}" REALPATH)
-  set(CMAKE_PREFIX_PATH "${TOOLBOX_TOOLCHAIN}")
-  message(STATUS "TOOLBOX_TOOLCHAIN: ${TOOLBOX_TOOLCHAIN}")
+if(NOT "${TOOLBOX_TOOLSET}" STREQUAL "")
+  get_filename_component(TOOLBOX_TOOLSET "${TOOLBOX_TOOLSET}" REALPATH)
+  set(CMAKE_PREFIX_PATH "${TOOLBOX_TOOLSET}")
+  message(STATUS "TOOLBOX_TOOLSET: ${TOOLBOX_TOOLSET}")
 endif()
 
 set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${PROJECT_SOURCE_DIR}/etc/cmake")
@@ -193,7 +193,7 @@ endif()
 enable_testing()
 
 # Add cppcheck target if tool is available.
-find_program(CPPCHECK cppcheck HINTS "${TOOLBOX_TOOLCHAIN}/bin")
+find_program(CPPCHECK cppcheck HINTS "${TOOLBOX_TOOLSET}/bin")
 if(CPPCHECK)
   message(STATUS "Found cppcheck")
   cmake_host_system_information(RESULT CORE_COUNT QUERY NUMBER_OF_LOGICAL_CORES)
@@ -203,7 +203,7 @@ if(CPPCHECK)
 endif()
 
 # Add clang-format target if tool is available.
-find_program(CLANG_FORMAT clang-format HINTS "${TOOLBOX_TOOLCHAIN}/bin")
+find_program(CLANG_FORMAT clang-format HINTS "${TOOLBOX_TOOLSET}/bin")
 if(CLANG_FORMAT)
   message(STATUS "Found clang-format")
   configure_file("${PROJECT_SOURCE_DIR}/clang-format.sh.in"
@@ -213,7 +213,7 @@ endif()
 
 # Add clang-tidy target if tool is available.
 find_program(CLANG_TIDY run-clang-tidy.py HINTS "/usr/share/clang/"
-  "${TOOLBOX_TOOLCHAIN}/share/clang")
+  "${TOOLBOX_TOOLSET}/share/clang")
 if(CLANG_TIDY)
   message(STATUS "Found clang-tidy")
   cmake_host_system_information(RESULT CORE_COUNT QUERY NUMBER_OF_LOGICAL_CORES)
