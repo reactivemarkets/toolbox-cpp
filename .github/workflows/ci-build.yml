@@ -48,8 +48,8 @@ jobs:
 
       - name: Run clang-format
         run: cd build && make clang-format &&
-          [[ -z "$(git status --porcelain)" ]] ||
-            { echo "Please ensure files are formated by running target clang-format"; exit 1; }
+          [[ -z "$(git status -uno --porcelain)" ]] ||
+            { echo "Please ensure files are formatted by running target clang-format"; exit 1; }
 
   build:
     runs-on: ubuntu-latest
