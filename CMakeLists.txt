@@ -22,6 +22,8 @@ endif()
 cmake_minimum_required(VERSION 3.12)
 project(toolbox-cpp)
 
+set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${PROJECT_SOURCE_DIR}/etc/cmake")
+
 include(CheckIPOSupported)
 include(GNUInstallDirs)
 
@@ -42,8 +44,6 @@ if(NOT "${TOOLBOX_TOOLSET}" STREQUAL "")
   set(CMAKE_PREFIX_PATH "${TOOLBOX_TOOLSET}")
   message(STATUS "TOOLBOX_TOOLSET: ${TOOLBOX_TOOLSET}")
 endif()
-
-set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${PROJECT_SOURCE_DIR}/etc/cmake")
 
 # Optimise for target architecture.
 set(CMAKE_C_FLAGS_RELEASE          "${CMAKE_C_FLAGS_RELEASE} -march=${TOOLBOX_BUILD_ARCH}")
