@@ -197,7 +197,7 @@ find_program(CPPCHECK cppcheck HINTS "${TOOLBOX_TOOLSET}/bin")
 if(CPPCHECK)
   message(STATUS "Found cppcheck")
   cmake_host_system_information(RESULT CORE_COUNT QUERY NUMBER_OF_LOGICAL_CORES)
-  configure_file("${PROJECT_SOURCE_DIR}/cppcheck.sh.in"
+  configure_file("${CMAKE_SOURCE_DIR}/cppcheck.sh.in"
     "${CMAKE_BINARY_DIR}/cppcheck.sh" @ONLY)
   add_custom_target(cppcheck COMMAND bash "${CMAKE_BINARY_DIR}/cppcheck.sh")
 endif()
