@@ -79,7 +79,7 @@ class BenchmarkStore {
 };
 } // namespace
 
-Benchmark::Benchmark(const char* name, void (*fn)(BenchmarkCtx&))
+Benchmark::Benchmark(const char* name, void (*fn)(Context&))
 : name{name}
 , fn{fn}
 {

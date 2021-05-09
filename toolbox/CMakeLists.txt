@@ -134,7 +134,7 @@ endif()
 
 set(lib_bm_SOURCES
   bm/Benchmark.cpp
-  bm/Ctx.cpp
+  bm/Context.cpp
   bm/Range.cpp
   bm/Record.cpp
   bm/Suite.cpp

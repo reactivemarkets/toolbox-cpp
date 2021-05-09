@@ -17,7 +17,7 @@
 #define TOOLBOX_BM_HPP
 
 #include "bm/Benchmark.hpp"
-#include "bm/Ctx.hpp"
+#include "bm/Context.hpp"
 #include "bm/Range.hpp"
 #include "bm/Record.hpp"
 #include "bm/Suite.hpp"

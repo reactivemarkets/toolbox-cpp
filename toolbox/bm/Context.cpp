@@ -13,9 +13,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Ctx.hpp"
+#include "Context.hpp"
 
 namespace toolbox::bm {
 using namespace std;
-BenchmarkCtx::~BenchmarkCtx() = default;
+Context::~Context() = default;
 } // namespace toolbox::bm
