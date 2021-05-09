@@ -19,12 +19,12 @@
 #include <toolbox/Config.h>
 
 namespace toolbox::bm {
-class BenchmarkCtx;
+class Context;
 
 struct TOOLBOX_API Benchmark {
-    Benchmark(const char* name, void (*fn)(BenchmarkCtx&));
+    Benchmark(const char* name, void (*fn)(Context&));
     const char* const name;
-    void (*fn)(BenchmarkCtx&);
+    void (*fn)(Context&);
 };
 
 namespace detail {
@@ -34,10 +34,10 @@ TOOLBOX_API int main(int argc, char* argv[]);
 
 #define TOOLBOX_BENCHMARK(NAME)                                                                    \
     namespace benchmark::NAME {                                                                    \
-    void fn(::toolbox::bm::BenchmarkCtx& ctx);                                                     \
+    void fn(::toolbox::bm::Context& ctx);                                                          \
     ::toolbox::bm::Benchmark bm{#NAME, fn};                                                        \
     }                                                                                              \
-    void benchmark::NAME::fn(toolbox::bm::BenchmarkCtx& ctx)
+    void benchmark::NAME::fn(toolbox::bm::Context& ctx)
 
 #define TOOLBOX_BENCHMARK_MAIN                                                                     \
     int main(int argc, char* argv[]) { return toolbox::bm::detail::main(argc, argv); }

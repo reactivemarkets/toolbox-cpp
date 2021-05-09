@@ -13,8 +13,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef TOOLBOX_BM_CTX
-#define TOOLBOX_BM_CTX
+#ifndef TOOLBOX_BM_CONTEXT
+#define TOOLBOX_BM_CONTEXT
 
 #include <toolbox/bm/Range.hpp>
 #include <toolbox/util/Alarm.hpp>
@@ -23,21 +23,21 @@
 
 namespace toolbox::bm {
 
-class TOOLBOX_API BenchmarkCtx {
+class TOOLBOX_API Context {
   public:
-    explicit BenchmarkCtx(Histogram& hist)
+    explicit Context(Histogram& hist)
     : hist_{hist}
     {
     }
-    ~BenchmarkCtx();
+    ~Context();
 
     // Copy.
-    BenchmarkCtx(const BenchmarkCtx&) = delete;
-    BenchmarkCtx& operator=(const BenchmarkCtx&) = delete;
+    Context(const Context&) = delete;
+    Context& operator=(const Context&) = delete;
 
     // Move.
-    BenchmarkCtx(BenchmarkCtx&&) = delete;
-    BenchmarkCtx& operator=(BenchmarkCtx&&) = delete;
+    Context(Context&&) = delete;
+    Context& operator=(Context&&) = delete;
 
     explicit operator bool() const noexcept { return !stop_; }
     BenchmarkRange range(int first, int last) const noexcept { return {hist_, first, last}; }
@@ -52,4 +52,4 @@ class TOOLBOX_API BenchmarkCtx {
 
 } // namespace toolbox::bm
 
-#endif // TOOLBOX_BM_CTX
+#endif // TOOLBOX_BM_CONTEXT

@@ -16,7 +16,7 @@
 #ifndef TOOLBOX_BM_SUITE_HPP
 #define TOOLBOX_BM_SUITE_HPP
 
-#include <toolbox/bm/Ctx.hpp>
+#include <toolbox/bm/Context.hpp>
 
 #include <toolbox/hdr/Histogram.hpp>
 
@@ -33,7 +33,7 @@ class TOOLBOX_API BenchmarkSuite {
         constexpr auto duration = 3s;
 
         Histogram hist{1, 1'000'000'000, 5};
-        BenchmarkCtx ctx{hist};
+        Context ctx{hist};
         Alarm alarm{duration, [&ctx]() { ctx.stop(); }};
         fn(ctx);
         report(name, hist);
