@@ -7,7 +7,7 @@ https://raw.githubusercontent.com/nodejs/http-parser/master/http_parser.c
 https://raw.githubusercontent.com/nodejs/http-parser/master/http_parser.h
 
 libbsd:
-https://gitlab.freedesktop.org/libbsd/libbsd/-/blob/master/src/flopen.c
+https://gitlab.freedesktop.org/libbsd/libbsd/-/raw/master/src/flopen.c
 https://gitlab.freedesktop.org/libbsd/libbsd/-/raw/master/src/pidfile.c
 
 robin-hood-hashing:
