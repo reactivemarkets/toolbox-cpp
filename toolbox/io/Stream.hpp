@@ -14,19 +14,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef TOOLBOX_HTTP_STREAM_HPP
-#define TOOLBOX_HTTP_STREAM_HPP
+#ifndef TOOLBOX_IO_STREAM_HPP
+#define TOOLBOX_IO_STREAM_HPP
 
-#include <toolbox/http/Types.hpp>
 #include <toolbox/io/Buffer.hpp>
 #include <toolbox/util/Stream.hpp>
 
 namespace toolbox {
-inline namespace http {
-
-constexpr char ApplicationJson[]{"application/json"};
-constexpr char TextHtml[]{"text/html"};
-constexpr char TextPlain[]{"text/plain"};
+inline namespace io {
 
 class TOOLBOX_API StreamBuf final : public std::streambuf {
   public:
@@ -44,14 +39,12 @@ class TOOLBOX_API StreamBuf final : public std::streambuf {
     StreamBuf(StreamBuf&&) = delete;
     StreamBuf& operator=(StreamBuf&&) = delete;
 
-    std::streamsize pcount() const noexcept { return pcount_; }
     void commit() noexcept { buf_.commit(pcount_); }
     void reset() noexcept
     {
         pbase_ = nullptr;
         pcount_ = 0;
     }
-    void set_content_length(std::streamsize pos, std::streamsize len) noexcept;
 
   protected:
     int_type overflow(int_type c) noexcept override;
@@ -81,24 +74,18 @@ class TOOLBOX_API OStream final : public std::ostream {
     OStream(OStream&&) = delete;
     OStream& operator=(OStream&&) = delete;
 
-    void commit() noexcept;
+    void commit() noexcept { buf_.commit(); }
     void reset() noexcept
     {
         buf_.reset();
         *this << reset_state;
-        cloff_ = hcount_ = 0;
     }
-    void reset(Status status, const char* content_type, NoCache no_cache = NoCache::Yes);
 
   private:
     StreamBuf buf_;
-    /// Content-Length offset.
-    std::streamsize cloff_{0};
-    /// Header size.
-    std::streamsize hcount_{0};
 };
 
-} // namespace http
+} // namespace io
 } // namespace toolbox
 
-#endif // TOOLBOX_HTTP_STREAM_HPP
+#endif // TOOLBOX_IO_STREAM_HPP

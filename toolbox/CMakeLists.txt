@@ -62,6 +62,7 @@ set(lib_SOURCES
   io/Waker.cpp
   io/Reactor.cpp
   io/Runner.cpp
+  io/Stream.cpp
   io/Timer.cpp
   io/TimerFd.cpp
   net/DgramSock.cpp

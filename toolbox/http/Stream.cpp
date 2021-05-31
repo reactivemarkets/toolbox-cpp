@@ -56,7 +56,7 @@ OStream::~OStream() = default;
 void OStream::commit() noexcept
 {
     if (cloff_ > 0) {
-        buf_.set_content_length(cloff_, pcount() - hcount_);
+        buf_.set_content_length(cloff_, buf_.pcount() - hcount_);
     }
     buf_.commit();
 }
@@ -76,12 +76,12 @@ void OStream::reset(Status status, const char* content_type, NoCache no_cache)
         // amount of LWS, though a single SP is preferred.
         *this << "\r\nContent-Type: " << content_type //
               << "\r\nContent-Length:          0";
-        cloff_ = pcount();
+        cloff_ = buf_.pcount();
     } else {
         cloff_ = 0;
     }
     *this << "\r\n\r\n";
-    hcount_ = pcount();
+    hcount_ = buf_.pcount();
 }
 
 } // namespace http

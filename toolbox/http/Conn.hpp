@@ -243,7 +243,7 @@ class BasicConn
     void flush_output(CyclTime now)
     {
         // Attempt to flush buffered data.
-        out_.consume(os::write(sock_.get(), out_.data()));
+        out_.consume(sock_.write(out_.data()));
         if (out_.empty()) {
             if (!in_progress_ && !should_keep_alive()) {
                 this->dispose(now);
