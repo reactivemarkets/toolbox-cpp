@@ -14,22 +14,34 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef TOOLBOX_IO_HPP
-#define TOOLBOX_IO_HPP
+#include "Stream.hpp"
 
-#include "io/Buffer.hpp"
-#include "io/Disposer.hpp"
-#include "io/Epoll.hpp"
-#include "io/Event.hpp"
-#include "io/EventFd.hpp"
-#include "io/File.hpp"
-#include "io/Handle.hpp"
-#include "io/Hook.hpp"
-#include "io/Reactor.hpp"
-#include "io/Runner.hpp"
-#include "io/Stream.hpp"
-#include "io/Timer.hpp"
-#include "io/TimerFd.hpp"
-#include "io/Waker.hpp"
+namespace toolbox {
+inline namespace io {
+using namespace std;
 
-#endif // TOOLBOX_IO_HPP
+StreamBuf::~StreamBuf() = default;
+
+StreamBuf::int_type StreamBuf::overflow(int_type c) noexcept
+{
+    if (c != traits_type::eof()) {
+        auto buf = buf_.prepare(pcount_ + 1);
+        pbase_ = buffer_cast<char*>(buf);
+        pbase_[pcount_++] = c;
+    }
+    return c;
+}
+
+streamsize StreamBuf::xsputn(const char_type* s, streamsize count) noexcept
+{
+    auto buf = buf_.prepare(pcount_ + count);
+    pbase_ = buffer_cast<char*>(buf);
+    memcpy(pbase_ + pcount_, s, count);
+    pcount_ += count;
+    return count;
+}
+
+OStream::~OStream() = default;
+
+} // namespace io
+} // namespace toolbox

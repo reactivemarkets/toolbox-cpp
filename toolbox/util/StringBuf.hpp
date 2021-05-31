@@ -97,7 +97,10 @@ class StringBuf {
     {
         len_ = std::min(rlen, MaxN);
         if (len_ > 0) {
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wnonnull"
             std::memcpy(buf_, rdata, len_);
+#pragma GCC diagnostic pop
         }
     }
     void append(const char* rdata, std::size_t rlen) noexcept
