@@ -33,7 +33,7 @@ namespace toolbox::bm {
 /// The elapsed time is recorded in the Histogram object during destruction.
 class TOOLBOX_API BenchmarkRecord {
   public:
-    BenchmarkRecord(Histogram& hist, int count = 1) noexcept;
+    BenchmarkRecord(Histogram& hist, int count = 1) noexcept; // NOLINT(hicpp-explicit-conversions)
     ~BenchmarkRecord();
 
     // Copy.

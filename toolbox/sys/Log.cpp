@@ -99,7 +99,7 @@ void write_log(int level, LogMsgPtr msg, std::size_t size) noexcept
     acquire_logger()(level, move(msg), size);
 }
 
-void null_logger(int, LogMsgPtr, std::size_t) noexcept {}
+void null_logger(int /*unused*/, LogMsgPtr /*unused*/, std::size_t /*unused*/) noexcept {}
 
 void std_logger(int level, LogMsgPtr msg, std::size_t size) noexcept
 {
@@ -107,7 +107,7 @@ void std_logger(int level, LogMsgPtr msg, std::size_t size) noexcept
     const auto t = WallClock::to_time_t(now);
     const auto ms = ms_since_epoch(now);
 
-    struct tm tm;
+    struct tm tm; // NOLINT(hicpp-member-init)
     localtime_r(&t, &tm);
 
     // The following format has an upper-bound of 42 characters:

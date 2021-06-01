@@ -26,7 +26,7 @@ inline namespace sys {
 
 /// ThreadConfig holds the thread attributes.
 struct ThreadConfig {
-    ThreadConfig(std::string name, std::string affinity = {},
+    ThreadConfig(std::string name, std::string affinity = {}, // NOLINT(hicpp-explicit-conversions)
                  std::string sched_policy = {}) noexcept
     : name{std::move(name)}
     , affinity{std::move(affinity)}
@@ -34,6 +34,7 @@ struct ThreadConfig {
     {
     }
     ThreadConfig() noexcept = default;
+    ~ThreadConfig() noexcept = default;
 
     // Copy.
     ThreadConfig(const ThreadConfig&) = default;

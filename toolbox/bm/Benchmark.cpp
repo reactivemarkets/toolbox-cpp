@@ -28,6 +28,7 @@ using namespace std;
 namespace {
 class BenchmarkStore {
   public:
+    ~BenchmarkStore() noexcept = default;
     // Copy.
     BenchmarkStore(const BenchmarkStore&) = delete;
     BenchmarkStore& operator=(const BenchmarkStore&) = delete;

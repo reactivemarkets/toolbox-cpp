@@ -43,7 +43,7 @@ class TOOLBOX_API BenchmarkRange {
         }
 
       public:
-        constexpr Iterator(int val) noexcept
+        constexpr explicit Iterator(int val) noexcept
         : val_{val}
         {
         }

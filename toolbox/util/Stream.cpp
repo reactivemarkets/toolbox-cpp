@@ -21,7 +21,7 @@ inline namespace util {
 using namespace std;
 namespace detail {
 
-ostream& operator<<(ostream& os, ResetState) noexcept
+ostream& operator<<(ostream& os, ResetState /*unused*/) noexcept
 {
     os.clear();
     os.fill(os.widen(' '));

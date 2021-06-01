@@ -33,8 +33,9 @@ void run_resolver(Resolver& r, ThreadConfig config)
         // Reset the resolver before entering the run loop.
         r.reset();
         // The run() function returns -1 when resolver is closed.
-        while (r.run() >= 0)
-            ;
+        while (r.run() >= 0) {
+        }
+
     } catch (const std::exception& e) {
         TOOLBOX_CRIT << "exception on " << config.name << " thread: " << e.what();
         kill(getpid(), SIGTERM);

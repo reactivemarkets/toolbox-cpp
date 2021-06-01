@@ -32,8 +32,9 @@ class BasicHandle {
 
     static constexpr Id invalid() noexcept { return PolicyT::invalid(); }
 
-    constexpr BasicHandle(std::nullptr_t = nullptr) noexcept {}
-    constexpr BasicHandle(Id id) noexcept
+    constexpr BasicHandle(std::nullptr_t = nullptr) noexcept {
+    }                                     // NOLINT(hicpp-explicit-conversions)
+    constexpr BasicHandle(Id id) noexcept // NOLINT(hicpp-explicit-conversions)
     : id_{id}
     {
     }

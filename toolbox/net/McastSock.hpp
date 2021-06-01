@@ -25,7 +25,7 @@ namespace toolbox {
 inline namespace net {
 
 struct TOOLBOX_API IpMcastGroup {
-    IpMcastGroup(const IpAddr& addr, unsigned ifindex = 0) noexcept;
+    explicit IpMcastGroup(const IpAddr& addr, unsigned ifindex = 0) noexcept;
 
     IpMcastGroup(const IpAddr& addr, const char* ifname, std::error_code& ec) noexcept
     : IpMcastGroup(addr, os::if_nametoindex(ifname, ec))

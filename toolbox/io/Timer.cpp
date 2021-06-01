@@ -18,7 +18,6 @@
 
 #include <toolbox/sys/Log.hpp>
 
-#include <algorithm>
 #include <string>
 
 namespace toolbox {

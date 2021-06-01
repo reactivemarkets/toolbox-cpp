@@ -63,8 +63,8 @@ constexpr int hex_digits(UIntegerT i) noexcept
     return 1 + ((Bits - std::countl_zero(i | 1) - 1) >> 2);
 }
 
-static_assert(hex_digits(0x0u) == 1);
-static_assert(hex_digits(0x1u) == 1);
+static_assert(hex_digits(0x0U) == 1);
+static_assert(hex_digits(0x1U) == 1);
 static_assert(hex_digits(std::uint64_t{0xffffffffffff}) == 12);
 
 TOOLBOX_API bool stob(std::string_view sv, bool dfl = false) noexcept;

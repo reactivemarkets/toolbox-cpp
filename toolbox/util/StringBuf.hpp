@@ -33,7 +33,7 @@ class StringBuf {
     {
         assign(rhs.data(), rhs.size());
     }
-    StringBuf(std::string_view rhs) noexcept { assign(rhs.data(), rhs.size()); }
+    explicit StringBuf(std::string_view rhs) noexcept { assign(rhs.data(), rhs.size()); }
     constexpr StringBuf() noexcept = default;
 
     ~StringBuf() = default;
@@ -114,7 +114,7 @@ class StringBuf {
     auto compare(const char* rdata, std::size_t rlen) const noexcept
     {
         std::strong_ordering result{std::memcmp(buf_, rdata, std::min(size(), rlen)) <=> 0};
-        if (result == 0) {
+        if (result == nullptr) {
             result = size() <=> rlen;
         }
         return result;
