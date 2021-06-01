@@ -193,7 +193,10 @@ class OStaticStream final : public std::ostream {
     std::size_t size() const noexcept { return buf_.size(); }
 
     std::string_view str() const noexcept { return buf_.str(); }
-    operator std::string_view() const noexcept { return buf_.str(); }
+    operator std::string_view() const noexcept
+    {
+        return buf_.str();
+    } // NOLINT(hicpp-explicit-conversions)
     /// Reset the current position back to the beginning of the buffer.
     void reset() noexcept { buf_.reset(); };
 

@@ -33,7 +33,7 @@ pair<string, string> split_ip_addr(const string& addr, char delim)
         node = addr.substr(0, pos);
         service = addr.substr(pos + 1);
     }
-    // Remove square braces arround ipv6 address.
+    // Remove square braces around ipv6 address.
     if (node.size() >= 2 && node.front() == '[' && node.back() == ']') {
         node = node.substr(1, node.size() - 2);
     }

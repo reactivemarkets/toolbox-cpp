@@ -208,7 +208,7 @@ class Epoll {
     }
     /// Returns the number of file descriptors that are ready, or zero if no file descriptor became
     /// ready during before the operation timed-out.
-    /// The number of file descriptors returnes may include the timer file descriptor,
+    /// The number of file descriptors returned may include the timer file descriptor,
     /// so callers must check for the presence of this descriptor.
     int wait(Event buf[], std::size_t size, MonoTime timeout, std::error_code& ec) noexcept
     {

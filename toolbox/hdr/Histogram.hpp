@@ -38,6 +38,7 @@ struct TOOLBOX_API BucketConfig {
     /// and 5 (inclusive).
     BucketConfig(std::int64_t lowest_trackable_value, std::int64_t highest_trackable_value,
                  int significant_figures);
+    ~BucketConfig() noexcept = default;
 
     // Copy.
     BucketConfig(const BucketConfig&) noexcept = default;
@@ -62,9 +63,10 @@ struct TOOLBOX_API BucketConfig {
 /// A High Dynamic Range (HDR) Histogram.
 class TOOLBOX_API Histogram {
   public:
-    Histogram(const BucketConfig& config);
+    explicit Histogram(const BucketConfig& config);
     Histogram(std::int64_t lowest_trackable_value, std::int64_t highest_trackable_value,
               std::int32_t significant_figures);
+    ~Histogram() noexcept = default;
 
     // Copy.
     Histogram(const Histogram&) = default;

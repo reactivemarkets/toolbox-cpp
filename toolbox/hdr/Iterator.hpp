@@ -30,7 +30,7 @@ class TOOLBOX_API Iterator {
     /// Construct iterator.
     ///
     /// \param h The histogram to iterate over.
-    Iterator(const Histogram& h) noexcept;
+    explicit Iterator(const Histogram& h) noexcept;
     virtual ~Iterator();
 
     // Copy.
@@ -135,7 +135,7 @@ class TOOLBOX_API CountAddedIterator : public Iterator {
 /// RecordedIterator is a recorded value iterator.
 class TOOLBOX_API RecordedIterator final : public CountAddedIterator {
   public:
-    RecordedIterator(const Histogram& h);
+    explicit RecordedIterator(const Histogram& h);
     ~RecordedIterator() override = default;
 
     // Copy.

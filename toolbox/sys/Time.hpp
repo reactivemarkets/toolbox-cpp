@@ -26,7 +26,7 @@
 #include <iosfwd>
 #include <optional>
 
-#include <sys/time.h>
+#include <ctime>
 
 namespace toolbox {
 inline namespace sys {

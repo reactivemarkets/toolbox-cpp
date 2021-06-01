@@ -42,7 +42,7 @@ class TOOLBOX_API Reactor : public Waker {
         , sid_{sid}
         {
         }
-        constexpr Handle(std::nullptr_t = nullptr) noexcept {}
+        constexpr Handle(std::nullptr_t = nullptr) noexcept {} // NOLINT(hicpp-explicit-conversions)
         ~Handle() { reset(); }
 
         // Copy.
@@ -114,7 +114,7 @@ class TOOLBOX_API Reactor : public Waker {
     };
 
     explicit Reactor(std::size_t size_hint = 0);
-    ~Reactor();
+    ~Reactor() override;
 
     // Copy.
     Reactor(const Reactor&) = delete;

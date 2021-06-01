@@ -24,7 +24,7 @@ using namespace toolbox;
 BOOST_AUTO_TEST_SUITE(HistogramSuite)
 
 constexpr std::int64_t Lowest{1};
-constexpr std::int64_t Highest{3600ull * 1000 * 1000};
+constexpr std::int64_t Highest{3600ULL * 1000 * 1000};
 constexpr std::int32_t Significant{3};
 constexpr auto TestValueLevel = 4;
 constexpr auto Interval = 10000;

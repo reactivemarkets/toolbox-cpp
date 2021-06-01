@@ -98,6 +98,7 @@ class Url : public BasicUrl<Url> {
     {
         parse();
     }
+    ~Url() noexcept = default;
 
     // Copy.
     Url(const Url&) = default;
@@ -120,6 +121,7 @@ class UrlView : public BasicUrl<UrlView> {
     {
         parse();
     }
+    ~UrlView() noexcept = default;
 
     // Copy.
     UrlView(const UrlView&) noexcept = default;

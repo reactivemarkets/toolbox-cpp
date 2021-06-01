@@ -36,7 +36,7 @@ class ArrayView {
     using value_type = ValueT;
 
     using pointer = const ValueT*;
-    using const_pointer = const ValueT*;
+    using const_pointer [[maybe_unused]] = const ValueT*;
 
     using reference = const ValueT&;
     using const_reference = const ValueT&;
@@ -44,7 +44,7 @@ class ArrayView {
     using iterator = const ValueT*;
     using const_iterator = const ValueT*;
 
-    using reverse_iterator = std::reverse_iterator<iterator>;
+    using reverse_iterator [[maybe_unused]] = std::reverse_iterator<iterator>;
     using const_reverse_iterator = std::reverse_iterator<const_iterator>;
 
     using difference_type = std::ptrdiff_t;
@@ -56,12 +56,12 @@ class ArrayView {
     {
     }
     template <typename TypeU, std::size_t SizeN>
-    constexpr ArrayView(TypeU (&arr)[SizeN]) noexcept
+    constexpr ArrayView(TypeU (&arr)[SizeN]) noexcept // NOLINT(hicpp-explicit-conversions)
     : len_{SizeN}
     , ptr_{arr}
     {
     }
-    ArrayView(const std::vector<ValueT>& arr) noexcept
+    ArrayView(const std::vector<ValueT>& arr) noexcept // NOLINT(hicpp-explicit-conversions)
     : len_{arr.size()}
     , ptr_{arr.empty() ? nullptr : &arr[0]}
     {

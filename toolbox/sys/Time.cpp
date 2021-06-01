@@ -24,7 +24,7 @@ TOOLBOX_WEAK Nanos get_time(clockid_t clock_id) noexcept;
 
 NanoTime get_time(clockid_t clock_id) noexcept
 {
-    timespec ts;
+    timespec ts; // NOLINT(hicpp-member-init)
     clock_gettime(clock_id, &ts);
     // Long-long literal is required here for ARM32.
     return NanoTime{ts.tv_sec * 1'000'000'000LL + ts.tv_nsec};

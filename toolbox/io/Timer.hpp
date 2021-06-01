@@ -55,7 +55,7 @@ class TOOLBOX_API Timer {
     : impl_{impl, false}
     {
     }
-    Timer(std::nullptr_t = nullptr) noexcept {}
+    Timer(std::nullptr_t = nullptr) noexcept {} // NOLINT(hicpp-explicit-conversions)
     ~Timer() = default;
 
     // Copy.
@@ -104,6 +104,7 @@ class TOOLBOX_API TimerPool {
 
   public:
     TimerPool() = default;
+    ~TimerPool() noexcept = default;
 
     // Copy.
     TimerPool(const TimerPool&) = delete;
@@ -139,10 +140,11 @@ class TOOLBOX_API TimerQueue {
   public:
     /// Implicit conversion from pool is allowed, so that TimerQueue arrays can be aggregate
     /// initialised.
-    TimerQueue(TimerPool& pool)
+    TimerQueue(TimerPool& pool) // NOLINT(hicpp-explicit-conversions)
     : pool_{pool}
     {
     }
+    ~TimerQueue() noexcept = default;
 
     // Copy.
     TimerQueue(const TimerQueue&) = delete;

@@ -35,7 +35,7 @@ class BasicSlot {
     {
         return !(lhs == rhs);
     }
-    constexpr BasicSlot(std::nullptr_t = nullptr) noexcept {}
+    constexpr explicit BasicSlot(std::nullptr_t = nullptr) noexcept {}
     ~BasicSlot() = default;
 
     // Copy.

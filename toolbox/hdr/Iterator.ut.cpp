@@ -21,8 +21,6 @@
 
 #include <boost/test/unit_test.hpp>
 
-#include <cmath>
-
 using namespace std;
 using namespace toolbox;
 
