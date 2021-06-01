@@ -1,41 +1,41 @@
 <map id="toolbox/net/Resolver.hpp" name="toolbox/net/Resolver.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="1396,5,1580,32"/>
-<area shape="rect" id="node2" href="$Socket_8hpp.html" title=" " alt="" coords="1259,80,1429,107"/>
-<area shape="rect" id="node23" href="$Time_8hpp.html" title=" " alt="" coords="292,80,455,107"/>
-<area shape="rect" id="node37" title=" " alt="" coords="1453,80,1523,107"/>
-<area shape="rect" id="node38" title=" " alt="" coords="1547,80,1610,107"/>
-<area shape="rect" id="node39" title=" " alt="" coords="1635,80,1696,107"/>
-<area shape="rect" id="node3" href="$net_2Error_8hpp.html" title=" " alt="" coords="1039,229,1198,256"/>
-<area shape="rect" id="node6" href="$File_8hpp.html" title=" " alt="" coords="1427,155,1570,181"/>
-<area shape="rect" id="node16" title=" " alt="" coords="1792,229,1888,256"/>
-<area shape="rect" id="node17" title=" " alt="" coords="1645,155,1723,181"/>
-<area shape="rect" id="node18" title=" " alt="" coords="1747,155,1813,181"/>
-<area shape="rect" id="node19" title=" " alt="" coords="905,155,975,181"/>
-<area shape="rect" id="node20" title=" " alt="" coords="1000,155,1096,181"/>
-<area shape="rect" id="node21" title=" " alt="" coords="1120,155,1224,181"/>
-<area shape="rect" id="node22" title=" " alt="" coords="1249,155,1351,181"/>
-<area shape="rect" id="node4" href="$Config_8h.html" title=" " alt="" coords="871,304,999,331"/>
-<area shape="rect" id="node5" title=" " alt="" coords="1313,304,1421,331"/>
-<area shape="rect" id="node7" href="$Buffer_8hpp.html" title=" " alt="" coords="857,229,1015,256"/>
-<area shape="rect" id="node9" href="$Handle_8hpp.html" title=" " alt="" coords="1603,229,1768,256"/>
-<area shape="rect" id="node13" href="$sys_2Error_8hpp.html" title=" " alt="" coords="1419,229,1578,256"/>
-<area shape="rect" id="node14" title=" " alt="" coords="1222,229,1285,256"/>
-<area shape="rect" id="node15" title=" " alt="" coords="1309,229,1395,256"/>
-<area shape="rect" id="node8" title=" " alt="" coords="1023,304,1182,331"/>
-<area shape="rect" id="node10" title=" " alt="" coords="1650,304,1721,331"/>
-<area shape="rect" id="node11" title=" " alt="" coords="1745,304,1805,331"/>
-<area shape="rect" id="node12" title=" " alt="" coords="1551,304,1625,331"/>
-<area shape="rect" id="node24" href="$TypeTraits_8hpp.html" title=" " alt="" coords="497,155,690,181"/>
-<area shape="rect" id="node31" title=" " alt="" coords="715,155,880,181"/>
+<area shape="rect" id="node1" title=" " alt="" coords="1364,5,1548,32"/>
+<area shape="rect" id="node2" href="$Socket_8hpp.html" title=" " alt="" coords="1227,80,1397,107"/>
+<area shape="rect" id="node23" href="$Time_8hpp.html" title=" " alt="" coords="284,80,447,107"/>
+<area shape="rect" id="node37" title=" " alt="" coords="1421,80,1491,107"/>
+<area shape="rect" id="node38" title=" " alt="" coords="1515,80,1578,107"/>
+<area shape="rect" id="node39" title=" " alt="" coords="1603,80,1664,107"/>
+<area shape="rect" id="node3" href="$net_2Error_8hpp.html" title=" " alt="" coords="1007,229,1166,256"/>
+<area shape="rect" id="node6" href="$File_8hpp.html" title=" " alt="" coords="1395,155,1538,181"/>
+<area shape="rect" id="node16" title=" " alt="" coords="1760,229,1856,256"/>
+<area shape="rect" id="node17" title=" " alt="" coords="1613,155,1691,181"/>
+<area shape="rect" id="node18" title=" " alt="" coords="1715,155,1781,181"/>
+<area shape="rect" id="node19" title=" " alt="" coords="873,155,943,181"/>
+<area shape="rect" id="node20" title=" " alt="" coords="968,155,1064,181"/>
+<area shape="rect" id="node21" title=" " alt="" coords="1088,155,1192,181"/>
+<area shape="rect" id="node22" title=" " alt="" coords="1217,155,1319,181"/>
+<area shape="rect" id="node4" href="$Config_8h.html" title=" " alt="" coords="839,304,967,331"/>
+<area shape="rect" id="node5" title=" " alt="" coords="1281,304,1389,331"/>
+<area shape="rect" id="node7" href="$Buffer_8hpp.html" title=" " alt="" coords="825,229,983,256"/>
+<area shape="rect" id="node9" href="$Handle_8hpp.html" title=" " alt="" coords="1571,229,1736,256"/>
+<area shape="rect" id="node13" href="$sys_2Error_8hpp.html" title=" " alt="" coords="1387,229,1546,256"/>
+<area shape="rect" id="node14" title=" " alt="" coords="1190,229,1253,256"/>
+<area shape="rect" id="node15" title=" " alt="" coords="1277,229,1363,256"/>
+<area shape="rect" id="node8" title=" " alt="" coords="991,304,1150,331"/>
+<area shape="rect" id="node10" title=" " alt="" coords="1618,304,1689,331"/>
+<area shape="rect" id="node11" title=" " alt="" coords="1713,304,1773,331"/>
+<area shape="rect" id="node12" title=" " alt="" coords="1519,304,1593,331"/>
+<area shape="rect" id="node24" href="$TypeTraits_8hpp.html" title=" " alt="" coords="465,155,658,181"/>
+<area shape="rect" id="node31" title=" " alt="" coords="683,155,848,181"/>
 <area shape="rect" id="node32" title=" " alt="" coords="5,155,72,181"/>
 <area shape="rect" id="node33" title=" " alt="" coords="96,155,171,181"/>
 <area shape="rect" id="node34" title=" " alt="" coords="195,155,259,181"/>
 <area shape="rect" id="node35" title=" " alt="" coords="283,155,357,181"/>
-<area shape="rect" id="node36" title=" " alt="" coords="381,155,472,181"/>
-<area shape="rect" id="node25" href="$util_2Utility_8hpp.html" title=" " alt="" coords="650,229,817,256"/>
-<area shape="rect" id="node30" title=" " alt="" coords="564,229,623,256"/>
-<area shape="rect" id="node26" title=" " alt="" coords="715,304,754,331"/>
-<area shape="rect" id="node27" title=" " alt="" coords="779,304,845,331"/>
-<area shape="rect" id="node28" title=" " alt="" coords="478,304,575,331"/>
-<area shape="rect" id="node29" title=" " alt="" coords="599,304,691,331"/>
+<area shape="rect" id="node36" title=" " alt="" coords="381,155,440,181"/>
+<area shape="rect" id="node25" href="$util_2Utility_8hpp.html" title=" " alt="" coords="618,229,785,256"/>
+<area shape="rect" id="node30" title=" " alt="" coords="532,229,591,256"/>
+<area shape="rect" id="node26" title=" " alt="" coords="683,304,722,331"/>
+<area shape="rect" id="node27" title=" " alt="" coords="747,304,813,331"/>
+<area shape="rect" id="node28" title=" " alt="" coords="446,304,543,331"/>
+<area shape="rect" id="node29" title=" " alt="" coords="567,304,659,331"/>
 </map>

@@ -107,7 +107,7 @@ $(function() {
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        node = addr.substr(0, pos);</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        service = addr.substr(pos + 1);</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">// Remove square braces arround ipv6 address.</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">// Remove square braces around ipv6 address.</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">if</span> (node.size() &gt;= 2 &amp;&amp; node.front() == <span class="charliteral">&#39;[&#39;</span> &amp;&amp; node.back() == <span class="charliteral">&#39;]&#39;</span>) {</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        node = node.substr(1, node.size() - 2);</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>

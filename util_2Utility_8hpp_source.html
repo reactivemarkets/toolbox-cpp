@@ -126,8 +126,8 @@ $(function() {
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">return</span> 1 + ((Bits - std::countl_zero(i | 1) - 1) &gt;&gt; 2);</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;static_assert(<a class="code" href="namespacetoolbox_1_1util.html#a52c9c48d75ab7f8d29a5c9ea9848f729">hex_digits</a>(0x0u) == 1);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;static_assert(<a class="code" href="namespacetoolbox_1_1util.html#a52c9c48d75ab7f8d29a5c9ea9848f729">hex_digits</a>(0x1u) == 1);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;static_assert(<a class="code" href="namespacetoolbox_1_1util.html#a52c9c48d75ab7f8d29a5c9ea9848f729">hex_digits</a>(0x0U) == 1);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;static_assert(<a class="code" href="namespacetoolbox_1_1util.html#a52c9c48d75ab7f8d29a5c9ea9848f729">hex_digits</a>(0x1U) == 1);</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;static_assert(<a class="code" href="namespacetoolbox_1_1util.html#a52c9c48d75ab7f8d29a5c9ea9848f729">hex_digits</a>(std::uint64_t{0xffffffffffff}) == 12);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<a class="code" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> <span class="keywordtype">bool</span> <a class="code" href="namespacetoolbox_1_1util.html#a02971d2bfcfc734253cafd92a59302ed">stob</a>(std::string_view sv, <span class="keywordtype">bool</span> dfl = <span class="keyword">false</span>) noexcept;</div>

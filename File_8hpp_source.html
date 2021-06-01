@@ -288,7 +288,7 @@ $(function() {
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
 <div class="line"><a name="l00238"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1io.html#a44ef290e2d48037f4da9d777121ab619">  238</a></span>&#160;<span class="keyword">inline</span> std::size_t <a class="code" href="namespacetoolbox_1_1io.html#a44ef290e2d48037f4da9d777121ab619">file_size</a>(<span class="keywordtype">int</span> fd)</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;{</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="keyword">struct </span>stat st;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="keyword">struct </span>stat st; <span class="comment">// NOLINT(hicpp-member-init)</span></div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <a class="code" href="namespacetoolbox_1_1os.html#a9e33b439d9c416b9834f1b13caa3de0f">os::fstat</a>(fd, st);</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="keywordflow">return</span> st.st_size;</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;}</div>

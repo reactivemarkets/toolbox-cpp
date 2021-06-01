@@ -95,46 +95,44 @@ $(function() {
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;boost/test/unit_test.hpp&gt;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacetoolbox.html">toolbox</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacetoolbox.html">toolbox</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;BOOST_AUTO_TEST_SUITE(IteratorSuite)</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;BOOST_AUTO_TEST_SUITE(IteratorSuite)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="Iterator_8ut_8cpp.html#a9e2a7a2a8786db10f7ec8cbb761ff7c8">   31</a></span>&#160;<a class="code" href="Iterator_8ut_8cpp.html#a9e2a7a2a8786db10f7ec8cbb761ff7c8">BOOST_AUTO_TEST_CASE</a>(IteratorLinearIteratorCase)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="classtoolbox_1_1hdr_1_1Histogram.html">Histogram</a> h{1, 255, 2};</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.record_value(193));</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.record_value(255));</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.record_value(0));</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.record_value(1));</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.record_value(64));</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.record_value(128));</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">int</span> step_count{0};</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    int64_t total_count{0};</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="classtoolbox_1_1hdr_1_1LinearIterator.html">LinearIterator</a> iter{h, 64};</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">while</span> (iter.next()) {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        total_count += iter.<a class="code" href="classtoolbox_1_1hdr_1_1CountAddedIterator.html#aed466f070b95674e2ba1c53e27d36201">count_added_in_this_iteration_step</a>();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">if</span> (step_count == 0) {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            h.record_value(2);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        ++step_count;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(step_count == 4);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(total_count == 6);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;BOOST_AUTO_TEST_SUITE_END()</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="Iterator_8ut_8cpp.html#a9e2a7a2a8786db10f7ec8cbb761ff7c8">   29</a></span>&#160;<a class="code" href="Iterator_8ut_8cpp.html#a9e2a7a2a8786db10f7ec8cbb761ff7c8">BOOST_AUTO_TEST_CASE</a>(IteratorLinearIteratorCase)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="classtoolbox_1_1hdr_1_1Histogram.html">Histogram</a> h{1, 255, 2};</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.record_value(193));</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.record_value(255));</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.record_value(0));</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.record_value(1));</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.record_value(64));</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.record_value(128));</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">int</span> step_count{0};</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    int64_t total_count{0};</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="classtoolbox_1_1hdr_1_1LinearIterator.html">LinearIterator</a> iter{h, 64};</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">while</span> (iter.next()) {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        total_count += iter.<a class="code" href="classtoolbox_1_1hdr_1_1CountAddedIterator.html#aed466f070b95674e2ba1c53e27d36201">count_added_in_this_iteration_step</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">if</span> (step_count == 0) {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            h.record_value(2);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        ++step_count;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(step_count == 4);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(total_count == 6);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;BOOST_AUTO_TEST_SUITE_END()</div>
 <div class="ttc" id="aHistogram_8hpp_html"><div class="ttname"><a href="Histogram_8hpp.html">Histogram.hpp</a></div></div>
 <div class="ttc" id="aIterator_8hpp_html"><div class="ttname"><a href="Iterator_8hpp.html">Iterator.hpp</a></div></div>
-<div class="ttc" id="aIterator_8ut_8cpp_html_a9e2a7a2a8786db10f7ec8cbb761ff7c8"><div class="ttname"><a href="Iterator_8ut_8cpp.html#a9e2a7a2a8786db10f7ec8cbb761ff7c8">BOOST_AUTO_TEST_CASE</a></div><div class="ttdeci">BOOST_AUTO_TEST_CASE(IteratorLinearIteratorCase)</div><div class="ttdef"><b>Definition:</b> <a href="Iterator_8ut_8cpp_source.html#l00031">Iterator.ut.cpp:31</a></div></div>
+<div class="ttc" id="aIterator_8ut_8cpp_html_a9e2a7a2a8786db10f7ec8cbb761ff7c8"><div class="ttname"><a href="Iterator_8ut_8cpp.html#a9e2a7a2a8786db10f7ec8cbb761ff7c8">BOOST_AUTO_TEST_CASE</a></div><div class="ttdeci">BOOST_AUTO_TEST_CASE(IteratorLinearIteratorCase)</div><div class="ttdef"><b>Definition:</b> <a href="Iterator_8ut_8cpp_source.html#l00029">Iterator.ut.cpp:29</a></div></div>
 <div class="ttc" id="aMath_8ut_8cpp_html_ab904b429a1ec1b29e965e90718fcc4a6"><div class="ttname"><a href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a></div><div class="ttdeci">BOOST_TEST(v.size()==10U)</div></div>
 <div class="ttc" id="aclasstoolbox_1_1hdr_1_1CountAddedIterator_html_aed466f070b95674e2ba1c53e27d36201"><div class="ttname"><a href="classtoolbox_1_1hdr_1_1CountAddedIterator.html#aed466f070b95674e2ba1c53e27d36201">toolbox::hdr::CountAddedIterator::count_added_in_this_iteration_step</a></div><div class="ttdeci">std::int64_t count_added_in_this_iteration_step() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Iterator_8hpp_source.html#l00123">Iterator.hpp:123</a></div></div>
-<div class="ttc" id="aclasstoolbox_1_1hdr_1_1Histogram_html"><div class="ttname"><a href="classtoolbox_1_1hdr_1_1Histogram.html">toolbox::Histogram</a></div><div class="ttdoc">A High Dynamic Range (HDR) Histogram.</div><div class="ttdef"><b>Definition:</b> <a href="Histogram_8hpp_source.html#l00063">Histogram.hpp:63</a></div></div>
+<div class="ttc" id="aclasstoolbox_1_1hdr_1_1Histogram_html"><div class="ttname"><a href="classtoolbox_1_1hdr_1_1Histogram.html">toolbox::Histogram</a></div><div class="ttdoc">A High Dynamic Range (HDR) Histogram.</div><div class="ttdef"><b>Definition:</b> <a href="Histogram_8hpp_source.html#l00064">Histogram.hpp:64</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1hdr_1_1LinearIterator_html"><div class="ttname"><a href="classtoolbox_1_1hdr_1_1LinearIterator.html">toolbox::LinearIterator</a></div><div class="ttdoc">LinearIterator is a linear value iterator.</div><div class="ttdef"><b>Definition:</b> <a href="Iterator_8hpp_source.html#l00154">Iterator.hpp:154</a></div></div>
 <div class="ttc" id="anamespacetoolbox_html"><div class="ttname"><a href="namespacetoolbox.html">toolbox</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8cpp_source.html#l00026">Benchmark.cpp:26</a></div></div>
 <div class="ttc" id="autil_2Utility_8hpp_html"><div class="ttname"><a href="util_2Utility_8hpp.html">Utility.hpp</a></div></div>

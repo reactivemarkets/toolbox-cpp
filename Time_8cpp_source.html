@@ -98,7 +98,7 @@ $(function() {
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1sys.html#a74e19434b48df09aa2891d1c00ace007">   25</a></span>&#160;<a class="code" href="namespacetoolbox_1_1sys.html#acfccec6381072b1852453855e64a7e7c">NanoTime</a> <a class="code" href="namespacetoolbox_1_1sys.html#a74e19434b48df09aa2891d1c00ace007">get_time</a>(clockid_t clock_id) noexcept</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    timespec ts;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    timespec ts; <span class="comment">// NOLINT(hicpp-member-init)</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    clock_gettime(clock_id, &amp;ts);</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">// Long-long literal is required here for ARM32.</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacetoolbox_1_1sys.html#acfccec6381072b1852453855e64a7e7c">NanoTime</a>{ts.tv_sec * 1&#39;000&#39;000&#39;000LL + ts.tv_nsec};</div>

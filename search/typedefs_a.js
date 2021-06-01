@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['micros_2188',['Micros',['../namespacetoolbox_1_1sys.html#a51dccfb35d834e78588ead6c8d4cfc62',1,'toolbox::Micros()'],['../namespacetoolbox_1_1sys.html#a51dccfb35d834e78588ead6c8d4cfc62',1,'toolbox::sys::Micros()']]],
-  ['millis_2189',['Millis',['../namespacetoolbox_1_1sys.html#a60e90ab2fc8417f81198604e8a291c46',1,'toolbox::Millis()'],['../namespacetoolbox_1_1sys.html#a60e90ab2fc8417f81198604e8a291c46',1,'toolbox::sys::Millis()']]],
-  ['monotime_2190',['MonoTime',['../namespacetoolbox_1_1sys.html#a8370f3f6bd9eb78dd325ae3f4e582247',1,'toolbox::MonoTime()'],['../namespacetoolbox_1_1sys.html#a8370f3f6bd9eb78dd325ae3f4e582247',1,'toolbox::sys::MonoTime()']]],
-  ['mutablebuffer_2191',['MutableBuffer',['../namespacetoolbox_1_1io.html#a5f27399855673bfa5dc5f79c77fa61c1',1,'toolbox::MutableBuffer()'],['../namespacetoolbox_1_1io.html#a5f27399855673bfa5dc5f79c77fa61c1',1,'toolbox::io::MutableBuffer()']]]
+  ['micros_2201',['Micros',['../namespacetoolbox_1_1sys.html#a51dccfb35d834e78588ead6c8d4cfc62',1,'toolbox::Micros()'],['../namespacetoolbox_1_1sys.html#a51dccfb35d834e78588ead6c8d4cfc62',1,'toolbox::sys::Micros()']]],
+  ['millis_2202',['Millis',['../namespacetoolbox_1_1sys.html#a60e90ab2fc8417f81198604e8a291c46',1,'toolbox::Millis()'],['../namespacetoolbox_1_1sys.html#a60e90ab2fc8417f81198604e8a291c46',1,'toolbox::sys::Millis()']]],
+  ['monotime_2203',['MonoTime',['../namespacetoolbox_1_1sys.html#a8370f3f6bd9eb78dd325ae3f4e582247',1,'toolbox::MonoTime()'],['../namespacetoolbox_1_1sys.html#a8370f3f6bd9eb78dd325ae3f4e582247',1,'toolbox::sys::MonoTime()']]],
+  ['mutablebuffer_2204',['MutableBuffer',['../namespacetoolbox_1_1io.html#a5f27399855673bfa5dc5f79c77fa61c1',1,'toolbox::MutableBuffer()'],['../namespacetoolbox_1_1io.html#a5f27399855673bfa5dc5f79c77fa61c1',1,'toolbox::io::MutableBuffer()']]]
 ];
