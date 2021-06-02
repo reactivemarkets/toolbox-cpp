@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['messaging_2372',['Messaging',['../md_doc_Messaging.html',1,'']]],
-  ['moscow_2373',['MoSCoW',['../md_doc_MoSCoW.html',1,'']]]
+  ['messaging_2371',['Messaging',['../md_doc_Messaging.html',1,'']]],
+  ['moscow_2372',['MoSCoW',['../md_doc_MoSCoW.html',1,'']]]
 ];

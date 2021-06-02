@@ -97,101 +97,81 @@ $(function() {
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">inline</span> <span class="keyword">namespace </span>util {</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1util.html#affc0ec0df766315cbe39425ee6b68de6">   26</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="namespacetoolbox_1_1util.html#affc0ec0df766315cbe39425ee6b68de6">dec_digits</a>(int64_t i) noexcept</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1util.html#a02971d2bfcfc734253cafd92a59302ed">   26</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacetoolbox_1_1util.html#a02971d2bfcfc734253cafd92a59302ed">stob</a>(string_view sv, <span class="keywordtype">bool</span> dfl) noexcept</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">return</span> i &lt; 10000000000        ? i &lt; 100000 ? i &lt; 100 ? i &lt; 10 ? 1 : 2</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                       : i &lt; 1000                        ? 3</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                       : i &lt; 10000                       ? 4</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                                                         : 5</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                   : i &lt; 10000000              ? i &lt; 1000000 ? 6 : 7</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                   : i &lt; 100000000             ? 8</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                   : i &lt; 1000000000            ? 9</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                                               : 10</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        : i &lt; 1000000000000000    ? i &lt; 1000000000000 ? i &lt; 100000000000 ? 11 : 12</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;               : i &lt; 10000000000000                   ? 13</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;               : i &lt; 100000000000000                  ? 14</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                                                      : 15</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        : i &lt; 100000000000000000  ? i &lt; 10000000000000000 ? 16 : 17</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        : i &lt; 1000000000000000000 ? 18</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                                  : 19;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1util.html#a02971d2bfcfc734253cafd92a59302ed">   45</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacetoolbox_1_1util.html#a02971d2bfcfc734253cafd92a59302ed">stob</a>(string_view sv, <span class="keywordtype">bool</span> dfl) noexcept</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">bool</span> val{dfl};</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">switch</span> (sv.size()) {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">case</span> 1:</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">switch</span> (sv[0]) {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;0&#39;</span>:</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;F&#39;</span>:</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;N&#39;</span>:</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;f&#39;</span>:</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;n&#39;</span>:</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            val = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;1&#39;</span>:</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;T&#39;</span>:</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;Y&#39;</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;t&#39;</span>:</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;y&#39;</span>:</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            val = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">case</span> 2:</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">if</span> ((sv[0] == <span class="charliteral">&#39;N&#39;</span> || sv[0] == <span class="charliteral">&#39;n&#39;</span>) <span class="comment">//</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            &amp;&amp; (sv[1] == <span class="charliteral">&#39;O&#39;</span> || sv[1] == <span class="charliteral">&#39;o&#39;</span>)) {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            val = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((sv[0] == <span class="charliteral">&#39;O&#39;</span> || sv[0] == <span class="charliteral">&#39;o&#39;</span>) <span class="comment">//</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                   &amp;&amp; (sv[1] == <span class="charliteral">&#39;N&#39;</span> || sv[1] == <span class="charliteral">&#39;n&#39;</span>)) {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">bool</span> val{dfl};</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">switch</span> (sv.size()) {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">case</span> 1:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">switch</span> (sv[0]) {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;0&#39;</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;F&#39;</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;N&#39;</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;f&#39;</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;n&#39;</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            val = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;1&#39;</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;T&#39;</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;Y&#39;</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;t&#39;</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">case</span> <span class="charliteral">&#39;y&#39;</span>:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            val = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">case</span> 2:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">if</span> ((sv[0] == <span class="charliteral">&#39;N&#39;</span> || sv[0] == <span class="charliteral">&#39;n&#39;</span>) <span class="comment">//</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            &amp;&amp; (sv[1] == <span class="charliteral">&#39;O&#39;</span> || sv[1] == <span class="charliteral">&#39;o&#39;</span>)) {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            val = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((sv[0] == <span class="charliteral">&#39;O&#39;</span> || sv[0] == <span class="charliteral">&#39;o&#39;</span>) <span class="comment">//</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                   &amp;&amp; (sv[1] == <span class="charliteral">&#39;N&#39;</span> || sv[1] == <span class="charliteral">&#39;n&#39;</span>)) {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            val = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">case</span> 3:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">if</span> ((sv[0] == <span class="charliteral">&#39;O&#39;</span> || sv[0] == <span class="charliteral">&#39;o&#39;</span>)    <span class="comment">//</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            &amp;&amp; (sv[1] == <span class="charliteral">&#39;F&#39;</span> || sv[1] == <span class="charliteral">&#39;f&#39;</span>) <span class="comment">//</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            &amp;&amp; (sv[2] == <span class="charliteral">&#39;F&#39;</span> || sv[2] == <span class="charliteral">&#39;f&#39;</span>)) {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            val = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((sv[0] == <span class="charliteral">&#39;Y&#39;</span> || sv[0] == <span class="charliteral">&#39;y&#39;</span>)    <span class="comment">//</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                   &amp;&amp; (sv[1] == <span class="charliteral">&#39;E&#39;</span> || sv[1] == <span class="charliteral">&#39;e&#39;</span>) <span class="comment">//</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                   &amp;&amp; (sv[2] == <span class="charliteral">&#39;S&#39;</span> || sv[2] == <span class="charliteral">&#39;s&#39;</span>)) {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            val = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">case</span> 4:</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">if</span> ((sv[0] == <span class="charliteral">&#39;T&#39;</span> || sv[0] == <span class="charliteral">&#39;t&#39;</span>)    <span class="comment">//</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            &amp;&amp; (sv[1] == <span class="charliteral">&#39;R&#39;</span> || sv[1] == <span class="charliteral">&#39;r&#39;</span>) <span class="comment">//</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            &amp;&amp; (sv[2] == <span class="charliteral">&#39;U&#39;</span> || sv[2] == <span class="charliteral">&#39;u&#39;</span>) <span class="comment">//</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            &amp;&amp; (sv[3] == <span class="charliteral">&#39;E&#39;</span> || sv[3] == <span class="charliteral">&#39;e&#39;</span>)) {</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            val = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">case</span> 3:</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">if</span> ((sv[0] == <span class="charliteral">&#39;O&#39;</span> || sv[0] == <span class="charliteral">&#39;o&#39;</span>)    <span class="comment">//</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            &amp;&amp; (sv[1] == <span class="charliteral">&#39;F&#39;</span> || sv[1] == <span class="charliteral">&#39;f&#39;</span>) <span class="comment">//</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            &amp;&amp; (sv[2] == <span class="charliteral">&#39;F&#39;</span> || sv[2] == <span class="charliteral">&#39;f&#39;</span>)) {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            val = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((sv[0] == <span class="charliteral">&#39;Y&#39;</span> || sv[0] == <span class="charliteral">&#39;y&#39;</span>)    <span class="comment">//</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                   &amp;&amp; (sv[1] == <span class="charliteral">&#39;E&#39;</span> || sv[1] == <span class="charliteral">&#39;e&#39;</span>) <span class="comment">//</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                   &amp;&amp; (sv[2] == <span class="charliteral">&#39;S&#39;</span> || sv[2] == <span class="charliteral">&#39;s&#39;</span>)) {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            val = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">case</span> 4:</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">if</span> ((sv[0] == <span class="charliteral">&#39;T&#39;</span> || sv[0] == <span class="charliteral">&#39;t&#39;</span>)    <span class="comment">//</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            &amp;&amp; (sv[1] == <span class="charliteral">&#39;R&#39;</span> || sv[1] == <span class="charliteral">&#39;r&#39;</span>) <span class="comment">//</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            &amp;&amp; (sv[2] == <span class="charliteral">&#39;U&#39;</span> || sv[2] == <span class="charliteral">&#39;u&#39;</span>) <span class="comment">//</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            &amp;&amp; (sv[3] == <span class="charliteral">&#39;E&#39;</span> || sv[3] == <span class="charliteral">&#39;e&#39;</span>)) {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            val = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">case</span> 5:</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">if</span> ((sv[0] == <span class="charliteral">&#39;F&#39;</span> || sv[0] == <span class="charliteral">&#39;f&#39;</span>)    <span class="comment">//</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            &amp;&amp; (sv[1] == <span class="charliteral">&#39;A&#39;</span> || sv[1] == <span class="charliteral">&#39;a&#39;</span>) <span class="comment">//</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            &amp;&amp; (sv[2] == <span class="charliteral">&#39;L&#39;</span> || sv[2] == <span class="charliteral">&#39;l&#39;</span>) <span class="comment">//</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            &amp;&amp; (sv[3] == <span class="charliteral">&#39;S&#39;</span> || sv[3] == <span class="charliteral">&#39;s&#39;</span>) <span class="comment">//</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            &amp;&amp; (sv[4] == <span class="charliteral">&#39;E&#39;</span> || sv[4] == <span class="charliteral">&#39;e&#39;</span>)) {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            val = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        }</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">return</span> val;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1util.html#a4128af815607953377c817e18b4269ee">  108</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="namespacetoolbox_1_1util.html#a4128af815607953377c817e18b4269ee">stod</a>(std::string_view sv) noexcept</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;{</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">using namespace </span>boost::spirit;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">double</span> val{};</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    qi::parse(sv.begin(), sv.end(), qi::double_, val);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">return</span> val;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;} <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;} <span class="comment">// namespace toolbox</span></div>
-<div class="ttc" id="anamespacetoolbox_1_1util_html_a02971d2bfcfc734253cafd92a59302ed"><div class="ttname"><a href="namespacetoolbox_1_1util.html#a02971d2bfcfc734253cafd92a59302ed">toolbox::util::stob</a></div><div class="ttdeci">bool stob(string_view sv, bool dfl) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="util_2Utility_8cpp_source.html#l00045">Utility.cpp:45</a></div></div>
-<div class="ttc" id="anamespacetoolbox_1_1util_html_a4128af815607953377c817e18b4269ee"><div class="ttname"><a href="namespacetoolbox_1_1util.html#a4128af815607953377c817e18b4269ee">toolbox::util::stod</a></div><div class="ttdeci">double stod(std::string_view sv) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="util_2Utility_8cpp_source.html#l00108">Utility.cpp:108</a></div></div>
-<div class="ttc" id="anamespacetoolbox_1_1util_html_affc0ec0df766315cbe39425ee6b68de6"><div class="ttname"><a href="namespacetoolbox_1_1util.html#affc0ec0df766315cbe39425ee6b68de6">toolbox::util::dec_digits</a></div><div class="ttdeci">int dec_digits(int64_t i) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="util_2Utility_8cpp_source.html#l00026">Utility.cpp:26</a></div></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">case</span> 5:</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">if</span> ((sv[0] == <span class="charliteral">&#39;F&#39;</span> || sv[0] == <span class="charliteral">&#39;f&#39;</span>)    <span class="comment">//</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            &amp;&amp; (sv[1] == <span class="charliteral">&#39;A&#39;</span> || sv[1] == <span class="charliteral">&#39;a&#39;</span>) <span class="comment">//</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            &amp;&amp; (sv[2] == <span class="charliteral">&#39;L&#39;</span> || sv[2] == <span class="charliteral">&#39;l&#39;</span>) <span class="comment">//</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            &amp;&amp; (sv[3] == <span class="charliteral">&#39;S&#39;</span> || sv[3] == <span class="charliteral">&#39;s&#39;</span>) <span class="comment">//</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            &amp;&amp; (sv[4] == <span class="charliteral">&#39;E&#39;</span> || sv[4] == <span class="charliteral">&#39;e&#39;</span>)) {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            val = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">return</span> val;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1util.html#a4128af815607953377c817e18b4269ee">   89</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="namespacetoolbox_1_1util.html#a4128af815607953377c817e18b4269ee">stod</a>(std::string_view sv) noexcept</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;{</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">using namespace </span>boost::spirit;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">double</span> val{};</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    qi::parse(sv.begin(), sv.end(), qi::double_, val);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">return</span> val;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;} <span class="comment">// namespace util</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;} <span class="comment">// namespace toolbox</span></div>
+<div class="ttc" id="anamespacetoolbox_1_1util_html_a02971d2bfcfc734253cafd92a59302ed"><div class="ttname"><a href="namespacetoolbox_1_1util.html#a02971d2bfcfc734253cafd92a59302ed">toolbox::util::stob</a></div><div class="ttdeci">bool stob(string_view sv, bool dfl) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="util_2Utility_8cpp_source.html#l00026">Utility.cpp:26</a></div></div>
+<div class="ttc" id="anamespacetoolbox_1_1util_html_a4128af815607953377c817e18b4269ee"><div class="ttname"><a href="namespacetoolbox_1_1util.html#a4128af815607953377c817e18b4269ee">toolbox::util::stod</a></div><div class="ttdeci">double stod(std::string_view sv) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="util_2Utility_8cpp_source.html#l00089">Utility.cpp:89</a></div></div>
 <div class="ttc" id="anamespacetoolbox_html"><div class="ttname"><a href="namespacetoolbox.html">toolbox</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8cpp_source.html#l00026">Benchmark.cpp:26</a></div></div>
 <div class="ttc" id="autil_2Utility_8hpp_html"><div class="ttname"><a href="util_2Utility_8hpp.html">Utility.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
