@@ -33,4 +33,13 @@ BOOST_AUTO_TEST_CASE(VersionFromStringCase)
     BOOST_TEST(from_string<Version>("1.2"sv) == Version(1, 2));
 }
 
+BOOST_AUTO_TEST_CASE(VersionSizeCase)
+{
+    BOOST_TEST(Version(0, 0).size() == 3);
+    BOOST_TEST(Version(1, 2).size() == 3);
+    BOOST_TEST(Version(10, 2).size() == 4);
+    BOOST_TEST(Version(1, 20).size() == 4);
+    BOOST_TEST(Version(10, 20).size() == 5);
+}
+
 BOOST_AUTO_TEST_SUITE_END()

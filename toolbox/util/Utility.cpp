@@ -23,25 +23,6 @@ namespace toolbox {
 inline namespace util {
 using namespace std;
 
-int dec_digits(int64_t i) noexcept
-{
-    return i < 10000000000        ? i < 100000 ? i < 100 ? i < 10 ? 1 : 2
-                       : i < 1000                        ? 3
-                       : i < 10000                       ? 4
-                                                         : 5
-                   : i < 10000000              ? i < 1000000 ? 6 : 7
-                   : i < 100000000             ? 8
-                   : i < 1000000000            ? 9
-                                               : 10
-        : i < 1000000000000000    ? i < 1000000000000 ? i < 100000000000 ? 11 : 12
-               : i < 10000000000000                   ? 13
-               : i < 100000000000000                  ? 14
-                                                      : 15
-        : i < 100000000000000000  ? i < 10000000000000000 ? 16 : 17
-        : i < 1000000000000000000 ? 18
-                                  : 19;
-}
-
 bool stob(string_view sv, bool dfl) noexcept
 {
     bool val{dfl};

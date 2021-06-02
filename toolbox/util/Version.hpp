@@ -41,6 +41,11 @@ struct Version {
     constexpr Version& operator=(Version&&) noexcept = default;
 
     constexpr bool empty() const noexcept { return major == 0 && minor == 0; }
+    /// Returns the length of the equivalent string representation.
+    constexpr std::size_t size() const noexcept
+    {
+        return dec_digits(major) + dec_digits(minor) + 1;
+    }
     constexpr explicit operator bool() const noexcept { return !empty(); }
 
     void clear() noexcept { major = minor = 0; }
