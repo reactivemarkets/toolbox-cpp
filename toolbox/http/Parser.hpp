@@ -105,16 +105,20 @@ class BasicParser {
     }
     static int on_message_begin(http_parser* parser) noexcept
     {
-        return static_cast<DerivedT*>(parser->data)->on_message_begin(CyclTime::current()) ? 0 : -1;
+        return static_cast<DerivedT*>(parser->data)->on_http_message_begin(CyclTime::current())
+            ? 0
+            : -1;
     }
     static int on_url(http_parser* parser, const char* at, std::size_t length) noexcept
     {
-        return static_cast<DerivedT*>(parser->data)->on_url(CyclTime::current(), {at, length}) ? 0
-                                                                                               : -1;
+        return static_cast<DerivedT*>(parser->data)->on_http_url(CyclTime::current(), {at, length})
+            ? 0
+            : -1;
     }
     static int on_status(http_parser* parser, const char* at, std::size_t length) noexcept
     {
-        return static_cast<DerivedT*>(parser->data)->on_status(CyclTime::current(), {at, length})
+        return static_cast<DerivedT*>(parser->data)
+                   ->on_http_status(CyclTime::current(), {at, length})
             ? 0
             : -1;
     }
@@ -128,7 +132,7 @@ class BasicParser {
         } else {
             first = First::No;
         }
-        return obj->on_header_field(CyclTime::current(), {at, length}, first) ? 0 : -1;
+        return obj->on_http_header_field(CyclTime::current(), {at, length}, first) ? 0 : -1;
     }
     static int on_header_value(http_parser* parser, const char* at, std::size_t length) noexcept
     {
@@ -140,33 +144,36 @@ class BasicParser {
         } else {
             first = First::No;
         }
-        return obj->on_header_value(CyclTime::current(), {at, length}, first) ? 0 : -1;
+        return obj->on_http_header_value(CyclTime::current(), {at, length}, first) ? 0 : -1;
     }
     static int on_headers_end(http_parser* parser) noexcept
     {
-        return static_cast<DerivedT*>(parser->data)->on_headers_end(CyclTime::current()) ? 0 : -1;
+        return static_cast<DerivedT*>(parser->data)->on_http_headers_end(CyclTime::current()) ? 0
+                                                                                              : -1;
     }
     static int on_body(http_parser* parser, const char* at, std::size_t length) noexcept
     {
-        return static_cast<DerivedT*>(parser->data)->on_body(CyclTime::current(), {at, length})
+        return static_cast<DerivedT*>(parser->data)->on_http_body(CyclTime::current(), {at, length})
             ? 0
             : -1;
     }
     static int on_message_end(http_parser* parser) noexcept
     {
-        return static_cast<DerivedT*>(parser->data)->on_message_end(CyclTime::current()) ? 0 : -1;
+        return static_cast<DerivedT*>(parser->data)->on_http_message_end(CyclTime::current()) ? 0
+                                                                                              : -1;
     }
     static int on_chunk_header(http_parser* parser) noexcept
     {
         // When on_chunk_header is called, the current chunk length is stored in parser->content_length.
         return static_cast<DerivedT*>(parser->data)
-                   ->on_chunk_header(CyclTime::current(), parser->content_length)
+                   ->on_http_chunk_header(CyclTime::current(), parser->content_length)
             ? 0
             : -1;
     }
     static int on_chunk_end(http_parser* parser) noexcept
     {
-        return static_cast<DerivedT*>(parser->data)->on_chunk_end(CyclTime::current()) ? 0 : -1;
+        return static_cast<DerivedT*>(parser->data)->on_http_chunk_end(CyclTime::current()) ? 0
+                                                                                            : -1;
     }
     Type type_;
     http_parser parser_;
