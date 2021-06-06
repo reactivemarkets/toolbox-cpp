@@ -96,13 +96,13 @@ class BasicConn
 
   private:
     ~BasicConn() = default;
-    bool on_message_begin(CyclTime now) noexcept
+    bool on_http_message_begin(CyclTime now) noexcept
     {
         in_progress_ = true;
         req_.clear();
         return true;
     }
-    bool on_url(CyclTime now, std::string_view sv) noexcept
+    bool on_http_url(CyclTime now, std::string_view sv) noexcept
     {
         bool ret{false};
         try {
@@ -114,12 +114,12 @@ class BasicConn
         }
         return ret;
     }
-    bool on_status(CyclTime now, std::string_view sv) noexcept
+    bool on_http_status(CyclTime now, std::string_view sv) noexcept
     {
         // Only supported for HTTP responses.
         return false;
     }
-    bool on_header_field(CyclTime now, std::string_view sv, First first) noexcept
+    bool on_http_header_field(CyclTime now, std::string_view sv, First first) noexcept
     {
         bool ret{false};
         try {
@@ -131,7 +131,7 @@ class BasicConn
         }
         return ret;
     }
-    bool on_header_value(CyclTime now, std::string_view sv, First first) noexcept
+    bool on_http_header_value(CyclTime now, std::string_view sv, First first) noexcept
     {
         bool ret{false};
         try {
@@ -143,12 +143,12 @@ class BasicConn
         }
         return ret;
     }
-    bool on_headers_end(CyclTime now) noexcept
+    bool on_http_headers_end(CyclTime now) noexcept
     {
         req_.set_method(method());
         return true;
     }
-    bool on_body(CyclTime now, std::string_view sv) noexcept
+    bool on_http_body(CyclTime now, std::string_view sv) noexcept
     {
         bool ret{false};
         try {
@@ -160,7 +160,7 @@ class BasicConn
         }
         return ret;
     }
-    bool on_message_end(CyclTime now) noexcept
+    bool on_http_message_end(CyclTime now) noexcept
     {
         bool ret{false};
         try {
@@ -174,8 +174,8 @@ class BasicConn
         }
         return ret;
     }
-    bool on_chunk_header(CyclTime now, std::size_t len) noexcept { return true; }
-    bool on_chunk_end(CyclTime now) noexcept { return true; }
+    bool on_http_chunk_header(CyclTime now, std::size_t len) noexcept { return true; }
+    bool on_http_chunk_end(CyclTime now) noexcept { return true; }
     void on_timeout_timer(CyclTime now, Timer& tmr)
     {
         auto lock = this->lock_this(now);

@@ -59,12 +59,12 @@ set(lib_SOURCES
   io/File.cpp
   io/Handle.cpp
   io/Hook.cpp
-  io/Waker.cpp
   io/Reactor.cpp
   io/Runner.cpp
   io/Stream.cpp
   io/Timer.cpp
   io/TimerFd.cpp
+  io/Waker.cpp
   net/DgramSock.cpp
   net/Endian.cpp
   net/Endpoint.cpp
@@ -81,6 +81,8 @@ set(lib_SOURCES
   net/StreamAcceptor.cpp
   net/StreamConnector.cpp
   net/StreamSock.cpp
+  resp/Exception.cpp
+  resp/Parser.cpp
   sys/Daemon.cpp
   sys/Date.cpp
   sys/Error.cpp
@@ -93,6 +95,7 @@ set(lib_SOURCES
   sys/Time.cpp
   sys/Trace.cpp
   util/Alarm.cpp
+  util/Allocator.cpp
   util/Argv.cpp
   util/Array.cpp
   util/Config.cpp
@@ -101,24 +104,23 @@ set(lib_SOURCES
   util/Finally.cpp
   util/IntTypes.cpp
   util/Math.cpp
-  util/Allocator.cpp
   util/Options.cpp
-  util/Options.cpp
+  util/RefCount.cpp
   util/RingBuffer.cpp
   util/RobinHood.cpp
   util/Slot.cpp
   util/Storage.cpp
   util/Stream.cpp
-  util/String.cpp
   util/StringBuf.cpp
+  util/String.cpp
   util/Struct.cpp
   util/Tokeniser.cpp
   util/Traits.cpp
   util/Trans.cpp
   util/TypeTraits.cpp
   util/Utility.cpp
-  util/VarSub.cpp
   util/Variant.cpp
+  util/VarSub.cpp
   util/Version.cpp)
 
 add_library(tb-core-static STATIC ${lib_SOURCES})
@@ -158,6 +160,7 @@ install(FILES hdr.hpp DESTINATION include/toolbox COMPONENT header)
 install(FILES http.hpp DESTINATION include/toolbox COMPONENT header)
 install(FILES io.hpp DESTINATION include/toolbox COMPONENT header)
 install(FILES net.hpp DESTINATION include/toolbox COMPONENT header)
+install(FILES resp.hpp DESTINATION include/toolbox COMPONENT header)
 install(FILES sys.hpp DESTINATION include/toolbox COMPONENT header)
 install(FILES util.hpp DESTINATION include/toolbox COMPONENT header)
 
@@ -220,10 +223,12 @@ set(test_SOURCES
   net/Resolver.ut.cpp
   net/Runner.ut.cpp
   net/Socket.ut.cpp
+  resp/Parser.ut.cpp
   sys/Date.ut.cpp
   sys/Log.ut.cpp
   sys/Thread.ut.cpp
   sys/Time.ut.cpp
+  util/Allocator.ut.cpp
   util/Argv.ut.cpp
   util/Array.ut.cpp
   util/Config.ut.cpp
@@ -232,14 +237,13 @@ set(test_SOURCES
   util/Finally.ut.cpp
   util/IntTypes.ut.cpp
   util/Math.ut.cpp
-  util/Allocator.ut.cpp
   util/Options.ut.cpp
   util/RefCount.ut.cpp
   util/RingBuffer.ut.cpp
   util/Slot.ut.cpp
   util/Stream.ut.cpp
-  util/String.ut.cpp
   util/StringBuf.ut.cpp
+  util/String.ut.cpp
   util/Struct.ut.cpp
   util/Tokeniser.ut.cpp
   util/Traits.ut.cpp
