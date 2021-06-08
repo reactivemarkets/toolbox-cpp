@@ -91,7 +91,7 @@ $(function() {
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#ifndef TOOLBOX_HTTP_CONN_HPP</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define TOOLBOX_HTTP_CONN_HPP</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Parser_8hpp.html">toolbox/http/Parser.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="http_2Parser_8hpp.html">toolbox/http/Parser.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Request_8hpp.html">toolbox/http/Request.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="http_2Stream_8hpp.html">toolbox/http/Stream.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Disposer_8hpp.html">toolbox/io/Disposer.hpp</a>&gt;</span></div>
@@ -170,13 +170,13 @@ $(function() {
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    ~<a class="code" href="classtoolbox_1_1http_1_1BasicConn.html">BasicConn</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">bool</span> on_message_begin(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now) noexcept</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">bool</span> on_http_message_begin(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now) noexcept</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    {</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        in_progress_ = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        req_.clear();</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">bool</span> on_url(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now, std::string_view sv) noexcept</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">bool</span> on_http_url(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now, std::string_view sv) noexcept</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    {</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordtype">bool</span> ret{<span class="keyword">false</span>};</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">try</span> {</div>
@@ -188,12 +188,12 @@ $(function() {
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        }</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    }</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">bool</span> on_status(CyclTime now, std::string_view sv) noexcept</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">bool</span> on_http_status(CyclTime now, std::string_view sv) noexcept</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    {</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="comment">// Only supported for HTTP responses.</span></div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    }</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">bool</span> on_header_field(CyclTime now, std::string_view sv, <a class="code" href="namespacetoolbox_1_1http.html#a057b3bdf9033ca3a9e5a7e9bf414d382">First</a> first) noexcept</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">bool</span> on_http_header_field(CyclTime now, std::string_view sv, <a class="code" href="namespacetoolbox_1_1http.html#a057b3bdf9033ca3a9e5a7e9bf414d382">First</a> first) noexcept</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    {</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordtype">bool</span> ret{<span class="keyword">false</span>};</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordflow">try</span> {</div>
@@ -205,7 +205,7 @@ $(function() {
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        }</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    }</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordtype">bool</span> on_header_value(CyclTime now, std::string_view sv, <a class="code" href="namespacetoolbox_1_1http.html#a057b3bdf9033ca3a9e5a7e9bf414d382">First</a> first) noexcept</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordtype">bool</span> on_http_header_value(CyclTime now, std::string_view sv, <a class="code" href="namespacetoolbox_1_1http.html#a057b3bdf9033ca3a9e5a7e9bf414d382">First</a> first) noexcept</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    {</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keywordtype">bool</span> ret{<span class="keyword">false</span>};</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <span class="keywordflow">try</span> {</div>
@@ -217,12 +217,12 @@ $(function() {
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        }</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    }</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordtype">bool</span> on_headers_end(CyclTime now) noexcept</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordtype">bool</span> on_http_headers_end(CyclTime now) noexcept</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    {</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        req_.set_method(<a class="code" href="classtoolbox_1_1http_1_1BasicParser.html#ab28eeacf51a2cddb84552d40cb24b428">method</a>());</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    }</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordtype">bool</span> on_body(CyclTime now, std::string_view sv) noexcept</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordtype">bool</span> on_http_body(CyclTime now, std::string_view sv) noexcept</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    {</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="keywordtype">bool</span> ret{<span class="keyword">false</span>};</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordflow">try</span> {</div>
@@ -234,7 +234,7 @@ $(function() {
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        }</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    }</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordtype">bool</span> on_message_end(CyclTime now) noexcept</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordtype">bool</span> on_http_message_end(CyclTime now) noexcept</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    {</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <span class="keywordtype">bool</span> ret{<span class="keyword">false</span>};</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keywordflow">try</span> {</div>
@@ -248,8 +248,8 @@ $(function() {
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        }</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    }</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordtype">bool</span> on_chunk_header(CyclTime now, std::size_t len) noexcept { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">bool</span> on_chunk_end(CyclTime now) noexcept { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordtype">bool</span> on_http_chunk_header(CyclTime now, std::size_t len) noexcept { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">bool</span> on_http_chunk_end(CyclTime now) noexcept { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordtype">void</span> on_timeout_timer(CyclTime now, Timer&amp; tmr)</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    {</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <span class="keyword">auto</span> lock = this-&gt;lock_this(now);</div>
@@ -363,7 +363,6 @@ $(function() {
 <div class="ttc" id="aEndpoint_8hpp_html"><div class="ttname"><a href="Endpoint_8hpp.html">Endpoint.hpp</a></div></div>
 <div class="ttc" id="aEvent_8hpp_html"><div class="ttname"><a href="Event_8hpp.html">Event.hpp</a></div></div>
 <div class="ttc" id="aIoSock_8hpp_html"><div class="ttname"><a href="IoSock_8hpp.html">IoSock.hpp</a></div></div>
-<div class="ttc" id="aParser_8hpp_html"><div class="ttname"><a href="Parser_8hpp.html">Parser.hpp</a></div></div>
 <div class="ttc" id="aReactor_8hpp_html"><div class="ttname"><a href="Reactor_8hpp.html">Reactor.hpp</a></div></div>
 <div class="ttc" id="aRequest_8hpp_html"><div class="ttname"><a href="Request_8hpp.html">Request.hpp</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1http_1_1App_html"><div class="ttname"><a href="classtoolbox_1_1http_1_1App.html">toolbox::App</a></div><div class="ttdef"><b>Definition:</b> <a href="App_8hpp_source.html#l00030">App.hpp:30</a></div></div>
@@ -378,10 +377,10 @@ $(function() {
 <div class="ttc" id="aclasstoolbox_1_1http_1_1BasicConn_html_aa862b8b552017d75eb91806d0608d882"><div class="ttname"><a href="classtoolbox_1_1http_1_1BasicConn.html#aa862b8b552017d75eb91806d0608d882">toolbox::http::BasicConn::BasicConn</a></div><div class="ttdeci">BasicConn(const BasicConn &amp;)=delete</div></div>
 <div class="ttc" id="aclasstoolbox_1_1http_1_1BasicConn_html_ad679584d3388b38b87b7bb3fde66127a"><div class="ttname"><a href="classtoolbox_1_1http_1_1BasicConn.html#ad679584d3388b38b87b7bb3fde66127a">toolbox::http::BasicConn::endpoint</a></div><div class="ttdeci">const Endpoint &amp; endpoint() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Conn_8hpp_source.html#l00080">Conn.hpp:80</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1http_1_1BasicConn_html_af7c9ff99a5cf0436f91bcadbdba2459a"><div class="ttname"><a href="classtoolbox_1_1http_1_1BasicConn.html#af7c9ff99a5cf0436f91bcadbdba2459a">toolbox::http::BasicConn::BasicConn</a></div><div class="ttdeci">BasicConn(CyclTime now, Reactor &amp;r, IoSock &amp;&amp;sock, const Endpoint &amp;ep, App &amp;app)</div><div class="ttdef"><b>Definition:</b> <a href="Conn_8hpp_source.html#l00060">Conn.hpp:60</a></div></div>
-<div class="ttc" id="aclasstoolbox_1_1http_1_1BasicParser_html"><div class="ttname"><a href="classtoolbox_1_1http_1_1BasicParser.html">toolbox::BasicParser</a></div><div class="ttdef"><b>Definition:</b> <a href="Parser_8hpp_source.html#l00031">Parser.hpp:31</a></div></div>
-<div class="ttc" id="aclasstoolbox_1_1http_1_1BasicParser_html_a84ee1c607e2ebae58851772c6728f9af"><div class="ttname"><a href="classtoolbox_1_1http_1_1BasicParser.html#a84ee1c607e2ebae58851772c6728f9af">toolbox::http::BasicParser&lt; BasicConn&lt; RequestT, AppT &gt; &gt;::should_keep_alive</a></div><div class="ttdeci">bool should_keep_alive() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Parser_8hpp_source.html#l00055">Parser.hpp:55</a></div></div>
-<div class="ttc" id="aclasstoolbox_1_1http_1_1BasicParser_html_ab28eeacf51a2cddb84552d40cb24b428"><div class="ttname"><a href="classtoolbox_1_1http_1_1BasicParser.html#ab28eeacf51a2cddb84552d40cb24b428">toolbox::http::BasicParser&lt; BasicConn&lt; RequestT, AppT &gt; &gt;::method</a></div><div class="ttdeci">Method method() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Parser_8hpp_source.html#l00054">Parser.hpp:54</a></div></div>
-<div class="ttc" id="aclasstoolbox_1_1http_1_1BasicParser_html_af42f96ccc8127394ad9322fc6fd670c7"><div class="ttname"><a href="classtoolbox_1_1http_1_1BasicParser.html#af42f96ccc8127394ad9322fc6fd670c7">toolbox::http::BasicParser&lt; BasicConn&lt; RequestT, AppT &gt; &gt;::parse</a></div><div class="ttdeci">std::size_t parse(CyclTime now, ConstBuffer buf)</div><div class="ttdef"><b>Definition:</b> <a href="Parser_8hpp_source.html#l00069">Parser.hpp:69</a></div></div>
+<div class="ttc" id="aclasstoolbox_1_1http_1_1BasicParser_html"><div class="ttname"><a href="classtoolbox_1_1http_1_1BasicParser.html">toolbox::BasicParser</a></div><div class="ttdef"><b>Definition:</b> <a href="http_2Parser_8hpp_source.html#l00031">Parser.hpp:31</a></div></div>
+<div class="ttc" id="aclasstoolbox_1_1http_1_1BasicParser_html_a84ee1c607e2ebae58851772c6728f9af"><div class="ttname"><a href="classtoolbox_1_1http_1_1BasicParser.html#a84ee1c607e2ebae58851772c6728f9af">toolbox::http::BasicParser&lt; BasicConn&lt; RequestT, AppT &gt; &gt;::should_keep_alive</a></div><div class="ttdeci">bool should_keep_alive() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="http_2Parser_8hpp_source.html#l00055">Parser.hpp:55</a></div></div>
+<div class="ttc" id="aclasstoolbox_1_1http_1_1BasicParser_html_ab28eeacf51a2cddb84552d40cb24b428"><div class="ttname"><a href="classtoolbox_1_1http_1_1BasicParser.html#ab28eeacf51a2cddb84552d40cb24b428">toolbox::http::BasicParser&lt; BasicConn&lt; RequestT, AppT &gt; &gt;::method</a></div><div class="ttdeci">Method method() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="http_2Parser_8hpp_source.html#l00054">Parser.hpp:54</a></div></div>
+<div class="ttc" id="aclasstoolbox_1_1http_1_1BasicParser_html_af42f96ccc8127394ad9322fc6fd670c7"><div class="ttname"><a href="classtoolbox_1_1http_1_1BasicParser.html#af42f96ccc8127394ad9322fc6fd670c7">toolbox::http::BasicParser&lt; BasicConn&lt; RequestT, AppT &gt; &gt;::parse</a></div><div class="ttdeci">std::size_t parse(CyclTime now, ConstBuffer buf)</div><div class="ttdef"><b>Definition:</b> <a href="http_2Parser_8hpp_source.html#l00069">Parser.hpp:69</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1http_1_1Request_html"><div class="ttname"><a href="classtoolbox_1_1http_1_1Request.html">toolbox::Request</a></div><div class="ttdef"><b>Definition:</b> <a href="Request_8hpp_source.html#l00030">Request.hpp:30</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1BasicDisposer_html"><div class="ttname"><a href="classtoolbox_1_1io_1_1BasicDisposer.html">toolbox::BasicDisposer</a></div><div class="ttdef"><b>Definition:</b> <a href="Disposer_8hpp_source.html#l00029">Disposer.hpp:29</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1Buffer_html_a579330c8b4f7414eb0ee354de627965c"><div class="ttname"><a href="classtoolbox_1_1io_1_1Buffer.html#a579330c8b4f7414eb0ee354de627965c">toolbox::io::Buffer::prepare</a></div><div class="ttdeci">MutableBuffer prepare(std::size_t size)</div><div class="ttdoc">Returns write buffer of at least size bytes.</div><div class="ttdef"><b>Definition:</b> <a href="Buffer_8cpp_source.html#l00048">Buffer.cpp:48</a></div></div>
@@ -392,6 +391,7 @@ $(function() {
 <div class="ttc" id="aclasstoolbox_1_1io_1_1Reactor_html"><div class="ttname"><a href="classtoolbox_1_1io_1_1Reactor.html">toolbox::Reactor</a></div><div class="ttdef"><b>Definition:</b> <a href="Reactor_8hpp_source.html#l00034">Reactor.hpp:34</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1Reactor_html_a22d2e1b854e2478d763103bc4e976274"><div class="ttname"><a href="classtoolbox_1_1io_1_1Reactor.html#a22d2e1b854e2478d763103bc4e976274">toolbox::io::Reactor::timer</a></div><div class="ttdeci">Timer timer(MonoTime expiry, Duration interval, Priority priority, TimerSlot slot)</div><div class="ttdoc">Throws std::bad_alloc only.</div><div class="ttdef"><b>Definition:</b> <a href="Reactor_8hpp_source.html#l00131">Reactor.hpp:131</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1sys_1_1CyclTime_html"><div class="ttname"><a href="classtoolbox_1_1sys_1_1CyclTime.html">toolbox::CyclTime</a></div><div class="ttdef"><b>Definition:</b> <a href="Time_8hpp_source.html#l00128">Time.hpp:128</a></div></div>
+<div class="ttc" id="ahttp_2Parser_8hpp_html"><div class="ttname"><a href="http_2Parser_8hpp.html">Parser.hpp</a></div></div>
 <div class="ttc" id="ahttp_2Stream_8hpp_html"><div class="ttname"><a href="http_2Stream_8hpp.html">Stream.hpp</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1http_html_a057b3bdf9033ca3a9e5a7e9bf414d382"><div class="ttname"><a href="namespacetoolbox_1_1http.html#a057b3bdf9033ca3a9e5a7e9bf414d382">toolbox::http::First</a></div><div class="ttdeci">First</div><div class="ttdef"><b>Definition:</b> <a href="Types_8hpp_source.html#l00027">Types.hpp:27</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1http_html_aea859381f1da61af13032afbb26fce14a15c2d85f1fae22a3c3a0594510a1f611"><div class="ttname"><a href="namespacetoolbox_1_1http.html#aea859381f1da61af13032afbb26fce14a15c2d85f1fae22a3c3a0594510a1f611">toolbox::http::Type::Request</a></div><div class="ttdeci">@ Request</div></div>

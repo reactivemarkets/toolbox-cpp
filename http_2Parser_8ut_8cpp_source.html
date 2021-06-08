@@ -72,7 +72,7 @@ $(function() {
 <div class="title">Parser.ut.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="Parser_8ut_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The Reactive C++ Toolbox.</span></div>
+<a href="http_2Parser_8ut_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The Reactive C++ Toolbox.</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2013-2019 Swirly Cloud Limited</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2021 Reactive Markets Limited</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
@@ -88,7 +88,7 @@ $(function() {
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// See the License for the specific language governing permissions and</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">// limitations under the License.</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Parser_8hpp.html">Parser.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="resp_2Parser_8hpp.html">Parser.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Url_8hpp.html">toolbox/http/Url.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="String_8hpp.html">toolbox/util/String.hpp</a>&gt;</span></div>
@@ -100,7 +100,7 @@ $(function() {
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>std {</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="Parser_8ut_8cpp.html#a3f2604e1d51e6184e6aac8625053a579">   29</a></span>&#160;ostream&amp; <a class="code" href="namespacetoolbox_1_1hdr.html#ac0ca8215da3b57b3aabf36a261b91f0d">operator&lt;&lt;</a>(ostream&amp; os, <span class="keyword">const</span> pair&lt;T, U&gt;&amp; p)</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="http_2Parser_8ut_8cpp.html#a3f2604e1d51e6184e6aac8625053a579">   29</a></span>&#160;ostream&amp; <a class="code" href="namespacetoolbox_1_1hdr.html#ac0ca8215da3b57b3aabf36a261b91f0d">operator&lt;&lt;</a>(ostream&amp; os, <span class="keyword">const</span> pair&lt;T, U&gt;&amp; p)</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">return</span> os &lt;&lt; <span class="charliteral">&#39;(&#39;</span> &lt;&lt; p.first &lt;&lt; <span class="charliteral">&#39;,&#39;</span> &lt;&lt; p.second &lt;&lt; <span class="charliteral">&#39;)&#39;</span>;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
@@ -136,23 +136,23 @@ $(function() {
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">using</span> <a class="code" href="classtoolbox_1_1http_1_1BasicParser.html">BasicParser&lt;Parser&gt;::parse</a>;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">bool</span> on_message_begin(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now) noexcept</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">bool</span> on_http_message_begin(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now) noexcept</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    {</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <a class="code" href="namespacetoolbox_1_1util.html#a12e933f09d08f3d4e212107b35ff6587">BasicUrl&lt;Parser&gt;::reset</a>();</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <a class="code" href="namespacetoolbox_1_1sys.html#aef1844501afd0408ab83ba0ab3596c10">clear</a>();</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">bool</span> on_url(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now, string_view sv) noexcept</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">bool</span> on_http_url(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now, string_view sv) noexcept</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    {</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        url_.append(sv.data(), sv.size());</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">bool</span> on_status(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now, string_view sv) noexcept</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">bool</span> on_http_status(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now, string_view sv) noexcept</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    {</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        status_.append(sv.data(), sv.size());</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">bool</span> on_header_field(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now, string_view sv, <a class="code" href="namespacetoolbox_1_1http.html#a057b3bdf9033ca3a9e5a7e9bf414d382">First</a> first) noexcept</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">bool</span> on_http_header_field(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now, string_view sv, <a class="code" href="namespacetoolbox_1_1http.html#a057b3bdf9033ca3a9e5a7e9bf414d382">First</a> first) noexcept</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    {</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">if</span> (first == First::Yes) {</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            headers_.emplace_back(<span class="keywordtype">string</span>{sv.data(), sv.size()}, <span class="stringliteral">&quot;&quot;</span>);</div>
@@ -161,18 +161,18 @@ $(function() {
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">bool</span> on_header_value(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now, string_view sv, <a class="code" href="namespacetoolbox_1_1http.html#a057b3bdf9033ca3a9e5a7e9bf414d382">First</a> first) noexcept</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">bool</span> on_http_header_value(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now, string_view sv, <a class="code" href="namespacetoolbox_1_1http.html#a057b3bdf9033ca3a9e5a7e9bf414d382">First</a> first) noexcept</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    {</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        headers_.back().second.append(sv.data(), sv.size());</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">bool</span> on_headers_end(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now) noexcept { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">bool</span> on_body(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now, string_view sv) noexcept</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">bool</span> on_http_headers_end(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now) noexcept { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">bool</span> on_http_body(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now, string_view sv) noexcept</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    {</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        body_.append(sv.data(), sv.size());</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    }</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">bool</span> on_message_end(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now) noexcept</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">bool</span> on_http_message_end(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now) noexcept</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    {</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordtype">bool</span> ret{<span class="keyword">false</span>};</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">try</span> {</div>
@@ -185,8 +185,8 @@ $(function() {
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        }</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    }</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">bool</span> on_chunk_header(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now, <span class="keywordtype">size_t</span> len) noexcept { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">bool</span> on_chunk_end(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now) noexcept { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">bool</span> on_http_chunk_header(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now, <span class="keywordtype">size_t</span> len) noexcept { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">bool</span> on_http_chunk_end(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now) noexcept { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">string</span> url_;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordtype">string</span> status_;</div>
@@ -198,7 +198,7 @@ $(function() {
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;BOOST_AUTO_TEST_SUITE(ParserSuite)</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="Parser_8ut_8cpp.html#a2c51afc01422a8c26fbbe3dd23a88f92">  127</a></span>&#160;<a class="code" href="Parser_8ut_8cpp.html#a2c51afc01422a8c26fbbe3dd23a88f92">BOOST_AUTO_TEST_CASE</a>(InitialRequestLineCase)</div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="http_2Parser_8ut_8cpp.html#a2c51afc01422a8c26fbbe3dd23a88f92">  127</a></span>&#160;<a class="code" href="http_2Parser_8ut_8cpp.html#a2c51afc01422a8c26fbbe3dd23a88f92">BOOST_AUTO_TEST_CASE</a>(InitialRequestLineCase)</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;{</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    constexpr <span class="keyword">auto</span> Message =                        <span class="comment">//</span></div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="stringliteral">&quot;GET /path/to/file/index.html HTTP/1.0\r\n&quot;</span> <span class="comment">//</span></div>
@@ -218,7 +218,7 @@ $(function() {
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.body().empty());</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;}</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
-<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="Parser_8ut_8cpp.html#a3f776eada5e59e07e985a44121ba7142">  147</a></span>&#160;<a class="code" href="Parser_8ut_8cpp.html#a2c51afc01422a8c26fbbe3dd23a88f92">BOOST_AUTO_TEST_CASE</a>(InitialResponseLineCase)</div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="http_2Parser_8ut_8cpp.html#a3f776eada5e59e07e985a44121ba7142">  147</a></span>&#160;<a class="code" href="http_2Parser_8ut_8cpp.html#a2c51afc01422a8c26fbbe3dd23a88f92">BOOST_AUTO_TEST_CASE</a>(InitialResponseLineCase)</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;{</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    constexpr <span class="keyword">auto</span> Message =         <span class="comment">//</span></div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="stringliteral">&quot;HTTP/1.0 404 Not Found\r\n&quot;</span> <span class="comment">//</span></div>
@@ -238,7 +238,7 @@ $(function() {
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.body().empty());</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;}</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
-<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="Parser_8ut_8cpp.html#a451adde0ad8cd34c1a6270204b06a2ec">  167</a></span>&#160;<a class="code" href="Parser_8ut_8cpp.html#a2c51afc01422a8c26fbbe3dd23a88f92">BOOST_AUTO_TEST_CASE</a>(BasicRequestCase)</div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="http_2Parser_8ut_8cpp.html#a451adde0ad8cd34c1a6270204b06a2ec">  167</a></span>&#160;<a class="code" href="http_2Parser_8ut_8cpp.html#a2c51afc01422a8c26fbbe3dd23a88f92">BOOST_AUTO_TEST_CASE</a>(BasicRequestCase)</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;{</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    constexpr <span class="keyword">auto</span> Message =                     <span class="comment">//</span></div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="stringliteral">&quot;GET /path/file.html HTTP/1.0\r\n&quot;</span>       <span class="comment">//</span></div>
@@ -263,7 +263,7 @@ $(function() {
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.body().empty());</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;}</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
-<div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="Parser_8ut_8cpp.html#a659f4460f6416545ed5b82510af364cd">  192</a></span>&#160;<a class="code" href="Parser_8ut_8cpp.html#a2c51afc01422a8c26fbbe3dd23a88f92">BOOST_AUTO_TEST_CASE</a>(BasicResponseCase)</div>
+<div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="http_2Parser_8ut_8cpp.html#a659f4460f6416545ed5b82510af364cd">  192</a></span>&#160;<a class="code" href="http_2Parser_8ut_8cpp.html#a2c51afc01422a8c26fbbe3dd23a88f92">BOOST_AUTO_TEST_CASE</a>(BasicResponseCase)</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;{</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    constexpr <span class="keyword">auto</span> Message =                      <span class="comment">//</span></div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="stringliteral">&quot;HTTP/1.0 200 OK\r\n&quot;</span>                     <span class="comment">//</span></div>
@@ -291,7 +291,7 @@ $(function() {
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.body() == <span class="stringliteral">&quot;Hello, World!&quot;</span>s);</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;}</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
-<div class="line"><a name="l00220"></a><span class="lineno"><a class="line" href="Parser_8ut_8cpp.html#a31026127fee7791d4623c73ecb959bd2">  220</a></span>&#160;<a class="code" href="Parser_8ut_8cpp.html#a2c51afc01422a8c26fbbe3dd23a88f92">BOOST_AUTO_TEST_CASE</a>(PostRequestCase)</div>
+<div class="line"><a name="l00220"></a><span class="lineno"><a class="line" href="http_2Parser_8ut_8cpp.html#a31026127fee7791d4623c73ecb959bd2">  220</a></span>&#160;<a class="code" href="http_2Parser_8ut_8cpp.html#a2c51afc01422a8c26fbbe3dd23a88f92">BOOST_AUTO_TEST_CASE</a>(PostRequestCase)</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;{</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    constexpr <span class="keyword">auto</span> Message =                                  <span class="comment">//</span></div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        <span class="stringliteral">&quot;POST /path/script.cgi HTTP/1.0\r\n&quot;</span>                  <span class="comment">//</span></div>
@@ -321,7 +321,7 @@ $(function() {
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.body() == <span class="stringliteral">&quot;home=Cosby&amp;favorite+flavor=flies&quot;</span>s);</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;}</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
-<div class="line"><a name="l00250"></a><span class="lineno"><a class="line" href="Parser_8ut_8cpp.html#a4259cbca8caec36e58f4d1d500491d7d">  250</a></span>&#160;<a class="code" href="Parser_8ut_8cpp.html#a2c51afc01422a8c26fbbe3dd23a88f92">BOOST_AUTO_TEST_CASE</a>(KeepAliveRequestCase)</div>
+<div class="line"><a name="l00250"></a><span class="lineno"><a class="line" href="http_2Parser_8ut_8cpp.html#a4259cbca8caec36e58f4d1d500491d7d">  250</a></span>&#160;<a class="code" href="http_2Parser_8ut_8cpp.html#a2c51afc01422a8c26fbbe3dd23a88f92">BOOST_AUTO_TEST_CASE</a>(KeepAliveRequestCase)</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;{</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    constexpr <span class="keyword">auto</span> Message =               <span class="comment">//</span></div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        <span class="stringliteral">&quot;GET /path/file.html HTTP/1.1\r\n&quot;</span> <span class="comment">//</span></div>
@@ -344,7 +344,7 @@ $(function() {
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.body().empty());</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;}</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
-<div class="line"><a name="l00273"></a><span class="lineno"><a class="line" href="Parser_8ut_8cpp.html#acfd8b446a517ef02a51b26057630dee9">  273</a></span>&#160;<a class="code" href="Parser_8ut_8cpp.html#a2c51afc01422a8c26fbbe3dd23a88f92">BOOST_AUTO_TEST_CASE</a>(ChunkedResponseCase)</div>
+<div class="line"><a name="l00273"></a><span class="lineno"><a class="line" href="http_2Parser_8ut_8cpp.html#acfd8b446a517ef02a51b26057630dee9">  273</a></span>&#160;<a class="code" href="http_2Parser_8ut_8cpp.html#a2c51afc01422a8c26fbbe3dd23a88f92">BOOST_AUTO_TEST_CASE</a>(ChunkedResponseCase)</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;{</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    constexpr <span class="keyword">auto</span> Message =                      <span class="comment">//</span></div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        <span class="stringliteral">&quot;HTTP/1.1 200 OK\r\n&quot;</span>                     <span class="comment">//</span></div>
@@ -381,7 +381,7 @@ $(function() {
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.body() == <span class="stringliteral">&quot;abcdefghijklmnopqrstuvwxyz1234567890abcdef&quot;</span>s);</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;}</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160; </div>
-<div class="line"><a name="l00310"></a><span class="lineno"><a class="line" href="Parser_8ut_8cpp.html#a896278332f33556d3c5128ecccd28be4">  310</a></span>&#160;<a class="code" href="Parser_8ut_8cpp.html#a2c51afc01422a8c26fbbe3dd23a88f92">BOOST_AUTO_TEST_CASE</a>(MultiResponseCase)</div>
+<div class="line"><a name="l00310"></a><span class="lineno"><a class="line" href="http_2Parser_8ut_8cpp.html#a896278332f33556d3c5128ecccd28be4">  310</a></span>&#160;<a class="code" href="http_2Parser_8ut_8cpp.html#a2c51afc01422a8c26fbbe3dd23a88f92">BOOST_AUTO_TEST_CASE</a>(MultiResponseCase)</div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;{</div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    constexpr <span class="keyword">auto</span> Message =                 <span class="comment">//</span></div>
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        <span class="stringliteral">&quot;POST /path/script.cgi HTTP/1.1\r\n&quot;</span> <span class="comment">//</span></div>
@@ -414,18 +414,18 @@ $(function() {
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160; </div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;BOOST_AUTO_TEST_SUITE_END()</div>
 <div class="ttc" id="aMath_8ut_8cpp_html_ab904b429a1ec1b29e965e90718fcc4a6"><div class="ttname"><a href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a></div><div class="ttdeci">BOOST_TEST(v.size()==10U)</div></div>
-<div class="ttc" id="aParser_8hpp_html"><div class="ttname"><a href="Parser_8hpp.html">Parser.hpp</a></div></div>
-<div class="ttc" id="aParser_8ut_8cpp_html_a2c51afc01422a8c26fbbe3dd23a88f92"><div class="ttname"><a href="Parser_8ut_8cpp.html#a2c51afc01422a8c26fbbe3dd23a88f92">BOOST_AUTO_TEST_CASE</a></div><div class="ttdeci">BOOST_AUTO_TEST_CASE(InitialRequestLineCase)</div><div class="ttdef"><b>Definition:</b> <a href="Parser_8ut_8cpp_source.html#l00127">Parser.ut.cpp:127</a></div></div>
 <div class="ttc" id="aString_8hpp_html"><div class="ttname"><a href="String_8hpp.html">String.hpp</a></div></div>
 <div class="ttc" id="aUrl_8hpp_html"><div class="ttname"><a href="Url_8hpp.html">Url.hpp</a></div></div>
-<div class="ttc" id="aclasstoolbox_1_1http_1_1BasicParser_html"><div class="ttname"><a href="classtoolbox_1_1http_1_1BasicParser.html">toolbox::BasicParser</a></div><div class="ttdef"><b>Definition:</b> <a href="Parser_8hpp_source.html#l00031">Parser.hpp:31</a></div></div>
+<div class="ttc" id="aclasstoolbox_1_1http_1_1BasicParser_html"><div class="ttname"><a href="classtoolbox_1_1http_1_1BasicParser.html">toolbox::BasicParser</a></div><div class="ttdef"><b>Definition:</b> <a href="http_2Parser_8hpp_source.html#l00031">Parser.hpp:31</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1http_1_1BasicUrl_html"><div class="ttname"><a href="classtoolbox_1_1http_1_1BasicUrl.html">toolbox::BasicUrl</a></div><div class="ttdef"><b>Definition:</b> <a href="Url_8hpp_source.html#l00028">Url.hpp:28</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1sys_1_1CyclTime_html"><div class="ttname"><a href="classtoolbox_1_1sys_1_1CyclTime.html">toolbox::CyclTime</a></div><div class="ttdef"><b>Definition:</b> <a href="Time_8hpp_source.html#l00128">Time.hpp:128</a></div></div>
+<div class="ttc" id="ahttp_2Parser_8ut_8cpp_html_a2c51afc01422a8c26fbbe3dd23a88f92"><div class="ttname"><a href="http_2Parser_8ut_8cpp.html#a2c51afc01422a8c26fbbe3dd23a88f92">BOOST_AUTO_TEST_CASE</a></div><div class="ttdeci">BOOST_AUTO_TEST_CASE(InitialRequestLineCase)</div><div class="ttdef"><b>Definition:</b> <a href="http_2Parser_8ut_8cpp_source.html#l00127">Parser.ut.cpp:127</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1hdr_html_ac0ca8215da3b57b3aabf36a261b91f0d"><div class="ttname"><a href="namespacetoolbox_1_1hdr.html#ac0ca8215da3b57b3aabf36a261b91f0d">toolbox::hdr::operator&lt;&lt;</a></div><div class="ttdeci">ostream &amp; operator&lt;&lt;(ostream &amp;os, PutPercentiles pp)</div><div class="ttdef"><b>Definition:</b> <a href="hdr_2Utility_8cpp_source.html#l00096">Utility.cpp:96</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1http_html_a057b3bdf9033ca3a9e5a7e9bf414d382"><div class="ttname"><a href="namespacetoolbox_1_1http.html#a057b3bdf9033ca3a9e5a7e9bf414d382">toolbox::http::First</a></div><div class="ttdeci">First</div><div class="ttdef"><b>Definition:</b> <a href="Types_8hpp_source.html#l00027">Types.hpp:27</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1sys_html_aef1844501afd0408ab83ba0ab3596c10"><div class="ttname"><a href="namespacetoolbox_1_1sys.html#aef1844501afd0408ab83ba0ab3596c10">toolbox::sys::clear</a></div><div class="ttdeci">void clear(timeval &amp;tv) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Time_8hpp_source.html#l00296">Time.hpp:296</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1util_html_a12e933f09d08f3d4e212107b35ff6587"><div class="ttname"><a href="namespacetoolbox_1_1util.html#a12e933f09d08f3d4e212107b35ff6587">toolbox::util::reset</a></div><div class="ttdeci">TOOLBOX_API void reset(std::ostream &amp;os) noexcept</div></div>
 <div class="ttc" id="anamespacetoolbox_html"><div class="ttname"><a href="namespacetoolbox.html">toolbox</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8cpp_source.html#l00026">Benchmark.cpp:26</a></div></div>
+<div class="ttc" id="aresp_2Parser_8hpp_html"><div class="ttname"><a href="resp_2Parser_8hpp.html">Parser.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
