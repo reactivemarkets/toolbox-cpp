@@ -27,8 +27,6 @@ class Parser : BasicParser<Parser> {
     friend class BasicParser<Parser>;
 
   public:
-    void clear() { result_.clear(); }
-
     /// The parse method uses the following special syntax to express callback sequences:
     ///
     /// | Char | Description            |
@@ -42,9 +40,9 @@ class Parser : BasicParser<Parser> {
     /// | ]    | Array end.             |
     /// | ~    | State reset.           |
     ///
-    std::string parse(string_view sv)
+    std::string parse(string_view data)
     {
-        for (auto c : sv) {
+        for (const auto c : data) {
             // Intercept special character that sets the except flag.
             if (c == '!') {
                 except_ = true;
@@ -76,14 +74,14 @@ class Parser : BasicParser<Parser> {
         result_ += '+';
         result_ += s;
     }
-    void on_resp_error(const string& err)
+    void on_resp_error(const string& e)
     {
         if (!result_.empty() && result_.back() != '[') {
             result_ += ',';
         }
         throw_if_except();
         result_ += '-';
-        result_ += err;
+        result_ += e;
     }
     void on_resp_integer(int64_t i)
     {
@@ -107,7 +105,7 @@ class Parser : BasicParser<Parser> {
         throw_if_except();
         result_ += ']';
     }
-    void on_resp_reset() { result_ += '~'; }
+    void on_resp_reset() noexcept { result_ += '~'; }
     void throw_if_except()
     {
         if (!except_) {
@@ -121,10 +119,10 @@ class Parser : BasicParser<Parser> {
     string result_;
 };
 
-std::string parse(string_view sv)
+std::string parse(string_view data)
 {
     Parser p;
-    return p.parse(sv);
+    return p.parse(data);
 }
 
 } // namespace
