@@ -30,8 +30,6 @@ void run_resolver(Resolver& r, ThreadConfig config)
     try {
         set_thread_attrs(config);
         TOOLBOX_NOTICE << "started " << config.name << " thread";
-        // Reset the resolver before entering the run loop.
-        r.reset();
         // The run() function returns -1 when resolver is closed.
         while (r.run() >= 0) {
         }
