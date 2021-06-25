@@ -41,8 +41,9 @@ class Log {
     }
 
   public:
-    explicit Log(LogLevel level) noexcept
-    : level_{level}
+    explicit Log(WallTime ts, LogLevel level) noexcept
+    : ts_{ts}
+    , level_{level}
     , os_{log_stream()}
     {
         os_.set_storage(os_.make_storage());
@@ -50,7 +51,7 @@ class Log {
     ~Log()
     {
         const auto size = os_.size();
-        write_log(level_, os_.release_storage(), size);
+        write_log(ts_, level_, os_.release_storage(), size);
     }
 
     // Copy.
@@ -72,6 +73,7 @@ class Log {
     Log& operator()() noexcept { return *this; }
 
   private:
+    const WallTime ts_;
     const LogLevel level_;
     LogStream& os_;
 };
@@ -80,7 +82,7 @@ class Log {
 } // namespace toolbox
 
 // clang-format off
-#define TOOLBOX_LOG(LEVEL) toolbox::is_log_level(LEVEL) && toolbox::Log{LEVEL}()
+#define TOOLBOX_LOG(LEVEL) toolbox::is_log_level(LEVEL) && toolbox::Log{WallClock::now(), LEVEL}()
 
 #define TOOLBOX_CRIT TOOLBOX_LOG(toolbox::LogLevel::Crit)
 #define TOOLBOX_ERROR TOOLBOX_LOG(toolbox::LogLevel::Error)
@@ -91,7 +93,7 @@ class Log {
 #if TOOLBOX_BUILD_DEBUG
 #define TOOLBOX_DEBUG TOOLBOX_LOG(toolbox::LogLevel::Debug)
 #else
-#define TOOLBOX_DEBUG false && toolbox::Log{toolbox::LogLevel::Debug}()
+#define TOOLBOX_DEBUG false && toolbox::Log{WallClock::now(), toolbox::LogLevel::Debug}()
 #endif
 // clang-format on
 

@@ -18,6 +18,7 @@
 #define TOOLBOX_SYS_LOGGER_HPP
 
 #include <toolbox/sys/Limits.hpp>
+#include <toolbox/sys/Time.hpp>
 
 #include <toolbox/util/Storage.hpp>
 
@@ -82,7 +83,7 @@ inline Logger& set_logger(std::nullptr_t) noexcept
 /// Unconditionally write log message to the logger. Specifically, this function does not check that
 /// level is allowed by the current log level; users are expected to call is_log_level() first,
 /// before formatting the log message.
-TOOLBOX_API void write_log(LogLevel level, LogMsgPtr&& msg, std::size_t size) noexcept;
+TOOLBOX_API void write_log(WallTime ts, LogLevel level, LogMsgPtr&& msg, std::size_t size) noexcept;
 
 /// The Logger is implemented by types that may be woken-up, interrupted or otherwise notified
 /// asynchronously.
@@ -99,13 +100,14 @@ class TOOLBOX_API Logger {
     Logger(Logger&&) noexcept = default;
     Logger& operator=(Logger&&) noexcept = default;
 
-    void write_log(LogLevel level, LogMsgPtr&& msg, std::size_t size) noexcept
+    void write_log(WallTime ts, LogLevel level, LogMsgPtr&& msg, std::size_t size) noexcept
     {
-        do_write_log(level, std::move(msg), size);
+        do_write_log(ts, level, std::move(msg), size);
     }
 
   protected:
-    virtual void do_write_log(LogLevel level, LogMsgPtr&& msg, std::size_t size) noexcept = 0;
+    virtual void do_write_log(WallTime ts, LogLevel level, LogMsgPtr&& msg,
+                              std::size_t size) noexcept = 0;
 };
 
 /// ScopedLogger provides a convenient RAII-style utility for setting the backend logger for the

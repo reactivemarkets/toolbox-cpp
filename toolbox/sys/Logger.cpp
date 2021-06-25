@@ -16,8 +16,6 @@
 
 #include "Logger.hpp"
 
-#include <toolbox/sys/Time.hpp>
-
 #include <atomic>
 #include <mutex>
 
@@ -51,15 +49,16 @@ inline pid_t gettid()
 #endif
 
 class NullLogger final : public Logger {
-    void do_write_log(LogLevel level, LogMsgPtr&& msg, size_t size) noexcept override {}
+    void do_write_log(WallTime ts, LogLevel level, LogMsgPtr&& msg, size_t size) noexcept override
+    {
+    }
 } null_logger_;
 
 class StdLogger final : public Logger {
-    void do_write_log(LogLevel level, LogMsgPtr&& msg, size_t size) noexcept override
+    void do_write_log(WallTime ts, LogLevel level, LogMsgPtr&& msg, size_t size) noexcept override
     {
-        const auto now = WallClock::now();
-        const auto t = WallClock::to_time_t(now);
-        const auto ms = ms_since_epoch(now);
+        const auto t = WallClock::to_time_t(ts);
+        const auto ms = ms_since_epoch(ts);
 
         struct tm tm; // NOLINT(hicpp-member-init)
         localtime_r(&t, &tm);
@@ -94,7 +93,7 @@ class StdLogger final : public Logger {
 } std_logger_;
 
 class SysLogger final : public Logger {
-    void do_write_log(LogLevel level, LogMsgPtr&& msg, size_t size) noexcept override
+    void do_write_log(WallTime ts, LogLevel level, LogMsgPtr&& msg, size_t size) noexcept override
     {
         int prio;
         switch (level) {
@@ -176,9 +175,9 @@ Logger& set_logger(Logger& logger) noexcept
     return *logger_.exchange(&logger, memory_order_acq_rel);
 }
 
-void write_log(LogLevel level, LogMsgPtr&& msg, std::size_t size) noexcept
+void write_log(WallTime ts, LogLevel level, LogMsgPtr&& msg, std::size_t size) noexcept
 {
-    acquire_logger().write_log(level, move(msg), size);
+    acquire_logger().write_log(ts, level, move(msg), size);
 }
 
 Logger::~Logger() = default;
