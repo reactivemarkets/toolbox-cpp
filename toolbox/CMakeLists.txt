@@ -88,6 +88,7 @@ set(lib_SOURCES
   sys/Error.cpp
   sys/Limits.cpp
   sys/Log.cpp
+  sys/Logger.cpp
   sys/PidFile.cpp
   sys/Signal.cpp
   sys/System.cpp

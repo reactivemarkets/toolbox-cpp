@@ -47,14 +47,15 @@ ostream& operator<<(ostream& os, const Foo<int, int>& val)
     return os << '(' << val.first << ',' << val.second << ')';
 }
 
-int last_level{};
-string last_msg{};
-
-void test_logger(int level, LogMsgPtr msg, std::size_t size)
-{
-    last_level = level;
-    last_msg.assign(static_cast<const char*>(msg.get()), size);
-}
+struct TestLogger final : Logger {
+    void do_write_log(LogLevel level, LogMsgPtr&& msg, size_t size) noexcept override
+    {
+        last_level = level;
+        last_msg.assign(static_cast<const char*>(msg.get()), size);
+    }
+    LogLevel last_level{};
+    string last_msg{};
+};
 
 } // namespace
 
@@ -62,62 +63,64 @@ BOOST_AUTO_TEST_SUITE(LogSuite)
 
 BOOST_AUTO_TEST_CASE(LogLabelCase)
 {
-    BOOST_TEST(strcmp(log_label(-1), "CRIT") == 0);
-    BOOST_TEST(strcmp(log_label(Log::Crit), "CRIT") == 0);
-    BOOST_TEST(strcmp(log_label(Log::Error), "ERROR") == 0);
-    BOOST_TEST(strcmp(log_label(Log::Warning), "WARNING") == 0);
-    BOOST_TEST(strcmp(log_label(Log::Notice), "NOTICE") == 0);
-    BOOST_TEST(strcmp(log_label(Log::Info), "INFO") == 0);
-    BOOST_TEST(strcmp(log_label(Log::Debug), "DEBUG") == 0);
-    BOOST_TEST(strcmp(log_label(99), "DEBUG") == 0);
+    BOOST_TEST(strcmp(log_label(LogLevel{-1}), "CRIT") == 0);
+    BOOST_TEST(strcmp(log_label(LogLevel::Crit), "CRIT") == 0);
+    BOOST_TEST(strcmp(log_label(LogLevel::Error), "ERROR") == 0);
+    BOOST_TEST(strcmp(log_label(LogLevel::Warning), "WARNING") == 0);
+    BOOST_TEST(strcmp(log_label(LogLevel::Notice), "NOTICE") == 0);
+    BOOST_TEST(strcmp(log_label(LogLevel::Info), "INFO") == 0);
+    BOOST_TEST(strcmp(log_label(LogLevel::Debug), "DEBUG") == 0);
+    BOOST_TEST(strcmp(log_label(LogLevel{99}), "DEBUG") == 0);
 }
 
 BOOST_AUTO_TEST_CASE(LogMacroCase)
 {
-    auto prev_level = set_log_level(Log::Info);
-    auto prev_logger = set_logger(test_logger);
+    TestLogger tl;
+
+    auto prev_level = set_log_level(LogLevel::Info);
+    auto& prev_logger = set_logger(tl);
     // clang-format off
-    const auto finally = make_finally([prev_level, prev_logger]() noexcept {
+    const auto finally = make_finally([prev_level, &prev_logger]() noexcept {
         set_log_level(prev_level);
         set_logger(prev_logger);
     });
     // clang-format on
 
-    TOOLBOX_LOG(Log::Info) << "test1: " << Foo<int, int>{10, 20};
-    BOOST_TEST(last_level == Log::Info);
-    BOOST_TEST(last_msg == "test1: (10,20)");
+    TOOLBOX_LOG(LogLevel::Info) << "test1: " << Foo<int, int>{10, 20};
+    BOOST_TEST(tl.last_level == LogLevel::Info);
+    BOOST_TEST(tl.last_msg == "test1: (10,20)");
 
     TOOLBOX_CRIT << "test2: " << Foo<int, int>{10, 20};
-    BOOST_TEST(last_level == Log::Crit);
-    BOOST_TEST(last_msg == "test2: (10,20)");
+    BOOST_TEST(tl.last_level == LogLevel::Crit);
+    BOOST_TEST(tl.last_msg == "test2: (10,20)");
 
     TOOLBOX_ERROR << "test3: " << Foo<int, int>{10, 20};
-    BOOST_TEST(last_level == Log::Error);
-    BOOST_TEST(last_msg == "test3: (10,20)");
+    BOOST_TEST(tl.last_level == LogLevel::Error);
+    BOOST_TEST(tl.last_msg == "test3: (10,20)");
 
     TOOLBOX_WARNING << "test4: " << Foo<int, int>{10, 20};
-    BOOST_TEST(last_level == Log::Warning);
-    BOOST_TEST(last_msg == "test4: (10,20)");
+    BOOST_TEST(tl.last_level == LogLevel::Warning);
+    BOOST_TEST(tl.last_msg == "test4: (10,20)");
 
     TOOLBOX_NOTICE << "test5: " << Foo<int, int>{10, 20};
-    BOOST_TEST(last_level == Log::Notice);
-    BOOST_TEST(last_msg == "test5: (10,20)");
+    BOOST_TEST(tl.last_level == LogLevel::Notice);
+    BOOST_TEST(tl.last_msg == "test5: (10,20)");
 
     TOOLBOX_INFO << "test6: " << Foo<int, int>{10, 20};
-    BOOST_TEST(last_level == Log::Info);
-    BOOST_TEST(last_msg == "test6: (10,20)");
+    BOOST_TEST(tl.last_level == LogLevel::Info);
+    BOOST_TEST(tl.last_msg == "test6: (10,20)");
 
     // This should not be logged.
     TOOLBOX_DEBUG << "test7: " << Foo<int, int>{10, 20};
-    BOOST_TEST(last_level == Log::Info);
-    BOOST_TEST(last_msg == "test6: (10,20)");
+    BOOST_TEST(tl.last_level == LogLevel::Info);
+    BOOST_TEST(tl.last_msg == "test6: (10,20)");
 
     // This will log a non formatted string view, the formatting shows up on the next "formatable"
     // parameter.
     using namespace noformat;
-    TOOLBOX_LOG(Log::Info) << setw(3) << setfill('*') << "test8: "sv << Foo<int, int>{10, 20};
-    BOOST_TEST(last_level == Log::Info);
-    BOOST_TEST(last_msg == "test8: **(10,20)");
+    TOOLBOX_LOG(LogLevel::Info) << setw(3) << setfill('*') << "test8: "sv << Foo<int, int>{10, 20};
+    BOOST_TEST(tl.last_level == LogLevel::Info);
+    BOOST_TEST(tl.last_msg == "test8: **(10,20)");
 }
 
 BOOST_AUTO_TEST_SUITE_END()
