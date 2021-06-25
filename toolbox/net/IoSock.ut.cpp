@@ -14,8 +14,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Endpoint.hpp"
 #include "IoSock.hpp"
+
+#include "Endpoint.hpp"
 
 #include <boost/test/unit_test.hpp>
 

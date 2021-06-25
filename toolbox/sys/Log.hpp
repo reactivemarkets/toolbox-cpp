@@ -17,52 +17,12 @@
 #ifndef TOOLBOX_SYS_LOG_HPP
 #define TOOLBOX_SYS_LOG_HPP
 
-#include <toolbox/sys/Limits.hpp>
+#include <toolbox/sys/Logger.hpp>
+
 #include <toolbox/util/Stream.hpp>
 
 namespace toolbox {
 inline namespace sys {
-
-using LogMsgPtr = StoragePtr<MaxLogLine>;
-
-/// Logger callback function.
-using Logger = void (*)(int, LogMsgPtr, std::size_t);
-
-/// Return log label for given log level.
-TOOLBOX_API const char* log_label(int level) noexcept;
-
-/// Return current log level.
-TOOLBOX_API int get_log_level() noexcept;
-
-/// Return true if level is less than or equal to current log level.
-inline bool is_log_level(int level) noexcept
-{
-    return level <= get_log_level();
-}
-
-/// Set log level globally for all threads.
-TOOLBOX_API int set_log_level(int level) noexcept;
-
-/// Return current logger.
-TOOLBOX_API Logger get_logger() noexcept;
-
-/// Set logger globally for all threads.
-TOOLBOX_API Logger set_logger(Logger logger) noexcept;
-
-/// Unconditionally write log message to the logger. Specifically, this function does not check that
-/// level is allowed by the current log level; users are expected to call is_log_level() first,
-/// before formatting the log message.
-TOOLBOX_API void write_log(int level, LogMsgPtr msg, std::size_t size) noexcept;
-
-/// Null logger. This logger does nothing and is effectively /dev/null.
-TOOLBOX_API void null_logger(int level, LogMsgPtr msg, std::size_t size) noexcept;
-
-/// Standard logger. This logger writes to stdout if the log level is greater than LogWarn, and
-/// stdout otherwise.
-TOOLBOX_API void std_logger(int level, LogMsgPtr msg, std::size_t size) noexcept;
-
-/// System logger. This logger calls syslog().
-TOOLBOX_API void sys_logger(int level, LogMsgPtr msg, std::size_t size) noexcept;
 
 /// Logger callback function.
 using LogStream = util::OStream<MaxLogLine>;
@@ -81,22 +41,7 @@ class Log {
     }
 
   public:
-    enum : int {
-        /// Critical.
-        Crit,
-        /// Error.
-        Error,
-        /// Warning.
-        Warning,
-        /// Notice.
-        Notice,
-        /// Information.
-        Info,
-        /// Debug.
-        Debug
-    };
-
-    explicit Log(int level) noexcept
+    explicit Log(LogLevel level) noexcept
     : level_{level}
     , os_{log_stream()}
     {
@@ -127,7 +72,7 @@ class Log {
     Log& operator()() noexcept { return *this; }
 
   private:
-    const int level_;
+    const LogLevel level_;
     LogStream& os_;
 };
 
@@ -137,16 +82,16 @@ class Log {
 // clang-format off
 #define TOOLBOX_LOG(LEVEL) toolbox::is_log_level(LEVEL) && toolbox::Log{LEVEL}()
 
-#define TOOLBOX_CRIT TOOLBOX_LOG(toolbox::Log::Crit)
-#define TOOLBOX_ERROR TOOLBOX_LOG(toolbox::Log::Error)
-#define TOOLBOX_WARNING TOOLBOX_LOG(toolbox::Log::Warning)
-#define TOOLBOX_NOTICE TOOLBOX_LOG(toolbox::Log::Notice)
-#define TOOLBOX_INFO TOOLBOX_LOG(toolbox::Log::Info)
+#define TOOLBOX_CRIT TOOLBOX_LOG(toolbox::LogLevel::Crit)
+#define TOOLBOX_ERROR TOOLBOX_LOG(toolbox::LogLevel::Error)
+#define TOOLBOX_WARNING TOOLBOX_LOG(toolbox::LogLevel::Warning)
+#define TOOLBOX_NOTICE TOOLBOX_LOG(toolbox::LogLevel::Notice)
+#define TOOLBOX_INFO TOOLBOX_LOG(toolbox::LogLevel::Info)
 
 #if TOOLBOX_BUILD_DEBUG
-#define TOOLBOX_DEBUG TOOLBOX_LOG(toolbox::Log::Debug)
+#define TOOLBOX_DEBUG TOOLBOX_LOG(toolbox::LogLevel::Debug)
 #else
-#define TOOLBOX_DEBUG false && toolbox::Log{toolbox::Log::Debug}()
+#define TOOLBOX_DEBUG false && toolbox::Log{toolbox::LogLevel::Debug}()
 #endif
 // clang-format on
 
