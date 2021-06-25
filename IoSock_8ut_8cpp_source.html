@@ -88,30 +88,31 @@ $(function() {
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// See the License for the specific language governing permissions and</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">// limitations under the License.</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Endpoint_8hpp.html">Endpoint.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="IoSock_8hpp.html">IoSock.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;boost/test/unit_test.hpp&gt;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacetoolbox.html">toolbox</a>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;BOOST_AUTO_TEST_SUITE(IoSockSuite)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="IoSock_8ut_8cpp.html#a890167767ca161ba440e4ae73c4e8d0d">   27</a></span>&#160;<a class="code" href="IoSock_8ut_8cpp.html#a890167767ca161ba440e4ae73c4e8d0d">BOOST_AUTO_TEST_CASE</a>(SocketPairCase)</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">auto</span> socks = <a class="code" href="namespacetoolbox_1_1net.html#ae7af01dae1db1e2585de90b3e86129d7">socketpair</a>(<a class="code" href="structtoolbox_1_1net_1_1UnixStreamProtocol.html">UnixStreamProtocol</a>{});</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    socks.first.send(<span class="stringliteral">&quot;foo&quot;</span>, 4, 0);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">char</span> buf[4];</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    socks.second.recv(buf, 4, 0);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(strcmp(buf, <span class="stringliteral">&quot;foo&quot;</span>) == 0);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;BOOST_AUTO_TEST_SUITE_END()</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="IoSock_8hpp.html">IoSock.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Endpoint_8hpp.html">Endpoint.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;boost/test/unit_test.hpp&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacetoolbox.html">toolbox</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;BOOST_AUTO_TEST_SUITE(IoSockSuite)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="IoSock_8ut_8cpp.html#a890167767ca161ba440e4ae73c4e8d0d">   28</a></span>&#160;<a class="code" href="IoSock_8ut_8cpp.html#a890167767ca161ba440e4ae73c4e8d0d">BOOST_AUTO_TEST_CASE</a>(SocketPairCase)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">auto</span> socks = <a class="code" href="namespacetoolbox_1_1net.html#ae7af01dae1db1e2585de90b3e86129d7">socketpair</a>(<a class="code" href="structtoolbox_1_1net_1_1UnixStreamProtocol.html">UnixStreamProtocol</a>{});</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    socks.first.send(<span class="stringliteral">&quot;foo&quot;</span>, 4, 0);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">char</span> buf[4];</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    socks.second.recv(buf, 4, 0);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(strcmp(buf, <span class="stringliteral">&quot;foo&quot;</span>) == 0);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;BOOST_AUTO_TEST_SUITE_END()</div>
 <div class="ttc" id="aEndpoint_8hpp_html"><div class="ttname"><a href="Endpoint_8hpp.html">Endpoint.hpp</a></div></div>
 <div class="ttc" id="aIoSock_8hpp_html"><div class="ttname"><a href="IoSock_8hpp.html">IoSock.hpp</a></div></div>
-<div class="ttc" id="aIoSock_8ut_8cpp_html_a890167767ca161ba440e4ae73c4e8d0d"><div class="ttname"><a href="IoSock_8ut_8cpp.html#a890167767ca161ba440e4ae73c4e8d0d">BOOST_AUTO_TEST_CASE</a></div><div class="ttdeci">BOOST_AUTO_TEST_CASE(SocketPairCase)</div><div class="ttdef"><b>Definition:</b> <a href="IoSock_8ut_8cpp_source.html#l00027">IoSock.ut.cpp:27</a></div></div>
+<div class="ttc" id="aIoSock_8ut_8cpp_html_a890167767ca161ba440e4ae73c4e8d0d"><div class="ttname"><a href="IoSock_8ut_8cpp.html#a890167767ca161ba440e4ae73c4e8d0d">BOOST_AUTO_TEST_CASE</a></div><div class="ttdeci">BOOST_AUTO_TEST_CASE(SocketPairCase)</div><div class="ttdef"><b>Definition:</b> <a href="IoSock_8ut_8cpp_source.html#l00028">IoSock.ut.cpp:28</a></div></div>
 <div class="ttc" id="aMath_8ut_8cpp_html_ab904b429a1ec1b29e965e90718fcc4a6"><div class="ttname"><a href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a></div><div class="ttdeci">BOOST_TEST(v.size()==10U)</div></div>
 <div class="ttc" id="anamespacetoolbox_1_1net_html_ae7af01dae1db1e2585de90b3e86129d7"><div class="ttname"><a href="namespacetoolbox_1_1net.html#ae7af01dae1db1e2585de90b3e86129d7">toolbox::net::socketpair</a></div><div class="ttdeci">std::pair&lt; IoSock, IoSock &gt; socketpair(ProtocolT protocol)</div><div class="ttdef"><b>Definition:</b> <a href="IoSock_8hpp_source.html#l00090">IoSock.hpp:90</a></div></div>
 <div class="ttc" id="anamespacetoolbox_html"><div class="ttname"><a href="namespacetoolbox.html">toolbox</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8cpp_source.html#l00026">Benchmark.cpp:26</a></div></div>

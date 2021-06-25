@@ -78,29 +78,30 @@ $(function() {
 <div class="title">Log.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="Limits_8hpp_source.html">toolbox/sys/Limits.hpp</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="Logger_8hpp_source.html">toolbox/sys/Logger.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="util_2Stream_8hpp_source.html">toolbox/util/Stream.hpp</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Log.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="Log_8hpp__incl.png" border="0" usemap="#atoolbox_2sys_2Log_8hpp" alt=""/></div>
 <map name="atoolbox_2sys_2Log_8hpp" id="atoolbox_2sys_2Log_8hpp">
-<area shape="rect" title=" " alt="" coords="360,5,512,32"/>
-<area shape="rect" href="Limits_8hpp.html" title=" " alt="" coords="254,80,424,107"/>
-<area shape="rect" href="util_2Stream_8hpp.html" title=" " alt="" coords="558,80,733,107"/>
-<area shape="rect" href="Math_8hpp.html" title=" " alt="" coords="72,155,233,181"/>
-<area shape="rect" href="Config_8h.html" title=" " alt="" coords="60,304,188,331"/>
-<area shape="rect" title=" " alt="" coords="23,229,108,256"/>
-<area shape="rect" title=" " alt="" coords="133,229,172,256"/>
-<area shape="rect" title=" " alt="" coords="196,229,258,256"/>
-<area shape="rect" href="Storage_8hpp.html" title=" " alt="" coords="362,155,540,181"/>
-<area shape="rect" title=" " alt="" coords="565,155,726,181"/>
-<area shape="rect" title=" " alt="" coords="750,155,826,181"/>
-<area shape="rect" title=" " alt="" coords="850,155,948,181"/>
-<area shape="rect" href="Allocator_8hpp.html" title=" " alt="" coords="282,229,468,256"/>
-<area shape="rect" title=" " alt="" coords="492,229,562,256"/>
-<area shape="rect" title=" " alt="" coords="587,229,664,256"/>
-<area shape="rect" title=" " alt="" coords="350,304,400,331"/>
+<area shape="rect" title=" " alt="" coords="504,5,656,32"/>
+<area shape="rect" href="Logger_8hpp.html" title=" " alt="" coords="395,80,567,107"/>
+<area shape="rect" href="util_2Stream_8hpp.html" title=" " alt="" coords="591,80,766,107"/>
+<area shape="rect" href="Limits_8hpp.html" title=" " alt="" coords="162,155,331,181"/>
+<area shape="rect" href="Storage_8hpp.html" title=" " alt="" coords="393,155,572,181"/>
+<area shape="rect" href="Math_8hpp.html" title=" " alt="" coords="91,229,253,256"/>
+<area shape="rect" href="Config_8h.html" title=" " alt="" coords="265,304,393,331"/>
+<area shape="rect" title=" " alt="" coords="5,304,91,331"/>
+<area shape="rect" title=" " alt="" coords="115,304,154,331"/>
+<area shape="rect" title=" " alt="" coords="178,304,241,331"/>
+<area shape="rect" href="Allocator_8hpp.html" title=" " alt="" coords="277,229,462,256"/>
+<area shape="rect" title=" " alt="" coords="486,229,557,256"/>
+<area shape="rect" title=" " alt="" coords="581,229,659,256"/>
+<area shape="rect" title=" " alt="" coords="418,304,467,331"/>
+<area shape="rect" title=" " alt="" coords="597,155,758,181"/>
+<area shape="rect" title=" " alt="" coords="782,155,858,181"/>
+<area shape="rect" title=" " alt="" coords="882,155,979,181"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -139,62 +140,29 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:aeef575d3c8dddce294263a9f904b2ecd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Log_8hpp.html#aeef575d3c8dddce294263a9f904b2ecd">TOOLBOX_LOG</a>(LEVEL)&#160;&#160;&#160;<a class="el" href="namespacetoolbox_1_1sys.html#a303a8bbce54d723f35e8b944b57daff4">toolbox::is_log_level</a>(LEVEL) &amp;&amp; <a class="el" href="classtoolbox_1_1sys_1_1Log.html">toolbox::Log</a>{LEVEL}()</td></tr>
+<tr class="memitem:aeef575d3c8dddce294263a9f904b2ecd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Log_8hpp.html#aeef575d3c8dddce294263a9f904b2ecd">TOOLBOX_LOG</a>(LEVEL)&#160;&#160;&#160;<a class="el" href="namespacetoolbox_1_1sys.html#a075bef199cd0476132d7db539b2ea94b">toolbox::is_log_level</a>(LEVEL) &amp;&amp; <a class="el" href="classtoolbox_1_1sys_1_1Log.html">toolbox::Log</a>{LEVEL}()</td></tr>
 <tr class="separator:aeef575d3c8dddce294263a9f904b2ecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b03a968e886a76c3a92a47fbe11cf01"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Log_8hpp.html#a5b03a968e886a76c3a92a47fbe11cf01">TOOLBOX_CRIT</a>&#160;&#160;&#160;<a class="el" href="Log_8hpp.html#aeef575d3c8dddce294263a9f904b2ecd">TOOLBOX_LOG</a>(toolbox::Log::Crit)</td></tr>
+<tr class="memitem:a5b03a968e886a76c3a92a47fbe11cf01"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Log_8hpp.html#a5b03a968e886a76c3a92a47fbe11cf01">TOOLBOX_CRIT</a>&#160;&#160;&#160;<a class="el" href="Log_8hpp.html#aeef575d3c8dddce294263a9f904b2ecd">TOOLBOX_LOG</a>(toolbox::LogLevel::Crit)</td></tr>
 <tr class="separator:a5b03a968e886a76c3a92a47fbe11cf01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca90da8a175ed216c67a7b0d6f517eda"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Log_8hpp.html#aca90da8a175ed216c67a7b0d6f517eda">TOOLBOX_ERROR</a>&#160;&#160;&#160;<a class="el" href="Log_8hpp.html#aeef575d3c8dddce294263a9f904b2ecd">TOOLBOX_LOG</a>(toolbox::Log::Error)</td></tr>
+<tr class="memitem:aca90da8a175ed216c67a7b0d6f517eda"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Log_8hpp.html#aca90da8a175ed216c67a7b0d6f517eda">TOOLBOX_ERROR</a>&#160;&#160;&#160;<a class="el" href="Log_8hpp.html#aeef575d3c8dddce294263a9f904b2ecd">TOOLBOX_LOG</a>(toolbox::LogLevel::Error)</td></tr>
 <tr class="separator:aca90da8a175ed216c67a7b0d6f517eda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a410748b7f856f810e52d0792c067f1f5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Log_8hpp.html#a410748b7f856f810e52d0792c067f1f5">TOOLBOX_WARNING</a>&#160;&#160;&#160;<a class="el" href="Log_8hpp.html#aeef575d3c8dddce294263a9f904b2ecd">TOOLBOX_LOG</a>(toolbox::Log::Warning)</td></tr>
+<tr class="memitem:a410748b7f856f810e52d0792c067f1f5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Log_8hpp.html#a410748b7f856f810e52d0792c067f1f5">TOOLBOX_WARNING</a>&#160;&#160;&#160;<a class="el" href="Log_8hpp.html#aeef575d3c8dddce294263a9f904b2ecd">TOOLBOX_LOG</a>(toolbox::LogLevel::Warning)</td></tr>
 <tr class="separator:a410748b7f856f810e52d0792c067f1f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9860898bebf2a6f7a82cd2364369dfae"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Log_8hpp.html#a9860898bebf2a6f7a82cd2364369dfae">TOOLBOX_NOTICE</a>&#160;&#160;&#160;<a class="el" href="Log_8hpp.html#aeef575d3c8dddce294263a9f904b2ecd">TOOLBOX_LOG</a>(toolbox::Log::Notice)</td></tr>
+<tr class="memitem:a9860898bebf2a6f7a82cd2364369dfae"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Log_8hpp.html#a9860898bebf2a6f7a82cd2364369dfae">TOOLBOX_NOTICE</a>&#160;&#160;&#160;<a class="el" href="Log_8hpp.html#aeef575d3c8dddce294263a9f904b2ecd">TOOLBOX_LOG</a>(toolbox::LogLevel::Notice)</td></tr>
 <tr class="separator:a9860898bebf2a6f7a82cd2364369dfae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaaca7789578fae79a1968cc989889940"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Log_8hpp.html#aaaca7789578fae79a1968cc989889940">TOOLBOX_INFO</a>&#160;&#160;&#160;<a class="el" href="Log_8hpp.html#aeef575d3c8dddce294263a9f904b2ecd">TOOLBOX_LOG</a>(toolbox::Log::Info)</td></tr>
+<tr class="memitem:aaaca7789578fae79a1968cc989889940"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Log_8hpp.html#aaaca7789578fae79a1968cc989889940">TOOLBOX_INFO</a>&#160;&#160;&#160;<a class="el" href="Log_8hpp.html#aeef575d3c8dddce294263a9f904b2ecd">TOOLBOX_LOG</a>(toolbox::LogLevel::Info)</td></tr>
 <tr class="separator:aaaca7789578fae79a1968cc989889940"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53c7e19e45aa1316b0eeb8815f6631aa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Log_8hpp.html#a53c7e19e45aa1316b0eeb8815f6631aa">TOOLBOX_DEBUG</a>&#160;&#160;&#160;false &amp;&amp; <a class="el" href="classtoolbox_1_1sys_1_1Log.html">toolbox::Log</a>{toolbox::Log::Debug}()</td></tr>
+<tr class="memitem:a53c7e19e45aa1316b0eeb8815f6631aa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Log_8hpp.html#a53c7e19e45aa1316b0eeb8815f6631aa">TOOLBOX_DEBUG</a>&#160;&#160;&#160;false &amp;&amp; <a class="el" href="classtoolbox_1_1sys_1_1Log.html">toolbox::Log</a>{toolbox::LogLevel::Debug}()</td></tr>
 <tr class="separator:a53c7e19e45aa1316b0eeb8815f6631aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a90375ff3ad41e051d34219123f8cae1d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a90375ff3ad41e051d34219123f8cae1d">toolbox::sys::LogMsgPtr</a> = StoragePtr&lt; MaxLogLine &gt;</td></tr>
-<tr class="separator:a90375ff3ad41e051d34219123f8cae1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83dfb71d1f39662e384766014860182b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a83dfb71d1f39662e384766014860182b">toolbox::sys::Logger</a> = void(*)(int, LogMsgPtr, std::size_t)</td></tr>
-<tr class="memdesc:a83dfb71d1f39662e384766014860182b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger callback function.  <a href="namespacetoolbox_1_1sys.html#a83dfb71d1f39662e384766014860182b">More...</a><br /></td></tr>
-<tr class="separator:a83dfb71d1f39662e384766014860182b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d316964302f8ef8f39a43db2a5992db"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a2d316964302f8ef8f39a43db2a5992db">toolbox::sys::LogStream</a> = util::OStream&lt; MaxLogLine &gt;</td></tr>
-<tr class="memdesc:a2d316964302f8ef8f39a43db2a5992db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger callback function.  <a href="namespacetoolbox_1_1sys.html#a2d316964302f8ef8f39a43db2a5992db">More...</a><br /></td></tr>
+<tr class="memdesc:a2d316964302f8ef8f39a43db2a5992db"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classtoolbox_1_1sys_1_1Logger.html">Logger</a> callback function.  <a href="namespacetoolbox_1_1sys.html#a2d316964302f8ef8f39a43db2a5992db">More...</a><br /></td></tr>
 <tr class="separator:a2d316964302f8ef8f39a43db2a5992db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8e94adb25bb4343e70f491798575ec9e"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a8e94adb25bb4343e70f491798575ec9e">toolbox::sys::log_label</a> (int level) noexcept</td></tr>
-<tr class="memdesc:a8e94adb25bb4343e70f491798575ec9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return log label for given log level.  <a href="namespacetoolbox_1_1sys.html#a8e94adb25bb4343e70f491798575ec9e">More...</a><br /></td></tr>
-<tr class="separator:a8e94adb25bb4343e70f491798575ec9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b7df9fed7318416dcb2b0735bed002f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a3b7df9fed7318416dcb2b0735bed002f">toolbox::sys::get_log_level</a> () noexcept</td></tr>
-<tr class="memdesc:a3b7df9fed7318416dcb2b0735bed002f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return current log level.  <a href="namespacetoolbox_1_1sys.html#a3b7df9fed7318416dcb2b0735bed002f">More...</a><br /></td></tr>
-<tr class="separator:a3b7df9fed7318416dcb2b0735bed002f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a303a8bbce54d723f35e8b944b57daff4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a303a8bbce54d723f35e8b944b57daff4">toolbox::sys::is_log_level</a> (int level) noexcept</td></tr>
-<tr class="memdesc:a303a8bbce54d723f35e8b944b57daff4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if level is less than or equal to current log level.  <a href="namespacetoolbox_1_1sys.html#a303a8bbce54d723f35e8b944b57daff4">More...</a><br /></td></tr>
-<tr class="separator:a303a8bbce54d723f35e8b944b57daff4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49490fbd55c046ddc6f1089b73342b1b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a49490fbd55c046ddc6f1089b73342b1b">toolbox::sys::set_log_level</a> (int level) noexcept</td></tr>
-<tr class="memdesc:a49490fbd55c046ddc6f1089b73342b1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set log level globally for all threads.  <a href="namespacetoolbox_1_1sys.html#a49490fbd55c046ddc6f1089b73342b1b">More...</a><br /></td></tr>
-<tr class="separator:a49490fbd55c046ddc6f1089b73342b1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18359c12fee88c95a2a2b8609f4e6ae3"><td class="memItemLeft" align="right" valign="top">Logger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a18359c12fee88c95a2a2b8609f4e6ae3">toolbox::sys::get_logger</a> () noexcept</td></tr>
-<tr class="memdesc:a18359c12fee88c95a2a2b8609f4e6ae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return current logger.  <a href="namespacetoolbox_1_1sys.html#a18359c12fee88c95a2a2b8609f4e6ae3">More...</a><br /></td></tr>
-<tr class="separator:a18359c12fee88c95a2a2b8609f4e6ae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3adf60f3d35c708f3598c4991fec377"><td class="memItemLeft" align="right" valign="top">Logger&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#ae3adf60f3d35c708f3598c4991fec377">toolbox::sys::set_logger</a> (Logger logger) noexcept</td></tr>
-<tr class="memdesc:ae3adf60f3d35c708f3598c4991fec377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set logger globally for all threads.  <a href="namespacetoolbox_1_1sys.html#ae3adf60f3d35c708f3598c4991fec377">More...</a><br /></td></tr>
-<tr class="separator:ae3adf60f3d35c708f3598c4991fec377"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b1c558f40e5e1cae0c1038e63d3b117"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a4b1c558f40e5e1cae0c1038e63d3b117">toolbox::sys::write_log</a> (int level, LogMsgPtr msg, std::size_t size) noexcept</td></tr>
-<tr class="separator:a4b1c558f40e5e1cae0c1038e63d3b117"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18b5509e7cd9704c6ca4a73e74e3102e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a18b5509e7cd9704c6ca4a73e74e3102e">toolbox::sys::null_logger</a> (int level, LogMsgPtr msg, std::size_t size) noexcept</td></tr>
-<tr class="memdesc:a18b5509e7cd9704c6ca4a73e74e3102e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Null logger. This logger does nothing and is effectively /dev/null.  <a href="namespacetoolbox_1_1sys.html#a18b5509e7cd9704c6ca4a73e74e3102e">More...</a><br /></td></tr>
-<tr class="separator:a18b5509e7cd9704c6ca4a73e74e3102e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a979c9ca4e2000552e68e7f3ad02fca84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a979c9ca4e2000552e68e7f3ad02fca84">toolbox::sys::std_logger</a> (int level, LogMsgPtr msg, std::size_t size) noexcept</td></tr>
-<tr class="separator:a979c9ca4e2000552e68e7f3ad02fca84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d3ffe4f03c3fa7ffa3ad6582f1724ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a0d3ffe4f03c3fa7ffa3ad6582f1724ab">toolbox::sys::sys_logger</a> (int level, LogMsgPtr msg, std::size_t size) noexcept</td></tr>
-<tr class="memdesc:a0d3ffe4f03c3fa7ffa3ad6582f1724ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">System logger. This logger calls syslog().  <a href="namespacetoolbox_1_1sys.html#a0d3ffe4f03c3fa7ffa3ad6582f1724ab">More...</a><br /></td></tr>
-<tr class="separator:a0d3ffe4f03c3fa7ffa3ad6582f1724ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b04461f7abb09244a11754075dad53f"><td class="memItemLeft" align="right" valign="top">LogStream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a9b04461f7abb09244a11754075dad53f">toolbox::sys::log_stream</a> () noexcept</td></tr>
 <tr class="separator:a9b04461f7abb09244a11754075dad53f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -210,12 +178,12 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">LEVEL</td><td>)</td>
-          <td>&#160;&#160;&#160;<a class="el" href="namespacetoolbox_1_1sys.html#a303a8bbce54d723f35e8b944b57daff4">toolbox::is_log_level</a>(LEVEL) &amp;&amp; <a class="el" href="classtoolbox_1_1sys_1_1Log.html">toolbox::Log</a>{LEVEL}()</td>
+          <td>&#160;&#160;&#160;<a class="el" href="namespacetoolbox_1_1sys.html#a075bef199cd0476132d7db539b2ea94b">toolbox::is_log_level</a>(LEVEL) &amp;&amp; <a class="el" href="classtoolbox_1_1sys_1_1Log.html">toolbox::Log</a>{LEVEL}()</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Log_8hpp_source.html#l00138">138</a> of file <a class="el" href="Log_8hpp_source.html">Log.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Log_8hpp_source.html#l00083">83</a> of file <a class="el" href="Log_8hpp_source.html">Log.hpp</a>.</p>
 
 </div>
 </div>
@@ -226,12 +194,12 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TOOLBOX_CRIT&#160;&#160;&#160;<a class="el" href="Log_8hpp.html#aeef575d3c8dddce294263a9f904b2ecd">TOOLBOX_LOG</a>(toolbox::Log::Crit)</td>
+          <td class="memname">#define TOOLBOX_CRIT&#160;&#160;&#160;<a class="el" href="Log_8hpp.html#aeef575d3c8dddce294263a9f904b2ecd">TOOLBOX_LOG</a>(toolbox::LogLevel::Crit)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Log_8hpp_source.html#l00140">140</a> of file <a class="el" href="Log_8hpp_source.html">Log.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Log_8hpp_source.html#l00085">85</a> of file <a class="el" href="Log_8hpp_source.html">Log.hpp</a>.</p>
 
 </div>
 </div>
@@ -242,12 +210,12 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TOOLBOX_ERROR&#160;&#160;&#160;<a class="el" href="Log_8hpp.html#aeef575d3c8dddce294263a9f904b2ecd">TOOLBOX_LOG</a>(toolbox::Log::Error)</td>
+          <td class="memname">#define TOOLBOX_ERROR&#160;&#160;&#160;<a class="el" href="Log_8hpp.html#aeef575d3c8dddce294263a9f904b2ecd">TOOLBOX_LOG</a>(toolbox::LogLevel::Error)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Log_8hpp_source.html#l00141">141</a> of file <a class="el" href="Log_8hpp_source.html">Log.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Log_8hpp_source.html#l00086">86</a> of file <a class="el" href="Log_8hpp_source.html">Log.hpp</a>.</p>
 
 </div>
 </div>
@@ -258,12 +226,12 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TOOLBOX_WARNING&#160;&#160;&#160;<a class="el" href="Log_8hpp.html#aeef575d3c8dddce294263a9f904b2ecd">TOOLBOX_LOG</a>(toolbox::Log::Warning)</td>
+          <td class="memname">#define TOOLBOX_WARNING&#160;&#160;&#160;<a class="el" href="Log_8hpp.html#aeef575d3c8dddce294263a9f904b2ecd">TOOLBOX_LOG</a>(toolbox::LogLevel::Warning)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Log_8hpp_source.html#l00142">142</a> of file <a class="el" href="Log_8hpp_source.html">Log.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Log_8hpp_source.html#l00087">87</a> of file <a class="el" href="Log_8hpp_source.html">Log.hpp</a>.</p>
 
 </div>
 </div>
@@ -274,12 +242,12 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TOOLBOX_NOTICE&#160;&#160;&#160;<a class="el" href="Log_8hpp.html#aeef575d3c8dddce294263a9f904b2ecd">TOOLBOX_LOG</a>(toolbox::Log::Notice)</td>
+          <td class="memname">#define TOOLBOX_NOTICE&#160;&#160;&#160;<a class="el" href="Log_8hpp.html#aeef575d3c8dddce294263a9f904b2ecd">TOOLBOX_LOG</a>(toolbox::LogLevel::Notice)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Log_8hpp_source.html#l00143">143</a> of file <a class="el" href="Log_8hpp_source.html">Log.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Log_8hpp_source.html#l00088">88</a> of file <a class="el" href="Log_8hpp_source.html">Log.hpp</a>.</p>
 
 </div>
 </div>
@@ -290,12 +258,12 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TOOLBOX_INFO&#160;&#160;&#160;<a class="el" href="Log_8hpp.html#aeef575d3c8dddce294263a9f904b2ecd">TOOLBOX_LOG</a>(toolbox::Log::Info)</td>
+          <td class="memname">#define TOOLBOX_INFO&#160;&#160;&#160;<a class="el" href="Log_8hpp.html#aeef575d3c8dddce294263a9f904b2ecd">TOOLBOX_LOG</a>(toolbox::LogLevel::Info)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Log_8hpp_source.html#l00144">144</a> of file <a class="el" href="Log_8hpp_source.html">Log.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Log_8hpp_source.html#l00089">89</a> of file <a class="el" href="Log_8hpp_source.html">Log.hpp</a>.</p>
 
 </div>
 </div>
@@ -306,12 +274,12 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TOOLBOX_DEBUG&#160;&#160;&#160;false &amp;&amp; <a class="el" href="classtoolbox_1_1sys_1_1Log.html">toolbox::Log</a>{toolbox::Log::Debug}()</td>
+          <td class="memname">#define TOOLBOX_DEBUG&#160;&#160;&#160;false &amp;&amp; <a class="el" href="classtoolbox_1_1sys_1_1Log.html">toolbox::Log</a>{toolbox::LogLevel::Debug}()</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Log_8hpp_source.html#l00149">149</a> of file <a class="el" href="Log_8hpp_source.html">Log.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Log_8hpp_source.html#l00094">94</a> of file <a class="el" href="Log_8hpp_source.html">Log.hpp</a>.</p>
 
 </div>
 </div>

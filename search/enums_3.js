@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['priority_2261',['Priority',['../namespacetoolbox_1_1io.html#a3ebeb41d6195a7beeb4a1734379c4684',1,'toolbox::Priority()'],['../namespacetoolbox_1_1io.html#a3ebeb41d6195a7beeb4a1734379c4684',1,'toolbox::io::Priority()']]]
+  ['nocache_2276',['NoCache',['../namespacetoolbox_1_1http.html#a2109eec90341ac1ee00852e6ba5d9c54',1,'toolbox::NoCache()'],['../namespacetoolbox_1_1http.html#a2109eec90341ac1ee00852e6ba5d9c54',1,'toolbox::http::NoCache()']]]
 ];
