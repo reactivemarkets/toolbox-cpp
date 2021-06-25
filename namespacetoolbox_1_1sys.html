@@ -250,8 +250,8 @@ Functions</h2></td></tr>
 <tr class="memitem:a2e7baf9b38852bd428479edc456ce481"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtoolbox_1_1sys_1_1Logger.html">Logger</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a2e7baf9b38852bd428479edc456ce481">set_logger</a> (<a class="el" href="classtoolbox_1_1sys_1_1Logger.html">Logger</a> &amp;logger) noexcept</td></tr>
 <tr class="memdesc:a2e7baf9b38852bd428479edc456ce481"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set logger globally for all threads.  <a href="namespacetoolbox_1_1sys.html#a2e7baf9b38852bd428479edc456ce481">More...</a><br /></td></tr>
 <tr class="separator:a2e7baf9b38852bd428479edc456ce481"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27720a3d4756e4fc8e03c2cd7a6a603e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a27720a3d4756e4fc8e03c2cd7a6a603e">write_log</a> (<a class="el" href="namespacetoolbox_1_1sys.html#ad70de488b6f18b15990850b5cb4293da">LogLevel</a> level, <a class="el" href="namespacetoolbox_1_1sys.html#a90375ff3ad41e051d34219123f8cae1d">LogMsgPtr</a> &amp;&amp;msg, std::size_t <a class="el" href="namespacetoolbox_1_1util.html#a60794730274ecfa3f74f93c43396f774">size</a>) noexcept</td></tr>
-<tr class="separator:a27720a3d4756e4fc8e03c2cd7a6a603e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61949a204f64f87024fa044268effd3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a61949a204f64f87024fa044268effd3d">write_log</a> (<a class="el" href="namespacetoolbox_1_1sys.html#a657ecd4f98265bd34f835f59975db04e">WallTime</a> ts, <a class="el" href="namespacetoolbox_1_1sys.html#ad70de488b6f18b15990850b5cb4293da">LogLevel</a> level, <a class="el" href="namespacetoolbox_1_1sys.html#a90375ff3ad41e051d34219123f8cae1d">LogMsgPtr</a> &amp;&amp;msg, std::size_t <a class="el" href="namespacetoolbox_1_1util.html#a60794730274ecfa3f74f93c43396f774">size</a>) noexcept</td></tr>
+<tr class="separator:a61949a204f64f87024fa044268effd3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a075bef199cd0476132d7db539b2ea94b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a075bef199cd0476132d7db539b2ea94b">is_log_level</a> (<a class="el" href="namespacetoolbox_1_1sys.html#ad70de488b6f18b15990850b5cb4293da">LogLevel</a> level) noexcept</td></tr>
 <tr class="memdesc:a075bef199cd0476132d7db539b2ea94b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if level is less than or equal to current log level.  <a href="namespacetoolbox_1_1sys.html#a075bef199cd0476132d7db539b2ea94b">More...</a><br /></td></tr>
 <tr class="separator:a075bef199cd0476132d7db539b2ea94b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -415,7 +415,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00044">44</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00045">45</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
 
 </div>
 </div>
@@ -622,7 +622,7 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00029">29</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00030">30</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
 
 </div>
 </div>
@@ -1362,7 +1362,7 @@ Functions</h2></td></tr>
 
 <p>Null logger. This logger does nothing and is effectively /dev/null. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00139">139</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00138">138</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1390,7 +1390,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Standard logger. This logger writes to stdout if the log level is greater than LogWarn, and stdout otherwise. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00144">144</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00143">143</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1419,7 +1419,7 @@ Functions</h2></td></tr>
 
 <p>System logger. This logger calls syslog(). </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00149">149</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00148">148</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1449,7 +1449,7 @@ Functions</h2></td></tr>
 
 <p>Return log label for given log level. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00154">154</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00153">153</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1478,7 +1478,7 @@ Functions</h2></td></tr>
 
 <p>Return current log level. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00159">159</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00158">158</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1508,7 +1508,7 @@ Functions</h2></td></tr>
 
 <p>Set log level globally for all threads. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00164">164</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00163">163</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1537,7 +1537,7 @@ Functions</h2></td></tr>
 
 <p>Return current logger. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00169">169</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00168">168</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1567,14 +1567,14 @@ Functions</h2></td></tr>
 
 <p>Set logger globally for all threads. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00174">174</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00173">173</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Logger_8hpp_source.html#l00115">toolbox::sys::ScopedLogger::ScopedLogger()</a>, and <a class="el" href="Logger_8hpp_source.html#l00119">toolbox::sys::ScopedLogger::~ScopedLogger()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Logger_8hpp_source.html#l00117">toolbox::sys::ScopedLogger::ScopedLogger()</a>, and <a class="el" href="Logger_8hpp_source.html#l00121">toolbox::sys::ScopedLogger::~ScopedLogger()</a>.</p>
 
 </div>
 </div>
-<a id="a27720a3d4756e4fc8e03c2cd7a6a603e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27720a3d4756e4fc8e03c2cd7a6a603e">&#9670;&nbsp;</a></span>write_log()</h2>
+<a id="a61949a204f64f87024fa044268effd3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61949a204f64f87024fa044268effd3d">&#9670;&nbsp;</a></span>write_log()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1585,6 +1585,12 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> void toolbox::sys::write_log </td>
           <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#a657ecd4f98265bd34f835f59975db04e">WallTime</a>&#160;</td>
+          <td class="paramname"><em>ts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#ad70de488b6f18b15990850b5cb4293da">LogLevel</a>&#160;</td>
           <td class="paramname"><em>level</em>, </td>
         </tr>
@@ -1614,9 +1620,9 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Unconditionally write log message to the logger. Specifically, this function does not check that level is allowed by the current log level; users are expected to call <a class="el" href="namespacetoolbox_1_1sys.html#a075bef199cd0476132d7db539b2ea94b" title="Return true if level is less than or equal to current log level.">is_log_level()</a> first, before formatting the log message. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00179">179</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00178">178</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Log_8hpp_source.html#l00050">toolbox::sys::Log::~Log()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Log_8hpp_source.html#l00051">toolbox::sys::Log::~Log()</a>.</p>
 
 </div>
 </div>
@@ -1646,7 +1652,7 @@ Functions</h2></td></tr>
 
 <p>Return true if level is less than or equal to current log level. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00063">63</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00064">64</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
 
 </div>
 </div>
@@ -1674,7 +1680,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00077">77</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00078">78</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
 
 </div>
 </div>
@@ -1712,7 +1718,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00133">133</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00135">135</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
 
 </div>
 </div>

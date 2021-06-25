@@ -37,7 +37,7 @@ var searchData=
   ['do_5fon_5fhttp_5fmessage_197',['do_on_http_message',['../classtoolbox_1_1http_1_1App.html#a9d3093251aacf570b3ab8d91413751eb',1,'toolbox::http::App']]],
   ['do_5fon_5fhttp_5ftimeout_198',['do_on_http_timeout',['../classtoolbox_1_1http_1_1App.html#a416a6d33631ff5ba01e17e4cf064be2e',1,'toolbox::http::App']]],
   ['do_5fwakeup_199',['do_wakeup',['../classtoolbox_1_1io_1_1Reactor.html#adde0102c9231dddf54587b768d8f7911',1,'toolbox::io::Reactor::do_wakeup()'],['../classtoolbox_1_1io_1_1Waker.html#a79a3c154d358f01a200994287f577fc6',1,'toolbox::io::Waker::do_wakeup()']]],
-  ['do_5fwrite_5flog_200',['do_write_log',['../classtoolbox_1_1sys_1_1Logger.html#a878bb17966cda210279ba44e30a64bc1',1,'toolbox::sys::Logger']]],
+  ['do_5fwrite_5flog_200',['do_write_log',['../classtoolbox_1_1sys_1_1Logger.html#a79edf12286e7a7581c4cef9da76e6cd8',1,'toolbox::sys::Logger']]],
   ['duration_201',['duration',['../structtoolbox_1_1sys_1_1MonoClock.html#acd6c3d5b25ae158b2a8b71e7ae5ac01c',1,'toolbox::sys::MonoClock']]],
   ['duration_202',['Duration',['../namespacetoolbox_1_1sys.html#aedb936b32edd1672f938990ce346f0e2',1,'toolbox::Duration()'],['../namespacetoolbox_1_1sys.html#aedb936b32edd1672f938990ce346f0e2',1,'toolbox::sys::Duration()']]],
   ['duration_203',['duration',['../structtoolbox_1_1sys_1_1WallClock.html#af1bee96c8c817055f8482e762cf00ace',1,'toolbox::sys::WallClock']]]
