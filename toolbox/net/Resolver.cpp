@@ -26,7 +26,7 @@ int Resolver::run(Duration timeout)
     constexpr size_t BatchSize = 16;
 
     Lock lock{mutex_};
-    // Predicate returns ​false if the waiting should be continued.
+    // Predicate returns false if the waiting should be continued.
     const auto pred = [this] { return !this->queue_.empty() || stop_; };
     // Returns false if predicate was false after timeout.
     if (!cond_.wait_for(lock, timeout, pred)) {
