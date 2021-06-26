@@ -21,67 +21,27 @@
 namespace toolbox {
 inline namespace net {
 
-int Resolver::run(Duration timeout)
+bool Resolver::run()
 {
-    constexpr size_t BatchSize = 16;
-
-    Lock lock{mutex_};
-    // Predicate returns false if the waiting should be continued.
-    const auto pred = [this] { return !this->queue_.empty() || stop_; };
-    // Returns false if predicate was false after timeout.
-    if (!cond_.wait_for(lock, timeout, pred)) {
-        return 0;
-    } else if (stop_) {
-        // This will unblock waiters by throwing a "broken promise" exception.
-        queue_.clear();
-        return -1;
-    }
-    // Copy batch of tasks to temporary buffer.
-    std::array<Task, BatchSize> tasks{};
-
-    const auto n = std::min(queue_.size(), BatchSize);
-    for (std::size_t i{0}; i < n; ++i) {
-        // Copy is disabled for unique_ptr<>, so use swap() instead.
-        queue_[i].swap(tasks[i]);
-    }
-    queue_.erase(queue_.begin(), queue_.begin() + n);
-    lock.unlock();
-
-    // Execute tasks after lock is released.
-    for (std::size_t i{0}; i < n; ++i) {
-        tasks[i]();
-    }
-    return n;
+    return tq_.run([](Task&& t) { t(); });
 }
 
 void Resolver::stop()
 {
-    Lock lock{mutex_};
-    stop_ = true;
-    // Unlock mutex before notifying to avoid contention.
-    lock.unlock();
-    cond_.notify_all();
+    tq_.stop();
 }
 
 void Resolver::clear()
 {
-    Lock lock{mutex_};
     // This will unblock waiters by throwing a "broken promise" exception.
-    return queue_.clear();
+    return tq_.clear();
 }
 
 AddrInfoFuture Resolver::resolve(const std::string& uri, int type)
 {
     Task task{[=]() -> AddrInfoPtr { return parse_endpoint(uri, type); }};
     auto future = task.get_future();
-
-    Lock lock{mutex_};
-    if (stop_) {
-        throw std::logic_error{"resolver stopped"};
-    }
-    queue_.push_back(std::move(task));
-    lock.unlock();
-    cond_.notify_one();
+    tq_.push(std::move(task));
     return future;
 }
 

@@ -37,6 +37,7 @@
 #include "util/String.hpp"
 #include "util/StringBuf.hpp"
 #include "util/Struct.hpp"
+#include "util/TaskQueue.hpp"
 #include "util/Tokeniser.hpp"
 #include "util/Traits.hpp"
 #include "util/Trans.hpp"

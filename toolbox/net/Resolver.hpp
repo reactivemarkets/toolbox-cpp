@@ -19,9 +19,9 @@
 
 #include <toolbox/net/Socket.hpp>
 #include <toolbox/sys/Time.hpp>
+#include <toolbox/util/TaskQueue.hpp>
 
 #include <cassert>
-#include <deque>
 #include <future>
 
 namespace toolbox {
@@ -47,11 +47,10 @@ class TOOLBOX_API Resolver {
     Resolver(Resolver&&) = delete;
     Resolver& operator=(Resolver&&) = delete;
 
-    /// Wait for and execute a batch of enqueued tasks.
-    /// The timeout value must be small enough not to overflow when added to the current time.
+    /// Wait for and execute the next task in the queue.
     ///
-    /// \return the number of tasks executed or -1 if the Resolver was closed.
-    int run(Duration timeout = Seconds{60});
+    /// \return false if the resolver was stopped.
+    bool run();
 
     /// Interrupt and exit any inprogress call to run().
     void stop();
@@ -63,10 +62,7 @@ class TOOLBOX_API Resolver {
     AddrInfoFuture resolve(const std::string& uri, int type);
 
   private:
-    mutable std::mutex mutex_;
-    std::condition_variable cond_;
-    std::deque<Task> queue_;
-    bool stop_{false};
+    TaskQueue<Task> tq_;
 };
 
 /// Wait for future and convert result to endpoint.

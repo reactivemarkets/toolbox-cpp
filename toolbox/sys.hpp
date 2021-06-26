@@ -23,6 +23,7 @@
 #include "sys/Limits.hpp"
 #include "sys/Log.hpp"
 #include "sys/PidFile.hpp"
+#include "sys/Runner.hpp"
 #include "sys/Signal.hpp"
 #include "sys/System.hpp"
 #include "sys/Thread.hpp"
