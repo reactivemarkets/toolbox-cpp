@@ -21,6 +21,7 @@
 #include <toolbox/sys/Time.hpp>
 
 #include <toolbox/util/Storage.hpp>
+#include <toolbox/util/TaskQueue.hpp>
 
 namespace toolbox {
 inline namespace sys {
@@ -108,6 +109,63 @@ class TOOLBOX_API Logger {
   protected:
     virtual void do_write_log(WallTime ts, LogLevel level, LogMsgPtr&& msg,
                               std::size_t size) noexcept = 0;
+};
+
+class TOOLBOX_API AsyncLogger : public Logger {
+    struct Task {
+        WallTime ts;
+        LogLevel level;
+        LogMsgPtr msg;
+        std::size_t size;
+    };
+
+  public:
+    explicit AsyncLogger(Logger& logger);
+    ~AsyncLogger();
+
+    // Copy.
+    AsyncLogger(const AsyncLogger&) = delete;
+    AsyncLogger& operator=(const AsyncLogger&) = delete;
+
+    // Move.
+    AsyncLogger(AsyncLogger&&) = delete;
+    AsyncLogger& operator=(AsyncLogger&&) = delete;
+
+    /// The run function waits for a log entry and then writes that log entry to the underlying
+    /// logger. Returns false if the Logger was closed.
+    bool run();
+
+    /// Interrupt and exit any inprogress call to run().
+    void stop();
+
+  private:
+    void do_write_log(WallTime ts, LogLevel level, LogMsgPtr&& msg,
+                      std::size_t size) noexcept override;
+
+    Logger& logger_;
+    TaskQueue<Task> tq_;
+};
+
+/// ScopedLogLevel provides a convenient RAII-style utility for setting the log-level for the
+/// duration of a scoped block.
+class TOOLBOX_API ScopedLogLevel {
+  public:
+    explicit ScopedLogLevel(LogLevel level) noexcept
+    : prev_{set_log_level(level)}
+    {
+    }
+    ~ScopedLogLevel() { set_log_level(prev_); }
+
+    // Copy.
+    ScopedLogLevel(const ScopedLogLevel&) = delete;
+    ScopedLogLevel& operator=(const ScopedLogLevel&) = delete;
+
+    // Move.
+    ScopedLogLevel(ScopedLogLevel&&) = delete;
+    ScopedLogLevel& operator=(ScopedLogLevel&&) = delete;
+
+  private:
+    const LogLevel prev_;
 };
 
 /// ScopedLogger provides a convenient RAII-style utility for setting the backend logger for the

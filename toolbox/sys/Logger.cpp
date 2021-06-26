@@ -182,5 +182,28 @@ void write_log(WallTime ts, LogLevel level, LogMsgPtr&& msg, std::size_t size) n
 
 Logger::~Logger() = default;
 
+AsyncLogger::AsyncLogger(Logger& logger)
+: logger_{logger}
+{
+}
+
+AsyncLogger::~AsyncLogger() = default;
+
+bool AsyncLogger::run()
+{
+    return tq_.run(
+        [this](Task&& t) noexcept { logger_.write_log(t.ts, t.level, move(t.msg), t.size); });
+}
+
+void AsyncLogger::stop()
+{
+    tq_.stop();
+}
+
+void AsyncLogger::do_write_log(WallTime ts, LogLevel level, LogMsgPtr&& msg, size_t size) noexcept
+{
+    tq_.push(Task{.ts = ts, .level = level, .msg = move(msg), .size = size});
+}
+
 } // namespace sys
 } // namespace toolbox

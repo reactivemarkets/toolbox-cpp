@@ -76,7 +76,6 @@ set(lib_SOURCES
   net/Protocol.cpp
   net/RateLimit.cpp
   net/Resolver.cpp
-  net/Runner.cpp
   net/Socket.cpp
   net/StreamAcceptor.cpp
   net/StreamConnector.cpp
@@ -90,6 +89,7 @@ set(lib_SOURCES
   sys/Log.cpp
   sys/Logger.cpp
   sys/PidFile.cpp
+  sys/Runner.cpp
   sys/Signal.cpp
   sys/System.cpp
   sys/Thread.cpp
@@ -115,6 +115,7 @@ set(lib_SOURCES
   util/StringBuf.cpp
   util/String.cpp
   util/Struct.cpp
+  util/TaskQueue.cpp
   util/Tokeniser.cpp
   util/Traits.cpp
   util/Trans.cpp
@@ -222,7 +223,6 @@ set(test_SOURCES
   net/IoSock.ut.cpp
   net/RateLimit.ut.cpp
   net/Resolver.ut.cpp
-  net/Runner.ut.cpp
   net/Socket.ut.cpp
   resp/Parser.ut.cpp
   sys/Date.ut.cpp
