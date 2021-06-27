@@ -92,10 +92,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1c4c263753dd8737ba167f92ccca092c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a136c193bbec3ec55b05d6b87bd0ea224"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtoolbox_1_1net_1_1Resolver.html">Resolver</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1net_1_1Resolver.html#a136c193bbec3ec55b05d6b87bd0ea224">operator=</a> (<a class="el" href="classtoolbox_1_1net_1_1Resolver.html">Resolver</a> &amp;&amp;)=delete</td></tr>
 <tr class="separator:a136c193bbec3ec55b05d6b87bd0ea224"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae361ffa1a2d0ffa55374fcaeba3da4a0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1net_1_1Resolver.html#ae361ffa1a2d0ffa55374fcaeba3da4a0">run</a> (<a class="el" href="namespacetoolbox_1_1sys.html#aedb936b32edd1672f938990ce346f0e2">Duration</a> timeout=<a class="el" href="namespacetoolbox_1_1sys.html#a926e572d5ea62970f67ab8c44cc5dcf4">Seconds</a>{60})</td></tr>
-<tr class="separator:ae361ffa1a2d0ffa55374fcaeba3da4a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7689dff24ba0c3fd1cbdc8748fbba0e6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1net_1_1Resolver.html#a7689dff24ba0c3fd1cbdc8748fbba0e6">run</a> ()</td></tr>
+<tr class="separator:a7689dff24ba0c3fd1cbdc8748fbba0e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa74126384b330df916c66b6f1a0a3fbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1net_1_1Resolver.html#aa74126384b330df916c66b6f1a0a3fbd">stop</a> ()</td></tr>
-<tr class="memdesc:aa74126384b330df916c66b6f1a0a3fbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interrupt and exit any inprogress call to <a class="el" href="classtoolbox_1_1net_1_1Resolver.html#ae361ffa1a2d0ffa55374fcaeba3da4a0">run()</a>.  <a href="classtoolbox_1_1net_1_1Resolver.html#aa74126384b330df916c66b6f1a0a3fbd">More...</a><br /></td></tr>
+<tr class="memdesc:aa74126384b330df916c66b6f1a0a3fbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interrupt and exit any inprogress call to <a class="el" href="classtoolbox_1_1net_1_1Resolver.html#a7689dff24ba0c3fd1cbdc8748fbba0e6">run()</a>.  <a href="classtoolbox_1_1net_1_1Resolver.html#aa74126384b330df916c66b6f1a0a3fbd">More...</a><br /></td></tr>
 <tr class="separator:aa74126384b330df916c66b6f1a0a3fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2dd9e0deca65ec6f0488deeb2ba7944a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1net_1_1Resolver.html#a2dd9e0deca65ec6f0488deeb2ba7944a">clear</a> ()</td></tr>
 <tr class="memdesc:a2dd9e0deca65ec6f0488deeb2ba7944a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear task queue. Any pending tasks will be cancelled, resulting in a broken promise.  <a href="classtoolbox_1_1net_1_1Resolver.html#a2dd9e0deca65ec6f0488deeb2ba7944a">More...</a><br /></td></tr>
@@ -264,27 +264,26 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae361ffa1a2d0ffa55374fcaeba3da4a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae361ffa1a2d0ffa55374fcaeba3da4a0">&#9670;&nbsp;</a></span>run()</h2>
+<a id="a7689dff24ba0c3fd1cbdc8748fbba0e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7689dff24ba0c3fd1cbdc8748fbba0e6">&#9670;&nbsp;</a></span>run()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int toolbox::net::Resolver::run </td>
+          <td class="memname">bool toolbox::net::Resolver::run </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#aedb936b32edd1672f938990ce346f0e2">Duration</a>&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code><a class="el" href="namespacetoolbox_1_1sys.html#a926e572d5ea62970f67ab8c44cc5dcf4">Seconds</a>{60}</code></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Wait for and execute a batch of enqueued tasks. The timeout value must be small enough not to overflow when added to the current time.</p>
-<dl class="section return"><dt>Returns</dt><dd>the number of tasks executed or -1 if the <a class="el" href="classtoolbox_1_1net_1_1Resolver.html">Resolver</a> was closed. </dd></dl>
+<p>Wait for and execute the next task in the queue.</p>
+<dl class="section return"><dt>Returns</dt><dd>false if the resolver was stopped. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Resolver_8cpp_source.html#l00024">24</a> of file <a class="el" href="Resolver_8cpp_source.html">Resolver.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Resolver_8ut_8cpp_source.html#l00030">BOOST_AUTO_TEST_CASE()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Resolver_8ut_8cpp_source.html#l00031">BOOST_AUTO_TEST_CASE()</a>.</p>
 
 </div>
 </div>
@@ -303,11 +302,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Interrupt and exit any inprogress call to <a class="el" href="classtoolbox_1_1net_1_1Resolver.html#ae361ffa1a2d0ffa55374fcaeba3da4a0">run()</a>. </p>
+<p>Interrupt and exit any inprogress call to <a class="el" href="classtoolbox_1_1net_1_1Resolver.html#a7689dff24ba0c3fd1cbdc8748fbba0e6">run()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Resolver_8cpp_source.html#l00057">57</a> of file <a class="el" href="Resolver_8cpp_source.html">Resolver.cpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="net_2Runner_8cpp_source.html#l00051">toolbox::net::ResolverRunner::~ResolverRunner()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Resolver_8cpp_source.html#l00029">29</a> of file <a class="el" href="Resolver_8cpp_source.html">Resolver.cpp</a>.</p>
 
 </div>
 </div>
@@ -328,9 +325,9 @@ Public Member Functions</h2></td></tr>
 
 <p>Clear task queue. Any pending tasks will be cancelled, resulting in a broken promise. </p>
 
-<p class="definition">Definition at line <a class="el" href="Resolver_8cpp_source.html#l00066">66</a> of file <a class="el" href="Resolver_8cpp_source.html">Resolver.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Resolver_8cpp_source.html#l00034">34</a> of file <a class="el" href="Resolver_8cpp_source.html">Resolver.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Resolver_8ut_8cpp_source.html#l00030">BOOST_AUTO_TEST_CASE()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Resolver_8ut_8cpp_source.html#l00031">BOOST_AUTO_TEST_CASE()</a>.</p>
 
 </div>
 </div>
@@ -362,9 +359,9 @@ Public Member Functions</h2></td></tr>
 
 <p>Schedule a URI socket name resolution. </p>
 
-<p class="definition">Definition at line <a class="el" href="Resolver_8cpp_source.html#l00073">73</a> of file <a class="el" href="Resolver_8cpp_source.html">Resolver.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Resolver_8cpp_source.html#l00040">40</a> of file <a class="el" href="Resolver_8cpp_source.html">Resolver.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Resolver_8ut_8cpp_source.html#l00030">BOOST_AUTO_TEST_CASE()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Resolver_8ut_8cpp_source.html#l00031">BOOST_AUTO_TEST_CASE()</a>.</p>
 
 </div>
 </div>

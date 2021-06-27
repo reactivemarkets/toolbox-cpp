@@ -1,9 +1,3 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,81,96,108"/>
-<area shape="rect" id="node2" href="$structtoolbox_1_1net_1_1Sock.html" title=" " alt="" coords="144,81,283,108"/>
-<area shape="rect" id="node3" href="$structtoolbox_1_1net_1_1IoSock.html" title=" " alt="" coords="363,56,513,83"/>
-<area shape="rect" id="node7" href="$structtoolbox_1_1net_1_1StreamSockServ.html" title="Passive Server Stream Socket. All state is in base class, so object can be sliced." alt="" coords="331,107,545,133"/>
-<area shape="rect" id="node4" href="$structtoolbox_1_1net_1_1DgramSock.html" title="Connectionless Datagram Socket. All state is in base class, so object can be sliced." alt="" coords="608,5,791,32"/>
-<area shape="rect" id="node5" href="$structtoolbox_1_1net_1_1McastSock.html" title="Connectionless Datagram Socket. All state is in base class, so object can be sliced." alt="" coords="610,56,789,83"/>
-<area shape="rect" id="node6" href="$structtoolbox_1_1net_1_1StreamSockClnt.html" title="Active Client Stream Socket. All state is in base class, so object can be sliced." alt="" coords="593,107,805,133"/>
+<area shape="rect" id="node1" href="$classtoolbox_1_1net_1_1StreamAcceptor.html" title=" " alt="" coords="5,5,217,47"/>
 </map>

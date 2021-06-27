@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['epoll_1189',['Epoll',['../classtoolbox_1_1io_1_1Epoll.html',1,'toolbox::Epoll'],['../classtoolbox_1_1io_1_1Epoll.html',1,'toolbox::io::Epoll']]],
-  ['eventfd_1190',['EventFd',['../classtoolbox_1_1io_1_1EventFd.html',1,'toolbox::EventFd'],['../classtoolbox_1_1io_1_1EventFd.html',1,'toolbox::io::EventFd']]],
-  ['exception_1191',['Exception',['../structtoolbox_1_1http_1_1Exception.html',1,'toolbox::Exception'],['../structtoolbox_1_1http_1_1Exception.html',1,'toolbox::http::Exception'],['../structtoolbox_1_1resp_1_1Exception.html',1,'toolbox::resp::Exception'],['../classtoolbox_1_1util_1_1Exception.html',1,'toolbox::util::Exception']]]
+  ['epoll_1197',['Epoll',['../classtoolbox_1_1io_1_1Epoll.html',1,'toolbox::Epoll'],['../classtoolbox_1_1io_1_1Epoll.html',1,'toolbox::io::Epoll']]],
+  ['eventfd_1198',['EventFd',['../classtoolbox_1_1io_1_1EventFd.html',1,'toolbox::EventFd'],['../classtoolbox_1_1io_1_1EventFd.html',1,'toolbox::io::EventFd']]],
+  ['exception_1199',['Exception',['../structtoolbox_1_1http_1_1Exception.html',1,'toolbox::Exception'],['../structtoolbox_1_1http_1_1Exception.html',1,'toolbox::http::Exception'],['../structtoolbox_1_1resp_1_1Exception.html',1,'toolbox::resp::Exception'],['../classtoolbox_1_1util_1_1Exception.html',1,'toolbox::util::Exception']]]
 ];
