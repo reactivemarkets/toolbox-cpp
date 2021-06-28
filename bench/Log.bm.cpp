@@ -51,60 +51,6 @@ class FileLogger final : public Logger {
 
 } // namespace noformat
 
-TOOLBOX_BENCHMARK(log_formatted)
-{
-    ScopedLogLevel sll{LogLevel::Info};
-    ScopedLogger sl{null_logger()};
-    while (ctx) {
-        for (auto _ : ctx.range(1000)) {
-            TOOLBOX_LOG(LogLevel::Info) << "BenchmarkString"sv;
-        }
-    }
-}
-
-TOOLBOX_BENCHMARK(log_unformatted)
-{
-    ScopedLogLevel sll{LogLevel::Info};
-    ScopedLogger sl{null_logger()};
-    while (ctx) {
-        for (auto _ : ctx.range(1000)) {
-            using namespace noformat;
-            TOOLBOX_LOG(LogLevel::Info) << "BenchmarkString"sv;
-        }
-    }
-}
-
-TOOLBOX_BENCHMARK(call_logger)
-{
-    ScopedLogLevel sll{LogLevel::Info};
-    ScopedLogger sl{null_logger()};
-    while (ctx) {
-        for (auto _ : ctx.range(1000)) {
-            write_log(WallTime{}, LogLevel::Info, LogMsgPtr{}, 0);
-        }
-    }
-}
-
-TOOLBOX_BENCHMARK(call_async_logger)
-{
-    using namespace noformat;
-
-    AsyncLogger al{null_logger()};
-    ScopedLogLevel sll{LogLevel::Info};
-    ScopedLogger asl{al};
-    while (ctx) {
-        for (auto _ : ctx.range(10)) {
-            TOOLBOX_INFO << "foobar: "sv << 101;
-        }
-        // Drain items.
-        for (int i{0}; i < 10; ++i) {
-            if (!al.run()) {
-                break;
-            }
-        }
-    }
-}
-
 TOOLBOX_BENCHMARK(sync_null_logger)
 {
     using namespace noformat;
@@ -132,12 +78,12 @@ TOOLBOX_BENCHMARK(sync_file_logger)
     }
 }
 
-TOOLBOX_BENCHMARK(async_null_logger)
+TOOLBOX_BENCHMARK(async_logger)
 {
     using namespace noformat;
 
     ScopedLogLevel sll{LogLevel::Info};
-    ScopedLogger sl{null_logger()};
+    ScopedLogger sl{null_logger()}; // logger type irrelevant as will be done in background
 
     AsyncLogger al{get_logger()};
     Runner alr{al, "logger"s};
@@ -148,6 +94,73 @@ TOOLBOX_BENCHMARK(async_null_logger)
         }
         // Log 100 items then backoff to avoid flooding the queue.
         this_thread::sleep_for(1ms);
+    }
+}
+
+TOOLBOX_BENCHMARK(single_thread_async_null_logger)
+{
+    using namespace noformat;
+
+    AsyncLogger al{null_logger()};
+    ScopedLogLevel sll{LogLevel::Info};
+    ScopedLogger asl{al};
+    while (ctx) {
+        for (auto _ : ctx.range(10)) {
+            TOOLBOX_INFO << "foobar: "sv << 101;
+        }
+        // Drain items.
+        for (int i{0}; i < 10; ++i) {
+            if (!al.run()) {
+                break;
+            }
+        }
+    }
+}
+
+TOOLBOX_BENCHMARK(no_buffer_null_logger)
+{
+    ScopedLogLevel sll{LogLevel::Info};
+    ScopedLogger sl{null_logger()};
+    while (ctx) {
+        for (auto _ : ctx.range(1000)) {
+            write_log(WallTime{}, LogLevel::Info, LogMsgPtr{}, 0);
+        }
+    }
+}
+
+TOOLBOX_BENCHMARK(formatted_null_logger)
+{
+    ScopedLogLevel sll{LogLevel::Info};
+    ScopedLogger sl{null_logger()};
+    while (ctx) {
+        for (auto _ : ctx.range(1000)) {
+            TOOLBOX_INFO << "BenchmarkString"sv;
+        }
+    }
+}
+
+TOOLBOX_BENCHMARK(unformatted_null_logger)
+{
+    ScopedLogLevel sll{LogLevel::Info};
+    ScopedLogger sl{null_logger()};
+    while (ctx) {
+        for (auto _ : ctx.range(1000)) {
+            using namespace noformat;
+            TOOLBOX_INFO << "BenchmarkString"sv;
+        }
+    }
+}
+
+TOOLBOX_BENCHMARK(no_buffer_file_logger)
+{
+    using namespace noformat;
+    FileLogger fl{};
+    ScopedLogLevel sll{LogLevel::Info};
+    ScopedLogger sl{fl};
+    while (ctx) {
+        for (auto _ : ctx.range(1000)) {
+            write_log(WallTime{}, LogLevel::Info, LogMsgPtr{}, 0);
+        }
     }
 }
 

@@ -121,7 +121,7 @@ class TOOLBOX_API AsyncLogger : public Logger {
 
   public:
     explicit AsyncLogger(Logger& logger);
-    ~AsyncLogger();
+    ~AsyncLogger() override;
 
     // Copy.
     AsyncLogger(const AsyncLogger&) = delete;
