@@ -6,7 +6,7 @@ var searchData=
   ['_7eargvlexer_2079',['~ArgvLexer',['../classtoolbox_1_1util_1_1ArgvLexer.html#a36893ad8d21aabf9d41006f269cfa678',1,'toolbox::util::ArgvLexer']]],
   ['_7eargvsequence_2080',['~ArgvSequence',['../classtoolbox_1_1util_1_1ArgvSequence.html#a56c251e812cbd8ce963cafbebcc978bf',1,'toolbox::util::ArgvSequence']]],
   ['_7earrayview_2081',['~ArrayView',['../classtoolbox_1_1util_1_1ArrayView.html#a4195bbf5158ece45e625ace0c683d2e1',1,'toolbox::util::ArrayView']]],
-  ['_7easynclogger_2082',['~AsyncLogger',['../classtoolbox_1_1sys_1_1AsyncLogger.html#a63910c3ee04bf1d85940ebe3f74820c6',1,'toolbox::sys::AsyncLogger']]],
+  ['_7easynclogger_2082',['~AsyncLogger',['../classtoolbox_1_1sys_1_1AsyncLogger.html#a7f3328faaf67da941154dd7f971034fc',1,'toolbox::sys::AsyncLogger']]],
   ['_7ebasicdisposer_2083',['~BasicDisposer',['../classtoolbox_1_1io_1_1BasicDisposer.html#aa2bca770004e1c70a13bb4f65b9b2e76',1,'toolbox::io::BasicDisposer']]],
   ['_7ebasichandle_2084',['~BasicHandle',['../classtoolbox_1_1io_1_1BasicHandle.html#a8d6fa5b51e5a6a8aaf264a3565c9cc76',1,'toolbox::io::BasicHandle']]],
   ['_7ebasicparser_2085',['~BasicParser',['../classtoolbox_1_1http_1_1BasicParser.html#ab036276fa4e98b84e25f02ff638caa8b',1,'toolbox::http::BasicParser::~BasicParser()'],['../classtoolbox_1_1resp_1_1BasicParser.html#a1fa4810c02bbb0d93643e3809a07a56c',1,'toolbox::resp::BasicParser::~BasicParser()']]],
