@@ -28,6 +28,12 @@ using namespace toolbox;
 namespace {
 constexpr double DoubleValue = -12345678.12345678;
 constexpr int IntValue = -12345678;
+constexpr array BoolArray{
+    ""sv,     "0"sv,    "F"sv,     "N"sv,     "f"sv,     "n"sv,   "1"sv,   "T"sv,
+    "Y"sv,    "t"sv,    "y"sv,     "NO"sv,    "No"sv,    "no"sv,  "ON"sv,  "On"sv,
+    "on"sv,   "OFF"sv,  "Off"sv,   "off"sv,   "YES"sv,   "Yes"sv, "yes"sv, "TRUE"sv,
+    "True"sv, "true"sv, "FALSE"sv, "False"sv, "false"sv,
+};
 
 int dec_digits_div(int64_t i) noexcept __attribute__((noinline));
 int dec_digits_div(int64_t i) noexcept
@@ -117,6 +123,57 @@ int hex_digits_bitshift(int64_t i) noexcept
     return n;
 }
 
+bool stob_string(string_view sv, bool dfl = false) noexcept __attribute__((noinline));
+bool stob_string(string_view sv, bool dfl) noexcept
+{
+    string s;
+    s.reserve(sv.size());
+    transform(sv.begin(), sv.end(), back_inserter(s), [](char c) { return toupper(c); });
+
+    bool val{dfl};
+    switch (s.size()) {
+    case 1:
+        switch (s[0]) {
+        case '0':
+        case 'F':
+        case 'N':
+            val = false;
+            break;
+        case '1':
+        case 'T':
+        case 'Y':
+            val = true;
+            break;
+        }
+        break;
+    case 2:
+        if (s == "NO") {
+            val = false;
+        } else if (s == "ON") {
+            val = true;
+        }
+        break;
+    case 3:
+        if (s == "OFF") {
+            val = false;
+        } else if (s == "YES") {
+            val = true;
+        }
+        break;
+    case 4:
+        if (s == "TRUE") {
+            val = true;
+        }
+        break;
+    case 5:
+        if (s == "FALSE") {
+            val = false;
+        }
+        break;
+    }
+    return val;
+}
+
 TOOLBOX_BENCHMARK(to_string_double)
 {
     while (ctx) {
@@ -203,6 +260,32 @@ TOOLBOX_BENCHMARK(hex_digits_bitshift)
         for (unsigned i : ctx.range(10000)) {
             auto x = ::hex_digits_bitshift(i);
             bm::do_not_optimise(x);
+        }
+    }
+}
+
+TOOLBOX_BENCHMARK(stob)
+{
+    while (ctx) {
+        for (unsigned i : ctx.range(1000)) {
+            int sum{0};
+            for (const auto sv : BoolArray) {
+                sum += static_cast<int>(toolbox::stob(sv));
+            }
+            bm::do_not_optimise(sum);
+        }
+    }
+}
+
+TOOLBOX_BENCHMARK(stob_string)
+{
+    while (ctx) {
+        for (unsigned i : ctx.range(1000)) {
+            int sum{0};
+            for (const auto sv : BoolArray) {
+                sum += static_cast<int>(::stob_string(sv));
+            }
+            bm::do_not_optimise(sum);
         }
     }
 }
