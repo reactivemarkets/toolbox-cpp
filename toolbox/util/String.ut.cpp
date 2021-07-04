@@ -55,48 +55,6 @@ BOOST_AUTO_TEST_CASE(ToStringCase)
     BOOST_TEST(stod(to_string(12345.67)) == 12345.67);
 }
 
-BOOST_AUTO_TEST_CASE(StobCase)
-{
-    BOOST_TEST(stob(""sv, false) == false);
-    BOOST_TEST(stob(""sv, true) == true);
-
-    BOOST_TEST(stob("0"sv, true) == false);
-    BOOST_TEST(stob("F"sv, true) == false);
-    BOOST_TEST(stob("N"sv, true) == false);
-    BOOST_TEST(stob("f"sv, true) == false);
-    BOOST_TEST(stob("n"sv, true) == false);
-
-    BOOST_TEST(stob("1"sv, false) == true);
-    BOOST_TEST(stob("T"sv, false) == true);
-    BOOST_TEST(stob("Y"sv, false) == true);
-    BOOST_TEST(stob("t"sv, false) == true);
-    BOOST_TEST(stob("y"sv, false) == true);
-
-    BOOST_TEST(stob("NO"sv, true) == false);
-    BOOST_TEST(stob("No"sv, true) == false);
-    BOOST_TEST(stob("no"sv, true) == false);
-
-    BOOST_TEST(stob("ON"sv, false) == true);
-    BOOST_TEST(stob("On"sv, false) == true);
-    BOOST_TEST(stob("on"sv, false) == true);
-
-    BOOST_TEST(stob("OFF"sv, true) == false);
-    BOOST_TEST(stob("Off"sv, true) == false);
-    BOOST_TEST(stob("off"sv, true) == false);
-
-    BOOST_TEST(stob("YES"sv, false) == true);
-    BOOST_TEST(stob("Yes"sv, false) == true);
-    BOOST_TEST(stob("yes"sv, false) == true);
-
-    BOOST_TEST(stob("TRUE"sv, false) == true);
-    BOOST_TEST(stob("True"sv, false) == true);
-    BOOST_TEST(stob("true"sv, false) == true);
-
-    BOOST_TEST(stob("FALSE"sv, true) == false);
-    BOOST_TEST(stob("False"sv, true) == false);
-    BOOST_TEST(stob("false"sv, true) == false);
-}
-
 BOOST_AUTO_TEST_CASE(LtrimCopyCase)
 {
     BOOST_TEST(ltrim_copy(""sv) == ""sv);
