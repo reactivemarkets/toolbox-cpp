@@ -29,6 +29,8 @@ inline namespace sys {
 class Logger;
 
 enum class LogLevel : int {
+    /// None.
+    None,
     /// Critical.
     Crit,
     /// Error.

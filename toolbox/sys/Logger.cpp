@@ -33,7 +33,7 @@ inline namespace sys {
 using namespace std;
 namespace {
 
-const char* Labels[] = {"CRIT", "ERROR", "WARNING", "NOTICE", "INFO", "DEBUG"};
+const char* Labels[] = {"NONE", "CRIT", "ERROR", "WARNING", "NOTICE", "INFO", "DEBUG"};
 
 // The gettid() function is a Linux-specific function call.
 #if defined(__linux__)
@@ -97,6 +97,8 @@ class SysLogger final : public Logger {
     {
         int prio;
         switch (level) {
+        case LogLevel::None:
+            return;
         case LogLevel::Crit:
             prio = LOG_CRIT;
             break;
@@ -152,7 +154,7 @@ Logger& sys_logger() noexcept
 
 const char* log_label(LogLevel level) noexcept
 {
-    return Labels[static_cast<int>(min(max(level, LogLevel::Crit), LogLevel::Debug))];
+    return Labels[static_cast<int>(min(max(level, LogLevel::None), LogLevel::Debug))];
 }
 
 LogLevel get_log_level() noexcept

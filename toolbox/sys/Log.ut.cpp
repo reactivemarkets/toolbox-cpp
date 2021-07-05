@@ -63,7 +63,8 @@ BOOST_AUTO_TEST_SUITE(LogSuite)
 
 BOOST_AUTO_TEST_CASE(LogLabelCase)
 {
-    BOOST_TEST(strcmp(log_label(LogLevel{-1}), "CRIT") == 0);
+    BOOST_TEST(strcmp(log_label(LogLevel{-1}), "NONE") == 0);
+    BOOST_TEST(strcmp(log_label(LogLevel::None), "NONE") == 0);
     BOOST_TEST(strcmp(log_label(LogLevel::Crit), "CRIT") == 0);
     BOOST_TEST(strcmp(log_label(LogLevel::Error), "ERROR") == 0);
     BOOST_TEST(strcmp(log_label(LogLevel::Warning), "WARNING") == 0);
