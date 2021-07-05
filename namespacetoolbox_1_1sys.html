@@ -161,12 +161,13 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="separator:a5c730f2f9701593805e3100310236daf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad70de488b6f18b15990850b5cb4293da"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#ad70de488b6f18b15990850b5cb4293da">LogLevel</a> : int { <br />
-&#160;&#160;<a class="el" href="namespacetoolbox_1_1sys.html#ad70de488b6f18b15990850b5cb4293daa304c415e7242947be288863d75041ed9">Crit</a>
+&#160;&#160;<a class="el" href="namespacetoolbox_1_1sys.html#ad70de488b6f18b15990850b5cb4293daa6adf97f83acf6453d4a6a4b1070f3754">None</a>
+, <a class="el" href="namespacetoolbox_1_1sys.html#ad70de488b6f18b15990850b5cb4293daa304c415e7242947be288863d75041ed9">Crit</a>
 , <a class="el" href="namespacetoolbox_1_1sys.html#ad70de488b6f18b15990850b5cb4293daa902b0d55fddef6f8d651fe1035b7d4bd">Error</a>
 , <a class="el" href="namespacetoolbox_1_1sys.html#ad70de488b6f18b15990850b5cb4293daa0eaadb4fcb48a0a0ed7bc9868be9fbaa">Warning</a>
-, <a class="el" href="namespacetoolbox_1_1sys.html#ad70de488b6f18b15990850b5cb4293daa24efa7ee4511563b16144f39706d594f">Notice</a>
 , <br />
-&#160;&#160;<a class="el" href="namespacetoolbox_1_1sys.html#ad70de488b6f18b15990850b5cb4293daa4059b0251f66a18cb56f544728796875">Info</a>
+&#160;&#160;<a class="el" href="namespacetoolbox_1_1sys.html#ad70de488b6f18b15990850b5cb4293daa24efa7ee4511563b16144f39706d594f">Notice</a>
+, <a class="el" href="namespacetoolbox_1_1sys.html#ad70de488b6f18b15990850b5cb4293daa4059b0251f66a18cb56f544728796875">Info</a>
 , <a class="el" href="namespacetoolbox_1_1sys.html#ad70de488b6f18b15990850b5cb4293daaa603905470e2a5b8c13e96b579ef0dba">Debug</a>
 <br />
  }</td></tr>
@@ -421,7 +422,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00046">46</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00048">48</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
 
 </div>
 </div>
@@ -614,7 +615,9 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad70de488b6f18b15990850b5cb4293daa304c415e7242947be288863d75041ed9"></a>Crit&#160;</td><td class="fielddoc"><p>Critical. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad70de488b6f18b15990850b5cb4293daa6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"><p>None. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad70de488b6f18b15990850b5cb4293daa304c415e7242947be288863d75041ed9"></a>Crit&#160;</td><td class="fielddoc"><p>Critical. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="ad70de488b6f18b15990850b5cb4293daa902b0d55fddef6f8d651fe1035b7d4bd"></a>Error&#160;</td><td class="fielddoc"><p>Error. </p>
 </td></tr>
@@ -1368,7 +1371,7 @@ Functions</h2></td></tr>
 
 <p>Null logger. This logger does nothing and is effectively /dev/null. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00138">138</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00140">140</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1396,7 +1399,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Standard logger. This logger writes to stdout if the log level is greater than LogWarn, and stdout otherwise. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00143">143</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00145">145</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1425,7 +1428,7 @@ Functions</h2></td></tr>
 
 <p>System logger. This logger calls syslog(). </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00148">148</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00150">150</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1455,7 +1458,7 @@ Functions</h2></td></tr>
 
 <p>Return log label for given log level. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00153">153</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00155">155</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1484,7 +1487,7 @@ Functions</h2></td></tr>
 
 <p>Return current log level. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00158">158</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00160">160</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1514,9 +1517,9 @@ Functions</h2></td></tr>
 
 <p>Set log level globally for all threads. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00163">163</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00165">165</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Logger_8hpp_source.html#l00153">toolbox::sys::ScopedLogLevel::ScopedLogLevel()</a>, and <a class="el" href="Logger_8hpp_source.html#l00157">toolbox::sys::ScopedLogLevel::~ScopedLogLevel()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Logger_8hpp_source.html#l00155">toolbox::sys::ScopedLogLevel::ScopedLogLevel()</a>, and <a class="el" href="Logger_8hpp_source.html#l00159">toolbox::sys::ScopedLogLevel::~ScopedLogLevel()</a>.</p>
 
 </div>
 </div>
@@ -1545,7 +1548,7 @@ Functions</h2></td></tr>
 
 <p>Return current logger. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00168">168</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00170">170</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1575,9 +1578,9 @@ Functions</h2></td></tr>
 
 <p>Set logger globally for all threads. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00173">173</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00175">175</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Logger_8hpp_source.html#l00175">toolbox::sys::ScopedLogger::ScopedLogger()</a>, and <a class="el" href="Logger_8hpp_source.html#l00179">toolbox::sys::ScopedLogger::~ScopedLogger()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Logger_8hpp_source.html#l00177">toolbox::sys::ScopedLogger::ScopedLogger()</a>, and <a class="el" href="Logger_8hpp_source.html#l00181">toolbox::sys::ScopedLogger::~ScopedLogger()</a>.</p>
 
 </div>
 </div>
@@ -1628,7 +1631,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Unconditionally write log message to the logger. Specifically, this function does not check that level is allowed by the current log level; users are expected to call <a class="el" href="namespacetoolbox_1_1sys.html#a075bef199cd0476132d7db539b2ea94b" title="Return true if level is less than or equal to current log level.">is_log_level()</a> first, before formatting the log message. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00178">178</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00180">180</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Log_8hpp_source.html#l00051">toolbox::sys::Log::~Log()</a>.</p>
 
@@ -1660,7 +1663,7 @@ Functions</h2></td></tr>
 
 <p>Return true if level is less than or equal to current log level. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00065">65</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00067">67</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
 
 </div>
 </div>
@@ -1688,7 +1691,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00079">79</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00081">81</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
 
 </div>
 </div>
@@ -1726,7 +1729,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00193">193</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00195">195</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
 
 </div>
 </div>
