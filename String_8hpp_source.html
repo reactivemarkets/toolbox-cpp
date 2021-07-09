@@ -238,8 +238,8 @@ $(function() {
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="keywordflow">for</span> (; i &lt; n &amp;&amp; src[i] != <span class="charliteral">&#39;\0&#39;</span>; ++i) {</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            dst[i] = src[i];</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        }</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="keywordflow">for</span> (std::size_t j{i}; j &lt; n; ++j) {</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            dst[j] = PadC;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="keywordflow">if</span> (i &lt; n) {</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            std::memset(dst + i, PadC, n - i);</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        }</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="keywordflow">return</span> i;</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    }</div>
