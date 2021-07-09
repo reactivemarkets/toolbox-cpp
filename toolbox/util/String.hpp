@@ -164,8 +164,8 @@ inline std::size_t pstrcpy(char* dst, const char* src, std::size_t n) noexcept
         for (; i < n && src[i] != '\0'; ++i) {
             dst[i] = src[i];
         }
-        for (std::size_t j{i}; j < n; ++j) {
-            dst[j] = PadC;
+        if (i < n) {
+            std::memset(dst + i, PadC, n - i);
         }
         return i;
     }
