@@ -158,9 +158,6 @@ include_directories(
   "${PROJECT_SOURCE_DIR}"
   "${CMAKE_BINARY_DIR}/include")
 
-if(NOT TOOLBOX_BUILD_SHARED)
-  set(Boost_USE_STATIC_LIBS ON)
-endif()
 set(Boost_REALPATH ON)
 
 find_package(Boost 1.74 REQUIRED COMPONENTS date_time unit_test_framework)
