@@ -18,6 +18,7 @@
 
 #include <toolbox/io/TimerFd.hpp>
 #include <toolbox/sys/Log.hpp>
+#include <toolbox/sys/Trace.hpp>
 
 namespace toolbox {
 inline namespace io {
@@ -88,13 +89,16 @@ int Reactor::poll(CyclTime now, Duration timeout)
     if (!is_zero(wait_until)) {
         now = CyclTime::now();
     }
-    n = tqs_[High].dispatch(now) + dispatch(now, buf, n);
+    TOOLBOX_PROBE(reactor, enter_cycle);
+    auto work{tqs_[High].dispatch(now)};
+    work += dispatch(now, buf, n);
     // Low priority timers are only dispatched during empty cycles.
-    if (n == 0) {
-        n += tqs_[Low].dispatch(now);
+    if (work == 0) {
+        work += tqs_[Low].dispatch(now);
     }
     io::dispatch(now, hooks_);
-    return n;
+    TOOLBOX_PROBE(reactor, exit_cycle, work);
+    return work;
 }
 
 void Reactor::do_wakeup() noexcept
