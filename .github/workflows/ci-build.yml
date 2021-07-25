@@ -43,9 +43,6 @@ jobs:
             -DCMAKE_C_COMPILER=gcc-10 \
             -DCMAKE_CXX_COMPILER=g++-10
 
-      - name: Run cppcheck
-        run: cd build && make -j2 cppcheck
-
       - name: Run clang-format
         run: cd build && make clang-format &&
           [[ -z "$(git status -uno --porcelain)" ]] ||

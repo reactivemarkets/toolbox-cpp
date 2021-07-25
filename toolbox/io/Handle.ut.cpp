@@ -102,6 +102,7 @@ BOOST_AUTO_TEST_CASE(HandleMoveCase)
     TestHandle h{1};
     TestHandle{move(h)};
     BOOST_TEST(last_closed == 1);
+    // NOLINTNEXTLINE(bugprone-use-after-move)
     BOOST_TEST(h.get() == -1);
 
     h.reset(2);
@@ -110,6 +111,7 @@ BOOST_AUTO_TEST_CASE(HandleMoveCase)
         tmp = move(h);
     }
     BOOST_TEST(last_closed == 2);
+    // NOLINTNEXTLINE(bugprone-use-after-move)
     BOOST_TEST(h.get() == -1);
 }
 

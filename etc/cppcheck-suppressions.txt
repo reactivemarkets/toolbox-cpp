@@ -5,3 +5,4 @@ preprocessorErrorDirective:*/toolbox/net/Error.cpp
 syntaxError:*/toolbox/io/Timer.hpp
 syntaxError:*/toolbox/util/StringBuf.hpp
 syntaxError:*/toolbox/util/Variant.hpp
+throwInNoexceptFunction:*/toolbox/net/Socket.hpp
