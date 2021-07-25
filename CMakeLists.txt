@@ -19,7 +19,7 @@ if(POLICY CMP0048)
 endif()
 
 # Version 3.1 required for CMAKE_CXX_STANDARD.
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.18)
 project(toolbox-cpp)
 
 set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${PROJECT_SOURCE_DIR}/etc/cmake")
@@ -188,16 +188,38 @@ else()
   set(tb_bm_LIBRARY tb-bm-static)
 endif()
 
-enable_testing()
+install(FILES
+  CODE_OF_CONDUCT.md
+  CONTRIBUTING.md
+  LICENSE.md
+  README.md
+  DESTINATION doc
+  COMPONENT doc
+)
 
-# Add cppcheck target if tool is available.
-find_program(CPPCHECK cppcheck HINTS "${TOOLBOX_TOOLSET}/bin")
+# Enable cppcheck if program exists.
+find_program(CPPCHECK NAMES cppcheck HINTS "${TOOLBOX_TOOLSET}/bin")
 if(CPPCHECK)
-  message(STATUS "Found cppcheck")
-  cmake_host_system_information(RESULT CORE_COUNT QUERY NUMBER_OF_LOGICAL_CORES)
-  configure_file("${CMAKE_SOURCE_DIR}/cppcheck.sh.in"
-    "${CMAKE_BINARY_DIR}/cppcheck.sh" @ONLY)
-  add_custom_target(cppcheck COMMAND bash "${CMAKE_BINARY_DIR}/cppcheck.sh")
+  set(CMAKE_CXX_CPPCHECK
+    "${CPPCHECK}"
+    --error-exitcode=1
+    --quiet
+    --std=c++20
+    --suppressions-list=${CMAKE_SOURCE_DIR}/etc/cppcheck-suppressions.txt
+    -DBOOST_AUTO_TEST_SUITE
+    -DSIZE_MAX=UINT64_MAX
+  )
+endif()
+
+# Enable clang-tidy if program exists.
+find_program(CLANG_TIDY clang-tidy HINTS "${TOOLBOX_TOOLSET}/bin")
+if(CLANG_TIDY AND "${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
+  set(CMAKE_CXX_CLANG_TIDY
+    "${CLANG_TIDY}"
+    "--header-filter=${CMAKE_SOURCE_DIR}/.*[.](hpp|hxx)$"
+  )
+  configure_file("${PROJECT_SOURCE_DIR}/.clang-tidy"
+    "${CMAKE_BINARY_DIR}/.clang-tidy" @ONLY)
 endif()
 
 # Add clang-format target if tool is available.
@@ -209,33 +231,14 @@ if(CLANG_FORMAT)
   add_custom_target(clang-format COMMAND bash "${CMAKE_BINARY_DIR}/clang-format.sh")
 endif()
 
-# Add clang-tidy target if tool is available.
-find_program(CLANG_TIDY run-clang-tidy.py HINTS "/usr/share/clang/"
-  "${TOOLBOX_TOOLSET}/share/clang")
-if(CLANG_TIDY)
-  message(STATUS "Found clang-tidy")
-  cmake_host_system_information(RESULT CORE_COUNT QUERY NUMBER_OF_LOGICAL_CORES)
-  add_custom_target(clang-tidy COMMAND "${CLANG_TIDY}"
-        -quiet
-        -j ${CORE_COUNT}
-        -p "${CMAKE_BINARY_DIR}")
-endif()
-
-install(FILES
-  CODE_OF_CONDUCT.md
-  CONTRIBUTING.md
-  LICENSE.md
-  README.md
-  DESTINATION doc
-  COMPONENT doc
-)
-
 add_subdirectory(toolbox)
 add_subdirectory(bench)
 add_subdirectory(example)
 add_subdirectory(image)
 add_subdirectory(doc)
 add_subdirectory(etc)
+
+enable_testing()
 
 set(CPACK_GENERATOR "TGZ;RPM;DEB")
 

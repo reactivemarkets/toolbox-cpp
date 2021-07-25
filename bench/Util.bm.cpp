@@ -61,42 +61,60 @@ int dec_digits_stdio(int64_t i) noexcept
 int dec_digits_less(int64_t i) noexcept __attribute__((noinline));
 int dec_digits_less(int64_t i) noexcept
 {
-    if (i < 10)
+    if (i < 10) {
         return 1;
-    if (i < 100)
+    }
+    if (i < 100) {
         return 2;
-    if (i < 1000)
+    }
+    if (i < 1000) {
         return 3;
-    if (i < 10000)
+    }
+    if (i < 10000) {
         return 4;
-    if (i < 100000)
+    }
+    if (i < 100000) {
         return 5;
-    if (i < 1000000)
+    }
+    if (i < 1000000) {
         return 6;
-    if (i < 10000000)
+    }
+    if (i < 10000000) {
         return 7;
-    if (i < 100000000)
+    }
+    if (i < 100000000) {
         return 8;
-    if (i < 1000000000)
+    }
+    if (i < 1000000000) {
         return 9;
-    if (i < 10000000000)
+    }
+    if (i < 10000000000) {
         return 10;
-    if (i < 100000000000)
+    }
+    if (i < 100000000000) {
         return 11;
-    if (i < 1000000000000)
+    }
+    if (i < 1000000000000) {
         return 12;
-    if (i < 10000000000000)
+    }
+    if (i < 10000000000000) {
         return 13;
-    if (i < 100000000000000)
+    }
+    if (i < 100000000000000) {
         return 14;
-    if (i < 1000000000000000)
+    }
+    if (i < 1000000000000000) {
         return 15;
-    if (i < 10000000000000000)
+    }
+    if (i < 10000000000000000) {
         return 16;
-    if (i < 100000000000000000)
+    }
+    if (i < 100000000000000000) {
         return 17;
-    if (i < 1000000000000000000)
+    }
+    if (i < 1000000000000000000) {
         return 18;
+    }
     return 19;
 }
 
