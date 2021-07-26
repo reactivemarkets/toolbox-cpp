@@ -97,6 +97,8 @@ foreach (`$makedepend`) {
     } else {
 
       my ($dcomp, $dlib) = parsedep($_);
+      # Special case for "libutil.h" dependency without a path component.
+      $dlib = 'contrib' unless defined $dlib;
 
       # If component within our library.
       if ($dlib eq $lib) {
