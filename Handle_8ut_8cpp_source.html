@@ -176,24 +176,26 @@ $(function() {
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    TestHandle h{1};</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    TestHandle{move(h)};</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(last_closed == 1);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.get() == -1);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    h.reset(2);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        TestHandle tmp;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        tmp = move(h);</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    }</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(last_closed == 2);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.get() == -1);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="Handle_8ut_8cpp.html#a32d024b0b436e2dbc9588f6523b0fe7b">  116</a></span>&#160;<a class="code" href="Handle_8ut_8cpp.html#ae68cecaa96674c5b4986d2a813c95161">BOOST_AUTO_TEST_CASE</a>(HandleEqualityCase)</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;{</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(TestHandle{1} == TestHandle{1});</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(TestHandle{1} != TestHandle{2});</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;}</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;BOOST_AUTO_TEST_SUITE_END()</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="comment">// NOLINTNEXTLINE(bugprone-use-after-move)</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.get() == -1);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    h.reset(2);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        TestHandle tmp;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        tmp = move(h);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(last_closed == 2);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="comment">// NOLINTNEXTLINE(bugprone-use-after-move)</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.get() == -1);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="Handle_8ut_8cpp.html#a32d024b0b436e2dbc9588f6523b0fe7b">  118</a></span>&#160;<a class="code" href="Handle_8ut_8cpp.html#ae68cecaa96674c5b4986d2a813c95161">BOOST_AUTO_TEST_CASE</a>(HandleEqualityCase)</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;{</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(TestHandle{1} == TestHandle{1});</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(TestHandle{1} != TestHandle{2});</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;}</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;BOOST_AUTO_TEST_SUITE_END()</div>
 <div class="ttc" id="aHandle_8hpp_html"><div class="ttname"><a href="Handle_8hpp.html">Handle.hpp</a></div></div>
 <div class="ttc" id="aHandle_8ut_8cpp_html_ae68cecaa96674c5b4986d2a813c95161"><div class="ttname"><a href="Handle_8ut_8cpp.html#ae68cecaa96674c5b4986d2a813c95161">BOOST_AUTO_TEST_CASE</a></div><div class="ttdeci">BOOST_AUTO_TEST_CASE(HandleInvalidCase)</div><div class="ttdef"><b>Definition:</b> <a href="Handle_8ut_8cpp_source.html#l00046">Handle.ut.cpp:46</a></div></div>
 <div class="ttc" id="aMath_8ut_8cpp_html_ab904b429a1ec1b29e965e90718fcc4a6"><div class="ttname"><a href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a></div><div class="ttdeci">BOOST_TEST(v.size()==10U)</div></div>
