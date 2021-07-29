@@ -231,14 +231,14 @@ if(CLANG_FORMAT)
   add_custom_target(clang-format COMMAND bash "${CMAKE_BINARY_DIR}/clang-format.sh")
 endif()
 
+enable_testing()
+
 add_subdirectory(toolbox)
 add_subdirectory(bench)
 add_subdirectory(example)
 add_subdirectory(image)
 add_subdirectory(doc)
 add_subdirectory(etc)
-
-enable_testing()
 
 set(CPACK_GENERATOR "TGZ;RPM;DEB")
 
