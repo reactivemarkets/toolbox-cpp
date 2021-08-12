@@ -89,15 +89,18 @@ int Reactor::poll(CyclTime now, Duration timeout)
     if (!is_zero(wait_until)) {
         now = CyclTime::now();
     }
-    TOOLBOX_PROBE(reactor, enter_cycle);
-    auto work{tqs_[High].dispatch(now)};
+    int work{0};
+    TOOLBOX_PROBE_SCOPED(reactor, dispatch, work);
+    // High priority timers.
+    work = tqs_[High].dispatch(now);
+    // I/O events.
     work += dispatch(now, buf, n);
     // Low priority timers are only dispatched during empty cycles.
     if (work == 0) {
         work += tqs_[Low].dispatch(now);
     }
+    // End of cycle hooks.
     io::dispatch(now, hooks_);
-    TOOLBOX_PROBE(reactor, exit_cycle, work);
     return work;
 }
 
