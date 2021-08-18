@@ -18,6 +18,8 @@
 
 #include <toolbox/util/Finally.hpp>
 
+#include <toolbox/Config.h> // TOOLBOX_HAVE_SYSTEMTAP
+
 #if TOOLBOX_HAVE_SYSTEMTAP
 #ifndef SDT_USE_VARIADIC
 #define SDT_USE_VARIADIC
