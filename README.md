@@ -28,7 +28,7 @@ $ make -j all test install
 
 ## Documentation
 
-The [latest Doxygen documentation](https://toolbox-cpp.reactivemarkets.com) is available online.
+The [latest Doxygen documentation](https://reactivemarkets.github.io/toolbox-cpp/) is available online.
 
 ## Contributing
 
