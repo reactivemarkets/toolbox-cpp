@@ -35,7 +35,7 @@ Exception::Exception(int err, const error_category& ecat)
 }
 
 Exception::Exception(error_code ec, std::string_view what)
-: runtime_error{string{what} + ": " + ec.message()}
+: runtime_error{string{what}}
 , ec_{ec}
 {
 }
