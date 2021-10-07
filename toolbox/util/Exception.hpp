@@ -71,6 +71,45 @@ class TOOLBOX_API Exception : public std::runtime_error {
     std::error_code ec_;
 };
 
+namespace detail {
+
+template <typename ExceptionT>
+struct PutAsJson {
+    const ExceptionT* e;
+};
+
+template <typename ExceptionT>
+std::ostream& operator<<(std::ostream& os, PutAsJson<ExceptionT> val)
+{
+    val.e->to_json(os);
+    return os;
+}
+
+template <typename ExceptionT>
+struct PutWithCode {
+    const ExceptionT* e;
+};
+
+template <typename ExceptionT>
+std::ostream& operator<<(std::ostream& os, PutWithCode<ExceptionT> val)
+{
+    return os << val.e->what() << " (" << val.e->code().value() << ')';
+}
+
+} // namespace detail
+
+template <typename ExceptionT>
+auto put_as_json(const ExceptionT& e)
+{
+    return detail::PutAsJson<ExceptionT>{.e = &e};
+}
+
+template <typename ExceptionT>
+auto put_with_code(const ExceptionT& e)
+{
+    return detail::PutWithCode<ExceptionT>{.e = &e};
+}
+
 /// Thread-local error message. This thread-local instance of OStaticStream can be used to format
 /// error messages before throwing. Note that the OStaticStream is reset each time this function is
 /// called.
