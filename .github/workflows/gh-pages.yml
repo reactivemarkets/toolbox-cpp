@@ -23,7 +23,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: reactivemarkets/build-cpp:0.13.0
+    container: reactivemarkets/build-cpp:0.14.0
 
     strategy:
       matrix:
