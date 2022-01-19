@@ -41,11 +41,6 @@ ostream& operator<<(ostream& os, RateLimit rl)
     return os << rl.limit() << '/' << rl.interval().count();
 }
 
-RateWindow::RateWindow(Seconds interval)
-: buckets_(interval.count())
-{
-}
-
 RateWindow::~RateWindow() = default;
 
 // Copy.
@@ -58,8 +53,8 @@ RateWindow& RateWindow::operator=(RateWindow&&) noexcept = default;
 
 void RateWindow::add(MonoTime time, size_t count) noexcept
 {
-    const auto t = MonoClock::to_time_t(time);
-    auto& bucket = at(t);
+    const auto t = duration_cast<Decis>(time.time_since_epoch());
+    auto& bucket = at(t.count());
     // The fast path and simplest case is where the time falls within the same time bucket as the
     // previous tick.
     if (t == last_time_) {
@@ -70,10 +65,10 @@ void RateWindow::add(MonoTime time, size_t count) noexcept
     // Clock is assumed to be monotonic, so if the time is not the same, then it must be greater.
     assert(t > last_time_);
     // If the time has advanced by less than one complete cycle of the buffers.
-    if (t - last_time_ < static_cast<time_t>(buckets_.size())) {
+    if ((t - last_time_).count() < int64_t(buckets_.size())) {
         // Advance past any interleaving buckets.
         while (t != ++last_time_) {
-            auto& skipped = at(last_time_);
+            auto& skipped = at(last_time_.count());
             count_ -= skipped;
             skipped = 0;
         }

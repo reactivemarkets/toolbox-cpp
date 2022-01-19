@@ -27,10 +27,12 @@ inline namespace net {
 /// Rate limiters control the rate of requests sent or received over the network.
 class TOOLBOX_API RateLimit {
   public:
-    constexpr RateLimit(std::size_t limit, Seconds interval) noexcept
+    template <typename intervalT = Seconds>
+    constexpr RateLimit(std::size_t limit, intervalT interval) noexcept
     : limit_{limit}
-    , interval_{interval}
+    , interval_{std::chrono::duration_cast<Decis>(interval)}
     {
+        assert(interval_.count());
     }
     ~RateLimit() = default;
 
@@ -47,7 +49,7 @@ class TOOLBOX_API RateLimit {
 
   private:
     std::size_t limit_;
-    Seconds interval_;
+    Decis interval_;
 };
 
 TOOLBOX_API RateLimit parse_rate_limit(const std::string& s);
@@ -57,7 +59,12 @@ TOOLBOX_API std::ostream& operator<<(std::ostream& os, RateLimit rl);
 /// RateWindow maintains a sliding window of second time buckets for the specified interval.
 class TOOLBOX_API RateWindow {
   public:
-    explicit RateWindow(Seconds interval);
+    template <typename intervalT = Seconds>
+    explicit RateWindow(intervalT interval)
+    : buckets_(std::chrono::duration_cast<Decis>(interval).count())
+    {
+        assert(buckets_.size());
+    }
     ~RateWindow();
 
     // Copy.
@@ -76,7 +83,7 @@ class TOOLBOX_API RateWindow {
   private:
     std::size_t& at(std::time_t t) noexcept { return buckets_[t % buckets_.size()]; }
     std::size_t count_{};
-    std::time_t last_time_{};
+    Decis last_time_{};
     boost::container::small_vector<std::size_t, 10> buckets_;
 };
 } // namespace net
