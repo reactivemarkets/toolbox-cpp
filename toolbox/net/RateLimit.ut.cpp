@@ -26,10 +26,10 @@ BOOST_AUTO_TEST_SUITE(RateLimitSuite)
 
 BOOST_AUTO_TEST_CASE(RateLimitCase)
 {
-    BOOST_TEST(to_string(RateLimit(1, 5s)) == "1/5");
+    BOOST_TEST(to_string(RateLimit(1, 5s)) == "1/50");
     const auto rl = from_string<RateLimit>("3/5");
     BOOST_TEST(rl.limit() == 3);
-    BOOST_TEST(rl.interval().count() == 5);
+    BOOST_TEST(rl.interval().count() == 50);
 }
 
 BOOST_AUTO_TEST_CASE(RateWindowCase)
@@ -41,12 +41,15 @@ BOOST_AUTO_TEST_CASE(RateWindowCase)
 
     rw.add(t + 0s, 1);
     BOOST_TEST(rw.count() == 1);
-    rw.add(t + 0s, 2);
+    rw.add(t + 100ms, 2);
     BOOST_TEST(rw.count() == 3);
+    // The first bucket is cleaned.
     rw.add(t + 1s, 1);
-    BOOST_TEST(rw.count() == 1);
-    rw.add(t + 2s, 2);
+    BOOST_TEST(rw.count() == 3);
+    rw.add(t + 1100ms, 1);
     BOOST_TEST(rw.count() == 2);
+    rw.add(t + 2s, 2);
+    BOOST_TEST(rw.count() == 3);
     rw.add(t + 3s, 3);
     BOOST_TEST(rw.count() == 3);
 

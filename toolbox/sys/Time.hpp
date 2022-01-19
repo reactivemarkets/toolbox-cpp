@@ -34,6 +34,7 @@ using namespace std::literals::chrono_literals;
 using namespace std::literals::string_view_literals;
 
 using Seconds = std::chrono::seconds;
+using Decis = std::chrono::duration<int64_t, std::deci>;
 using Millis = std::chrono::milliseconds;
 using Micros = std::chrono::microseconds;
 using Nanos = std::chrono::nanoseconds;
