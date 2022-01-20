@@ -115,68 +115,63 @@ $(function() {
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">return</span> os &lt;&lt; rl.<a class="code" href="classtoolbox_1_1net_1_1RateLimit.html#a24e31713b5a0f13324fd951e06e22da8">limit</a>() &lt;&lt; <span class="charliteral">&#39;/&#39;</span> &lt;&lt; rl.<a class="code" href="classtoolbox_1_1net_1_1RateLimit.html#a591e5ef61fb7eceac2ae3fc1253eb3f8">interval</a>().count();</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classtoolbox_1_1net_1_1RateWindow.html#a75761c557a94e820bc0e2ced376cde39">   44</a></span>&#160;<a class="code" href="classtoolbox_1_1net_1_1RateWindow.html#a75761c557a94e820bc0e2ced376cde39">RateWindow::RateWindow</a>(<a class="code" href="namespacetoolbox_1_1sys.html#a926e572d5ea62970f67ab8c44cc5dcf4">Seconds</a> interval)</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;: buckets_(interval.count())</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<a class="code" href="classtoolbox_1_1net_1_1RateWindow.html#ae16237b3ce1c5497ad2a186eb401391e">RateWindow::~RateWindow</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">// Copy.</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<a class="code" href="classtoolbox_1_1net_1_1RateWindow.html#a75761c557a94e820bc0e2ced376cde39">RateWindow::RateWindow</a>(<span class="keyword">const</span> <a class="code" href="classtoolbox_1_1net_1_1RateWindow.html">RateWindow</a>&amp;) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<a class="code" href="classtoolbox_1_1net_1_1RateWindow.html">RateWindow</a>&amp; <a class="code" href="classtoolbox_1_1net_1_1RateWindow.html#ac476ff56b28c60a9a16140202546384c">RateWindow::operator=</a>(<span class="keyword">const</span> <a class="code" href="classtoolbox_1_1net_1_1RateWindow.html">RateWindow</a>&amp;) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">// Move.</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<a class="code" href="classtoolbox_1_1net_1_1RateWindow.html#a75761c557a94e820bc0e2ced376cde39">RateWindow::RateWindow</a>(<a class="code" href="classtoolbox_1_1net_1_1RateWindow.html">RateWindow</a>&amp;&amp;) noexcept = default;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<a class="code" href="classtoolbox_1_1net_1_1RateWindow.html">RateWindow</a>&amp; <a class="code" href="classtoolbox_1_1net_1_1RateWindow.html">RateWindow</a>::operator=(<a class="code" href="classtoolbox_1_1net_1_1RateWindow.html">RateWindow</a>&amp;&amp;) noexcept = default;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classtoolbox_1_1net_1_1RateWindow.html#a86b94eb8385d96908488fa3a471f1cef">   59</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classtoolbox_1_1net_1_1RateWindow.html">RateWindow</a>::add(<a class="code" href="namespacetoolbox_1_1sys.html#a8370f3f6bd9eb78dd325ae3f4e582247">MonoTime</a> time, <span class="keywordtype">size_t</span> count) noexcept</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> t = MonoClock::to_time_t(time);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">auto</span>&amp; bucket = at(t);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">// The fast path and simplest case is where the time falls within the same time bucket as the</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">// previous tick.</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">if</span> (t == last_time_) {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        count_ += count;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        bucket += count;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment">// Clock is assumed to be monotonic, so if the time is not the same, then it must be greater.</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    assert(t &gt; last_time_);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">// If the time has advanced by less than one complete cycle of the buffers.</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">if</span> (t - last_time_ &lt; <span class="keyword">static_cast&lt;</span>time_t<span class="keyword">&gt;</span>(buckets_.size())) {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="comment">// Advance past any interleaving buckets.</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">while</span> (t != ++last_time_) {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keyword">auto</span>&amp; skipped = at(last_time_);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            count_ -= skipped;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            skipped = 0;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="comment">// And then adjust the count on the target bucket.</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        count_ = count_ + count - bucket;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="comment">// Zero the entire buffer.</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        fill(buckets_.begin(), buckets_.end(), 0);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        count_ = count;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    last_time_ = t;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    bucket = count;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;} <span class="comment">// namespace net</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;} <span class="comment">// namespace toolbox</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<a class="code" href="classtoolbox_1_1net_1_1RateWindow.html#ae16237b3ce1c5497ad2a186eb401391e">RateWindow::~RateWindow</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">// Copy.</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<a class="code" href="classtoolbox_1_1net_1_1RateWindow.html#ac5ad5d4779752d957bd2f340d0dea0d4">RateWindow::RateWindow</a>(<span class="keyword">const</span> RateWindow&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;RateWindow&amp; <a class="code" href="classtoolbox_1_1net_1_1RateWindow.html#ac476ff56b28c60a9a16140202546384c">RateWindow::operator=</a>(<span class="keyword">const</span> RateWindow&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">// Move.</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<a class="code" href="classtoolbox_1_1net_1_1RateWindow.html#ac5ad5d4779752d957bd2f340d0dea0d4">RateWindow::RateWindow</a>(RateWindow&amp;&amp;) noexcept = default;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;RateWindow&amp; RateWindow::operator=(RateWindow&amp;&amp;) noexcept = default;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classtoolbox_1_1net_1_1RateWindow.html#a86b94eb8385d96908488fa3a471f1cef">   54</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classtoolbox_1_1net_1_1RateWindow.html">RateWindow</a>::add(<a class="code" href="namespacetoolbox_1_1sys.html#a8370f3f6bd9eb78dd325ae3f4e582247">MonoTime</a> time, <span class="keywordtype">size_t</span> count) noexcept</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> t = duration_cast&lt;Decis&gt;(time.time_since_epoch());</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">auto</span>&amp; bucket = at(t.count());</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">// The fast path and simplest case is where the time falls within the same time bucket as the</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="comment">// previous tick.</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">if</span> (t == last_time_) {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        count_ += count;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        bucket += count;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">// Clock is assumed to be monotonic, so if the time is not the same, then it must be greater.</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    assert(t &gt; last_time_);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="comment">// If the time has advanced by less than one complete cycle of the buffers.</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">if</span> ((t - last_time_).count() &lt; int64_t(buckets_.size())) {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="comment">// Advance past any interleaving buckets.</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">while</span> (t != ++last_time_) {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keyword">auto</span>&amp; skipped = at(last_time_.count());</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            count_ -= skipped;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            skipped = 0;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="comment">// And then adjust the count on the target bucket.</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        count_ = count_ + count - bucket;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="comment">// Zero the entire buffer.</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        fill(buckets_.begin(), buckets_.end(), 0);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        count_ = count;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    last_time_ = t;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    bucket = count;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;} <span class="comment">// namespace net</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;} <span class="comment">// namespace toolbox</span></div>
 <div class="ttc" id="aRateLimit_8hpp_html"><div class="ttname"><a href="RateLimit_8hpp.html">RateLimit.hpp</a></div></div>
 <div class="ttc" id="aString_8hpp_html"><div class="ttname"><a href="String_8hpp.html">String.hpp</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1net_1_1RateLimit_html"><div class="ttname"><a href="classtoolbox_1_1net_1_1RateLimit.html">toolbox::RateLimit</a></div><div class="ttdef"><b>Definition:</b> <a href="RateLimit_8hpp_source.html#l00028">RateLimit.hpp:28</a></div></div>
-<div class="ttc" id="aclasstoolbox_1_1net_1_1RateLimit_html_a24e31713b5a0f13324fd951e06e22da8"><div class="ttname"><a href="classtoolbox_1_1net_1_1RateLimit.html#a24e31713b5a0f13324fd951e06e22da8">toolbox::net::RateLimit::limit</a></div><div class="ttdeci">constexpr auto limit() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="RateLimit_8hpp_source.html#l00045">RateLimit.hpp:45</a></div></div>
-<div class="ttc" id="aclasstoolbox_1_1net_1_1RateLimit_html_a591e5ef61fb7eceac2ae3fc1253eb3f8"><div class="ttname"><a href="classtoolbox_1_1net_1_1RateLimit.html#a591e5ef61fb7eceac2ae3fc1253eb3f8">toolbox::net::RateLimit::interval</a></div><div class="ttdeci">constexpr auto interval() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="RateLimit_8hpp_source.html#l00046">RateLimit.hpp:46</a></div></div>
-<div class="ttc" id="aclasstoolbox_1_1net_1_1RateWindow_html"><div class="ttname"><a href="classtoolbox_1_1net_1_1RateWindow.html">toolbox::net::RateWindow</a></div><div class="ttdoc">RateWindow maintains a sliding window of second time buckets for the specified interval.</div><div class="ttdef"><b>Definition:</b> <a href="RateLimit_8hpp_source.html#l00058">RateLimit.hpp:58</a></div></div>
-<div class="ttc" id="aclasstoolbox_1_1net_1_1RateWindow_html_a75761c557a94e820bc0e2ced376cde39"><div class="ttname"><a href="classtoolbox_1_1net_1_1RateWindow.html#a75761c557a94e820bc0e2ced376cde39">toolbox::net::RateWindow::RateWindow</a></div><div class="ttdeci">RateWindow(Seconds interval)</div><div class="ttdef"><b>Definition:</b> <a href="RateLimit_8cpp_source.html#l00044">RateLimit.cpp:44</a></div></div>
+<div class="ttc" id="aclasstoolbox_1_1net_1_1RateLimit_html_a24e31713b5a0f13324fd951e06e22da8"><div class="ttname"><a href="classtoolbox_1_1net_1_1RateLimit.html#a24e31713b5a0f13324fd951e06e22da8">toolbox::net::RateLimit::limit</a></div><div class="ttdeci">constexpr auto limit() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="RateLimit_8hpp_source.html#l00047">RateLimit.hpp:47</a></div></div>
+<div class="ttc" id="aclasstoolbox_1_1net_1_1RateLimit_html_a591e5ef61fb7eceac2ae3fc1253eb3f8"><div class="ttname"><a href="classtoolbox_1_1net_1_1RateLimit.html#a591e5ef61fb7eceac2ae3fc1253eb3f8">toolbox::net::RateLimit::interval</a></div><div class="ttdeci">constexpr auto interval() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="RateLimit_8hpp_source.html#l00048">RateLimit.hpp:48</a></div></div>
+<div class="ttc" id="aclasstoolbox_1_1net_1_1RateWindow_html"><div class="ttname"><a href="classtoolbox_1_1net_1_1RateWindow.html">toolbox::net::RateWindow</a></div><div class="ttdoc">RateWindow maintains a sliding window of second time buckets for the specified interval.</div><div class="ttdef"><b>Definition:</b> <a href="RateLimit_8hpp_source.html#l00060">RateLimit.hpp:60</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1net_1_1RateWindow_html_ac476ff56b28c60a9a16140202546384c"><div class="ttname"><a href="classtoolbox_1_1net_1_1RateWindow.html#ac476ff56b28c60a9a16140202546384c">toolbox::net::RateWindow::operator=</a></div><div class="ttdeci">RateWindow &amp; operator=(const RateWindow &amp;)</div></div>
+<div class="ttc" id="aclasstoolbox_1_1net_1_1RateWindow_html_ac5ad5d4779752d957bd2f340d0dea0d4"><div class="ttname"><a href="classtoolbox_1_1net_1_1RateWindow.html#ac5ad5d4779752d957bd2f340d0dea0d4">toolbox::net::RateWindow::RateWindow</a></div><div class="ttdeci">RateWindow(intervalT interval)</div><div class="ttdef"><b>Definition:</b> <a href="RateLimit_8hpp_source.html#l00063">RateLimit.hpp:63</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1net_1_1RateWindow_html_ae16237b3ce1c5497ad2a186eb401391e"><div class="ttname"><a href="classtoolbox_1_1net_1_1RateWindow.html#ae16237b3ce1c5497ad2a186eb401391e">toolbox::net::RateWindow::~RateWindow</a></div><div class="ttdeci">~RateWindow()</div></div>
 <div class="ttc" id="anamespacetoolbox_1_1net_html_a01db7a7a01e6f386f90923bf9e2e9895"><div class="ttname"><a href="namespacetoolbox_1_1net.html#a01db7a7a01e6f386f90923bf9e2e9895">toolbox::net::operator&gt;&gt;</a></div><div class="ttdeci">istream &amp; operator&gt;&gt;(istream &amp;is, DgramEndpoint &amp;ep)</div><div class="ttdef"><b>Definition:</b> <a href="Endpoint_8cpp_source.html#l00098">Endpoint.cpp:98</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1net_html_a9e36b85df46357ffbb6a5494691aac67"><div class="ttname"><a href="namespacetoolbox_1_1net.html#a9e36b85df46357ffbb6a5494691aac67">toolbox::net::parse_rate_limit</a></div><div class="ttdeci">RateLimit parse_rate_limit(const string &amp;s)</div><div class="ttdef"><b>Definition:</b> <a href="RateLimit_8cpp_source.html#l00024">RateLimit.cpp:24</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1net_html_ac30a49066920e40098733a48712b0d4e"><div class="ttname"><a href="namespacetoolbox_1_1net.html#ac30a49066920e40098733a48712b0d4e">toolbox::net::operator&lt;&lt;</a></div><div class="ttdeci">ostream &amp; operator&lt;&lt;(ostream &amp;os, const DgramEndpoint &amp;ep)</div><div class="ttdef"><b>Definition:</b> <a href="Endpoint_8cpp_source.html#l00116">Endpoint.cpp:116</a></div></div>
-<div class="ttc" id="anamespacetoolbox_1_1sys_html_a8370f3f6bd9eb78dd325ae3f4e582247"><div class="ttname"><a href="namespacetoolbox_1_1sys.html#a8370f3f6bd9eb78dd325ae3f4e582247">toolbox::sys::MonoTime</a></div><div class="ttdeci">MonoClock::time_point MonoTime</div><div class="ttdef"><b>Definition:</b> <a href="Time_8hpp_source.html#l00112">Time.hpp:112</a></div></div>
+<div class="ttc" id="anamespacetoolbox_1_1sys_html_a8370f3f6bd9eb78dd325ae3f4e582247"><div class="ttname"><a href="namespacetoolbox_1_1sys.html#a8370f3f6bd9eb78dd325ae3f4e582247">toolbox::sys::MonoTime</a></div><div class="ttdeci">MonoClock::time_point MonoTime</div><div class="ttdef"><b>Definition:</b> <a href="Time_8hpp_source.html#l00113">Time.hpp:113</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1sys_html_a926e572d5ea62970f67ab8c44cc5dcf4"><div class="ttname"><a href="namespacetoolbox_1_1sys.html#a926e572d5ea62970f67ab8c44cc5dcf4">toolbox::sys::Seconds</a></div><div class="ttdeci">std::chrono::seconds Seconds</div><div class="ttdef"><b>Definition:</b> <a href="Time_8hpp_source.html#l00036">Time.hpp:36</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1util_html_a0c220b4678c5964fdf41cc51dc103f16"><div class="ttname"><a href="namespacetoolbox_1_1util.html#a0c220b4678c5964fdf41cc51dc103f16">toolbox::util::split_pair</a></div><div class="ttdeci">pair&lt; string_view, string_view &gt; split_pair(string_view s, char delim) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="String_8cpp_source.html#l00051">String.cpp:51</a></div></div>
 <div class="ttc" id="anamespacetoolbox_html"><div class="ttname"><a href="namespacetoolbox.html">toolbox</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8cpp_source.html#l00026">Benchmark.cpp:26</a></div></div>

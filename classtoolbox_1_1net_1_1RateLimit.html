@@ -80,8 +80,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8be4ad05d116ce1fe9f38320ace11251"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1net_1_1RateLimit.html#a8be4ad05d116ce1fe9f38320ace11251">RateLimit</a> (std::size_t <a class="el" href="classtoolbox_1_1net_1_1RateLimit.html#a24e31713b5a0f13324fd951e06e22da8">limit</a>, <a class="el" href="namespacetoolbox_1_1sys.html#a926e572d5ea62970f67ab8c44cc5dcf4">Seconds</a> <a class="el" href="classtoolbox_1_1net_1_1RateLimit.html#a591e5ef61fb7eceac2ae3fc1253eb3f8">interval</a>) noexcept</td></tr>
-<tr class="separator:a8be4ad05d116ce1fe9f38320ace11251"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99d2c317e5f10a3c6d7c97bfb558ceb5"><td class="memTemplParams" colspan="2">template&lt;typename intervalT  = Seconds&gt; </td></tr>
+<tr class="memitem:a99d2c317e5f10a3c6d7c97bfb558ceb5"><td class="memTemplItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1net_1_1RateLimit.html#a99d2c317e5f10a3c6d7c97bfb558ceb5">RateLimit</a> (std::size_t <a class="el" href="classtoolbox_1_1net_1_1RateLimit.html#a24e31713b5a0f13324fd951e06e22da8">limit</a>, intervalT <a class="el" href="classtoolbox_1_1net_1_1RateLimit.html#a591e5ef61fb7eceac2ae3fc1253eb3f8">interval</a>) noexcept</td></tr>
+<tr class="separator:a99d2c317e5f10a3c6d7c97bfb558ceb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afddec2f5095cb170ce7efd0391a591e4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1net_1_1RateLimit.html#afddec2f5095cb170ce7efd0391a591e4">~RateLimit</a> ()=default</td></tr>
 <tr class="separator:afddec2f5095cb170ce7efd0391a591e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c5378c49c540fa092299f7e3f70745a"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1net_1_1RateLimit.html#a0c5378c49c540fa092299f7e3f70745a">RateLimit</a> (const <a class="el" href="classtoolbox_1_1net_1_1RateLimit.html">RateLimit</a> &amp;) noexcept=default</td></tr>
@@ -102,11 +103,13 @@ Public Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="RateLimit_8hpp_source.html#l00028">28</a> of file <a class="el" href="RateLimit_8hpp_source.html">RateLimit.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a8be4ad05d116ce1fe9f38320ace11251"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8be4ad05d116ce1fe9f38320ace11251">&#9670;&nbsp;</a></span>RateLimit() <span class="overload">[1/3]</span></h2>
+<a id="a99d2c317e5f10a3c6d7c97bfb558ceb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99d2c317e5f10a3c6d7c97bfb558ceb5">&#9670;&nbsp;</a></span>RateLimit() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename intervalT  = Seconds&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -120,7 +123,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#a926e572d5ea62970f67ab8c44cc5dcf4">Seconds</a>&#160;</td>
+          <td class="paramtype">intervalT&#160;</td>
           <td class="paramname"><em>interval</em>&#160;</td>
         </tr>
         <tr>
@@ -136,7 +139,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RateLimit_8hpp_source.html#l00030">30</a> of file <a class="el" href="RateLimit_8hpp_source.html">RateLimit.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RateLimit_8hpp_source.html#l00031">31</a> of file <a class="el" href="RateLimit_8hpp_source.html">RateLimit.hpp</a>.</p>
 
 </div>
 </div>
@@ -293,7 +296,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RateLimit_8hpp_source.html#l00045">45</a> of file <a class="el" href="RateLimit_8hpp_source.html">RateLimit.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RateLimit_8hpp_source.html#l00047">47</a> of file <a class="el" href="RateLimit_8hpp_source.html">RateLimit.hpp</a>.</p>
 
 </div>
 </div>
@@ -320,7 +323,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RateLimit_8hpp_source.html#l00046">46</a> of file <a class="el" href="RateLimit_8hpp_source.html">RateLimit.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RateLimit_8hpp_source.html#l00048">48</a> of file <a class="el" href="RateLimit_8hpp_source.html">RateLimit.hpp</a>.</p>
 
 </div>
 </div>

@@ -100,10 +100,10 @@ $(function() {
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="RateLimit_8ut_8cpp.html#ac061cd5fa3676937466d48e18a67088f">   27</a></span>&#160;<a class="code" href="RateLimit_8ut_8cpp.html#ac061cd5fa3676937466d48e18a67088f">BOOST_AUTO_TEST_CASE</a>(RateLimitCase)</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(<a class="code" href="namespacetoolbox_1_1util.html#a98415505c35d1731c56af968e1ec971a">to_string</a>(<a class="code" href="classtoolbox_1_1net_1_1RateLimit.html">RateLimit</a>(1, 5s)) == <span class="stringliteral">&quot;1/5&quot;</span>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(<a class="code" href="namespacetoolbox_1_1util.html#a98415505c35d1731c56af968e1ec971a">to_string</a>(<a class="code" href="classtoolbox_1_1net_1_1RateLimit.html">RateLimit</a>(1, 5s)) == <span class="stringliteral">&quot;1/50&quot;</span>);</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> rl = from_string&lt;RateLimit&gt;(<span class="stringliteral">&quot;3/5&quot;</span>);</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rl.limit() == 3);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rl.interval().count() == 5);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rl.interval().count() == 50);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="RateLimit_8ut_8cpp.html#a337d8f1d456142c8a91bb65678b64a32">   35</a></span>&#160;<a class="code" href="RateLimit_8ut_8cpp.html#ac061cd5fa3676937466d48e18a67088f">BOOST_AUTO_TEST_CASE</a>(RateWindowCase)</div>
@@ -115,49 +115,52 @@ $(function() {
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    rw.add(t + 0s, 1);</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 1);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    rw.add(t + 0s, 2);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    rw.add(t + 100ms, 2);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 3);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    rw.add(t + 1s, 1);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 1);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    rw.add(t + 2s, 2);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 2);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    rw.add(t + 3s, 3);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 3);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    rw = <a class="code" href="classtoolbox_1_1net_1_1RateWindow.html">RateWindow</a>{5s};</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 0);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">// The first bucket is cleaned.</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    rw.add(t + 1s, 1);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 3);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    rw.add(t + 1100ms, 1);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 2);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    rw.add(t + 2s, 2);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 3);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    rw.add(t + 3s, 3);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 3);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    rw.add(t + 0s, 1);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 1);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    rw.add(t + 1s, 2);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 3);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    rw.add(t + 2s, 3);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 6);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    rw.add(t + 3s, 4);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 10);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    rw.add(t + 4s, 5);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 15);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="comment">// Circular buffer wraps and replaces first entry.</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    rw.add(t + 5s, 6);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 20);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment">// Skip two entries entirely.</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    rw.add(t + 8s, 7);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 18);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">// Skip every entry in the buffer.</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    rw.add(t + 13s, 8);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 8);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;BOOST_AUTO_TEST_SUITE_END()</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    rw = <a class="code" href="classtoolbox_1_1net_1_1RateWindow.html">RateWindow</a>{5s};</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 0);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    rw.add(t + 0s, 1);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 1);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    rw.add(t + 1s, 2);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 3);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    rw.add(t + 2s, 3);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 6);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    rw.add(t + 3s, 4);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 10);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    rw.add(t + 4s, 5);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 15);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment">// Circular buffer wraps and replaces first entry.</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    rw.add(t + 5s, 6);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 20);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">// Skip two entries entirely.</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    rw.add(t + 8s, 7);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 18);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">// Skip every entry in the buffer.</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    rw.add(t + 13s, 8);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(rw.count() == 8);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;BOOST_AUTO_TEST_SUITE_END()</div>
 <div class="ttc" id="aMath_8ut_8cpp_html_ab904b429a1ec1b29e965e90718fcc4a6"><div class="ttname"><a href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a></div><div class="ttdeci">BOOST_TEST(v.size()==10U)</div></div>
 <div class="ttc" id="aRateLimit_8hpp_html"><div class="ttname"><a href="RateLimit_8hpp.html">RateLimit.hpp</a></div></div>
 <div class="ttc" id="aRateLimit_8ut_8cpp_html_ac061cd5fa3676937466d48e18a67088f"><div class="ttname"><a href="RateLimit_8ut_8cpp.html#ac061cd5fa3676937466d48e18a67088f">BOOST_AUTO_TEST_CASE</a></div><div class="ttdeci">BOOST_AUTO_TEST_CASE(RateLimitCase)</div><div class="ttdef"><b>Definition:</b> <a href="RateLimit_8ut_8cpp_source.html#l00027">RateLimit.ut.cpp:27</a></div></div>
 <div class="ttc" id="aString_8hpp_html"><div class="ttname"><a href="String_8hpp.html">String.hpp</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1net_1_1RateLimit_html"><div class="ttname"><a href="classtoolbox_1_1net_1_1RateLimit.html">toolbox::RateLimit</a></div><div class="ttdef"><b>Definition:</b> <a href="RateLimit_8hpp_source.html#l00028">RateLimit.hpp:28</a></div></div>
-<div class="ttc" id="aclasstoolbox_1_1net_1_1RateWindow_html"><div class="ttname"><a href="classtoolbox_1_1net_1_1RateWindow.html">toolbox::RateWindow</a></div><div class="ttdoc">RateWindow maintains a sliding window of second time buckets for the specified interval.</div><div class="ttdef"><b>Definition:</b> <a href="RateLimit_8hpp_source.html#l00058">RateLimit.hpp:58</a></div></div>
+<div class="ttc" id="aclasstoolbox_1_1net_1_1RateWindow_html"><div class="ttname"><a href="classtoolbox_1_1net_1_1RateWindow.html">toolbox::RateWindow</a></div><div class="ttdoc">RateWindow maintains a sliding window of second time buckets for the specified interval.</div><div class="ttdef"><b>Definition:</b> <a href="RateLimit_8hpp_source.html#l00060">RateLimit.hpp:60</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1util_html_a98415505c35d1731c56af968e1ec971a"><div class="ttname"><a href="namespacetoolbox_1_1util.html#a98415505c35d1731c56af968e1ec971a">toolbox::util::to_string</a></div><div class="ttdeci">std::string to_string(ValueT val)</div><div class="ttdef"><b>Definition:</b> <a href="String_8hpp_source.html#l00055">String.hpp:55</a></div></div>
 <div class="ttc" id="anamespacetoolbox_html"><div class="ttname"><a href="namespacetoolbox.html">toolbox</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8cpp_source.html#l00026">Benchmark.cpp:26</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
