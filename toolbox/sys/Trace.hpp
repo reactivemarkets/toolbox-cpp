@@ -27,11 +27,19 @@
 #include <sys/sdt.h>
 #define TOOLBOX_PROBE(provider, name, ...) STAP_PROBEV(provider, name, ##__VA_ARGS__)
 // clang-format off
+#if defined(__GNUC__) && !defined(__clang__)
 #define TOOLBOX_PROBE_SCOPED(provider, name, ...)                       \
     STAP_PROBEV(provider, name ## _begin);                              \
-    const auto __finally_ ## provider ## _ ## name = toolbox::util::make_finally([&]() noexcept { \
+    const auto __finally_ ## provider ## _ ## name = toolbox::util::make_finally([&]() noexcept __attribute__((noinline)) { \
         STAP_PROBEV(provider, name ## _end, ##__VA_ARGS__);             \
     })
+#elif defined(__clang__)
+#define TOOLBOX_PROBE_SCOPED(provider, name, ...)                       \
+    STAP_PROBEV(provider, name ## _begin);                              \
+    const auto __finally_ ## provider ## _ ## name = toolbox::util::make_finally([&]() __attribute__((noinline)) noexcept { \
+        STAP_PROBEV(provider, name ## _end, ##__VA_ARGS__);             \
+    })
+#endif
 // clang-format on
 #else
 #define TOOLBOX_PROBE(provider, name, ...)
