@@ -1,6 +1,6 @@
 // The Reactive C++ Toolbox.
 // Copyright (C) 2013-2019 Swirly Cloud Limited
-// Copyright (C) 2021 Reactive Markets Limited
+// Copyright (C) 2022 Reactive Markets Limited
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -83,6 +83,7 @@ enum class Status : int {
     Forbidden = HTTP_STATUS_FORBIDDEN,
     NotFound = HTTP_STATUS_NOT_FOUND,
     MethodNotAllowed = HTTP_STATUS_METHOD_NOT_ALLOWED,
+    RequestTimeout = HTTP_STATUS_REQUEST_TIMEOUT,
     InternalServerError = HTTP_STATUS_INTERNAL_SERVER_ERROR,
     ServiceUnavailable = HTTP_STATUS_SERVICE_UNAVAILABLE
 };
