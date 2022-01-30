@@ -33,9 +33,6 @@ struct TOOLBOX_API Exception : util::Exception {
     {
     }
     ~Exception() override;
-
-  protected:
-    using util::Exception::Exception;
 };
 
 } // namespace http
