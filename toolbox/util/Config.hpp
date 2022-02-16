@@ -1,6 +1,6 @@
 // The Reactive C++ Toolbox.
 // Copyright (C) 2013-2019 Swirly Cloud Limited
-// Copyright (C) 2021 Reactive Markets Limited
+// Copyright (C) 2022 Reactive Markets Limited
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -136,7 +136,10 @@ class TOOLBOX_API Config {
     {
         return read_section(is, next);
     }
-    void set(std::string key, std::string val) { map_.emplace(std::move(key), std::move(val)); }
+    void set(std::string key, std::string val)
+    {
+        map_.insert_or_assign(std::move(key), std::move(val));
+    }
     void set_parent(Config& parent) noexcept { parent_ = &parent; }
 
   private:

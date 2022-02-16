@@ -1,6 +1,6 @@
 // The Reactive C++ Toolbox.
 // Copyright (C) 2013-2019 Swirly Cloud Limited
-// Copyright (C) 2021 Reactive Markets Limited
+// Copyright (C) 2022 Reactive Markets Limited
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -104,6 +104,25 @@ st = = uv =
     BOOST_TEST(conf["st"] == "= uv =");
     BOOST_TEST(next.empty());
     BOOST_TEST(is.eof());
+}
+
+BOOST_AUTO_TEST_CASE(ConfigSetAndGetCase)
+{
+    Config config;
+
+    BOOST_TEST(config.get<int>("foo", 101) == 101);
+    BOOST_TEST(config.get<int>("bar", 202) == 202);
+
+    config.set("foo", "101");
+    config.set("bar", "202");
+
+    BOOST_TEST(config.get<int>("foo", 0) == 101);
+    BOOST_TEST(config.get<int>("bar", 0) == 202);
+
+    config.set("foo", "303");
+
+    BOOST_TEST(config.get<int>("foo", 0) == 303);
+    BOOST_TEST(config.get<int>("bar", 0) == 202);
 }
 
 BOOST_AUTO_TEST_CASE(ConfigOverrideCase)
