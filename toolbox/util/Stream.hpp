@@ -1,6 +1,6 @@
 // The Reactive C++ Toolbox.
 // Copyright (C) 2013-2019 Swirly Cloud Limited
-// Copyright (C) 2021 Reactive Markets Limited
+// Copyright (C) 2022 Reactive Markets Limited
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -138,7 +138,11 @@ class OStream final : public std::ostream {
     /// Swap the internal storage.
     void swap_storage(StoragePtr<MaxN>& storage) noexcept { buf_.swap_storage(storage); }
     /// Reset the current position back to the beginning of the buffer.
-    void reset() noexcept { buf_.reset(); }
+    void reset() noexcept
+    {
+        buf_.reset();
+        clear();
+    }
 
   private:
     StreamBuf<MaxN> buf_;
@@ -198,7 +202,11 @@ class OStaticStream final : public std::ostream {
         return buf_.str();
     } // NOLINT(hicpp-explicit-conversions)
     /// Reset the current position back to the beginning of the buffer.
-    void reset() noexcept { buf_.reset(); };
+    void reset() noexcept
+    {
+        buf_.reset();
+        clear();
+    };
 
   private:
     StaticStreamBuf<MaxN> buf_;

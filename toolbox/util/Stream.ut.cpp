@@ -1,6 +1,6 @@
 // The Reactive C++ Toolbox.
 // Copyright (C) 2013-2019 Swirly Cloud Limited
-// Copyright (C) 2021 Reactive Markets Limited
+// Copyright (C) 2022 Reactive Markets Limited
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -37,7 +37,6 @@ BOOST_AUTO_TEST_CASE(OStaticStreamCase)
     BOOST_TEST(os.size() == 7U);
     BOOST_TEST(os.str() == "foo,bar");
 
-    os.clear();
     os.reset();
     BOOST_TEST(os.empty());
     os << 12345678;
@@ -45,7 +44,6 @@ BOOST_AUTO_TEST_CASE(OStaticStreamCase)
     BOOST_TEST(os.str() == "1234567");
     BOOST_TEST(!os);
 
-    os.clear();
     os.reset();
     BOOST_TEST(!!os);
     BOOST_TEST((os << "test").str() == "test");
@@ -57,6 +55,18 @@ BOOST_AUTO_TEST_CASE(OStreamJoinerCase)
     stringstream os;
     copy(arr.begin(), arr.end(), OStreamJoiner{os, ','});
     BOOST_TEST(os.str() == "foo,bar,baz");
+}
+
+BOOST_AUTO_TEST_CASE(OStreamResetCase)
+{
+    OStaticStream<6> os{};
+    // overflows the buffer, setting a bad flag
+    os << "foobarbaz";
+    BOOST_TEST(os.data() == "foobar");
+    // resets flag, allowing yes to be written
+    os.reset();
+    os << "yes";
+    BOOST_TEST(os.data() == "yesbar");
 }
 
 BOOST_AUTO_TEST_SUITE_END()
