@@ -198,20 +198,6 @@ install(FILES
   COMPONENT doc
 )
 
-# Enable cppcheck if program exists.
-find_program(CPPCHECK NAMES cppcheck HINTS "${TOOLBOX_TOOLSET}/bin")
-if(CPPCHECK)
-  set(CMAKE_CXX_CPPCHECK
-    "${CPPCHECK}"
-    --error-exitcode=1
-    --quiet
-    --std=c++20
-    --suppressions-list=${CMAKE_SOURCE_DIR}/etc/cppcheck-suppressions.txt
-    -DBOOST_AUTO_TEST_SUITE
-    -DSIZE_MAX=UINT64_MAX
-  )
-endif()
-
 # Enable clang-tidy if program exists.
 find_program(CLANG_TIDY clang-tidy HINTS "${TOOLBOX_TOOLSET}/bin")
 if(CLANG_TIDY AND "${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
