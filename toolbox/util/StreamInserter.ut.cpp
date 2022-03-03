@@ -23,11 +23,11 @@ using namespace toolbox;
 namespace {
 auto start_tag(const char* s)
 {
-    return StreamInserter{[=](ostream& os) { os << '<' << s << '>'; }};
+    return make_stream_inserter<ostream>([=](ostream& os) { os << '<' << s << '>'; });
 }
 auto end_tag(const char* s)
 {
-    return StreamInserter{[=](ostream& os) { os << "</" << s << '>'; }};
+    return make_stream_inserter<ostream>([=](ostream& os) { os << "</" << s << '>'; });
 }
 } // namespace
 
