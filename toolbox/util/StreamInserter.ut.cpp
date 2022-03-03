@@ -1,5 +1,4 @@
 // The Reactive C++ Toolbox.
-// Copyright (C) 2013-2019 Swirly Cloud Limited
 // Copyright (C) 2022 Reactive Markets Limited
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,21 +13,31 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef TOOLBOX_SYS_HPP
-#define TOOLBOX_SYS_HPP
+#include "StreamInserter.hpp"
 
-#include "sys/Daemon.hpp"
-#include "sys/Date.hpp"
-#include "sys/Error.hpp"
-#include "sys/Limits.hpp"
-#include "sys/Log.hpp"
-#include "sys/Logger.hpp"
-#include "sys/PidFile.hpp"
-#include "sys/Runner.hpp"
-#include "sys/Signal.hpp"
-#include "sys/System.hpp"
-#include "sys/Thread.hpp"
-#include "sys/Time.hpp"
-#include "sys/Trace.hpp"
+#include <boost/test/unit_test.hpp>
 
-#endif // TOOLBOX_SYS_HPP
+using namespace std;
+using namespace toolbox;
+
+namespace {
+auto start_tag(const char* s)
+{
+    return StreamInserter{[=](ostream& os) { os << '<' << s << '>'; }};
+}
+auto end_tag(const char* s)
+{
+    return StreamInserter{[=](ostream& os) { os << "</" << s << '>'; }};
+}
+} // namespace
+
+BOOST_AUTO_TEST_SUITE(StreamInserterSuite)
+
+BOOST_AUTO_TEST_CASE(StreamInserterCase)
+{
+    stringstream ss;
+    ss << start_tag("foo") << "bar" << end_tag("foo");
+    BOOST_TEST(ss.str() == "<foo>bar</foo>"s);
+}
+
+BOOST_AUTO_TEST_SUITE_END()
