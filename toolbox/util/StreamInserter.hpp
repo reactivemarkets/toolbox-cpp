@@ -27,11 +27,11 @@ inline namespace util {
 /// implementations by reducing boiler-plate code.
 ///
 // clang-format off
-template <typename FnT>
-requires std::invocable<FnT, std::ostream&>
+template <typename OStreamT, typename FnT>
+requires std::invocable<FnT, OStreamT&>
 // clang-format on
 class StreamInserter {
-    friend std::ostream& operator<<(std::ostream& os, const StreamInserter& si)
+    friend OStreamT& operator<<(OStreamT& os, const StreamInserter& si)
     {
         si.fn_(os);
         return os;
@@ -55,6 +55,13 @@ class StreamInserter {
   private:
     FnT fn_;
 };
+
+/// Returns a StreamInserter object, automatically deducing functor type from arguments.
+template <typename OStreamT, typename FnT>
+auto make_stream_inserter(FnT fn)
+{
+    return StreamInserter<OStreamT, FnT>{std::move(fn)};
+}
 
 } // namespace util
 } // namespace toolbox
