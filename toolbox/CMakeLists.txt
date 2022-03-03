@@ -113,6 +113,7 @@ set(lib_SOURCES
   util/Storage.cpp
   util/Stream.cpp
   util/StringBuf.cpp
+  util/StreamInserter.cpp
   util/String.cpp
   util/Struct.cpp
   util/TaskQueue.cpp
@@ -244,6 +245,7 @@ set(test_SOURCES
   util/Slot.ut.cpp
   util/Stream.ut.cpp
   util/StringBuf.ut.cpp
+  util/StreamInserter.ut.cpp
   util/String.ut.cpp
   util/Struct.ut.cpp
   util/Tokeniser.ut.cpp
