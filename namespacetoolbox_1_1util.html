@@ -401,6 +401,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a27cbff2e545c5d6bfb5e86ae934485d1"><td class="memTemplParams" colspan="2">template&lt;auto DelimT, typename ArgT , typename... ArgsT&gt; </td></tr>
 <tr class="memitem:a27cbff2e545c5d6bfb5e86ae934485d1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a27cbff2e545c5d6bfb5e86ae934485d1">join</a> (std::ostream &amp;os, const ArgT &amp;arg, const ArgsT &amp;... args)</td></tr>
 <tr class="separator:a27cbff2e545c5d6bfb5e86ae934485d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab75effd1966eca2a40a8e7fb12e2567c"><td class="memTemplParams" colspan="2">template&lt;typename OStreamT , typename FnT &gt; </td></tr>
+<tr class="memitem:ab75effd1966eca2a40a8e7fb12e2567c"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#ab75effd1966eca2a40a8e7fb12e2567c">make_stream_inserter</a> (FnT fn)</td></tr>
+<tr class="memdesc:ab75effd1966eca2a40a8e7fb12e2567c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <a class="el" href="classtoolbox_1_1util_1_1StreamInserter.html">StreamInserter</a> object, automatically deducing functor type from arguments.  <a href="namespacetoolbox_1_1util.html#ab75effd1966eca2a40a8e7fb12e2567c">More...</a><br /></td></tr>
+<tr class="separator:ab75effd1966eca2a40a8e7fb12e2567c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c39f2808cca51402873507a24f8fa5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a7c39f2808cca51402873507a24f8fa5e">ltrim</a> (string_view &amp;s) noexcept</td></tr>
 <tr class="separator:a7c39f2808cca51402873507a24f8fa5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f73a91ad910a4f157a83bfac7561cab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a9f73a91ad910a4f157a83bfac7561cab">ltrim</a> (string &amp;s) noexcept</td></tr>
@@ -2122,6 +2126,30 @@ template&lt;auto DelimT, typename ArgT , typename... ArgsT&gt; </div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="util_2Stream_8hpp_source.html#l00225">225</a> of file <a class="el" href="util_2Stream_8hpp_source.html">Stream.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ab75effd1966eca2a40a8e7fb12e2567c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab75effd1966eca2a40a8e7fb12e2567c">&#9670;&nbsp;</a></span>make_stream_inserter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename OStreamT , typename FnT &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto toolbox::util::make_stream_inserter </td>
+          <td>(</td>
+          <td class="paramtype">FnT&#160;</td>
+          <td class="paramname"><em>fn</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a <a class="el" href="classtoolbox_1_1util_1_1StreamInserter.html">StreamInserter</a> object, automatically deducing functor type from arguments. </p>
+
+<p class="definition">Definition at line <a class="el" href="StreamInserter_8hpp_source.html#l00061">61</a> of file <a class="el" href="StreamInserter_8hpp_source.html">StreamInserter.hpp</a>.</p>
 
 </div>
 </div>

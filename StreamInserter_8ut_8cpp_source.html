@@ -97,11 +97,11 @@ $(function() {
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">namespace </span>{</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">auto</span> start_tag(<span class="keyword">const</span> <span class="keywordtype">char</span>* s)</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classtoolbox_1_1util_1_1StreamInserter.html">StreamInserter</a>{[=](ostream&amp; os) { os &lt;&lt; &#39;&lt;&#39; &lt;&lt; s &lt;&lt; &#39;&gt;<span class="stringliteral">&#39;; }};</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">return</span> make_stream_inserter&lt;ostream&gt;([=](ostream&amp; os) { os &lt;&lt; &#39;&lt;&#39; &lt;&lt; s &lt;&lt; &#39;&gt;<span class="stringliteral">&#39;; });</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="stringliteral">}</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="stringliteral">auto end_tag(const char* s)</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="stringliteral">{</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="stringliteral">    return StreamInserter{[=](ostream&amp; os) { os &lt;&lt; &quot;&lt;/&quot; &lt;&lt; s &lt;&lt; &#39;</span>&gt;<span class="stringliteral">&#39;; }};</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="stringliteral">    return make_stream_inserter&lt;ostream&gt;([=](ostream&amp; os) { os &lt;&lt; &quot;&lt;/&quot; &lt;&lt; s &lt;&lt; &#39;</span>&gt;<span class="stringliteral">&#39;; });</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="stringliteral">}</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="stringliteral">} // namespace</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="stringliteral"></span> </div>
@@ -116,7 +116,6 @@ $(function() {
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="stringliteral"></span> </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="stringliteral">BOOST_AUTO_TEST_SUITE_END()</span></div>
 <div class="ttc" id="aStreamInserter_8hpp_html"><div class="ttname"><a href="StreamInserter_8hpp.html">StreamInserter.hpp</a></div></div>
-<div class="ttc" id="aclasstoolbox_1_1util_1_1StreamInserter_html"><div class="ttname"><a href="classtoolbox_1_1util_1_1StreamInserter.html">toolbox::StreamInserter</a></div><div class="ttdef"><b>Definition:</b> <a href="StreamInserter_8hpp_source.html#l00033">StreamInserter.hpp:33</a></div></div>
 <div class="ttc" id="anamespacetoolbox_html"><div class="ttname"><a href="namespacetoolbox.html">toolbox</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8cpp_source.html#l00026">Benchmark.cpp:26</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
