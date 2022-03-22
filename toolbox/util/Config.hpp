@@ -90,12 +90,12 @@ class TOOLBOX_API Config {
     template <typename ValueT>
     ValueT get(const std::string& key) const
     {
-        auto it = map_.find(key);
+        const auto it{map_.find(key)};
         if (it != map_.end()) {
             if constexpr (std::is_same_v<ValueT, std::string_view>) {
-                // Explicitly allow conversion to std::string_view in this case, because we know
-                // that the argument is not a temporary.
-                return from_string<ValueT>(std::string_view{it->second});
+                // Explicitly allow conversion to std::string_view in this case,
+                // because we know that the argument is not a temporary.
+                return std::string_view{it->second};
             } else if constexpr (std::is_enum_v<ValueT>) {
                 return ValueT{from_string<std::underlying_type_t<ValueT>>(it->second)};
             } else {
@@ -110,12 +110,12 @@ class TOOLBOX_API Config {
     template <typename ValueT>
     ValueT get(const std::string& key, ValueT dfl) const noexcept
     {
-        auto it = map_.find(key);
+        const auto it{map_.find(key)};
         if (it != map_.end()) {
             if constexpr (std::is_same_v<ValueT, std::string_view>) {
-                // Explicitly allow conversion to std::string_view in this case, because we know
-                // that the argument is not a temporary.
-                return from_string<ValueT>(std::string_view{it->second});
+                // Explicitly allow conversion to std::string_view in this case,
+                // because we know that the argument is not a temporary.
+                return std::string_view{it->second};
             } else if constexpr (std::is_enum_v<ValueT>) {
                 return ValueT{from_string<std::underlying_type_t<ValueT>>(it->second)};
             } else {
