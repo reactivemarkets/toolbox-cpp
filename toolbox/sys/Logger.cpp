@@ -57,22 +57,21 @@ class NullLogger final : public Logger {
 class StdLogger final : public Logger {
     void do_write_log(WallTime ts, LogLevel level, LogMsgPtr&& msg, size_t size) noexcept override
     {
-        const auto t = WallClock::to_time_t(ts);
-        const auto ms = ms_since_epoch(ts);
-
-        struct tm tm; // NOLINT(hicpp-member-init)
+        const auto t{WallClock::to_time_t(ts)};
+        tm tm;
         localtime_r(&t, &tm);
 
-        // The following format has an upper-bound of 42 characters:
-        // "%b %d %H:%M:%S.%03d %-7s [%d]: "
+        // The following format has an upper-bound of 49 characters:
+        // "%Y/%m/%d %H:%M:%S.%06d %-7s [%d]: "
         //
         // Example:
-        // Mar 14 00:00:00.000 WARNING [0123456789]: msg...
+        // 2022/03/14 00:00:00.000000 WARNING [0123456789]: msg...
         // <---------------------------------------->
-        char head[42 + 1];
-        size_t hlen = strftime(head, sizeof(head), "%b %d %H:%M:%S", &tm);
-        hlen += sprintf(head + hlen, ".%03d %-7s [%d]: ", static_cast<int>(ms % 1000),
-                        log_label(level), static_cast<int>(gettid()));
+        char head[49 + 1];
+        size_t hlen{strftime(head, sizeof(head), "%Y/%m/%d %H:%M:%S", &tm)};
+        const auto us{static_cast<int>(us_since_epoch(ts) % 1000000)};
+        hlen += sprintf(head + hlen, ".%06d %-7s [%d]: ", us, log_label(level),
+                        static_cast<int>(gettid()));
         char tail{'\n'};
         iovec iov[] = {
             {head, hlen},      //
@@ -84,10 +83,7 @@ class StdLogger final : public Logger {
         // The following lock was required to avoid interleaving.
         lock_guard<mutex> lock{mutex_};
         // Best effort given that this is the logger.
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wunused-result"
-        writev(fd, iov, sizeof(iov) / sizeof(iov[0]));
-#pragma GCC diagnostic pop
+        ignore = writev(fd, iov, sizeof(iov) / sizeof(iov[0]));
     }
     mutex mutex_;
 } std_logger_;

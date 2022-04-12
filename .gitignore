@@ -5,6 +5,11 @@
 /.idea/
 *.kdev4
 
+# LSP.
+.clangd/
+.cache/clangd
+compile_commands.json
+
 # OSX.
 .DS_Store
 
