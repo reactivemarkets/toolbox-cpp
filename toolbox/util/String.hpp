@@ -1,6 +1,6 @@
 // The Reactive C++ Toolbox.
 // Copyright (C) 2013-2019 Swirly Cloud Limited
-// Copyright (C) 2021 Reactive Markets Limited
+// Copyright (C) 2022 Reactive Markets Limited
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -51,18 +51,21 @@ constexpr ValueT from_string(const char* s)
 }
 static_assert(from_string<int>("-123") == -123);
 
-template <typename ValueT, typename std::enable_if_t<std::is_arithmetic_v<ValueT>>* = nullptr>
-std::string to_string(ValueT val)
-{
-    return std::to_string(val);
-}
-
-template <typename ValueT, typename std::enable_if_t<!std::is_arithmetic_v<ValueT>>* = nullptr>
-std::string to_string(const ValueT& val)
+template <typename ValueT>
+std::string to_string(ValueT&& val)
 {
     std::stringstream ss;
     ss << val;
     return ss.str();
+}
+
+template <typename ValueT>
+// clang-format off
+requires Arithmetic<ValueT>
+std::string to_string(ValueT&& val)
+// clang-format on
+{
+    return std::to_string(val);
 }
 
 template <std::size_t SizeN>
@@ -133,7 +136,7 @@ TOOLBOX_API std::pair<std::string_view, std::string_view> split_pair(std::string
 TOOLBOX_API std::pair<std::string, std::string> split_pair(const std::string& s, char delim);
 
 template <char PadC>
-inline std::size_t pstrlen(const char* src, std::size_t n) noexcept
+constexpr std::size_t pstrlen(const char* src, std::size_t n) noexcept
 {
     if constexpr (PadC == '\0') {
         // Optimised case.
@@ -148,13 +151,13 @@ inline std::size_t pstrlen(const char* src, std::size_t n) noexcept
 }
 
 template <char PadC, std::size_t SizeN>
-inline std::size_t pstrlen(const char (&src)[SizeN]) noexcept
+constexpr std::size_t pstrlen(const char (&src)[SizeN]) noexcept
 {
     return pstrlen<PadC>(src, SizeN);
 }
 
 template <char PadC>
-inline std::size_t pstrcpy(char* dst, const char* src, std::size_t n) noexcept
+constexpr std::size_t pstrcpy(char* dst, const char* src, std::size_t n) noexcept
 {
     if constexpr (PadC == '\0') {
         // Optimised case.
@@ -172,13 +175,13 @@ inline std::size_t pstrcpy(char* dst, const char* src, std::size_t n) noexcept
 }
 
 template <char PadC, std::size_t SizeN>
-inline std::size_t pstrcpy(char (&dst)[SizeN], const char* src) noexcept
+constexpr std::size_t pstrcpy(char (&dst)[SizeN], const char* src) noexcept
 {
     return pstrcpy<PadC>(dst, src, SizeN);
 }
 
 template <char PadC>
-inline std::size_t pstrcpy(char* dst, std::string_view src, std::size_t n) noexcept
+constexpr std::size_t pstrcpy(char* dst, std::string_view src, std::size_t n) noexcept
 {
     const std::size_t len{std::min(n, src.size())};
     if (len > 0) {
@@ -191,13 +194,13 @@ inline std::size_t pstrcpy(char* dst, std::string_view src, std::size_t n) noexc
 }
 
 template <char PadC, std::size_t SizeN>
-inline std::size_t pstrcpy(char (&dst)[SizeN], std::string_view src) noexcept
+constexpr std::size_t pstrcpy(char (&dst)[SizeN], std::string_view src) noexcept
 {
     return pstrcpy<PadC>(dst, src, SizeN);
 }
 
 template <char PadC>
-inline std::size_t pstrcpyid(char* dst, std::int64_t id, std::size_t n) noexcept
+constexpr std::size_t pstrcpyid(char* dst, std::int64_t id, std::size_t n) noexcept
 {
     const auto end = dst + n;
     const auto [eptr, ec] = std::to_chars(dst, end, id);
@@ -211,7 +214,7 @@ inline std::size_t pstrcpyid(char* dst, std::int64_t id, std::size_t n) noexcept
 }
 
 template <char PadC, std::size_t SizeN>
-inline std::size_t pstrcpyid(char (&dst)[SizeN], std::int64_t id) noexcept
+constexpr std::size_t pstrcpyid(char (&dst)[SizeN], std::int64_t id) noexcept
 {
     return pstrcpyid<PadC>(dst, id, SizeN);
 }

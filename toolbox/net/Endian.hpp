@@ -1,6 +1,6 @@
 // The Reactive C++ Toolbox.
 // Copyright (C) 2013-2019 Swirly Cloud Limited
-// Copyright (C) 2021 Reactive Markets Limited
+// Copyright (C) 2022 Reactive Markets Limited
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@
 #include <toolbox/Config.h>
 
 #include <bit>
+#include <concepts>
 #include <cstdint>
 #include <type_traits>
 
@@ -57,7 +58,8 @@ constexpr std::int64_t bswap(std::int64_t n) noexcept
     return bswap(static_cast<std::uint64_t>(n));
 }
 
-template <typename ValueT, typename = std::enable_if_t<std::is_integral_v<ValueT>>>
+template <typename ValueT>
+requires std::integral<ValueT>
 constexpr ValueT ntoh(ValueT n) noexcept
 {
     if constexpr (std::endian::native == std::endian::little) {
@@ -67,7 +69,8 @@ constexpr ValueT ntoh(ValueT n) noexcept
     }
 }
 
-template <typename ValueT, typename = std::enable_if_t<std::is_integral_v<ValueT>>>
+template <typename ValueT>
+requires std::integral<ValueT>
 constexpr ValueT hton(ValueT n) noexcept
 {
     if constexpr (std::endian::native == std::endian::little) {
@@ -77,7 +80,8 @@ constexpr ValueT hton(ValueT n) noexcept
     }
 }
 
-template <typename ValueT, typename = std::enable_if_t<std::is_integral_v<ValueT>>>
+template <typename ValueT>
+requires std::integral<ValueT>
 constexpr ValueT ltoh(ValueT n) noexcept
 {
     if constexpr (std::endian::native == std::endian::little) {
@@ -87,7 +91,8 @@ constexpr ValueT ltoh(ValueT n) noexcept
     }
 }
 
-template <typename ValueT, typename = std::enable_if_t<std::is_integral_v<ValueT>>>
+template <typename ValueT>
+requires std::integral<ValueT>
 constexpr ValueT htol(ValueT n) noexcept
 {
     if constexpr (std::endian::native == std::endian::little) {

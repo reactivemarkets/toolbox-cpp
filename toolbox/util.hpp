@@ -21,6 +21,7 @@
 #include "util/Allocator.hpp"
 #include "util/Argv.hpp"
 #include "util/Array.hpp"
+#include "util/Concepts.hpp"
 #include "util/Config.hpp"
 #include "util/Enum.hpp"
 #include "util/Exception.hpp"
