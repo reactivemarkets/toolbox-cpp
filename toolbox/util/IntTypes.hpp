@@ -1,6 +1,6 @@
 // The Reactive C++ Toolbox.
 // Copyright (C) 2013-2019 Swirly Cloud Limited
-// Copyright (C) 2021 Reactive Markets Limited
+// Copyright (C) 2022 Reactive Markets Limited
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -44,8 +44,8 @@ template <typename PolicyT>
 struct TOOLBOX_PACKED IntWrapper {
     using ValueType = typename PolicyT::ValueType;
 
-    template <typename RhsT,
-              typename = typename std::enable_if_t<std::is_convertible_v<RhsT, ValueType>>>
+    template <typename RhsT>
+    requires std::convertible_to<RhsT, ValueType>
     constexpr explicit IntWrapper(RhsT rhs) noexcept
     : value_{static_cast<ValueType>(rhs)}
     {
@@ -257,7 +257,7 @@ static_assert(sizeof(IntWrapper<Int32Policy>) == 4, "must be specific size");
 static_assert(sizeof(IntWrapper<Int64Policy>) == 8, "must be specific size");
 
 template <typename ValueT>
-constexpr bool is_int_wrapper = is_instantiation_of<ValueT, IntWrapper>::value;
+concept IsIntWrapper = is_instantiation_of<ValueT, IntWrapper>::value;
 
 template <typename PolicyT>
 std::size_t hash_value(IntWrapper<PolicyT> wrapper)
@@ -267,7 +267,8 @@ std::size_t hash_value(IntWrapper<PolicyT> wrapper)
 }
 
 template <typename ValueT>
-struct TypeTraits<ValueT, std::enable_if_t<is_int_wrapper<ValueT>>> {
+requires IsIntWrapper<ValueT>
+struct TypeTraits<ValueT> {
     static constexpr auto from_string(std::string_view sv) noexcept
     {
         using UnderlyingTraits = TypeTraits<typename ValueT::ValueType>;

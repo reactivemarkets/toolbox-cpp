@@ -1,6 +1,6 @@
 // The Reactive C++ Toolbox.
 // Copyright (C) 2013-2019 Swirly Cloud Limited
-// Copyright (C) 2021 Reactive Markets Limited
+// Copyright (C) 2022 Reactive Markets Limited
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@
 namespace toolbox {
 inline namespace util {
 
-template <typename ValueT, typename Enable = void>
+template <typename ValueT>
 struct TypeTraits {
     template <typename StringT>
     static constexpr auto from_string(StringT&& s) noexcept(noexcept(ValueT{s}))
@@ -34,30 +34,19 @@ struct TypeTraits {
 };
 
 template <typename ValueT>
-struct TypeTraits<ValueT, std::enable_if_t<std::is_integral_v<ValueT>>> {
+requires std::integral<ValueT>
+struct TypeTraits<ValueT> {
     static constexpr auto from_string(std::string_view sv) noexcept { return ston<ValueT>(sv); }
-    static constexpr auto from_string(const std::string& s) noexcept
-    {
-        return from_string(std::string_view{s});
-    }
 };
 
 template <>
 struct TypeTraits<bool> {
     static auto from_string(std::string_view sv) noexcept { return stob(sv); }
-    static auto from_string(const std::string& s) noexcept
-    {
-        return from_string(std::string_view{s});
-    }
 };
 
 template <>
 struct TypeTraits<double> {
     static auto from_string(std::string_view sv) noexcept { return stod(sv); }
-    static auto from_string(const std::string& s) noexcept
-    {
-        return from_string(std::string_view{s});
-    }
 };
 
 template <>

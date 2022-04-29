@@ -1,5 +1,4 @@
 // The Reactive C++ Toolbox.
-// Copyright (C) 2013-2019 Swirly Cloud Limited
 // Copyright (C) 2022 Reactive Markets Limited
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,32 +13,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef TOOLBOX_UTIL_ENUM_HPP
-#define TOOLBOX_UTIL_ENUM_HPP
+#ifndef TOOLBOX_UTIL_CONCEPTS_HPP
+#define TOOLBOX_UTIL_CONCEPTS_HPP
 
-#include <toolbox/util/Concepts.hpp>
-
-#include <iosfwd>
 #include <type_traits>
 
 namespace toolbox {
 inline namespace util {
 
-template <typename EnumT>
-requires Enum<EnumT>
-constexpr EnumT box(typename std::underlying_type_t<EnumT> val) noexcept
-{
-    return static_cast<EnumT>(val);
-}
+template <typename T>
+concept Arithmetic = std::is_arithmetic_v<T>;
 
-template <typename EnumT>
-requires Enum<EnumT>
-constexpr std::underlying_type_t<EnumT> unbox(EnumT val) noexcept
-{
-    return static_cast<std::underlying_type_t<EnumT>>(val);
-}
+template <typename T>
+concept Enum = std::is_enum_v<T>;
 
 } // namespace util
 } // namespace toolbox
 
-#endif // TOOLBOX_UTIL_ENUM_HPP
+#endif // TOOLBOX_UTIL_CONCEPTS_HPP
