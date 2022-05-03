@@ -74,7 +74,7 @@ $(function() {
 <div class="contents">
 <a href="Endian_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The Reactive C++ Toolbox.</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2013-2019 Swirly Cloud Limited</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2021 Reactive Markets Limited</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2022 Reactive Markets Limited</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">// you may not use this file except in compliance with the License.</span></div>
@@ -94,96 +94,101 @@ $(function() {
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Config_8h.html">toolbox/Config.h</a>&gt;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;bit&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetoolbox.html">toolbox</a> {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">inline</span> <span class="keyword">namespace </span>net {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">   29</a></span>&#160;constexpr std::uint16_t <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(std::uint16_t n) noexcept</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">return</span> (n &lt;&lt; 8) | (n &gt;&gt; 8);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#af266e71e2f599997e798619a41416f5b">   34</a></span>&#160;constexpr std::int16_t <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(std::int16_t n) noexcept</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(<span class="keyword">static_cast&lt;</span>std::uint16_t<span class="keyword">&gt;</span>(n));</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#abc38dddec219c9fee46a4d1785bd637b">   39</a></span>&#160;constexpr std::uint32_t <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(std::uint32_t n) noexcept</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">return</span> (n &gt;&gt; 24) | ((n &gt;&gt; 8) &amp; 0xff00) | ((n &lt;&lt; 8) &amp; 0xff0000) | (n &lt;&lt; 24);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#a878c21e627d4188a624e4c56def86c93">   44</a></span>&#160;constexpr std::int32_t <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(std::int32_t n) noexcept</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(<span class="keyword">static_cast&lt;</span>std::uint32_t<span class="keyword">&gt;</span>(n));</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#ac56857999d12b3f5a5a770cc21732c8e">   49</a></span>&#160;constexpr std::uint64_t <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(std::uint64_t n) noexcept</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> hi = std::uint64_t{<a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(<span class="keyword">static_cast&lt;</span>std::uint32_t<span class="keyword">&gt;</span>(n))} &lt;&lt; 32;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> hi | <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(<span class="keyword">static_cast&lt;</span>std::uint32_t<span class="keyword">&gt;</span>(n &gt;&gt; 32));</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#a1552a6ddbfd990a82bc22006c3ffc34f">   55</a></span>&#160;constexpr std::int64_t <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(std::int64_t n) noexcept</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(<span class="keyword">static_cast&lt;</span>std::uint64_t<span class="keyword">&gt;</span>(n));</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueT, <span class="keyword">typename</span> = std::enable_if_t&lt;std::is_<span class="keywordtype">int</span>egral_v&lt;ValueT&gt;&gt;&gt;</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#a08ccfaad125c6cca3bcb00cc8601f267">   61</a></span>&#160;constexpr ValueT <a class="code" href="namespacetoolbox_1_1net.html#a08ccfaad125c6cca3bcb00cc8601f267">ntoh</a>(ValueT n) noexcept</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">if</span> constexpr (std::endian::native == std::endian::little) {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(n);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">return</span> n;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueT, <span class="keyword">typename</span> = std::enable_if_t&lt;std::is_<span class="keywordtype">int</span>egral_v&lt;ValueT&gt;&gt;&gt;</div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#ab08265fcc7339c197b4e6bd0e485d84c">   71</a></span>&#160;constexpr ValueT <a class="code" href="namespacetoolbox_1_1net.html#ab08265fcc7339c197b4e6bd0e485d84c">hton</a>(ValueT n) noexcept</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;{</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">if</span> constexpr (std::endian::native == std::endian::little) {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(n);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">return</span> n;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueT, <span class="keyword">typename</span> = std::enable_if_t&lt;std::is_<span class="keywordtype">int</span>egral_v&lt;ValueT&gt;&gt;&gt;</div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#aa7b17bcae7a1e011d97fd09acc802cfd">   81</a></span>&#160;constexpr ValueT <a class="code" href="namespacetoolbox_1_1net.html#aa7b17bcae7a1e011d97fd09acc802cfd">ltoh</a>(ValueT n) noexcept</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;{</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">if</span> constexpr (std::endian::native == std::endian::little) {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">return</span> n;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(n);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueT, <span class="keyword">typename</span> = std::enable_if_t&lt;std::is_<span class="keywordtype">int</span>egral_v&lt;ValueT&gt;&gt;&gt;</div>
-<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#a1a805c3fecd8a29d798f6a04ef116f4e">   91</a></span>&#160;constexpr ValueT <a class="code" href="namespacetoolbox_1_1net.html#a1a805c3fecd8a29d798f6a04ef116f4e">htol</a>(ValueT n) noexcept</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;{</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">if</span> constexpr (std::endian::native == std::endian::little) {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">return</span> n;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(n);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">// Prevent corner case if mixed platform would use htol of big endian</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;static_assert(std::endian::native == std::endian::little || std::endian::native == std::endian::big,</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;              <span class="stringliteral">&quot;Mixed endianness platforms are not supported&quot;</span>);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;} <span class="comment">// namespace net</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;} <span class="comment">// namespace toolbox</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// TOOLBOX_NET_ENDIAN_HPP</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;concepts&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetoolbox.html">toolbox</a> {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">inline</span> <span class="keyword">namespace </span>net {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">   30</a></span>&#160;constexpr std::uint16_t <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(std::uint16_t n) noexcept</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">return</span> (n &lt;&lt; 8) | (n &gt;&gt; 8);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#af266e71e2f599997e798619a41416f5b">   35</a></span>&#160;constexpr std::int16_t <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(std::int16_t n) noexcept</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(<span class="keyword">static_cast&lt;</span>std::uint16_t<span class="keyword">&gt;</span>(n));</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#abc38dddec219c9fee46a4d1785bd637b">   40</a></span>&#160;constexpr std::uint32_t <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(std::uint32_t n) noexcept</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">return</span> (n &gt;&gt; 24) | ((n &gt;&gt; 8) &amp; 0xff00) | ((n &lt;&lt; 8) &amp; 0xff0000) | (n &lt;&lt; 24);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#a878c21e627d4188a624e4c56def86c93">   45</a></span>&#160;constexpr std::int32_t <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(std::int32_t n) noexcept</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(<span class="keyword">static_cast&lt;</span>std::uint32_t<span class="keyword">&gt;</span>(n));</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#ac56857999d12b3f5a5a770cc21732c8e">   50</a></span>&#160;constexpr std::uint64_t <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(std::uint64_t n) noexcept</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> hi = std::uint64_t{<a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(<span class="keyword">static_cast&lt;</span>std::uint32_t<span class="keyword">&gt;</span>(n))} &lt;&lt; 32;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">return</span> hi | <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(<span class="keyword">static_cast&lt;</span>std::uint32_t<span class="keyword">&gt;</span>(n &gt;&gt; 32));</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#a1552a6ddbfd990a82bc22006c3ffc34f">   56</a></span>&#160;constexpr std::int64_t <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(std::int64_t n) noexcept</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(<span class="keyword">static_cast&lt;</span>std::uint64_t<span class="keyword">&gt;</span>(n));</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueT&gt;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;requires std::integral&lt;ValueT&gt;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#a92a09ddd6090199881b97efc10a0c96c">   63</a></span>&#160;constexpr ValueT <a class="code" href="namespacetoolbox_1_1net.html#a92a09ddd6090199881b97efc10a0c96c">ntoh</a>(ValueT n) noexcept</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">if</span> constexpr (std::endian::native == std::endian::little) {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(n);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">return</span> n;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueT&gt;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;requires std::integral&lt;ValueT&gt;</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#aa45a5c52bcbf8a29b18efe04fb2ce10d">   74</a></span>&#160;constexpr ValueT <a class="code" href="namespacetoolbox_1_1net.html#aa45a5c52bcbf8a29b18efe04fb2ce10d">hton</a>(ValueT n) noexcept</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">if</span> constexpr (std::endian::native == std::endian::little) {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(n);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">return</span> n;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueT&gt;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;requires std::integral&lt;ValueT&gt;</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#af7c9efd37f8d83ebe6668ddf7f1fc061">   85</a></span>&#160;constexpr ValueT <a class="code" href="namespacetoolbox_1_1net.html#af7c9efd37f8d83ebe6668ddf7f1fc061">ltoh</a>(ValueT n) noexcept</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;{</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">if</span> constexpr (std::endian::native == std::endian::little) {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">return</span> n;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(n);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> ValueT&gt;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;requires std::integral&lt;ValueT&gt;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1net.html#a988eb7ffa9cee614e13aad9e3b4e5d91">   96</a></span>&#160;constexpr ValueT <a class="code" href="namespacetoolbox_1_1net.html#a988eb7ffa9cee614e13aad9e3b4e5d91">htol</a>(ValueT n) noexcept</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">if</span> constexpr (std::endian::native == std::endian::little) {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">return</span> n;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">bswap</a>(n);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">// Prevent corner case if mixed platform would use htol of big endian</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;static_assert(std::endian::native == std::endian::little || std::endian::native == std::endian::big,</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;              <span class="stringliteral">&quot;Mixed endianness platforms are not supported&quot;</span>);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;} <span class="comment">// namespace net</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;} <span class="comment">// namespace toolbox</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// TOOLBOX_NET_ENDIAN_HPP</span></div>
 <div class="ttc" id="aConfig_8h_html"><div class="ttname"><a href="Config_8h.html">Config.h</a></div></div>
-<div class="ttc" id="anamespacetoolbox_1_1net_html_a08ccfaad125c6cca3bcb00cc8601f267"><div class="ttname"><a href="namespacetoolbox_1_1net.html#a08ccfaad125c6cca3bcb00cc8601f267">toolbox::net::ntoh</a></div><div class="ttdeci">constexpr ValueT ntoh(ValueT n) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Endian_8hpp_source.html#l00061">Endian.hpp:61</a></div></div>
-<div class="ttc" id="anamespacetoolbox_1_1net_html_a1a805c3fecd8a29d798f6a04ef116f4e"><div class="ttname"><a href="namespacetoolbox_1_1net.html#a1a805c3fecd8a29d798f6a04ef116f4e">toolbox::net::htol</a></div><div class="ttdeci">constexpr ValueT htol(ValueT n) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Endian_8hpp_source.html#l00091">Endian.hpp:91</a></div></div>
-<div class="ttc" id="anamespacetoolbox_1_1net_html_aa7b17bcae7a1e011d97fd09acc802cfd"><div class="ttname"><a href="namespacetoolbox_1_1net.html#aa7b17bcae7a1e011d97fd09acc802cfd">toolbox::net::ltoh</a></div><div class="ttdeci">constexpr ValueT ltoh(ValueT n) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Endian_8hpp_source.html#l00081">Endian.hpp:81</a></div></div>
-<div class="ttc" id="anamespacetoolbox_1_1net_html_ab08265fcc7339c197b4e6bd0e485d84c"><div class="ttname"><a href="namespacetoolbox_1_1net.html#ab08265fcc7339c197b4e6bd0e485d84c">toolbox::net::hton</a></div><div class="ttdeci">constexpr ValueT hton(ValueT n) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Endian_8hpp_source.html#l00071">Endian.hpp:71</a></div></div>
-<div class="ttc" id="anamespacetoolbox_1_1net_html_ad23492f0db521c668d8439c99f0b38ec"><div class="ttname"><a href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">toolbox::net::bswap</a></div><div class="ttdeci">constexpr std::uint16_t bswap(std::uint16_t n) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Endian_8hpp_source.html#l00029">Endian.hpp:29</a></div></div>
+<div class="ttc" id="anamespacetoolbox_1_1net_html_a92a09ddd6090199881b97efc10a0c96c"><div class="ttname"><a href="namespacetoolbox_1_1net.html#a92a09ddd6090199881b97efc10a0c96c">toolbox::net::ntoh</a></div><div class="ttdeci">requires constexpr std::integral&lt; ValueT &gt; ValueT ntoh(ValueT n) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Endian_8hpp_source.html#l00063">Endian.hpp:63</a></div></div>
+<div class="ttc" id="anamespacetoolbox_1_1net_html_a988eb7ffa9cee614e13aad9e3b4e5d91"><div class="ttname"><a href="namespacetoolbox_1_1net.html#a988eb7ffa9cee614e13aad9e3b4e5d91">toolbox::net::htol</a></div><div class="ttdeci">requires constexpr std::integral&lt; ValueT &gt; ValueT htol(ValueT n) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Endian_8hpp_source.html#l00096">Endian.hpp:96</a></div></div>
+<div class="ttc" id="anamespacetoolbox_1_1net_html_aa45a5c52bcbf8a29b18efe04fb2ce10d"><div class="ttname"><a href="namespacetoolbox_1_1net.html#aa45a5c52bcbf8a29b18efe04fb2ce10d">toolbox::net::hton</a></div><div class="ttdeci">requires constexpr std::integral&lt; ValueT &gt; ValueT hton(ValueT n) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Endian_8hpp_source.html#l00074">Endian.hpp:74</a></div></div>
+<div class="ttc" id="anamespacetoolbox_1_1net_html_ad23492f0db521c668d8439c99f0b38ec"><div class="ttname"><a href="namespacetoolbox_1_1net.html#ad23492f0db521c668d8439c99f0b38ec">toolbox::net::bswap</a></div><div class="ttdeci">constexpr std::uint16_t bswap(std::uint16_t n) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Endian_8hpp_source.html#l00030">Endian.hpp:30</a></div></div>
+<div class="ttc" id="anamespacetoolbox_1_1net_html_af7c9efd37f8d83ebe6668ddf7f1fc061"><div class="ttname"><a href="namespacetoolbox_1_1net.html#af7c9efd37f8d83ebe6668ddf7f1fc061">toolbox::net::ltoh</a></div><div class="ttdeci">requires constexpr std::integral&lt; ValueT &gt; ValueT ltoh(ValueT n) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Endian_8hpp_source.html#l00085">Endian.hpp:85</a></div></div>
 <div class="ttc" id="anamespacetoolbox_html"><div class="ttname"><a href="namespacetoolbox.html">toolbox</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8cpp_source.html#l00026">Benchmark.cpp:26</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

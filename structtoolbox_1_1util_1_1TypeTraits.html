@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Toolbox: toolbox::util::TypeTraits&lt; ValueT, Enable &gt; Struct Template Reference</title>
+<title>Toolbox: toolbox::util::TypeTraits&lt; ValueT &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -72,7 +72,7 @@ $(function() {
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="structtoolbox_1_1util_1_1TypeTraits-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">toolbox::util::TypeTraits&lt; ValueT, Enable &gt; Struct Template Reference</div>  </div>
+<div class="title">toolbox::util::TypeTraits&lt; ValueT &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -80,24 +80,24 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad6c0aae625fd269501b285f8eb4f9aa6"><td class="memTemplParams" colspan="2">template&lt;typename StringT &gt; </td></tr>
-<tr class="memitem:ad6c0aae625fd269501b285f8eb4f9aa6"><td class="memTemplItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1TypeTraits.html#ad6c0aae625fd269501b285f8eb4f9aa6">from_string</a> (StringT &amp;&amp;s) noexcept(noexcept(ValueT{s}))</td></tr>
-<tr class="separator:ad6c0aae625fd269501b285f8eb4f9aa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a579df7cec8c852cf7bb7a6615a99028d"><td class="memTemplParams" colspan="2">template&lt;typename StringT &gt; </td></tr>
+<tr class="memitem:a579df7cec8c852cf7bb7a6615a99028d"><td class="memTemplItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1TypeTraits.html#a579df7cec8c852cf7bb7a6615a99028d">from_string</a> (StringT &amp;&amp;s) noexcept(noexcept(ValueT{s}))</td></tr>
+<tr class="separator:a579df7cec8c852cf7bb7a6615a99028d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename ValueT, typename Enable = void&gt;<br />
-struct toolbox::util::TypeTraits&lt; ValueT, Enable &gt;</h3>
+<div class="textblock"><h3>template&lt;typename ValueT&gt;<br />
+struct toolbox::util::TypeTraits&lt; ValueT &gt;</h3>
 
 
 <p class="definition">Definition at line <a class="el" href="TypeTraits_8hpp_source.html#l00028">28</a> of file <a class="el" href="TypeTraits_8hpp_source.html">TypeTraits.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad6c0aae625fd269501b285f8eb4f9aa6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6c0aae625fd269501b285f8eb4f9aa6">&#9670;&nbsp;</a></span>from_string()</h2>
+<a id="a579df7cec8c852cf7bb7a6615a99028d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a579df7cec8c852cf7bb7a6615a99028d">&#9670;&nbsp;</a></span>from_string()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ValueT , typename Enable  = void&gt; </div>
+template&lt;typename ValueT &gt; </div>
 <div class="memtemplate">
 template&lt;typename StringT &gt; </div>
 <table class="mlabels">
@@ -105,7 +105,7 @@ template&lt;typename StringT &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr auto <a class="el" href="structtoolbox_1_1util_1_1TypeTraits.html">toolbox::util::TypeTraits</a>&lt; ValueT, Enable &gt;::from_string </td>
+          <td class="memname">static constexpr auto <a class="el" href="structtoolbox_1_1util_1_1TypeTraits.html">toolbox::util::TypeTraits</a>&lt; ValueT &gt;::from_string </td>
           <td>(</td>
           <td class="paramtype">StringT &amp;&amp;&#160;</td>
           <td class="paramname"><em>s</em></td><td>)</td>
@@ -121,7 +121,7 @@ template&lt;typename StringT &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="TypeTraits_8hpp_source.html#l00030">30</a> of file <a class="el" href="TypeTraits_8hpp_source.html">TypeTraits.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="TypeTraits_8hpp_source.html#l00039">toolbox::util::TypeTraits&lt; ValueT, std::enable_if_t&lt; std::is_integral_v&lt; ValueT &gt; &gt; &gt;::from_string()</a>, <a class="el" href="TypeTraits_8hpp_source.html#l00048">toolbox::util::TypeTraits&lt; bool &gt;::from_string()</a>, <a class="el" href="TypeTraits_8hpp_source.html#l00057">toolbox::util::TypeTraits&lt; double &gt;::from_string()</a>, and <a class="el" href="Version_8hpp_source.html#l00072">toolbox::util::TypeTraits&lt; Version &gt;::from_string()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Version_8hpp_source.html#l00072">toolbox::util::TypeTraits&lt; Version &gt;::from_string()</a>.</p>
 
 </div>
 </div>

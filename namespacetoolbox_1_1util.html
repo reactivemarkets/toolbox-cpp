@@ -121,7 +121,7 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html">IntWrapper</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1TypeTraits_3_01ValueT_00_01std_1_1enable__if__t_3_01is__int__wrapper_3_01ValueT_01_4_01_4_01_4.html">TypeTraits&lt; ValueT, std::enable_if_t&lt; is_int_wrapper&lt; ValueT &gt; &gt; &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1TypeTraits_3_01ValueT_01_4.html">TypeTraits&lt; ValueT &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1Id16Policy.html">Id16Policy</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -200,8 +200,6 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1util_1_1BasicTrans.html">BasicTrans</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1TypeTraits.html">TypeTraits</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1TypeTraits_3_01ValueT_00_01std_1_1enable__if__t_3_01std_1_1is__integral__v_3_01ValueT_01_4_01_4_01_4.html">TypeTraits&lt; ValueT, std::enable_if_t&lt; std::is_integral_v&lt; ValueT &gt; &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1TypeTraits_3_01bool_01_4.html">TypeTraits&lt; bool &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -310,12 +308,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a08f0ec5109e6ffa43f6ff2c1e93020d7"><td class="memTemplParams" colspan="2">template&lt;typename FnT &gt; </td></tr>
 <tr class="memitem:a08f0ec5109e6ffa43f6ff2c1e93020d7"><td class="memTemplItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a08f0ec5109e6ffa43f6ff2c1e93020d7">parse_section</a> (std::istream &amp;is, FnT fn, std::string *name=nullptr)</td></tr>
 <tr class="separator:a08f0ec5109e6ffa43f6ff2c1e93020d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a212b5ac5226a35e8152779ab9ac12167"><td class="memTemplParams" colspan="2">template&lt;typename EnumT , typename  = std::enable_if_t&lt;std::is_enum_v&lt;EnumT&gt;&gt;&gt; </td></tr>
-<tr class="memitem:a212b5ac5226a35e8152779ab9ac12167"><td class="memTemplItemLeft" align="right" valign="top">constexpr EnumT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a212b5ac5226a35e8152779ab9ac12167">box</a> (typename std::underlying_type_t&lt; EnumT &gt; val) noexcept</td></tr>
-<tr class="separator:a212b5ac5226a35e8152779ab9ac12167"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d51e7e40c696ced8aa45e5ad52a8905"><td class="memTemplParams" colspan="2">template&lt;typename EnumT , typename  = std::enable_if_t&lt;std::is_enum_v&lt;EnumT&gt;&gt;&gt; </td></tr>
-<tr class="memitem:a5d51e7e40c696ced8aa45e5ad52a8905"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::underlying_type_t&lt; EnumT &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a5d51e7e40c696ced8aa45e5ad52a8905">unbox</a> (EnumT val) noexcept</td></tr>
-<tr class="separator:a5d51e7e40c696ced8aa45e5ad52a8905"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a740dbe290cadeea78d4275d8a54ba8a5"><td class="memTemplParams" colspan="2">template&lt;typename EnumT &gt; </td></tr>
+<tr class="memitem:a740dbe290cadeea78d4275d8a54ba8a5"><td class="memTemplItemLeft" align="right" valign="top">requires constexpr <a class="el" href="namespacetoolbox_1_1util.html#ab5e8c1f88affc4c15263c5e57208de9a">Enum</a>&lt; EnumT &gt; EnumT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a740dbe290cadeea78d4275d8a54ba8a5">box</a> (typename std::underlying_type_t&lt; EnumT &gt; val) noexcept</td></tr>
+<tr class="separator:a740dbe290cadeea78d4275d8a54ba8a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a368da5cf0206b89cd9fb960b3efad5eb"><td class="memTemplParams" colspan="2">template&lt;typename EnumT &gt; </td></tr>
+<tr class="memitem:a368da5cf0206b89cd9fb960b3efad5eb"><td class="memTemplItemLeft" align="right" valign="top">requires constexpr <a class="el" href="namespacetoolbox_1_1util.html#ab5e8c1f88affc4c15263c5e57208de9a">Enum</a>&lt; EnumT &gt; std::underlying_type_t&lt; EnumT &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a368da5cf0206b89cd9fb960b3efad5eb">unbox</a> (EnumT val) noexcept</td></tr>
+<tr class="separator:a368da5cf0206b89cd9fb960b3efad5eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80871f3834395a600925b3885c02e3de"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespacetoolbox_1_1util.html#afb1bdeda157805a64f20ded302b55cee">Test</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a80871f3834395a600925b3885c02e3de">operator&quot;&quot;_test</a> (unsigned long long val) noexcept</td></tr>
 <tr class="separator:a80871f3834395a600925b3885c02e3de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6519214ae5a52860644d6eb04743b95d"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a6519214ae5a52860644d6eb04743b95d">enum_string</a> (<a class="el" href="namespacetoolbox_1_1util.html#afb1bdeda157805a64f20ded302b55cee">Test</a> t)</td></tr>
@@ -426,12 +424,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ab0fd9fcec19af8059f97e743ebdf187b"><td class="memTemplParams" colspan="2">template&lt;typename ValueT &gt; </td></tr>
 <tr class="memitem:ab0fd9fcec19af8059f97e743ebdf187b"><td class="memTemplItemLeft" align="right" valign="top">constexpr ValueT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#ab0fd9fcec19af8059f97e743ebdf187b">from_string</a> (const char *s)</td></tr>
 <tr class="separator:ab0fd9fcec19af8059f97e743ebdf187b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98415505c35d1731c56af968e1ec971a"><td class="memTemplParams" colspan="2">template&lt;typename ValueT , typename std::enable_if_t&lt; std::is_arithmetic_v&lt; ValueT &gt;&gt; *  = nullptr&gt; </td></tr>
-<tr class="memitem:a98415505c35d1731c56af968e1ec971a"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a98415505c35d1731c56af968e1ec971a">to_string</a> (ValueT val)</td></tr>
-<tr class="separator:a98415505c35d1731c56af968e1ec971a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8f3319e6a0ebd8927b9b6efcbced324"><td class="memTemplParams" colspan="2">template&lt;typename ValueT , typename std::enable_if_t&lt;!std::is_arithmetic_v&lt; ValueT &gt;&gt; *  = nullptr&gt; </td></tr>
-<tr class="memitem:ad8f3319e6a0ebd8927b9b6efcbced324"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#ad8f3319e6a0ebd8927b9b6efcbced324">to_string</a> (const ValueT &amp;val)</td></tr>
-<tr class="separator:ad8f3319e6a0ebd8927b9b6efcbced324"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08e90a5ecd9ae4ca5768a1bb44abf0b4"><td class="memTemplParams" colspan="2">template&lt;typename ValueT &gt; </td></tr>
+<tr class="memitem:a08e90a5ecd9ae4ca5768a1bb44abf0b4"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a08e90a5ecd9ae4ca5768a1bb44abf0b4">to_string</a> (ValueT &amp;&amp;val)</td></tr>
+<tr class="separator:a08e90a5ecd9ae4ca5768a1bb44abf0b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a8f03f677d4c89da278c0dbf95d24ec"><td class="memTemplParams" colspan="2">template&lt;typename ValueT &gt; </td></tr>
+<tr class="memitem:a4a8f03f677d4c89da278c0dbf95d24ec"><td class="memTemplItemLeft" align="right" valign="top">requires <a class="el" href="namespacetoolbox_1_1util.html#a0098f8202ae129025d24bab8fb3d51f8">Arithmetic</a>&lt; ValueT &gt; std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a4a8f03f677d4c89da278c0dbf95d24ec">to_string</a> (ValueT &amp;&amp;val)</td></tr>
+<tr class="separator:a4a8f03f677d4c89da278c0dbf95d24ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9cff379412ce101fb842f547f7acd75e"><td class="memTemplParams" colspan="2">template&lt;std::size_t SizeN&gt; </td></tr>
 <tr class="memitem:a9cff379412ce101fb842f547f7acd75e"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::string_view&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a9cff379412ce101fb842f547f7acd75e">to_string_view</a> (const char(&amp;val)[SizeN]) noexcept</td></tr>
 <tr class="separator:a9cff379412ce101fb842f547f7acd75e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -451,30 +449,30 @@ Functions</h2></td></tr>
 <tr class="separator:ab8f423d25b347e1c756268b616065e75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a2d4e8d6e65730f54cd07cc2a15f5ba"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a2a2d4e8d6e65730f54cd07cc2a15f5ba">trim_copy</a> (std::string s) noexcept</td></tr>
 <tr class="separator:a2a2d4e8d6e65730f54cd07cc2a15f5ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34a90928b6344edf6b937b87470dfed8"><td class="memTemplParams" colspan="2">template&lt;char PadC&gt; </td></tr>
-<tr class="memitem:a34a90928b6344edf6b937b87470dfed8"><td class="memTemplItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a34a90928b6344edf6b937b87470dfed8">pstrlen</a> (const char *src, std::size_t n) noexcept</td></tr>
-<tr class="separator:a34a90928b6344edf6b937b87470dfed8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25ca7d10ba1f0ad005b2b97f8b12b1da"><td class="memTemplParams" colspan="2">template&lt;char PadC, std::size_t SizeN&gt; </td></tr>
-<tr class="memitem:a25ca7d10ba1f0ad005b2b97f8b12b1da"><td class="memTemplItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a25ca7d10ba1f0ad005b2b97f8b12b1da">pstrlen</a> (const char(&amp;src)[SizeN]) noexcept</td></tr>
-<tr class="separator:a25ca7d10ba1f0ad005b2b97f8b12b1da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf26b7c014a3c9cc321a0d794ddf0dcf"><td class="memTemplParams" colspan="2">template&lt;char PadC&gt; </td></tr>
-<tr class="memitem:adf26b7c014a3c9cc321a0d794ddf0dcf"><td class="memTemplItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#adf26b7c014a3c9cc321a0d794ddf0dcf">pstrcpy</a> (char *dst, const char *src, std::size_t n) noexcept</td></tr>
-<tr class="separator:adf26b7c014a3c9cc321a0d794ddf0dcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1df769371cec4602e8ac04a039576ae"><td class="memTemplParams" colspan="2">template&lt;char PadC, std::size_t SizeN&gt; </td></tr>
-<tr class="memitem:ab1df769371cec4602e8ac04a039576ae"><td class="memTemplItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#ab1df769371cec4602e8ac04a039576ae">pstrcpy</a> (char(&amp;dst)[SizeN], const char *src) noexcept</td></tr>
-<tr class="separator:ab1df769371cec4602e8ac04a039576ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37f4eae95e323d38a9d4af4f803c3e69"><td class="memTemplParams" colspan="2">template&lt;char PadC&gt; </td></tr>
-<tr class="memitem:a37f4eae95e323d38a9d4af4f803c3e69"><td class="memTemplItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a37f4eae95e323d38a9d4af4f803c3e69">pstrcpy</a> (char *dst, std::string_view src, std::size_t n) noexcept</td></tr>
-<tr class="separator:a37f4eae95e323d38a9d4af4f803c3e69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe50c08876771325b680f37a8601f157"><td class="memTemplParams" colspan="2">template&lt;char PadC, std::size_t SizeN&gt; </td></tr>
-<tr class="memitem:afe50c08876771325b680f37a8601f157"><td class="memTemplItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#afe50c08876771325b680f37a8601f157">pstrcpy</a> (char(&amp;dst)[SizeN], std::string_view src) noexcept</td></tr>
-<tr class="separator:afe50c08876771325b680f37a8601f157"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70b6d6a5819cf3c5e09d78c9f02150d9"><td class="memTemplParams" colspan="2">template&lt;char PadC&gt; </td></tr>
-<tr class="memitem:a70b6d6a5819cf3c5e09d78c9f02150d9"><td class="memTemplItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a70b6d6a5819cf3c5e09d78c9f02150d9">pstrcpyid</a> (char *dst, std::int64_t id, std::size_t n) noexcept</td></tr>
-<tr class="separator:a70b6d6a5819cf3c5e09d78c9f02150d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0409c61ec6d33526f76c1521d6c7a523"><td class="memTemplParams" colspan="2">template&lt;char PadC, std::size_t SizeN&gt; </td></tr>
-<tr class="memitem:a0409c61ec6d33526f76c1521d6c7a523"><td class="memTemplItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a0409c61ec6d33526f76c1521d6c7a523">pstrcpyid</a> (char(&amp;dst)[SizeN], std::int64_t id) noexcept</td></tr>
-<tr class="separator:a0409c61ec6d33526f76c1521d6c7a523"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2ca0fe82e6216b49f0197940b4b9b88"><td class="memTemplParams" colspan="2">template&lt;char PadC&gt; </td></tr>
+<tr class="memitem:aa2ca0fe82e6216b49f0197940b4b9b88"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#aa2ca0fe82e6216b49f0197940b4b9b88">pstrlen</a> (const char *src, std::size_t n) noexcept</td></tr>
+<tr class="separator:aa2ca0fe82e6216b49f0197940b4b9b88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a785e05610199a9901a5435b87308de15"><td class="memTemplParams" colspan="2">template&lt;char PadC, std::size_t SizeN&gt; </td></tr>
+<tr class="memitem:a785e05610199a9901a5435b87308de15"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a785e05610199a9901a5435b87308de15">pstrlen</a> (const char(&amp;src)[SizeN]) noexcept</td></tr>
+<tr class="separator:a785e05610199a9901a5435b87308de15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba9647b4ea13a450370a10ef842dc51b"><td class="memTemplParams" colspan="2">template&lt;char PadC&gt; </td></tr>
+<tr class="memitem:aba9647b4ea13a450370a10ef842dc51b"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#aba9647b4ea13a450370a10ef842dc51b">pstrcpy</a> (char *dst, const char *src, std::size_t n) noexcept</td></tr>
+<tr class="separator:aba9647b4ea13a450370a10ef842dc51b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a180ff3d857839eec626d66f19fcffe9b"><td class="memTemplParams" colspan="2">template&lt;char PadC, std::size_t SizeN&gt; </td></tr>
+<tr class="memitem:a180ff3d857839eec626d66f19fcffe9b"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a180ff3d857839eec626d66f19fcffe9b">pstrcpy</a> (char(&amp;dst)[SizeN], const char *src) noexcept</td></tr>
+<tr class="separator:a180ff3d857839eec626d66f19fcffe9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06a54f13a4b39509132e14a266464933"><td class="memTemplParams" colspan="2">template&lt;char PadC&gt; </td></tr>
+<tr class="memitem:a06a54f13a4b39509132e14a266464933"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a06a54f13a4b39509132e14a266464933">pstrcpy</a> (char *dst, std::string_view src, std::size_t n) noexcept</td></tr>
+<tr class="separator:a06a54f13a4b39509132e14a266464933"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bf683da862f05b1055a6bc175f94b36"><td class="memTemplParams" colspan="2">template&lt;char PadC, std::size_t SizeN&gt; </td></tr>
+<tr class="memitem:a5bf683da862f05b1055a6bc175f94b36"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a5bf683da862f05b1055a6bc175f94b36">pstrcpy</a> (char(&amp;dst)[SizeN], std::string_view src) noexcept</td></tr>
+<tr class="separator:a5bf683da862f05b1055a6bc175f94b36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd2fd98369ca471075881db6556dee40"><td class="memTemplParams" colspan="2">template&lt;char PadC&gt; </td></tr>
+<tr class="memitem:acd2fd98369ca471075881db6556dee40"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#acd2fd98369ca471075881db6556dee40">pstrcpyid</a> (char *dst, std::int64_t id, std::size_t n) noexcept</td></tr>
+<tr class="separator:acd2fd98369ca471075881db6556dee40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82fbe84b5869256f0883325769c6be1a"><td class="memTemplParams" colspan="2">template&lt;char PadC, std::size_t SizeN&gt; </td></tr>
+<tr class="memitem:a82fbe84b5869256f0883325769c6be1a"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a82fbe84b5869256f0883325769c6be1a">pstrcpyid</a> (char(&amp;dst)[SizeN], std::int64_t id) noexcept</td></tr>
+<tr class="separator:a82fbe84b5869256f0883325769c6be1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5381caf0f9dd28d46bcaebc62e4efa2c"><td class="memTemplParams" colspan="2">template&lt;typename... ArgsT&gt; </td></tr>
 <tr class="memitem:a5381caf0f9dd28d46bcaebc62e4efa2c"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a5381caf0f9dd28d46bcaebc62e4efa2c">make_string</a> (ArgsT &amp;&amp;... args)</td></tr>
 <tr class="separator:a5381caf0f9dd28d46bcaebc62e4efa2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -516,12 +514,12 @@ Functions</h2></td></tr>
 <tr class="separator:a84d032eb09a2e0045099762aca24abb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8665b213f3c41d3976ebe1f69c37e69"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#aa8665b213f3c41d3976ebe1f69c37e69">dec_digits</a> (std::int64_t i) noexcept</td></tr>
 <tr class="separator:aa8665b213f3c41d3976ebe1f69c37e69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52c9c48d75ab7f8d29a5c9ea9848f729"><td class="memTemplParams" colspan="2">template&lt;typename UIntegerT , typename  = std::enable_if&lt;std::is_unsigned_v&lt;UIntegerT&gt;&gt;&gt; </td></tr>
-<tr class="memitem:a52c9c48d75ab7f8d29a5c9ea9848f729"><td class="memTemplItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a52c9c48d75ab7f8d29a5c9ea9848f729">hex_digits</a> (UIntegerT i) noexcept</td></tr>
-<tr class="separator:a52c9c48d75ab7f8d29a5c9ea9848f729"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8587d74e5bd033f12c4d2ccf5ec51ad3"><td class="memTemplParams" colspan="2">template&lt;typename ValueT &gt; </td></tr>
-<tr class="memitem:a8587d74e5bd033f12c4d2ccf5ec51ad3"><td class="memTemplItemLeft" align="right" valign="top">constexpr ValueT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a8587d74e5bd033f12c4d2ccf5ec51ad3">ston</a> (std::string_view sv) noexcept</td></tr>
-<tr class="separator:a8587d74e5bd033f12c4d2ccf5ec51ad3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13e95be2056b0427481e809c6e9e64fa"><td class="memTemplParams" colspan="2">template&lt;typename UIntegerT &gt; </td></tr>
+<tr class="memitem:a13e95be2056b0427481e809c6e9e64fa"><td class="memTemplItemLeft" align="right" valign="top">requires constexpr std::unsigned_integral&lt; UIntegerT &gt; int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a13e95be2056b0427481e809c6e9e64fa">hex_digits</a> (UIntegerT i) noexcept</td></tr>
+<tr class="separator:a13e95be2056b0427481e809c6e9e64fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af56c26e614417418258920e86fc25949"><td class="memTemplParams" colspan="2">template&lt;typename ValueT &gt; </td></tr>
+<tr class="memitem:af56c26e614417418258920e86fc25949"><td class="memTemplItemLeft" align="right" valign="top">requires std::integral&lt; ValueT &gt; constexpr std::same_as&lt; ValueT, double &gt; ValueT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#af56c26e614417418258920e86fc25949">ston</a> (std::string_view sv) noexcept</td></tr>
+<tr class="separator:af56c26e614417418258920e86fc25949"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31e9fdbc12830f22df41030b2bc053a5"><td class="memTemplParams" colspan="2">template&lt;class... Ts&gt; </td></tr>
 <tr class="memitem:a31e9fdbc12830f22df41030b2bc053a5"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a31e9fdbc12830f22df41030b2bc053a5">overloaded</a> (Ts...) -&gt; <a class="el" href="structtoolbox_1_1util_1_1overloaded.html">overloaded</a>&lt; Ts... &gt;</td></tr>
 <tr class="separator:a31e9fdbc12830f22df41030b2bc053a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -534,12 +532,18 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a0098f8202ae129025d24bab8fb3d51f8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a0098f8202ae129025d24bab8fb3d51f8"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a0098f8202ae129025d24bab8fb3d51f8">Arithmetic</a> = std::is_arithmetic_v&lt;T&gt;</td></tr>
+<tr class="separator:a0098f8202ae129025d24bab8fb3d51f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5e8c1f88affc4c15263c5e57208de9a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ab5e8c1f88affc4c15263c5e57208de9a"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#ab5e8c1f88affc4c15263c5e57208de9a">Enum</a> = std::is_enum_v&lt;T&gt;</td></tr>
+<tr class="separator:ab5e8c1f88affc4c15263c5e57208de9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab588e9899a383d1ab776239feded256b"><td class="memItemLeft" align="right" valign="top">constexpr std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#ab588e9899a383d1ab776239feded256b">MaxErrSize</a> {511}</td></tr>
 <tr class="memdesc:ab588e9899a383d1ab776239feded256b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum error message length.  <a href="namespacetoolbox_1_1util.html#ab588e9899a383d1ab776239feded256b">More...</a><br /></td></tr>
 <tr class="separator:ab588e9899a383d1ab776239feded256b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9ab7219b7714d4db926855c2b03b330"><td class="memTemplParams" colspan="2">template&lt;typename ValueT &gt; </td></tr>
-<tr class="memitem:aa9ab7219b7714d4db926855c2b03b330"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#aa9ab7219b7714d4db926855c2b03b330">is_int_wrapper</a> = <a class="el" href="structtoolbox_1_1util_1_1is__instantiation__of.html">is_instantiation_of</a>&lt;ValueT, <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html">IntWrapper</a>&gt;::value</td></tr>
-<tr class="separator:aa9ab7219b7714d4db926855c2b03b330"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8cd7bd97d6d7f1e7fcb2c3b0582ca28"><td class="memTemplParams" colspan="2">template&lt;typename ValueT &gt; </td></tr>
+<tr class="memitem:aa8cd7bd97d6d7f1e7fcb2c3b0582ca28"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#aa8cd7bd97d6d7f1e7fcb2c3b0582ca28">IsIntWrapper</a> = <a class="el" href="structtoolbox_1_1util_1_1is__instantiation__of.html">is_instantiation_of</a>&lt;ValueT, <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html">IntWrapper</a>&gt;::value</td></tr>
+<tr class="separator:aa8cd7bd97d6d7f1e7fcb2c3b0582ca28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03a4d256b11589552b8d561ed6eabcbe"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structtoolbox_1_1util_1_1detail_1_1ResetState.html">detail::ResetState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a03a4d256b11589552b8d561ed6eabcbe">reset_state</a> {}</td></tr>
 <tr class="memdesc:a03a4d256b11589552b8d561ed6eabcbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">I/O manipulator that resets I/O state.  <a href="namespacetoolbox_1_1util.html#a03a4d256b11589552b8d561ed6eabcbe">More...</a><br /></td></tr>
 <tr class="separator:a03a4d256b11589552b8d561ed6eabcbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -625,7 +629,7 @@ Variables</h2></td></tr>
 
 <p>16 bit identifier. </p>
 
-<p class="definition">Definition at line <a class="el" href="IntTypes_8hpp_source.html#l00286">286</a> of file <a class="el" href="IntTypes_8hpp_source.html">IntTypes.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="IntTypes_8hpp_source.html#l00287">287</a> of file <a class="el" href="IntTypes_8hpp_source.html">IntTypes.hpp</a>.</p>
 
 </div>
 </div>
@@ -643,7 +647,7 @@ Variables</h2></td></tr>
 
 <p>32 bit identifier. </p>
 
-<p class="definition">Definition at line <a class="el" href="IntTypes_8hpp_source.html#l00294">294</a> of file <a class="el" href="IntTypes_8hpp_source.html">IntTypes.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="IntTypes_8hpp_source.html#l00295">295</a> of file <a class="el" href="IntTypes_8hpp_source.html">IntTypes.hpp</a>.</p>
 
 </div>
 </div>
@@ -661,7 +665,7 @@ Variables</h2></td></tr>
 
 <p>64 bit identifier. </p>
 
-<p class="definition">Definition at line <a class="el" href="IntTypes_8hpp_source.html#l00302">302</a> of file <a class="el" href="IntTypes_8hpp_source.html">IntTypes.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="IntTypes_8hpp_source.html#l00303">303</a> of file <a class="el" href="IntTypes_8hpp_source.html">IntTypes.hpp</a>.</p>
 
 </div>
 </div>
@@ -1027,19 +1031,19 @@ template&lt;typename FnT &gt; </div>
 
 </div>
 </div>
-<a id="a212b5ac5226a35e8152779ab9ac12167"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a212b5ac5226a35e8152779ab9ac12167">&#9670;&nbsp;</a></span>box()</h2>
+<a id="a740dbe290cadeea78d4275d8a54ba8a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a740dbe290cadeea78d4275d8a54ba8a5">&#9670;&nbsp;</a></span>box()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename EnumT , typename  = std::enable_if_t&lt;std::is_enum_v&lt;EnumT&gt;&gt;&gt; </div>
+template&lt;typename EnumT &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr EnumT toolbox::util::box </td>
+          <td class="memname">requires constexpr <a class="el" href="namespacetoolbox_1_1util.html#ab5e8c1f88affc4c15263c5e57208de9a">Enum</a>&lt;EnumT&gt; EnumT toolbox::util::box </td>
           <td>(</td>
           <td class="paramtype">typename std::underlying_type_t&lt; EnumT &gt;&#160;</td>
           <td class="paramname"><em>val</em></td><td>)</td>
@@ -1053,23 +1057,23 @@ template&lt;typename EnumT , typename  = std::enable_if_t&lt;std::is_enum_v&lt;E
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Enum_8hpp_source.html#l00027">27</a> of file <a class="el" href="Enum_8hpp_source.html">Enum.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Enum_8hpp_source.html#l00030">30</a> of file <a class="el" href="Enum_8hpp_source.html">Enum.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a5d51e7e40c696ced8aa45e5ad52a8905"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d51e7e40c696ced8aa45e5ad52a8905">&#9670;&nbsp;</a></span>unbox()</h2>
+<a id="a368da5cf0206b89cd9fb960b3efad5eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a368da5cf0206b89cd9fb960b3efad5eb">&#9670;&nbsp;</a></span>unbox()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename EnumT , typename  = std::enable_if_t&lt;std::is_enum_v&lt;EnumT&gt;&gt;&gt; </div>
+template&lt;typename EnumT &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::underlying_type_t&lt;EnumT&gt; toolbox::util::unbox </td>
+          <td class="memname">requires constexpr <a class="el" href="namespacetoolbox_1_1util.html#ab5e8c1f88affc4c15263c5e57208de9a">Enum</a>&lt;EnumT&gt; std::underlying_type_t&lt;EnumT&gt; toolbox::util::unbox </td>
           <td>(</td>
           <td class="paramtype">EnumT&#160;</td>
           <td class="paramname"><em>val</em></td><td>)</td>
@@ -1083,7 +1087,7 @@ template&lt;typename EnumT , typename  = std::enable_if_t&lt;std::is_enum_v&lt;E
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Enum_8hpp_source.html#l00033">33</a> of file <a class="el" href="Enum_8hpp_source.html">Enum.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Enum_8hpp_source.html#l00037">37</a> of file <a class="el" href="Enum_8hpp_source.html">Enum.hpp</a>.</p>
 
 </div>
 </div>
@@ -1321,7 +1325,7 @@ template&lt;typename PolicyT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="IntTypes_8hpp_source.html#l00288">288</a> of file <a class="el" href="IntTypes_8hpp_source.html">IntTypes.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="IntTypes_8hpp_source.html#l00289">289</a> of file <a class="el" href="IntTypes_8hpp_source.html">IntTypes.hpp</a>.</p>
 
 </div>
 </div>
@@ -1349,7 +1353,7 @@ template&lt;typename PolicyT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="IntTypes_8hpp_source.html#l00296">296</a> of file <a class="el" href="IntTypes_8hpp_source.html">IntTypes.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="IntTypes_8hpp_source.html#l00297">297</a> of file <a class="el" href="IntTypes_8hpp_source.html">IntTypes.hpp</a>.</p>
 
 </div>
 </div>
@@ -1377,7 +1381,7 @@ template&lt;typename PolicyT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="IntTypes_8hpp_source.html#l00304">304</a> of file <a class="el" href="IntTypes_8hpp_source.html">IntTypes.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="IntTypes_8hpp_source.html#l00305">305</a> of file <a class="el" href="IntTypes_8hpp_source.html">IntTypes.hpp</a>.</p>
 
 </div>
 </div>
@@ -2425,18 +2429,18 @@ template&lt;typename ValueT &gt; </div>
 
 </div>
 </div>
-<a id="a98415505c35d1731c56af968e1ec971a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98415505c35d1731c56af968e1ec971a">&#9670;&nbsp;</a></span>to_string() <span class="overload">[1/2]</span></h2>
+<a id="a08e90a5ecd9ae4ca5768a1bb44abf0b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08e90a5ecd9ae4ca5768a1bb44abf0b4">&#9670;&nbsp;</a></span>to_string() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ValueT , typename std::enable_if_t&lt; std::is_arithmetic_v&lt; ValueT &gt;&gt; *  = nullptr&gt; </div>
+template&lt;typename ValueT &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">std::string toolbox::util::to_string </td>
           <td>(</td>
-          <td class="paramtype">ValueT&#160;</td>
+          <td class="paramtype">ValueT &amp;&amp;&#160;</td>
           <td class="paramname"><em>val</em></td><td>)</td>
           <td></td>
         </tr>
@@ -2447,25 +2451,25 @@ template&lt;typename ValueT , typename std::enable_if_t&lt; std::is_arithmetic_v
 
 </div>
 </div>
-<a id="ad8f3319e6a0ebd8927b9b6efcbced324"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8f3319e6a0ebd8927b9b6efcbced324">&#9670;&nbsp;</a></span>to_string() <span class="overload">[2/2]</span></h2>
+<a id="a4a8f03f677d4c89da278c0dbf95d24ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a8f03f677d4c89da278c0dbf95d24ec">&#9670;&nbsp;</a></span>to_string() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ValueT , typename std::enable_if_t&lt;!std::is_arithmetic_v&lt; ValueT &gt;&gt; *  = nullptr&gt; </div>
+template&lt;typename ValueT &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::string toolbox::util::to_string </td>
+          <td class="memname">requires <a class="el" href="namespacetoolbox_1_1util.html#a0098f8202ae129025d24bab8fb3d51f8">Arithmetic</a>&lt;ValueT&gt; std::string toolbox::util::to_string </td>
           <td>(</td>
-          <td class="paramtype">const ValueT &amp;&#160;</td>
+          <td class="paramtype">ValueT &amp;&amp;&#160;</td>
           <td class="paramname"><em>val</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00061">61</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00065">65</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
 
 </div>
 </div>
@@ -2495,7 +2499,7 @@ template&lt;std::size_t SizeN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00069">69</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00072">72</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
 
 </div>
 </div>
@@ -2523,7 +2527,7 @@ template&lt;std::size_t SizeN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00082">82</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00085">85</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
 
 </div>
 </div>
@@ -2551,7 +2555,7 @@ template&lt;std::size_t SizeN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00088">88</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00091">91</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
 
 </div>
 </div>
@@ -2579,7 +2583,7 @@ template&lt;std::size_t SizeN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00094">94</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00097">97</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
 
 </div>
 </div>
@@ -2607,7 +2611,7 @@ template&lt;std::size_t SizeN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00100">100</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00103">103</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
 
 </div>
 </div>
@@ -2635,7 +2639,7 @@ template&lt;std::size_t SizeN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00106">106</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00109">109</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
 
 </div>
 </div>
@@ -2663,7 +2667,7 @@ template&lt;std::size_t SizeN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00112">112</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00115">115</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
 
 </div>
 </div>
@@ -2691,7 +2695,7 @@ template&lt;std::size_t SizeN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00118">118</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00121">121</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
 
 </div>
 </div>
@@ -2719,12 +2723,12 @@ template&lt;std::size_t SizeN&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00124">124</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00127">127</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a34a90928b6344edf6b937b87470dfed8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34a90928b6344edf6b937b87470dfed8">&#9670;&nbsp;</a></span>pstrlen() <span class="overload">[1/2]</span></h2>
+<a id="aa2ca0fe82e6216b49f0197940b4b9b88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2ca0fe82e6216b49f0197940b4b9b88">&#9670;&nbsp;</a></span>pstrlen() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2735,7 +2739,7 @@ template&lt;char PadC&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::size_t toolbox::util::pstrlen </td>
+          <td class="memname">constexpr std::size_t toolbox::util::pstrlen </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>src</em>, </td>
@@ -2754,17 +2758,17 @@ template&lt;char PadC&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00136">136</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00139">139</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a25ca7d10ba1f0ad005b2b97f8b12b1da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25ca7d10ba1f0ad005b2b97f8b12b1da">&#9670;&nbsp;</a></span>pstrlen() <span class="overload">[2/2]</span></h2>
+<a id="a785e05610199a9901a5435b87308de15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a785e05610199a9901a5435b87308de15">&#9670;&nbsp;</a></span>pstrlen() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2775,7 +2779,7 @@ template&lt;char PadC, std::size_t SizeN&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::size_t toolbox::util::pstrlen </td>
+          <td class="memname">constexpr std::size_t toolbox::util::pstrlen </td>
           <td>(</td>
           <td class="paramtype">const char(&amp;)&#160;</td>
           <td class="paramname"><em>src</em>[SizeN]</td><td>)</td>
@@ -2784,17 +2788,17 @@ template&lt;char PadC, std::size_t SizeN&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00151">151</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00154">154</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
 
 </div>
 </div>
-<a id="adf26b7c014a3c9cc321a0d794ddf0dcf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf26b7c014a3c9cc321a0d794ddf0dcf">&#9670;&nbsp;</a></span>pstrcpy() <span class="overload">[1/4]</span></h2>
+<a id="aba9647b4ea13a450370a10ef842dc51b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba9647b4ea13a450370a10ef842dc51b">&#9670;&nbsp;</a></span>pstrcpy() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2805,7 +2809,7 @@ template&lt;char PadC&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::size_t toolbox::util::pstrcpy </td>
+          <td class="memname">constexpr std::size_t toolbox::util::pstrcpy </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>dst</em>, </td>
@@ -2830,17 +2834,17 @@ template&lt;char PadC&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00157">157</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00160">160</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ab1df769371cec4602e8ac04a039576ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1df769371cec4602e8ac04a039576ae">&#9670;&nbsp;</a></span>pstrcpy() <span class="overload">[2/4]</span></h2>
+<a id="a180ff3d857839eec626d66f19fcffe9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a180ff3d857839eec626d66f19fcffe9b">&#9670;&nbsp;</a></span>pstrcpy() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2851,7 +2855,7 @@ template&lt;char PadC, std::size_t SizeN&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::size_t toolbox::util::pstrcpy </td>
+          <td class="memname">constexpr std::size_t toolbox::util::pstrcpy </td>
           <td>(</td>
           <td class="paramtype">char(&amp;)&#160;</td>
           <td class="paramname"><em>dst</em>[SizeN], </td>
@@ -2870,17 +2874,17 @@ template&lt;char PadC, std::size_t SizeN&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00175">175</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00178">178</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a37f4eae95e323d38a9d4af4f803c3e69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37f4eae95e323d38a9d4af4f803c3e69">&#9670;&nbsp;</a></span>pstrcpy() <span class="overload">[3/4]</span></h2>
+<a id="a06a54f13a4b39509132e14a266464933"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06a54f13a4b39509132e14a266464933">&#9670;&nbsp;</a></span>pstrcpy() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2891,7 +2895,7 @@ template&lt;char PadC&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::size_t toolbox::util::pstrcpy </td>
+          <td class="memname">constexpr std::size_t toolbox::util::pstrcpy </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>dst</em>, </td>
@@ -2916,17 +2920,17 @@ template&lt;char PadC&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00181">181</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00184">184</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
 
 </div>
 </div>
-<a id="afe50c08876771325b680f37a8601f157"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe50c08876771325b680f37a8601f157">&#9670;&nbsp;</a></span>pstrcpy() <span class="overload">[4/4]</span></h2>
+<a id="a5bf683da862f05b1055a6bc175f94b36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bf683da862f05b1055a6bc175f94b36">&#9670;&nbsp;</a></span>pstrcpy() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2937,7 +2941,7 @@ template&lt;char PadC, std::size_t SizeN&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::size_t toolbox::util::pstrcpy </td>
+          <td class="memname">constexpr std::size_t toolbox::util::pstrcpy </td>
           <td>(</td>
           <td class="paramtype">char(&amp;)&#160;</td>
           <td class="paramname"><em>dst</em>[SizeN], </td>
@@ -2956,17 +2960,17 @@ template&lt;char PadC, std::size_t SizeN&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00194">194</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00197">197</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a70b6d6a5819cf3c5e09d78c9f02150d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70b6d6a5819cf3c5e09d78c9f02150d9">&#9670;&nbsp;</a></span>pstrcpyid() <span class="overload">[1/2]</span></h2>
+<a id="acd2fd98369ca471075881db6556dee40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd2fd98369ca471075881db6556dee40">&#9670;&nbsp;</a></span>pstrcpyid() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2977,7 +2981,7 @@ template&lt;char PadC&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::size_t toolbox::util::pstrcpyid </td>
+          <td class="memname">constexpr std::size_t toolbox::util::pstrcpyid </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>dst</em>, </td>
@@ -3002,17 +3006,17 @@ template&lt;char PadC&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00200">200</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00203">203</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a0409c61ec6d33526f76c1521d6c7a523"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0409c61ec6d33526f76c1521d6c7a523">&#9670;&nbsp;</a></span>pstrcpyid() <span class="overload">[2/2]</span></h2>
+<a id="a82fbe84b5869256f0883325769c6be1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82fbe84b5869256f0883325769c6be1a">&#9670;&nbsp;</a></span>pstrcpyid() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3023,7 +3027,7 @@ template&lt;char PadC, std::size_t SizeN&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::size_t toolbox::util::pstrcpyid </td>
+          <td class="memname">constexpr std::size_t toolbox::util::pstrcpyid </td>
           <td>(</td>
           <td class="paramtype">char(&amp;)&#160;</td>
           <td class="paramname"><em>dst</em>[SizeN], </td>
@@ -3042,12 +3046,12 @@ template&lt;char PadC, std::size_t SizeN&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00214">214</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00217">217</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
 
 </div>
 </div>
@@ -3069,7 +3073,7 @@ template&lt;typename... ArgsT&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00220">220</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="String_8hpp_source.html#l00223">223</a> of file <a class="el" href="String_8hpp_source.html">String.hpp</a>.</p>
 
 </div>
 </div>
@@ -3435,7 +3439,7 @@ template&lt;std::size_t N&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="util_2Utility_8cpp_source.html#l00026">26</a> of file <a class="el" href="util_2Utility_8cpp_source.html">Utility.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="TypeTraits_8hpp_source.html#l00047">toolbox::util::TypeTraits&lt; bool &gt;::from_string()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="TypeTraits_8hpp_source.html#l00044">toolbox::util::TypeTraits&lt; bool &gt;::from_string()</a>.</p>
 
 </div>
 </div>
@@ -3465,7 +3469,7 @@ template&lt;std::size_t N&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="util_2Utility_8cpp_source.html#l00089">89</a> of file <a class="el" href="util_2Utility_8cpp_source.html">Utility.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="TypeTraits_8hpp_source.html#l00056">toolbox::util::TypeTraits&lt; double &gt;::from_string()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="TypeTraits_8hpp_source.html#l00049">toolbox::util::TypeTraits&lt; double &gt;::from_string()</a>.</p>
 
 </div>
 </div>
@@ -3495,7 +3499,7 @@ template&lt;typename ValueT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8hpp_source.html#l00035">35</a> of file <a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8hpp_source.html#l00036">36</a> of file <a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
 
 </div>
 </div>
@@ -3523,7 +3527,7 @@ template&lt;typename ValueT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8hpp_source.html#l00040">40</a> of file <a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8hpp_source.html#l00041">41</a> of file <a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
 
 </div>
 </div>
@@ -3560,25 +3564,25 @@ template&lt;typename ValueT &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>the number of decimal digits. </dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>consider adding support for negative integers. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8hpp_source.html#l00051">51</a> of file <a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8hpp_source.html#l00052">52</a> of file <a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Version_8hpp_source.html#l00045">toolbox::util::Version::size()</a>.</p>
 
 </div>
 </div>
-<a id="a52c9c48d75ab7f8d29a5c9ea9848f729"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52c9c48d75ab7f8d29a5c9ea9848f729">&#9670;&nbsp;</a></span>hex_digits()</h2>
+<a id="a13e95be2056b0427481e809c6e9e64fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13e95be2056b0427481e809c6e9e64fa">&#9670;&nbsp;</a></span>hex_digits()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename UIntegerT , typename  = std::enable_if&lt;std::is_unsigned_v&lt;UIntegerT&gt;&gt;&gt; </div>
+template&lt;typename UIntegerT &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr int toolbox::util::hex_digits </td>
+          <td class="memname">requires constexpr std::unsigned_integral&lt;UIntegerT&gt; int toolbox::util::hex_digits </td>
           <td>(</td>
           <td class="paramtype">UIntegerT&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
@@ -3594,7 +3598,7 @@ template&lt;typename UIntegerT , typename  = std::enable_if&lt;std::is_unsigned_
 <p>Returns the number of hexadecimal digits in a positive integer.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">IntegerT</td><td>Integer type. </td></tr>
+    <tr><td class="paramname">UIntegerT</td><td>Integer type. </td></tr>
   </table>
   </dd>
 </dl>
@@ -3607,12 +3611,12 @@ template&lt;typename UIntegerT , typename  = std::enable_if&lt;std::is_unsigned_
 <dl class="section return"><dt>Returns</dt><dd>the number of hexadecimal digits. </dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>consider adding support for negative integers. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8hpp_source.html#l00077">77</a> of file <a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8hpp_source.html#l00079">79</a> of file <a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a8587d74e5bd033f12c4d2ccf5ec51ad3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8587d74e5bd033f12c4d2ccf5ec51ad3">&#9670;&nbsp;</a></span>ston()</h2>
+<a id="af56c26e614417418258920e86fc25949"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af56c26e614417418258920e86fc25949">&#9670;&nbsp;</a></span>ston()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3623,7 +3627,7 @@ template&lt;typename ValueT &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr ValueT toolbox::util::ston </td>
+          <td class="memname">requires std::integral&lt;ValueT&gt; constexpr std::same_as&lt;ValueT, double&gt; ValueT toolbox::util::ston </td>
           <td>(</td>
           <td class="paramtype">std::string_view&#160;</td>
           <td class="paramname"><em>sv</em></td><td>)</td>
@@ -3637,7 +3641,7 @@ template&lt;typename ValueT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8hpp_source.html#l00091">91</a> of file <a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8hpp_source.html#l00094">94</a> of file <a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>.</p>
 
 </div>
 </div>
@@ -3742,6 +3746,42 @@ template&lt;class... Ts&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="a0098f8202ae129025d24bab8fb3d51f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0098f8202ae129025d24bab8fb3d51f8">&#9670;&nbsp;</a></span>Arithmetic</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">concept toolbox::util::Arithmetic = std::is_arithmetic_v&lt;T&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Concepts_8hpp_source.html#l00025">25</a> of file <a class="el" href="Concepts_8hpp_source.html">Concepts.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ab5e8c1f88affc4c15263c5e57208de9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5e8c1f88affc4c15263c5e57208de9a">&#9670;&nbsp;</a></span>Enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">concept toolbox::util::Enum = std::is_enum_v&lt;T&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Concepts_8hpp_source.html#l00028">28</a> of file <a class="el" href="Concepts_8hpp_source.html">Concepts.hpp</a>.</p>
+
+</div>
+</div>
 <a id="ab588e9899a383d1ab776239feded256b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab588e9899a383d1ab776239feded256b">&#9670;&nbsp;</a></span>MaxErrSize</h2>
 
@@ -3768,26 +3808,18 @@ template&lt;class... Ts&gt; </div>
 
 </div>
 </div>
-<a id="aa9ab7219b7714d4db926855c2b03b330"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9ab7219b7714d4db926855c2b03b330">&#9670;&nbsp;</a></span>is_int_wrapper</h2>
+<a id="aa8cd7bd97d6d7f1e7fcb2c3b0582ca28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8cd7bd97d6d7f1e7fcb2c3b0582ca28">&#9670;&nbsp;</a></span>IsIntWrapper</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename ValueT &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool toolbox::util::is_int_wrapper = <a class="el" href="structtoolbox_1_1util_1_1is__instantiation__of.html">is_instantiation_of</a>&lt;ValueT, <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html">IntWrapper</a>&gt;::value</td>
+          <td class="memname">concept toolbox::util::IsIntWrapper = <a class="el" href="structtoolbox_1_1util_1_1is__instantiation__of.html">is_instantiation_of</a>&lt;ValueT, <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html">IntWrapper</a>&gt;::value</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="IntTypes_8hpp_source.html#l00260">260</a> of file <a class="el" href="IntTypes_8hpp_source.html">IntTypes.hpp</a>.</p>

@@ -6,6 +6,6 @@ var searchData=
   ['interval_2195',['Interval',['../Histogram_8ut_8cpp.html#ad21ba9feff68ac3b75601bf9ffc314d8',1,'Histogram.ut.cpp']]],
   ['ipv4_2196',['ipv4',['../structtoolbox_1_1net_1_1IpMcastGroup.html#aa984d822331d914c9c85bbc6f7545827',1,'toolbox::net::IpMcastGroup']]],
   ['ipv6_2197',['ipv6',['../structtoolbox_1_1net_1_1IpMcastGroup.html#afb65da4b0daa1695758ea597678c3502',1,'toolbox::net::IpMcastGroup']]],
-  ['is_5fint_5fwrapper_2198',['is_int_wrapper',['../namespacetoolbox_1_1util.html#aa9ab7219b7714d4db926855c2b03b330',1,'toolbox::is_int_wrapper()'],['../namespacetoolbox_1_1util.html#aa9ab7219b7714d4db926855c2b03b330',1,'toolbox::util::is_int_wrapper()']]],
-  ['is_5fsteady_2199',['is_steady',['../structtoolbox_1_1sys_1_1MonoClock.html#acd558e76ba51811f3ead6968c0f8e234',1,'toolbox::sys::MonoClock::is_steady()'],['../structtoolbox_1_1sys_1_1WallClock.html#a5b605fea95eecbf3eefc2795825acd62',1,'toolbox::sys::WallClock::is_steady()']]]
+  ['is_5fsteady_2198',['is_steady',['../structtoolbox_1_1sys_1_1MonoClock.html#acd558e76ba51811f3ead6968c0f8e234',1,'toolbox::sys::MonoClock::is_steady()'],['../structtoolbox_1_1sys_1_1WallClock.html#a5b605fea95eecbf3eefc2795825acd62',1,'toolbox::sys::WallClock::is_steady()']]],
+  ['isintwrapper_2199',['IsIntWrapper',['../namespacetoolbox_1_1util.html#aa8cd7bd97d6d7f1e7fcb2c3b0582ca28',1,'toolbox::IsIntWrapper()'],['../namespacetoolbox_1_1util.html#aa8cd7bd97d6d7f1e7fcb2c3b0582ca28',1,'toolbox::util::IsIntWrapper()']]]
 ];

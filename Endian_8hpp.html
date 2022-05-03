@@ -77,6 +77,7 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &lt;<a class="el" href="Config_8h_source.html">toolbox/Config.h</a>&gt;</code><br />
 <code>#include &lt;bit&gt;</code><br />
+<code>#include &lt;concepts&gt;</code><br />
 <code>#include &lt;cstdint&gt;</code><br />
 <code>#include &lt;type_traits&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -84,11 +85,12 @@ Include dependency graph for Endian.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="Endian_8hpp__incl.png" border="0" usemap="#atoolbox_2net_2Endian_8hpp" alt=""/></div>
 <map name="atoolbox_2net_2Endian_8hpp" id="atoolbox_2net_2Endian_8hpp">
-<area shape="rect" title=" " alt="" coords="130,5,302,32"/>
+<area shape="rect" title=" " alt="" coords="175,5,347,32"/>
 <area shape="rect" href="Config_8h.html" title=" " alt="" coords="5,80,133,107"/>
 <area shape="rect" title=" " alt="" coords="158,80,197,107"/>
-<area shape="rect" title=" " alt="" coords="221,80,288,107"/>
-<area shape="rect" title=" " alt="" coords="313,80,405,107"/>
+<area shape="rect" title=" " alt="" coords="221,80,301,107"/>
+<area shape="rect" title=" " alt="" coords="325,80,392,107"/>
+<area shape="rect" title=" " alt="" coords="417,80,509,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -127,18 +129,18 @@ Functions</h2></td></tr>
 <tr class="separator:ac56857999d12b3f5a5a770cc21732c8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1552a6ddbfd990a82bc22006c3ffc34f"><td class="memItemLeft" align="right" valign="top">constexpr std::int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#a1552a6ddbfd990a82bc22006c3ffc34f">toolbox::net::bswap</a> (std::int64_t n) noexcept</td></tr>
 <tr class="separator:a1552a6ddbfd990a82bc22006c3ffc34f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08ccfaad125c6cca3bcb00cc8601f267"><td class="memTemplParams" colspan="2">template&lt;typename ValueT , typename  = std::enable_if_t&lt;std::is_integral_v&lt;ValueT&gt;&gt;&gt; </td></tr>
-<tr class="memitem:a08ccfaad125c6cca3bcb00cc8601f267"><td class="memTemplItemLeft" align="right" valign="top">constexpr ValueT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#a08ccfaad125c6cca3bcb00cc8601f267">toolbox::net::ntoh</a> (ValueT n) noexcept</td></tr>
-<tr class="separator:a08ccfaad125c6cca3bcb00cc8601f267"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab08265fcc7339c197b4e6bd0e485d84c"><td class="memTemplParams" colspan="2">template&lt;typename ValueT , typename  = std::enable_if_t&lt;std::is_integral_v&lt;ValueT&gt;&gt;&gt; </td></tr>
-<tr class="memitem:ab08265fcc7339c197b4e6bd0e485d84c"><td class="memTemplItemLeft" align="right" valign="top">constexpr ValueT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#ab08265fcc7339c197b4e6bd0e485d84c">toolbox::net::hton</a> (ValueT n) noexcept</td></tr>
-<tr class="separator:ab08265fcc7339c197b4e6bd0e485d84c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7b17bcae7a1e011d97fd09acc802cfd"><td class="memTemplParams" colspan="2">template&lt;typename ValueT , typename  = std::enable_if_t&lt;std::is_integral_v&lt;ValueT&gt;&gt;&gt; </td></tr>
-<tr class="memitem:aa7b17bcae7a1e011d97fd09acc802cfd"><td class="memTemplItemLeft" align="right" valign="top">constexpr ValueT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#aa7b17bcae7a1e011d97fd09acc802cfd">toolbox::net::ltoh</a> (ValueT n) noexcept</td></tr>
-<tr class="separator:aa7b17bcae7a1e011d97fd09acc802cfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a805c3fecd8a29d798f6a04ef116f4e"><td class="memTemplParams" colspan="2">template&lt;typename ValueT , typename  = std::enable_if_t&lt;std::is_integral_v&lt;ValueT&gt;&gt;&gt; </td></tr>
-<tr class="memitem:a1a805c3fecd8a29d798f6a04ef116f4e"><td class="memTemplItemLeft" align="right" valign="top">constexpr ValueT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#a1a805c3fecd8a29d798f6a04ef116f4e">toolbox::net::htol</a> (ValueT n) noexcept</td></tr>
-<tr class="separator:a1a805c3fecd8a29d798f6a04ef116f4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92a09ddd6090199881b97efc10a0c96c"><td class="memTemplParams" colspan="2">template&lt;typename ValueT &gt; </td></tr>
+<tr class="memitem:a92a09ddd6090199881b97efc10a0c96c"><td class="memTemplItemLeft" align="right" valign="top">requires constexpr std::integral&lt; ValueT &gt; ValueT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#a92a09ddd6090199881b97efc10a0c96c">toolbox::net::ntoh</a> (ValueT n) noexcept</td></tr>
+<tr class="separator:a92a09ddd6090199881b97efc10a0c96c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa45a5c52bcbf8a29b18efe04fb2ce10d"><td class="memTemplParams" colspan="2">template&lt;typename ValueT &gt; </td></tr>
+<tr class="memitem:aa45a5c52bcbf8a29b18efe04fb2ce10d"><td class="memTemplItemLeft" align="right" valign="top">requires constexpr std::integral&lt; ValueT &gt; ValueT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#aa45a5c52bcbf8a29b18efe04fb2ce10d">toolbox::net::hton</a> (ValueT n) noexcept</td></tr>
+<tr class="separator:aa45a5c52bcbf8a29b18efe04fb2ce10d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7c9efd37f8d83ebe6668ddf7f1fc061"><td class="memTemplParams" colspan="2">template&lt;typename ValueT &gt; </td></tr>
+<tr class="memitem:af7c9efd37f8d83ebe6668ddf7f1fc061"><td class="memTemplItemLeft" align="right" valign="top">requires constexpr std::integral&lt; ValueT &gt; ValueT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#af7c9efd37f8d83ebe6668ddf7f1fc061">toolbox::net::ltoh</a> (ValueT n) noexcept</td></tr>
+<tr class="separator:af7c9efd37f8d83ebe6668ddf7f1fc061"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a988eb7ffa9cee614e13aad9e3b4e5d91"><td class="memTemplParams" colspan="2">template&lt;typename ValueT &gt; </td></tr>
+<tr class="memitem:a988eb7ffa9cee614e13aad9e3b4e5d91"><td class="memTemplItemLeft" align="right" valign="top">requires constexpr std::integral&lt; ValueT &gt; ValueT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#a988eb7ffa9cee614e13aad9e3b4e5d91">toolbox::net::htol</a> (ValueT n) noexcept</td></tr>
+<tr class="separator:a988eb7ffa9cee614e13aad9e3b4e5d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

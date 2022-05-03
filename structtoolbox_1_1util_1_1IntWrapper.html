@@ -88,9 +88,9 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acdf80937a73794934f3250c25befd489"><td class="memTemplParams" colspan="2">template&lt;typename RhsT , typename  = typename std::enable_if_t&lt;std::is_convertible_v&lt;RhsT, ValueType&gt;&gt;&gt; </td></tr>
-<tr class="memitem:acdf80937a73794934f3250c25befd489"><td class="memTemplItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html#acdf80937a73794934f3250c25befd489">IntWrapper</a> (RhsT rhs) noexcept</td></tr>
-<tr class="separator:acdf80937a73794934f3250c25befd489"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a488d0250f9f5ec60d143913432d40d05"><td class="memTemplParams" colspan="2">template&lt;typename RhsT &gt; </td></tr>
+<tr class="memitem:a488d0250f9f5ec60d143913432d40d05"><td class="memTemplItemLeft" align="right" valign="top">requires constexpr std::convertible_to&lt; RhsT, <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html#a70bc524136ec3ada22de54944021f452">ValueType</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html#a488d0250f9f5ec60d143913432d40d05">IntWrapper</a> (RhsT rhs) noexcept</td></tr>
+<tr class="separator:a488d0250f9f5ec60d143913432d40d05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2259c644b26a00b1730f55c6073c344d"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html#a2259c644b26a00b1730f55c6073c344d">IntWrapper</a> () noexcept=default</td></tr>
 <tr class="separator:a2259c644b26a00b1730f55c6073c344d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a5a932c832c74f79f768ee65c5ec841"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html#a2a5a932c832c74f79f768ee65c5ec841">~IntWrapper</a> ()=default</td></tr>
@@ -232,21 +232,21 @@ template&lt;typename PolicyT &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="acdf80937a73794934f3250c25befd489"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acdf80937a73794934f3250c25befd489">&#9670;&nbsp;</a></span>IntWrapper() <span class="overload">[1/4]</span></h2>
+<a id="a488d0250f9f5ec60d143913432d40d05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a488d0250f9f5ec60d143913432d40d05">&#9670;&nbsp;</a></span>IntWrapper() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename PolicyT &gt; </div>
 <div class="memtemplate">
-template&lt;typename RhsT , typename  = typename std::enable_if_t&lt;std::is_convertible_v&lt;RhsT, ValueType&gt;&gt;&gt; </div>
+template&lt;typename RhsT &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html">toolbox::util::IntWrapper</a>&lt; PolicyT &gt;::<a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html">IntWrapper</a> </td>
+          <td class="memname">requires constexpr std::convertible_to&lt;RhsT, <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html#a70bc524136ec3ada22de54944021f452">ValueType</a>&gt; <a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html">toolbox::util::IntWrapper</a>&lt; PolicyT &gt;::<a class="el" href="structtoolbox_1_1util_1_1IntWrapper.html">IntWrapper</a> </td>
           <td>(</td>
           <td class="paramtype">RhsT&#160;</td>
           <td class="paramname"><em>rhs</em></td><td>)</td>
@@ -458,7 +458,7 @@ template&lt;typename PolicyT &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="IntTypes_8hpp_source.html#l00065">65</a> of file <a class="el" href="IntTypes_8hpp_source.html">IntTypes.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="IntTypes_8hpp_source.html#l00315">std::hash&lt; toolbox::IntWrapper&lt; PolicyT &gt; &gt;::operator()()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="IntTypes_8hpp_source.html#l00316">std::hash&lt; toolbox::IntWrapper&lt; PolicyT &gt; &gt;::operator()()</a>.</p>
 
 </div>
 </div>

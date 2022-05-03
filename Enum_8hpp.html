@@ -75,16 +75,18 @@ $(function() {
 <div class="title">Enum.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;iosfwd&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="Concepts_8hpp_source.html">toolbox/util/Concepts.hpp</a>&gt;</code><br />
+<code>#include &lt;iosfwd&gt;</code><br />
 <code>#include &lt;type_traits&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Enum.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="Enum_8hpp__incl.png" border="0" usemap="#atoolbox_2util_2Enum_8hpp" alt=""/></div>
 <map name="atoolbox_2util_2Enum_8hpp" id="atoolbox_2util_2Enum_8hpp">
-<area shape="rect" title=" " alt="" coords="5,5,171,32"/>
-<area shape="rect" title=" " alt="" coords="5,80,69,107"/>
-<area shape="rect" title=" " alt="" coords="94,80,186,107"/>
+<area shape="rect" title=" " alt="" coords="149,5,314,32"/>
+<area shape="rect" href="Concepts_8hpp.html" title=" " alt="" coords="5,80,193,107"/>
+<area shape="rect" title=" " alt="" coords="119,155,211,181"/>
+<area shape="rect" title=" " alt="" coords="269,80,333,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -117,12 +119,12 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a212b5ac5226a35e8152779ab9ac12167"><td class="memTemplParams" colspan="2">template&lt;typename EnumT , typename  = std::enable_if_t&lt;std::is_enum_v&lt;EnumT&gt;&gt;&gt; </td></tr>
-<tr class="memitem:a212b5ac5226a35e8152779ab9ac12167"><td class="memTemplItemLeft" align="right" valign="top">constexpr EnumT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a212b5ac5226a35e8152779ab9ac12167">toolbox::util::box</a> (typename std::underlying_type_t&lt; EnumT &gt; val) noexcept</td></tr>
-<tr class="separator:a212b5ac5226a35e8152779ab9ac12167"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d51e7e40c696ced8aa45e5ad52a8905"><td class="memTemplParams" colspan="2">template&lt;typename EnumT , typename  = std::enable_if_t&lt;std::is_enum_v&lt;EnumT&gt;&gt;&gt; </td></tr>
-<tr class="memitem:a5d51e7e40c696ced8aa45e5ad52a8905"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::underlying_type_t&lt; EnumT &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a5d51e7e40c696ced8aa45e5ad52a8905">toolbox::util::unbox</a> (EnumT val) noexcept</td></tr>
-<tr class="separator:a5d51e7e40c696ced8aa45e5ad52a8905"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a740dbe290cadeea78d4275d8a54ba8a5"><td class="memTemplParams" colspan="2">template&lt;typename EnumT &gt; </td></tr>
+<tr class="memitem:a740dbe290cadeea78d4275d8a54ba8a5"><td class="memTemplItemLeft" align="right" valign="top">requires constexpr Enum&lt; EnumT &gt; EnumT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a740dbe290cadeea78d4275d8a54ba8a5">toolbox::util::box</a> (typename std::underlying_type_t&lt; EnumT &gt; val) noexcept</td></tr>
+<tr class="separator:a740dbe290cadeea78d4275d8a54ba8a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a368da5cf0206b89cd9fb960b3efad5eb"><td class="memTemplParams" colspan="2">template&lt;typename EnumT &gt; </td></tr>
+<tr class="memitem:a368da5cf0206b89cd9fb960b3efad5eb"><td class="memTemplItemLeft" align="right" valign="top">requires constexpr Enum&lt; EnumT &gt; std::underlying_type_t&lt; EnumT &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a368da5cf0206b89cd9fb960b3efad5eb">toolbox::util::unbox</a> (EnumT val) noexcept</td></tr>
+<tr class="separator:a368da5cf0206b89cd9fb960b3efad5eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

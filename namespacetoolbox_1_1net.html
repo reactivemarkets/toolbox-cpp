@@ -169,18 +169,18 @@ Functions</h2></td></tr>
 <tr class="separator:ac56857999d12b3f5a5a770cc21732c8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1552a6ddbfd990a82bc22006c3ffc34f"><td class="memItemLeft" align="right" valign="top">constexpr std::int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#a1552a6ddbfd990a82bc22006c3ffc34f">bswap</a> (std::int64_t n) noexcept</td></tr>
 <tr class="separator:a1552a6ddbfd990a82bc22006c3ffc34f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08ccfaad125c6cca3bcb00cc8601f267"><td class="memTemplParams" colspan="2">template&lt;typename ValueT , typename  = std::enable_if_t&lt;std::is_integral_v&lt;ValueT&gt;&gt;&gt; </td></tr>
-<tr class="memitem:a08ccfaad125c6cca3bcb00cc8601f267"><td class="memTemplItemLeft" align="right" valign="top">constexpr ValueT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#a08ccfaad125c6cca3bcb00cc8601f267">ntoh</a> (ValueT n) noexcept</td></tr>
-<tr class="separator:a08ccfaad125c6cca3bcb00cc8601f267"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab08265fcc7339c197b4e6bd0e485d84c"><td class="memTemplParams" colspan="2">template&lt;typename ValueT , typename  = std::enable_if_t&lt;std::is_integral_v&lt;ValueT&gt;&gt;&gt; </td></tr>
-<tr class="memitem:ab08265fcc7339c197b4e6bd0e485d84c"><td class="memTemplItemLeft" align="right" valign="top">constexpr ValueT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#ab08265fcc7339c197b4e6bd0e485d84c">hton</a> (ValueT n) noexcept</td></tr>
-<tr class="separator:ab08265fcc7339c197b4e6bd0e485d84c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7b17bcae7a1e011d97fd09acc802cfd"><td class="memTemplParams" colspan="2">template&lt;typename ValueT , typename  = std::enable_if_t&lt;std::is_integral_v&lt;ValueT&gt;&gt;&gt; </td></tr>
-<tr class="memitem:aa7b17bcae7a1e011d97fd09acc802cfd"><td class="memTemplItemLeft" align="right" valign="top">constexpr ValueT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#aa7b17bcae7a1e011d97fd09acc802cfd">ltoh</a> (ValueT n) noexcept</td></tr>
-<tr class="separator:aa7b17bcae7a1e011d97fd09acc802cfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a805c3fecd8a29d798f6a04ef116f4e"><td class="memTemplParams" colspan="2">template&lt;typename ValueT , typename  = std::enable_if_t&lt;std::is_integral_v&lt;ValueT&gt;&gt;&gt; </td></tr>
-<tr class="memitem:a1a805c3fecd8a29d798f6a04ef116f4e"><td class="memTemplItemLeft" align="right" valign="top">constexpr ValueT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#a1a805c3fecd8a29d798f6a04ef116f4e">htol</a> (ValueT n) noexcept</td></tr>
-<tr class="separator:a1a805c3fecd8a29d798f6a04ef116f4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92a09ddd6090199881b97efc10a0c96c"><td class="memTemplParams" colspan="2">template&lt;typename ValueT &gt; </td></tr>
+<tr class="memitem:a92a09ddd6090199881b97efc10a0c96c"><td class="memTemplItemLeft" align="right" valign="top">requires constexpr std::integral&lt; ValueT &gt; ValueT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#a92a09ddd6090199881b97efc10a0c96c">ntoh</a> (ValueT n) noexcept</td></tr>
+<tr class="separator:a92a09ddd6090199881b97efc10a0c96c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa45a5c52bcbf8a29b18efe04fb2ce10d"><td class="memTemplParams" colspan="2">template&lt;typename ValueT &gt; </td></tr>
+<tr class="memitem:aa45a5c52bcbf8a29b18efe04fb2ce10d"><td class="memTemplItemLeft" align="right" valign="top">requires constexpr std::integral&lt; ValueT &gt; ValueT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#aa45a5c52bcbf8a29b18efe04fb2ce10d">hton</a> (ValueT n) noexcept</td></tr>
+<tr class="separator:aa45a5c52bcbf8a29b18efe04fb2ce10d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7c9efd37f8d83ebe6668ddf7f1fc061"><td class="memTemplParams" colspan="2">template&lt;typename ValueT &gt; </td></tr>
+<tr class="memitem:af7c9efd37f8d83ebe6668ddf7f1fc061"><td class="memTemplItemLeft" align="right" valign="top">requires constexpr std::integral&lt; ValueT &gt; ValueT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#af7c9efd37f8d83ebe6668ddf7f1fc061">ltoh</a> (ValueT n) noexcept</td></tr>
+<tr class="separator:af7c9efd37f8d83ebe6668ddf7f1fc061"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a988eb7ffa9cee614e13aad9e3b4e5d91"><td class="memTemplParams" colspan="2">template&lt;typename ValueT &gt; </td></tr>
+<tr class="memitem:a988eb7ffa9cee614e13aad9e3b4e5d91"><td class="memTemplItemLeft" align="right" valign="top">requires constexpr std::integral&lt; ValueT &gt; ValueT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#a988eb7ffa9cee614e13aad9e3b4e5d91">htol</a> (ValueT n) noexcept</td></tr>
+<tr class="separator:a988eb7ffa9cee614e13aad9e3b4e5d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b5abe2a9d9f9f1f08bd3fa88e9c16b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1net.html#a527fd7fbab8cb71aed64b28e782c6d8e">AddrInfoPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#a2b5abe2a9d9f9f1f08bd3fa88e9c16b6">parse_endpoint</a> (const string &amp;uri, int type)</td></tr>
 <tr class="separator:a2b5abe2a9d9f9f1f08bd3fa88e9c16b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01db7a7a01e6f386f90923bf9e2e9895"><td class="memItemLeft" align="right" valign="top">istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#a01db7a7a01e6f386f90923bf9e2e9895">operator&gt;&gt;</a> (istream &amp;is, <a class="el" href="namespacetoolbox_1_1net.html#a0007c7989e60a8c2b2eeabf64c1e60f2">DgramEndpoint</a> &amp;ep)</td></tr>
@@ -584,7 +584,7 @@ template&lt;typename ProtocolT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endian_8hpp_source.html#l00029">29</a> of file <a class="el" href="Endian_8hpp_source.html">Endian.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endian_8hpp_source.html#l00030">30</a> of file <a class="el" href="Endian_8hpp_source.html">Endian.hpp</a>.</p>
 
 </div>
 </div>
@@ -612,7 +612,7 @@ template&lt;typename ProtocolT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endian_8hpp_source.html#l00034">34</a> of file <a class="el" href="Endian_8hpp_source.html">Endian.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endian_8hpp_source.html#l00035">35</a> of file <a class="el" href="Endian_8hpp_source.html">Endian.hpp</a>.</p>
 
 </div>
 </div>
@@ -640,7 +640,7 @@ template&lt;typename ProtocolT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endian_8hpp_source.html#l00039">39</a> of file <a class="el" href="Endian_8hpp_source.html">Endian.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endian_8hpp_source.html#l00040">40</a> of file <a class="el" href="Endian_8hpp_source.html">Endian.hpp</a>.</p>
 
 </div>
 </div>
@@ -668,7 +668,7 @@ template&lt;typename ProtocolT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endian_8hpp_source.html#l00044">44</a> of file <a class="el" href="Endian_8hpp_source.html">Endian.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endian_8hpp_source.html#l00045">45</a> of file <a class="el" href="Endian_8hpp_source.html">Endian.hpp</a>.</p>
 
 </div>
 </div>
@@ -696,7 +696,7 @@ template&lt;typename ProtocolT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endian_8hpp_source.html#l00049">49</a> of file <a class="el" href="Endian_8hpp_source.html">Endian.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endian_8hpp_source.html#l00050">50</a> of file <a class="el" href="Endian_8hpp_source.html">Endian.hpp</a>.</p>
 
 </div>
 </div>
@@ -724,23 +724,23 @@ template&lt;typename ProtocolT &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endian_8hpp_source.html#l00055">55</a> of file <a class="el" href="Endian_8hpp_source.html">Endian.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endian_8hpp_source.html#l00056">56</a> of file <a class="el" href="Endian_8hpp_source.html">Endian.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a08ccfaad125c6cca3bcb00cc8601f267"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08ccfaad125c6cca3bcb00cc8601f267">&#9670;&nbsp;</a></span>ntoh()</h2>
+<a id="a92a09ddd6090199881b97efc10a0c96c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92a09ddd6090199881b97efc10a0c96c">&#9670;&nbsp;</a></span>ntoh()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ValueT , typename  = std::enable_if_t&lt;std::is_integral_v&lt;ValueT&gt;&gt;&gt; </div>
+template&lt;typename ValueT &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr ValueT toolbox::net::ntoh </td>
+          <td class="memname">requires constexpr std::integral&lt;ValueT&gt; ValueT toolbox::net::ntoh </td>
           <td>(</td>
           <td class="paramtype">ValueT&#160;</td>
           <td class="paramname"><em>n</em></td><td>)</td>
@@ -754,23 +754,23 @@ template&lt;typename ValueT , typename  = std::enable_if_t&lt;std::is_integral_v
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endian_8hpp_source.html#l00061">61</a> of file <a class="el" href="Endian_8hpp_source.html">Endian.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endian_8hpp_source.html#l00063">63</a> of file <a class="el" href="Endian_8hpp_source.html">Endian.hpp</a>.</p>
 
 </div>
 </div>
-<a id="ab08265fcc7339c197b4e6bd0e485d84c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab08265fcc7339c197b4e6bd0e485d84c">&#9670;&nbsp;</a></span>hton()</h2>
+<a id="aa45a5c52bcbf8a29b18efe04fb2ce10d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa45a5c52bcbf8a29b18efe04fb2ce10d">&#9670;&nbsp;</a></span>hton()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ValueT , typename  = std::enable_if_t&lt;std::is_integral_v&lt;ValueT&gt;&gt;&gt; </div>
+template&lt;typename ValueT &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr ValueT toolbox::net::hton </td>
+          <td class="memname">requires constexpr std::integral&lt;ValueT&gt; ValueT toolbox::net::hton </td>
           <td>(</td>
           <td class="paramtype">ValueT&#160;</td>
           <td class="paramname"><em>n</em></td><td>)</td>
@@ -784,23 +784,23 @@ template&lt;typename ValueT , typename  = std::enable_if_t&lt;std::is_integral_v
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endian_8hpp_source.html#l00071">71</a> of file <a class="el" href="Endian_8hpp_source.html">Endian.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endian_8hpp_source.html#l00074">74</a> of file <a class="el" href="Endian_8hpp_source.html">Endian.hpp</a>.</p>
 
 </div>
 </div>
-<a id="aa7b17bcae7a1e011d97fd09acc802cfd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa7b17bcae7a1e011d97fd09acc802cfd">&#9670;&nbsp;</a></span>ltoh()</h2>
+<a id="af7c9efd37f8d83ebe6668ddf7f1fc061"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7c9efd37f8d83ebe6668ddf7f1fc061">&#9670;&nbsp;</a></span>ltoh()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ValueT , typename  = std::enable_if_t&lt;std::is_integral_v&lt;ValueT&gt;&gt;&gt; </div>
+template&lt;typename ValueT &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr ValueT toolbox::net::ltoh </td>
+          <td class="memname">requires constexpr std::integral&lt;ValueT&gt; ValueT toolbox::net::ltoh </td>
           <td>(</td>
           <td class="paramtype">ValueT&#160;</td>
           <td class="paramname"><em>n</em></td><td>)</td>
@@ -814,23 +814,23 @@ template&lt;typename ValueT , typename  = std::enable_if_t&lt;std::is_integral_v
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endian_8hpp_source.html#l00081">81</a> of file <a class="el" href="Endian_8hpp_source.html">Endian.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endian_8hpp_source.html#l00085">85</a> of file <a class="el" href="Endian_8hpp_source.html">Endian.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a1a805c3fecd8a29d798f6a04ef116f4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a805c3fecd8a29d798f6a04ef116f4e">&#9670;&nbsp;</a></span>htol()</h2>
+<a id="a988eb7ffa9cee614e13aad9e3b4e5d91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a988eb7ffa9cee614e13aad9e3b4e5d91">&#9670;&nbsp;</a></span>htol()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename ValueT , typename  = std::enable_if_t&lt;std::is_integral_v&lt;ValueT&gt;&gt;&gt; </div>
+template&lt;typename ValueT &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr ValueT toolbox::net::htol </td>
+          <td class="memname">requires constexpr std::integral&lt;ValueT&gt; ValueT toolbox::net::htol </td>
           <td>(</td>
           <td class="paramtype">ValueT&#160;</td>
           <td class="paramname"><em>n</em></td><td>)</td>
@@ -844,7 +844,7 @@ template&lt;typename ValueT , typename  = std::enable_if_t&lt;std::is_integral_v
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endian_8hpp_source.html#l00091">91</a> of file <a class="el" href="Endian_8hpp_source.html">Endian.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endian_8hpp_source.html#l00096">96</a> of file <a class="el" href="Endian_8hpp_source.html">Endian.hpp</a>.</p>
 
 </div>
 </div>
