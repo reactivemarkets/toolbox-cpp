@@ -17,6 +17,8 @@
 
 #include <toolbox/bm.hpp>
 
+#include <algorithm>
+#include <array>
 #include <cmath>
 #include <cstdio>
 
