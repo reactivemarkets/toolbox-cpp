@@ -71,70 +71,70 @@ struct TOOLBOX_PACKED IntWrapper {
     // Assignment.
 
     /// Addition assignment.
-    IntWrapper& operator+=(IntWrapper rhs) noexcept
+    constexpr IntWrapper& operator+=(IntWrapper rhs) noexcept
     {
         value_ += rhs.value_;
         return *this;
     }
 
     /// Subtraction assignment.
-    IntWrapper& operator-=(IntWrapper rhs) noexcept
+    constexpr IntWrapper& operator-=(IntWrapper rhs) noexcept
     {
         value_ -= rhs.value_;
         return *this;
     }
 
     /// Multiplication assignment.
-    IntWrapper& operator*=(IntWrapper rhs) noexcept
+    constexpr IntWrapper& operator*=(IntWrapper rhs) noexcept
     {
         value_ *= rhs.value_;
         return *this;
     }
 
     /// Division assignment.
-    IntWrapper& operator/=(IntWrapper rhs) noexcept
+    constexpr IntWrapper& operator/=(IntWrapper rhs) noexcept
     {
         value_ /= rhs.value_;
         return *this;
     }
 
     /// Modulo assignment.
-    IntWrapper& operator%=(IntWrapper rhs) noexcept
+    constexpr IntWrapper& operator%=(IntWrapper rhs) noexcept
     {
         value_ %= rhs.value_;
         return *this;
     }
 
     /// Bitwise AND assignment.
-    IntWrapper& operator&=(IntWrapper rhs) noexcept
+    constexpr IntWrapper& operator&=(IntWrapper rhs) noexcept
     {
         value_ &= rhs.value_;
         return *this;
     }
 
     /// Bitwise OR assignment.
-    IntWrapper& operator|=(IntWrapper rhs) noexcept
+    constexpr IntWrapper& operator|=(IntWrapper rhs) noexcept
     {
         value_ |= rhs.value_;
         return *this;
     }
 
     /// Bitwise XOR assignment.
-    IntWrapper& operator^=(IntWrapper rhs) noexcept
+    constexpr IntWrapper& operator^=(IntWrapper rhs) noexcept
     {
         value_ ^= rhs.value_;
         return *this;
     }
 
     /// Bitwise left shift assignment.
-    IntWrapper& operator<<=(IntWrapper rhs) noexcept
+    constexpr IntWrapper& operator<<=(IntWrapper rhs) noexcept
     {
         value_ <<= rhs.value_;
         return *this;
     }
 
     /// Bitwise right shift assignment.
-    IntWrapper& operator>>=(IntWrapper rhs) noexcept
+    constexpr IntWrapper& operator>>=(IntWrapper rhs) noexcept
     {
         value_ >>= rhs.value_;
         return *this;
@@ -143,24 +143,24 @@ struct TOOLBOX_PACKED IntWrapper {
     // Increment/Decrement.
 
     /// Pre-increment.
-    IntWrapper& operator++() noexcept
+    constexpr IntWrapper& operator++() noexcept
     {
         ++value_;
         return *this;
     }
 
     /// Pre-decrement.
-    IntWrapper& operator--() noexcept
+    constexpr IntWrapper& operator--() noexcept
     {
         --value_;
         return *this;
     }
 
     /// Post-increment.
-    IntWrapper operator++(int) noexcept { return IntWrapper{value_++}; }
+    constexpr IntWrapper operator++(int) noexcept { return IntWrapper{value_++}; }
 
     /// Post-decrement.
-    IntWrapper operator--(int) noexcept { return IntWrapper{value_--}; }
+    constexpr IntWrapper operator--(int) noexcept { return IntWrapper{value_--}; }
 
     // Arithmetic.
 
@@ -236,13 +236,13 @@ struct TOOLBOX_PACKED IntWrapper {
     }
 
     // Comparison.
-    constexpr auto operator<=>(const IntWrapper&) const noexcept = default;
-    constexpr bool operator==(const IntWrapper&) const noexcept = default;
+    friend constexpr auto operator<=>(const IntWrapper&, const IntWrapper&) noexcept = default;
+    friend constexpr bool operator==(const IntWrapper&, const IntWrapper&) noexcept = default;
 
     // Stream.
 
     /// Insertion.
-    friend std::ostream& operator<<(std::ostream& os, IntWrapper rhs) { return os << rhs.value_; }
+    friend constexpr std::ostream& operator<<(std::ostream& os, IntWrapper rhs) { return os << rhs.value_; }
 
   private:
     ValueType value_;

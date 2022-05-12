@@ -1,6 +1,6 @@
 // The Reactive C++ Toolbox.
 // Copyright (C) 2013-2019 Swirly Cloud Limited
-// Copyright (C) 2021 Reactive Markets Limited
+// Copyright (C) 2022 Reactive Markets Limited
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -27,19 +27,19 @@ inline namespace util {
 
 class Tokeniser {
   public:
-    Tokeniser(std::string_view buf, std::string_view delims) noexcept { reset(buf, delims); }
-    Tokeniser() noexcept { reset(""sv, ""sv); }
-    ~Tokeniser() = default;
+    constexpr Tokeniser(std::string_view buf, std::string_view delims) noexcept { reset(buf, delims); }
+    constexpr Tokeniser() noexcept { reset(""sv, ""sv); }
+    constexpr ~Tokeniser() = default;
 
     // Copy.
-    Tokeniser(const Tokeniser&) noexcept = default;
-    Tokeniser& operator=(const Tokeniser&) noexcept = default;
+    constexpr Tokeniser(const Tokeniser&) noexcept = default;
+    constexpr Tokeniser& operator=(const Tokeniser&) noexcept = default;
 
     // Move.
-    Tokeniser(Tokeniser&&) noexcept = default;
-    Tokeniser& operator=(Tokeniser&&) noexcept = default;
+    constexpr Tokeniser(Tokeniser&&) noexcept = default;
+    constexpr Tokeniser& operator=(Tokeniser&&) noexcept = default;
 
-    void reset(std::string_view buf, std::string_view delims) noexcept
+    constexpr void reset(std::string_view buf, std::string_view delims) noexcept
     {
         buf_ = buf;
         delims_ = delims;
@@ -47,19 +47,19 @@ class Tokeniser {
         j_ = std::find_first_of(i_, buf_.cend(), delims_.cbegin(), delims_.cend());
     }
     /// Returns total bytes consumed.
-    std::size_t consumed() const noexcept { return i_ - buf_.cbegin(); }
+    constexpr std::size_t consumed() const noexcept { return i_ - buf_.cbegin(); }
     /// Returns true if all bytes have been consumed.
-    bool empty() const noexcept { return i_ == buf_.cend(); }
+    constexpr bool empty() const noexcept { return i_ == buf_.cend(); }
     /// Returns true if a delimiter was found in the remaining data.
-    bool has_delim() const noexcept { return j_ != buf_.cend(); }
-    std::string_view top() const noexcept { return buf_.substr(i_ - buf_.cbegin(), j_ - i_); }
-    std::string_view next() noexcept
+    constexpr bool has_delim() const noexcept { return j_ != buf_.cend(); }
+    constexpr std::string_view top() const noexcept { return buf_.substr(i_ - buf_.cbegin(), j_ - i_); }
+    constexpr std::string_view next() noexcept
     {
         const auto tok = top();
         pop();
         return tok;
     }
-    void pop() noexcept
+    constexpr void pop() noexcept
     {
         if (j_ != buf_.cend()) {
             i_ = j_ + 1;
@@ -77,7 +77,7 @@ class Tokeniser {
 };
 
 template <typename FnT>
-std::size_t parse_line(std::string_view buf, FnT fn)
+constexpr std::size_t parse_line(std::string_view buf, FnT fn)
 {
     Tokeniser lines{buf, "\n"sv};
     while (lines.has_delim()) {
@@ -91,7 +91,7 @@ template <std::size_t N>
 using Row = std::array<std::string_view, N>;
 
 template <std::size_t N>
-void split(std::string_view line, std::string_view delims, Row<N>& row) noexcept
+constexpr void split(std::string_view line, std::string_view delims, Row<N>& row) noexcept
 {
     Tokeniser toks{line, delims};
     for (auto& col : row) {
