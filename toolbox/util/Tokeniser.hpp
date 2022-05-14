@@ -27,7 +27,10 @@ inline namespace util {
 
 class Tokeniser {
   public:
-    constexpr Tokeniser(std::string_view buf, std::string_view delims) noexcept { reset(buf, delims); }
+    constexpr Tokeniser(std::string_view buf, std::string_view delims) noexcept
+    {
+        reset(buf, delims);
+    }
     constexpr Tokeniser() noexcept { reset(""sv, ""sv); }
     constexpr ~Tokeniser() = default;
 
@@ -52,7 +55,10 @@ class Tokeniser {
     constexpr bool empty() const noexcept { return i_ == buf_.cend(); }
     /// Returns true if a delimiter was found in the remaining data.
     constexpr bool has_delim() const noexcept { return j_ != buf_.cend(); }
-    constexpr std::string_view top() const noexcept { return buf_.substr(i_ - buf_.cbegin(), j_ - i_); }
+    constexpr std::string_view top() const noexcept
+    {
+        return buf_.substr(i_ - buf_.cbegin(), j_ - i_);
+    }
     constexpr std::string_view next() noexcept
     {
         const auto tok = top();

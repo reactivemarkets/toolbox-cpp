@@ -1,6 +1,6 @@
 // The Reactive C++ Toolbox.
 // Copyright (C) 2013-2019 Swirly Cloud Limited
-// Copyright (C) 2021 Reactive Markets Limited
+// Copyright (C) 2022 Reactive Markets Limited
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@
 #ifndef TOOLBOX_NET_STREAMCONNECTOR_HPP
 #define TOOLBOX_NET_STREAMCONNECTOR_HPP
 
-#include <toolbox/io/Event.hpp>
 #include <toolbox/io/Reactor.hpp>
 #include <toolbox/net/StreamSock.hpp>
 

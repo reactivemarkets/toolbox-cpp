@@ -21,12 +21,6 @@
 
 #include <boost/functional/hash.hpp>
 
-#include <compare>
-#include <cstdint>
-#include <iosfwd>
-#include <limits>
-#include <type_traits>
-
 namespace toolbox {
 inline namespace util {
 
@@ -242,7 +236,10 @@ struct TOOLBOX_PACKED IntWrapper {
     // Stream.
 
     /// Insertion.
-    friend constexpr std::ostream& operator<<(std::ostream& os, IntWrapper rhs) { return os << rhs.value_; }
+    friend constexpr std::ostream& operator<<(std::ostream& os, IntWrapper rhs)
+    {
+        return os << rhs.value_;
+    }
 
   private:
     ValueType value_;

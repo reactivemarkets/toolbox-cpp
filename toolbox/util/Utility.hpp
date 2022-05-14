@@ -18,12 +18,9 @@
 #define TOOLBOX_UTIL_UTILITY_HPP
 
 #include <toolbox/Config.h>
-#include <toolbox/util/Concepts.hpp>
 
 #include <bit>
-#include <cstdint>
 #include <string_view>
-#include <type_traits>
 
 namespace toolbox {
 inline namespace util {

@@ -1,6 +1,6 @@
 // The Reactive C++ Toolbox.
 // Copyright (C) 2013-2019 Swirly Cloud Limited
-// Copyright (C) 2021 Reactive Markets Limited
+// Copyright (C) 2022 Reactive Markets Limited
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,11 +18,8 @@
 #define TOOLBOX_HTTP_PARSER_HPP
 
 #include <toolbox/http/Exception.hpp>
-#include <toolbox/http/Types.hpp>
 #include <toolbox/io/Buffer.hpp>
 #include <toolbox/sys/Time.hpp>
-
-#include <string_view>
 
 namespace toolbox {
 inline namespace http {

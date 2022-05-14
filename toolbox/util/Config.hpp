@@ -18,7 +18,6 @@
 #define TOOLBOX_UTIL_CONFIG_HPP
 
 #include <toolbox/util/String.hpp>
-#include <toolbox/util/TypeTraits.hpp>
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wstrict-aliasing"
@@ -26,7 +25,6 @@
 #pragma GCC diagnostic pop
 
 #include <map>
-#include <string>
 
 namespace toolbox {
 inline namespace util {

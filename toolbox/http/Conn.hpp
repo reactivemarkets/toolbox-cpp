@@ -1,6 +1,6 @@
 // The Reactive C++ Toolbox.
 // Copyright (C) 2013-2019 Swirly Cloud Limited
-// Copyright (C) 2021 Reactive Markets Limited
+// Copyright (C) 2022 Reactive Markets Limited
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -21,13 +21,9 @@
 #include <toolbox/http/Request.hpp>
 #include <toolbox/http/Stream.hpp>
 #include <toolbox/io/Disposer.hpp>
-#include <toolbox/io/Event.hpp>
 #include <toolbox/io/Reactor.hpp>
 #include <toolbox/net/Endpoint.hpp>
 #include <toolbox/net/IoSock.hpp>
-#include <toolbox/util/Allocator.hpp>
-
-#include <boost/intrusive/list.hpp>
 
 namespace toolbox {
 inline namespace http {
