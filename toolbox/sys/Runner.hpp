@@ -21,8 +21,6 @@
 #include <toolbox/sys/Signal.hpp>
 #include <toolbox/sys/Thread.hpp>
 
-#include <thread>
-
 namespace toolbox {
 inline namespace sys {
 

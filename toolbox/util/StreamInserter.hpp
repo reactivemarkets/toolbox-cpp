@@ -16,8 +16,6 @@
 #ifndef TOOLBOX_UTIL_STREAMINSERTER_HPP
 #define TOOLBOX_UTIL_STREAMINSERTER_HPP
 
-#include <concepts>
-#include <iosfwd>
 #include <utility>
 
 namespace toolbox {

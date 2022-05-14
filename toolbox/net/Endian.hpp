@@ -22,7 +22,6 @@
 #include <bit>
 #include <concepts>
 #include <cstdint>
-#include <type_traits>
 
 namespace toolbox {
 inline namespace net {

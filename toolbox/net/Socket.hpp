@@ -1,6 +1,6 @@
 // The Reactive C++ Toolbox.
 // Copyright (C) 2013-2019 Swirly Cloud Limited
-// Copyright (C) 2021 Reactive Markets Limited
+// Copyright (C) 2022 Reactive Markets Limited
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -21,14 +21,9 @@
 
 #include <toolbox/io/File.hpp>
 
-#include <memory>
-
 #include <net/if.h>
 #include <netdb.h>
-#include <netinet/in.h>
 #include <netinet/tcp.h>
-#include <sys/socket.h>
-#include <sys/types.h>
 
 namespace toolbox {
 inline namespace net {

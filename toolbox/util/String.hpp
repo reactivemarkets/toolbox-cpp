@@ -17,6 +17,7 @@
 #ifndef TOOLBOX_UTIL_STRING_HPP
 #define TOOLBOX_UTIL_STRING_HPP
 
+#include <toolbox/util/Concepts.hpp>
 #include <toolbox/util/TypeTraits.hpp>
 
 #include <charconv>
