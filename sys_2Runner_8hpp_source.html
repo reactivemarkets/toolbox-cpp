@@ -95,80 +95,78 @@ $(function() {
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Signal_8hpp.html">toolbox/sys/Signal.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Thread_8hpp.html">toolbox/sys/Thread.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;thread&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetoolbox.html">toolbox</a> {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">inline</span> <span class="keyword">namespace </span>sys {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>{</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">// clang-format off</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;concept Runnable = requires (T r) {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    { r.run() } -&gt; std::convertible_to&lt;bool&gt;;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    r.stop();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;};</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">// clang-format on</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;} <span class="comment">// namespace</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> RunnableT&gt;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;requires Runnable&lt;RunnableT&gt;</div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classtoolbox_1_1sys_1_1Runner.html">   41</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtoolbox_1_1sys_1_1Runner.html">Runner</a> {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classtoolbox_1_1sys_1_1Runner.html#aae32daf9d9b4df97c571e0a8f296df29">   43</a></span>&#160;    <a class="code" href="classtoolbox_1_1sys_1_1Runner.html#aae32daf9d9b4df97c571e0a8f296df29">Runner</a>(RunnableT&amp; r, <a class="code" href="structtoolbox_1_1sys_1_1ThreadConfig.html">ThreadConfig</a> config)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    : r_{r}</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    , thread_{run, std::ref(r), config}</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classtoolbox_1_1sys_1_1Runner.html#ad251ef6794b52a67a0ad4d9ab8767065">   48</a></span>&#160;    <a class="code" href="classtoolbox_1_1sys_1_1Runner.html#ad251ef6794b52a67a0ad4d9ab8767065">~Runner</a>()</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        r_.stop();</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        thread_.join();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">// Copy.</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classtoolbox_1_1sys_1_1Runner.html#a64b1d19ca5f4144a74e533798cf4a1cf">   55</a></span>&#160;    <a class="code" href="classtoolbox_1_1sys_1_1Runner.html#a64b1d19ca5f4144a74e533798cf4a1cf">Runner</a>(<span class="keyword">const</span> <a class="code" href="classtoolbox_1_1sys_1_1Runner.html">Runner</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classtoolbox_1_1sys_1_1Runner.html#a6666ef3883128df23e498191f49e86f0">   56</a></span>&#160;    <a class="code" href="classtoolbox_1_1sys_1_1Runner.html">Runner</a>&amp; <a class="code" href="classtoolbox_1_1sys_1_1Runner.html#a6666ef3883128df23e498191f49e86f0">operator=</a>(<span class="keyword">const</span> <a class="code" href="classtoolbox_1_1sys_1_1Runner.html">Runner</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">// Move.</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classtoolbox_1_1sys_1_1Runner.html#a5dbe70141ae0a5919ed5c4e963f2b7e3">   59</a></span>&#160;    <a class="code" href="classtoolbox_1_1sys_1_1Runner.html#a5dbe70141ae0a5919ed5c4e963f2b7e3">Runner</a>(<a class="code" href="classtoolbox_1_1sys_1_1Runner.html">Runner</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classtoolbox_1_1sys_1_1Runner.html#ad871eaabbce231c507e2a136cccf5ea8">   60</a></span>&#160;    <a class="code" href="classtoolbox_1_1sys_1_1Runner.html">Runner</a>&amp; <a class="code" href="classtoolbox_1_1sys_1_1Runner.html#ad871eaabbce231c507e2a136cccf5ea8">operator=</a>(<a class="code" href="classtoolbox_1_1sys_1_1Runner.html">Runner</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> run(RunnableT&amp; r, <a class="code" href="structtoolbox_1_1sys_1_1ThreadConfig.html">ThreadConfig</a> config)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <a class="code" href="namespacetoolbox_1_1sys.html#ae9cef8103b7d5c133dc1079811b4e151">sig_block_all</a>();</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">try</span> {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <a class="code" href="namespacetoolbox_1_1sys.html#a932f019e19eddcea7ce9c9b98151e509">set_thread_attrs</a>(config);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <a class="code" href="Log_8hpp.html#a9860898bebf2a6f7a82cd2364369dfae">TOOLBOX_NOTICE</a> &lt;&lt; <span class="stringliteral">&quot;started &quot;</span> &lt;&lt; config.<a class="code" href="structtoolbox_1_1sys_1_1ThreadConfig.html#adc99679ef1e4fecd2c2c87576a66dc88">name</a> &lt;&lt; <span class="stringliteral">&quot; thread&quot;</span>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="comment">// The run() function returns false when the runnable is stopped.</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">while</span> (r.run()) {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <a class="code" href="Log_8hpp.html#a5b03a968e886a76c3a92a47fbe11cf01">TOOLBOX_CRIT</a> &lt;&lt; <span class="stringliteral">&quot;exception on &quot;</span> &lt;&lt; config.<a class="code" href="structtoolbox_1_1sys_1_1ThreadConfig.html#adc99679ef1e4fecd2c2c87576a66dc88">name</a> &lt;&lt; <span class="stringliteral">&quot; thread: &quot;</span> &lt;&lt; e.what();</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            kill(getpid(), SIGTERM);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <a class="code" href="Log_8hpp.html#a9860898bebf2a6f7a82cd2364369dfae">TOOLBOX_NOTICE</a> &lt;&lt; <span class="stringliteral">&quot;stopping &quot;</span> &lt;&lt; config.<a class="code" href="structtoolbox_1_1sys_1_1ThreadConfig.html#adc99679ef1e4fecd2c2c87576a66dc88">name</a> &lt;&lt; <span class="stringliteral">&quot; thread&quot;</span>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    RunnableT&amp; r_;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    std::thread thread_;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;};</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;} <span class="comment">// namespace sys</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;} <span class="comment">// namespace toolbox</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// TOOLBOX_SYS_RUNNER_HPP</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetoolbox.html">toolbox</a> {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">inline</span> <span class="keyword">namespace </span>sys {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">// clang-format off</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;concept Runnable = requires (T r) {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    { r.run() } -&gt; std::convertible_to&lt;bool&gt;;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    r.stop();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">// clang-format on</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;} <span class="comment">// namespace</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> RunnableT&gt;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;requires Runnable&lt;RunnableT&gt;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classtoolbox_1_1sys_1_1Runner.html">   39</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtoolbox_1_1sys_1_1Runner.html">Runner</a> {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classtoolbox_1_1sys_1_1Runner.html#aae32daf9d9b4df97c571e0a8f296df29">   41</a></span>&#160;    <a class="code" href="classtoolbox_1_1sys_1_1Runner.html#aae32daf9d9b4df97c571e0a8f296df29">Runner</a>(RunnableT&amp; r, <a class="code" href="structtoolbox_1_1sys_1_1ThreadConfig.html">ThreadConfig</a> config)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    : r_{r}</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    , thread_{run, std::ref(r), config}</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classtoolbox_1_1sys_1_1Runner.html#ad251ef6794b52a67a0ad4d9ab8767065">   46</a></span>&#160;    <a class="code" href="classtoolbox_1_1sys_1_1Runner.html#ad251ef6794b52a67a0ad4d9ab8767065">~Runner</a>()</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        r_.stop();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        thread_.join();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">// Copy.</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classtoolbox_1_1sys_1_1Runner.html#a64b1d19ca5f4144a74e533798cf4a1cf">   53</a></span>&#160;    <a class="code" href="classtoolbox_1_1sys_1_1Runner.html#a64b1d19ca5f4144a74e533798cf4a1cf">Runner</a>(<span class="keyword">const</span> <a class="code" href="classtoolbox_1_1sys_1_1Runner.html">Runner</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classtoolbox_1_1sys_1_1Runner.html#a6666ef3883128df23e498191f49e86f0">   54</a></span>&#160;    <a class="code" href="classtoolbox_1_1sys_1_1Runner.html">Runner</a>&amp; <a class="code" href="classtoolbox_1_1sys_1_1Runner.html#a6666ef3883128df23e498191f49e86f0">operator=</a>(<span class="keyword">const</span> <a class="code" href="classtoolbox_1_1sys_1_1Runner.html">Runner</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">// Move.</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classtoolbox_1_1sys_1_1Runner.html#a5dbe70141ae0a5919ed5c4e963f2b7e3">   57</a></span>&#160;    <a class="code" href="classtoolbox_1_1sys_1_1Runner.html#a5dbe70141ae0a5919ed5c4e963f2b7e3">Runner</a>(<a class="code" href="classtoolbox_1_1sys_1_1Runner.html">Runner</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classtoolbox_1_1sys_1_1Runner.html#ad871eaabbce231c507e2a136cccf5ea8">   58</a></span>&#160;    <a class="code" href="classtoolbox_1_1sys_1_1Runner.html">Runner</a>&amp; <a class="code" href="classtoolbox_1_1sys_1_1Runner.html#ad871eaabbce231c507e2a136cccf5ea8">operator=</a>(<a class="code" href="classtoolbox_1_1sys_1_1Runner.html">Runner</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> run(RunnableT&amp; r, <a class="code" href="structtoolbox_1_1sys_1_1ThreadConfig.html">ThreadConfig</a> config)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <a class="code" href="namespacetoolbox_1_1sys.html#ae9cef8103b7d5c133dc1079811b4e151">sig_block_all</a>();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <a class="code" href="namespacetoolbox_1_1sys.html#a932f019e19eddcea7ce9c9b98151e509">set_thread_attrs</a>(config);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <a class="code" href="Log_8hpp.html#a9860898bebf2a6f7a82cd2364369dfae">TOOLBOX_NOTICE</a> &lt;&lt; <span class="stringliteral">&quot;started &quot;</span> &lt;&lt; config.<a class="code" href="structtoolbox_1_1sys_1_1ThreadConfig.html#adc99679ef1e4fecd2c2c87576a66dc88">name</a> &lt;&lt; <span class="stringliteral">&quot; thread&quot;</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="comment">// The run() function returns false when the runnable is stopped.</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordflow">while</span> (r.run()) {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <a class="code" href="Log_8hpp.html#a5b03a968e886a76c3a92a47fbe11cf01">TOOLBOX_CRIT</a> &lt;&lt; <span class="stringliteral">&quot;exception on &quot;</span> &lt;&lt; config.<a class="code" href="structtoolbox_1_1sys_1_1ThreadConfig.html#adc99679ef1e4fecd2c2c87576a66dc88">name</a> &lt;&lt; <span class="stringliteral">&quot; thread: &quot;</span> &lt;&lt; e.what();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            kill(getpid(), SIGTERM);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <a class="code" href="Log_8hpp.html#a9860898bebf2a6f7a82cd2364369dfae">TOOLBOX_NOTICE</a> &lt;&lt; <span class="stringliteral">&quot;stopping &quot;</span> &lt;&lt; config.<a class="code" href="structtoolbox_1_1sys_1_1ThreadConfig.html#adc99679ef1e4fecd2c2c87576a66dc88">name</a> &lt;&lt; <span class="stringliteral">&quot; thread&quot;</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    RunnableT&amp; r_;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    std::thread thread_;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;} <span class="comment">// namespace sys</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;} <span class="comment">// namespace toolbox</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// TOOLBOX_SYS_RUNNER_HPP</span></div>
 <div class="ttc" id="aLog_8hpp_html"><div class="ttname"><a href="Log_8hpp.html">Log.hpp</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_a5b03a968e886a76c3a92a47fbe11cf01"><div class="ttname"><a href="Log_8hpp.html#a5b03a968e886a76c3a92a47fbe11cf01">TOOLBOX_CRIT</a></div><div class="ttdeci">#define TOOLBOX_CRIT</div><div class="ttdef"><b>Definition:</b> <a href="Log_8hpp_source.html#l00087">Log.hpp:87</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_a9860898bebf2a6f7a82cd2364369dfae"><div class="ttname"><a href="Log_8hpp.html#a9860898bebf2a6f7a82cd2364369dfae">TOOLBOX_NOTICE</a></div><div class="ttdeci">#define TOOLBOX_NOTICE</div><div class="ttdef"><b>Definition:</b> <a href="Log_8hpp_source.html#l00090">Log.hpp:90</a></div></div>
 <div class="ttc" id="aSignal_8hpp_html"><div class="ttname"><a href="Signal_8hpp.html">Signal.hpp</a></div></div>
 <div class="ttc" id="aThread_8hpp_html"><div class="ttname"><a href="Thread_8hpp.html">Thread.hpp</a></div></div>
-<div class="ttc" id="aclasstoolbox_1_1sys_1_1Runner_html"><div class="ttname"><a href="classtoolbox_1_1sys_1_1Runner.html">toolbox::Runner</a></div><div class="ttdef"><b>Definition:</b> <a href="sys_2Runner_8hpp_source.html#l00041">Runner.hpp:41</a></div></div>
+<div class="ttc" id="aclasstoolbox_1_1sys_1_1Runner_html"><div class="ttname"><a href="classtoolbox_1_1sys_1_1Runner.html">toolbox::Runner</a></div><div class="ttdef"><b>Definition:</b> <a href="sys_2Runner_8hpp_source.html#l00039">Runner.hpp:39</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1sys_1_1Runner_html_a5dbe70141ae0a5919ed5c4e963f2b7e3"><div class="ttname"><a href="classtoolbox_1_1sys_1_1Runner.html#a5dbe70141ae0a5919ed5c4e963f2b7e3">toolbox::sys::Runner::Runner</a></div><div class="ttdeci">Runner(Runner &amp;&amp;)=delete</div></div>
 <div class="ttc" id="aclasstoolbox_1_1sys_1_1Runner_html_a64b1d19ca5f4144a74e533798cf4a1cf"><div class="ttname"><a href="classtoolbox_1_1sys_1_1Runner.html#a64b1d19ca5f4144a74e533798cf4a1cf">toolbox::sys::Runner::Runner</a></div><div class="ttdeci">Runner(const Runner &amp;)=delete</div></div>
 <div class="ttc" id="aclasstoolbox_1_1sys_1_1Runner_html_a6666ef3883128df23e498191f49e86f0"><div class="ttname"><a href="classtoolbox_1_1sys_1_1Runner.html#a6666ef3883128df23e498191f49e86f0">toolbox::sys::Runner::operator=</a></div><div class="ttdeci">Runner &amp; operator=(const Runner &amp;)=delete</div></div>
-<div class="ttc" id="aclasstoolbox_1_1sys_1_1Runner_html_aae32daf9d9b4df97c571e0a8f296df29"><div class="ttname"><a href="classtoolbox_1_1sys_1_1Runner.html#aae32daf9d9b4df97c571e0a8f296df29">toolbox::sys::Runner::Runner</a></div><div class="ttdeci">Runner(RunnableT &amp;r, ThreadConfig config)</div><div class="ttdef"><b>Definition:</b> <a href="sys_2Runner_8hpp_source.html#l00043">Runner.hpp:43</a></div></div>
-<div class="ttc" id="aclasstoolbox_1_1sys_1_1Runner_html_ad251ef6794b52a67a0ad4d9ab8767065"><div class="ttname"><a href="classtoolbox_1_1sys_1_1Runner.html#ad251ef6794b52a67a0ad4d9ab8767065">toolbox::sys::Runner::~Runner</a></div><div class="ttdeci">~Runner()</div><div class="ttdef"><b>Definition:</b> <a href="sys_2Runner_8hpp_source.html#l00048">Runner.hpp:48</a></div></div>
+<div class="ttc" id="aclasstoolbox_1_1sys_1_1Runner_html_aae32daf9d9b4df97c571e0a8f296df29"><div class="ttname"><a href="classtoolbox_1_1sys_1_1Runner.html#aae32daf9d9b4df97c571e0a8f296df29">toolbox::sys::Runner::Runner</a></div><div class="ttdeci">Runner(RunnableT &amp;r, ThreadConfig config)</div><div class="ttdef"><b>Definition:</b> <a href="sys_2Runner_8hpp_source.html#l00041">Runner.hpp:41</a></div></div>
+<div class="ttc" id="aclasstoolbox_1_1sys_1_1Runner_html_ad251ef6794b52a67a0ad4d9ab8767065"><div class="ttname"><a href="classtoolbox_1_1sys_1_1Runner.html#ad251ef6794b52a67a0ad4d9ab8767065">toolbox::sys::Runner::~Runner</a></div><div class="ttdeci">~Runner()</div><div class="ttdef"><b>Definition:</b> <a href="sys_2Runner_8hpp_source.html#l00046">Runner.hpp:46</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1sys_1_1Runner_html_ad871eaabbce231c507e2a136cccf5ea8"><div class="ttname"><a href="classtoolbox_1_1sys_1_1Runner.html#ad871eaabbce231c507e2a136cccf5ea8">toolbox::sys::Runner::operator=</a></div><div class="ttdeci">Runner &amp; operator=(Runner &amp;&amp;)=delete</div></div>
 <div class="ttc" id="anamespacetoolbox_1_1sys_html_a932f019e19eddcea7ce9c9b98151e509"><div class="ttname"><a href="namespacetoolbox_1_1sys.html#a932f019e19eddcea7ce9c9b98151e509">toolbox::sys::set_thread_attrs</a></div><div class="ttdeci">void set_thread_attrs(const ThreadConfig &amp;config)</div><div class="ttdef"><b>Definition:</b> <a href="Thread_8cpp_source.html#l00069">Thread.cpp:69</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1sys_html_ae9cef8103b7d5c133dc1079811b4e151"><div class="ttname"><a href="namespacetoolbox_1_1sys.html#ae9cef8103b7d5c133dc1079811b4e151">toolbox::sys::sig_block_all</a></div><div class="ttdeci">void sig_block_all()</div><div class="ttdoc">Block all signals.</div><div class="ttdef"><b>Definition:</b> <a href="Signal_8cpp_source.html#l00082">Signal.cpp:82</a></div></div>

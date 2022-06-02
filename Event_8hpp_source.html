@@ -74,7 +74,7 @@ $(function() {
 <div class="contents">
 <a href="Event_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The Reactive C++ Toolbox.</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2013-2019 Swirly Cloud Limited</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2021 Reactive Markets Limited</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2022 Reactive Markets Limited</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">// you may not use this file except in compliance with the License.</span></div>
@@ -92,63 +92,62 @@ $(function() {
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define TOOLBOX_IO_EVENT_HPP</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;sys/epoll.h&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetoolbox.html">toolbox</a> {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">inline</span> <span class="keyword">namespace </span>io {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structtoolbox_1_1io_1_1MsgEvent.html">   29</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtoolbox_1_1io_1_1MsgEvent.html">MsgEvent</a> {</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structtoolbox_1_1io_1_1MsgEvent.html#aa5e879f35bbe739189dede0f18c3ffe5">   30</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structtoolbox_1_1io_1_1MsgEvent.html#aa5e879f35bbe739189dede0f18c3ffe5">type</a>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structtoolbox_1_1io_1_1MsgEvent.html#a7b365d8d32cf959adbdb780582033e85">   31</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="structtoolbox_1_1io_1_1MsgEvent.html#a7b365d8d32cf959adbdb780582033e85">data</a>[1524];</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;static_assert(std::is_standard_layout_v&lt;MsgEvent&gt; &amp;&amp; std::is_trivial_v&lt;MsgEvent&gt;);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;static_assert(<span class="keyword">sizeof</span>(<a class="code" href="structtoolbox_1_1io_1_1MsgEvent.html">MsgEvent</a>) + <span class="keyword">sizeof</span>(std::int64_t) == 1536);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> DataT&gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1io.html#ac2fe3d7a039c174e8c7d21995ae7d557">   37</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacetoolbox_1_1io.html#ac2fe3d7a039c174e8c7d21995ae7d557">emplace_event</a>(<a class="code" href="structtoolbox_1_1io_1_1MsgEvent.html">MsgEvent</a>&amp; ev, <span class="keywordtype">int</span> type) noexcept</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    static_assert(<span class="keyword">alignof</span>(DataT) &lt;= 8);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    static_assert(std::is_nothrow_default_constructible_v&lt;DataT&gt;);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    static_assert(std::is_trivially_copyable_v&lt;DataT&gt;);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    ev.type = type;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    ::new (ev.data) DataT{};</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> DataT, <span class="keyword">typename</span>... ArgsT&gt;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1io.html#a8c5f09411a7a0a1be83d0c63f6ddcd22">   47</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacetoolbox_1_1io.html#ac2fe3d7a039c174e8c7d21995ae7d557">emplace_event</a>(<a class="code" href="structtoolbox_1_1io_1_1MsgEvent.html">MsgEvent</a>&amp; ev, <span class="keywordtype">int</span> type, ArgsT&amp;&amp;... args) noexcept</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    static_assert(<span class="keyword">alignof</span>(DataT) &lt;= 8);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    static_assert(std::is_nothrow_constructible_v&lt;DataT, ArgsT...&gt;);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    static_assert(std::is_trivially_copyable_v&lt;DataT&gt;);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    ev.type = type;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    ::new (ev.data) DataT{std::forward&lt;ArgsT&gt;(args)...};</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> DataT&gt;</div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1io.html#a4069c41cc90c67b7de42c98880e4ecac">   57</a></span>&#160;<span class="keyword">const</span> DataT&amp; <a class="code" href="namespacetoolbox_1_1io.html#a4069c41cc90c67b7de42c98880e4ecac">data</a>(<span class="keyword">const</span> <a class="code" href="structtoolbox_1_1io_1_1MsgEvent.html">MsgEvent</a>&amp; ev) noexcept</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span>DataT*<span class="keyword">&gt;</span>(ev.data);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> DataT&gt;</div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1io.html#a654c46267cdf9c31429d17f9018b0de8">   63</a></span>&#160;DataT&amp; <a class="code" href="namespacetoolbox_1_1io.html#a4069c41cc90c67b7de42c98880e4ecac">data</a>(<a class="code" href="structtoolbox_1_1io_1_1MsgEvent.html">MsgEvent</a>&amp; ev) noexcept</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">reinterpret_cast&lt;</span>DataT*<span class="keyword">&gt;</span>(ev.data);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;} <span class="comment">// namespace io</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;} <span class="comment">// namespace toolbox</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// TOOLBOX_IO_EVENT_HPP</span></div>
-<div class="ttc" id="anamespacetoolbox_1_1io_html_a4069c41cc90c67b7de42c98880e4ecac"><div class="ttname"><a href="namespacetoolbox_1_1io.html#a4069c41cc90c67b7de42c98880e4ecac">toolbox::io::data</a></div><div class="ttdeci">const DataT &amp; data(const MsgEvent &amp;ev) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Event_8hpp_source.html#l00057">Event.hpp:57</a></div></div>
-<div class="ttc" id="anamespacetoolbox_1_1io_html_ac2fe3d7a039c174e8c7d21995ae7d557"><div class="ttname"><a href="namespacetoolbox_1_1io.html#ac2fe3d7a039c174e8c7d21995ae7d557">toolbox::io::emplace_event</a></div><div class="ttdeci">void emplace_event(MsgEvent &amp;ev, int type) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Event_8hpp_source.html#l00037">Event.hpp:37</a></div></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;sys/epoll.h&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetoolbox.html">toolbox</a> {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">inline</span> <span class="keyword">namespace </span>io {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structtoolbox_1_1io_1_1MsgEvent.html">   28</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtoolbox_1_1io_1_1MsgEvent.html">MsgEvent</a> {</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structtoolbox_1_1io_1_1MsgEvent.html#aa5e879f35bbe739189dede0f18c3ffe5">   29</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structtoolbox_1_1io_1_1MsgEvent.html#aa5e879f35bbe739189dede0f18c3ffe5">type</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structtoolbox_1_1io_1_1MsgEvent.html#a7b365d8d32cf959adbdb780582033e85">   30</a></span>&#160;    <span class="keywordtype">char</span> <a class="code" href="structtoolbox_1_1io_1_1MsgEvent.html#a7b365d8d32cf959adbdb780582033e85">data</a>[1524];</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;static_assert(std::is_standard_layout_v&lt;MsgEvent&gt; &amp;&amp; std::is_trivial_v&lt;MsgEvent&gt;);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;static_assert(<span class="keyword">sizeof</span>(<a class="code" href="structtoolbox_1_1io_1_1MsgEvent.html">MsgEvent</a>) + <span class="keyword">sizeof</span>(std::int64_t) == 1536);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> DataT&gt;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1io.html#ac2fe3d7a039c174e8c7d21995ae7d557">   36</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacetoolbox_1_1io.html#ac2fe3d7a039c174e8c7d21995ae7d557">emplace_event</a>(<a class="code" href="structtoolbox_1_1io_1_1MsgEvent.html">MsgEvent</a>&amp; ev, <span class="keywordtype">int</span> type) noexcept</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    static_assert(<span class="keyword">alignof</span>(DataT) &lt;= 8);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    static_assert(std::is_nothrow_default_constructible_v&lt;DataT&gt;);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    static_assert(std::is_trivially_copyable_v&lt;DataT&gt;);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    ev.type = type;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    ::new (ev.data) DataT{};</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> DataT, <span class="keyword">typename</span>... ArgsT&gt;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1io.html#a8c5f09411a7a0a1be83d0c63f6ddcd22">   46</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacetoolbox_1_1io.html#ac2fe3d7a039c174e8c7d21995ae7d557">emplace_event</a>(<a class="code" href="structtoolbox_1_1io_1_1MsgEvent.html">MsgEvent</a>&amp; ev, <span class="keywordtype">int</span> type, ArgsT&amp;&amp;... args) noexcept</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    static_assert(<span class="keyword">alignof</span>(DataT) &lt;= 8);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    static_assert(std::is_nothrow_constructible_v&lt;DataT, ArgsT...&gt;);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    static_assert(std::is_trivially_copyable_v&lt;DataT&gt;);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    ev.type = type;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    ::new (ev.data) DataT{std::forward&lt;ArgsT&gt;(args)...};</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> DataT&gt;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1io.html#a4069c41cc90c67b7de42c98880e4ecac">   56</a></span>&#160;<span class="keyword">const</span> DataT&amp; <a class="code" href="namespacetoolbox_1_1io.html#a4069c41cc90c67b7de42c98880e4ecac">data</a>(<span class="keyword">const</span> <a class="code" href="structtoolbox_1_1io_1_1MsgEvent.html">MsgEvent</a>&amp; ev) noexcept</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span>DataT*<span class="keyword">&gt;</span>(ev.data);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> DataT&gt;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1io.html#a654c46267cdf9c31429d17f9018b0de8">   62</a></span>&#160;DataT&amp; <a class="code" href="namespacetoolbox_1_1io.html#a4069c41cc90c67b7de42c98880e4ecac">data</a>(<a class="code" href="structtoolbox_1_1io_1_1MsgEvent.html">MsgEvent</a>&amp; ev) noexcept</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> *<span class="keyword">reinterpret_cast&lt;</span>DataT*<span class="keyword">&gt;</span>(ev.data);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;} <span class="comment">// namespace io</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;} <span class="comment">// namespace toolbox</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// TOOLBOX_IO_EVENT_HPP</span></div>
+<div class="ttc" id="anamespacetoolbox_1_1io_html_a4069c41cc90c67b7de42c98880e4ecac"><div class="ttname"><a href="namespacetoolbox_1_1io.html#a4069c41cc90c67b7de42c98880e4ecac">toolbox::io::data</a></div><div class="ttdeci">const DataT &amp; data(const MsgEvent &amp;ev) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Event_8hpp_source.html#l00056">Event.hpp:56</a></div></div>
+<div class="ttc" id="anamespacetoolbox_1_1io_html_ac2fe3d7a039c174e8c7d21995ae7d557"><div class="ttname"><a href="namespacetoolbox_1_1io.html#ac2fe3d7a039c174e8c7d21995ae7d557">toolbox::io::emplace_event</a></div><div class="ttdeci">void emplace_event(MsgEvent &amp;ev, int type) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Event_8hpp_source.html#l00036">Event.hpp:36</a></div></div>
 <div class="ttc" id="anamespacetoolbox_html"><div class="ttname"><a href="namespacetoolbox.html">toolbox</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8cpp_source.html#l00026">Benchmark.cpp:26</a></div></div>
-<div class="ttc" id="astructtoolbox_1_1io_1_1MsgEvent_html"><div class="ttname"><a href="structtoolbox_1_1io_1_1MsgEvent.html">toolbox::io::MsgEvent</a></div><div class="ttdef"><b>Definition:</b> <a href="Event_8hpp_source.html#l00029">Event.hpp:29</a></div></div>
-<div class="ttc" id="astructtoolbox_1_1io_1_1MsgEvent_html_a7b365d8d32cf959adbdb780582033e85"><div class="ttname"><a href="structtoolbox_1_1io_1_1MsgEvent.html#a7b365d8d32cf959adbdb780582033e85">toolbox::io::MsgEvent::data</a></div><div class="ttdeci">char data[1524]</div><div class="ttdef"><b>Definition:</b> <a href="Event_8hpp_source.html#l00031">Event.hpp:31</a></div></div>
-<div class="ttc" id="astructtoolbox_1_1io_1_1MsgEvent_html_aa5e879f35bbe739189dede0f18c3ffe5"><div class="ttname"><a href="structtoolbox_1_1io_1_1MsgEvent.html#aa5e879f35bbe739189dede0f18c3ffe5">toolbox::io::MsgEvent::type</a></div><div class="ttdeci">int type</div><div class="ttdef"><b>Definition:</b> <a href="Event_8hpp_source.html#l00030">Event.hpp:30</a></div></div>
+<div class="ttc" id="astructtoolbox_1_1io_1_1MsgEvent_html"><div class="ttname"><a href="structtoolbox_1_1io_1_1MsgEvent.html">toolbox::io::MsgEvent</a></div><div class="ttdef"><b>Definition:</b> <a href="Event_8hpp_source.html#l00028">Event.hpp:28</a></div></div>
+<div class="ttc" id="astructtoolbox_1_1io_1_1MsgEvent_html_a7b365d8d32cf959adbdb780582033e85"><div class="ttname"><a href="structtoolbox_1_1io_1_1MsgEvent.html#a7b365d8d32cf959adbdb780582033e85">toolbox::io::MsgEvent::data</a></div><div class="ttdeci">char data[1524]</div><div class="ttdef"><b>Definition:</b> <a href="Event_8hpp_source.html#l00030">Event.hpp:30</a></div></div>
+<div class="ttc" id="astructtoolbox_1_1io_1_1MsgEvent_html_aa5e879f35bbe739189dede0f18c3ffe5"><div class="ttname"><a href="structtoolbox_1_1io_1_1MsgEvent.html#aa5e879f35bbe739189dede0f18c3ffe5">toolbox::io::MsgEvent::type</a></div><div class="ttdeci">int type</div><div class="ttdef"><b>Definition:</b> <a href="Event_8hpp_source.html#l00029">Event.hpp:29</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

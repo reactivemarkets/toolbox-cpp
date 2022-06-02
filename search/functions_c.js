@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['next_1831',['next',['../classtoolbox_1_1util_1_1Tokeniser.html#a88183e17c45a32fe80a73b88895eb0b5',1,'toolbox::util::Tokeniser::next()'],['../classtoolbox_1_1hdr_1_1Iterator.html#ac1ca83ad0c8a8cbaa1fd4e71fe5aba91',1,'toolbox::hdr::Iterator::next()']]],
+  ['next_1831',['next',['../classtoolbox_1_1util_1_1Tokeniser.html#a058994a0b5f1f1cbacbcad666d4b982e',1,'toolbox::util::Tokeniser::next()'],['../classtoolbox_1_1hdr_1_1Iterator.html#ac1ca83ad0c8a8cbaa1fd4e71fe5aba91',1,'toolbox::hdr::Iterator::next()']]],
   ['next_5fnon_5fequivalent_5fvalue_1832',['next_non_equivalent_value',['../classtoolbox_1_1hdr_1_1Histogram.html#a12fd49abd2bc9c35ebe88582dc483f32',1,'toolbox::hdr::Histogram']]],
   ['next_5fpow2_1833',['next_pow2',['../namespacetoolbox_1_1util.html#a68ac520e2e1f334b342eca07535f47b9',1,'toolbox::util::next_pow2(unsigned n) noexcept'],['../namespacetoolbox_1_1util.html#a9e34fdde5bf0ecd5e8d54e5bf122c88b',1,'toolbox::util::next_pow2(unsigned long n) noexcept'],['../namespacetoolbox_1_1util.html#a9e34fdde5bf0ecd5e8d54e5bf122c88b',1,'toolbox::next_pow2(unsigned long n) noexcept'],['../namespacetoolbox_1_1util.html#a68ac520e2e1f334b342eca07535f47b9',1,'toolbox::next_pow2(unsigned n) noexcept']]],
   ['next_5fvalue_5fgreater_5fthan_5freporting_5flevel_5fupper_5fbound_1834',['next_value_greater_than_reporting_level_upper_bound',['../classtoolbox_1_1hdr_1_1Iterator.html#af054b0dd885ed18454466507cbb0f792',1,'toolbox::hdr::Iterator']]],
