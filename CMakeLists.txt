@@ -218,6 +218,7 @@ if(CLANG_FORMAT)
   add_custom_target(clang-format COMMAND bash "${CMAKE_BINARY_DIR}/clang-format.sh")
 endif()
 
+list(APPEND CMAKE_CTEST_ARGUMENTS "--output-on-failure")
 enable_testing()
 
 add_subdirectory(toolbox)
