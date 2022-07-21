@@ -32,7 +32,7 @@ inline namespace sys {
 using namespace std;
 namespace {
 
-const char* Labels[] = {"NONE", "CRIT", "ERROR", "WARNING", "NOTICE", "INFO", "DEBUG"};
+const char* Labels[] = {"NONE", "CRIT", "ERROR", "WARN", "NOTICE", "INFO", "DEBUG"};
 
 // The gettid() function is a Linux-specific function call.
 #if defined(__linux__)
@@ -61,15 +61,15 @@ class StdLogger final : public Logger {
         localtime_r(&t, &tm);
 
         // The following format has an upper-bound of 49 characters:
-        // "%Y/%m/%d %H:%M:%S.%06d %-7s [%d]: "
+        // "%Y/%m/%d %H:%M:%S.%06d %-6s [%d]: "
         //
         // Example:
-        // 2022/03/14 00:00:00.000000 WARNING [0123456789]: msg...
-        // <---------------------------------------->
-        char head[49 + 1];
+        // 2022/03/14 00:00:00.000000 NOTICE [0123456789]: msg...
+        // <---------------------------------------------->
+        char head[48 + 1];
         size_t hlen{strftime(head, sizeof(head), "%Y/%m/%d %H:%M:%S", &tm)};
         const auto us{static_cast<int>(us_since_epoch(ts) % 1000000)};
-        hlen += sprintf(head + hlen, ".%06d %-7s [%d]: ", us, log_label(level),
+        hlen += sprintf(head + hlen, ".%06d %-6s [%d]: ", us, log_label(level),
                         static_cast<int>(gettid()));
         char tail{'\n'};
         iovec iov[] = {
@@ -100,7 +100,7 @@ class SysLogger final : public Logger {
         case LogLevel::Error:
             prio = LOG_ERR;
             break;
-        case LogLevel::Warning:
+        case LogLevel::Warn:
             prio = LOG_WARNING;
             break;
         case LogLevel::Notice:

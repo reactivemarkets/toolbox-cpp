@@ -1,6 +1,6 @@
 // The Reactive C++ Toolbox.
 // Copyright (C) 2013-2019 Swirly Cloud Limited
-// Copyright (C) 2021 Reactive Markets Limited
+// Copyright (C) 2022 Reactive Markets Limited
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -67,7 +67,7 @@ BOOST_AUTO_TEST_CASE(LogLabelCase)
     BOOST_TEST(strcmp(log_label(LogLevel::None), "NONE") == 0);
     BOOST_TEST(strcmp(log_label(LogLevel::Crit), "CRIT") == 0);
     BOOST_TEST(strcmp(log_label(LogLevel::Error), "ERROR") == 0);
-    BOOST_TEST(strcmp(log_label(LogLevel::Warning), "WARNING") == 0);
+    BOOST_TEST(strcmp(log_label(LogLevel::Warn), "WARN") == 0);
     BOOST_TEST(strcmp(log_label(LogLevel::Notice), "NOTICE") == 0);
     BOOST_TEST(strcmp(log_label(LogLevel::Info), "INFO") == 0);
     BOOST_TEST(strcmp(log_label(LogLevel::Debug), "DEBUG") == 0);
@@ -99,8 +99,8 @@ BOOST_AUTO_TEST_CASE(LogMacroCase)
     BOOST_TEST(tl.last_level == LogLevel::Error);
     BOOST_TEST(tl.last_msg == "test3: (10,20)");
 
-    TOOLBOX_WARNING << "test4: " << Foo<int, int>{10, 20};
-    BOOST_TEST(tl.last_level == LogLevel::Warning);
+    TOOLBOX_WARN << "test4: " << Foo<int, int>{10, 20};
+    BOOST_TEST(tl.last_level == LogLevel::Warn);
     BOOST_TEST(tl.last_msg == "test4: (10,20)");
 
     TOOLBOX_NOTICE << "test5: " << Foo<int, int>{10, 20};
