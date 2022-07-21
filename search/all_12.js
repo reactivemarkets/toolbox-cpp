@@ -82,7 +82,7 @@ var searchData=
   ['toolbox_5fprobe_990',['TOOLBOX_PROBE',['../Trace_8hpp.html#aef32bfd6d6c0728aeb81c32dc7176de8',1,'Trace.hpp']]],
   ['toolbox_5fprobe_5fscoped_991',['TOOLBOX_PROBE_SCOPED',['../Trace_8hpp.html#a352d59e0358d18f2e4713350087f6882',1,'Trace.hpp']]],
   ['toolbox_5fversion_992',['TOOLBOX_VERSION',['../Config_8h.html#ac2130016ee8b1f2a9c6188649d111e06',1,'Config.h']]],
-  ['toolbox_5fwarning_993',['TOOLBOX_WARNING',['../Log_8hpp.html#a410748b7f856f810e52d0792c067f1f5',1,'Log.hpp']]],
+  ['toolbox_5fwarn_993',['TOOLBOX_WARN',['../Log_8hpp.html#a8efe682ee270dbc710ef556ff52a0eee',1,'Log.hpp']]],
   ['toolbox_5fweak_994',['TOOLBOX_WEAK',['../Config_8h.html#a046dc47367ddddc297cabd91c5372a44',1,'Config.h']]],
   ['top_995',['top',['../classtoolbox_1_1util_1_1Tokeniser.html#af16853948eecc3df7393117c6e67f6b5',1,'toolbox::util::Tokeniser']]],
   ['total_5fcount_996',['total_count',['../classtoolbox_1_1hdr_1_1Histogram.html#a31e3a6a99d4290e233f3d1b99e01b432',1,'toolbox::hdr::Histogram']]],

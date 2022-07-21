@@ -74,7 +74,7 @@ $(function() {
 <div class="contents">
 <a href="HttpServ_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// The Reactive C++ Toolbox.</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Copyright (C) 2013-2019 Swirly Cloud Limited</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2021 Reactive Markets Limited</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright (C) 2022 Reactive Markets Limited</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">// you may not use this file except in compliance with the License.</span></div>
@@ -145,7 +145,7 @@ $(function() {
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> do_on_http_timeout(<a class="code" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now, <span class="keyword">const</span> Endpoint&amp; ep) noexcept <span class="keyword">override</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <a class="code" href="Log_8hpp.html#a410748b7f856f810e52d0792c067f1f5">TOOLBOX_WARNING</a> &lt;&lt; <span class="stringliteral">&quot;http session timeout: &quot;</span> &lt;&lt; ep;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <a class="code" href="Log_8hpp.html#a8efe682ee270dbc710ef556ff52a0eee">TOOLBOX_WARN</a> &lt;&lt; <span class="stringliteral">&quot;http session timeout: &quot;</span> &lt;&lt; ep;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keyword">private</span>:</div>
@@ -200,7 +200,7 @@ $(function() {
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
 <div class="ttc" id="aHttpServ_8cpp_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="HttpServ_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="HttpServ_8cpp_source.html#l00083">HttpServ.cpp:83</a></div></div>
-<div class="ttc" id="aLog_8hpp_html_a410748b7f856f810e52d0792c067f1f5"><div class="ttname"><a href="Log_8hpp.html#a410748b7f856f810e52d0792c067f1f5">TOOLBOX_WARNING</a></div><div class="ttdeci">#define TOOLBOX_WARNING</div><div class="ttdef"><b>Definition:</b> <a href="Log_8hpp_source.html#l00089">Log.hpp:89</a></div></div>
+<div class="ttc" id="aLog_8hpp_html_a8efe682ee270dbc710ef556ff52a0eee"><div class="ttname"><a href="Log_8hpp.html#a8efe682ee270dbc710ef556ff52a0eee">TOOLBOX_WARN</a></div><div class="ttdeci">#define TOOLBOX_WARN</div><div class="ttdef"><b>Definition:</b> <a href="Log_8hpp_source.html#l00089">Log.hpp:89</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_aaaca7789578fae79a1968cc989889940"><div class="ttname"><a href="Log_8hpp.html#aaaca7789578fae79a1968cc989889940">TOOLBOX_INFO</a></div><div class="ttdeci">#define TOOLBOX_INFO</div><div class="ttdef"><b>Definition:</b> <a href="Log_8hpp_source.html#l00091">Log.hpp:91</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_aca90da8a175ed216c67a7b0d6f517eda"><div class="ttname"><a href="Log_8hpp.html#aca90da8a175ed216c67a7b0d6f517eda">TOOLBOX_ERROR</a></div><div class="ttdeci">#define TOOLBOX_ERROR</div><div class="ttdef"><b>Definition:</b> <a href="Log_8hpp_source.html#l00088">Log.hpp:88</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1http_1_1App_html"><div class="ttname"><a href="classtoolbox_1_1http_1_1App.html">toolbox::App</a></div><div class="ttdef"><b>Definition:</b> <a href="App_8hpp_source.html#l00028">App.hpp:28</a></div></div>
