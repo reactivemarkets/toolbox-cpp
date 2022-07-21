@@ -1,6 +1,6 @@
 // The Reactive C++ Toolbox.
 // Copyright (C) 2013-2019 Swirly Cloud Limited
-// Copyright (C) 2021 Reactive Markets Limited
+// Copyright (C) 2022 Reactive Markets Limited
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -71,7 +71,7 @@ class ExampleApp final : public App {
     }
     void do_on_http_timeout(CyclTime now, const Endpoint& ep) noexcept override
     {
-        TOOLBOX_WARNING << "http session timeout: " << ep;
+        TOOLBOX_WARN << "http session timeout: " << ep;
     }
 
   private:

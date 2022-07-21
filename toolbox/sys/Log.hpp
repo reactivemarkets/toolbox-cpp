@@ -1,6 +1,6 @@
 // The Reactive C++ Toolbox.
 // Copyright (C) 2013-2019 Swirly Cloud Limited
-// Copyright (C) 2021 Reactive Markets Limited
+// Copyright (C) 2022 Reactive Markets Limited
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -86,7 +86,7 @@ class Log {
 
 #define TOOLBOX_CRIT TOOLBOX_LOG(toolbox::LogLevel::Crit)
 #define TOOLBOX_ERROR TOOLBOX_LOG(toolbox::LogLevel::Error)
-#define TOOLBOX_WARNING TOOLBOX_LOG(toolbox::LogLevel::Warning)
+#define TOOLBOX_WARN TOOLBOX_LOG(toolbox::LogLevel::Warn)
 #define TOOLBOX_NOTICE TOOLBOX_LOG(toolbox::LogLevel::Notice)
 #define TOOLBOX_INFO TOOLBOX_LOG(toolbox::LogLevel::Info)
 
