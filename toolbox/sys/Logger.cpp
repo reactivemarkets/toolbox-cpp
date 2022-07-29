@@ -32,7 +32,7 @@ inline namespace sys {
 using namespace std;
 namespace {
 
-const char* Labels[] = {"NONE", "CRIT", "ERROR", "WARN", "NOTICE", "INFO", "DEBUG"};
+const char* Labels[] = {"NONE", "CRIT", "ERROR", "WARN", "METRIC", "NOTICE", "INFO", "DEBUG"};
 
 // The gettid() function is a Linux-specific function call.
 #if defined(__linux__)
@@ -102,6 +102,9 @@ class SysLogger final : public Logger {
             break;
         case LogLevel::Warn:
             prio = LOG_WARNING;
+            break;
+        case LogLevel::Metric:
+            prio = LOG_NOTICE;
             break;
         case LogLevel::Notice:
             prio = LOG_NOTICE;

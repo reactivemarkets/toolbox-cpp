@@ -87,6 +87,7 @@ class Log {
 #define TOOLBOX_CRIT TOOLBOX_LOG(toolbox::LogLevel::Crit)
 #define TOOLBOX_ERROR TOOLBOX_LOG(toolbox::LogLevel::Error)
 #define TOOLBOX_WARN TOOLBOX_LOG(toolbox::LogLevel::Warn)
+#define TOOLBOX_METRIC TOOLBOX_LOG(toolbox::LogLevel::Metric)
 #define TOOLBOX_NOTICE TOOLBOX_LOG(toolbox::LogLevel::Notice)
 #define TOOLBOX_INFO TOOLBOX_LOG(toolbox::LogLevel::Info)
 
