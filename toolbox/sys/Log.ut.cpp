@@ -68,6 +68,7 @@ BOOST_AUTO_TEST_CASE(LogLabelCase)
     BOOST_TEST(strcmp(log_label(LogLevel::Crit), "CRIT") == 0);
     BOOST_TEST(strcmp(log_label(LogLevel::Error), "ERROR") == 0);
     BOOST_TEST(strcmp(log_label(LogLevel::Warn), "WARN") == 0);
+    BOOST_TEST(strcmp(log_label(LogLevel::Metric), "METRIC") == 0);
     BOOST_TEST(strcmp(log_label(LogLevel::Notice), "NOTICE") == 0);
     BOOST_TEST(strcmp(log_label(LogLevel::Info), "INFO") == 0);
     BOOST_TEST(strcmp(log_label(LogLevel::Debug), "DEBUG") == 0);
@@ -103,18 +104,22 @@ BOOST_AUTO_TEST_CASE(LogMacroCase)
     BOOST_TEST(tl.last_level == LogLevel::Warn);
     BOOST_TEST(tl.last_msg == "test4: (10,20)");
 
-    TOOLBOX_NOTICE << "test5: " << Foo<int, int>{10, 20};
-    BOOST_TEST(tl.last_level == LogLevel::Notice);
+    TOOLBOX_METRIC << "test5: " << Foo<int, int>{10, 20};
+    BOOST_TEST(tl.last_level == LogLevel::Metric);
     BOOST_TEST(tl.last_msg == "test5: (10,20)");
 
-    TOOLBOX_INFO << "test6: " << Foo<int, int>{10, 20};
-    BOOST_TEST(tl.last_level == LogLevel::Info);
+    TOOLBOX_NOTICE << "test6: " << Foo<int, int>{10, 20};
+    BOOST_TEST(tl.last_level == LogLevel::Notice);
     BOOST_TEST(tl.last_msg == "test6: (10,20)");
 
-    // This should not be logged.
-    TOOLBOX_DEBUG << "test7: " << Foo<int, int>{10, 20};
+    TOOLBOX_INFO << "test7: " << Foo<int, int>{10, 20};
     BOOST_TEST(tl.last_level == LogLevel::Info);
-    BOOST_TEST(tl.last_msg == "test6: (10,20)");
+    BOOST_TEST(tl.last_msg == "test7: (10,20)");
+
+    // This should not be logged.
+    TOOLBOX_DEBUG << "test8: " << Foo<int, int>{10, 20};
+    BOOST_TEST(tl.last_level == LogLevel::Info);
+    BOOST_TEST(tl.last_msg == "test7: (10,20)");
 
     // This will log a non formatted string view, the formatting shows up on the next "formatable"
     // parameter.

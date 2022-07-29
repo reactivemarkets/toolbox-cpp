@@ -37,6 +37,8 @@ enum class LogLevel : int {
     Error,
     /// Warning.
     Warn,
+    //// Metric.
+    Metric,
     /// Notice.
     Notice,
     /// Information.
