@@ -20,6 +20,7 @@
 #include <toolbox/Config.h>
 
 #include <string>
+#include <sched.h>
 
 namespace toolbox {
 inline namespace sys {
