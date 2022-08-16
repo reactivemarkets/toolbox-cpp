@@ -310,7 +310,7 @@ BOOST_AUTO_TEST_CASE(PstrcpyidCase)
 
 BOOST_AUTO_TEST_CASE(MakeStringCase)
 {
-    auto res = make_string(1, 1.2, "foo");
+    auto res = strconcat(1, 1.2, "foo");
     BOOST_TEST(res == "11.2foo");
 }
 

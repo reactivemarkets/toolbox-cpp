@@ -221,7 +221,7 @@ constexpr std::size_t pstrcpyid(char (&dst)[SizeN], std::int64_t id) noexcept
 }
 
 template <typename... ArgsT>
-std::string make_string(ArgsT&&... args)
+std::string strconcat(ArgsT&&... args)
 {
     std::stringstream os;
     (os << ... << args);
