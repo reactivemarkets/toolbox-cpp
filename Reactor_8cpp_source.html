@@ -190,7 +190,7 @@ $(function() {
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keyword">enum</span> { <a class="code" href="namespacetoolbox_1_1io.html#a3ebeb41d6195a7beeb4a1734379c4684a655d20c1ca69519ca647684edbb2db35">High</a> = 0, <a class="code" href="namespacetoolbox_1_1io.html#a3ebeb41d6195a7beeb4a1734379c4684a28d0edd045e05cf5af64e35ae0c4c6ef">Low</a> = 1 };</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keyword">using namespace </span>chrono;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    {</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keyword">auto</span>&amp; tq = tqs_[High];</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span>&amp; tq = tqs_[High];</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        <span class="keywordflow">if</span> (!tq.empty()) {</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            <span class="comment">// Duration until next expiry. Mitigate scheduler latency by preempting the</span></div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            <span class="comment">// high-priority timer and busy-waiting for 200us ahead of timer expiry.</span></div>
@@ -198,7 +198,7 @@ $(function() {
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        }</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    }</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    {</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keyword">auto</span>&amp; tq = tqs_[<a class="code" href="namespacetoolbox_1_1io.html#a3ebeb41d6195a7beeb4a1734379c4684a28d0edd045e05cf5af64e35ae0c4c6ef">Low</a>];</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span>&amp; tq = tqs_[<a class="code" href="namespacetoolbox_1_1io.html#a3ebeb41d6195a7beeb4a1734379c4684a28d0edd045e05cf5af64e35ae0c4c6ef">Low</a>];</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keywordflow">if</span> (!tq.empty()) {</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            <span class="comment">// Duration until next expiry.</span></div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            next = <a class="code" href="namespacetoolbox_1_1hdr.html#a14d2c0102315f1cebd75ce1db1df61f2">min</a>(next, tq.front().expiry());</div>

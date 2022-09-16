@@ -96,7 +96,7 @@ $(function() {
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
 <div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classtoolbox_1_1http_1_1StreamBuf.html#ad0dc10c8ad2a3cc7cccfd3e35a0167b4">   23</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classtoolbox_1_1http_1_1StreamBuf.html#ad0dc10c8ad2a3cc7cccfd3e35a0167b4">StreamBuf::set_content_length</a>(std::streamsize pos, std::streamsize len) noexcept</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">auto</span> it = pbase_ + pos;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">auto</span>* it = pbase_ + pos;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">do</span> {</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        --it;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        *it = <span class="charliteral">&#39;0&#39;</span> + len % 10;</div>

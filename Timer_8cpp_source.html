@@ -141,7 +141,7 @@ $(function() {
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    assert(slot);</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    heap_.reserve(heap_.size() + 1);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> tmr = <a class="code" href="namespacetoolbox.html#a68032542904e1df77c7aa6525f48f3db">allocate</a>(expiry, interval, slot);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> tmr{<a class="code" href="namespacetoolbox.html#a68032542904e1df77c7aa6525f48f3db">allocate</a>(expiry, interval, slot)};</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="comment">// Cannot fail.</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    heap_.push_back(tmr);</div>

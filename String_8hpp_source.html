@@ -277,7 +277,7 @@ $(function() {
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="keyword">template</span> &lt;<span class="keywordtype">char</span> PadC&gt;</div>
 <div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="namespacetoolbox_1_1util.html#acd2fd98369ca471075881db6556dee40">  204</a></span>&#160;constexpr std::size_t <a class="code" href="namespacetoolbox_1_1util.html#acd2fd98369ca471075881db6556dee40">pstrcpyid</a>(<span class="keywordtype">char</span>* dst, std::int64_t <span class="keywordtype">id</span>, std::size_t n) noexcept</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;{</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> end = dst + n;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keyword">auto</span>* end = dst + n;</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> [eptr, ec] = std::to_chars(dst, end, <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keywordflow">if</span> (ec == std::errc::value_too_large) {</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="keywordflow">return</span> 0;</div>
