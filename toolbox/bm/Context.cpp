@@ -14,8 +14,3 @@
 // limitations under the License.
 
 #include "Context.hpp"
-
-namespace toolbox::bm {
-using namespace std;
-Context::~Context() = default;
-} // namespace toolbox::bm

@@ -22,8 +22,6 @@ namespace toolbox {
 inline namespace util {
 using namespace std;
 
-ArgvLexer::~ArgvLexer() = default;
-
 void ArgvLexer::pop_switch()
 {
     ++it_;
