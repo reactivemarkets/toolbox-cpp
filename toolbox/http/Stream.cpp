@@ -22,7 +22,7 @@ using namespace std;
 
 void StreamBuf::set_content_length(std::streamsize pos, std::streamsize len) noexcept
 {
-    auto it = pbase_ + pos;
+    auto* it = pbase_ + pos;
     do {
         --it;
         *it = '0' + len % 10;

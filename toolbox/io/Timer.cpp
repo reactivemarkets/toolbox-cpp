@@ -67,7 +67,7 @@ Timer TimerQueue::insert(MonoTime expiry, Duration interval, TimerSlot slot)
     assert(slot);
 
     heap_.reserve(heap_.size() + 1);
-    const auto tmr = allocate(expiry, interval, slot);
+    const auto tmr{allocate(expiry, interval, slot)};
 
     // Cannot fail.
     heap_.push_back(tmr);

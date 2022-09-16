@@ -203,7 +203,7 @@ constexpr std::size_t pstrcpy(char (&dst)[SizeN], std::string_view src) noexcept
 template <char PadC>
 constexpr std::size_t pstrcpyid(char* dst, std::int64_t id, std::size_t n) noexcept
 {
-    const auto end = dst + n;
+    auto* end = dst + n;
     const auto [eptr, ec] = std::to_chars(dst, end, id);
     if (ec == std::errc::value_too_large) {
         return 0;

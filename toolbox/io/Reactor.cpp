@@ -116,7 +116,7 @@ MonoTime Reactor::next_expiry(MonoTime next) const
     enum { High = 0, Low = 1 };
     using namespace chrono;
     {
-        auto& tq = tqs_[High];
+        const auto& tq = tqs_[High];
         if (!tq.empty()) {
             // Duration until next expiry. Mitigate scheduler latency by preempting the
             // high-priority timer and busy-waiting for 200us ahead of timer expiry.
@@ -124,7 +124,7 @@ MonoTime Reactor::next_expiry(MonoTime next) const
         }
     }
     {
-        auto& tq = tqs_[Low];
+        const auto& tq = tqs_[Low];
         if (!tq.empty()) {
             // Duration until next expiry.
             next = min(next, tq.front().expiry());

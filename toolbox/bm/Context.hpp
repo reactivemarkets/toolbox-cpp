@@ -27,7 +27,7 @@ class TOOLBOX_API Context {
     : hist_{hist}
     {
     }
-    ~Context();
+    ~Context() = default;
 
     // Copy.
     Context(const Context&) = delete;

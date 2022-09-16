@@ -68,7 +68,7 @@ class TOOLBOX_API ArgvLexer {
     : ArgvLexer{ArgvSequence{argc, argv}}
     {
     }
-    ~ArgvLexer();
+    ~ArgvLexer() = default;
 
     // Copy.
     ArgvLexer(const ArgvLexer&) noexcept = default;
