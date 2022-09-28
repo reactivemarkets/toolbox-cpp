@@ -1,7 +1,3 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,85,123,112"/>
-<area shape="rect" id="node2" href="$classtoolbox_1_1http_1_1StreamBuf.html" title=" " alt="" coords="175,5,358,32"/>
-<area shape="rect" id="node3" href="$classtoolbox_1_1io_1_1StreamBuf.html" title=" " alt="" coords="183,56,351,83"/>
-<area shape="rect" id="node4" href="$classtoolbox_1_1util_1_1StaticStreamBuf.html" title=" " alt="" coords="171,107,363,149"/>
-<area shape="rect" id="node5" href="$classtoolbox_1_1util_1_1StreamBuf.html" title="StreamBuf uses a dynamic storage acquired from the custom allocator." alt="" coords="178,173,355,214"/>
+<area shape="rect" id="node1" href="$classtoolbox_1_1hdr_1_1Histogram.html" title="A High Dynamic Range (HDR) Histogram." alt="" coords="5,5,152,32"/>
 </map>
