@@ -142,7 +142,7 @@ class TOOLBOX_API Config {
 
   private:
     std::istream& read_section(std::istream& is, std::string* next);
-    boost::container::flat_map<std::string, std::string> map_;
+    std::map<std::string, std::string> map_;
     Config* parent_{nullptr};
 };
 
