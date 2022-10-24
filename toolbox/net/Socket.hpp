@@ -675,6 +675,22 @@ inline int get_so_snd_buf(int sockfd)
     return optval;
 }
 
+inline bool is_tcp_no_delay(int sockfd, std::error_code& ec) noexcept
+{
+    int optval{};
+    socklen_t optlen{sizeof(optval)};
+    os::getsockopt(sockfd, IPPROTO_TCP, TCP_NODELAY, &optval, optlen, ec);
+    return optval != 0;
+}
+
+inline bool is_tcp_no_delay(int sockfd)
+{
+    int optval{};
+    socklen_t optlen{sizeof(optval)};
+    os::getsockopt(sockfd, IPPROTO_TCP, TCP_NODELAY, &optval, optlen);
+    return optval != 0;
+}
+
 inline void set_so_rcv_buf(int sockfd, int size, std::error_code& ec) noexcept
 {
     os::setsockopt(sockfd, SOL_SOCKET, SO_RCVBUF, &size, sizeof(size), ec);
@@ -791,6 +807,11 @@ struct Sock : FileHandle {
     }
     int get_snd_buf() const { return toolbox::get_so_snd_buf(get()); }
 
+    bool is_tcp_no_delay(std::error_code& ec) const noexcept
+    {
+        return toolbox::is_tcp_no_delay(get(), ec);
+    }
+    bool is_tcp_no_delay() const { return toolbox::is_tcp_no_delay(get()); }
     void close() { reset(); }
 
     void set_non_block(std::error_code& ec) noexcept { toolbox::set_non_block(get(), ec); }
