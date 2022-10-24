@@ -122,6 +122,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab29217731dd1a3d0c0cb62ace9266afd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a450ee580679e4b4a0cacaa3e6c2b79af"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1net_1_1Sock.html#a450ee580679e4b4a0cacaa3e6c2b79af">get_snd_buf</a> () const</td></tr>
 <tr class="separator:a450ee580679e4b4a0cacaa3e6c2b79af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50409a0f911cc830667fb69ff26a24f6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1net_1_1Sock.html#a50409a0f911cc830667fb69ff26a24f6">is_tcp_no_delay</a> (std::error_code &amp;ec) const noexcept</td></tr>
+<tr class="separator:a50409a0f911cc830667fb69ff26a24f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d03d312754e1b5eff9b2a1d115da44d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1net_1_1Sock.html#a0d03d312754e1b5eff9b2a1d115da44d">is_tcp_no_delay</a> () const</td></tr>
+<tr class="separator:a0d03d312754e1b5eff9b2a1d115da44d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a580d64c5bc9618d38cf5e6fb5a95276c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1net_1_1Sock.html#a580d64c5bc9618d38cf5e6fb5a95276c">close</a> ()</td></tr>
 <tr class="separator:a580d64c5bc9618d38cf5e6fb5a95276c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc0c5f47d5960f59a26b3ea0d41534bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1net_1_1Sock.html#abc0c5f47d5960f59a26b3ea0d41534bf">set_non_block</a> (std::error_code &amp;ec) noexcept</td></tr>
@@ -143,7 +147,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00764">764</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00780">780</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a903c114fef4862ca73223f8e41b591d0" name="a903c114fef4862ca73223f8e41b591d0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a903c114fef4862ca73223f8e41b591d0">&#9670;&nbsp;</a></span>Sock() <span class="overload">[1/2]</span></h2>
@@ -179,7 +183,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00765">765</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00781">781</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -232,7 +236,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00772">772</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00788">788</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="StreamSock_8hpp_source.html#l00055">toolbox::net::StreamSockServ::accept()</a>, <a class="el" href="McastSock_8hpp_source.html#l00337">toolbox::net::McastSock::set_ip_mcast_if()</a>, <a class="el" href="McastSock_8hpp_source.html#l00346">toolbox::net::McastSock::set_ip_mcast_loop()</a>, <a class="el" href="McastSock_8hpp_source.html#l00355">toolbox::net::McastSock::set_ip_mcast_ttl()</a>, and <a class="el" href="classtoolbox_1_1net_1_1StreamAcceptor.html#a45e990d0ff62d8fce4b9f088a6972cd1">toolbox::net::StreamAcceptor&lt; DerivedT &gt;::~StreamAcceptor()</a>.</p>
 
@@ -261,7 +265,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00773">773</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00789">789</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -289,7 +293,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00776">776</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00792">792</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -316,7 +320,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00780">780</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00796">796</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -344,7 +348,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00782">782</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00798">798</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -371,7 +375,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00786">786</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00802">802</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -399,7 +403,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00788">788</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00804">804</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -426,7 +430,62 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00792">792</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00808">808</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a50409a0f911cc830667fb69ff26a24f6" name="a50409a0f911cc830667fb69ff26a24f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50409a0f911cc830667fb69ff26a24f6">&#9670;&nbsp;</a></span>is_tcp_no_delay() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool toolbox::net::Sock::is_tcp_no_delay </td>
+          <td>(</td>
+          <td class="paramtype">std::error_code &amp;&#160;</td>
+          <td class="paramname"><em>ec</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00810">810</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a0d03d312754e1b5eff9b2a1d115da44d" name="a0d03d312754e1b5eff9b2a1d115da44d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d03d312754e1b5eff9b2a1d115da44d">&#9670;&nbsp;</a></span>is_tcp_no_delay() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool toolbox::net::Sock::is_tcp_no_delay </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00814">814</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -453,7 +512,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00794">794</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00815">815</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -481,7 +540,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00796">796</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00817">817</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="StreamConnector_8hpp_source.html#l00046">toolbox::net::StreamConnector&lt; DerivedT &gt;::connect()</a>.</p>
 
@@ -510,7 +569,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00797">797</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00818">818</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -548,7 +607,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00799">799</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00820">820</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -576,7 +635,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00803">803</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00824">824</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -614,7 +673,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00805">805</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00826">826</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="StreamAcceptor_8hpp_source.html#l00032">toolbox::net::StreamAcceptor&lt; DerivedT &gt;::StreamAcceptor()</a>.</p>
 
@@ -644,7 +703,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00809">809</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00830">830</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -682,7 +741,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00811">811</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00832">832</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -710,7 +769,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00815">815</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00836">836</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
