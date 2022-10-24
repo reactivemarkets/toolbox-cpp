@@ -50,6 +50,9 @@ class StreamConnector {
         sock.set_non_block();
         if (sock.is_ip_family()) {
             set_tcp_no_delay(sock.get(), true);
+            if (!is_tcp_no_delay(sock.get())) {
+                throw std::runtime_error{"TCP_NODELAY option not set"};
+            }
         }
 
         std::error_code ec;

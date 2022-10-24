@@ -58,6 +58,9 @@ class StreamAcceptor {
         sock.set_non_block();
         if (sock.is_ip_family()) {
             set_tcp_no_delay(sock.get(), true);
+            if (!is_tcp_no_delay(sock.get())) {
+                throw std::runtime_error{"TCP_NODELAY option not set"};
+            }
         }
         static_cast<DerivedT*>(this)->on_sock_accept(now, std::move(sock), ep);
     }
