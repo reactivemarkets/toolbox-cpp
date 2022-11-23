@@ -101,13 +101,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a40ac62adeed63e6b3789d5251c45dd39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea2ff1ba2959c7f7e229ac04342e8277"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtoolbox_1_1sys_1_1Logger.html">Logger</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1sys_1_1Logger.html#aea2ff1ba2959c7f7e229ac04342e8277">operator=</a> (<a class="el" href="classtoolbox_1_1sys_1_1Logger.html">Logger</a> &amp;&amp;) noexcept=default</td></tr>
 <tr class="separator:aea2ff1ba2959c7f7e229ac04342e8277"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0fe66f28cdb5eead25fd7b1226f4345"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1sys_1_1Logger.html#af0fe66f28cdb5eead25fd7b1226f4345">write_log</a> (<a class="el" href="namespacetoolbox_1_1sys.html#a657ecd4f98265bd34f835f59975db04e">WallTime</a> ts, <a class="el" href="namespacetoolbox_1_1sys.html#ad70de488b6f18b15990850b5cb4293da">LogLevel</a> level, <a class="el" href="namespacetoolbox_1_1sys.html#a90375ff3ad41e051d34219123f8cae1d">LogMsgPtr</a> &amp;&amp;msg, std::size_t <a class="el" href="namespacetoolbox_1_1util.html#a60794730274ecfa3f74f93c43396f774">size</a>) noexcept</td></tr>
-<tr class="separator:af0fe66f28cdb5eead25fd7b1226f4345"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59fa9a513088e878354d2af3e319e58a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1sys_1_1Logger.html#a59fa9a513088e878354d2af3e319e58a">write_log</a> (<a class="el" href="namespacetoolbox_1_1sys.html#a657ecd4f98265bd34f835f59975db04e">WallTime</a> ts, <a class="el" href="namespacetoolbox_1_1sys.html#ad70de488b6f18b15990850b5cb4293da">LogLevel</a> level, int tid, <a class="el" href="namespacetoolbox_1_1sys.html#a90375ff3ad41e051d34219123f8cae1d">LogMsgPtr</a> &amp;&amp;msg, std::size_t <a class="el" href="namespacetoolbox_1_1util.html#a60794730274ecfa3f74f93c43396f774">size</a>) noexcept</td></tr>
+<tr class="separator:a59fa9a513088e878354d2af3e319e58a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a79edf12286e7a7581c4cef9da76e6cd8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1sys_1_1Logger.html#a79edf12286e7a7581c4cef9da76e6cd8">do_write_log</a> (<a class="el" href="namespacetoolbox_1_1sys.html#a657ecd4f98265bd34f835f59975db04e">WallTime</a> ts, <a class="el" href="namespacetoolbox_1_1sys.html#ad70de488b6f18b15990850b5cb4293da">LogLevel</a> level, <a class="el" href="namespacetoolbox_1_1sys.html#a90375ff3ad41e051d34219123f8cae1d">LogMsgPtr</a> &amp;&amp;msg, std::size_t <a class="el" href="namespacetoolbox_1_1util.html#a60794730274ecfa3f74f93c43396f774">size</a>) noexcept=0</td></tr>
-<tr class="separator:a79edf12286e7a7581c4cef9da76e6cd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5aa1fb0f81990e3ea89df3c0c98e7887"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1sys_1_1Logger.html#a5aa1fb0f81990e3ea89df3c0c98e7887">do_write_log</a> (<a class="el" href="namespacetoolbox_1_1sys.html#a657ecd4f98265bd34f835f59975db04e">WallTime</a> ts, <a class="el" href="namespacetoolbox_1_1sys.html#ad70de488b6f18b15990850b5cb4293da">LogLevel</a> level, int tid, <a class="el" href="namespacetoolbox_1_1sys.html#a90375ff3ad41e051d34219123f8cae1d">LogMsgPtr</a> &amp;&amp;msg, std::size_t <a class="el" href="namespacetoolbox_1_1util.html#a60794730274ecfa3f74f93c43396f774">size</a>) noexcept=0</td></tr>
+<tr class="separator:a5aa1fb0f81990e3ea89df3c0c98e7887"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="classtoolbox_1_1sys_1_1Logger.html">Logger</a> is implemented by types that may be woken-up, interrupted or otherwise notified asynchronously. </p>
@@ -269,8 +269,8 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af0fe66f28cdb5eead25fd7b1226f4345" name="af0fe66f28cdb5eead25fd7b1226f4345"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0fe66f28cdb5eead25fd7b1226f4345">&#9670;&nbsp;</a></span>write_log()</h2>
+<a id="a59fa9a513088e878354d2af3e319e58a" name="a59fa9a513088e878354d2af3e319e58a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59fa9a513088e878354d2af3e319e58a">&#9670;&nbsp;</a></span>write_log()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -289,6 +289,12 @@ Protected Member Functions</h2></td></tr>
           <td></td>
           <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#ad70de488b6f18b15990850b5cb4293da">LogLevel</a>&#160;</td>
           <td class="paramname"><em>level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tid</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -317,12 +323,12 @@ Protected Member Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00108">108</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Logger_8cpp_source.html#l00192">toolbox::sys::AsyncLogger::run()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Logger_8cpp_source.html#l00194">toolbox::sys::AsyncLogger::run()</a>.</p>
 
 </div>
 </div>
-<a id="a79edf12286e7a7581c4cef9da76e6cd8" name="a79edf12286e7a7581c4cef9da76e6cd8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79edf12286e7a7581c4cef9da76e6cd8">&#9670;&nbsp;</a></span>do_write_log()</h2>
+<a id="a5aa1fb0f81990e3ea89df3c0c98e7887" name="a5aa1fb0f81990e3ea89df3c0c98e7887"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5aa1fb0f81990e3ea89df3c0c98e7887">&#9670;&nbsp;</a></span>do_write_log()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -341,6 +347,12 @@ Protected Member Functions</h2></td></tr>
           <td></td>
           <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#ad70de488b6f18b15990850b5cb4293da">LogLevel</a>&#160;</td>
           <td class="paramname"><em>level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tid</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

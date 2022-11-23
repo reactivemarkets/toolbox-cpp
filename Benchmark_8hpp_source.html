@@ -113,9 +113,12 @@ $(function() {
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">    void benchmark::NAME::fn(toolbox::bm::Context&amp; ctx)</span></div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="Benchmark_8hpp.html#ae02764ac71192bbf74a484fdd3401a85">   42</a></span><span class="preprocessor">#define TOOLBOX_BENCHMARK_MAIN                                                                     \</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">    int main(int argc, char* argv[]) { return toolbox::bm::detail::main(argc, argv); }</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#endif </span><span class="comment">// TOOLBOX_BM_BENCHMARK_HPP</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">    int main(int argc, char* argv[])                                                               \</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">    {                                                                                              \</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">        return toolbox::bm::detail::main(argc, argv);                                              \</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">    }</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#endif </span><span class="comment">// TOOLBOX_BM_BENCHMARK_HPP</span></div>
 <div class="ttc" id="aConfig_8h_html"><div class="ttname"><a href="Config_8h.html">Config.h</a></div></div>
 <div class="ttc" id="aConfig_8h_html_ae1d5e2ff332359a2f7905596626f2bf3"><div class="ttname"><a href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a></div><div class="ttdeci">#define TOOLBOX_API</div><div class="ttdef"><b>Definition:</b> <a href="Config_8h_source.html#l00039">Config.h:39</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1bm_1_1Context_html"><div class="ttname"><a href="classtoolbox_1_1bm_1_1Context.html">toolbox::bm::Context</a></div><div class="ttdef"><b>Definition:</b> <a href="Context_8hpp_source.html#l00024">Context.hpp:24</a></div></div>
