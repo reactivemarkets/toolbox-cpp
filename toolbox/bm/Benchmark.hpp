@@ -40,6 +40,9 @@ TOOLBOX_API int main(int argc, char* argv[]);
     void benchmark::NAME::fn(toolbox::bm::Context& ctx)
 
 #define TOOLBOX_BENCHMARK_MAIN                                                                     \
-    int main(int argc, char* argv[]) { return toolbox::bm::detail::main(argc, argv); }
+    int main(int argc, char* argv[])                                                               \
+    {                                                                                              \
+        return toolbox::bm::detail::main(argc, argv);                                              \
+    }
 
 #endif // TOOLBOX_BM_BENCHMARK_HPP

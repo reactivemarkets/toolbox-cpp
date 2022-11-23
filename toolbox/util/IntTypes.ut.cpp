@@ -26,8 +26,7 @@ using namespace toolbox;
 
 namespace {
 
-struct TestTag : Int32Policy {
-};
+struct TestTag : Int32Policy {};
 using Test = IntWrapper<TestTag>;
 
 constexpr Test operator""_test(unsigned long long val) noexcept

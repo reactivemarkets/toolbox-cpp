@@ -23,10 +23,8 @@
 namespace toolbox {
 inline namespace sys {
 
-struct IsoDatePolicy : Int32Policy {
-};
-struct JDayPolicy : Int32Policy {
-};
+struct IsoDatePolicy : Int32Policy {};
+struct JDayPolicy : Int32Policy {};
 
 /// ISO8601 date in yyymmdd format.
 using IsoDate = IntWrapper<IsoDatePolicy>;
