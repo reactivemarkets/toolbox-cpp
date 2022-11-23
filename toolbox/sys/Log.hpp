@@ -45,13 +45,16 @@ class Log {
     : ts_{ts}
     , level_{level}
     , os_{log_stream()}
+    , flags_{os_.flags()}
     {
         os_.set_storage(os_.make_storage());
     }
     ~Log()
     {
-        const auto size = os_.size();
+        const auto size{os_.size()};
         write_log(ts_, level_, os_.release_storage(), size);
+        // Restore saved flags.
+        os_.flags(flags_);
     }
 
     // Copy.
@@ -76,6 +79,7 @@ class Log {
     const WallTime ts_;
     const LogLevel level_;
     LogStream& os_;
+    const std::ios::fmtflags flags_;
 };
 
 } // namespace sys
