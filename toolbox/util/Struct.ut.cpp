@@ -23,10 +23,8 @@ using namespace toolbox;
 
 namespace {
 namespace tag {
-struct Foo {
-};
-struct Bar {
-};
+struct Foo {};
+struct Bar {};
 } // namespace tag
 
 static_assert(empty(Struct));

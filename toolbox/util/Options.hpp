@@ -36,11 +36,9 @@ inline namespace util {
 
 class Options;
 
-class NoOp {
-};
+class NoOp {};
 
-class Help {
-};
+class Help {};
 
 template <typename DerivedT>
 class Presence {

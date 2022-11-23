@@ -19,8 +19,8 @@
 
 #include <toolbox/Config.h>
 
-#include <string>
 #include <sched.h>
+#include <string>
 
 namespace toolbox {
 inline namespace sys {

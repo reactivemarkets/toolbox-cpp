@@ -48,13 +48,15 @@ inline pid_t gettid()
 #endif
 
 class NullLogger final : public Logger {
-    void do_write_log(WallTime ts, LogLevel level, LogMsgPtr&& msg, size_t size) noexcept override
+    void do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
+                      size_t size) noexcept override
     {
     }
 } null_logger_;
 
 class StdLogger final : public Logger {
-    void do_write_log(WallTime ts, LogLevel level, LogMsgPtr&& msg, size_t size) noexcept override
+    void do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
+                      size_t size) noexcept override
     {
         const auto t{WallClock::to_time_t(ts)};
         tm tm;
@@ -69,8 +71,7 @@ class StdLogger final : public Logger {
         char head[48 + 1];
         size_t hlen{strftime(head, sizeof(head), "%Y/%m/%d %H:%M:%S", &tm)};
         const auto us{static_cast<int>(us_since_epoch(ts) % 1000000)};
-        hlen += sprintf(head + hlen, ".%06d %-6s [%d]: ", us, log_label(level),
-                        static_cast<int>(gettid()));
+        hlen += sprintf(head + hlen, ".%06d %-6s [%d]: ", us, log_label(level), tid);
         char tail{'\n'};
         iovec iov[] = {
             {head, hlen},      //
@@ -88,7 +89,8 @@ class StdLogger final : public Logger {
 } std_logger_;
 
 class SysLogger final : public Logger {
-    void do_write_log(WallTime ts, LogLevel level, LogMsgPtr&& msg, size_t size) noexcept override
+    void do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
+                      size_t size) noexcept override
     {
         int prio;
         switch (level) {
@@ -177,7 +179,7 @@ Logger& set_logger(Logger& logger) noexcept
 
 void write_log(WallTime ts, LogLevel level, LogMsgPtr&& msg, std::size_t size) noexcept
 {
-    acquire_logger().write_log(ts, level, move(msg), size);
+    acquire_logger().write_log(ts, level, static_cast<int>(gettid()), move(msg), size);
 }
 
 Logger::~Logger() = default;
@@ -191,8 +193,9 @@ AsyncLogger::~AsyncLogger() = default;
 
 bool AsyncLogger::run()
 {
-    return tq_.run(
-        [this](Task&& t) noexcept { logger_.write_log(t.ts, t.level, move(t.msg), t.size); });
+    return tq_.run([this](Task&& t) noexcept {
+        logger_.write_log(t.ts, t.level, t.tid, move(t.msg), t.size);
+    });
 }
 
 void AsyncLogger::stop()
@@ -200,9 +203,10 @@ void AsyncLogger::stop()
     tq_.stop();
 }
 
-void AsyncLogger::do_write_log(WallTime ts, LogLevel level, LogMsgPtr&& msg, size_t size) noexcept
+void AsyncLogger::do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
+                               size_t size) noexcept
 {
-    tq_.push(Task{.ts = ts, .level = level, .msg = move(msg), .size = size});
+    tq_.push(Task{.ts = ts, .level = level, .tid = tid, .msg = move(msg), .size = size});
 }
 
 } // namespace sys

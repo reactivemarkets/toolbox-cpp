@@ -42,7 +42,8 @@ class FileLogger final : public Logger {
     }
 
   private:
-    void do_write_log(WallTime ts, LogLevel level, LogMsgPtr&& msg, size_t size) noexcept override
+    void do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
+                      size_t size) noexcept override
     {
         os::write(*fh_, msg.get(), size);
     }

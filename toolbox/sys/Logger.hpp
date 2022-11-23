@@ -105,13 +105,13 @@ class TOOLBOX_API Logger {
     Logger(Logger&&) noexcept = default;
     Logger& operator=(Logger&&) noexcept = default;
 
-    void write_log(WallTime ts, LogLevel level, LogMsgPtr&& msg, std::size_t size) noexcept
+    void write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg, std::size_t size) noexcept
     {
-        do_write_log(ts, level, std::move(msg), size);
+        do_write_log(ts, level, tid, std::move(msg), size);
     }
 
   protected:
-    virtual void do_write_log(WallTime ts, LogLevel level, LogMsgPtr&& msg,
+    virtual void do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
                               std::size_t size) noexcept = 0;
 };
 
@@ -119,6 +119,7 @@ class TOOLBOX_API AsyncLogger : public Logger {
     struct Task {
         WallTime ts;
         LogLevel level;
+        int tid;
         LogMsgPtr msg;
         std::size_t size;
     };
@@ -143,7 +144,7 @@ class TOOLBOX_API AsyncLogger : public Logger {
     void stop();
 
   private:
-    void do_write_log(WallTime ts, LogLevel level, LogMsgPtr&& msg,
+    void do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
                       std::size_t size) noexcept override;
 
     Logger& logger_;

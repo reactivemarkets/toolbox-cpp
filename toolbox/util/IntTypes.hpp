@@ -273,12 +273,9 @@ struct TypeTraits<ValueT> {
     }
 };
 
-struct Id16Policy : Int16Policy {
-};
-struct Id32Policy : Int32Policy {
-};
-struct Id64Policy : Int64Policy {
-};
+struct Id16Policy : Int16Policy {};
+struct Id32Policy : Int32Policy {};
+struct Id64Policy : Int64Policy {};
 
 /// 16 bit identifier.
 using Id16 = IntWrapper<Id16Policy>;
