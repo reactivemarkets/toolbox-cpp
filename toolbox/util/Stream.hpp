@@ -70,6 +70,15 @@ class StreamBuf final : public std::streambuf {
     }
     /// Update the internal storage.
     void set_storage(StoragePtr<MaxN> storage) noexcept { swap_storage(storage); }
+    /// Reset the current position back to the beginning of the buffer.
+    void reset() noexcept
+    {
+        if (storage_) {
+            setp(storage_->begin(), storage_->end());
+        }
+    }
+
+  private:
     /// Swap the internal storage.
     void swap_storage(StoragePtr<MaxN>& storage) noexcept
     {
@@ -81,15 +90,6 @@ class StreamBuf final : public std::streambuf {
             setp(nullptr, nullptr);
         }
     }
-    /// Reset the current position back to the beginning of the buffer.
-    void reset() noexcept
-    {
-        if (storage_) {
-            setp(storage_->begin(), storage_->end());
-        }
-    }
-
-  private:
     StoragePtr<MaxN> storage_;
 };
 
@@ -126,14 +126,13 @@ class OStream final : public std::ostream {
 
     /// Release the managed storage.
     StoragePtr<MaxN> release_storage() noexcept { return buf_.release_storage(); }
-    /// Update the internal storage.
+    /// Update the internal storage and clear i/o state.
     void set_storage(StoragePtr<MaxN> storage) noexcept
     {
-        return buf_.set_storage(std::move(storage));
+        buf_.set_storage(std::move(storage));
+        clear();
     }
-    /// Swap the internal storage.
-    void swap_storage(StoragePtr<MaxN>& storage) noexcept { buf_.swap_storage(storage); }
-    /// Reset the current position back to the beginning of the buffer.
+    /// Reset the current position back to the beginning of the buffer and clear i/o state.
     void reset() noexcept
     {
         buf_.reset();
