@@ -517,8 +517,8 @@ requires Arithmetic&lt;ValueT&gt;</td></tr>
 <tr class="separator:a7be0cb0c00936da53833aaa7e027364b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02971d2bfcfc734253cafd92a59302ed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a02971d2bfcfc734253cafd92a59302ed">stob</a> (string_view sv, bool dfl) noexcept</td></tr>
 <tr class="separator:a02971d2bfcfc734253cafd92a59302ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4128af815607953377c817e18b4269ee"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a4128af815607953377c817e18b4269ee">stod</a> (std::string_view sv) noexcept</td></tr>
-<tr class="separator:a4128af815607953377c817e18b4269ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae783c02fb86bf723878d4a2161655ade"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#ae783c02fb86bf723878d4a2161655ade">stod</a> (std::string_view sv, double dfl) noexcept</td></tr>
+<tr class="separator:ae783c02fb86bf723878d4a2161655ade"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5510e3d9fbd5870e9e1a40ae571226c6"><td class="memTemplParams" colspan="2">template&lt;typename ValueT &gt; </td></tr>
 <tr class="memitem:a5510e3d9fbd5870e9e1a40ae571226c6"><td class="memTemplItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a5510e3d9fbd5870e9e1a40ae571226c6">remove_const</a> (const ValueT &amp;ref)</td></tr>
 <tr class="separator:a5510e3d9fbd5870e9e1a40ae571226c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3457,8 +3457,8 @@ template&lt;std::size_t N&gt; </div>
 
 </div>
 </div>
-<a id="a4128af815607953377c817e18b4269ee" name="a4128af815607953377c817e18b4269ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4128af815607953377c817e18b4269ee">&#9670;&nbsp;</a></span>stod()</h2>
+<a id="ae783c02fb86bf723878d4a2161655ade" name="ae783c02fb86bf723878d4a2161655ade"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae783c02fb86bf723878d4a2161655ade">&#9670;&nbsp;</a></span>stod()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3470,8 +3470,18 @@ template&lt;std::size_t N&gt; </div>
           <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> double toolbox::util::stod </td>
           <td>(</td>
           <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>sv</em></td><td>)</td>
+          <td class="paramname"><em>sv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>dfl</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>

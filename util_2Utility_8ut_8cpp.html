@@ -74,15 +74,17 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>&quot;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;boost/test/unit_test.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Utility.ut.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="util_2Utility_8ut_8cpp__incl.png" border="0" usemap="#atoolbox_2util_2Utility_8ut_8cpp" alt=""/></div>
 <map name="atoolbox_2util_2Utility_8ut_8cpp" id="atoolbox_2util_2Utility_8ut_8cpp">
-<area shape="rect" title=" " alt="" coords="163,5,346,32"/>
+<area shape="rect" title=" " alt="" coords="186,5,369,32"/>
 <area shape="rect" href="util_2Utility_8hpp.html" title=" " alt="" coords="133,80,221,107"/>
-<area shape="rect" title=" " alt="" coords="245,80,421,107"/>
+<area shape="rect" title=" " alt="" coords="246,80,309,107"/>
+<area shape="rect" title=" " alt="" coords="333,80,509,107"/>
 <area shape="rect" href="Config_8h.html" title=" " alt="" coords="5,155,133,181"/>
 <area shape="rect" title=" " alt="" coords="158,155,197,181"/>
 <area shape="rect" title=" " alt="" coords="221,155,318,181"/>
@@ -95,6 +97,28 @@ Include dependency graph for Utility.ut.cpp:</div>
 Functions</h2></td></tr>
 <tr class="memitem:a555dbd47e331cf66aaff3786bed1fdde"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_2Utility_8ut_8cpp.html#a555dbd47e331cf66aaff3786bed1fdde">BOOST_AUTO_TEST_CASE</a> (StobCase)</td></tr>
 <tr class="separator:a555dbd47e331cf66aaff3786bed1fdde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d9a70c8a361f28c66ba0e7ab65c3138"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_2Utility_8ut_8cpp.html#a7d9a70c8a361f28c66ba0e7ab65c3138">BOOST_TEST</a> (stod(&quot;1&quot;sv)==1)</td></tr>
+<tr class="separator:a7d9a70c8a361f28c66ba0e7ab65c3138"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a821fb15bded4887cc74b342bc1707022"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_2Utility_8ut_8cpp.html#a821fb15bded4887cc74b342bc1707022">BOOST_TEST</a> (stod(&quot;-1&quot;sv)==-1)</td></tr>
+<tr class="separator:a821fb15bded4887cc74b342bc1707022"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01c25dcd04de8e94f46ec7cf637ed7c2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_2Utility_8ut_8cpp.html#a01c25dcd04de8e94f46ec7cf637ed7c2">BOOST_TEST</a> (stod(&quot;1.23E2&quot;sv)==123)</td></tr>
+<tr class="separator:a01c25dcd04de8e94f46ec7cf637ed7c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bafa5715bdf89bb96853be68c1536ef"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_2Utility_8ut_8cpp.html#a5bafa5715bdf89bb96853be68c1536ef">BOOST_TEST</a> (stod(&quot;-1.23E2&quot;sv)==-123)</td></tr>
+<tr class="separator:a5bafa5715bdf89bb96853be68c1536ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8f0aeefaf44857105b433600eb7c9af"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_2Utility_8ut_8cpp.html#ac8f0aeefaf44857105b433600eb7c9af">BOOST_TEST</a> (stod(&quot;1.23E1&quot;sv)==12.3)</td></tr>
+<tr class="separator:ac8f0aeefaf44857105b433600eb7c9af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfff75a116e79054c8b31f9697544105"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_2Utility_8ut_8cpp.html#adfff75a116e79054c8b31f9697544105">BOOST_TEST</a> (stod(&quot;-1.23E1&quot;sv)==-12.3)</td></tr>
+<tr class="separator:adfff75a116e79054c8b31f9697544105"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad38be9331bd0d7b176f4a4bf3b986d5b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_2Utility_8ut_8cpp.html#ad38be9331bd0d7b176f4a4bf3b986d5b">BOOST_TEST</a> (stod(&quot;1.23&quot;sv)==1.23)</td></tr>
+<tr class="separator:ad38be9331bd0d7b176f4a4bf3b986d5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fe9930b613a0db0f21f9491c4168030"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_2Utility_8ut_8cpp.html#a7fe9930b613a0db0f21f9491c4168030">BOOST_TEST</a> (stod(&quot;-1.23&quot;sv)==-1.23)</td></tr>
+<tr class="separator:a7fe9930b613a0db0f21f9491c4168030"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa21ecdefef504f9784cd009ac93baa7b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_2Utility_8ut_8cpp.html#aa21ecdefef504f9784cd009ac93baa7b">BOOST_TEST</a> (isnan(stod(&quot;&quot;sv, numeric_limits&lt; double &gt;::quiet_NaN())))</td></tr>
+<tr class="separator:aa21ecdefef504f9784cd009ac93baa7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5c518875148ed9fd3b361bbd13fc535"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_2Utility_8ut_8cpp.html#ae5c518875148ed9fd3b361bbd13fc535">BOOST_TEST</a> (isnan(stod(&quot;abc&quot;sv, numeric_limits&lt; double &gt;::quiet_NaN())))</td></tr>
+<tr class="separator:ae5c518875148ed9fd3b361bbd13fc535"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44b90a8e587c4613badc46254c71853b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_2Utility_8ut_8cpp.html#a44b90a8e587c4613badc46254c71853b">BOOST_TEST</a> (stod(&quot;1&quot;sv, numeric_limits&lt; double &gt;::quiet_NaN())==1)</td></tr>
+<tr class="separator:a44b90a8e587c4613badc46254c71853b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d2e6e82c2174240ba1ecc5369332313"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_2Utility_8ut_8cpp.html#a5d2e6e82c2174240ba1ecc5369332313">BOOST_TEST</a> (ston&lt; double &gt;(&quot;1&quot;sv)==1)</td></tr>
 <tr class="separator:a5d2e6e82c2174240ba1ecc5369332313"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed8ba87b9e6a3c16676c17ff6f60bb61"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_2Utility_8ut_8cpp.html#aed8ba87b9e6a3c16676c17ff6f60bb61">BOOST_TEST</a> (ston&lt; double &gt;(&quot;-1&quot;sv)==-1)</td></tr>
@@ -149,12 +173,212 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00028">28</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00029">29</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a7d9a70c8a361f28c66ba0e7ab65c3138" name="a7d9a70c8a361f28c66ba0e7ab65c3138"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d9a70c8a361f28c66ba0e7ab65c3138">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[1/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOST_TEST </td>
+          <td>(</td>
+          <td class="paramtype">stod(&quot;1&quot;sv)&#160;</td>
+          <td class="paramname"> = <code>=1</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="hdr_2Utility_8ut_8cpp_source.html#l00032">BOOST_AUTO_TEST_CASE()</a>.</p>
+
+</div>
+</div>
+<a id="a821fb15bded4887cc74b342bc1707022" name="a821fb15bded4887cc74b342bc1707022"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a821fb15bded4887cc74b342bc1707022">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[2/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOST_TEST </td>
+          <td>(</td>
+          <td class="paramtype">stod(&quot;-1&quot;sv)&#160;</td>
+          <td class="paramname"> = <code>=-1</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a01c25dcd04de8e94f46ec7cf637ed7c2" name="a01c25dcd04de8e94f46ec7cf637ed7c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01c25dcd04de8e94f46ec7cf637ed7c2">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[3/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOST_TEST </td>
+          <td>(</td>
+          <td class="paramtype">stod(&quot;1.23E2&quot;sv)&#160;</td>
+          <td class="paramname"> = <code>=123</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5bafa5715bdf89bb96853be68c1536ef" name="a5bafa5715bdf89bb96853be68c1536ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bafa5715bdf89bb96853be68c1536ef">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[4/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOST_TEST </td>
+          <td>(</td>
+          <td class="paramtype">stod(&quot;-1.23E2&quot;sv)&#160;</td>
+          <td class="paramname"> = <code>=-123</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac8f0aeefaf44857105b433600eb7c9af" name="ac8f0aeefaf44857105b433600eb7c9af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8f0aeefaf44857105b433600eb7c9af">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[5/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOST_TEST </td>
+          <td>(</td>
+          <td class="paramtype">stod(&quot;1.23E1&quot;sv)&#160;</td>
+          <td class="paramname"> = <code>=12.3</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adfff75a116e79054c8b31f9697544105" name="adfff75a116e79054c8b31f9697544105"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfff75a116e79054c8b31f9697544105">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[6/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOST_TEST </td>
+          <td>(</td>
+          <td class="paramtype">stod(&quot;-1.23E1&quot;sv)&#160;</td>
+          <td class="paramname"> = <code>=-12.3</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad38be9331bd0d7b176f4a4bf3b986d5b" name="ad38be9331bd0d7b176f4a4bf3b986d5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad38be9331bd0d7b176f4a4bf3b986d5b">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[7/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOST_TEST </td>
+          <td>(</td>
+          <td class="paramtype">stod(&quot;1.23&quot;sv)&#160;</td>
+          <td class="paramname"> = <code>=1.23</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7fe9930b613a0db0f21f9491c4168030" name="a7fe9930b613a0db0f21f9491c4168030"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fe9930b613a0db0f21f9491c4168030">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[8/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOST_TEST </td>
+          <td>(</td>
+          <td class="paramtype">stod(&quot;-1.23&quot;sv)&#160;</td>
+          <td class="paramname"> = <code>=-1.23</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa21ecdefef504f9784cd009ac93baa7b" name="aa21ecdefef504f9784cd009ac93baa7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa21ecdefef504f9784cd009ac93baa7b">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[9/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOST_TEST </td>
+          <td>(</td>
+          <td class="paramtype">isnan(stod(&quot;&quot;sv, numeric_limits&lt; double &gt;::quiet_NaN()))&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae5c518875148ed9fd3b361bbd13fc535" name="ae5c518875148ed9fd3b361bbd13fc535"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5c518875148ed9fd3b361bbd13fc535">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[10/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOST_TEST </td>
+          <td>(</td>
+          <td class="paramtype">isnan(stod(&quot;abc&quot;sv, numeric_limits&lt; double &gt;::quiet_NaN()))&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a44b90a8e587c4613badc46254c71853b" name="a44b90a8e587c4613badc46254c71853b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44b90a8e587c4613badc46254c71853b">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[11/19]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOST_TEST </td>
+          <td>(</td>
+          <td class="paramtype">stod(&quot;1&quot;sv, numeric_limits&lt; double &gt;::quiet_NaN())&#160;</td>
+          <td class="paramname"> = <code>=1</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
 <a id="a5d2e6e82c2174240ba1ecc5369332313" name="a5d2e6e82c2174240ba1ecc5369332313"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d2e6e82c2174240ba1ecc5369332313">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[1/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d2e6e82c2174240ba1ecc5369332313">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[12/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -169,12 +393,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="hdr_2Utility_8ut_8cpp_source.html#l00032">BOOST_AUTO_TEST_CASE()</a>.</p>
-
 </div>
 </div>
 <a id="aed8ba87b9e6a3c16676c17ff6f60bb61" name="aed8ba87b9e6a3c16676c17ff6f60bb61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed8ba87b9e6a3c16676c17ff6f60bb61">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[2/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aed8ba87b9e6a3c16676c17ff6f60bb61">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[13/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -192,7 +414,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="a52be2c0a6f101a5c43164f553991f507" name="a52be2c0a6f101a5c43164f553991f507"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52be2c0a6f101a5c43164f553991f507">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[3/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a52be2c0a6f101a5c43164f553991f507">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[14/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -210,7 +432,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="a10c1f429429b9957c35bd479cfc0871c" name="a10c1f429429b9957c35bd479cfc0871c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10c1f429429b9957c35bd479cfc0871c">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[4/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a10c1f429429b9957c35bd479cfc0871c">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[15/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -228,7 +450,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="aee599d1d412c9d73f87c271ff40ddc87" name="aee599d1d412c9d73f87c271ff40ddc87"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee599d1d412c9d73f87c271ff40ddc87">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[5/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aee599d1d412c9d73f87c271ff40ddc87">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[16/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -246,7 +468,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="afd9134b4278ce3bd30c193e9d40257cb" name="afd9134b4278ce3bd30c193e9d40257cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd9134b4278ce3bd30c193e9d40257cb">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[6/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afd9134b4278ce3bd30c193e9d40257cb">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[17/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -264,7 +486,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="a20a6933b8ee331098dc7ea1ba30c6de1" name="a20a6933b8ee331098dc7ea1ba30c6de1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20a6933b8ee331098dc7ea1ba30c6de1">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[7/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a20a6933b8ee331098dc7ea1ba30c6de1">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[18/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -282,7 +504,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="a59772647a49b6744257209ed7d481e47" name="a59772647a49b6744257209ed7d481e47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59772647a49b6744257209ed7d481e47">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[8/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a59772647a49b6744257209ed7d481e47">&#9670;&nbsp;</a></span>BOOST_TEST() <span class="overload">[19/19]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -315,7 +537,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00083">83</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00102">102</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
 
 </div>
 </div>
@@ -335,7 +557,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00090">90</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00109">109</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
 
 </div>
 </div>
@@ -355,7 +577,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00103">103</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00122">122</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
 
 </div>
 </div>
@@ -375,7 +597,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00116">116</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00135">135</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
 
 </div>
 </div>
@@ -395,7 +617,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00126">126</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00145">145</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
 
 </div>
 </div>
@@ -415,7 +637,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00139">139</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00158">158</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
 
 </div>
 </div>
@@ -435,7 +657,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00151">151</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00170">170</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
 
 </div>
 </div>
@@ -455,7 +677,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00163">163</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00182">182</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
 
 </div>
 </div>
@@ -475,7 +697,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00175">175</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00194">194</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
 
 </div>
 </div>
@@ -495,7 +717,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00192">192</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00211">211</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
 
 </div>
 </div>
