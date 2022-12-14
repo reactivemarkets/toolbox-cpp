@@ -15,6 +15,7 @@
 // limitations under the License.
 
 #include "Utility.hpp"
+#include <cmath>
 
 #include <boost/test/unit_test.hpp>
 
@@ -68,6 +69,24 @@ BOOST_AUTO_TEST_CASE(StobCase)
 }
 
 BOOST_AUTO_TEST_CASE(StodCase, *utf::tolerance(0.0000001))
+{
+    BOOST_TEST(stod(""sv) == 0);
+    BOOST_TEST(stod("1"sv) == 1);
+    BOOST_TEST(stod("-1"sv) == -1);
+    BOOST_TEST(stod("1.23E2"sv) == 123);
+    BOOST_TEST(stod("-1.23E2"sv) == -123);
+    BOOST_TEST(stod("1.23E1"sv) == 12.3);
+    BOOST_TEST(stod("-1.23E1"sv) == -12.3);
+    BOOST_TEST(stod("1.23"sv) == 1.23);
+    BOOST_TEST(stod("-1.23"sv) == -1.23);
+
+    // with default value.
+    BOOST_TEST(isnan(stod(""sv, numeric_limits<double>::quiet_NaN())));
+    BOOST_TEST(isnan(stod("abc"sv, numeric_limits<double>::quiet_NaN())));
+    BOOST_TEST(stod("1"sv, numeric_limits<double>::quiet_NaN()) == 1);
+}
+
+BOOST_AUTO_TEST_CASE(StonDoubleCase, *utf::tolerance(0.0000001))
 {
     BOOST_TEST(ston<double>(""sv) == 0);
     BOOST_TEST(ston<double>("1"sv) == 1);

@@ -84,7 +84,7 @@ static_assert(hex_digits(0x1U) == 1);
 static_assert(hex_digits(std::uint64_t{0xffffffffffff}) == 12);
 
 TOOLBOX_API bool stob(std::string_view sv, bool dfl = false) noexcept;
-TOOLBOX_API double stod(std::string_view sv) noexcept;
+TOOLBOX_API double stod(std::string_view sv, double dfl = {}) noexcept;
 
 template <typename ValueT>
 requires std::integral<ValueT> || std::same_as<ValueT, double>
