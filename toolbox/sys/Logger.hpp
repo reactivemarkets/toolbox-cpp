@@ -17,11 +17,12 @@
 #ifndef TOOLBOX_SYS_LOGGER_HPP
 #define TOOLBOX_SYS_LOGGER_HPP
 
+#include <boost/lockfree/queue.hpp>
+#include <thread>
+
 #include <toolbox/sys/Limits.hpp>
 #include <toolbox/sys/Time.hpp>
-
 #include <toolbox/util/Storage.hpp>
-#include <toolbox/util/TaskQueue.hpp>
 
 namespace toolbox {
 inline namespace sys {
@@ -120,7 +121,7 @@ class TOOLBOX_API AsyncLogger : public Logger {
         WallTime ts;
         LogLevel level;
         int tid;
-        LogMsgPtr msg;
+        void* msg;
         std::size_t size;
     };
 
@@ -144,11 +145,13 @@ class TOOLBOX_API AsyncLogger : public Logger {
     void stop();
 
   private:
+    void write_all_messages();
     void do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
                       std::size_t size) noexcept override;
 
     Logger& logger_;
-    TaskQueue<Task> tq_;
+    boost::lockfree::queue<Task, boost::lockfree::fixed_sized<true>> tq_{128};
+    std::atomic<bool> stop_{false};
 };
 
 /// ScopedLogLevel provides a convenient RAII-style utility for setting the log-level for the

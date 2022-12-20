@@ -189,24 +189,40 @@ AsyncLogger::AsyncLogger(Logger& logger)
 {
 }
 
-AsyncLogger::~AsyncLogger() = default;
+AsyncLogger::~AsyncLogger()
+{
+    write_all_messages();
+}
+
+void AsyncLogger::write_all_messages()
+{
+    Task t;
+    while (tq_.pop(t)) {
+        logger_.write_log(t.ts, t.level, t.tid, LogMsgPtr{t.msg}, t.size);
+    }
+}
 
 bool AsyncLogger::run()
 {
-    return tq_.run([this](Task&& t) noexcept {
-        logger_.write_log(t.ts, t.level, t.tid, move(t.msg), t.size);
-    });
+    write_all_messages();
+    std::this_thread::sleep_for(50ms);
+
+    return (!tq_.empty() || !stop_);
 }
 
 void AsyncLogger::stop()
 {
-    tq_.stop();
+    stop_ = true;
 }
 
 void AsyncLogger::do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
                                size_t size) noexcept
 {
-    tq_.push(Task{.ts = ts, .level = level, .tid = tid, .msg = move(msg), .size = size});
+    // if the queue is full, skip the message
+    if (void* msg_ptr = msg.release();
+        !tq_.push(Task{.ts = ts, .level = level, .tid = tid, .msg = msg_ptr, .size = size})) {
+        LogMsgPtr{msg_ptr};
+    }
 }
 
 } // namespace sys
