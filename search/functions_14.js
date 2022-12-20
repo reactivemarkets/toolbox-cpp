@@ -2,8 +2,8 @@ var searchData=
 [
   ['v4_0',['v4',['../structtoolbox_1_1net_1_1TcpProtocol.html#a20be92ebcb6f254bd15fbfd486e449c4',1,'toolbox::net::TcpProtocol::v4()'],['../structtoolbox_1_1net_1_1UdpProtocol.html#abaa98a52e6ed5ce15826e7e44e34c385',1,'toolbox::net::UdpProtocol::v4() noexcept']]],
   ['v6_1',['v6',['../structtoolbox_1_1net_1_1UdpProtocol.html#a76f747b9c328a97d6d894cccaae95707',1,'toolbox::net::UdpProtocol::v6()'],['../structtoolbox_1_1net_1_1TcpProtocol.html#aef11a98eb1c400a174d9b5aa5ad06052',1,'toolbox::net::TcpProtocol::v6()']]],
-  ['value_2',['value',['../classtoolbox_1_1hdr_1_1Iterator.html#a3fedc8cdbf58a4d0f22451326a78c7c2',1,'toolbox::hdr::Iterator']]],
-  ['value_3',['Value',['../classtoolbox_1_1util_1_1Value.html#a66c8ee14c726a87a165f0c5b7593c646',1,'toolbox::util::Value::Value(VarT &amp;var)'],['../classtoolbox_1_1util_1_1Value.html#adde5ec20c3426cb287292d4aec84e1e8',1,'toolbox::util::Value::Value(std::vector&lt; VarT, AllocT &gt; &amp;var)']]],
+  ['value_2',['Value',['../classtoolbox_1_1util_1_1Value.html#a66c8ee14c726a87a165f0c5b7593c646',1,'toolbox::util::Value::Value(VarT &amp;var)'],['../classtoolbox_1_1util_1_1Value.html#adde5ec20c3426cb287292d4aec84e1e8',1,'toolbox::util::Value::Value(std::vector&lt; VarT, AllocT &gt; &amp;var)']]],
+  ['value_3',['value',['../classtoolbox_1_1hdr_1_1Iterator.html#a3fedc8cdbf58a4d0f22451326a78c7c2',1,'toolbox::hdr::Iterator']]],
   ['value_5fat_5findex_4',['value_at_index',['../classtoolbox_1_1hdr_1_1Histogram.html#a4bb4b6a2d055f43ab2133fdb29fa8df2',1,'toolbox::hdr::Histogram']]],
   ['value_5fat_5fpercentile_5',['value_at_percentile',['../namespacetoolbox_1_1hdr.html#a6ce9dd295fbabf8b9fe8bf65358b61d6',1,'toolbox::value_at_percentile()'],['../namespacetoolbox_1_1hdr.html#a6ce9dd295fbabf8b9fe8bf65358b61d6',1,'toolbox::hdr::value_at_percentile()']]],
   ['values_5fare_5fequivalent_6',['values_are_equivalent',['../classtoolbox_1_1hdr_1_1Histogram.html#a36b5a9852ed53f5838ec6dfc01ad823d',1,'toolbox::hdr::Histogram']]],
