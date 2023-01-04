@@ -45,7 +45,14 @@ struct ThreadUnsafePolicy {
     using Type = int;
     static void acquire() noexcept {}
     static int fetch_add(Type& ref_count) noexcept { return ref_count++; }
+#ifdef __GNU__
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wuse-after-free"
+#endif
     static int fetch_sub(Type& ref_count) noexcept { return ref_count--; }
+#ifdef __GNU__
+#pragma GCC diagnostic pop
+#endif
     static int load(Type ref_count) noexcept { return ref_count; }
 };
 
