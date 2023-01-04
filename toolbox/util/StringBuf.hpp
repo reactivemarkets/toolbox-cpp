@@ -20,6 +20,8 @@
 #include <cstring>
 #include <string_view>
 
+#include <boost/container_hash/hash.hpp>
+
 namespace toolbox {
 inline namespace util {
 
@@ -138,5 +140,17 @@ std::ostream& operator<<(std::ostream& os, const StringBuf<MaxN>& rhs)
 
 } // namespace util
 } // namespace toolbox
+
+namespace std {
+template <std::size_t MaxN>
+struct hash<toolbox::util::StringBuf<MaxN>> {
+    inline std::size_t operator()(const toolbox::util::StringBuf<MaxN>& key) const
+    {
+        std::size_t h{0};
+        boost::hash_combine(h, +key);
+        return h;
+    }
+};
+} // namespace std
 
 #endif // TOOLBOX_UTIL_STRINGBUF_HPP
