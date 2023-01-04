@@ -1,3 +1,9 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structtoolbox_1_1util_1_1FunctionTraits.html" title="Default case for functors and lambdas." alt="" coords="5,5,175,47"/>
+<area shape="rect" id="node1" href="$structtoolbox_1_1util_1_1FunctionTraits_3_01ReturnT_07_5_08_07ArgsT_8_8_8_08_4.html" title="Specialisation for free functions." alt="" coords="17,112,192,153"/>
+<area shape="rect" id="node2" href="$structtoolbox_1_1util_1_1FunctionTraits_3_01ReturnT_07_5_08_07ArgsT_8_8_8_08_01noexcept_01_4.html" title="Specialisation for noexcept free functions." alt="" coords="252,71,495,112"/>
+<area shape="rect" id="node3" href="$structtoolbox_1_1util_1_1FunctionTraits_3_01ReturnT_07ClassT_1_1_5_08_07ArgsT_8_8_8_08_01const_01_4.html" title="Specialisation for const member functions." alt="" coords="267,137,480,193"/>
+<area shape="rect" id="node4" href="$structtoolbox_1_1util_1_1FunctionTraits_3_01ReturnT_07ClassT_1_1_5_08_07ArgsT_8_8_8_08_01const_01noexcept_01_4.html" title="Specialisation for const noexcept member functions." alt="" coords="267,217,480,273"/>
+<area shape="rect" id="node5" href="$structtoolbox_1_1util_1_1FunctionTraits_3_01ReturnT_07ClassT_1_1_5_08_07ArgsT_8_8_8_08_01noexcept_01_4.html" title="Specialisation for noexcept member functions." alt="" coords="267,297,480,353"/>
+<area shape="rect" id="node6" href="$structtoolbox_1_1util_1_1FunctionTraits_3_01ReturnT_07ClassT_1_1_5_08_07ArgsT_8_8_8_08_4.html" title="Specialisation for member functions." alt="" coords="261,5,485,47"/>
+<area shape="rect" id="node7" href="$structtoolbox_1_1util_1_1FunctionTraits_3_01ReturnT_07_5_08_07ArgsT_8_8_8_08_4.html" title="Specialisation for free functions." alt="" coords="5,177,204,219"/>
 </map>
