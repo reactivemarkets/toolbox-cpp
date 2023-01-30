@@ -27,7 +27,7 @@ inline namespace util {
 using namespace std;
 
 Options::Options(string description)
-: description_{move(description)}
+: description_{std::move(description)}
 {
 }
 

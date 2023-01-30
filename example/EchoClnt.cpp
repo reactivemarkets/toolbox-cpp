@@ -33,7 +33,7 @@ class EchoConn {
 
   public:
     EchoConn(CyclTime now, Reactor& r, IoSock&& sock, const StreamEndpoint& ep)
-    : sock_{move(sock)}
+    : sock_{std::move(sock)}
     , ep_{ep}
     {
         sub_ = r.subscribe(sock_.get(), EpollIn, bind<&EchoConn::on_input>(this));
@@ -136,7 +136,7 @@ class EchoClnt : public StreamConnector<EchoClnt> {
         inprogress_ = false;
 
         // High performance TCP servers could use a custom allocator.
-        auto* const conn = new EchoConn{now, reactor_, move(sock), ep};
+        auto* const conn = new EchoConn{now, reactor_, std::move(sock), ep};
         conn_list_.push_back(*conn);
     }
     void on_sock_connect_error(CyclTime now, const std::exception& e)
