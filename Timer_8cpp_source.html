@@ -129,7 +129,7 @@ $(function() {
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            slab[i].<a class="code hl_variable" href="structtoolbox_1_1io_1_1Timer_1_1Impl.html#a1b9390a1783607df5e0dd0884f77ae3e">next</a> = free_;</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            free_ = &amp;slab[i];</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        }</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        slabs_.push_back(move(slab));</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        slabs_.push_back(std::move(slab));</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    }</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordflow">return</span> impl;</div>

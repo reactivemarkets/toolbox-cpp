@@ -173,7 +173,7 @@ $(function() {
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    last_closed = 0;</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    TestHandle h{1};</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    TestHandle{move(h)};</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    TestHandle{std::move(h)};</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(last_closed == 1);</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="comment">// NOLINTNEXTLINE(bugprone-use-after-move)</span></div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.get() == -1);</div>
@@ -181,7 +181,7 @@ $(function() {
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    h.reset(2);</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    {</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        TestHandle tmp;</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        tmp = move(h);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        tmp = std::move(h);</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    }</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(last_closed == 2);</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="comment">// NOLINTNEXTLINE(bugprone-use-after-move)</span></div>

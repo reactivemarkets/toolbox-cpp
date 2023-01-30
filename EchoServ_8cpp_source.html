@@ -108,7 +108,7 @@ $(function() {
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Endpo<span class="keywordtype">int</span>T&gt;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    EchoConn(<a class="code hl_class" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now, <a class="code hl_class" href="classtoolbox_1_1io_1_1Reactor.html">Reactor</a>&amp; r, <a class="code hl_struct" href="structtoolbox_1_1net_1_1IoSock.html">IoSock</a>&amp;&amp; sock, <span class="keyword">const</span> EndpointT&amp; ep)</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    : reactor_{r}</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    , sock_{move(sock)}</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    , sock_{<a class="code hl_namespace" href="namespacestd.html">std</a>::move(sock)}</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    , ep_{ep}</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    {</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        sub_ = r.<a class="code hl_function" href="classtoolbox_1_1io_1_1Reactor.html#a7237020831062908db028bc2c6fdb1bb">subscribe</a>(sock_.get(), <a class="code hl_enumvalue" href="namespacetoolbox_1_1io.html#a8c6012aff2a0b404f18904f88facb62aa410300e2d6016d4a3e3af942b5619bf4">EpollIn</a>, bind&lt;&amp;EchoConn::on_input&gt;(<span class="keyword">this</span>));</div>
@@ -197,7 +197,7 @@ $(function() {
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <a class="code hl_define" href="Log_8hpp.html#aaaca7789578fae79a1968cc989889940">TOOLBOX_INFO</a> &lt;&lt; <span class="stringliteral">&quot;connection opened: &quot;</span> &lt;&lt; ep;</div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="comment">// High performance TCP servers could use a custom allocator.</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="keyword">auto</span>* <span class="keyword">const</span> conn = <span class="keyword">new</span> EchoConn{now, reactor_, move(sock), ep};</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="keyword">auto</span>* <span class="keyword">const</span> conn = <span class="keyword">new</span> EchoConn{now, reactor_, std::move(sock), ep};</div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        conn_list_.push_back(*conn);</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    }</div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <a class="code hl_class" href="classtoolbox_1_1io_1_1Reactor.html">Reactor</a>&amp; reactor_;</div>
