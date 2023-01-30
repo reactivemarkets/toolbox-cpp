@@ -61,7 +61,7 @@ istream& Config::read_section(istream& is, string* next)
         is,
         [this, &var_sub](const auto& key, string val) {
             var_sub(val);
-            map_.emplace(key, move(val));
+            map_.emplace(key, std::move(val));
         },
         next);
 }
@@ -89,7 +89,7 @@ void MultiConfig::read(istream& is)
         Config config;
         config.set_parent(root_);
         config.read_section(is, next);
-        map_.emplace(name, move(config));
+        map_.emplace(name, std::move(config));
 
     } while (!is.eof());
 }

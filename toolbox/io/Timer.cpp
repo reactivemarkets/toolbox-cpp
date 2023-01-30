@@ -56,7 +56,7 @@ Timer::Impl* TimerPool::allocate(MonoTime expiry, Duration interval, TimerSlot s
             slab[i].next = free_;
             free_ = &slab[i];
         }
-        slabs_.push_back(move(slab));
+        slabs_.push_back(std::move(slab));
     }
 
     return impl;

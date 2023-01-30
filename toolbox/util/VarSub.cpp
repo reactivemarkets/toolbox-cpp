@@ -84,7 +84,7 @@ bool VarSub::substitute(string& s, const size_t i, size_t j, set<string>* outer)
                     auto name = s.substr(i + 2, n - 2);
                     if (outer->count(name) == 0) {
                         s.replace(i, n + 1, fn_(name));
-                        outer->insert(move(name));
+                        outer->insert(std::move(name));
                     } else {
                         // Loop detected: this name has already been substituted at this position.
                         s.erase(i, n + 1);

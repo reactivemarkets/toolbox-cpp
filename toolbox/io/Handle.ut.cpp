@@ -100,7 +100,7 @@ BOOST_AUTO_TEST_CASE(HandleMoveCase)
     last_closed = 0;
 
     TestHandle h{1};
-    TestHandle{move(h)};
+    TestHandle{std::move(h)};
     BOOST_TEST(last_closed == 1);
     // NOLINTNEXTLINE(bugprone-use-after-move)
     BOOST_TEST(h.get() == -1);
@@ -108,7 +108,7 @@ BOOST_AUTO_TEST_CASE(HandleMoveCase)
     h.reset(2);
     {
         TestHandle tmp;
-        tmp = move(h);
+        tmp = std::move(h);
     }
     BOOST_TEST(last_closed == 2);
     // NOLINTNEXTLINE(bugprone-use-after-move)

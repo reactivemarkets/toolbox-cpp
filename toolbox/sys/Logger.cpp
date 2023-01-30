@@ -179,7 +179,7 @@ Logger& set_logger(Logger& logger) noexcept
 
 void write_log(WallTime ts, LogLevel level, LogMsgPtr&& msg, std::size_t size) noexcept
 {
-    acquire_logger().write_log(ts, level, static_cast<int>(gettid()), move(msg), size);
+    acquire_logger().write_log(ts, level, static_cast<int>(gettid()), std::move(msg), size);
 }
 
 Logger::~Logger() = default;

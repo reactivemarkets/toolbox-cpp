@@ -35,7 +35,7 @@ class EchoConn {
     template <typename EndpointT>
     EchoConn(CyclTime now, Reactor& r, IoSock&& sock, const EndpointT& ep)
     : reactor_{r}
-    , sock_{move(sock)}
+    , sock_{std::move(sock)}
     , ep_{ep}
     {
         sub_ = r.subscribe(sock_.get(), EpollIn, bind<&EchoConn::on_input>(this));
@@ -124,7 +124,7 @@ class EchoServ : public StreamAcceptor<EchoServ> {
         TOOLBOX_INFO << "connection opened: " << ep;
 
         // High performance TCP servers could use a custom allocator.
-        auto* const conn = new EchoConn{now, reactor_, move(sock), ep};
+        auto* const conn = new EchoConn{now, reactor_, std::move(sock), ep};
         conn_list_.push_back(*conn);
     }
     Reactor& reactor_;
