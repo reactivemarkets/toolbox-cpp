@@ -1,6 +1,6 @@
 // The Reactive C++ Toolbox.
 // Copyright (C) 2013-2019 Swirly Cloud Limited
-// Copyright (C) 2022 Reactive Markets Limited
+// Copyright (C) 2023 Reactive Markets Limited
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -23,57 +23,83 @@
 
 namespace toolbox {
 inline namespace net {
+namespace detail {
 
-/// Reads a binary-encoded 4 byte integer from the input buffer.
+/// Reads a binary-encoded 2 byte integer from the input buffer.
+/// N.B. the Native template parameter is provided for testability.
 ///
-/// The length is encoded as a little-endian, two's complement integer.
-///
-/// \param buf The input buffer, which must be at least 4 bytes in length.
-/// \return the decoded 4 byte integer.
-constexpr std::uint32_t get_length(const char* buf) noexcept
+/// \tparam Native Endianness of native/target platform.
+/// \param buf The input buffer, which must be at least 2 bytes in length.
+/// \param net_byte_order Endianness used for network byte order decoding.
+/// \return the decoded 2 byte integer.
+template <std::endian Native = std::endian::native>
+constexpr std::uint16_t get_length(const char* buf, std::endian net_byte_order) noexcept
 {
-    return ((buf[3] & 0xff) << 24) //
-        | ((buf[2] & 0xff) << 16)  //
-        | ((buf[1] & 0xff) << 8)   //
-        | (buf[0] & 0xff);
+    // If byte swap required then 1, else 0.
+    // These values provide indices into buffer, which is assumed to be at least 2 bytes long.
+    const int bswap{Native != net_byte_order};
+    return ((buf[!bswap] & 0xff) << 8) | (buf[bswap] & 0xff);
 }
 
-/// Reads a binary-encoded 4 byte integer from the input buffer.
+/// Writes a binary-encoded 2 byte integer to the output buffer.
+/// N.B. the Native template parameter is provided for testability.
 ///
-/// The length is encoded as a little-endian, two's complement integer.
-///
-/// \param buf The input buffer, which must be at least 4 bytes in length.
-/// \return the decoded 4 byte integer.
-inline std::uint32_t get_length(ConstBuffer buf) noexcept
-{
-    assert(buffer_size(buf) >= 4);
-    return get_length(buffer_cast<const char*>(buf));
-}
-
-/// Writes a binary-encoded 4 byte integer to the output buffer.
-///
-/// The length is encoded as a little-endian, two's complement integer.
-///
-/// \param buf The output buffer, which must be at least 4 bytes in length.
+/// \tparam Native Endianness of native/target platform.
+/// \param buf The output buffer, which must be at least 2 bytes in length.
 /// \param len The length to be encoded.
-constexpr void put_length(char* buf, std::uint32_t len) noexcept
+/// \param net_byte_order Endianness used for network byte order decoding.
+template <std::endian Native = std::endian::native>
+inline void put_length(char* buf, std::uint16_t len, std::endian net_byte_order) noexcept
 {
-    buf[0] = 0xff & len;
-    buf[1] = 0xff & (len >> 8);
-    buf[2] = 0xff & (len >> 16);
-    buf[3] = 0xff & (len >> 24);
+    // If byte swap required then 1, else 0.
+    // These values provide indices into buffer, which is assumed to be at least 2 bytes long.
+    const int bswap{Native != net_byte_order};
+    buf[bswap] = 0xff & len;
+    buf[!bswap] = 0xff & (len >> 8);
 }
 
-/// Writes a binary-encoded 4 byte integer to the output buffer.
+} // namespace detail
+
+/// Reads a binary-encoded 2 byte integer from the input buffer.
 ///
-/// The length is encoded as a little-endian, two's complement integer.
-///
-/// \param buf The output buffer, which must be at least 4 bytes in length.
-/// \param len The length to be encoded.
-inline void put_length(MutableBuffer buf, std::uint32_t len) noexcept
+/// \param buf The input buffer, which must be at least 2 bytes in length.
+/// \param net_byte_order Endianness used for network byte order decoding.
+/// \return the decoded 2 byte integer.
+constexpr std::uint16_t get_length(const char* buf, std::endian net_byte_order) noexcept
 {
-    assert(buffer_size(buf) >= 4);
-    put_length(buffer_cast<char*>(buf), len);
+    return detail::get_length<>(buf, net_byte_order);
+}
+
+/// Reads a binary-encoded 2 byte integer from the input buffer.
+///
+/// \param buf The input buffer, which must be at least 2 bytes in length.
+/// \param net_byte_order Endianness used for network byte order decoding.
+/// \return the decoded 2 byte integer.
+inline std::uint16_t get_length(ConstBuffer buf, std::endian net_byte_order) noexcept
+{
+    assert(buffer_size(buf) >= 2);
+    return get_length(buffer_cast<const char*>(buf), net_byte_order);
+}
+
+/// Writes a binary-encoded 2 byte integer to the output buffer.
+///
+/// \param buf The output buffer, which must be at least 2 bytes in length.
+/// \param len The length to be encoded.
+/// \param net_byte_order Endianness used for network byte order encoding.
+inline void put_length(char* buf, std::uint16_t len, std::endian net_byte_order) noexcept
+{
+    detail::put_length<>(buf, len, net_byte_order);
+}
+
+/// Writes a binary-encoded 2 byte integer to the output buffer.
+///
+/// \param buf The output buffer, which must be at least 2 bytes in length.
+/// \param len The length to be encoded.
+/// \param net_byte_order Endianness used for network byte order encoding.
+inline void put_length(MutableBuffer buf, std::uint16_t len, std::endian net_byte_order) noexcept
+{
+    assert(buffer_size(buf) >= 2);
+    put_length(buffer_cast<char*>(buf), len, net_byte_order);
 }
 
 /// Calls the function object for each message encapsulated in a length-prefixed frame.
@@ -81,22 +107,23 @@ inline void put_length(MutableBuffer buf, std::uint32_t len) noexcept
 /// \tparam FnT The type of the function object.
 /// \param buf The input buffer.
 /// \param fn The function object that is called for each complete message.
+/// \param net_byte_order Endianness used for network byte order decoding.
 /// \return the total number of consumed bytes.
 template <typename FnT>
-std::size_t parse_frame(ConstBuffer buf, FnT fn)
+std::size_t parse_frame(ConstBuffer buf, FnT fn, std::endian net_byte_order)
 {
     std::size_t consumed{0};
     for (;;) {
         const auto* data = buffer_cast<const char*>(buf);
         const std::size_t size = buffer_size(buf);
-        if (size < sizeof(std::uint32_t)) {
+        if (size < sizeof(std::uint16_t)) {
             break;
         }
-        const auto total = sizeof(std::uint32_t) + get_length(data);
+        const auto total = sizeof(std::uint16_t) + get_length(data, net_byte_order);
         if (size < total) {
             break;
         }
-        fn(ConstBuffer{data + sizeof(std::uint32_t), total - sizeof(std::uint32_t)});
+        fn(ConstBuffer{data + sizeof(std::uint16_t), total - sizeof(std::uint16_t)});
         buf = advance(buf, total);
         consumed += total;
     }
@@ -108,11 +135,12 @@ std::size_t parse_frame(ConstBuffer buf, FnT fn)
 /// \tparam FnT The type of the function object.
 /// \param buf The input buffer.
 /// \param fn The function object that is called for each complete message.
+/// \param net_byte_order Endianness used for network byte order decoding.
 /// \return the total number of consumed bytes.
 template <typename FnT>
-std::size_t parse_frame(std::string_view buf, FnT fn)
+std::size_t parse_frame(std::string_view buf, FnT fn, std::endian net_byte_order)
 {
-    return parse_frame(ConstBuffer{buf.data(), buf.size()}, fn);
+    return parse_frame(ConstBuffer{buf.data(), buf.size()}, fn, net_byte_order);
 }
 
 } // namespace net
