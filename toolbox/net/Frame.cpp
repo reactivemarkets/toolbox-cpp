@@ -1,6 +1,6 @@
 // The Reactive C++ Toolbox.
 // Copyright (C) 2013-2019 Swirly Cloud Limited
-// Copyright (C) 2021 Reactive Markets Limited
+// Copyright (C) 2023 Reactive Markets Limited
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -18,8 +18,16 @@
 
 namespace toolbox {
 inline namespace net {
+using namespace std;
 
-static_assert(get_length("\001\002\003\004") == 0x04030201);
+// Native little endian (least first) and network little endian: no swap required.
+static_assert(detail::get_length<std::endian::little>("\002\001", std::endian::little) == 0x0102);
+// Native little endian (least first) and network big endian: swap required.
+static_assert(detail::get_length<std::endian::little>("\001\002", std::endian::big) == 0x0102);
+// Native bid endian and network bid endian: no swap required.
+static_assert(detail::get_length<std::endian::big>("\001\002", std::endian::big) == 0x0201);
+// Native bid endian and network little endian: swap required.
+static_assert(detail::get_length<std::endian::big>("\002\001", std::endian::little) == 0x0201);
 
 } // namespace net
 } // namespace toolbox

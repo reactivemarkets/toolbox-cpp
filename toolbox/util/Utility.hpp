@@ -20,6 +20,7 @@
 #include <toolbox/Config.h>
 
 #include <bit>
+#include <cstdint>
 #include <string_view>
 
 namespace toolbox {
