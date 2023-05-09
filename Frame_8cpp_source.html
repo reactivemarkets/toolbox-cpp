@@ -73,7 +73,7 @@ $(function() {
 <div class="contents">
 <a href="Frame_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// The Reactive C++ Toolbox.</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Copyright (C) 2013-2019 Swirly Cloud Limited</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// Copyright (C) 2021 Reactive Markets Limited</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// Copyright (C) 2023 Reactive Markets Limited</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">//</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// you may not use this file except in compliance with the License.</span></div>
@@ -91,13 +91,21 @@ $(function() {
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetoolbox.html">toolbox</a> {</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">inline</span> <span class="keyword">namespace </span>net {</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">static_assert</span>(<a class="code hl_function" href="namespacetoolbox_1_1net.html#ad6642b57738148f8340fa904a457352f">get_length</a>(<span class="stringliteral">&quot;\001\002\003\004&quot;</span>) == 0x04030201);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>} <span class="comment">// namespace net</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>} <span class="comment">// namespace toolbox</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespacestd.html">std</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">// Native little endian (least first) and network little endian: no swap required.</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">static_assert</span>(detail::get_length&lt;std::endian::little&gt;(<span class="stringliteral">&quot;\002\001&quot;</span>, std::endian::little) == 0x0102);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">// Native little endian (least first) and network big endian: swap required.</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">static_assert</span>(detail::get_length&lt;std::endian::little&gt;(<span class="stringliteral">&quot;\001\002&quot;</span>, std::endian::big) == 0x0102);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">// Native bid endian and network bid endian: no swap required.</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">static_assert</span>(detail::get_length&lt;std::endian::big&gt;(<span class="stringliteral">&quot;\001\002&quot;</span>, std::endian::big) == 0x0201);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">// Native bid endian and network little endian: swap required.</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">static_assert</span>(detail::get_length&lt;std::endian::big&gt;(<span class="stringliteral">&quot;\002\001&quot;</span>, std::endian::little) == 0x0201);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>} <span class="comment">// namespace net</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>} <span class="comment">// namespace toolbox</span></div>
 <div class="ttc" id="aFrame_8hpp_html"><div class="ttname"><a href="Frame_8hpp.html">Frame.hpp</a></div></div>
-<div class="ttc" id="anamespacetoolbox_1_1net_html_ad6642b57738148f8340fa904a457352f"><div class="ttname"><a href="namespacetoolbox_1_1net.html#ad6642b57738148f8340fa904a457352f">toolbox::net::get_length</a></div><div class="ttdeci">constexpr std::uint32_t get_length(const char *buf) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Frame_8hpp_source.html#l00033">Frame.hpp:33</a></div></div>
+<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdoc">STL namespace.</div></div>
 <div class="ttc" id="anamespacetoolbox_html"><div class="ttname"><a href="namespacetoolbox.html">toolbox</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8cpp_source.html#l00026">Benchmark.cpp:26</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
