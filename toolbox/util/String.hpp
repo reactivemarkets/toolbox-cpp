@@ -1,6 +1,6 @@
 // The Reactive C++ Toolbox.
 // Copyright (C) 2013-2019 Swirly Cloud Limited
-// Copyright (C) 2022 Reactive Markets Limited
+// Copyright (C) 2023 Reactive Markets Limited
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -136,6 +136,11 @@ TOOLBOX_API std::pair<std::string_view, std::string_view> split_pair(std::string
 
 TOOLBOX_API std::pair<std::string, std::string> split_pair(const std::string& s, char delim);
 
+/// Returns the length of right-padded string.
+/// \tparam PadC The character used for padding.
+/// \param src The source string.
+/// \param n The maximum size of the source string.
+/// \return the length of src if less than n, otherwise n.
 template <char PadC>
 constexpr std::size_t pstrlen(const char* src, std::size_t n) noexcept
 {
@@ -151,12 +156,23 @@ constexpr std::size_t pstrlen(const char* src, std::size_t n) noexcept
     }
 }
 
+/// Returns the length of right-padded string.
+/// \tparam PadC The character used for padding.
+/// \tparam SizeN The maximum size of the source string.
+/// \param src The source string.
+/// \return the length of src.
 template <char PadC, std::size_t SizeN>
 constexpr std::size_t pstrlen(const char (&src)[SizeN]) noexcept
 {
     return pstrlen<PadC>(src, SizeN);
 }
 
+/// Copy src string to right-padded buffer dst.
+/// \tparam PadC The character used for padding.
+/// \param dst The destination buffer.
+/// \param src The source string.
+/// \param n The maximum size of the destination buffer.
+/// \return the number of bytes copied to the destination buffer.
 template <char PadC>
 constexpr std::size_t pstrcpy(char* dst, const char* src, std::size_t n) noexcept
 {
@@ -182,12 +198,24 @@ constexpr std::size_t pstrcpy(char* dst, const char* src, std::size_t n) noexcep
     }
 }
 
+/// Copy src string to right-padded buffer dst.
+/// \tparam PadC The character used for padding.
+/// \tparam SizeN The maximum size of the destination buffer.
+/// \param dst The destination buffer.
+/// \param src The source string.
+/// \return the number of bytes copied to the destination buffer.
 template <char PadC, std::size_t SizeN>
 constexpr std::size_t pstrcpy(char (&dst)[SizeN], const char* src) noexcept
 {
     return pstrcpy<PadC>(dst, src, SizeN);
 }
 
+/// Copy src string to right-padded buffer dst.
+/// \tparam PadC The character used for padding.
+/// \param dst The destination buffer.
+/// \param src The source string.
+/// \param n The maximum size of the destination buffer.
+/// \return the number of bytes copied to the destination buffer.
 template <char PadC>
 constexpr std::size_t pstrcpy(char* dst, std::string_view src, std::size_t n) noexcept
 {
@@ -201,6 +229,12 @@ constexpr std::size_t pstrcpy(char* dst, std::string_view src, std::size_t n) no
     return len;
 }
 
+/// Copy src string to right-padded buffer dst.
+/// \tparam PadC The character used for padding.
+/// \tparam SizeN The maximum size of the destination buffer.
+/// \param dst The destination buffer.
+/// \param src The source string.
+/// \return the number of bytes copied to the destination buffer.
 template <char PadC, std::size_t SizeN>
 constexpr std::size_t pstrcpy(char (&dst)[SizeN], std::string_view src) noexcept
 {
@@ -225,6 +259,94 @@ template <char PadC, std::size_t SizeN>
 constexpr std::size_t pstrcpyid(char (&dst)[SizeN], std::int64_t id) noexcept
 {
     return pstrcpyid<PadC>(dst, id, SizeN);
+}
+
+/// Returns the length of left-padded string.
+/// \tparam PadC The character used for padding.
+/// \param src The source string.
+/// \param n The maximum size of the source string.
+/// \return the length of src if less than n, otherwise n.
+template <char PadC>
+constexpr std::size_t lpstrlen(const char* src, std::size_t n) noexcept
+{
+    std::size_t i{0};
+    while (i < n && src[i] == PadC) {
+        ++i;
+    }
+    return n - i;
+}
+
+/// Returns the length of left-padded string.
+/// \tparam PadC The character used for padding.
+/// \tparam SizeN The maximum size of the source string.
+/// \param src The source string.
+/// \return the length of src.
+template <char PadC, std::size_t SizeN>
+constexpr std::size_t lpstrlen(const char (&src)[SizeN]) noexcept
+{
+    return lpstrlen<PadC>(src, SizeN);
+}
+
+/// Copy src string to left-padded buffer dst.
+/// \tparam PadC The character used for padding.
+/// \param dst The destination buffer.
+/// \param src The source string.
+/// \param n The maximum size of the destination buffer.
+/// \return the number of bytes copied to the destination buffer.
+template <char PadC>
+constexpr std::size_t lpstrcpy(char* dst, const char* src, std::size_t n) noexcept
+{
+    const std::size_t len{strnlen(src, n)};
+    if (len < n) {
+        std::memset(dst, PadC, n - len);
+    }
+    if (len > 0) {
+        std::memcpy(dst + (n - len), src, len);
+    }
+    return len;
+}
+
+/// Copy src string to left-padded buffer dst.
+/// \tparam PadC The character used for padding.
+/// \tparam SizeN The maximum size of the destination buffer.
+/// \param dst The destination buffer.
+/// \param src The source string.
+/// \return the number of bytes copied to the destination buffer.
+template <char PadC, std::size_t SizeN>
+constexpr std::size_t lpstrcpy(char (&dst)[SizeN], const char* src) noexcept
+{
+    return lpstrcpy<PadC>(dst, src, SizeN);
+}
+
+/// Copy src string to left-padded buffer dst.
+/// \tparam PadC The character used for padding.
+/// \param dst The destination buffer.
+/// \param src The source string.
+/// \param n The maximum size of the destination buffer.
+/// \return the number of bytes copied to the destination buffer.
+template <char PadC>
+constexpr std::size_t lpstrcpy(char* dst, std::string_view src, std::size_t n) noexcept
+{
+    const std::size_t len{std::min(n, src.size())};
+    if (len < n) {
+        std::memset(dst, PadC, n - len);
+    }
+    if (len > 0) {
+        std::memcpy(dst + (n - len), src.data(), len);
+    }
+    return len;
+}
+
+/// Copy src string to left-padded buffer dst.
+/// \tparam PadC The character used for padding.
+/// \tparam SizeN The maximum size of the destination buffer.
+/// \param dst The destination buffer.
+/// \param src The source string.
+/// \return the number of bytes copied to the destination buffer.
+template <char PadC, std::size_t SizeN>
+constexpr std::size_t lpstrcpy(char (&dst)[SizeN], std::string_view src) noexcept
+{
+    return lpstrcpy<PadC>(dst, src, SizeN);
 }
 
 template <typename... ArgsT>
