@@ -161,8 +161,15 @@ template <char PadC>
 constexpr std::size_t pstrcpy(char* dst, const char* src, std::size_t n) noexcept
 {
     if constexpr (PadC == '\0') {
+#ifndef __clang__
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wstringop-truncation"
+#endif
         // Optimised case.
         return stpncpy(dst, src, n) - dst;
+#ifndef __clang__
+#pragma GCC diagnostic pop
+#endif
     } else {
         std::size_t i{0};
         for (; i < n && src[i] != '\0'; ++i) {

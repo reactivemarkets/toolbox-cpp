@@ -40,7 +40,7 @@ class EchoConn {
         tmr_ = r.timer(now.mono_time(), PingInterval, Priority::Low,
                        bind<&EchoConn::on_timer>(this));
     }
-    void dispose(CyclTime now) noexcept
+    void dispose(CyclTime /*now*/) noexcept
     {
         TOOLBOX_INFO << "connection closed";
         delete this;
@@ -78,7 +78,7 @@ class EchoConn {
             dispose(now);
         }
     }
-    void on_timer(CyclTime now, Timer& tmr)
+    void on_timer(CyclTime now, Timer& /*tmr*/)
     {
         try {
             if (sock_.send("ping\n", 5, 0) < 5) {
@@ -122,7 +122,7 @@ class EchoClnt : public StreamConnector<EchoClnt> {
     }
 
   private:
-    void on_sock_prepare(CyclTime now, IoSock& sock)
+    void on_sock_prepare(CyclTime /*now*/, IoSock& sock)
     {
         if (sock.is_ip_family()) {
             // Set the number of SYN retransmits that TCP should send before aborting the attempt to
@@ -139,13 +139,13 @@ class EchoClnt : public StreamConnector<EchoClnt> {
         auto* const conn = new EchoConn{now, reactor_, std::move(sock), ep};
         conn_list_.push_back(*conn);
     }
-    void on_sock_connect_error(CyclTime now, const std::exception& e)
+    void on_sock_connect_error(CyclTime /*now*/, const std::exception& e)
     {
         TOOLBOX_ERROR << "could not connect: " << e.what();
         aifuture_ = resolver_.resolve(uri_, SOCK_STREAM);
         inprogress_ = false;
     }
-    void on_timer(CyclTime now, Timer& tmr)
+    void on_timer(CyclTime now, Timer& /*tmr*/)
     {
         if (!conn_list_.empty() || inprogress_) {
             return;
@@ -181,7 +181,7 @@ class EchoClnt : public StreamConnector<EchoClnt> {
 };
 } // namespace
 
-int main(int argc, char* argv[])
+int main()
 {
     int ret = 1;
     try {

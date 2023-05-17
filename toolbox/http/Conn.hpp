@@ -92,7 +92,7 @@ class BasicConn
 
   private:
     ~BasicConn() = default;
-    bool on_http_message_begin(CyclTime now) noexcept
+    bool on_http_message_begin(CyclTime /*now*/) noexcept
     {
         in_progress_ = true;
         req_.clear();
@@ -110,7 +110,7 @@ class BasicConn
         }
         return ret;
     }
-    bool on_http_status(CyclTime now, std::string_view sv) noexcept
+    bool on_http_status(CyclTime /*now*/, std::string_view /*sv*/) noexcept
     {
         // Only supported for HTTP responses.
         return false;
@@ -139,7 +139,7 @@ class BasicConn
         }
         return ret;
     }
-    bool on_http_headers_end(CyclTime now) noexcept
+    bool on_http_headers_end(CyclTime /*now*/) noexcept
     {
         req_.set_method(method());
         return true;
@@ -170,9 +170,9 @@ class BasicConn
         }
         return ret;
     }
-    bool on_http_chunk_header(CyclTime now, std::size_t len) noexcept { return true; }
-    bool on_http_chunk_end(CyclTime now) noexcept { return true; }
-    void on_timeout_timer(CyclTime now, Timer& tmr)
+    bool on_http_chunk_header(CyclTime /*now*/, std::size_t /*len*/) noexcept { return true; }
+    bool on_http_chunk_end(CyclTime /*now*/) noexcept { return true; }
+    void on_timeout_timer(CyclTime now, Timer& /*tmr*/)
     {
         auto lock = this->lock_this(now);
         app_.on_http_timeout(now, ep_);

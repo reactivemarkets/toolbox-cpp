@@ -63,7 +63,7 @@ class BasicParser {
         http_parser_init(&parser_, static_cast<http_parser_type>(type_));
         last_header_elem_ = None;
     }
-    std::size_t parse(CyclTime now, ConstBuffer buf)
+    std::size_t parse(CyclTime /*now*/, ConstBuffer buf)
     {
         static http_parser_settings settings{make_settings()};
         const auto rc = http_parser_execute(&parser_, &settings, buffer_cast<const char*>(buf),

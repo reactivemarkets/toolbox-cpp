@@ -48,7 +48,7 @@ ostream& operator<<(ostream& os, const Foo<int, int>& val)
 }
 
 struct TestLogger final : Logger {
-    void do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
+    void do_write_log(WallTime /*ts*/, LogLevel level, int /*tid*/, LogMsgPtr&& msg,
                       size_t size) noexcept override
     {
         last_level = level;

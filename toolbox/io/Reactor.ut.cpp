@@ -28,7 +28,7 @@ using namespace toolbox;
 namespace {
 
 struct TestHandler : RefCount<TestHandler, ThreadUnsafePolicy> {
-    void on_input(CyclTime now, int fd, unsigned events)
+    void on_input(CyclTime /*now*/, int fd, unsigned /*events*/)
     {
         char buf[4];
         os::recv(fd, buf, 4, 0);

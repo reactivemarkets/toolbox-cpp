@@ -21,10 +21,6 @@
 using namespace std;
 using namespace toolbox;
 
-namespace {
-constexpr string_view Name = "string_view"sv;
-} // namespace
-
 BOOST_AUTO_TEST_SUITE(StringBufSuite)
 
 BOOST_AUTO_TEST_CASE(StringBufEmptyCase)

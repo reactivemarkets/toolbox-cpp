@@ -61,7 +61,7 @@ TOOLBOX_BENCHMARK(std_map_insert_erase)
 
     size_t i{0};
     while (ctx) {
-        for (auto _ : ctx.range(100)) {
+        for ([[maybe_unused]] auto _ : ctx.range(100)) {
             m[i++ % RandData.size()];
             m.erase(i++ % RandData.size());
         }
@@ -74,7 +74,7 @@ TOOLBOX_BENCHMARK(std_unordered_map_insert_erase)
 
     size_t i{0};
     while (ctx) {
-        for (auto _ : ctx.range(100)) {
+        for ([[maybe_unused]] auto _ : ctx.range(100)) {
             m[i++ % RandData.size()];
             m.erase(i++ % RandData.size());
         }
@@ -87,7 +87,7 @@ TOOLBOX_BENCHMARK(robin_map_insert_erase)
 
     size_t i{0};
     while (ctx) {
-        for (auto _ : ctx.range(100)) {
+        for ([[maybe_unused]] auto _ : ctx.range(100)) {
             m[i++ % RandData.size()];
             m.erase(i++ % RandData.size());
         }
@@ -100,7 +100,7 @@ TOOLBOX_BENCHMARK(std_map_immutable)
 
     size_t i{0};
     while (ctx) {
-        for (auto _ : ctx.range(100)) {
+        for ([[maybe_unused]] auto _ : ctx.range(100)) {
             m[i++ % RandData.size()];
         }
     }
@@ -112,7 +112,7 @@ TOOLBOX_BENCHMARK(std_unordered_map_immutable)
 
     size_t i{0};
     while (ctx) {
-        for (auto _ : ctx.range(100)) {
+        for ([[maybe_unused]] auto _ : ctx.range(100)) {
             m[i++ % RandData.size()];
         }
     }
@@ -124,7 +124,7 @@ TOOLBOX_BENCHMARK(robin_map_immutable)
 
     size_t i{0};
     while (ctx) {
-        for (auto _ : ctx.range(100)) {
+        for ([[maybe_unused]] auto _ : ctx.range(100)) {
             m[i++ % RandData.size()];
         }
     }

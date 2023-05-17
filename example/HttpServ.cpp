@@ -24,12 +24,12 @@ using namespace toolbox;
 
 namespace {
 
-void on_foo(const Request& req, http::OStream& os)
+void on_foo(const Request& /*req*/, http::OStream& os)
 {
     os << "Hello, Foo!";
 }
 
-void on_bar(const Request& req, http::OStream& os)
+void on_bar(const Request& /*req*/, http::OStream& os)
 {
     os << "Hello, Bar!";
 }
@@ -43,20 +43,20 @@ class ExampleApp final : public App {
     void bind(const std::string& path, Slot slot) { slot_map_[path] = slot; }
 
   protected:
-    void do_on_http_connect(CyclTime now, const Endpoint& ep) noexcept override
+    void do_on_http_connect(CyclTime /*now*/, const Endpoint& ep) noexcept override
     {
         TOOLBOX_INFO << "http session connected: " << ep;
     }
-    void do_on_http_disconnect(CyclTime now, const Endpoint& ep) noexcept override
+    void do_on_http_disconnect(CyclTime /*now*/, const Endpoint& ep) noexcept override
     {
         TOOLBOX_INFO << "http session disconnected: " << ep;
     }
-    void do_on_http_error(CyclTime now, const Endpoint& ep, const std::exception& e,
-                          http::OStream& os) noexcept override
+    void do_on_http_error(CyclTime /*now*/, const Endpoint& ep, const std::exception& e,
+                          http::OStream& /*os*/) noexcept override
     {
         TOOLBOX_ERROR << "http session error: " << ep << ": " << e.what();
     }
-    void do_on_http_message(CyclTime now, const Endpoint& ep, const Request& req,
+    void do_on_http_message(CyclTime /*now*/, const Endpoint& /*ep*/, const Request& req,
                             http::OStream& os) override
     {
         const auto it = slot_map_.find(string{req.path()});
@@ -69,7 +69,7 @@ class ExampleApp final : public App {
         }
         os.commit();
     }
-    void do_on_http_timeout(CyclTime now, const Endpoint& ep) noexcept override
+    void do_on_http_timeout(CyclTime /*now*/, const Endpoint& ep) noexcept override
     {
         TOOLBOX_WARN << "http session timeout: " << ep;
     }
@@ -80,7 +80,7 @@ class ExampleApp final : public App {
 
 } // namespace
 
-int main(int argc, char* argv[])
+int main()
 {
     int ret = 1;
     try {

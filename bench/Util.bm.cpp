@@ -197,7 +197,7 @@ bool stob_string(string_view sv, bool dfl) noexcept
 TOOLBOX_BENCHMARK(to_string_double)
 {
     while (ctx) {
-        for (auto _ : ctx.range(1000)) {
+        for ([[maybe_unused]] auto _ : ctx.range(1000)) {
             auto x = std::to_string(DoubleValue);
             bm::do_not_optimise(x);
         }
@@ -207,7 +207,7 @@ TOOLBOX_BENCHMARK(to_string_double)
 TOOLBOX_BENCHMARK(to_string_int)
 {
     while (ctx) {
-        for (auto _ : ctx.range(1000)) {
+        for ([[maybe_unused]] auto _ : ctx.range(1000)) {
             auto x = std::to_string(IntValue);
             bm::do_not_optimise(x);
         }
@@ -287,7 +287,7 @@ TOOLBOX_BENCHMARK(hex_digits_bitshift)
 TOOLBOX_BENCHMARK(stob)
 {
     while (ctx) {
-        for (unsigned i : ctx.range(1000)) {
+        for ([[maybe_unused]] unsigned _ : ctx.range(1000)) {
             int sum{0};
             for (const auto sv : BoolArray) {
                 sum += static_cast<int>(toolbox::stob(sv));
@@ -300,7 +300,7 @@ TOOLBOX_BENCHMARK(stob)
 TOOLBOX_BENCHMARK(stob_string)
 {
     while (ctx) {
-        for (unsigned i : ctx.range(1000)) {
+        for ([[maybe_unused]] unsigned _ : ctx.range(1000)) {
             int sum{0};
             for (const auto sv : BoolArray) {
                 sum += static_cast<int>(::stob_string(sv));

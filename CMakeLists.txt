@@ -106,7 +106,7 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-set(COMMON_WARN "-Wall -Werror -Wextra -Wstrict-aliasing=2 -Wno-unused-parameter -Wno-unused-variable -Wno-error=deprecated-declarations")
+set(COMMON_WARN "-Wall -Werror -Wextra -Wstrict-aliasing=2 -Wno-error=deprecated-declarations")
 set(COMMON_C_FLAGS "-fstrict-aliasing -fvisibility=hidden")
 set(COMMON_CXX_FLAGS "${COMMON_C_FLAGS} -faligned-new")
 

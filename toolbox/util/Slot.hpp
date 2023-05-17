@@ -54,7 +54,7 @@ class BasicSlot {
     constexpr auto& bind() noexcept
     {
         obj_ = nullptr;
-        fn_ = [](void* obj, ArgsT... args) { FnT(std::forward<ArgsT>(args)...); };
+        fn_ = [](void* /*obj*/, ArgsT... args) { FnT(std::forward<ArgsT>(args)...); };
         return *this;
     }
     // Lambda function.
