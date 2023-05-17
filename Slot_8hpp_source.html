@@ -127,7 +127,7 @@ $(function() {
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classtoolbox_1_1util_1_1BasicSlot.html#abfe5052bf1344b57f414e7c75fd8e0b1">   54</a></span>    <span class="keyword">constexpr</span> <span class="keyword">auto</span>&amp; <a class="code hl_function" href="classtoolbox_1_1util_1_1BasicSlot.html#abfe5052bf1344b57f414e7c75fd8e0b1">bind</a>() noexcept</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    {</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        obj_ = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        fn_ = [](<span class="keywordtype">void</span>* obj, ArgsT... args) { FnT(std::forward&lt;ArgsT&gt;(args)...); };</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        fn_ = [](<span class="keywordtype">void</span>* <span class="comment">/*obj*/</span>, ArgsT... args) { FnT(std::forward&lt;ArgsT&gt;(args)...); };</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="comment">// Lambda function.</span></div>

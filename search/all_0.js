@@ -28,7 +28,7 @@ var searchData=
   ['append_25',['append',['../classtoolbox_1_1util_1_1VarAccum.html#ab7b908754264400a5b870f4ee5423648',1,'toolbox::util::VarAccum::append()'],['../classtoolbox_1_1util_1_1StringBuf.html#a3422516d6db952cafa1179751a4cda3c',1,'toolbox::util::StringBuf::append()'],['../classtoolbox_1_1util_1_1VarAccum.html#ad253f2f453142ebf2bc55a687bbdb9ed',1,'toolbox::util::VarAccum::append()'],['../Math_8ut_8cpp.html#a57261b541822acf7675b3e0560a38f55',1,'append():&#160;Math.ut.cpp']]],
   ['append_5fbody_26',['append_body',['../classtoolbox_1_1http_1_1Request.html#ad3a8cfb582c296113247be3451696281',1,'toolbox::http::Request']]],
   ['append_5fheader_5ffield_27',['append_header_field',['../classtoolbox_1_1http_1_1Request.html#a5d22fab69e2324a3285142469e7d69b2',1,'toolbox::http::Request']]],
-  ['append_5fheader_5fvalue_28',['append_header_value',['../classtoolbox_1_1http_1_1Request.html#a3442a7d1530ec31a4f862073673529ae',1,'toolbox::http::Request']]],
+  ['append_5fheader_5fvalue_28',['append_header_value',['../classtoolbox_1_1http_1_1Request.html#a4dd8321f9f3ea4d9f95d7096156bc3f3',1,'toolbox::http::Request']]],
   ['append_5furl_29',['append_url',['../classtoolbox_1_1http_1_1Request.html#ab3df2f81ba679d6ed60182a9bc37215d',1,'toolbox::http::Request']]],
   ['applicationjson_30',['ApplicationJson',['../namespacetoolbox_1_1http.html#a4535346f4eb5173c74ec6be3e63e9e46',1,'toolbox::ApplicationJson()'],['../namespacetoolbox_1_1http.html#a4535346f4eb5173c74ec6be3e63e9e46',1,'toolbox::http::ApplicationJson()']]],
   ['arg_31',['arg',['../classtoolbox_1_1util_1_1ArgvLexer.html#ac0d1e716b7434ca8cc7fa0e1c118d9bf',1,'toolbox::util::ArgvLexer']]],
