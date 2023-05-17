@@ -73,7 +73,7 @@ class BasicHandle {
         id_ = invalid();
         return id;
     }
-    void reset(std::nullptr_t p = nullptr) noexcept { reset(invalid()); }
+    void reset(std::nullptr_t = nullptr) noexcept { reset(invalid()); }
     void reset(Id id) noexcept
     {
         std::swap(id_, id);

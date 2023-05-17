@@ -29,7 +29,7 @@ namespace {
 TOOLBOX_BENCHMARK(clock_gettime_realtime)
 {
     while (ctx) {
-        for (auto _ : ctx.range(1000)) {
+        for ([[maybe_unused]] auto _ : ctx.range(1000)) {
             timespec ts;
             ::clock_gettime(CLOCK_REALTIME, &ts);
         }
@@ -39,7 +39,7 @@ TOOLBOX_BENCHMARK(clock_gettime_realtime)
 TOOLBOX_BENCHMARK(sys_clock_gettime_realtime)
 {
     while (ctx) {
-        for (auto _ : ctx.range(1000)) {
+        for ([[maybe_unused]] auto _ : ctx.range(1000)) {
             timespec ts;
             syscall(SYS_clock_gettime, CLOCK_REALTIME, &ts);
         }
@@ -49,7 +49,7 @@ TOOLBOX_BENCHMARK(sys_clock_gettime_realtime)
 TOOLBOX_BENCHMARK(clock_gettime_monotonic)
 {
     while (ctx) {
-        for (auto _ : ctx.range(1000)) {
+        for ([[maybe_unused]] auto _ : ctx.range(1000)) {
             timespec ts;
             ::clock_gettime(CLOCK_MONOTONIC, &ts);
         }
@@ -59,7 +59,7 @@ TOOLBOX_BENCHMARK(clock_gettime_monotonic)
 TOOLBOX_BENCHMARK(sys_clock_gettime_monotonic)
 {
     while (ctx) {
-        for (auto _ : ctx.range(1000)) {
+        for ([[maybe_unused]] auto _ : ctx.range(1000)) {
             timespec ts;
             syscall(SYS_clock_gettime, CLOCK_MONOTONIC, &ts);
         }
@@ -69,7 +69,7 @@ TOOLBOX_BENCHMARK(sys_clock_gettime_monotonic)
 TOOLBOX_BENCHMARK(cycl_time_now)
 {
     while (ctx) {
-        for (auto _ : ctx.range(1000)) {
+        for ([[maybe_unused]] auto _ : ctx.range(1000)) {
             CyclTime::now();
         }
     }
@@ -78,7 +78,7 @@ TOOLBOX_BENCHMARK(cycl_time_now)
 TOOLBOX_BENCHMARK(cycl_time_mono_time)
 {
     while (ctx) {
-        for (auto _ : ctx.range(1000)) {
+        for ([[maybe_unused]] auto _ : ctx.range(1000)) {
             auto now = CyclTime::now();
             bm::clobber_memory();
             auto t = now.mono_time();

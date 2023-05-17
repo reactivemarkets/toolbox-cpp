@@ -62,7 +62,7 @@ class TOOLBOX_API Request : public BasicUrl<Request> {
             headers_.back().first.append(sv.data(), sv.size());
         }
     }
-    void append_header_value(std::string_view sv, First first)
+    void append_header_value(std::string_view sv, First /*first*/)
     {
         headers_.back().second.append(sv.data(), sv.size());
     }

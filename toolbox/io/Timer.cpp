@@ -36,7 +36,7 @@ bool is_after(const Timer& lhs, const Timer& rhs)
 
 } // namespace
 
-Timer::Impl* TimerPool::allocate(MonoTime expiry, Duration interval, TimerSlot slot)
+Timer::Impl* TimerPool::allocate(MonoTime /*expiry*/, Duration /*interval*/, TimerSlot /*slot*/)
 {
     Timer::Impl* impl;
 

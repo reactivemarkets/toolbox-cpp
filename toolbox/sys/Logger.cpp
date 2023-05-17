@@ -48,8 +48,8 @@ inline pid_t gettid()
 #endif
 
 class NullLogger final : public Logger {
-    void do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
-                      size_t size) noexcept override
+    void do_write_log(WallTime /*ts*/, LogLevel /*level*/, int /*tid*/, LogMsgPtr&& /*msg*/,
+                      size_t /*size*/) noexcept override
     {
     }
 } null_logger_;
@@ -89,7 +89,7 @@ class StdLogger final : public Logger {
 } std_logger_;
 
 class SysLogger final : public Logger {
-    void do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
+    void do_write_log(WallTime /*ts*/, LogLevel level, int /*tid*/, LogMsgPtr&& msg,
                       size_t size) noexcept override
     {
         int prio;

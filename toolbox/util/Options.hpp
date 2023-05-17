@@ -194,7 +194,7 @@ class TOOLBOX_API Options {
     }
 
     template <typename DataT>
-    Options& operator()(DataT data, std::string description = "")
+    Options& operator()(DataT data, std::string /*description*/ = "")
     {
         positional_.push_back(std::move(data));
         return *this;

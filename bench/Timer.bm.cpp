@@ -29,7 +29,7 @@ TOOLBOX_BENCHMARK(timerfd_settime)
     TimerFd<MonoClock> tfd{TFD_NONBLOCK};
     auto next = MonoClock::now();
     while (ctx) {
-        for (auto _ : ctx.range(100)) {
+        for ([[maybe_unused]] auto _ : ctx.range(100)) {
             next += 10ms;
             tfd.set_time(0, next);
         }

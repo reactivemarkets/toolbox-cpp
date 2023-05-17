@@ -38,7 +38,7 @@ class BasicServ : public StreamAcceptor<BasicServ<ConnT, AppT>> {
     using typename StreamAcceptor<BasicServ<ConnT, AppT>>::Endpoint;
 
   public:
-    BasicServ(CyclTime now, Reactor& r, const Endpoint& ep, App& app)
+    BasicServ(CyclTime /*now*/, Reactor& r, const Endpoint& ep, App& app)
     : StreamAcceptor<BasicServ<ConnT, AppT>>{r, ep}
     , reactor_{r}
     , app_{app}
@@ -59,7 +59,7 @@ class BasicServ : public StreamAcceptor<BasicServ<ConnT, AppT>> {
     BasicServ& operator=(BasicServ&&) = delete;
 
   private:
-    void on_sock_prepare(CyclTime now, IoSock& sock) {}
+    void on_sock_prepare(CyclTime /*now*/, IoSock& /*sock*/) {}
     void on_sock_accept(CyclTime now, IoSock&& sock, const Endpoint& ep)
     {
         auto* const conn = new Conn{now, reactor_, std::move(sock), ep, app_};

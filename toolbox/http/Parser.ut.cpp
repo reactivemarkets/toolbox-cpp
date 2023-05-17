@@ -62,23 +62,23 @@ class Parser
     using BasicParser<Parser>::parse;
 
   private:
-    bool on_http_message_begin(CyclTime now) noexcept
+    bool on_http_message_begin(CyclTime /*now*/) noexcept
     {
         BasicUrl<Parser>::reset();
         clear();
         return true;
     }
-    bool on_http_url(CyclTime now, string_view sv) noexcept
+    bool on_http_url(CyclTime /*now*/, string_view sv) noexcept
     {
         url_.append(sv.data(), sv.size());
         return true;
     }
-    bool on_http_status(CyclTime now, string_view sv) noexcept
+    bool on_http_status(CyclTime /*now*/, string_view sv) noexcept
     {
         status_.append(sv.data(), sv.size());
         return true;
     }
-    bool on_http_header_field(CyclTime now, string_view sv, First first) noexcept
+    bool on_http_header_field(CyclTime /*now*/, string_view sv, First first) noexcept
     {
         if (first == First::Yes) {
             headers_.emplace_back(string{sv.data(), sv.size()}, "");
@@ -87,18 +87,18 @@ class Parser
         }
         return true;
     }
-    bool on_http_header_value(CyclTime now, string_view sv, First first) noexcept
+    bool on_http_header_value(CyclTime /*now*/, string_view sv, First /*first*/) noexcept
     {
         headers_.back().second.append(sv.data(), sv.size());
         return true;
     }
-    bool on_http_headers_end(CyclTime now) noexcept { return true; }
-    bool on_http_body(CyclTime now, string_view sv) noexcept
+    bool on_http_headers_end(CyclTime /*now*/) noexcept { return true; }
+    bool on_http_body(CyclTime /*now*/, string_view sv) noexcept
     {
         body_.append(sv.data(), sv.size());
         return true;
     }
-    bool on_http_message_end(CyclTime now) noexcept
+    bool on_http_message_end(CyclTime /*now*/) noexcept
     {
         bool ret{false};
         try {
@@ -111,8 +111,8 @@ class Parser
         }
         return ret;
     }
-    bool on_http_chunk_header(CyclTime now, size_t len) noexcept { return true; }
-    bool on_http_chunk_end(CyclTime now) noexcept { return true; }
+    bool on_http_chunk_header(CyclTime /*now*/, size_t /*len*/) noexcept { return true; }
+    bool on_http_chunk_end(CyclTime /*now*/) noexcept { return true; }
 
     string url_;
     string status_;

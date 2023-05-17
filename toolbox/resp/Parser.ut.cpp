@@ -92,7 +92,7 @@ class Parser : BasicParser<Parser> {
         result_ += ':';
         result_ += to_string(i);
     }
-    void on_resp_array_begin(int n)
+    void on_resp_array_begin(int /*n*/)
     {
         if (!result_.empty() && result_.back() != '[') {
             result_ += ',';

@@ -50,7 +50,7 @@ class StreamAcceptor {
     ~StreamAcceptor() = default;
 
   private:
-    void on_io_event(CyclTime now, int fd, unsigned events)
+    void on_io_event(CyclTime now, int fd, unsigned /*events*/)
     {
         Endpoint ep;
         IoSock sock{os::accept(fd, ep), serv_.family()};

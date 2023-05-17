@@ -27,7 +27,7 @@ void* allocate(size_t size)
     return ::operator new(size);
 }
 
-void deallocate(void* ptr, size_t size) noexcept
+void deallocate(void* ptr, [[maybe_unused]] size_t size) noexcept
 {
 #if __cpp_sized_deallocation
     ::operator delete(ptr, size);

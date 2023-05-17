@@ -55,7 +55,7 @@ BOOST_AUTO_TEST_CASE(TimerInsertCase)
     TimerPool tp;
     TimerQueue tq{tp};
 
-    auto fn = [](CyclTime now, Timer& tmr) {};
+    auto fn = [](CyclTime /*now*/, Timer& /*tmr*/) {};
     Timer t = tq.insert(now + 2s, bind(&fn));
     BOOST_TEST(!t.empty());
     BOOST_TEST(t);

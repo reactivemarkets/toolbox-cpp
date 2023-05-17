@@ -42,7 +42,7 @@ class EchoConn {
         tmr_ = r.timer(now.mono_time() + IdleTimeout, Priority::Low,
                        bind<&EchoConn::on_timer>(this));
     }
-    void dispose(CyclTime now) noexcept
+    void dispose(CyclTime /*now*/) noexcept
     {
         TOOLBOX_INFO << "connection closed";
         delete this;
@@ -84,7 +84,7 @@ class EchoConn {
             dispose(now);
         }
     }
-    void on_timer(CyclTime now, Timer& tmr)
+    void on_timer(CyclTime now, Timer& /*tmr*/)
     {
         TOOLBOX_INFO << "timeout";
         dispose(now);
@@ -106,7 +106,7 @@ class EchoServ : public StreamAcceptor<EchoServ> {
     using ConnList = boost::intrusive::list<EchoConn, ConstantTimeSizeOption, MemberHookOption>;
 
   public:
-    EchoServ(CyclTime now, Reactor& r, const Endpoint& ep)
+    EchoServ(CyclTime /*now*/, Reactor& r, const Endpoint& ep)
     : StreamAcceptor{r, ep}
     , reactor_{r}
     {
@@ -118,7 +118,7 @@ class EchoServ : public StreamAcceptor<EchoServ> {
     }
 
   private:
-    void on_sock_prepare(CyclTime now, IoSock& sock) {}
+    void on_sock_prepare(CyclTime /*now*/, IoSock& /*sock*/) {}
     void on_sock_accept(CyclTime now, IoSock&& sock, const Endpoint& ep)
     {
         TOOLBOX_INFO << "connection opened: " << ep;
@@ -133,7 +133,7 @@ class EchoServ : public StreamAcceptor<EchoServ> {
 };
 } // namespace
 
-int main(int argc, char* argv[])
+int main()
 {
     int ret = 1;
     try {

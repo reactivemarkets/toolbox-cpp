@@ -66,7 +66,7 @@ void Options::parse(int argc, const char* const argv[])
 
         auto& data = positional ? positional_[positional_idx++] : it->second->data;
 
-        visit(overloaded{[&](const Help& arg) {
+        visit(overloaded{[&](const Help& /*arg*/) {
                              lex.pop_switch();
                              cout << *this << "\n";
                              exit(0);
@@ -82,14 +82,14 @@ void Options::parse(int argc, const char* const argv[])
                              }
                              arg.run(val);
                          },
-                         [&](const NoOp& arg) { lex.pop(); }},
+                         [&](const NoOp&) { lex.pop(); }},
               data);
     }
 
     // Ensure all required parameters have been set.
     // FIXME: but we're not checking required positional arguments?
     for (const auto& data : opts_) {
-        visit(overloaded{[](const auto& def) {},
+        visit(overloaded{[](const auto& /*def*/) {},
                          [&](const Value& arg) {
                              if (arg.presence() == Value::Required && !arg.set()) {
                                  throw runtime_error{"missing required option: "
@@ -99,7 +99,7 @@ void Options::parse(int argc, const char* const argv[])
               data.second->data);
     }
     for (const auto& data : positional_) {
-        visit(overloaded{[](const auto& def) {},
+        visit(overloaded{[](const auto& /*def*/) {},
                          [&](const Value& arg) {
                              if (arg.presence() == Value::Required && !arg.set()) {
                                  throw runtime_error{"missing positional argument"};

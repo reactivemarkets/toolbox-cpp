@@ -504,7 +504,7 @@ inline std::size_t sendto(int sockfd, const void* buf, std::size_t len, int flag
 /// Send a message on a socket.
 template <typename EndpointT>
 inline ssize_t sendto(int sockfd, const void* buf, std::size_t len, int flags, const EndpointT& ep,
-                      std::error_code& ec) noexcept
+                      std::error_code& /*ec*/) noexcept
 {
     return sendto(sockfd, buf, len, flags, *ep.data(), ep.size());
 }

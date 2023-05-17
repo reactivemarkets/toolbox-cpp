@@ -31,7 +31,7 @@ struct Test {
     , hook{bind<&Test::call_then_delete>(this)}
     {
     }
-    void call_then_delete(CyclTime now)
+    void call_then_delete(CyclTime /*now*/)
     {
         fn_();
         delete this;
