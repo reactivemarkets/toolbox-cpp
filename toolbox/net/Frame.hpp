@@ -119,7 +119,7 @@ std::size_t parse_frame(ConstBuffer buf, FnT fn, std::endian net_byte_order)
         if (size < sizeof(std::uint16_t)) {
             break;
         }
-        const auto total = sizeof(std::uint16_t) + get_length(data, net_byte_order);
+        const auto total = get_length(data, net_byte_order);
         if (size < total) {
             break;
         }
