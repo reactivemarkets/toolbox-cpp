@@ -66,20 +66,21 @@ BOOST_AUTO_TEST_CASE(ParseFrameCase)
     BOOST_TEST(msg_count == 0);
     BOOST_TEST(msg_data.empty());
 
-    consumed += parse_frame("\000\003Fo"sv, fn, endian::big);
-    BOOST_TEST(consumed == 0);
-    BOOST_TEST(msg_count == 0);
-    BOOST_TEST(msg_data.empty());
-
-    consumed += parse_frame("\003\000Foo"sv, fn, endian::little);
-    BOOST_TEST(consumed == 5);
+    consumed += parse_frame("\000\003" "F"sv, fn, endian::big);
+    BOOST_TEST(consumed == 3);
     BOOST_TEST(msg_count == 1);
-    BOOST_TEST(msg_data == "Foo");
+    BOOST_TEST(msg_data == "F");
 
-    consumed += parse_frame("\000\006FooBar\000\003Baz"sv, fn, endian::big);
-    BOOST_TEST(consumed == 18);
-    BOOST_TEST(msg_count == 3);
-    BOOST_TEST(msg_data == "FooFooBarBaz");
+    consumed += parse_frame("\004\000" "GH"sv, fn, endian::little);
+    BOOST_TEST(consumed == 3 + 4);
+    BOOST_TEST(msg_count == 1 + 1);
+    BOOST_TEST(msg_data == "F" "GH");
+
+    // octal(\010) = decimal(8)
+    consumed += parse_frame("\000\010" "FooBar" "\000\005" "Baz"sv, fn, endian::big);
+    BOOST_TEST(consumed == 3 + 4 + 8 + 5);
+    BOOST_TEST(msg_count == 1 + 1 + 2);
+    BOOST_TEST(msg_data == "F" "GH" "FooBar" "Baz");
 }
 
 BOOST_AUTO_TEST_SUITE_END()
