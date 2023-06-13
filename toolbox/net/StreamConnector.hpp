@@ -85,6 +85,8 @@ class StreamConnector {
                 throw std::system_error{ec, "connect"};
             }
             static_cast<DerivedT*>(this)->on_sock_connect(now, std::move(sock), ep_);
+        } catch (const std::system_error& e) {
+            static_cast<DerivedT*>(this)->on_sock_connect_error(now, e);
         } catch (const std::exception& e) {
             static_cast<DerivedT*>(this)->on_sock_connect_error(now, e);
         }
