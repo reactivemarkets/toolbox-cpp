@@ -158,20 +158,22 @@ $(function() {
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                <span class="keywordflow">throw</span> std::system_error{ec, <span class="stringliteral">&quot;connect&quot;</span>};</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            }</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            <span class="keyword">static_cast&lt;</span>DerivedT*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;on_sock_connect(now, std::move(sock), ep_);</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::system_error&amp; e) {</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <span class="keyword">static_cast&lt;</span>DerivedT*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;on_sock_connect_error(now, e);</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        }</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    }</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <a class="code hl_typedef" href="classtoolbox_1_1net_1_1StreamConnector.html#a8828f739e0010ef570703660c7285d83">Endpoint</a> ep_;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <a class="code hl_struct" href="structtoolbox_1_1net_1_1StreamSockClnt.html">StreamSockClnt</a> sock_;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    Reactor::Handle sub_;</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>};</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>} <span class="comment">// namespace net</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>} <span class="comment">// namespace toolbox</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">#endif </span><span class="comment">// TOOLBOX_NET_STREAMCONNECTOR_HPP</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            <span class="keyword">static_cast&lt;</span>DerivedT*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;on_sock_connect_error(now, e);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <a class="code hl_typedef" href="classtoolbox_1_1net_1_1StreamConnector.html#a8828f739e0010ef570703660c7285d83">Endpoint</a> ep_;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <a class="code hl_struct" href="structtoolbox_1_1net_1_1StreamSockClnt.html">StreamSockClnt</a> sock_;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    Reactor::Handle sub_;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>};</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>} <span class="comment">// namespace net</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>} <span class="comment">// namespace toolbox</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="preprocessor">#endif </span><span class="comment">// TOOLBOX_NET_STREAMCONNECTOR_HPP</span></div>
 <div class="ttc" id="aReactor_8hpp_html"><div class="ttname"><a href="Reactor_8hpp.html">Reactor.hpp</a></div></div>
 <div class="ttc" id="aStreamSock_8hpp_html"><div class="ttname"><a href="StreamSock_8hpp.html">StreamSock.hpp</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1Reactor_html"><div class="ttname"><a href="classtoolbox_1_1io_1_1Reactor.html">toolbox::Reactor</a></div><div class="ttdef"><b>Definition:</b> <a href="Reactor_8hpp_source.html#l00034">Reactor.hpp:34</a></div></div>
