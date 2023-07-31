@@ -113,6 +113,21 @@ istream& operator>>(istream& is, StreamEndpoint& ep)
     return is;
 }
 
+namespace {
+template <typename T>
+ostream& print_unix_endpoint(ostream& os, const T& ep)
+{
+    constexpr const char* scheme = "unix://";
+    // abstract unix socket's path starts with '\0' and not null-terminated
+    const auto* path = reinterpret_cast<const sockaddr_un*>(ep.data())->sun_path;
+    if (path[0] == '\0') {
+        size_t size = ep.size() - sizeof(std::declval<sockaddr_un>().sun_family) - 1;
+        return os << scheme << '|' << std::string_view{path + 1, size};
+    }
+    return os << scheme << *ep.data();
+}
+} // namespace
+
 ostream& operator<<(ostream& os, const DgramEndpoint& ep)
 {
     const char* scheme = "";
@@ -130,7 +145,7 @@ ostream& operator<<(ostream& os, const DgramEndpoint& ep)
             scheme = "ip6://";
         }
     } else if (p.family() == AF_UNIX) {
-        scheme = "unix://";
+        return print_unix_endpoint(os, ep);
     }
     return os << scheme << *ep.data();
 }
@@ -152,7 +167,7 @@ ostream& operator<<(ostream& os, const StreamEndpoint& ep)
             scheme = "ip6://";
         }
     } else if (p.family() == AF_UNIX) {
-        scheme = "unix://";
+        return print_unix_endpoint(os, ep);
     }
     return os << scheme << *ep.data();
 }

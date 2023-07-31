@@ -41,12 +41,17 @@ AddrInfoPtr get_unix_addrinfo(string_view path, int type)
     if (path_len == sizeof(sun->sun_path)) {
         throw invalid_argument{"invalid unix domain address"};
     }
+    // '|' signifies an abstract unix socket
+    bool abstract = (*sun->sun_path == '|');
+    if (abstract) {
+        sun->sun_path[0] = '\0';
+    }
 
     AddrInfoPtr ai{new addrinfo{}, free_unix_addrinfo};
     ai->ai_family = AF_UNIX;
     ai->ai_socktype = type;
-    // Size includes null terminator. See unix(7).
-    ai->ai_addrlen = offsetof(sockaddr_un, sun_path) + path_len + 1;
+    // Size includes null terminator, unless it's abstract. See unix(7).
+    ai->ai_addrlen = offsetof(sockaddr_un, sun_path) + path_len + (!abstract);
     ai->ai_addr = reinterpret_cast<sockaddr*>(sun.release());
     return ai;
 }
