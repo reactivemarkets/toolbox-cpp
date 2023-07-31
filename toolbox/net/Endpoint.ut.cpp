@@ -75,6 +75,16 @@ BOOST_AUTO_TEST_CASE(ParseDgramUnixCase)
     BOOST_TEST(to_string(ep) == uri);
 }
 
+BOOST_AUTO_TEST_CASE(ParseDgramUnixAbstractCase)
+{
+    const auto uri = "unix://|12345"s;
+    const auto ep = parse_dgram_endpoint(uri);
+    BOOST_TEST(ep.protocol().family() == AF_UNIX);
+    BOOST_TEST(ep.protocol().type() == SOCK_DGRAM);
+    BOOST_TEST(ep.protocol().protocol() == 0);
+    BOOST_TEST(to_string(ep) == uri);
+}
+
 BOOST_AUTO_TEST_CASE(ParseStreamUnspec4Case)
 {
     const auto uri = "192.168.1.3:443"s;
@@ -118,6 +128,16 @@ BOOST_AUTO_TEST_CASE(ParseStreamTcp6Case)
 BOOST_AUTO_TEST_CASE(ParseStreamUnixCase)
 {
     const auto uri = "unix:///tmp/foo.sock"s;
+    const auto ep = parse_stream_endpoint(uri);
+    BOOST_TEST(ep.protocol().family() == AF_UNIX);
+    BOOST_TEST(ep.protocol().type() == SOCK_STREAM);
+    BOOST_TEST(ep.protocol().protocol() == 0);
+    BOOST_TEST(to_string(ep) == uri);
+}
+
+BOOST_AUTO_TEST_CASE(ParseStreamUnixAbstractCase)
+{
+    const auto uri = "unix://|12345"s;
     const auto ep = parse_stream_endpoint(uri);
     BOOST_TEST(ep.protocol().family() == AF_UNIX);
     BOOST_TEST(ep.protocol().type() == SOCK_STREAM);
