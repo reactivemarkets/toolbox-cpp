@@ -114,17 +114,22 @@ $(function() {
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">if</span> (path_len == <span class="keyword">sizeof</span>(sun-&gt;sun_path)) {</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordflow">throw</span> invalid_argument{<span class="stringliteral">&quot;invalid unix domain address&quot;</span>};</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    }</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_typedef" href="namespacetoolbox_1_1net.html#a527fd7fbab8cb71aed64b28e782c6d8e">AddrInfoPtr</a> ai{<span class="keyword">new</span> addrinfo{}, free_unix_addrinfo};</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    ai-&gt;ai_family = AF_UNIX;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    ai-&gt;ai_socktype = type;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="comment">// Size includes null terminator. See unix(7).</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    ai-&gt;ai_addrlen = offsetof(sockaddr_un, sun_path) + path_len + 1;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    ai-&gt;ai_addr = <span class="keyword">reinterpret_cast&lt;</span>sockaddr*<span class="keyword">&gt;</span>(sun.release());</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordflow">return</span> ai;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>}</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>} <span class="comment">// namespace net</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>} <span class="comment">// namespace toolbox</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="comment">// &#39;|&#39; signifies an abstract unix socket</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">bool</span> abstract = (*sun-&gt;sun_path == <span class="charliteral">&#39;|&#39;</span>);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordflow">if</span> (abstract) {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        sun-&gt;sun_path[0] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_typedef" href="namespacetoolbox_1_1net.html#a527fd7fbab8cb71aed64b28e782c6d8e">AddrInfoPtr</a> ai{<span class="keyword">new</span> addrinfo{}, free_unix_addrinfo};</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    ai-&gt;ai_family = AF_UNIX;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    ai-&gt;ai_socktype = type;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="comment">// Size includes null terminator, unless it&#39;s abstract. See unix(7).</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    ai-&gt;ai_addrlen = offsetof(sockaddr_un, sun_path) + path_len + (!abstract);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    ai-&gt;ai_addr = <span class="keyword">reinterpret_cast&lt;</span>sockaddr*<span class="keyword">&gt;</span>(sun.release());</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordflow">return</span> ai;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>}</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>} <span class="comment">// namespace net</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>} <span class="comment">// namespace toolbox</span></div>
 <div class="ttc" id="aSocket_8hpp_html"><div class="ttname"><a href="Socket_8hpp.html">Socket.hpp</a></div></div>
 <div class="ttc" id="aString_8hpp_html"><div class="ttname"><a href="String_8hpp.html">String.hpp</a></div></div>
 <div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdoc">STL namespace.</div></div>
