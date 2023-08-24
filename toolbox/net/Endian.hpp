@@ -58,7 +58,7 @@ constexpr std::int64_t bswap(std::int64_t n) noexcept
 }
 
 template <typename ValueT>
-requires std::integral<ValueT>
+    requires std::integral<ValueT>
 constexpr ValueT ntoh(ValueT n) noexcept
 {
     if constexpr (std::endian::native == std::endian::little) {
@@ -69,7 +69,7 @@ constexpr ValueT ntoh(ValueT n) noexcept
 }
 
 template <typename ValueT>
-requires std::integral<ValueT>
+    requires std::integral<ValueT>
 constexpr ValueT hton(ValueT n) noexcept
 {
     if constexpr (std::endian::native == std::endian::little) {
@@ -80,7 +80,7 @@ constexpr ValueT hton(ValueT n) noexcept
 }
 
 template <typename ValueT>
-requires std::integral<ValueT>
+    requires std::integral<ValueT>
 constexpr ValueT ltoh(ValueT n) noexcept
 {
     if constexpr (std::endian::native == std::endian::little) {
@@ -91,7 +91,7 @@ constexpr ValueT ltoh(ValueT n) noexcept
 }
 
 template <typename ValueT>
-requires std::integral<ValueT>
+    requires std::integral<ValueT>
 constexpr ValueT htol(ValueT n) noexcept
 {
     if constexpr (std::endian::native == std::endian::little) {

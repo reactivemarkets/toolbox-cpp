@@ -32,7 +32,7 @@ BOOST_AUTO_TEST_CASE(SocketPairCase)
 
     char buf[4];
     socks.second.recv(buf, 4, 0);
-    BOOST_TEST(strcmp(buf, "foo") == 0);
+    BOOST_CHECK_EQUAL(strcmp(buf, "foo"), 0);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

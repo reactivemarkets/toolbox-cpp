@@ -33,8 +33,7 @@ TOOLBOX_API std::error_code make_error_code(Status err);
 
 namespace std {
 template <>
-struct is_error_code_enum<toolbox::http::Status> : true_type {
-};
+struct is_error_code_enum<toolbox::http::Status> : true_type {};
 } // namespace std
 
 #endif // TOOLBOX_HTTP_ERROR_HPP

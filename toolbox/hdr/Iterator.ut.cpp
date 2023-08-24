@@ -29,12 +29,12 @@ BOOST_AUTO_TEST_SUITE(IteratorSuite)
 BOOST_AUTO_TEST_CASE(IteratorLinearIteratorCase)
 {
     Histogram h{1, 255, 2};
-    BOOST_TEST(h.record_value(193));
-    BOOST_TEST(h.record_value(255));
-    BOOST_TEST(h.record_value(0));
-    BOOST_TEST(h.record_value(1));
-    BOOST_TEST(h.record_value(64));
-    BOOST_TEST(h.record_value(128));
+    BOOST_CHECK(h.record_value(193));
+    BOOST_CHECK(h.record_value(255));
+    BOOST_CHECK(h.record_value(0));
+    BOOST_CHECK(h.record_value(1));
+    BOOST_CHECK(h.record_value(64));
+    BOOST_CHECK(h.record_value(128));
 
     int step_count{0};
     int64_t total_count{0};
@@ -48,8 +48,8 @@ BOOST_AUTO_TEST_CASE(IteratorLinearIteratorCase)
         ++step_count;
     }
 
-    BOOST_TEST(step_count == 4);
-    BOOST_TEST(total_count == 6);
+    BOOST_CHECK_EQUAL(step_count, 4);
+    BOOST_CHECK_EQUAL(total_count, 6);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

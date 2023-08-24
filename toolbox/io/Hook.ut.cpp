@@ -53,15 +53,15 @@ BOOST_AUTO_TEST_SUITE(HookSuite)
 BOOST_AUTO_TEST_CASE(HookAutoUnlinkCase)
 {
     HookList l;
-    BOOST_TEST(l.empty());
+    BOOST_CHECK(l.empty());
     {
         Hook h;
-        BOOST_TEST(!h.is_linked());
+        BOOST_CHECK(!h.is_linked());
         l.push_back(h);
-        BOOST_TEST(h.is_linked());
-        BOOST_TEST(!l.empty());
+        BOOST_CHECK(h.is_linked());
+        BOOST_CHECK(!l.empty());
     }
-    BOOST_TEST(l.empty());
+    BOOST_CHECK(l.empty());
 }
 
 BOOST_AUTO_TEST_CASE(HookDispatchCase)
@@ -75,16 +75,16 @@ BOOST_AUTO_TEST_CASE(HookDispatchCase)
         l.push_back(h1);
 
         dispatch(CyclTime::now(), l);
-        BOOST_TEST(i == 1);
+        BOOST_CHECK_EQUAL(i, 1);
 
         dispatch(CyclTime::now(), l);
-        BOOST_TEST(i == 2);
+        BOOST_CHECK_EQUAL(i, 2);
         {
             Hook h2{bind(&fn)};
             l.push_back(h2);
 
             dispatch(CyclTime::now(), l);
-            BOOST_TEST(i == 4);
+            BOOST_CHECK_EQUAL(i, 4);
         }
     }
 }
@@ -102,19 +102,19 @@ BOOST_AUTO_TEST_CASE(HookReentrantCase)
     Hook h2{bind(&fn)};
     l.push_back(make_test([&l, &h2]() { l.push_back(h2); })->hook);
 
-    BOOST_TEST(l.size() == 2);
-    BOOST_TEST(!h1.is_linked());
-    BOOST_TEST(!h2.is_linked());
+    BOOST_CHECK_EQUAL(l.size(), 2);
+    BOOST_CHECK(!h1.is_linked());
+    BOOST_CHECK(!h2.is_linked());
 
     dispatch(CyclTime::now(), l);
-    BOOST_TEST(i == 2);
+    BOOST_CHECK_EQUAL(i, 2);
 
-    BOOST_TEST(l.size() == 2);
-    BOOST_TEST(h1.is_linked());
-    BOOST_TEST(h2.is_linked());
+    BOOST_CHECK_EQUAL(l.size(), 2);
+    BOOST_CHECK(h1.is_linked());
+    BOOST_CHECK(h2.is_linked());
 
     dispatch(CyclTime::now(), l);
-    BOOST_TEST(i == 4);
+    BOOST_CHECK_EQUAL(i, 4);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

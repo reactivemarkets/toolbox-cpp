@@ -42,29 +42,29 @@ BOOST_AUTO_TEST_CASE(DisposerCase)
 {
     const auto now = CyclTime::now();
     Disposer d;
-    BOOST_TEST(!d.is_locked());
-    BOOST_TEST(d.disposed == 0);
+    BOOST_CHECK(!d.is_locked());
+    BOOST_CHECK_EQUAL(d.disposed, 0);
     {
         auto lock = d.lock_this(now);
-        BOOST_TEST(d.is_locked());
+        BOOST_CHECK(d.is_locked());
     }
-    BOOST_TEST(!d.is_locked());
-    BOOST_TEST(d.disposed == 0);
+    BOOST_CHECK(!d.is_locked());
+    BOOST_CHECK_EQUAL(d.disposed, 0);
     {
         auto outer_lock = d.lock_this(now);
-        BOOST_TEST(d.is_locked());
+        BOOST_CHECK(d.is_locked());
         {
             auto inner_lock = d.lock_this(now);
             d.dispose(now);
-            BOOST_TEST(d.is_locked());
-            BOOST_TEST(d.disposed == 0);
+            BOOST_CHECK(d.is_locked());
+            BOOST_CHECK_EQUAL(d.disposed, 0);
         }
         // And again.
         d.dispose(now);
-        BOOST_TEST(d.is_locked());
-        BOOST_TEST(d.disposed == 0);
+        BOOST_CHECK(d.is_locked());
+        BOOST_CHECK_EQUAL(d.disposed, 0);
     }
-    BOOST_TEST(d.disposed == 1);
+    BOOST_CHECK_EQUAL(d.disposed, 1);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

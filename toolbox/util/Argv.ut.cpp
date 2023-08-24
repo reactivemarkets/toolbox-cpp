@@ -63,10 +63,10 @@ BOOST_AUTO_TEST_CASE(ArgvEmptyCase)
     Argv<0> argv{};
     get_opts(argv.size(), argv.data(), opts);
 
-    BOOST_TEST(opts.args.empty());
-    BOOST_TEST(opts.fruit.empty());
-    BOOST_TEST(opts.veg.empty());
-    BOOST_TEST(!opts.blend);
+    BOOST_CHECK(opts.args.empty());
+    BOOST_CHECK(opts.fruit.empty());
+    BOOST_CHECK(opts.veg.empty());
+    BOOST_CHECK(!opts.blend);
 }
 
 BOOST_AUTO_TEST_CASE(ArgvPositionalCase)
@@ -75,15 +75,15 @@ BOOST_AUTO_TEST_CASE(ArgvPositionalCase)
     Argv<5> argv{"foo", "-", "bar", "--", "baz"};
     get_opts(argv.size(), argv.data(), opts);
 
-    BOOST_TEST(opts.args.size() == 5);
-    BOOST_TEST(opts.args.at(0) == "foo"sv);
-    BOOST_TEST(opts.args.at(1) == "-"sv);
-    BOOST_TEST(opts.args.at(2) == "bar"sv);
-    BOOST_TEST(opts.args.at(3) == "--"sv);
-    BOOST_TEST(opts.args.at(4) == "baz"sv);
-    BOOST_TEST(opts.fruit.empty());
-    BOOST_TEST(opts.veg.empty());
-    BOOST_TEST(!opts.blend);
+    BOOST_CHECK_EQUAL(opts.args.size(), 5);
+    BOOST_CHECK_EQUAL(opts.args.at(0), "foo"sv);
+    BOOST_CHECK_EQUAL(opts.args.at(1), "-"sv);
+    BOOST_CHECK_EQUAL(opts.args.at(2), "bar"sv);
+    BOOST_CHECK_EQUAL(opts.args.at(3), "--"sv);
+    BOOST_CHECK_EQUAL(opts.args.at(4), "baz"sv);
+    BOOST_CHECK(opts.fruit.empty());
+    BOOST_CHECK(opts.veg.empty());
+    BOOST_CHECK(!opts.blend);
 }
 
 BOOST_AUTO_TEST_CASE(ArgvShortOptCase)
@@ -93,24 +93,24 @@ BOOST_AUTO_TEST_CASE(ArgvShortOptCase)
         Argv<2> argv{"-fapple", "-vcarrot"};
         get_opts(argv.size(), argv.data(), opts);
 
-        BOOST_TEST(opts.args.empty());
-        BOOST_TEST(opts.fruit.size() == 1);
-        BOOST_TEST(opts.fruit.at(0) == "apple"sv);
-        BOOST_TEST(opts.veg.size() == 1);
-        BOOST_TEST(opts.veg.at(0) == "carrot"sv);
-        BOOST_TEST(!opts.blend);
+        BOOST_CHECK(opts.args.empty());
+        BOOST_CHECK_EQUAL(opts.fruit.size(), 1);
+        BOOST_CHECK_EQUAL(opts.fruit.at(0), "apple"sv);
+        BOOST_CHECK_EQUAL(opts.veg.size(), 1);
+        BOOST_CHECK_EQUAL(opts.veg.at(0), "carrot"sv);
+        BOOST_CHECK(!opts.blend);
     }
     {
         Opts opts;
         Argv<4> argv{"-v", "carrot", "-f", "apple"};
         get_opts(argv.size(), argv.data(), opts);
 
-        BOOST_TEST(opts.args.empty());
-        BOOST_TEST(opts.fruit.size() == 1);
-        BOOST_TEST(opts.fruit.at(0) == "apple"sv);
-        BOOST_TEST(opts.veg.size() == 1);
-        BOOST_TEST(opts.veg.at(0) == "carrot"sv);
-        BOOST_TEST(!opts.blend);
+        BOOST_CHECK(opts.args.empty());
+        BOOST_CHECK_EQUAL(opts.fruit.size(), 1);
+        BOOST_CHECK_EQUAL(opts.fruit.at(0), "apple"sv);
+        BOOST_CHECK_EQUAL(opts.veg.size(), 1);
+        BOOST_CHECK_EQUAL(opts.veg.at(0), "carrot"sv);
+        BOOST_CHECK(!opts.blend);
     }
     {
         // Empty option value.
@@ -118,12 +118,12 @@ BOOST_AUTO_TEST_CASE(ArgvShortOptCase)
         Argv<4> argv{"-f", "", "-v", ""};
         get_opts(argv.size(), argv.data(), opts);
 
-        BOOST_TEST(opts.args.empty());
-        BOOST_TEST(opts.fruit.size() == 1);
-        BOOST_TEST(opts.fruit.at(0).empty());
-        BOOST_TEST(opts.veg.size() == 1);
-        BOOST_TEST(opts.veg.at(0).empty());
-        BOOST_TEST(!opts.blend);
+        BOOST_CHECK(opts.args.empty());
+        BOOST_CHECK_EQUAL(opts.fruit.size(), 1);
+        BOOST_CHECK(opts.fruit.at(0).empty());
+        BOOST_CHECK_EQUAL(opts.veg.size(), 1);
+        BOOST_CHECK(opts.veg.at(0).empty());
+        BOOST_CHECK(!opts.blend);
     }
     {
         // Missing option value.
@@ -140,24 +140,24 @@ BOOST_AUTO_TEST_CASE(ArgvMultiShortOptCase)
         Argv<2> argv{"-fapple", "-fbanana"};
         get_opts(argv.size(), argv.data(), opts);
 
-        BOOST_TEST(opts.args.empty());
-        BOOST_TEST(opts.fruit.size() == 2);
-        BOOST_TEST(opts.fruit.at(0) == "apple"sv);
-        BOOST_TEST(opts.fruit.at(1) == "banana"sv);
-        BOOST_TEST(opts.veg.empty());
-        BOOST_TEST(!opts.blend);
+        BOOST_CHECK(opts.args.empty());
+        BOOST_CHECK_EQUAL(opts.fruit.size(), 2);
+        BOOST_CHECK_EQUAL(opts.fruit.at(0), "apple"sv);
+        BOOST_CHECK_EQUAL(opts.fruit.at(1), "banana"sv);
+        BOOST_CHECK(opts.veg.empty());
+        BOOST_CHECK(!opts.blend);
     }
     {
         Opts opts;
         Argv<4> argv{"-v", "broccoli", "-v", "carrot"};
         get_opts(argv.size(), argv.data(), opts);
 
-        BOOST_TEST(opts.args.empty());
-        BOOST_TEST(opts.fruit.empty());
-        BOOST_TEST(opts.veg.size() == 2);
-        BOOST_TEST(opts.veg.at(0) == "broccoli"sv);
-        BOOST_TEST(opts.veg.at(1) == "carrot"sv);
-        BOOST_TEST(!opts.blend);
+        BOOST_CHECK(opts.args.empty());
+        BOOST_CHECK(opts.fruit.empty());
+        BOOST_CHECK_EQUAL(opts.veg.size(), 2);
+        BOOST_CHECK_EQUAL(opts.veg.at(0), "broccoli"sv);
+        BOOST_CHECK_EQUAL(opts.veg.at(1), "carrot"sv);
+        BOOST_CHECK(!opts.blend);
     }
 }
 
@@ -168,24 +168,24 @@ BOOST_AUTO_TEST_CASE(ArgvLongOptCase)
         Argv<2> argv{"--fruit=apple", "--veg=carrot"};
         get_opts(argv.size(), argv.data(), opts);
 
-        BOOST_TEST(opts.args.empty());
-        BOOST_TEST(opts.fruit.size() == 1);
-        BOOST_TEST(opts.fruit.at(0) == "apple"sv);
-        BOOST_TEST(opts.veg.size() == 1);
-        BOOST_TEST(opts.veg.at(0) == "carrot"sv);
-        BOOST_TEST(!opts.blend);
+        BOOST_CHECK(opts.args.empty());
+        BOOST_CHECK_EQUAL(opts.fruit.size(), 1);
+        BOOST_CHECK_EQUAL(opts.fruit.at(0), "apple"sv);
+        BOOST_CHECK_EQUAL(opts.veg.size(), 1);
+        BOOST_CHECK_EQUAL(opts.veg.at(0), "carrot"sv);
+        BOOST_CHECK(!opts.blend);
     }
     {
         Opts opts;
         Argv<4> argv{"--veg", "carrot", "--fruit", "apple"};
         get_opts(argv.size(), argv.data(), opts);
 
-        BOOST_TEST(opts.args.empty());
-        BOOST_TEST(opts.fruit.size() == 1);
-        BOOST_TEST(opts.fruit.at(0) == "apple"sv);
-        BOOST_TEST(opts.veg.size() == 1);
-        BOOST_TEST(opts.veg.at(0) == "carrot"sv);
-        BOOST_TEST(!opts.blend);
+        BOOST_CHECK(opts.args.empty());
+        BOOST_CHECK_EQUAL(opts.fruit.size(), 1);
+        BOOST_CHECK_EQUAL(opts.fruit.at(0), "apple"sv);
+        BOOST_CHECK_EQUAL(opts.veg.size(), 1);
+        BOOST_CHECK_EQUAL(opts.veg.at(0), "carrot"sv);
+        BOOST_CHECK(!opts.blend);
     }
     {
         // Empty option value.
@@ -193,12 +193,12 @@ BOOST_AUTO_TEST_CASE(ArgvLongOptCase)
         Argv<2> argv{"--fruit=", "--veg="};
         get_opts(argv.size(), argv.data(), opts);
 
-        BOOST_TEST(opts.args.empty());
-        BOOST_TEST(opts.fruit.size() == 1);
-        BOOST_TEST(opts.fruit.at(0).empty());
-        BOOST_TEST(opts.veg.size() == 1);
-        BOOST_TEST(opts.veg.at(0).empty());
-        BOOST_TEST(!opts.blend);
+        BOOST_CHECK(opts.args.empty());
+        BOOST_CHECK_EQUAL(opts.fruit.size(), 1);
+        BOOST_CHECK(opts.fruit.at(0).empty());
+        BOOST_CHECK_EQUAL(opts.veg.size(), 1);
+        BOOST_CHECK(opts.veg.at(0).empty());
+        BOOST_CHECK(!opts.blend);
     }
     {
         // Missing option value.
@@ -215,24 +215,24 @@ BOOST_AUTO_TEST_CASE(ArgvMultiLongOptCase)
         Argv<2> argv{"--fruit=apple", "--fruit=banana"};
         get_opts(argv.size(), argv.data(), opts);
 
-        BOOST_TEST(opts.args.empty());
-        BOOST_TEST(opts.fruit.size() == 2);
-        BOOST_TEST(opts.fruit.at(0) == "apple"sv);
-        BOOST_TEST(opts.fruit.at(1) == "banana"sv);
-        BOOST_TEST(opts.veg.empty());
-        BOOST_TEST(!opts.blend);
+        BOOST_CHECK(opts.args.empty());
+        BOOST_CHECK_EQUAL(opts.fruit.size(), 2);
+        BOOST_CHECK_EQUAL(opts.fruit.at(0), "apple"sv);
+        BOOST_CHECK_EQUAL(opts.fruit.at(1), "banana"sv);
+        BOOST_CHECK(opts.veg.empty());
+        BOOST_CHECK(!opts.blend);
     }
     {
         Opts opts;
         Argv<4> argv{"--veg", "broccoli", "--veg", "carrot"};
         get_opts(argv.size(), argv.data(), opts);
 
-        BOOST_TEST(opts.args.empty());
-        BOOST_TEST(opts.fruit.empty());
-        BOOST_TEST(opts.veg.size() == 2);
-        BOOST_TEST(opts.veg.at(0) == "broccoli"sv);
-        BOOST_TEST(opts.veg.at(1) == "carrot"sv);
-        BOOST_TEST(!opts.blend);
+        BOOST_CHECK(opts.args.empty());
+        BOOST_CHECK(opts.fruit.empty());
+        BOOST_CHECK_EQUAL(opts.veg.size(), 2);
+        BOOST_CHECK_EQUAL(opts.veg.at(0), "broccoli"sv);
+        BOOST_CHECK_EQUAL(opts.veg.at(1), "carrot"sv);
+        BOOST_CHECK(!opts.blend);
     }
 }
 
@@ -243,20 +243,20 @@ BOOST_AUTO_TEST_CASE(ArgvSwitchCase)
         Argv<1> argv{"-b"};
         get_opts(argv.size(), argv.data(), opts);
 
-        BOOST_TEST(opts.args.empty());
-        BOOST_TEST(opts.fruit.empty());
-        BOOST_TEST(opts.veg.empty());
-        BOOST_TEST(opts.blend);
+        BOOST_CHECK(opts.args.empty());
+        BOOST_CHECK(opts.fruit.empty());
+        BOOST_CHECK(opts.veg.empty());
+        BOOST_CHECK(opts.blend);
     }
     {
         Opts opts;
         Argv<1> argv{"--blend"};
         get_opts(argv.size(), argv.data(), opts);
 
-        BOOST_TEST(opts.args.empty());
-        BOOST_TEST(opts.fruit.empty());
-        BOOST_TEST(opts.veg.empty());
-        BOOST_TEST(opts.blend);
+        BOOST_CHECK(opts.args.empty());
+        BOOST_CHECK(opts.fruit.empty());
+        BOOST_CHECK(opts.veg.empty());
+        BOOST_CHECK(opts.blend);
     }
     {
         // Unexpected switch value.

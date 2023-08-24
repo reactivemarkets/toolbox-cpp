@@ -29,129 +29,129 @@ BOOST_AUTO_TEST_CASE(ParseDgramUnspec4Case)
 {
     const auto uri = "192.168.1.3:443"s;
     const auto ep = parse_dgram_endpoint(uri);
-    BOOST_TEST(ep.protocol().family() == AF_INET);
-    BOOST_TEST(ep.protocol().type() == SOCK_DGRAM);
-    BOOST_TEST(ep.protocol().protocol() == IPPROTO_UDP);
-    BOOST_TEST(to_string(ep) == "udp4://"s + uri);
+    BOOST_CHECK_EQUAL(ep.protocol().family(), AF_INET);
+    BOOST_CHECK_EQUAL(ep.protocol().type(), SOCK_DGRAM);
+    BOOST_CHECK_EQUAL(ep.protocol().protocol(), IPPROTO_UDP);
+    BOOST_CHECK_EQUAL(to_string(ep), "udp4://"s + uri);
 }
 
 BOOST_AUTO_TEST_CASE(ParseDgramUnspec6Case)
 {
     const auto uri = "[fe80::c8bf:7d86:cbdc:bda9]:443"s;
     const auto ep = parse_dgram_endpoint(uri);
-    BOOST_TEST(ep.protocol().family() == AF_INET6);
-    BOOST_TEST(ep.protocol().type() == SOCK_DGRAM);
-    BOOST_TEST(ep.protocol().protocol() == IPPROTO_UDP);
-    BOOST_TEST(to_string(ep) == "udp6://"s + uri);
+    BOOST_CHECK_EQUAL(ep.protocol().family(), AF_INET6);
+    BOOST_CHECK_EQUAL(ep.protocol().type(), SOCK_DGRAM);
+    BOOST_CHECK_EQUAL(ep.protocol().protocol(), IPPROTO_UDP);
+    BOOST_CHECK_EQUAL(to_string(ep), "udp6://"s + uri);
 }
 
 BOOST_AUTO_TEST_CASE(ParseDgramUdp4Case)
 {
     const auto uri = "udp4://192.168.1.3:443"s;
     const auto ep = parse_dgram_endpoint(uri);
-    BOOST_TEST(ep.protocol().family() == AF_INET);
-    BOOST_TEST(ep.protocol().type() == SOCK_DGRAM);
-    BOOST_TEST(ep.protocol().protocol() == IPPROTO_UDP);
-    BOOST_TEST(to_string(ep) == uri);
+    BOOST_CHECK_EQUAL(ep.protocol().family(), AF_INET);
+    BOOST_CHECK_EQUAL(ep.protocol().type(), SOCK_DGRAM);
+    BOOST_CHECK_EQUAL(ep.protocol().protocol(), IPPROTO_UDP);
+    BOOST_CHECK_EQUAL(to_string(ep), uri);
 }
 
 BOOST_AUTO_TEST_CASE(ParseDgramUdp6Case)
 {
     const auto uri = "udp6://[fe80::c8bf:7d86:cbdc:bda9]:443"s;
     const auto ep = parse_dgram_endpoint(uri);
-    BOOST_TEST(ep.protocol().family() == AF_INET6);
-    BOOST_TEST(ep.protocol().type() == SOCK_DGRAM);
-    BOOST_TEST(ep.protocol().protocol() == IPPROTO_UDP);
-    BOOST_TEST(to_string(ep) == uri);
+    BOOST_CHECK_EQUAL(ep.protocol().family(), AF_INET6);
+    BOOST_CHECK_EQUAL(ep.protocol().type(), SOCK_DGRAM);
+    BOOST_CHECK_EQUAL(ep.protocol().protocol(), IPPROTO_UDP);
+    BOOST_CHECK_EQUAL(to_string(ep), uri);
 }
 
 BOOST_AUTO_TEST_CASE(ParseDgramUnixCase)
 {
     const auto uri = "unix:///tmp/foo.sock"s;
     const auto ep = parse_dgram_endpoint(uri);
-    BOOST_TEST(ep.protocol().family() == AF_UNIX);
-    BOOST_TEST(ep.protocol().type() == SOCK_DGRAM);
-    BOOST_TEST(ep.protocol().protocol() == 0);
-    BOOST_TEST(to_string(ep) == uri);
+    BOOST_CHECK_EQUAL(ep.protocol().family(), AF_UNIX);
+    BOOST_CHECK_EQUAL(ep.protocol().type(), SOCK_DGRAM);
+    BOOST_CHECK_EQUAL(ep.protocol().protocol(), 0);
+    BOOST_CHECK_EQUAL(to_string(ep), uri);
 }
 
 BOOST_AUTO_TEST_CASE(ParseDgramUnixAbstractCase)
 {
     const auto uri = "unix://|12345"s;
     const auto ep = parse_dgram_endpoint(uri);
-    BOOST_TEST(ep.protocol().family() == AF_UNIX);
-    BOOST_TEST(ep.protocol().type() == SOCK_DGRAM);
-    BOOST_TEST(ep.protocol().protocol() == 0);
-    BOOST_TEST(to_string(ep) == uri);
+    BOOST_CHECK_EQUAL(ep.protocol().family(), AF_UNIX);
+    BOOST_CHECK_EQUAL(ep.protocol().type(), SOCK_DGRAM);
+    BOOST_CHECK_EQUAL(ep.protocol().protocol(), 0);
+    BOOST_CHECK_EQUAL(to_string(ep), uri);
 }
 
 BOOST_AUTO_TEST_CASE(ParseStreamUnspec4Case)
 {
     const auto uri = "192.168.1.3:443"s;
     const auto ep = parse_stream_endpoint(uri);
-    BOOST_TEST(ep.protocol().family() == AF_INET);
-    BOOST_TEST(ep.protocol().type() == SOCK_STREAM);
-    BOOST_TEST(ep.protocol().protocol() == IPPROTO_TCP);
-    BOOST_TEST(to_string(ep) == "tcp4://"s + uri);
+    BOOST_CHECK_EQUAL(ep.protocol().family(), AF_INET);
+    BOOST_CHECK_EQUAL(ep.protocol().type(), SOCK_STREAM);
+    BOOST_CHECK_EQUAL(ep.protocol().protocol(), IPPROTO_TCP);
+    BOOST_CHECK_EQUAL(to_string(ep), "tcp4://"s + uri);
 }
 
 BOOST_AUTO_TEST_CASE(ParseStreamUnspec6Case)
 {
     const auto uri = "[fe80::c8bf:7d86:cbdc:bda9]:443"s;
     const auto ep = parse_stream_endpoint(uri);
-    BOOST_TEST(ep.protocol().family() == AF_INET6);
-    BOOST_TEST(ep.protocol().type() == SOCK_STREAM);
-    BOOST_TEST(ep.protocol().protocol() == IPPROTO_TCP);
-    BOOST_TEST(to_string(ep) == "tcp6://"s + uri);
+    BOOST_CHECK_EQUAL(ep.protocol().family(), AF_INET6);
+    BOOST_CHECK_EQUAL(ep.protocol().type(), SOCK_STREAM);
+    BOOST_CHECK_EQUAL(ep.protocol().protocol(), IPPROTO_TCP);
+    BOOST_CHECK_EQUAL(to_string(ep), "tcp6://"s + uri);
 }
 
 BOOST_AUTO_TEST_CASE(ParseStreamTcp4Case)
 {
     const auto uri = "tcp4://192.168.1.3:443"s;
     const auto ep = parse_stream_endpoint(uri);
-    BOOST_TEST(ep.protocol().family() == AF_INET);
-    BOOST_TEST(ep.protocol().type() == SOCK_STREAM);
-    BOOST_TEST(ep.protocol().protocol() == IPPROTO_TCP);
-    BOOST_TEST(to_string(ep) == uri);
+    BOOST_CHECK_EQUAL(ep.protocol().family(), AF_INET);
+    BOOST_CHECK_EQUAL(ep.protocol().type(), SOCK_STREAM);
+    BOOST_CHECK_EQUAL(ep.protocol().protocol(), IPPROTO_TCP);
+    BOOST_CHECK_EQUAL(to_string(ep), uri);
 }
 
 BOOST_AUTO_TEST_CASE(ParseStreamTcp6Case)
 {
     const auto uri = "tcp6://[fe80::c8bf:7d86:cbdc:bda9]:443"s;
     const auto ep = parse_stream_endpoint(uri);
-    BOOST_TEST(ep.protocol().family() == AF_INET6);
-    BOOST_TEST(ep.protocol().type() == SOCK_STREAM);
-    BOOST_TEST(ep.protocol().protocol() == IPPROTO_TCP);
-    BOOST_TEST(to_string(ep) == uri);
+    BOOST_CHECK_EQUAL(ep.protocol().family(), AF_INET6);
+    BOOST_CHECK_EQUAL(ep.protocol().type(), SOCK_STREAM);
+    BOOST_CHECK_EQUAL(ep.protocol().protocol(), IPPROTO_TCP);
+    BOOST_CHECK_EQUAL(to_string(ep), uri);
 }
 
 BOOST_AUTO_TEST_CASE(ParseStreamUnixCase)
 {
     const auto uri = "unix:///tmp/foo.sock"s;
     const auto ep = parse_stream_endpoint(uri);
-    BOOST_TEST(ep.protocol().family() == AF_UNIX);
-    BOOST_TEST(ep.protocol().type() == SOCK_STREAM);
-    BOOST_TEST(ep.protocol().protocol() == 0);
-    BOOST_TEST(to_string(ep) == uri);
+    BOOST_CHECK_EQUAL(ep.protocol().family(), AF_UNIX);
+    BOOST_CHECK_EQUAL(ep.protocol().type(), SOCK_STREAM);
+    BOOST_CHECK_EQUAL(ep.protocol().protocol(), 0);
+    BOOST_CHECK_EQUAL(to_string(ep), uri);
 }
 
 BOOST_AUTO_TEST_CASE(ParseStreamUnixAbstractCase)
 {
     const auto uri = "unix://|12345"s;
     const auto ep = parse_stream_endpoint(uri);
-    BOOST_TEST(ep.protocol().family() == AF_UNIX);
-    BOOST_TEST(ep.protocol().type() == SOCK_STREAM);
-    BOOST_TEST(ep.protocol().protocol() == 0);
-    BOOST_TEST(to_string(ep) == uri);
+    BOOST_CHECK_EQUAL(ep.protocol().family(), AF_UNIX);
+    BOOST_CHECK_EQUAL(ep.protocol().type(), SOCK_STREAM);
+    BOOST_CHECK_EQUAL(ep.protocol().protocol(), 0);
+    BOOST_CHECK_EQUAL(to_string(ep), uri);
 }
 
 BOOST_AUTO_TEST_CASE(ParseStreamBindCase)
 {
     const auto ep = parse_stream_endpoint("tcp4://:80");
-    BOOST_TEST(ep.protocol().family() == AF_INET);
-    BOOST_TEST(ep.protocol().type() == SOCK_STREAM);
-    BOOST_TEST(ep.protocol().protocol() == IPPROTO_TCP);
-    BOOST_TEST(to_string(ep) == "tcp4://0.0.0.0:80");
+    BOOST_CHECK_EQUAL(ep.protocol().family(), AF_INET);
+    BOOST_CHECK_EQUAL(ep.protocol().type(), SOCK_STREAM);
+    BOOST_CHECK_EQUAL(ep.protocol().protocol(), IPPROTO_TCP);
+    BOOST_CHECK_EQUAL(to_string(ep), "tcp4://0.0.0.0:80");
 }
 
 BOOST_AUTO_TEST_SUITE_END()

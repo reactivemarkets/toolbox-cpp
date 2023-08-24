@@ -35,7 +35,7 @@ concept Runnable = requires (T r) {
 } // namespace
 
 template <typename RunnableT>
-requires Runnable<RunnableT>
+    requires Runnable<RunnableT>
 class Runner {
   public:
     Runner(RunnableT& r, ThreadConfig config)

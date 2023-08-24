@@ -23,14 +23,14 @@ namespace toolbox {
 inline namespace util {
 
 template <typename EnumT>
-requires Enum<EnumT>
+    requires Enum<EnumT>
 constexpr EnumT box(typename std::underlying_type_t<EnumT> val) noexcept
 {
     return static_cast<EnumT>(val);
 }
 
 template <typename EnumT>
-requires Enum<EnumT>
+    requires Enum<EnumT>
 constexpr std::underlying_type_t<EnumT> unbox(EnumT val) noexcept
 {
     return static_cast<std::underlying_type_t<EnumT>>(val);

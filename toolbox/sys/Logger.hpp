@@ -113,7 +113,8 @@ class TOOLBOX_API Logger {
 
   protected:
     virtual void do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
-                              std::size_t size) noexcept = 0;
+                              std::size_t size) noexcept
+        = 0;
 };
 
 class TOOLBOX_API AsyncLogger : public Logger {

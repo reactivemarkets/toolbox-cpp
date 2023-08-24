@@ -26,10 +26,10 @@ BOOST_AUTO_TEST_SUITE(RateLimitSuite)
 
 BOOST_AUTO_TEST_CASE(RateLimitCase)
 {
-    BOOST_TEST(to_string(RateLimit(1, 5s)) == "1/50");
+    BOOST_CHECK_EQUAL(to_string(RateLimit(1, 5s)), "1/50");
     const auto rl = from_string<RateLimit>("3/5");
-    BOOST_TEST(rl.limit() == 3);
-    BOOST_TEST(rl.interval().count() == 50);
+    BOOST_CHECK_EQUAL(rl.limit(), 3);
+    BOOST_CHECK_EQUAL(rl.interval().count(), 50);
 }
 
 BOOST_AUTO_TEST_CASE(RateWindowCase)
@@ -37,47 +37,47 @@ BOOST_AUTO_TEST_CASE(RateWindowCase)
     const auto t = MonoClock::now();
 
     RateWindow rw{1s};
-    BOOST_TEST(rw.count() == 0);
+    BOOST_CHECK_EQUAL(rw.count(), 0);
 
     rw.add(t + 0s, 1);
-    BOOST_TEST(rw.count() == 1);
+    BOOST_CHECK_EQUAL(rw.count(), 1);
     rw.add(t + 100ms, 2);
-    BOOST_TEST(rw.count() == 3);
+    BOOST_CHECK_EQUAL(rw.count(), 3);
     // The first bucket is cleaned.
     rw.add(t + 1s, 1);
-    BOOST_TEST(rw.count() == 3);
+    BOOST_CHECK_EQUAL(rw.count(), 3);
     rw.add(t + 1100ms, 1);
-    BOOST_TEST(rw.count() == 2);
+    BOOST_CHECK_EQUAL(rw.count(), 2);
     rw.add(t + 2s, 2);
-    BOOST_TEST(rw.count() == 3);
+    BOOST_CHECK_EQUAL(rw.count(), 3);
     rw.add(t + 3s, 3);
-    BOOST_TEST(rw.count() == 3);
+    BOOST_CHECK_EQUAL(rw.count(), 3);
 
     rw = RateWindow{5s};
-    BOOST_TEST(rw.count() == 0);
+    BOOST_CHECK_EQUAL(rw.count(), 0);
 
     rw.add(t + 0s, 1);
-    BOOST_TEST(rw.count() == 1);
+    BOOST_CHECK_EQUAL(rw.count(), 1);
     rw.add(t + 1s, 2);
-    BOOST_TEST(rw.count() == 3);
+    BOOST_CHECK_EQUAL(rw.count(), 3);
     rw.add(t + 2s, 3);
-    BOOST_TEST(rw.count() == 6);
+    BOOST_CHECK_EQUAL(rw.count(), 6);
     rw.add(t + 3s, 4);
-    BOOST_TEST(rw.count() == 10);
+    BOOST_CHECK_EQUAL(rw.count(), 10);
     rw.add(t + 4s, 5);
-    BOOST_TEST(rw.count() == 15);
+    BOOST_CHECK_EQUAL(rw.count(), 15);
 
     // Circular buffer wraps and replaces first entry.
     rw.add(t + 5s, 6);
-    BOOST_TEST(rw.count() == 20);
+    BOOST_CHECK_EQUAL(rw.count(), 20);
 
     // Skip two entries entirely.
     rw.add(t + 8s, 7);
-    BOOST_TEST(rw.count() == 18);
+    BOOST_CHECK_EQUAL(rw.count(), 18);
 
     // Skip every entry in the buffer.
     rw.add(t + 13s, 8);
-    BOOST_TEST(rw.count() == 8);
+    BOOST_CHECK_EQUAL(rw.count(), 8);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

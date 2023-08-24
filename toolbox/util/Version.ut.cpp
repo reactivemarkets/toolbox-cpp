@@ -28,18 +28,18 @@ BOOST_AUTO_TEST_SUITE(VersionSuite)
 
 BOOST_AUTO_TEST_CASE(VersionFromStringCase)
 {
-    BOOST_TEST(from_string<Version>("0.0"sv) == Version());
-    BOOST_TEST(from_string<Version>("1.0"sv) == Version(1));
-    BOOST_TEST(from_string<Version>("1.2"sv) == Version(1, 2));
+    BOOST_CHECK_EQUAL(from_string<Version>("0.0"sv), Version());
+    BOOST_CHECK_EQUAL(from_string<Version>("1.0"sv), Version(1));
+    BOOST_CHECK_EQUAL(from_string<Version>("1.2"sv), Version(1, 2));
 }
 
 BOOST_AUTO_TEST_CASE(VersionSizeCase)
 {
-    BOOST_TEST(Version(0, 0).size() == 3);
-    BOOST_TEST(Version(1, 2).size() == 3);
-    BOOST_TEST(Version(10, 2).size() == 4);
-    BOOST_TEST(Version(1, 20).size() == 4);
-    BOOST_TEST(Version(10, 20).size() == 5);
+    BOOST_CHECK_EQUAL(Version(0, 0).size(), 3);
+    BOOST_CHECK_EQUAL(Version(1, 2).size(), 3);
+    BOOST_CHECK_EQUAL(Version(10, 2).size(), 4);
+    BOOST_CHECK_EQUAL(Version(1, 20).size(), 4);
+    BOOST_CHECK_EQUAL(Version(10, 20).size(), 5);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

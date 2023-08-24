@@ -61,10 +61,10 @@ BOOST_AUTO_TEST_SUITE(EnumSuite)
 
 BOOST_AUTO_TEST_CASE(EnumStringCase)
 {
-    BOOST_TEST(lexical_cast<string>(Test::Foo) == "Foo");
-    BOOST_TEST(lexical_cast<string>(Test::Bar) == "Bar");
-    BOOST_TEST(lexical_cast<string>(Test::Baz) == "Baz");
-    BOOST_TEST(lexical_cast<string>(Test::Qux) == "Qux");
+    BOOST_CHECK_EQUAL(lexical_cast<string>(Test::Foo), "Foo");
+    BOOST_CHECK_EQUAL(lexical_cast<string>(Test::Bar), "Bar");
+    BOOST_CHECK_EQUAL(lexical_cast<string>(Test::Baz), "Baz");
+    BOOST_CHECK_EQUAL(lexical_cast<string>(Test::Qux), "Qux");
 }
 
 BOOST_AUTO_TEST_SUITE_END()

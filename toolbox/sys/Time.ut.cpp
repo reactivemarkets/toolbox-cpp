@@ -33,47 +33,47 @@ BOOST_AUTO_TEST_SUITE(TimeSuite)
 
 BOOST_AUTO_TEST_CASE(TimeParseNanosCase)
 {
-    BOOST_TEST(parse_nanos("") == 0ns);
-    BOOST_TEST(parse_nanos("0") == 0ns);
-    BOOST_TEST(parse_nanos("1") == 100ms);
+    BOOST_CHECK_EQUAL(parse_nanos(""), 0ns);
+    BOOST_CHECK_EQUAL(parse_nanos("0"), 0ns);
+    BOOST_CHECK_EQUAL(parse_nanos("1"), 100ms);
 
-    BOOST_TEST(parse_nanos("000000001") == 1ns);
-    BOOST_TEST(parse_nanos("000000012") == 12ns);
-    BOOST_TEST(parse_nanos("000000123") == 123ns);
+    BOOST_CHECK_EQUAL(parse_nanos("000000001"), 1ns);
+    BOOST_CHECK_EQUAL(parse_nanos("000000012"), 12ns);
+    BOOST_CHECK_EQUAL(parse_nanos("000000123"), 123ns);
 
-    BOOST_TEST(parse_nanos("000001") == 1us);
-    BOOST_TEST(parse_nanos("000012") == 12us);
-    BOOST_TEST(parse_nanos("000123") == 123us);
+    BOOST_CHECK_EQUAL(parse_nanos("000001"), 1us);
+    BOOST_CHECK_EQUAL(parse_nanos("000012"), 12us);
+    BOOST_CHECK_EQUAL(parse_nanos("000123"), 123us);
 
-    BOOST_TEST(parse_nanos("001") == 1ms);
-    BOOST_TEST(parse_nanos("012") == 12ms);
-    BOOST_TEST(parse_nanos("123") == 123ms);
+    BOOST_CHECK_EQUAL(parse_nanos("001"), 1ms);
+    BOOST_CHECK_EQUAL(parse_nanos("012"), 12ms);
+    BOOST_CHECK_EQUAL(parse_nanos("123"), 123ms);
 
-    BOOST_TEST(parse_nanos("123456789999") == 123456789ns);
+    BOOST_CHECK_EQUAL(parse_nanos("123456789999"), 123456789ns);
 }
 
 BOOST_AUTO_TEST_CASE(TimeParseTimeOnlyCase)
 {
-    BOOST_TEST(!parse_time_only(""sv));
-    BOOST_TEST(!parse_time_only("12:34:5"sv));
-    BOOST_TEST(!parse_time_only("x2:34:56"sv));
-    BOOST_TEST(!parse_time_only("1x:34:56"sv));
-    BOOST_TEST(!parse_time_only("12x34:56"sv));
-    BOOST_TEST(!parse_time_only("12:x4:56"sv));
-    BOOST_TEST(!parse_time_only("12:3x:56"sv));
-    BOOST_TEST(!parse_time_only("12:34x56"sv));
-    BOOST_TEST(!parse_time_only("12:34:x6"sv));
-    BOOST_TEST(!parse_time_only("12:34:5x"sv));
+    BOOST_CHECK(!parse_time_only(""sv));
+    BOOST_CHECK(!parse_time_only("12:34:5"sv));
+    BOOST_CHECK(!parse_time_only("x2:34:56"sv));
+    BOOST_CHECK(!parse_time_only("1x:34:56"sv));
+    BOOST_CHECK(!parse_time_only("12x34:56"sv));
+    BOOST_CHECK(!parse_time_only("12:x4:56"sv));
+    BOOST_CHECK(!parse_time_only("12:3x:56"sv));
+    BOOST_CHECK(!parse_time_only("12:34x56"sv));
+    BOOST_CHECK(!parse_time_only("12:34:x6"sv));
+    BOOST_CHECK(!parse_time_only("12:34:5x"sv));
 
-    BOOST_TEST(*parse_time_only("00:00:00"sv) == 0ns);
-    BOOST_TEST(*parse_time_only("12:00:00"sv) == 12h);
-    BOOST_TEST(*parse_time_only("00:34:00"sv) == 34min);
-    BOOST_TEST(*parse_time_only("00:00:56"sv) == 56s);
+    BOOST_CHECK_EQUAL(*parse_time_only("00:00:00"sv), 0ns);
+    BOOST_CHECK_EQUAL(*parse_time_only("12:00:00"sv), 12h);
+    BOOST_CHECK_EQUAL(*parse_time_only("00:34:00"sv), 34min);
+    BOOST_CHECK_EQUAL(*parse_time_only("00:00:56"sv), 56s);
 
-    BOOST_TEST(*parse_time_only("00:00:56."sv) == 56s);
-    BOOST_TEST(*parse_time_only("00:00:00.789"sv) == 789ms);
-    BOOST_TEST(*parse_time_only("00:00:00.000789"sv) == 789us);
-    BOOST_TEST(*parse_time_only("00:00:00.000000789"sv) == 789ns);
+    BOOST_CHECK_EQUAL(*parse_time_only("00:00:56."sv), 56s);
+    BOOST_CHECK_EQUAL(*parse_time_only("00:00:00.789"sv), 789ms);
+    BOOST_CHECK_EQUAL(*parse_time_only("00:00:00.000789"sv), 789us);
+    BOOST_CHECK_EQUAL(*parse_time_only("00:00:00.000000789"sv), 789ns);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

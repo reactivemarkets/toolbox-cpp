@@ -39,7 +39,7 @@ struct TOOLBOX_PACKED IntWrapper {
     using ValueType = typename PolicyT::ValueType;
 
     template <typename RhsT>
-    requires std::convertible_to<RhsT, ValueType>
+        requires std::convertible_to<RhsT, ValueType>
     constexpr explicit IntWrapper(RhsT rhs) noexcept
     : value_{static_cast<ValueType>(rhs)}
     {
@@ -247,8 +247,8 @@ struct TOOLBOX_PACKED IntWrapper {
 
 static_assert(IntWrapper<Int32Policy>{1} == IntWrapper<Int32Policy>{1});
 static_assert(IntWrapper<Int32Policy>{1} != IntWrapper<Int32Policy>{2});
-static_assert(std::is_standard_layout_v<
-                  IntWrapper<Int32Policy>> && std::is_trivial_v<IntWrapper<Int32Policy>>);
+static_assert(std::is_standard_layout_v<IntWrapper<Int32Policy>>
+              && std::is_trivial_v<IntWrapper<Int32Policy>>);
 static_assert(sizeof(IntWrapper<Int16Policy>) == 2, "must be specific size");
 static_assert(sizeof(IntWrapper<Int32Policy>) == 4, "must be specific size");
 static_assert(sizeof(IntWrapper<Int64Policy>) == 8, "must be specific size");
@@ -264,7 +264,7 @@ std::size_t hash_value(IntWrapper<PolicyT> wrapper)
 }
 
 template <typename ValueT>
-requires IsIntWrapper<ValueT>
+    requires IsIntWrapper<ValueT>
 struct TypeTraits<ValueT> {
     static constexpr auto from_string(std::string_view sv) noexcept
     {
