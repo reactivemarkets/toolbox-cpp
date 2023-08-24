@@ -54,16 +54,16 @@ BOOST_AUTO_TEST_CASE(TransScopedCommitCase)
         Trans trans{foo};
         trans.commit();
     }
-    BOOST_TEST(foo.start_calls == 1);
-    BOOST_TEST(foo.commit_calls == 1);
-    BOOST_TEST(foo.rollback_calls == 0);
+    BOOST_CHECK_EQUAL(foo.start_calls, 1);
+    BOOST_CHECK_EQUAL(foo.commit_calls, 1);
+    BOOST_CHECK_EQUAL(foo.rollback_calls, 0);
     {
         Trans trans{foo};
         trans.commit();
     }
-    BOOST_TEST(foo.start_calls == 2);
-    BOOST_TEST(foo.commit_calls == 2);
-    BOOST_TEST(foo.rollback_calls == 0);
+    BOOST_CHECK_EQUAL(foo.start_calls, 2);
+    BOOST_CHECK_EQUAL(foo.commit_calls, 2);
+    BOOST_CHECK_EQUAL(foo.rollback_calls, 0);
 }
 
 BOOST_AUTO_TEST_CASE(TransScopedRollbackCase)
@@ -72,15 +72,15 @@ BOOST_AUTO_TEST_CASE(TransScopedRollbackCase)
     {
         Trans trans{foo};
     }
-    BOOST_TEST(foo.start_calls == 1);
-    BOOST_TEST(foo.commit_calls == 0);
-    BOOST_TEST(foo.rollback_calls == 1);
+    BOOST_CHECK_EQUAL(foo.start_calls, 1);
+    BOOST_CHECK_EQUAL(foo.commit_calls, 0);
+    BOOST_CHECK_EQUAL(foo.rollback_calls, 1);
     {
         Trans trans{foo};
     }
-    BOOST_TEST(foo.start_calls == 2);
-    BOOST_TEST(foo.commit_calls == 0);
-    BOOST_TEST(foo.rollback_calls == 2);
+    BOOST_CHECK_EQUAL(foo.start_calls, 2);
+    BOOST_CHECK_EQUAL(foo.commit_calls, 0);
+    BOOST_CHECK_EQUAL(foo.rollback_calls, 2);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

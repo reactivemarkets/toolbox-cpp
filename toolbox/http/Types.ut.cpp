@@ -25,13 +25,13 @@ BOOST_AUTO_TEST_SUITE(TypesSuite)
 
 BOOST_AUTO_TEST_CASE(TypesCase)
 {
-    BOOST_TEST(enum_string(Status::BadRequest) == "Bad Request");
-    BOOST_TEST(enum_string(Status::Unauthorized) == "Unauthorized");
-    BOOST_TEST(enum_string(Status::Forbidden) == "Forbidden");
-    BOOST_TEST(enum_string(Status::NotFound) == "Not Found");
-    BOOST_TEST(enum_string(Status::MethodNotAllowed) == "Method Not Allowed");
-    BOOST_TEST(enum_string(Status::InternalServerError) == "Internal Server Error");
-    BOOST_TEST(enum_string(Status::ServiceUnavailable) == "Service Unavailable");
+    BOOST_CHECK_EQUAL(enum_string(Status::BadRequest), "Bad Request");
+    BOOST_CHECK_EQUAL(enum_string(Status::Unauthorized), "Unauthorized");
+    BOOST_CHECK_EQUAL(enum_string(Status::Forbidden), "Forbidden");
+    BOOST_CHECK_EQUAL(enum_string(Status::NotFound), "Not Found");
+    BOOST_CHECK_EQUAL(enum_string(Status::MethodNotAllowed), "Method Not Allowed");
+    BOOST_CHECK_EQUAL(enum_string(Status::InternalServerError), "Internal Server Error");
+    BOOST_CHECK_EQUAL(enum_string(Status::ServiceUnavailable), "Service Unavailable");
 }
 
 BOOST_AUTO_TEST_SUITE_END()

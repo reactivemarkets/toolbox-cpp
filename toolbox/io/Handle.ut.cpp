@@ -47,30 +47,30 @@ BOOST_AUTO_TEST_CASE(HandleInvalidCase)
 {
     last_closed = 0;
 
-    BOOST_TEST(!TestHandle{});
-    BOOST_TEST(TestHandle{}.get() == -1);
-    BOOST_TEST(last_closed == 0);
+    BOOST_CHECK(!TestHandle{});
+    BOOST_CHECK_EQUAL(TestHandle{}.get(), -1);
+    BOOST_CHECK_EQUAL(last_closed, 0);
 
-    BOOST_TEST(!TestHandle{nullptr});
-    BOOST_TEST(TestHandle{nullptr}.get() == -1);
-    BOOST_TEST(last_closed == 0);
+    BOOST_CHECK(!TestHandle{nullptr});
+    BOOST_CHECK_EQUAL(TestHandle{nullptr}.get(), -1);
+    BOOST_CHECK_EQUAL(last_closed, 0);
 }
 
 BOOST_AUTO_TEST_CASE(HandleCloseCase)
 {
     last_closed = 0;
 
-    BOOST_TEST(TestHandle{1});
-    BOOST_TEST(TestHandle{1}.get() == 1);
-    BOOST_TEST(last_closed == 1);
+    BOOST_CHECK(TestHandle{1});
+    BOOST_CHECK_EQUAL(TestHandle{1}.get(), 1);
+    BOOST_CHECK_EQUAL(last_closed, 1);
 }
 
 BOOST_AUTO_TEST_CASE(HandleReleaseCase)
 {
     last_closed = 0;
 
-    BOOST_TEST(TestHandle{1}.release() == 1);
-    BOOST_TEST(last_closed == 0);
+    BOOST_CHECK_EQUAL(TestHandle{1}.release(), 1);
+    BOOST_CHECK_EQUAL(last_closed, 0);
 }
 
 BOOST_AUTO_TEST_CASE(HandleResetCase)
@@ -79,9 +79,9 @@ BOOST_AUTO_TEST_CASE(HandleResetCase)
     {
         TestHandle h{1};
         h.reset(2);
-        BOOST_TEST(last_closed == 1);
+        BOOST_CHECK_EQUAL(last_closed, 1);
     }
-    BOOST_TEST(last_closed == 2);
+    BOOST_CHECK_EQUAL(last_closed, 2);
 }
 
 BOOST_AUTO_TEST_CASE(HandleSwapCase)
@@ -90,9 +90,9 @@ BOOST_AUTO_TEST_CASE(HandleSwapCase)
     {
         TestHandle h{1};
         TestHandle{2}.swap(h);
-        BOOST_TEST(last_closed == 1);
+        BOOST_CHECK_EQUAL(last_closed, 1);
     }
-    BOOST_TEST(last_closed == 2);
+    BOOST_CHECK_EQUAL(last_closed, 2);
 }
 
 BOOST_AUTO_TEST_CASE(HandleMoveCase)
@@ -101,24 +101,24 @@ BOOST_AUTO_TEST_CASE(HandleMoveCase)
 
     TestHandle h{1};
     TestHandle{std::move(h)};
-    BOOST_TEST(last_closed == 1);
+    BOOST_CHECK_EQUAL(last_closed, 1);
     // NOLINTNEXTLINE(bugprone-use-after-move)
-    BOOST_TEST(h.get() == -1);
+    BOOST_CHECK_EQUAL(h.get(), -1);
 
     h.reset(2);
     {
         TestHandle tmp;
         tmp = std::move(h);
     }
-    BOOST_TEST(last_closed == 2);
+    BOOST_CHECK_EQUAL(last_closed, 2);
     // NOLINTNEXTLINE(bugprone-use-after-move)
-    BOOST_TEST(h.get() == -1);
+    BOOST_CHECK_EQUAL(h.get(), -1);
 }
 
 BOOST_AUTO_TEST_CASE(HandleEqualityCase)
 {
-    BOOST_TEST(TestHandle{1} == TestHandle{1});
-    BOOST_TEST(TestHandle{1} != TestHandle{2});
+    BOOST_CHECK_EQUAL(TestHandle{1}, TestHandle{1});
+    BOOST_CHECK_NE(TestHandle{1}, TestHandle{2});
 }
 
 BOOST_AUTO_TEST_SUITE_END()

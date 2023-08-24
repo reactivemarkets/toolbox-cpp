@@ -57,13 +57,13 @@ BOOST_AUTO_TEST_CASE(AllocatorCase)
 {
     {
         auto h = make_intrusive<Foo>();
-        BOOST_TEST(size_ == 128);
-        BOOST_TEST(static_cast<int>(al_) == 64);
+        BOOST_CHECK_EQUAL(size_, 128);
+        BOOST_CHECK_EQUAL(static_cast<int>(al_), 64);
         size_ = {};
         al_ = {};
     }
-    BOOST_TEST(size_ == 128);
-    BOOST_TEST(static_cast<int>(al_) == 64);
+    BOOST_CHECK_EQUAL(size_, 128);
+    BOOST_CHECK_EQUAL(static_cast<int>(al_), 64);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

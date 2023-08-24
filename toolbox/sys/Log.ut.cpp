@@ -64,16 +64,16 @@ BOOST_AUTO_TEST_SUITE(LogSuite)
 
 BOOST_AUTO_TEST_CASE(LogLabelCase)
 {
-    BOOST_TEST(strcmp(log_label(LogLevel{-1}), "NONE") == 0);
-    BOOST_TEST(strcmp(log_label(LogLevel::None), "NONE") == 0);
-    BOOST_TEST(strcmp(log_label(LogLevel::Crit), "CRIT") == 0);
-    BOOST_TEST(strcmp(log_label(LogLevel::Error), "ERROR") == 0);
-    BOOST_TEST(strcmp(log_label(LogLevel::Warn), "WARN") == 0);
-    BOOST_TEST(strcmp(log_label(LogLevel::Metric), "METRIC") == 0);
-    BOOST_TEST(strcmp(log_label(LogLevel::Notice), "NOTICE") == 0);
-    BOOST_TEST(strcmp(log_label(LogLevel::Info), "INFO") == 0);
-    BOOST_TEST(strcmp(log_label(LogLevel::Debug), "DEBUG") == 0);
-    BOOST_TEST(strcmp(log_label(LogLevel{99}), "DEBUG") == 0);
+    BOOST_CHECK_EQUAL(strcmp(log_label(LogLevel{-1}), "NONE"), 0);
+    BOOST_CHECK_EQUAL(strcmp(log_label(LogLevel::None), "NONE"), 0);
+    BOOST_CHECK_EQUAL(strcmp(log_label(LogLevel::Crit), "CRIT"), 0);
+    BOOST_CHECK_EQUAL(strcmp(log_label(LogLevel::Error), "ERROR"), 0);
+    BOOST_CHECK_EQUAL(strcmp(log_label(LogLevel::Warn), "WARN"), 0);
+    BOOST_CHECK_EQUAL(strcmp(log_label(LogLevel::Metric), "METRIC"), 0);
+    BOOST_CHECK_EQUAL(strcmp(log_label(LogLevel::Notice), "NOTICE"), 0);
+    BOOST_CHECK_EQUAL(strcmp(log_label(LogLevel::Info), "INFO"), 0);
+    BOOST_CHECK_EQUAL(strcmp(log_label(LogLevel::Debug), "DEBUG"), 0);
+    BOOST_CHECK_EQUAL(strcmp(log_label(LogLevel{99}), "DEBUG"), 0);
 }
 
 BOOST_AUTO_TEST_CASE(LogMacroCase)
@@ -90,44 +90,44 @@ BOOST_AUTO_TEST_CASE(LogMacroCase)
     // clang-format on
 
     TOOLBOX_LOG(LogLevel::Info) << "test1: " << Foo<int, int>{10, 20};
-    BOOST_TEST(tl.last_level == LogLevel::Info);
-    BOOST_TEST(tl.last_msg == "test1: (10,20)");
+    BOOST_CHECK_EQUAL(tl.last_level, LogLevel::Info);
+    BOOST_CHECK_EQUAL(tl.last_msg, "test1: (10,20)");
 
     TOOLBOX_CRIT << "test2: " << Foo<int, int>{10, 20};
-    BOOST_TEST(tl.last_level == LogLevel::Crit);
-    BOOST_TEST(tl.last_msg == "test2: (10,20)");
+    BOOST_CHECK_EQUAL(tl.last_level, LogLevel::Crit);
+    BOOST_CHECK_EQUAL(tl.last_msg, "test2: (10,20)");
 
     TOOLBOX_ERROR << "test3: " << Foo<int, int>{10, 20};
-    BOOST_TEST(tl.last_level == LogLevel::Error);
-    BOOST_TEST(tl.last_msg == "test3: (10,20)");
+    BOOST_CHECK_EQUAL(tl.last_level, LogLevel::Error);
+    BOOST_CHECK_EQUAL(tl.last_msg, "test3: (10,20)");
 
     TOOLBOX_WARN << "test4: " << Foo<int, int>{10, 20};
-    BOOST_TEST(tl.last_level == LogLevel::Warn);
-    BOOST_TEST(tl.last_msg == "test4: (10,20)");
+    BOOST_CHECK_EQUAL(tl.last_level, LogLevel::Warn);
+    BOOST_CHECK_EQUAL(tl.last_msg, "test4: (10,20)");
 
     TOOLBOX_METRIC << "test5: " << Foo<int, int>{10, 20};
-    BOOST_TEST(tl.last_level == LogLevel::Metric);
-    BOOST_TEST(tl.last_msg == "test5: (10,20)");
+    BOOST_CHECK_EQUAL(tl.last_level, LogLevel::Metric);
+    BOOST_CHECK_EQUAL(tl.last_msg, "test5: (10,20)");
 
     TOOLBOX_NOTICE << "test6: " << Foo<int, int>{10, 20};
-    BOOST_TEST(tl.last_level == LogLevel::Notice);
-    BOOST_TEST(tl.last_msg == "test6: (10,20)");
+    BOOST_CHECK_EQUAL(tl.last_level, LogLevel::Notice);
+    BOOST_CHECK_EQUAL(tl.last_msg, "test6: (10,20)");
 
     TOOLBOX_INFO << "test7: " << Foo<int, int>{10, 20};
-    BOOST_TEST(tl.last_level == LogLevel::Info);
-    BOOST_TEST(tl.last_msg == "test7: (10,20)");
+    BOOST_CHECK_EQUAL(tl.last_level, LogLevel::Info);
+    BOOST_CHECK_EQUAL(tl.last_msg, "test7: (10,20)");
 
     // This should not be logged.
     TOOLBOX_DEBUG << "test8: " << Foo<int, int>{10, 20};
-    BOOST_TEST(tl.last_level == LogLevel::Info);
-    BOOST_TEST(tl.last_msg == "test7: (10,20)");
+    BOOST_CHECK_EQUAL(tl.last_level, LogLevel::Info);
+    BOOST_CHECK_EQUAL(tl.last_msg, "test7: (10,20)");
 
     // This will log a non formatted string view, the formatting shows up on the next "formatable"
     // parameter.
     using namespace noformat;
     TOOLBOX_LOG(LogLevel::Info) << setw(3) << setfill('*') << "test8: "sv << Foo<int, int>{10, 20};
-    BOOST_TEST(tl.last_level == LogLevel::Info);
-    BOOST_TEST(tl.last_msg == "test8: **(10,20)");
+    BOOST_CHECK_EQUAL(tl.last_level, LogLevel::Info);
+    BOOST_CHECK_EQUAL(tl.last_msg, "test8: **(10,20)");
 }
 
 BOOST_AUTO_TEST_SUITE_END()

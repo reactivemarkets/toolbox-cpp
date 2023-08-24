@@ -26,52 +26,52 @@ BOOST_AUTO_TEST_SUITE(StringBufSuite)
 BOOST_AUTO_TEST_CASE(StringBufEmptyCase)
 {
     StringBuf<3> sb;
-    BOOST_TEST(sb.empty());
-    BOOST_TEST(sb.size() == 0U);
-    BOOST_TEST(sb == ""sv);
+    BOOST_CHECK(sb.empty());
+    BOOST_CHECK_EQUAL(sb.size(), 0U);
+    BOOST_CHECK_EQUAL(sb, ""sv);
     auto res = sb == StringBuf<3>{""sv};
-    BOOST_TEST(res);
+    BOOST_CHECK(res);
 }
 
 BOOST_AUTO_TEST_CASE(StringBufNonEmptyCase)
 {
     StringBuf<3> sb{"Foo"sv};
-    BOOST_TEST(!sb.empty());
-    BOOST_TEST(sb.size() == 3U);
-    BOOST_TEST(sb == "Foo"sv);
+    BOOST_CHECK(!sb.empty());
+    BOOST_CHECK_EQUAL(sb.size(), 3U);
+    BOOST_CHECK_EQUAL(sb, "Foo"sv);
     auto res = sb == StringBuf<3>{"Foo"sv};
-    BOOST_TEST(res);
+    BOOST_CHECK(res);
 }
 
 BOOST_AUTO_TEST_CASE(StringBufUpperBoundCase)
 {
     StringBuf<3> sb{"Foox"sv};
-    BOOST_TEST(sb.size() == 3U);
-    BOOST_TEST(sb == "Foo"sv);
+    BOOST_CHECK_EQUAL(sb.size(), 3U);
+    BOOST_CHECK_EQUAL(sb, "Foo"sv);
 
     sb = "Barx"sv;
-    BOOST_TEST(sb.size() == 3U);
-    BOOST_TEST(sb == "Bar"sv);
+    BOOST_CHECK_EQUAL(sb.size(), 3U);
+    BOOST_CHECK_EQUAL(sb, "Bar"sv);
 }
 
 BOOST_AUTO_TEST_CASE(StringBufClearCase)
 {
     StringBuf<3> sb{"Foo"sv};
     sb.clear();
-    BOOST_TEST(sb.empty());
+    BOOST_CHECK(sb.empty());
 }
 
 BOOST_AUTO_TEST_CASE(StringBufAssignCase)
 {
     StringBuf<3> sb;
     sb = "Foo"sv;
-    BOOST_TEST(sb.size() == 3U);
-    BOOST_TEST(sb == "Foo"sv);
+    BOOST_CHECK_EQUAL(sb.size(), 3U);
+    BOOST_CHECK_EQUAL(sb, "Foo"sv);
 
     sb.clear();
     sb = "Foox"sv;
-    BOOST_TEST(sb.size() == 3U);
-    BOOST_TEST(sb == "Foo"sv);
+    BOOST_CHECK_EQUAL(sb.size(), 3U);
+    BOOST_CHECK_EQUAL(sb, "Foo"sv);
 }
 
 BOOST_AUTO_TEST_CASE(StringBufAppendCase)
@@ -79,23 +79,23 @@ BOOST_AUTO_TEST_CASE(StringBufAppendCase)
     StringBuf<6> sb;
     sb = "Foo"sv;
     sb += "Bar"sv;
-    BOOST_TEST(sb.size() == 6U);
-    BOOST_TEST(sb == "FooBar"sv);
+    BOOST_CHECK_EQUAL(sb.size(), 6U);
+    BOOST_CHECK_EQUAL(sb, "FooBar"sv);
 
     sb = "Foo"sv;
     sb += "Barx"sv;
-    BOOST_TEST(sb.size() == 6U);
-    BOOST_TEST(sb == "FooBar"sv);
+    BOOST_CHECK_EQUAL(sb.size(), 6U);
+    BOOST_CHECK_EQUAL(sb, "FooBar"sv);
 }
 
 BOOST_AUTO_TEST_CASE(StringBufLexicalCompare)
 {
     StringBuf<6> sb;
     sb = "b"sv;
-    BOOST_TEST(sb > "a"sv);
-    BOOST_TEST(sb == "b"sv);
-    BOOST_TEST(sb < "c"sv);
-    BOOST_TEST(sb != "zz"sv);
+    BOOST_CHECK_GT(sb, "a"sv);
+    BOOST_CHECK_EQUAL(sb, "b"sv);
+    BOOST_CHECK_LT(sb, "c"sv);
+    BOOST_CHECK_NE(sb, "zz"sv);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

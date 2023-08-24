@@ -29,25 +29,25 @@ BOOST_AUTO_TEST_CASE(PutLengthCase)
         constexpr uint16_t Length{0x0102};
         char buf[2]{};
         detail::put_length<endian::little>(buf, Length, endian::little);
-        BOOST_TEST(detail::get_length<endian::little>(buf, endian::little) == Length);
+        BOOST_CHECK_EQUAL(detail::get_length<endian::little>(buf, endian::little), Length);
     }
     {
         constexpr uint16_t Length{0x0102};
         char buf[2]{};
         detail::put_length<endian::little>(buf, Length, endian::big);
-        BOOST_TEST(detail::get_length<endian::little>(buf, endian::big) == Length);
+        BOOST_CHECK_EQUAL(detail::get_length<endian::little>(buf, endian::big), Length);
     }
     {
         constexpr uint16_t Length{0x0201};
         char buf[2]{};
         detail::put_length<endian::big>(buf, Length, endian::big);
-        BOOST_TEST(detail::get_length<endian::big>(buf, endian::big) == Length);
+        BOOST_CHECK_EQUAL(detail::get_length<endian::big>(buf, endian::big), Length);
     }
     {
         constexpr uint16_t Length{0x0201};
         char buf[2]{};
         detail::put_length<endian::big>(buf, Length, endian::little);
-        BOOST_TEST(detail::get_length<endian::big>(buf, endian::little) == Length);
+        BOOST_CHECK_EQUAL(detail::get_length<endian::big>(buf, endian::little), Length);
     }
 }
 
@@ -62,25 +62,39 @@ BOOST_AUTO_TEST_CASE(ParseFrameCase)
     };
 
     consumed += parse_frame("\003"sv, fn, endian::little);
-    BOOST_TEST(consumed == 0);
-    BOOST_TEST(msg_count == 0);
-    BOOST_TEST(msg_data.empty());
+    BOOST_CHECK_EQUAL(consumed, 0);
+    BOOST_CHECK_EQUAL(msg_count, 0);
+    BOOST_CHECK(msg_data.empty());
 
-    consumed += parse_frame("\000\003" "F"sv, fn, endian::big);
-    BOOST_TEST(consumed == 3);
-    BOOST_TEST(msg_count == 1);
-    BOOST_TEST(msg_data == "F");
+    consumed += parse_frame("\000\003"
+                            "F"sv,
+                            fn, endian::big);
+    BOOST_CHECK_EQUAL(consumed, 3);
+    BOOST_CHECK_EQUAL(msg_count, 1);
+    BOOST_CHECK_EQUAL(msg_data, "F");
 
-    consumed += parse_frame("\004\000" "GH"sv, fn, endian::little);
-    BOOST_TEST(consumed == 3 + 4);
-    BOOST_TEST(msg_count == 1 + 1);
-    BOOST_TEST(msg_data == "F" "GH");
+    consumed += parse_frame("\004\000"
+                            "GH"sv,
+                            fn, endian::little);
+    BOOST_CHECK_EQUAL(consumed, 3 + 4);
+    BOOST_CHECK_EQUAL(msg_count, 1 + 1);
+    BOOST_CHECK_EQUAL(msg_data,
+                      "F"
+                      "GH");
 
     // octal(\010) = decimal(8)
-    consumed += parse_frame("\000\010" "FooBar" "\000\005" "Baz"sv, fn, endian::big);
-    BOOST_TEST(consumed == 3 + 4 + 8 + 5);
-    BOOST_TEST(msg_count == 1 + 1 + 2);
-    BOOST_TEST(msg_data == "F" "GH" "FooBar" "Baz");
+    consumed += parse_frame("\000\010"
+                            "FooBar"
+                            "\000\005"
+                            "Baz"sv,
+                            fn, endian::big);
+    BOOST_CHECK_EQUAL(consumed, 3 + 4 + 8 + 5);
+    BOOST_CHECK_EQUAL(msg_count, 1 + 1 + 2);
+    BOOST_CHECK_EQUAL(msg_data,
+                      "F"
+                      "GH"
+                      "FooBar"
+                      "Baz");
 }
 
 BOOST_AUTO_TEST_SUITE_END()

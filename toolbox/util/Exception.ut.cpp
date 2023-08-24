@@ -26,11 +26,11 @@ BOOST_AUTO_TEST_CASE(ExceptionCase)
 {
     const auto ec = std::make_error_code(std::errc::invalid_argument);
     const Exception e{ec, "cannot send message"};
-    BOOST_TEST(e.what() == "cannot send message");
-    BOOST_TEST(e.code() == ec);
+    BOOST_CHECK_EQUAL(e.what(), "cannot send message");
+    BOOST_CHECK_EQUAL(e.code(), ec);
     std::stringstream ss;
     ss << put_with_code(e);
-    BOOST_TEST(ss.str() == "cannot send message (22)");
+    BOOST_CHECK_EQUAL(ss.str(), "cannot send message (22)");
 }
 
 BOOST_AUTO_TEST_CASE(ExceptionToJsonCase)
@@ -41,10 +41,10 @@ BOOST_AUTO_TEST_CASE(ExceptionToJsonCase)
     std::stringstream ss;
     ss << put_as_json(e);
 
-    BOOST_TEST(ss.str() == //
-               "{\"code\":22"
-               ",\"message\":\"cannot send message\""
-               "}");
+    BOOST_CHECK_EQUAL(ss.str(), //
+                      "{\"code\":22"
+                      ",\"message\":\"cannot send message\""
+                      "}");
 }
 
 BOOST_AUTO_TEST_SUITE_END()

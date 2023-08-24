@@ -132,16 +132,16 @@ BOOST_AUTO_TEST_CASE(InitialRequestLineCase)
 
     Parser h{Type::Request};
     const auto now = CyclTime::now();
-    BOOST_TEST(h.parse(now, {Message.data(), Message.size()}) == Message.size());
-    BOOST_TEST(!h.should_keep_alive());
-    BOOST_TEST(h.http_major() == 1);
-    BOOST_TEST(h.http_minor() == 0);
+    BOOST_CHECK_EQUAL(h.parse(now, {Message.data(), Message.size()}), Message.size());
+    BOOST_CHECK(!h.should_keep_alive());
+    BOOST_CHECK_EQUAL(h.http_major(), 1);
+    BOOST_CHECK_EQUAL(h.http_minor(), 0);
 
-    BOOST_TEST(h.method() == Method::Get);
-    BOOST_TEST(h.url() == "/path/to/file/index.html"s);
+    BOOST_CHECK_EQUAL(h.method(), Method::Get);
+    BOOST_CHECK_EQUAL(h.url(), "/path/to/file/index.html"s);
 
-    BOOST_TEST(h.headers().empty());
-    BOOST_TEST(h.body().empty());
+    BOOST_CHECK(h.headers().empty());
+    BOOST_CHECK(h.body().empty());
 }
 
 BOOST_AUTO_TEST_CASE(InitialResponseLineCase)
@@ -152,16 +152,16 @@ BOOST_AUTO_TEST_CASE(InitialResponseLineCase)
 
     Parser h{Type::Response};
     const auto now = CyclTime::now();
-    BOOST_TEST(h.parse(now, {Message.data(), Message.size()}) == Message.size());
-    BOOST_TEST(!h.should_keep_alive());
-    BOOST_TEST(h.http_major() == 1);
-    BOOST_TEST(h.http_minor() == 0);
+    BOOST_CHECK_EQUAL(h.parse(now, {Message.data(), Message.size()}), Message.size());
+    BOOST_CHECK(!h.should_keep_alive());
+    BOOST_CHECK_EQUAL(h.http_major(), 1);
+    BOOST_CHECK_EQUAL(h.http_minor(), 0);
 
-    BOOST_TEST(h.status_code() == 404);
-    BOOST_TEST(h.status() == "Not Found"s);
+    BOOST_CHECK_EQUAL(h.status_code(), 404);
+    BOOST_CHECK_EQUAL(h.status(), "Not Found"s);
 
-    BOOST_TEST(h.headers().empty());
-    BOOST_TEST(h.body().empty());
+    BOOST_CHECK(h.headers().empty());
+    BOOST_CHECK(h.body().empty());
 }
 
 BOOST_AUTO_TEST_CASE(BasicRequestCase)
@@ -174,19 +174,19 @@ BOOST_AUTO_TEST_CASE(BasicRequestCase)
 
     Parser h{Type::Request};
     const auto now = CyclTime::now();
-    BOOST_TEST(h.parse(now, {Message.data(), Message.size()}) == Message.size());
-    BOOST_TEST(!h.should_keep_alive());
-    BOOST_TEST(h.http_major() == 1);
-    BOOST_TEST(h.http_minor() == 0);
+    BOOST_CHECK_EQUAL(h.parse(now, {Message.data(), Message.size()}), Message.size());
+    BOOST_CHECK(!h.should_keep_alive());
+    BOOST_CHECK_EQUAL(h.http_major(), 1);
+    BOOST_CHECK_EQUAL(h.http_minor(), 0);
 
-    BOOST_TEST(h.method() == Method::Get);
-    BOOST_TEST(h.url() == "/path/file.html"s);
+    BOOST_CHECK_EQUAL(h.method(), Method::Get);
+    BOOST_CHECK_EQUAL(h.url(), "/path/file.html"s);
 
-    BOOST_TEST(h.headers().size() == 2U);
-    BOOST_TEST(h.headers()[0] == make_pair("From"s, "someuser@reactivemarkets.com"s));
-    BOOST_TEST(h.headers()[1] == make_pair("User-Agent"s, "HTTPTool/1.0"s));
+    BOOST_CHECK_EQUAL(h.headers().size(), 2U);
+    BOOST_CHECK_EQUAL(h.headers()[0], make_pair("From"s, "someuser@reactivemarkets.com"s));
+    BOOST_CHECK_EQUAL(h.headers()[1], make_pair("User-Agent"s, "HTTPTool/1.0"s));
 
-    BOOST_TEST(h.body().empty());
+    BOOST_CHECK(h.body().empty());
 }
 
 BOOST_AUTO_TEST_CASE(BasicResponseCase)
@@ -201,20 +201,20 @@ BOOST_AUTO_TEST_CASE(BasicResponseCase)
 
     Parser h{Type::Response};
     const auto now = CyclTime::now();
-    BOOST_TEST(h.parse(now, {Message.data(), Message.size()}) == Message.size());
-    BOOST_TEST(!h.should_keep_alive());
-    BOOST_TEST(h.http_major() == 1);
-    BOOST_TEST(h.http_minor() == 0);
+    BOOST_CHECK_EQUAL(h.parse(now, {Message.data(), Message.size()}), Message.size());
+    BOOST_CHECK(!h.should_keep_alive());
+    BOOST_CHECK_EQUAL(h.http_major(), 1);
+    BOOST_CHECK_EQUAL(h.http_minor(), 0);
 
-    BOOST_TEST(h.status_code() == 200);
-    BOOST_TEST(h.status() == "OK"s);
+    BOOST_CHECK_EQUAL(h.status_code(), 200);
+    BOOST_CHECK_EQUAL(h.status(), "OK"s);
 
-    BOOST_TEST(h.headers().size() == 3U);
-    BOOST_TEST(h.headers()[0] == make_pair("Date"s, "Fri, 31 Dec 1999 23:59:59 GMT"s));
-    BOOST_TEST(h.headers()[1] == make_pair("Content-Type"s, "text/plain"s));
-    BOOST_TEST(h.headers()[2] == make_pair("Content-Length"s, "13"s));
+    BOOST_CHECK_EQUAL(h.headers().size(), 3U);
+    BOOST_CHECK_EQUAL(h.headers()[0], make_pair("Date"s, "Fri, 31 Dec 1999 23:59:59 GMT"s));
+    BOOST_CHECK_EQUAL(h.headers()[1], make_pair("Content-Type"s, "text/plain"s));
+    BOOST_CHECK_EQUAL(h.headers()[2], make_pair("Content-Length"s, "13"s));
 
-    BOOST_TEST(h.body() == "Hello, World!"s);
+    BOOST_CHECK_EQUAL(h.body(), "Hello, World!"s);
 }
 
 BOOST_AUTO_TEST_CASE(PostRequestCase)
@@ -230,21 +230,22 @@ BOOST_AUTO_TEST_CASE(PostRequestCase)
 
     Parser h{Type::Request};
     const auto now = CyclTime::now();
-    BOOST_TEST(h.parse(now, {Message.data(), Message.size()}) == Message.size());
-    BOOST_TEST(!h.should_keep_alive());
-    BOOST_TEST(h.http_major() == 1);
-    BOOST_TEST(h.http_minor() == 0);
+    BOOST_CHECK_EQUAL(h.parse(now, {Message.data(), Message.size()}), Message.size());
+    BOOST_CHECK(!h.should_keep_alive());
+    BOOST_CHECK_EQUAL(h.http_major(), 1);
+    BOOST_CHECK_EQUAL(h.http_minor(), 0);
 
-    BOOST_TEST(h.method() == Method::Post);
-    BOOST_TEST(h.url() == "/path/script.cgi"s);
+    BOOST_CHECK_EQUAL(h.method(), Method::Post);
+    BOOST_CHECK_EQUAL(h.url(), "/path/script.cgi"s);
 
-    BOOST_TEST(h.headers().size() == 4U);
-    BOOST_TEST(h.headers()[0] == make_pair("From"s, "frog@reactivemarkets.com"s));
-    BOOST_TEST(h.headers()[1] == make_pair("User-Agent"s, "HTTPTool/1.0"s));
-    BOOST_TEST(h.headers()[2] == make_pair("Content-Type"s, "application/x-www-form-urlencoded"s));
-    BOOST_TEST(h.headers()[3] == make_pair("Content-Length"s, "32"s));
+    BOOST_CHECK_EQUAL(h.headers().size(), 4U);
+    BOOST_CHECK_EQUAL(h.headers()[0], make_pair("From"s, "frog@reactivemarkets.com"s));
+    BOOST_CHECK_EQUAL(h.headers()[1], make_pair("User-Agent"s, "HTTPTool/1.0"s));
+    BOOST_CHECK_EQUAL(h.headers()[2],
+                      make_pair("Content-Type"s, "application/x-www-form-urlencoded"s));
+    BOOST_CHECK_EQUAL(h.headers()[3], make_pair("Content-Length"s, "32"s));
 
-    BOOST_TEST(h.body() == "home=Cosby&favorite+flavor=flies"s);
+    BOOST_CHECK_EQUAL(h.body(), "home=Cosby&favorite+flavor=flies"s);
 }
 
 BOOST_AUTO_TEST_CASE(KeepAliveRequestCase)
@@ -256,18 +257,18 @@ BOOST_AUTO_TEST_CASE(KeepAliveRequestCase)
 
     Parser h{Type::Request};
     const auto now = CyclTime::now();
-    BOOST_TEST(h.parse(now, {Message.data(), Message.size()}) == Message.size());
-    BOOST_TEST(h.should_keep_alive());
-    BOOST_TEST(h.http_major() == 1);
-    BOOST_TEST(h.http_minor() == 1);
+    BOOST_CHECK_EQUAL(h.parse(now, {Message.data(), Message.size()}), Message.size());
+    BOOST_CHECK(h.should_keep_alive());
+    BOOST_CHECK_EQUAL(h.http_major(), 1);
+    BOOST_CHECK_EQUAL(h.http_minor(), 1);
 
-    BOOST_TEST(h.method() == Method::Get);
-    BOOST_TEST(h.url() == "/path/file.html"s);
+    BOOST_CHECK_EQUAL(h.method(), Method::Get);
+    BOOST_CHECK_EQUAL(h.url(), "/path/file.html"s);
 
-    BOOST_TEST(h.headers().size() == 1U);
-    BOOST_TEST(h.headers()[0] == make_pair("Host"s, "www.host1.com:80"s));
+    BOOST_CHECK_EQUAL(h.headers().size(), 1U);
+    BOOST_CHECK_EQUAL(h.headers()[0], make_pair("Host"s, "www.host1.com:80"s));
 
-    BOOST_TEST(h.body().empty());
+    BOOST_CHECK(h.body().empty());
 }
 
 BOOST_AUTO_TEST_CASE(ChunkedResponseCase)
@@ -289,22 +290,22 @@ BOOST_AUTO_TEST_CASE(ChunkedResponseCase)
 
     Parser h{Type::Response};
     const auto now = CyclTime::now();
-    BOOST_TEST(h.parse(now, {Message.data(), Message.size()}) == Message.size());
-    BOOST_TEST(h.should_keep_alive());
-    BOOST_TEST(h.http_major() == 1);
-    BOOST_TEST(h.http_minor() == 1);
+    BOOST_CHECK_EQUAL(h.parse(now, {Message.data(), Message.size()}), Message.size());
+    BOOST_CHECK(h.should_keep_alive());
+    BOOST_CHECK_EQUAL(h.http_major(), 1);
+    BOOST_CHECK_EQUAL(h.http_minor(), 1);
 
-    BOOST_TEST(h.status_code() == 200);
-    BOOST_TEST(h.status() == "OK"s);
+    BOOST_CHECK_EQUAL(h.status_code(), 200);
+    BOOST_CHECK_EQUAL(h.status(), "OK"s);
 
-    BOOST_TEST(h.headers().size() == 5U);
-    BOOST_TEST(h.headers()[0] == make_pair("Date"s, "Fri, 31 Dec 1999 23:59:59 GMT"s));
-    BOOST_TEST(h.headers()[1] == make_pair("Content-Type"s, "text/plain"s));
-    BOOST_TEST(h.headers()[2] == make_pair("Transfer-Encoding"s, "chunked"s));
-    BOOST_TEST(h.headers()[3] == make_pair("some-footer"s, "some-value"s));
-    BOOST_TEST(h.headers()[4] == make_pair("another-footer"s, "another-value"s));
+    BOOST_CHECK_EQUAL(h.headers().size(), 5U);
+    BOOST_CHECK_EQUAL(h.headers()[0], make_pair("Date"s, "Fri, 31 Dec 1999 23:59:59 GMT"s));
+    BOOST_CHECK_EQUAL(h.headers()[1], make_pair("Content-Type"s, "text/plain"s));
+    BOOST_CHECK_EQUAL(h.headers()[2], make_pair("Transfer-Encoding"s, "chunked"s));
+    BOOST_CHECK_EQUAL(h.headers()[3], make_pair("some-footer"s, "some-value"s));
+    BOOST_CHECK_EQUAL(h.headers()[4], make_pair("another-footer"s, "another-value"s));
 
-    BOOST_TEST(h.body() == "abcdefghijklmnopqrstuvwxyz1234567890abcdef"s);
+    BOOST_CHECK_EQUAL(h.body(), "abcdefghijklmnopqrstuvwxyz1234567890abcdef"s);
 }
 
 BOOST_AUTO_TEST_CASE(MultiResponseCase)
@@ -323,19 +324,19 @@ BOOST_AUTO_TEST_CASE(MultiResponseCase)
 
     Parser h{Type::Request};
     const auto now = CyclTime::now();
-    BOOST_TEST(h.parse(now, {Message.data(), Message.size()}) == Message.size());
-    BOOST_TEST(h.should_keep_alive());
-    BOOST_TEST(h.http_major() == 1);
-    BOOST_TEST(h.http_minor() == 1);
+    BOOST_CHECK_EQUAL(h.parse(now, {Message.data(), Message.size()}), Message.size());
+    BOOST_CHECK(h.should_keep_alive());
+    BOOST_CHECK_EQUAL(h.http_major(), 1);
+    BOOST_CHECK_EQUAL(h.http_minor(), 1);
 
-    BOOST_TEST(h.method() == Method::Post);
-    BOOST_TEST(h.url() == "/path/script.cgi"s);
+    BOOST_CHECK_EQUAL(h.method(), Method::Post);
+    BOOST_CHECK_EQUAL(h.url(), "/path/script.cgi"s);
 
-    BOOST_TEST(h.headers().size() == 2U);
-    BOOST_TEST(h.headers()[0] == make_pair("Content-Type"s, "text/plain"s));
-    BOOST_TEST(h.headers()[1] == make_pair("Content-Length"s, "6"s));
+    BOOST_CHECK_EQUAL(h.headers().size(), 2U);
+    BOOST_CHECK_EQUAL(h.headers()[0], make_pair("Content-Type"s, "text/plain"s));
+    BOOST_CHECK_EQUAL(h.headers()[1], make_pair("Content-Length"s, "6"s));
 
-    BOOST_TEST(h.body() == "second"s);
+    BOOST_CHECK_EQUAL(h.body(), "second"s);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

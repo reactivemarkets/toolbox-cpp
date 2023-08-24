@@ -36,27 +36,27 @@ BOOST_AUTO_TEST_CASE(HistogramBasicCase)
     const auto expected_bucket_count = Bitness == 64 ? 22 : 21;
     const auto expected_counts_len = Bitness == 64 ? 23552 : 22528;
 
-    BOOST_TEST(h.lowest_trackable_value() == Lowest);
-    BOOST_TEST(h.highest_trackable_value() == Highest);
-    BOOST_TEST(h.significant_figures() == Significant);
-    BOOST_TEST(h.sub_bucket_count() == 2048);
-    BOOST_TEST(h.bucket_count() == expected_bucket_count);
-    BOOST_TEST(h.counts_len() == expected_counts_len);
+    BOOST_CHECK_EQUAL(h.lowest_trackable_value(), Lowest);
+    BOOST_CHECK_EQUAL(h.highest_trackable_value(), Highest);
+    BOOST_CHECK_EQUAL(h.significant_figures(), Significant);
+    BOOST_CHECK_EQUAL(h.sub_bucket_count(), 2048);
+    BOOST_CHECK_EQUAL(h.bucket_count(), expected_bucket_count);
+    BOOST_CHECK_EQUAL(h.counts_len(), expected_counts_len);
 }
 
 BOOST_AUTO_TEST_CASE(HistogramEmptyCase)
 {
     Histogram h{1, 100000000, 1};
-    BOOST_TEST(h.min() == numeric_limits<int64_t>::max());
-    BOOST_TEST(h.max() == 0);
+    BOOST_CHECK_EQUAL(h.min(), numeric_limits<int64_t>::max());
+    BOOST_CHECK_EQUAL(h.max(), 0);
 }
 
 BOOST_AUTO_TEST_CASE(HistogramRecordValueCase)
 {
     Histogram h{Lowest, Highest, Significant};
     h.record_value(TestValueLevel);
-    BOOST_TEST(h.count_at_value(TestValueLevel) == 1);
-    BOOST_TEST(h.total_count() == 1);
+    BOOST_CHECK_EQUAL(h.count_at_value(TestValueLevel), 1);
+    BOOST_CHECK_EQUAL(h.total_count(), 1);
 }
 
 BOOST_AUTO_TEST_CASE(HistogramInvalidSigFigCase)
@@ -75,38 +75,38 @@ BOOST_AUTO_TEST_CASE(HistogramInvalidInitCase)
 BOOST_AUTO_TEST_CASE(HistogramOutOfRangeCase)
 {
     Histogram h{1, 1000, 4};
-    BOOST_TEST(h.record_value(32767));
-    BOOST_TEST(!h.record_value(32768));
+    BOOST_CHECK(h.record_value(32767));
+    BOOST_CHECK(!h.record_value(32768));
 }
 
 BOOST_AUTO_TEST_CASE(HistogramResetCase)
 {
     Histogram h{1, 10000000, 3};
     for (int i{0}; i < 1000; ++i) {
-        BOOST_TEST(h.record_value(i));
+        BOOST_CHECK(h.record_value(i));
     }
     h.reset();
-    BOOST_TEST(h.max() == 0);
+    BOOST_CHECK_EQUAL(h.max(), 0);
 }
 
 BOOST_AUTO_TEST_CASE(HistogramTotalCountCase)
 {
     Histogram h{1, 10000000, 3};
     for (int i{0}; i < 1000; ++i) {
-        BOOST_TEST(h.record_value(i));
-        BOOST_TEST(h.total_count() == i + 1);
+        BOOST_CHECK(h.record_value(i));
+        BOOST_CHECK_EQUAL(h.total_count(), i + 1);
     }
 }
 
 BOOST_AUTO_TEST_CASE(HistogramRecordEquivalentValueCase)
 {
     Histogram h{Lowest, Highest, Significant};
-    BOOST_TEST(8183 * 1024 + 1023 == h.highest_equivalent_value(8180 * 1024));
-    BOOST_TEST(8191 * 1024 + 1023 == h.highest_equivalent_value(8191 * 1024));
-    BOOST_TEST(8199 * 1024 + 1023 == h.highest_equivalent_value(8193 * 1024));
-    BOOST_TEST(9999 * 1024 + 1023 == h.highest_equivalent_value(9995 * 1024));
-    BOOST_TEST(10007 * 1024 + 1023 == h.highest_equivalent_value(10007 * 1024));
-    BOOST_TEST(10015 * 1024 + 1023 == h.highest_equivalent_value(10008 * 1024));
+    BOOST_CHECK_EQUAL(8183 * 1024 + 1023, h.highest_equivalent_value(8180 * 1024));
+    BOOST_CHECK_EQUAL(8191 * 1024 + 1023, h.highest_equivalent_value(8191 * 1024));
+    BOOST_CHECK_EQUAL(8199 * 1024 + 1023, h.highest_equivalent_value(8193 * 1024));
+    BOOST_CHECK_EQUAL(9999 * 1024 + 1023, h.highest_equivalent_value(9995 * 1024));
+    BOOST_CHECK_EQUAL(10007 * 1024 + 1023, h.highest_equivalent_value(10007 * 1024));
+    BOOST_CHECK_EQUAL(10015 * 1024 + 1023, h.highest_equivalent_value(10008 * 1024));
 }
 
 BOOST_AUTO_TEST_SUITE_END()

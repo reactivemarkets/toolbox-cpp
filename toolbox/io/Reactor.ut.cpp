@@ -54,25 +54,25 @@ BOOST_AUTO_TEST_CASE(ReactorLevelCase)
     const auto sub = r.subscribe(*socks.second, EpollIn, bind<&TestHandler::on_input>(h.get()));
 
     const auto now = CyclTime::now();
-    BOOST_TEST(r.poll(now, 0ms) == 0);
-    BOOST_TEST(h->matches == 0);
+    BOOST_CHECK_EQUAL(r.poll(now, 0ms), 0);
+    BOOST_CHECK_EQUAL(h->matches, 0);
 
     socks.first.send("foo", 4, 0);
     socks.first.send("foo", 4, 0);
-    BOOST_TEST(r.poll(now, 0ms) == 1);
-    BOOST_TEST(h->matches == 1);
-    BOOST_TEST(r.poll(now, 0ms) == 1);
-    BOOST_TEST(h->matches == 2);
+    BOOST_CHECK_EQUAL(r.poll(now, 0ms), 1);
+    BOOST_CHECK_EQUAL(h->matches, 1);
+    BOOST_CHECK_EQUAL(r.poll(now, 0ms), 1);
+    BOOST_CHECK_EQUAL(h->matches, 2);
 
-    BOOST_TEST(r.poll(now, 0ms) == 0);
-    BOOST_TEST(h->matches == 2);
+    BOOST_CHECK_EQUAL(r.poll(now, 0ms), 0);
+    BOOST_CHECK_EQUAL(h->matches, 2);
 
     socks.first.send("foo", 4, 0);
-    BOOST_TEST(r.poll(now, 0ms) == 1);
-    BOOST_TEST(h->matches == 3);
+    BOOST_CHECK_EQUAL(r.poll(now, 0ms), 1);
+    BOOST_CHECK_EQUAL(h->matches, 3);
 
-    BOOST_TEST(r.poll(now, 0ms) == 0);
-    BOOST_TEST(h->matches == 3);
+    BOOST_CHECK_EQUAL(r.poll(now, 0ms), 0);
+    BOOST_CHECK_EQUAL(h->matches, 3);
 }
 
 BOOST_AUTO_TEST_CASE(ReactorEdgeCase)
@@ -86,32 +86,32 @@ BOOST_AUTO_TEST_CASE(ReactorEdgeCase)
     auto sub = r.subscribe(*socks.second, EpollIn | EpollEt, bind<&TestHandler::on_input>(h.get()));
 
     const auto now = CyclTime::now();
-    BOOST_TEST(r.poll(now, 0ms) == 0);
-    BOOST_TEST(h->matches == 0);
+    BOOST_CHECK_EQUAL(r.poll(now, 0ms), 0);
+    BOOST_CHECK_EQUAL(h->matches, 0);
 
     socks.first.send("foo", 4, 0);
     socks.first.send("foo", 4, 0);
-    BOOST_TEST(r.poll(now, 0ms) == 1);
-    BOOST_TEST(h->matches == 1);
+    BOOST_CHECK_EQUAL(r.poll(now, 0ms), 1);
+    BOOST_CHECK_EQUAL(h->matches, 1);
 
     // No notification for second message.
-    BOOST_TEST(r.poll(now, 0ms) == 0);
-    BOOST_TEST(h->matches == 1);
+    BOOST_CHECK_EQUAL(r.poll(now, 0ms), 0);
+    BOOST_CHECK_EQUAL(h->matches, 1);
 
     // Revert to level-triggered.
     sub.set_events(EpollIn);
-    BOOST_TEST(r.poll(now, 0ms) == 1);
-    BOOST_TEST(h->matches == 2);
+    BOOST_CHECK_EQUAL(r.poll(now, 0ms), 1);
+    BOOST_CHECK_EQUAL(h->matches, 2);
 
-    BOOST_TEST(r.poll(now, 0ms) == 0);
-    BOOST_TEST(h->matches == 2);
+    BOOST_CHECK_EQUAL(r.poll(now, 0ms), 0);
+    BOOST_CHECK_EQUAL(h->matches, 2);
 
     socks.first.send("foo", 4, 0);
-    BOOST_TEST(r.poll(now, 0ms) == 1);
-    BOOST_TEST(h->matches == 3);
+    BOOST_CHECK_EQUAL(r.poll(now, 0ms), 1);
+    BOOST_CHECK_EQUAL(h->matches, 3);
 
-    BOOST_TEST(r.poll(now, 0ms) == 0);
-    BOOST_TEST(h->matches == 3);
+    BOOST_CHECK_EQUAL(r.poll(now, 0ms), 0);
+    BOOST_CHECK_EQUAL(h->matches, 3);
 }
 
 BOOST_AUTO_TEST_CASE(ReactorHookCase)
@@ -124,8 +124,8 @@ BOOST_AUTO_TEST_CASE(ReactorHookCase)
     Hook h{bind(&fn)};
     r.add_hook(h);
 
-    BOOST_TEST(r.poll(CyclTime::now(), 0ms) == 0);
-    BOOST_TEST(i == 1);
+    BOOST_CHECK_EQUAL(r.poll(CyclTime::now(), 0ms), 0);
+    BOOST_CHECK_EQUAL(i, 1);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

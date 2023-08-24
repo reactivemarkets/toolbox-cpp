@@ -90,7 +90,7 @@ double stod(std::string_view sv, double dfl) noexcept
 {
     using namespace boost::spirit;
     double val{};
-    if(!qi::parse(sv.begin(), sv.end(), qi::double_, val)) {
+    if (!qi::parse(sv.begin(), sv.end(), qi::double_, val)) {
         return dfl;
     }
     return val;

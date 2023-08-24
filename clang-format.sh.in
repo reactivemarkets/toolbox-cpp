@@ -16,6 +16,6 @@
 # limitations under the License.
 
 cd "@CMAKE_SOURCE_DIR@"
-git ls-files *.cpp *.hpp *.hxx | while read file; do
+git ls-files *.cpp *.hpp *.hxx | grep -v /contrib/ | while read file; do
     "@CLANG_FORMAT@" -i --style=file $file
 done

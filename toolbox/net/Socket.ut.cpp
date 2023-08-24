@@ -30,15 +30,15 @@ BOOST_AUTO_TEST_CASE(GetUnixAddrInfoCase)
 {
     auto path = "/tmp/foo.sock"s;
     const auto ai = get_unix_addrinfo(path, SOCK_DGRAM);
-    BOOST_TEST(ai->ai_flags == 0);
-    BOOST_TEST(ai->ai_family == AF_UNIX);
-    BOOST_TEST(ai->ai_socktype == SOCK_DGRAM);
-    BOOST_TEST(ai->ai_protocol == 0);
-    BOOST_TEST(ai->ai_addrlen == offsetof(sockaddr_un, sun_path) + path.size() + 1);
-    BOOST_TEST(ai->ai_addr->sa_family == AF_UNIX);
-    BOOST_TEST(!ai->ai_canonname);
-    BOOST_TEST(!ai->ai_next);
-    BOOST_TEST(to_string(*ai->ai_addr) == path);
+    BOOST_CHECK_EQUAL(ai->ai_flags, 0);
+    BOOST_CHECK_EQUAL(ai->ai_family, AF_UNIX);
+    BOOST_CHECK_EQUAL(ai->ai_socktype, SOCK_DGRAM);
+    BOOST_CHECK_EQUAL(ai->ai_protocol, 0);
+    BOOST_CHECK_EQUAL(ai->ai_addrlen, offsetof(sockaddr_un, sun_path) + path.size() + 1);
+    BOOST_CHECK_EQUAL(ai->ai_addr->sa_family, AF_UNIX);
+    BOOST_CHECK(!ai->ai_canonname);
+    BOOST_CHECK(!ai->ai_next);
+    BOOST_CHECK_EQUAL(to_string(*ai->ai_addr), path);
 
     path.assign(sizeof(sockaddr_un{}.sun_path), 'x');
     BOOST_CHECK_THROW(get_unix_addrinfo(path, SOCK_DGRAM), invalid_argument);

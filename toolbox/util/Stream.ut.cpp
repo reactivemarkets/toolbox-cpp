@@ -29,24 +29,24 @@ BOOST_AUTO_TEST_SUITE(StreamSuite)
 BOOST_AUTO_TEST_CASE(OStaticStreamCase)
 {
     OStaticStream<7> os;
-    BOOST_TEST(os.empty());
+    BOOST_CHECK(os.empty());
     os << "foo";
-    BOOST_TEST(os.size() == 3U);
-    BOOST_TEST(os.str() == "foo");
+    BOOST_CHECK_EQUAL(os.size(), 3U);
+    BOOST_CHECK_EQUAL(os.str(), "foo");
     os << ',' << "bar";
-    BOOST_TEST(os.size() == 7U);
-    BOOST_TEST(os.str() == "foo,bar");
+    BOOST_CHECK_EQUAL(os.size(), 7U);
+    BOOST_CHECK_EQUAL(os.str(), "foo,bar");
 
     os.reset();
-    BOOST_TEST(os.empty());
+    BOOST_CHECK(os.empty());
     os << 12345678;
-    BOOST_TEST(os.size() == 7U);
-    BOOST_TEST(os.str() == "1234567");
-    BOOST_TEST(!os);
+    BOOST_CHECK_EQUAL(os.size(), 7U);
+    BOOST_CHECK_EQUAL(os.str(), "1234567");
+    BOOST_CHECK(!os);
 
     os.reset();
-    BOOST_TEST(!!os);
-    BOOST_TEST((os << "test").str() == "test");
+    BOOST_CHECK(!!os);
+    BOOST_CHECK_EQUAL((os << "test").str(), "test");
 }
 
 BOOST_AUTO_TEST_CASE(OStreamJoinerCase)
@@ -54,7 +54,7 @@ BOOST_AUTO_TEST_CASE(OStreamJoinerCase)
     array<string, 3> arr{{"foo", "bar", "baz"}};
     stringstream os;
     copy(arr.begin(), arr.end(), OStreamJoiner{os, ','});
-    BOOST_TEST(os.str() == "foo,bar,baz");
+    BOOST_CHECK_EQUAL(os.str(), "foo,bar,baz");
 }
 
 BOOST_AUTO_TEST_CASE(OStreamResetCase)
@@ -62,11 +62,11 @@ BOOST_AUTO_TEST_CASE(OStreamResetCase)
     OStaticStream<6> os{};
     // overflows the buffer, setting a bad flag
     os << "foobarbaz";
-    BOOST_TEST(os.data() == "foobar");
+    BOOST_CHECK_EQUAL(os.data(), "foobar");
     // resets flag, allowing yes to be written
     os.reset();
     os << "yes";
-    BOOST_TEST(os.data() == "yesbar");
+    BOOST_CHECK_EQUAL(os.data(), "yesbar");
 }
 
 BOOST_AUTO_TEST_SUITE_END()

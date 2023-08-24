@@ -28,50 +28,50 @@ BOOST_AUTO_TEST_CASE(RingBufferCase)
     using IntRingBuffer = RingBuffer<int>;
 
     IntRingBuffer rb{4};
-    BOOST_TEST(rb.empty());
-    BOOST_TEST(!rb.full());
-    BOOST_TEST(rb.size() == 0U);
+    BOOST_CHECK(rb.empty());
+    BOOST_CHECK(!rb.full());
+    BOOST_CHECK_EQUAL(rb.size(), 0U);
 
     rb.write([](int& val) { val = 1; });
-    BOOST_TEST(!rb.empty());
-    BOOST_TEST(!rb.full());
-    BOOST_TEST(rb.size() == 1U);
+    BOOST_CHECK(!rb.empty());
+    BOOST_CHECK(!rb.full());
+    BOOST_CHECK_EQUAL(rb.size(), 1U);
 
     rb.clear();
-    BOOST_TEST(rb.empty());
-    BOOST_TEST(!rb.full());
-    BOOST_TEST(rb.size() == 0U);
+    BOOST_CHECK(rb.empty());
+    BOOST_CHECK(!rb.full());
+    BOOST_CHECK_EQUAL(rb.size(), 0U);
 
     rb.push(1);
     rb.push(2);
     rb.push(3);
     rb.push(4);
-    BOOST_TEST(!rb.empty());
-    BOOST_TEST(rb.full());
-    BOOST_TEST(rb.size() == 4U);
+    BOOST_CHECK(!rb.empty());
+    BOOST_CHECK(rb.full());
+    BOOST_CHECK_EQUAL(rb.size(), 4U);
 
     rb.push(5);
-    BOOST_TEST(!rb.empty());
-    BOOST_TEST(rb.full());
-    BOOST_TEST(rb.size() == 4U);
+    BOOST_CHECK(!rb.empty());
+    BOOST_CHECK(rb.full());
+    BOOST_CHECK_EQUAL(rb.size(), 4U);
 
     int val;
     rb.fetch([&val](const int& ref) { val = ref; });
-    BOOST_TEST(2);
-    BOOST_TEST(!rb.empty());
-    BOOST_TEST(!rb.full());
-    BOOST_TEST(rb.size() == 3U);
+    BOOST_CHECK(2);
+    BOOST_CHECK(!rb.empty());
+    BOOST_CHECK(!rb.full());
+    BOOST_CHECK_EQUAL(rb.size(), 3U);
 
-    BOOST_TEST(rb.front() == 3);
+    BOOST_CHECK_EQUAL(rb.front(), 3);
     rb.pop();
-    BOOST_TEST(rb.front() == 4);
+    BOOST_CHECK_EQUAL(rb.front(), 4);
     rb.pop();
-    BOOST_TEST(rb.front() == 5);
+    BOOST_CHECK_EQUAL(rb.front(), 5);
     rb.pop();
 
-    BOOST_TEST(rb.empty());
-    BOOST_TEST(!rb.full());
-    BOOST_TEST(rb.size() == 0U);
+    BOOST_CHECK(rb.empty());
+    BOOST_CHECK(!rb.full());
+    BOOST_CHECK_EQUAL(rb.size(), 0U);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

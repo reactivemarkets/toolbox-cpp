@@ -37,15 +37,15 @@ BOOST_AUTO_TEST_CASE(ResolverCase)
     auto future1 = res.resolve(uri1, SOCK_STREAM);
     auto future2 = res.resolve(uri2, SOCK_STREAM);
     auto future3 = res.resolve(uri3, SOCK_STREAM);
-    BOOST_TEST(res.run());
-    BOOST_TEST(to_string(*future1.get()) == uri1);
-    BOOST_TEST(res.run());
-    BOOST_TEST(to_string(*future2.get()) == uri2);
-    BOOST_TEST(res.run());
-    BOOST_TEST(to_string(*future3.get()) == uri3);
+    BOOST_CHECK(res.run());
+    BOOST_CHECK_EQUAL(to_string(*future1.get()), uri1);
+    BOOST_CHECK(res.run());
+    BOOST_CHECK_EQUAL(to_string(*future2.get()), uri2);
+    BOOST_CHECK(res.run());
+    BOOST_CHECK_EQUAL(to_string(*future3.get()), uri3);
 
     auto future4 = res.resolve("bad://foo", SOCK_STREAM);
-    BOOST_TEST(res.run());
+    BOOST_CHECK(res.run());
     BOOST_CHECK_THROW(future4.get(), invalid_argument);
 
     auto future5 = res.resolve(uri1, SOCK_STREAM);
@@ -70,9 +70,9 @@ BOOST_AUTO_TEST_CASE(ResolverRunnerCase)
     auto future2 = res.resolve(uri2, SOCK_STREAM);
     auto future3 = res.resolve(uri3, SOCK_STREAM);
 
-    BOOST_TEST(to_string(*future1.get()) == uri1);
-    BOOST_TEST(to_string(*future2.get()) == uri2);
-    BOOST_TEST(to_string(*future3.get()) == uri3);
+    BOOST_CHECK_EQUAL(to_string(*future1.get()), uri1);
+    BOOST_CHECK_EQUAL(to_string(*future2.get()), uri2);
+    BOOST_CHECK_EQUAL(to_string(*future3.get()), uri3);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

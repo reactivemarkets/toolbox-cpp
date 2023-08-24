@@ -17,3 +17,7 @@ compile_commands.json
 *.pyc
 cmake-build-*/
 build/
+
+#vim
+.*.swp
+.*.swo

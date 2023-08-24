@@ -27,8 +27,7 @@ namespace toolbox {
 inline namespace util {
 
 template <typename T>
-struct AlwaysFalse : std::false_type {
-};
+struct AlwaysFalse : std::false_type {};
 
 template <typename ValueT>
 inline auto& remove_const(const ValueT& ref)
@@ -73,7 +72,7 @@ constexpr int dec_digits(std::int64_t i) noexcept
 /// \return the number of hexadecimal digits.
 /// \todo consider adding support for negative integers.
 template <typename UIntegerT>
-requires std::unsigned_integral<UIntegerT>
+    requires std::unsigned_integral<UIntegerT>
 constexpr int hex_digits(UIntegerT i) noexcept
 {
     constexpr auto Bits = sizeof(i) * 8;
@@ -88,7 +87,7 @@ TOOLBOX_API bool stob(std::string_view sv, bool dfl = false) noexcept;
 TOOLBOX_API double stod(std::string_view sv, double dfl = {}) noexcept;
 
 template <typename ValueT>
-requires std::integral<ValueT> || std::same_as<ValueT, double>
+    requires std::integral<ValueT> || std::same_as<ValueT, double>
 constexpr ValueT ston(std::string_view sv) noexcept
 {
     if constexpr (std::is_same_v<ValueT, double>) {

@@ -39,34 +39,34 @@ BOOST_AUTO_TEST_SUITE(ThreadSuite)
 BOOST_AUTO_TEST_CASE(ThreadConfigCase)
 {
     auto config = ThreadConfig{};
-    BOOST_TEST(config.name.empty());
-    BOOST_TEST(config.affinity.empty());
-    BOOST_TEST(config.sched_policy.empty());
+    BOOST_CHECK(config.name.empty());
+    BOOST_CHECK(config.affinity.empty());
+    BOOST_CHECK(config.sched_policy.empty());
 
     config = "foo"s;
-    BOOST_TEST(config.name == "foo"s);
-    BOOST_TEST(config.affinity.empty());
-    BOOST_TEST(config.sched_policy.empty());
+    BOOST_CHECK_EQUAL(config.name, "foo"s);
+    BOOST_CHECK(config.affinity.empty());
+    BOOST_CHECK(config.sched_policy.empty());
 
     config = ThreadConfig{"foo"s, "bar"s};
-    BOOST_TEST(config.name == "foo"s);
-    BOOST_TEST(config.affinity == "bar"s);
-    BOOST_TEST(config.sched_policy.empty());
+    BOOST_CHECK_EQUAL(config.name, "foo"s);
+    BOOST_CHECK_EQUAL(config.affinity, "bar"s);
+    BOOST_CHECK(config.sched_policy.empty());
 
     config = ThreadConfig{"foo"s, "bar"s, "baz"s};
-    BOOST_TEST(config.name == "foo"s);
-    BOOST_TEST(config.affinity == "bar"s);
-    BOOST_TEST(config.sched_policy == "baz"s);
+    BOOST_CHECK_EQUAL(config.name, "foo"s);
+    BOOST_CHECK_EQUAL(config.affinity, "bar"s);
+    BOOST_CHECK_EQUAL(config.sched_policy, "baz"s);
 }
 
 BOOST_AUTO_TEST_CASE(ThreadParseCpuSetCase)
 {
-    BOOST_TEST(to_bitset(parse_cpu_set(""sv)) == 0b0);
-    BOOST_TEST(to_bitset(parse_cpu_set("0"sv)) == 0b1);
-    BOOST_TEST(to_bitset(parse_cpu_set("1,2"sv)) == 0b110);
-    BOOST_TEST(to_bitset(parse_cpu_set("0-3"sv)) == 0b1111);
-    BOOST_TEST(to_bitset(parse_cpu_set("1,2,4-7"sv)) == 0b11110110);
-    BOOST_TEST(to_bitset(parse_cpu_set("0-3,5,6,8-11"sv)) == 0b111101101111);
+    BOOST_CHECK_EQUAL(to_bitset(parse_cpu_set(""sv)), 0b0);
+    BOOST_CHECK_EQUAL(to_bitset(parse_cpu_set("0"sv)), 0b1);
+    BOOST_CHECK_EQUAL(to_bitset(parse_cpu_set("1,2"sv)), 0b110);
+    BOOST_CHECK_EQUAL(to_bitset(parse_cpu_set("0-3"sv)), 0b1111);
+    BOOST_CHECK_EQUAL(to_bitset(parse_cpu_set("1,2,4-7"sv)), 0b11110110);
+    BOOST_CHECK_EQUAL(to_bitset(parse_cpu_set("0-3,5,6,8-11"sv)), 0b111101101111);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

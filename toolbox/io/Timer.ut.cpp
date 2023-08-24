@@ -43,10 +43,10 @@ BOOST_AUTO_TEST_SUITE(TimerSuite)
 BOOST_AUTO_TEST_CASE(TimerEmptyCase)
 {
     Timer t;
-    BOOST_TEST(t.empty());
-    BOOST_TEST(!t);
-    BOOST_TEST(t.id() == 0);
-    BOOST_TEST(!t.pending());
+    BOOST_CHECK(t.empty());
+    BOOST_CHECK(!t);
+    BOOST_CHECK_EQUAL(t.id(), 0);
+    BOOST_CHECK(!t.pending());
 }
 
 BOOST_AUTO_TEST_CASE(TimerInsertCase)
@@ -57,12 +57,12 @@ BOOST_AUTO_TEST_CASE(TimerInsertCase)
 
     auto fn = [](CyclTime /*now*/, Timer& /*tmr*/) {};
     Timer t = tq.insert(now + 2s, bind(&fn));
-    BOOST_TEST(!t.empty());
-    BOOST_TEST(t);
-    BOOST_TEST(t.id() == 1);
-    BOOST_TEST(t.pending());
-    BOOST_TEST(t.expiry() == now + 2s);
-    BOOST_TEST(t.interval() == 0s);
+    BOOST_CHECK(!t.empty());
+    BOOST_CHECK(t);
+    BOOST_CHECK_EQUAL(t.id(), 1);
+    BOOST_CHECK(t.pending());
+    BOOST_CHECK_EQUAL(t.expiry(), now + 2s);
+    BOOST_CHECK_EQUAL(t.interval(), 0s);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

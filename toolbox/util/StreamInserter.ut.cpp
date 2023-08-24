@@ -37,7 +37,7 @@ BOOST_AUTO_TEST_CASE(StreamInserterCase)
 {
     stringstream ss;
     ss << start_tag("foo") << "bar" << end_tag("foo");
-    BOOST_TEST(ss.str() == "<foo>bar</foo>"s);
+    BOOST_CHECK_EQUAL(ss.str(), "<foo>bar</foo>"s);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

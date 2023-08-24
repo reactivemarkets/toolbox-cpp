@@ -34,7 +34,7 @@ struct TypeTraits {
 };
 
 template <typename ValueT>
-requires std::integral<ValueT>
+    requires std::integral<ValueT>
 struct TypeTraits<ValueT> {
     static constexpr auto from_string(std::string_view sv) noexcept { return ston<ValueT>(sv); }
 };
@@ -64,24 +64,19 @@ struct TypeTraits<std::string> {
 };
 
 template <typename TypeT>
-struct is_string : std::is_same<char*, std::remove_cv_t<typename std::decay_t<TypeT>>>::type {
-};
+struct is_string : std::is_same<char*, std::remove_cv_t<typename std::decay_t<TypeT>>>::type {};
 
 template <>
-struct is_string<std::string> : std::true_type {
-};
+struct is_string<std::string> : std::true_type {};
 
 template <>
-struct is_string<std::string_view> : std::true_type {
-};
+struct is_string<std::string_view> : std::true_type {};
 
 template <typename TypeT, template <typename> class TemplateTypeT>
-struct is_instantiation_of : std::false_type {
-};
+struct is_instantiation_of : std::false_type {};
 
 template <typename TypeT, template <typename> class TemplateTypeT>
-struct is_instantiation_of<TemplateTypeT<TypeT>, TemplateTypeT> : std::true_type {
-};
+struct is_instantiation_of<TemplateTypeT<TypeT>, TemplateTypeT> : std::true_type {};
 
 } // namespace util
 } // namespace toolbox

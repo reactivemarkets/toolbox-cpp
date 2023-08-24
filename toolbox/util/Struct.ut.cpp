@@ -41,10 +41,10 @@ BOOST_AUTO_TEST_SUITE(StructSuite)
 BOOST_AUTO_TEST_CASE(StructEmptyCase)
 {
     const auto s = Struct;
-    BOOST_TEST(empty(s));
-    BOOST_TEST(size(s) == 0U);
-    BOOST_TEST(!has<tag::Foo>(s));
-    BOOST_TEST(!has<tag::Bar>(s));
+    BOOST_CHECK(empty(s));
+    BOOST_CHECK_EQUAL(size(s), 0U);
+    BOOST_CHECK(!has<tag::Foo>(s));
+    BOOST_CHECK(!has<tag::Bar>(s));
 }
 
 BOOST_AUTO_TEST_CASE(StructFooCase)
@@ -54,11 +54,11 @@ BOOST_AUTO_TEST_CASE(StructFooCase)
     };
 
     const auto s = Struct.extend<tag::Foo>(Test{101});
-    BOOST_TEST(!empty(s));
-    BOOST_TEST(size(s) == 1U);
-    BOOST_TEST(has<tag::Foo>(s));
-    BOOST_TEST(!has<tag::Bar>(s));
-    BOOST_TEST(get<tag::Foo>(s).x == 101);
+    BOOST_CHECK(!empty(s));
+    BOOST_CHECK_EQUAL(size(s), 1U);
+    BOOST_CHECK(has<tag::Foo>(s));
+    BOOST_CHECK(!has<tag::Bar>(s));
+    BOOST_CHECK_EQUAL(get<tag::Foo>(s).x, 101);
 }
 
 BOOST_AUTO_TEST_CASE(StructFooBarCase)
@@ -68,26 +68,26 @@ BOOST_AUTO_TEST_CASE(StructFooBarCase)
     };
 
     const auto s = Struct.extend<tag::Foo>(Test{101}).extend<tag::Bar>(Test{202});
-    BOOST_TEST(!empty(s));
-    BOOST_TEST(size(s) == 2U);
-    BOOST_TEST(has<tag::Foo>(s));
-    BOOST_TEST(has<tag::Bar>(s));
-    BOOST_TEST(get<tag::Foo>(s).x == 101);
-    BOOST_TEST(get<tag::Bar>(s).x == 202);
+    BOOST_CHECK(!empty(s));
+    BOOST_CHECK_EQUAL(size(s), 2U);
+    BOOST_CHECK(has<tag::Foo>(s));
+    BOOST_CHECK(has<tag::Bar>(s));
+    BOOST_CHECK_EQUAL(get<tag::Foo>(s).x, 101);
+    BOOST_CHECK_EQUAL(get<tag::Bar>(s).x, 202);
 }
 
 BOOST_AUTO_TEST_CASE(StructLambdaCase)
 {
     const auto s = Struct.extend<tag::Foo>([](int x) { return x + x; });
-    BOOST_TEST(get<tag::Foo>(s)(101) == 202);
+    BOOST_CHECK_EQUAL(get<tag::Foo>(s)(101), 202);
 }
 
 BOOST_AUTO_TEST_CASE(StructMutableCase)
 {
     auto s = Struct.extend<tag::Foo>(101);
-    BOOST_TEST(get<tag::Foo>(s) == 101);
+    BOOST_CHECK_EQUAL(get<tag::Foo>(s), 101);
     get<tag::Foo>(s) = 202;
-    BOOST_TEST(get<tag::Foo>(s) == 202);
+    BOOST_CHECK_EQUAL(get<tag::Foo>(s), 202);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

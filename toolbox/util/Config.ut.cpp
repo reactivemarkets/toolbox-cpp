@@ -44,15 +44,15 @@ st = = uv =
     istringstream is{text};
     map<string, string> conf;
     parse_section(is, [&conf](const auto& key, const auto& val) { conf.emplace(key, val); });
-    BOOST_TEST(conf.size() == 7U);
-    BOOST_TEST(conf["ab"] == "");
-    BOOST_TEST(conf["cd"] == "");
-    BOOST_TEST(conf["ef"] == "gh");
-    BOOST_TEST(conf[""] == "ij");
-    BOOST_TEST(conf["kl"] == "mn");
-    BOOST_TEST(conf["op"] == "qr");
-    BOOST_TEST(conf["st"] == "= uv =");
-    BOOST_TEST(is.eof());
+    BOOST_CHECK_EQUAL(conf.size(), 7U);
+    BOOST_CHECK_EQUAL(conf["ab"], "");
+    BOOST_CHECK_EQUAL(conf["cd"], "");
+    BOOST_CHECK_EQUAL(conf["ef"], "gh");
+    BOOST_CHECK_EQUAL(conf[""], "ij");
+    BOOST_CHECK_EQUAL(conf["kl"], "mn");
+    BOOST_CHECK_EQUAL(conf["op"], "qr");
+    BOOST_CHECK_EQUAL(conf["st"], "= uv =");
+    BOOST_CHECK(is.eof());
 }
 
 BOOST_AUTO_TEST_CASE(ParseSectionMultiCase)
@@ -80,49 +80,49 @@ st = = uv =
     string next;
     parse_section(
         is, [&conf](const auto& key, const auto& val) { conf.emplace(key, val); }, &next);
-    BOOST_TEST(conf.size() == 2U);
-    BOOST_TEST(conf["ab"] == "");
-    BOOST_TEST(conf["cd"] == "");
-    BOOST_TEST(next == "foo");
-    BOOST_TEST(!is.fail());
+    BOOST_CHECK_EQUAL(conf.size(), 2U);
+    BOOST_CHECK_EQUAL(conf["ab"], "");
+    BOOST_CHECK_EQUAL(conf["cd"], "");
+    BOOST_CHECK_EQUAL(next, "foo");
+    BOOST_CHECK(!is.fail());
 
     conf.clear();
     parse_section(
         is, [&conf](const auto& key, const auto& val) { conf.emplace(key, val); }, &next);
-    BOOST_TEST(conf.size() == 2U);
-    BOOST_TEST(conf["ef"] == "gh");
-    BOOST_TEST(conf[""] == "ij");
-    BOOST_TEST(next == "bar");
-    BOOST_TEST(!is.fail());
+    BOOST_CHECK_EQUAL(conf.size(), 2U);
+    BOOST_CHECK_EQUAL(conf["ef"], "gh");
+    BOOST_CHECK_EQUAL(conf[""], "ij");
+    BOOST_CHECK_EQUAL(next, "bar");
+    BOOST_CHECK(!is.fail());
 
     conf.clear();
     parse_section(
         is, [&conf](const auto& key, const auto& val) { conf.emplace(key, val); }, &next);
-    BOOST_TEST(conf.size() == 3U);
-    BOOST_TEST(conf["kl"] == "mn");
-    BOOST_TEST(conf["op"] == "qr");
-    BOOST_TEST(conf["st"] == "= uv =");
-    BOOST_TEST(next.empty());
-    BOOST_TEST(is.eof());
+    BOOST_CHECK_EQUAL(conf.size(), 3U);
+    BOOST_CHECK_EQUAL(conf["kl"], "mn");
+    BOOST_CHECK_EQUAL(conf["op"], "qr");
+    BOOST_CHECK_EQUAL(conf["st"], "= uv =");
+    BOOST_CHECK(next.empty());
+    BOOST_CHECK(is.eof());
 }
 
 BOOST_AUTO_TEST_CASE(ConfigSetAndGetCase)
 {
     Config config;
 
-    BOOST_TEST(config.get<int>("foo", 101) == 101);
-    BOOST_TEST(config.get<int>("bar", 202) == 202);
+    BOOST_CHECK_EQUAL(config.get<int>("foo", 101), 101);
+    BOOST_CHECK_EQUAL(config.get<int>("bar", 202), 202);
 
     config.set("foo", "101");
     config.set("bar", "202");
 
-    BOOST_TEST(config.get<int>("foo", 0) == 101);
-    BOOST_TEST(config.get<int>("bar", 0) == 202);
+    BOOST_CHECK_EQUAL(config.get<int>("foo", 0), 101);
+    BOOST_CHECK_EQUAL(config.get<int>("bar", 0), 202);
 
     config.set("foo", "303");
 
-    BOOST_TEST(config.get<int>("foo", 0) == 303);
-    BOOST_TEST(config.get<int>("bar", 0) == 202);
+    BOOST_CHECK_EQUAL(config.get<int>("foo", 0), 303);
+    BOOST_CHECK_EQUAL(config.get<int>("bar", 0), 202);
 }
 
 BOOST_AUTO_TEST_CASE(ConfigOverrideCase)
@@ -143,28 +143,28 @@ baz=404
     Config parent;
     parent.read_section(is, next);
 
-    BOOST_TEST(parent.size() == 2U);
-    BOOST_TEST(parent.get<int>("foo", 0) == 101);
-    BOOST_TEST(parent.get<int>("bar", 0) == 202);
-    BOOST_TEST(next == "session");
-    BOOST_TEST(!is.fail());
+    BOOST_CHECK_EQUAL(parent.size(), 2U);
+    BOOST_CHECK_EQUAL(parent.get<int>("foo", 0), 101);
+    BOOST_CHECK_EQUAL(parent.get<int>("bar", 0), 202);
+    BOOST_CHECK_EQUAL(next, "session");
+    BOOST_CHECK(!is.fail());
 
     // Verify that getter with nullptr default compiles.
-    BOOST_TEST(parent.get("foo", nullptr));
+    BOOST_CHECK(parent.get("foo", nullptr));
 
     // Conversion from internal std::string to std::string_view is a special case.
-    BOOST_TEST(parent.get<string_view>("foo") == "101"sv);
+    BOOST_CHECK_EQUAL(parent.get<string_view>("foo"), "101"sv);
 
     Config child;
     child.read_section(is, next);
     child.set_parent(parent);
 
-    BOOST_TEST(child.size() == 2U);
-    BOOST_TEST(child.get<int>("foo", 0) == 101);
-    BOOST_TEST(child.get<int>("bar", 0) == 303);
-    BOOST_TEST(child.get<int>("baz", 0) == 404);
-    BOOST_TEST(next.empty());
-    BOOST_TEST(is.eof());
+    BOOST_CHECK_EQUAL(child.size(), 2U);
+    BOOST_CHECK_EQUAL(child.get<int>("foo", 0), 101);
+    BOOST_CHECK_EQUAL(child.get<int>("bar", 0), 303);
+    BOOST_CHECK_EQUAL(child.get<int>("baz", 0), 404);
+    BOOST_CHECK(next.empty());
+    BOOST_CHECK(is.eof());
 
     BOOST_CHECK_THROW(child.get("bad"), runtime_error);
     BOOST_CHECK_THROW(child.get<int>("bad"), runtime_error);

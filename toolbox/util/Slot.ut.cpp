@@ -37,8 +37,8 @@ BOOST_AUTO_TEST_SUITE(SlotSuite)
 
 BOOST_AUTO_TEST_CASE(SlotEmptyCase)
 {
-    BOOST_TEST(BasicSlot<int>{}.empty());
-    BOOST_TEST(!BasicSlot<int>{});
+    BOOST_CHECK(BasicSlot<int>{}.empty());
+    BOOST_CHECK(!BasicSlot<int>{});
 }
 
 BOOST_AUTO_TEST_CASE(SlotFreeFunCase)
@@ -46,9 +46,9 @@ BOOST_AUTO_TEST_CASE(SlotFreeFunCase)
     int x{2};
     auto cb = bind<foo>();
     cb(x);
-    BOOST_TEST(x == 4);
+    BOOST_CHECK_EQUAL(x, 4);
     cb(x);
-    BOOST_TEST(x == 8);
+    BOOST_CHECK_EQUAL(x, 8);
 }
 
 BOOST_AUTO_TEST_CASE(SlotFunctorCase)
@@ -60,9 +60,9 @@ BOOST_AUTO_TEST_CASE(SlotFunctorCase)
 
     auto cb = bind(&t);
     cb();
-    BOOST_TEST(t.x == 4);
+    BOOST_CHECK_EQUAL(t.x, 4);
     cb();
-    BOOST_TEST(t.x == 8);
+    BOOST_CHECK_EQUAL(t.x, 8);
 }
 
 BOOST_AUTO_TEST_CASE(SlotConstFunctorCase)
@@ -74,9 +74,9 @@ BOOST_AUTO_TEST_CASE(SlotConstFunctorCase)
     int x{2};
     auto cb = bind(&t);
     cb(x);
-    BOOST_TEST(x == 4);
+    BOOST_CHECK_EQUAL(x, 4);
     cb(x);
-    BOOST_TEST(x == 8);
+    BOOST_CHECK_EQUAL(x, 8);
 }
 
 BOOST_AUTO_TEST_CASE(SlotLambdaNullaryCase)
@@ -86,9 +86,9 @@ BOOST_AUTO_TEST_CASE(SlotLambdaNullaryCase)
 
     auto cb = bind(&fn);
     cb();
-    BOOST_TEST(x == 4);
+    BOOST_CHECK_EQUAL(x, 4);
     cb();
-    BOOST_TEST(x == 8);
+    BOOST_CHECK_EQUAL(x, 8);
 }
 
 BOOST_AUTO_TEST_CASE(SlotLambdaUnaryCase)
@@ -98,9 +98,9 @@ BOOST_AUTO_TEST_CASE(SlotLambdaUnaryCase)
 
     auto cb = bind(&fn);
     cb(x);
-    BOOST_TEST(x == 4);
+    BOOST_CHECK_EQUAL(x, 4);
     cb(x);
-    BOOST_TEST(x == 8);
+    BOOST_CHECK_EQUAL(x, 8);
 }
 
 BOOST_AUTO_TEST_CASE(SlotMemFunCase)
@@ -113,11 +113,11 @@ BOOST_AUTO_TEST_CASE(SlotMemFunCase)
 
     auto cbfoo = bind<&Test::foo>(&t);
     cbfoo();
-    BOOST_TEST(t.x == 4);
+    BOOST_CHECK_EQUAL(t.x, 4);
 
     auto cbbar = bind<&Test::bar>(&t);
     cbbar(3);
-    BOOST_TEST(t.x == 7);
+    BOOST_CHECK_EQUAL(t.x, 7);
 }
 
 BOOST_AUTO_TEST_CASE(SlotConstMemFunCase)
@@ -130,7 +130,7 @@ BOOST_AUTO_TEST_CASE(SlotConstMemFunCase)
     auto cb = bind<&Test::get>(&t);
     int x{};
     cb(x);
-    BOOST_TEST(x == t.x);
+    BOOST_CHECK_EQUAL(x, t.x);
 }
 
 BOOST_AUTO_TEST_CASE(SlotRvalueFunCase)
@@ -140,10 +140,10 @@ BOOST_AUTO_TEST_CASE(SlotRvalueFunCase)
 
     BasicSlot<int&&> cb = toolbox::bind(&fn);
     cb(3);
-    BOOST_TEST(x == 5);
+    BOOST_CHECK_EQUAL(x, 5);
     int&& m = 6;
     cb.invoke(std::move(m));
-    BOOST_TEST(x == 11);
+    BOOST_CHECK_EQUAL(x, 11);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
