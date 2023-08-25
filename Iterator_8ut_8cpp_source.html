@@ -102,12 +102,12 @@ $(function() {
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="Iterator_8ut_8cpp.html#a9e2a7a2a8786db10f7ec8cbb761ff7c8">   29</a></span><a class="code hl_function" href="Iterator_8ut_8cpp.html#a9e2a7a2a8786db10f7ec8cbb761ff7c8">BOOST_AUTO_TEST_CASE</a>(IteratorLinearIteratorCase)</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_class" href="classtoolbox_1_1hdr_1_1Histogram.html">Histogram</a> h{1, 255, 2};</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.record_value(193));</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.record_value(255));</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.record_value(0));</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.record_value(1));</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.record_value(64));</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.record_value(128));</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_function" href="util_2Utility_8ut_8cpp.html#a71f257a87a57a2fffbf9617093ad12c9">BOOST_CHECK</a>(h.record_value(193));</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_function" href="util_2Utility_8ut_8cpp.html#a71f257a87a57a2fffbf9617093ad12c9">BOOST_CHECK</a>(h.record_value(255));</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_function" href="util_2Utility_8ut_8cpp.html#a71f257a87a57a2fffbf9617093ad12c9">BOOST_CHECK</a>(h.record_value(0));</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_function" href="util_2Utility_8ut_8cpp.html#a71f257a87a57a2fffbf9617093ad12c9">BOOST_CHECK</a>(h.record_value(1));</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_function" href="util_2Utility_8ut_8cpp.html#a71f257a87a57a2fffbf9617093ad12c9">BOOST_CHECK</a>(h.record_value(64));</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_function" href="util_2Utility_8ut_8cpp.html#a71f257a87a57a2fffbf9617093ad12c9">BOOST_CHECK</a>(h.record_value(128));</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">int</span> step_count{0};</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    int64_t total_count{0};</div>
@@ -121,21 +121,22 @@ $(function() {
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        ++step_count;</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    }</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(step_count == 4);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(total_count == 6);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(step_count, 4);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(total_count, 6);</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>}</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>BOOST_AUTO_TEST_SUITE_END()</div>
 <div class="ttc" id="aHistogram_8hpp_html"><div class="ttname"><a href="Histogram_8hpp.html">Histogram.hpp</a></div></div>
 <div class="ttc" id="aIterator_8hpp_html"><div class="ttname"><a href="Iterator_8hpp.html">Iterator.hpp</a></div></div>
 <div class="ttc" id="aIterator_8ut_8cpp_html_a9e2a7a2a8786db10f7ec8cbb761ff7c8"><div class="ttname"><a href="Iterator_8ut_8cpp.html#a9e2a7a2a8786db10f7ec8cbb761ff7c8">BOOST_AUTO_TEST_CASE</a></div><div class="ttdeci">BOOST_AUTO_TEST_CASE(IteratorLinearIteratorCase)</div><div class="ttdef"><b>Definition:</b> <a href="Iterator_8ut_8cpp_source.html#l00029">Iterator.ut.cpp:29</a></div></div>
-<div class="ttc" id="aMath_8ut_8cpp_html_ab904b429a1ec1b29e965e90718fcc4a6"><div class="ttname"><a href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a></div><div class="ttdeci">BOOST_TEST(v.size()==10U)</div></div>
+<div class="ttc" id="aMath_8ut_8cpp_html_a68754380bdf1824e9834a45abff58dc7"><div class="ttname"><a href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a></div><div class="ttdeci">BOOST_CHECK_EQUAL(v.size(), 10U)</div></div>
 <div class="ttc" id="aclasstoolbox_1_1hdr_1_1CountAddedIterator_html_aed466f070b95674e2ba1c53e27d36201"><div class="ttname"><a href="classtoolbox_1_1hdr_1_1CountAddedIterator.html#aed466f070b95674e2ba1c53e27d36201">toolbox::hdr::CountAddedIterator::count_added_in_this_iteration_step</a></div><div class="ttdeci">std::int64_t count_added_in_this_iteration_step() const noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Iterator_8hpp_source.html#l00123">Iterator.hpp:123</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1hdr_1_1Histogram_html"><div class="ttname"><a href="classtoolbox_1_1hdr_1_1Histogram.html">toolbox::Histogram</a></div><div class="ttdoc">A High Dynamic Range (HDR) Histogram.</div><div class="ttdef"><b>Definition:</b> <a href="Histogram_8hpp_source.html#l00064">Histogram.hpp:64</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1hdr_1_1LinearIterator_html"><div class="ttname"><a href="classtoolbox_1_1hdr_1_1LinearIterator.html">toolbox::LinearIterator</a></div><div class="ttdoc">LinearIterator is a linear value iterator.</div><div class="ttdef"><b>Definition:</b> <a href="Iterator_8hpp_source.html#l00154">Iterator.hpp:154</a></div></div>
 <div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdoc">STL namespace.</div></div>
 <div class="ttc" id="anamespacetoolbox_html"><div class="ttname"><a href="namespacetoolbox.html">toolbox</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8cpp_source.html#l00026">Benchmark.cpp:26</a></div></div>
 <div class="ttc" id="autil_2Utility_8hpp_html"><div class="ttname"><a href="util_2Utility_8hpp.html">Utility.hpp</a></div></div>
+<div class="ttc" id="autil_2Utility_8ut_8cpp_html_a71f257a87a57a2fffbf9617093ad12c9"><div class="ttname"><a href="util_2Utility_8ut_8cpp.html#a71f257a87a57a2fffbf9617093ad12c9">BOOST_CHECK</a></div><div class="ttdeci">BOOST_CHECK(isnan(stod(&quot;&quot;sv, numeric_limits&lt; double &gt;::quiet_NaN())))</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

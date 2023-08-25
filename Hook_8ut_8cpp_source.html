@@ -126,15 +126,15 @@ $(function() {
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="Hook_8ut_8cpp.html#a9442abc9b95c4f3c9865bc4f25037d4c">   53</a></span><a class="code hl_function" href="Hook_8ut_8cpp.html#a9442abc9b95c4f3c9865bc4f25037d4c">BOOST_AUTO_TEST_CASE</a>(HookAutoUnlinkCase)</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>{</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_typedef" href="namespacetoolbox_1_1io.html#a61ae4d7ecb44580a91e3ef87b3ca2330">HookList</a> l;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(l.empty());</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_function" href="util_2Utility_8ut_8cpp.html#a71f257a87a57a2fffbf9617093ad12c9">BOOST_CHECK</a>(l.empty());</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    {</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <a class="code hl_struct" href="structtoolbox_1_1io_1_1Hook.html">Hook</a> h;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(!h.is_linked());</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <a class="code hl_function" href="util_2Utility_8ut_8cpp.html#a71f257a87a57a2fffbf9617093ad12c9">BOOST_CHECK</a>(!h.is_linked());</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        l.push_back(h);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.is_linked());</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(!l.empty());</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <a class="code hl_function" href="util_2Utility_8ut_8cpp.html#a71f257a87a57a2fffbf9617093ad12c9">BOOST_CHECK</a>(h.is_linked());</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <a class="code hl_function" href="util_2Utility_8ut_8cpp.html#a71f257a87a57a2fffbf9617093ad12c9">BOOST_CHECK</a>(!l.empty());</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(l.empty());</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_function" href="util_2Utility_8ut_8cpp.html#a71f257a87a57a2fffbf9617093ad12c9">BOOST_CHECK</a>(l.empty());</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>}</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="Hook_8ut_8cpp.html#a0e37769efac6a0dc135ea61e3870f4d8">   67</a></span><a class="code hl_function" href="Hook_8ut_8cpp.html#a9442abc9b95c4f3c9865bc4f25037d4c">BOOST_AUTO_TEST_CASE</a>(HookDispatchCase)</div>
@@ -148,16 +148,16 @@ $(function() {
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        l.push_back(h1);</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <a class="code hl_function" href="namespacetoolbox_1_1io.html#a37a69d4e50d97d17ae90353a34c9b318">dispatch</a>(CyclTime::now(), l);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(i == 1);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(i, 1);</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <a class="code hl_function" href="namespacetoolbox_1_1io.html#a37a69d4e50d97d17ae90353a34c9b318">dispatch</a>(CyclTime::now(), l);</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(i == 2);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(i, 2);</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        {</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            <a class="code hl_struct" href="structtoolbox_1_1io_1_1Hook.html">Hook</a> h2{<a class="code hl_function" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">bind</a>(&amp;fn)};</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            l.push_back(h2);</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            <a class="code hl_function" href="namespacetoolbox_1_1io.html#a37a69d4e50d97d17ae90353a34c9b318">dispatch</a>(CyclTime::now(), l);</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(i == 4);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(i, 4);</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        }</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    }</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>}</div>
@@ -175,25 +175,25 @@ $(function() {
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <a class="code hl_struct" href="structtoolbox_1_1io_1_1Hook.html">Hook</a> h2{<a class="code hl_function" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">bind</a>(&amp;fn)};</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    l.push_back(make_test([&amp;l, &amp;h2]() { l.push_back(h2); })-&gt;hook);</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(l.size() == 2);</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(!h1.is_linked());</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(!h2.is_linked());</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(l.size(), 2);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_function" href="util_2Utility_8ut_8cpp.html#a71f257a87a57a2fffbf9617093ad12c9">BOOST_CHECK</a>(!h1.is_linked());</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <a class="code hl_function" href="util_2Utility_8ut_8cpp.html#a71f257a87a57a2fffbf9617093ad12c9">BOOST_CHECK</a>(!h2.is_linked());</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <a class="code hl_function" href="namespacetoolbox_1_1io.html#a37a69d4e50d97d17ae90353a34c9b318">dispatch</a>(CyclTime::now(), l);</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(i == 2);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(i, 2);</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(l.size() == 2);</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h1.is_linked());</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h2.is_linked());</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(l.size(), 2);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <a class="code hl_function" href="util_2Utility_8ut_8cpp.html#a71f257a87a57a2fffbf9617093ad12c9">BOOST_CHECK</a>(h1.is_linked());</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <a class="code hl_function" href="util_2Utility_8ut_8cpp.html#a71f257a87a57a2fffbf9617093ad12c9">BOOST_CHECK</a>(h2.is_linked());</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <a class="code hl_function" href="namespacetoolbox_1_1io.html#a37a69d4e50d97d17ae90353a34c9b318">dispatch</a>(CyclTime::now(), l);</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(i == 4);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(i, 4);</div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>}</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>BOOST_AUTO_TEST_SUITE_END()</div>
 <div class="ttc" id="aHook_8hpp_html"><div class="ttname"><a href="Hook_8hpp.html">Hook.hpp</a></div></div>
 <div class="ttc" id="aHook_8ut_8cpp_html_a9442abc9b95c4f3c9865bc4f25037d4c"><div class="ttname"><a href="Hook_8ut_8cpp.html#a9442abc9b95c4f3c9865bc4f25037d4c">BOOST_AUTO_TEST_CASE</a></div><div class="ttdeci">BOOST_AUTO_TEST_CASE(HookAutoUnlinkCase)</div><div class="ttdef"><b>Definition:</b> <a href="Hook_8ut_8cpp_source.html#l00053">Hook.ut.cpp:53</a></div></div>
-<div class="ttc" id="aMath_8ut_8cpp_html_ab904b429a1ec1b29e965e90718fcc4a6"><div class="ttname"><a href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a></div><div class="ttdeci">BOOST_TEST(v.size()==10U)</div></div>
+<div class="ttc" id="aMath_8ut_8cpp_html_a68754380bdf1824e9834a45abff58dc7"><div class="ttname"><a href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a></div><div class="ttdeci">BOOST_CHECK_EQUAL(v.size(), 10U)</div></div>
 <div class="ttc" id="aclasstoolbox_1_1sys_1_1CyclTime_html"><div class="ttname"><a href="classtoolbox_1_1sys_1_1CyclTime.html">toolbox::CyclTime</a></div><div class="ttdef"><b>Definition:</b> <a href="Time_8hpp_source.html#l00126">Time.hpp:126</a></div></div>
 <div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdoc">STL namespace.</div></div>
 <div class="ttc" id="anamespacetoolbox_1_1io_html_a37a69d4e50d97d17ae90353a34c9b318"><div class="ttname"><a href="namespacetoolbox_1_1io.html#a37a69d4e50d97d17ae90353a34c9b318">toolbox::io::dispatch</a></div><div class="ttdeci">void dispatch(CyclTime now, const HookList &amp;l) noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Hook_8cpp_source.html#l00024">Hook.cpp:24</a></div></div>
@@ -202,6 +202,7 @@ $(function() {
 <div class="ttc" id="anamespacetoolbox_1_1util_html_afb1bdeda157805a64f20ded302b55cee"><div class="ttname"><a href="namespacetoolbox_1_1util.html#afb1bdeda157805a64f20ded302b55cee">toolbox::util::Test</a></div><div class="ttdeci">Test</div><div class="ttdef"><b>Definition:</b> <a href="Enum_8ut_8cpp_source.html#l00030">Enum.ut.cpp:30</a></div></div>
 <div class="ttc" id="anamespacetoolbox_html"><div class="ttname"><a href="namespacetoolbox.html">toolbox</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8cpp_source.html#l00026">Benchmark.cpp:26</a></div></div>
 <div class="ttc" id="astructtoolbox_1_1io_1_1Hook_html"><div class="ttname"><a href="structtoolbox_1_1io_1_1Hook.html">toolbox::Hook</a></div><div class="ttdef"><b>Definition:</b> <a href="Hook_8hpp_source.html#l00028">Hook.hpp:29</a></div></div>
+<div class="ttc" id="autil_2Utility_8ut_8cpp_html_a71f257a87a57a2fffbf9617093ad12c9"><div class="ttname"><a href="util_2Utility_8ut_8cpp.html#a71f257a87a57a2fffbf9617093ad12c9">BOOST_CHECK</a></div><div class="ttdeci">BOOST_CHECK(isnan(stod(&quot;&quot;sv, numeric_limits&lt; double &gt;::quiet_NaN())))</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

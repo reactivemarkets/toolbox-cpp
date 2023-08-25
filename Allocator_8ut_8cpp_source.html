@@ -130,19 +130,19 @@ $(function() {
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>{</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    {</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keyword">auto</span> h = make_intrusive&lt;Foo&gt;();</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(size_ == 128);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(al_) == 64);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(size_, 128);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(al_), 64);</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        size_ = {};</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        al_ = {};</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    }</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(size_ == 128);</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(al_) == 64);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(size_, 128);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(al_), 64);</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>}</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>BOOST_AUTO_TEST_SUITE_END()</div>
 <div class="ttc" id="aAllocator_8hpp_html"><div class="ttname"><a href="Allocator_8hpp.html">Allocator.hpp</a></div></div>
 <div class="ttc" id="aAllocator_8ut_8cpp_html_abec0f08b29b8145fc7e3aa1ae2f0ba33"><div class="ttname"><a href="Allocator_8ut_8cpp.html#abec0f08b29b8145fc7e3aa1ae2f0ba33">BOOST_AUTO_TEST_CASE</a></div><div class="ttdeci">BOOST_AUTO_TEST_CASE(AllocatorCase)</div><div class="ttdef"><b>Definition:</b> <a href="Allocator_8ut_8cpp_source.html#l00056">Allocator.ut.cpp:56</a></div></div>
-<div class="ttc" id="aMath_8ut_8cpp_html_ab904b429a1ec1b29e965e90718fcc4a6"><div class="ttname"><a href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a></div><div class="ttdeci">BOOST_TEST(v.size()==10U)</div></div>
+<div class="ttc" id="aMath_8ut_8cpp_html_a68754380bdf1824e9834a45abff58dc7"><div class="ttname"><a href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a></div><div class="ttdeci">BOOST_CHECK_EQUAL(v.size(), 10U)</div></div>
 <div class="ttc" id="aRefCount_8hpp_html"><div class="ttname"><a href="RefCount_8hpp.html">RefCount.hpp</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1util_1_1RefCount_html"><div class="ttname"><a href="classtoolbox_1_1util_1_1RefCount.html">toolbox::RefCount</a></div><div class="ttdoc">Base class for atomic referenced counted objects.</div><div class="ttdef"><b>Definition:</b> <a href="RefCount_8hpp_source.html#l00061">RefCount.hpp:61</a></div></div>
 <div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdoc">STL namespace.</div></div>

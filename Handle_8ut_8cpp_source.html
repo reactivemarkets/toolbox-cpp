@@ -120,30 +120,30 @@ $(function() {
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>{</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    last_closed = 0;</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(!TestHandle{});</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(TestHandle{}.get() == -1);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(last_closed == 0);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_function" href="util_2Utility_8ut_8cpp.html#a71f257a87a57a2fffbf9617093ad12c9">BOOST_CHECK</a>(!TestHandle{});</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(TestHandle{}.get(), -1);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(last_closed, 0);</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(!TestHandle{<span class="keyword">nullptr</span>});</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(TestHandle{<span class="keyword">nullptr</span>}.get() == -1);</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(last_closed == 0);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_function" href="util_2Utility_8ut_8cpp.html#a71f257a87a57a2fffbf9617093ad12c9">BOOST_CHECK</a>(!TestHandle{<span class="keyword">nullptr</span>});</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(TestHandle{<span class="keyword">nullptr</span>}.get(), -1);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(last_closed, 0);</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>}</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="Handle_8ut_8cpp.html#aa36e155dfea970b791fc77246e399ea4">   59</a></span><a class="code hl_function" href="Handle_8ut_8cpp.html#ae68cecaa96674c5b4986d2a813c95161">BOOST_AUTO_TEST_CASE</a>(HandleCloseCase)</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>{</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    last_closed = 0;</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(TestHandle{1});</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(TestHandle{1}.get() == 1);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(last_closed == 1);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_function" href="util_2Utility_8ut_8cpp.html#a71f257a87a57a2fffbf9617093ad12c9">BOOST_CHECK</a>(TestHandle{1});</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(TestHandle{1}.get(), 1);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(last_closed, 1);</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>}</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="Handle_8ut_8cpp.html#a17a1559e9345cd7a5bb2922be09d765d">   68</a></span><a class="code hl_function" href="Handle_8ut_8cpp.html#ae68cecaa96674c5b4986d2a813c95161">BOOST_AUTO_TEST_CASE</a>(HandleReleaseCase)</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>{</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    last_closed = 0;</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(TestHandle{1}.release() == 1);</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(last_closed == 0);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(TestHandle{1}.release(), 1);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(last_closed, 0);</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>}</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="Handle_8ut_8cpp.html#a164288d7e06b102e2832017174208a23">   76</a></span><a class="code hl_function" href="Handle_8ut_8cpp.html#ae68cecaa96674c5b4986d2a813c95161">BOOST_AUTO_TEST_CASE</a>(HandleResetCase)</div>
@@ -152,9 +152,9 @@ $(function() {
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    {</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        TestHandle h{1};</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        h.reset(2);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(last_closed == 1);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(last_closed, 1);</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    }</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(last_closed == 2);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(last_closed, 2);</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>}</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="Handle_8ut_8cpp.html#a4514df605057d5f2bf5a87ae544b1dc9">   87</a></span><a class="code hl_function" href="Handle_8ut_8cpp.html#ae68cecaa96674c5b4986d2a813c95161">BOOST_AUTO_TEST_CASE</a>(HandleSwapCase)</div>
@@ -163,9 +163,9 @@ $(function() {
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    {</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        TestHandle h{1};</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        TestHandle{2}.swap(h);</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(last_closed == 1);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(last_closed, 1);</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    }</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(last_closed == 2);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(last_closed, 2);</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="Handle_8ut_8cpp.html#a4e34b9d23cad46aa31699268be25d9ae">   98</a></span><a class="code hl_function" href="Handle_8ut_8cpp.html#ae68cecaa96674c5b4986d2a813c95161">BOOST_AUTO_TEST_CASE</a>(HandleMoveCase)</div>
@@ -174,34 +174,35 @@ $(function() {
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    TestHandle h{1};</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    TestHandle{std::move(h)};</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(last_closed == 1);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(last_closed, 1);</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="comment">// NOLINTNEXTLINE(bugprone-use-after-move)</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.get() == -1);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(h.get(), -1);</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    h.reset(2);</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    {</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        TestHandle tmp;</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        tmp = std::move(h);</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    }</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(last_closed == 2);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(last_closed, 2);</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="comment">// NOLINTNEXTLINE(bugprone-use-after-move)</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(h.get() == -1);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(h.get(), -1);</div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>}</div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="Handle_8ut_8cpp.html#a32d024b0b436e2dbc9588f6523b0fe7b">  118</a></span><a class="code hl_function" href="Handle_8ut_8cpp.html#ae68cecaa96674c5b4986d2a813c95161">BOOST_AUTO_TEST_CASE</a>(HandleEqualityCase)</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>{</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(TestHandle{1} == TestHandle{1});</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(TestHandle{1} != TestHandle{2});</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(TestHandle{1}, TestHandle{1});</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    BOOST_CHECK_NE(TestHandle{1}, TestHandle{2});</div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>}</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>BOOST_AUTO_TEST_SUITE_END()</div>
 <div class="ttc" id="aHandle_8hpp_html"><div class="ttname"><a href="Handle_8hpp.html">Handle.hpp</a></div></div>
 <div class="ttc" id="aHandle_8ut_8cpp_html_ae68cecaa96674c5b4986d2a813c95161"><div class="ttname"><a href="Handle_8ut_8cpp.html#ae68cecaa96674c5b4986d2a813c95161">BOOST_AUTO_TEST_CASE</a></div><div class="ttdeci">BOOST_AUTO_TEST_CASE(HandleInvalidCase)</div><div class="ttdef"><b>Definition:</b> <a href="Handle_8ut_8cpp_source.html#l00046">Handle.ut.cpp:46</a></div></div>
-<div class="ttc" id="aMath_8ut_8cpp_html_ab904b429a1ec1b29e965e90718fcc4a6"><div class="ttname"><a href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a></div><div class="ttdeci">BOOST_TEST(v.size()==10U)</div></div>
+<div class="ttc" id="aMath_8ut_8cpp_html_a68754380bdf1824e9834a45abff58dc7"><div class="ttname"><a href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a></div><div class="ttdeci">BOOST_CHECK_EQUAL(v.size(), 10U)</div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1BasicHandle_html"><div class="ttname"><a href="classtoolbox_1_1io_1_1BasicHandle.html">toolbox::BasicHandle</a></div><div class="ttdef"><b>Definition:</b> <a href="Handle_8hpp_source.html#l00028">Handle.hpp:28</a></div></div>
 <div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdoc">STL namespace.</div></div>
 <div class="ttc" id="anamespacetoolbox_1_1hdr_html_ac0ca8215da3b57b3aabf36a261b91f0d"><div class="ttname"><a href="namespacetoolbox_1_1hdr.html#ac0ca8215da3b57b3aabf36a261b91f0d">toolbox::hdr::operator&lt;&lt;</a></div><div class="ttdeci">ostream &amp; operator&lt;&lt;(ostream &amp;os, PutPercentiles pp)</div><div class="ttdef"><b>Definition:</b> <a href="hdr_2Utility_8cpp_source.html#l00096">Utility.cpp:96</a></div></div>
 <div class="ttc" id="anamespacetoolbox_html"><div class="ttname"><a href="namespacetoolbox.html">toolbox</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8cpp_source.html#l00026">Benchmark.cpp:26</a></div></div>
+<div class="ttc" id="autil_2Utility_8ut_8cpp_html_a71f257a87a57a2fffbf9617093ad12c9"><div class="ttname"><a href="util_2Utility_8ut_8cpp.html#a71f257a87a57a2fffbf9617093ad12c9">BOOST_CHECK</a></div><div class="ttdeci">BOOST_CHECK(isnan(stod(&quot;&quot;sv, numeric_limits&lt; double &gt;::quiet_NaN())))</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

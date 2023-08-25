@@ -116,19 +116,19 @@ $(function() {
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">int</span> alive{0};</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    {</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keyword">auto</span> ptr1 = make_intrusive&lt;Foo&gt;(alive);</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(alive == 1);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(ptr1-&gt;ref_count() == 1);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(alive, 1);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(ptr1-&gt;ref_count(), 1);</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        {</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="keyword">auto</span> ptr2 = ptr1;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(ptr1-&gt;ref_count() == 2);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(ptr1-&gt;ref_count(), 2);</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        }</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(ptr1-&gt;ref_count() == 1);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(ptr1-&gt;ref_count(), 1);</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a>(alive == 0);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_function" href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a>(alive, 0);</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>BOOST_AUTO_TEST_SUITE_END()</div>
-<div class="ttc" id="aMath_8ut_8cpp_html_ab904b429a1ec1b29e965e90718fcc4a6"><div class="ttname"><a href="Math_8ut_8cpp.html#ab904b429a1ec1b29e965e90718fcc4a6">BOOST_TEST</a></div><div class="ttdeci">BOOST_TEST(v.size()==10U)</div></div>
+<div class="ttc" id="aMath_8ut_8cpp_html_a68754380bdf1824e9834a45abff58dc7"><div class="ttname"><a href="Math_8ut_8cpp.html#a68754380bdf1824e9834a45abff58dc7">BOOST_CHECK_EQUAL</a></div><div class="ttdeci">BOOST_CHECK_EQUAL(v.size(), 10U)</div></div>
 <div class="ttc" id="aRefCount_8hpp_html"><div class="ttname"><a href="RefCount_8hpp.html">RefCount.hpp</a></div></div>
 <div class="ttc" id="aRefCount_8ut_8cpp_html_aad7518e46939c3e2a4b019a9c9c9c904"><div class="ttname"><a href="RefCount_8ut_8cpp.html#aad7518e46939c3e2a4b019a9c9c9c904">BOOST_AUTO_TEST_CASE</a></div><div class="ttdeci">BOOST_AUTO_TEST_CASE(RefCountCase)</div><div class="ttdef"><b>Definition:</b> <a href="RefCount_8ut_8cpp_source.html#l00041">RefCount.ut.cpp:41</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1util_1_1RefCount_html"><div class="ttname"><a href="classtoolbox_1_1util_1_1RefCount.html">toolbox::RefCount</a></div><div class="ttdoc">Base class for atomic referenced counted objects.</div><div class="ttdef"><b>Definition:</b> <a href="RefCount_8hpp_source.html#l00061">RefCount.hpp:61</a></div></div>
