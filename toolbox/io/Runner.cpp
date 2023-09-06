@@ -24,8 +24,10 @@
 namespace toolbox {
 inline namespace io {
 namespace {
-void run_reactor(Reactor& r, long busy_cycles, ThreadConfig config, const std::atomic<bool>& stop)
+void run_reactor(Reactor& r, long busy_cycles, ThreadConfig config, const std::atomic<bool>& stop,
+                 [[maybe_unused]] MetricCallbackFunction metric_callback)
 {
+    // ==== KEEP IN SYNC WITH CHANGES IN run_metrics_reactor ====
     sig_block_all();
     try {
         set_thread_attrs(config);
@@ -44,11 +46,50 @@ void run_reactor(Reactor& r, long busy_cycles, ThreadConfig config, const std::a
     }
     TOOLBOX_NOTICE << "stopping " << config.name << " thread";
 }
+
+static const std::chrono::seconds metric_interval = 60s;
+void run_metrics_reactor(Reactor& r, long busy_cycles, ThreadConfig config,
+                         const std::atomic<bool>& stop, MetricCallbackFunction metric_callback)
+{
+    // ==== KEEP IN SYNC WITH CHANGES IN run_reactor ====
+    sig_block_all();
+    try {
+        // 128 possible buffer slots in poll + high and low priority timers
+        Histogram hist{1, 1000, 2}; // 100% accutate to 256
+        set_thread_attrs(config);
+        TOOLBOX_NOTICE << "started " << config.name << " thread";
+        long i{0};
+        auto metric_time = WallClock::now() + metric_interval;
+        while (!stop.load(std::memory_order_acquire)) {
+            // Busy-wait for "busy cycles" after work was done.
+            const CyclTime& now = CyclTime::now();
+            auto work = r.poll(now, i++ < busy_cycles ? 0s : NoTimeout);
+            if (work > 0) {
+                // Don't skew distribution with a lot of zero work.
+                hist.record_value(work);
+                // Reset counter when work has been done.
+                i = 0;
+            }
+            if (now.wall_time() >= metric_time) {
+                // Metric reporting
+                metric_time = now.wall_time() + metric_interval;
+                metric_callback(now, hist);
+                hist.reset();
+            }
+        }
+    } catch (const std::exception& e) {
+        TOOLBOX_CRIT << "exception on " << config.name << " thread: " << e.what();
+        kill(getpid(), SIGTERM);
+    }
+    TOOLBOX_NOTICE << "stopping " << config.name << " thread";
+}
+
 } // namespace
 
-ReactorRunner::ReactorRunner(Reactor& r, long busy_cycles, ThreadConfig config)
+ReactorRunner::ReactorRunner(Reactor& r, long busy_cycles, ThreadConfig config, MetricCallbackFunction metric_callback)
 : reactor_{r}
-, thread_{run_reactor, std::ref(r), busy_cycles, config, std::cref(stop_)}
+, thread_{metric_callback == nullptr ? run_reactor : run_metrics_reactor,
+          std::ref(r), busy_cycles, config, std::cref(stop_), metric_callback}
 {
 }
 

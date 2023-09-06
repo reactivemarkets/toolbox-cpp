@@ -17,13 +17,18 @@
 #ifndef TOOLBOX_IO_RUNNER_HPP
 #define TOOLBOX_IO_RUNNER_HPP
 
+#include <toolbox/hdr/Histogram.hpp>
 #include <toolbox/sys/Thread.hpp>
+#include <toolbox/sys/Time.hpp>
 
+#include <functional>
 #include <thread>
 
 namespace toolbox {
 inline namespace io {
 class Reactor;
+
+using MetricCallbackFunction = std::function<void(CyclTime, const Histogram&)>;
 
 class TOOLBOX_API ReactorRunner {
   public:
@@ -37,7 +42,9 @@ class TOOLBOX_API ReactorRunner {
     /// \param r The reactor.
     /// \param busy_cycles The number of busy cycles after doing work.
     /// \param config The thread configuration.
-    ReactorRunner(Reactor& r, long busy_cycles, ThreadConfig config);
+    /// \param metric_callback Optional metric callback
+    ReactorRunner(Reactor& r, long busy_cycles, ThreadConfig config,
+                  MetricCallbackFunction metric_callback = nullptr);
     ~ReactorRunner();
 
     // Copy.
