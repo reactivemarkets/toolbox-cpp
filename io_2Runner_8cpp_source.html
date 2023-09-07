@@ -97,54 +97,96 @@ $(function() {
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacetoolbox.html">toolbox</a> {</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">inline</span> <span class="keyword">namespace </span>io {</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">namespace </span>{</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keywordtype">void</span> run_reactor(Reactor&amp; r, <span class="keywordtype">long</span> busy_cycles, ThreadConfig config, <span class="keyword">const</span> std::atomic&lt;bool&gt;&amp; stop)</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>{</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_function" href="namespacetoolbox_1_1sys.html#ae9cef8103b7d5c133dc1079811b4e151">sig_block_all</a>();</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">try</span> {</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <a class="code hl_function" href="namespacetoolbox_1_1sys.html#a932f019e19eddcea7ce9c9b98151e509">set_thread_attrs</a>(config);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <a class="code hl_define" href="Log_8hpp.html#a9860898bebf2a6f7a82cd2364369dfae">TOOLBOX_NOTICE</a> &lt;&lt; <span class="stringliteral">&quot;started &quot;</span> &lt;&lt; config.name &lt;&lt; <span class="stringliteral">&quot; thread&quot;</span>;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordtype">long</span> i{0};</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keywordflow">while</span> (!stop.load(std::memory_order_acquire)) {</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            <span class="comment">// Busy-wait for &quot;busy cycles&quot; after work was done.</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            <span class="keywordflow">if</span> (r.poll(CyclTime::now(), i++ &lt; busy_cycles ? 0s : <a class="code hl_variable" href="namespacetoolbox_1_1io.html#a21ca3c18b252161e1a4c6efcb85d0e4b">NoTimeout</a>) &gt; 0) {</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>                <span class="comment">// Reset counter when work has been done.</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>                i = 0;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            }</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        }</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <a class="code hl_define" href="Log_8hpp.html#a5b03a968e886a76c3a92a47fbe11cf01">TOOLBOX_CRIT</a> &lt;&lt; <span class="stringliteral">&quot;exception on &quot;</span> &lt;&lt; config.name &lt;&lt; <span class="stringliteral">&quot; thread: &quot;</span> &lt;&lt; e.what();</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        kill(getpid(), SIGTERM);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    }</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_define" href="Log_8hpp.html#a9860898bebf2a6f7a82cd2364369dfae">TOOLBOX_NOTICE</a> &lt;&lt; <span class="stringliteral">&quot;stopping &quot;</span> &lt;&lt; config.name &lt;&lt; <span class="stringliteral">&quot; thread&quot;</span>;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>}</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>} <span class="comment">// namespace</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classtoolbox_1_1io_1_1ReactorRunner.html#a66916c57b54e15058ba5ef140a462890">   49</a></span><a class="code hl_function" href="classtoolbox_1_1io_1_1ReactorRunner.html#a66916c57b54e15058ba5ef140a462890">ReactorRunner::ReactorRunner</a>(<a class="code hl_class" href="classtoolbox_1_1io_1_1Reactor.html">Reactor</a>&amp; r, <span class="keywordtype">long</span> busy_cycles, <a class="code hl_struct" href="structtoolbox_1_1sys_1_1ThreadConfig.html">ThreadConfig</a> config)</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>: reactor_{r}</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>, thread_{run_reactor, <a class="code hl_namespace" href="namespacestd.html">std</a>::ref(r), busy_cycles, config, <a class="code hl_namespace" href="namespacestd.html">std</a>::cref(stop_)}</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>{</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>}</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classtoolbox_1_1io_1_1ReactorRunner.html#a9f633638b206f042671bbb527bbaaa42">   55</a></span><a class="code hl_function" href="classtoolbox_1_1io_1_1ReactorRunner.html#a9f633638b206f042671bbb527bbaaa42">ReactorRunner::~ReactorRunner</a>()</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>{</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    stop_.store(<span class="keyword">true</span>, std::memory_order_release);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    reactor_.<a class="code hl_function" href="classtoolbox_1_1io_1_1Waker.html#a964db2dc971779107dedf0d172e830a6">wakeup</a>();</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    thread_.join();</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>}</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>} <span class="comment">// namespace io</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>} <span class="comment">// namespace toolbox</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keywordtype">void</span> run_reactor(Reactor&amp; r, <span class="keywordtype">long</span> busy_cycles, ThreadConfig config, <span class="keyword">const</span> std::atomic&lt;bool&gt;&amp; stop,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>                 [[maybe_unused]] <a class="code hl_typedef" href="namespacetoolbox_1_1io.html#aefabfadce71f1cf5a6e140f7f8396cb9">MetricCallbackFunction</a> metric_callback)</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>{</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="comment">// ==== KEEP IN SYNC WITH CHANGES IN run_metrics_reactor ====</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_function" href="namespacetoolbox_1_1sys.html#ae9cef8103b7d5c133dc1079811b4e151">sig_block_all</a>();</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">try</span> {</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <a class="code hl_function" href="namespacetoolbox_1_1sys.html#a932f019e19eddcea7ce9c9b98151e509">set_thread_attrs</a>(config);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <a class="code hl_define" href="Log_8hpp.html#a9860898bebf2a6f7a82cd2364369dfae">TOOLBOX_NOTICE</a> &lt;&lt; <span class="stringliteral">&quot;started &quot;</span> &lt;&lt; config.name &lt;&lt; <span class="stringliteral">&quot; thread&quot;</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keywordtype">long</span> i{0};</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordflow">while</span> (!stop.load(std::memory_order_acquire)) {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            <span class="comment">// Busy-wait for &quot;busy cycles&quot; after work was done.</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordflow">if</span> (r.poll(CyclTime::now(), i++ &lt; busy_cycles ? 0s : <a class="code hl_variable" href="namespacetoolbox_1_1io.html#a21ca3c18b252161e1a4c6efcb85d0e4b">NoTimeout</a>) &gt; 0) {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>                <span class="comment">// Reset counter when work has been done.</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>                i = 0;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            }</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        }</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <a class="code hl_define" href="Log_8hpp.html#a5b03a968e886a76c3a92a47fbe11cf01">TOOLBOX_CRIT</a> &lt;&lt; <span class="stringliteral">&quot;exception on &quot;</span> &lt;&lt; config.name &lt;&lt; <span class="stringliteral">&quot; thread: &quot;</span> &lt;&lt; e.what();</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        kill(getpid(), SIGTERM);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    }</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_define" href="Log_8hpp.html#a9860898bebf2a6f7a82cd2364369dfae">TOOLBOX_NOTICE</a> &lt;&lt; <span class="stringliteral">&quot;stopping &quot;</span> &lt;&lt; config.name &lt;&lt; <span class="stringliteral">&quot; thread&quot;</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>}</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">static</span> <span class="keyword">const</span> std::chrono::seconds metric_interval = 60s;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keywordtype">void</span> run_metrics_reactor(Reactor&amp; r, <span class="keywordtype">long</span> busy_cycles, ThreadConfig config,</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                         <span class="keyword">const</span> std::atomic&lt;bool&gt;&amp; stop, <a class="code hl_typedef" href="namespacetoolbox_1_1io.html#aefabfadce71f1cf5a6e140f7f8396cb9">MetricCallbackFunction</a> metric_callback)</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>{</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="comment">// ==== KEEP IN SYNC WITH CHANGES IN run_reactor ====</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_function" href="namespacetoolbox_1_1sys.html#ae9cef8103b7d5c133dc1079811b4e151">sig_block_all</a>();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordflow">try</span> {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="comment">// 128 possible buffer slots in poll + high and low priority timers</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        Histogram hist{1, 1000, 2}; <span class="comment">// 100% accutate to 256</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <a class="code hl_function" href="namespacetoolbox_1_1sys.html#a932f019e19eddcea7ce9c9b98151e509">set_thread_attrs</a>(config);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <a class="code hl_define" href="Log_8hpp.html#a9860898bebf2a6f7a82cd2364369dfae">TOOLBOX_NOTICE</a> &lt;&lt; <span class="stringliteral">&quot;started &quot;</span> &lt;&lt; config.name &lt;&lt; <span class="stringliteral">&quot; thread&quot;</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keywordtype">long</span> i{0};</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keyword">auto</span> metric_time = WallClock::now() + metric_interval;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordflow">while</span> (!stop.load(std::memory_order_acquire)) {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="comment">// Busy-wait for &quot;busy cycles&quot; after work was done.</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            <span class="keyword">const</span> CyclTime&amp; now = CyclTime::now();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            <span class="keyword">auto</span> work = r.poll(now, i++ &lt; busy_cycles ? 0s : <a class="code hl_variable" href="namespacetoolbox_1_1io.html#a21ca3c18b252161e1a4c6efcb85d0e4b">NoTimeout</a>);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <span class="keywordflow">if</span> (work &gt; 0) {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                <span class="comment">// Don&#39;t skew distribution with a lot of zero work.</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                hist.record_value(work);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                <span class="comment">// Reset counter when work has been done.</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                i = 0;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            }</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            <span class="keywordflow">if</span> (now.wall_time() &gt;= metric_time) {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                <span class="comment">// Metric reporting</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                metric_time = now.wall_time() + metric_interval;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                metric_callback(now, hist);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                hist.reset();</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <a class="code hl_define" href="Log_8hpp.html#a5b03a968e886a76c3a92a47fbe11cf01">TOOLBOX_CRIT</a> &lt;&lt; <span class="stringliteral">&quot;exception on &quot;</span> &lt;&lt; config.name &lt;&lt; <span class="stringliteral">&quot; thread: &quot;</span> &lt;&lt; e.what();</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        kill(getpid(), SIGTERM);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    }</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <a class="code hl_define" href="Log_8hpp.html#a9860898bebf2a6f7a82cd2364369dfae">TOOLBOX_NOTICE</a> &lt;&lt; <span class="stringliteral">&quot;stopping &quot;</span> &lt;&lt; config.name &lt;&lt; <span class="stringliteral">&quot; thread&quot;</span>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>}</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>} <span class="comment">// namespace</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classtoolbox_1_1io_1_1ReactorRunner.html#a1156c7b62c71bf1b6d5f130363507c23">   89</a></span><a class="code hl_function" href="classtoolbox_1_1io_1_1ReactorRunner.html#a1156c7b62c71bf1b6d5f130363507c23">ReactorRunner::ReactorRunner</a>(<a class="code hl_class" href="classtoolbox_1_1io_1_1Reactor.html">Reactor</a>&amp; r, <span class="keywordtype">long</span> busy_cycles, <a class="code hl_struct" href="structtoolbox_1_1sys_1_1ThreadConfig.html">ThreadConfig</a> config, <a class="code hl_typedef" href="namespacetoolbox_1_1io.html#aefabfadce71f1cf5a6e140f7f8396cb9">MetricCallbackFunction</a> metric_callback)</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>: reactor_{r}</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>, thread_{metric_callback == nullptr ? run_reactor : run_metrics_reactor,</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>          <a class="code hl_namespace" href="namespacestd.html">std</a>::ref(r), busy_cycles, config, <a class="code hl_namespace" href="namespacestd.html">std</a>::cref(stop_), metric_callback}</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>{</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>}</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classtoolbox_1_1io_1_1ReactorRunner.html#a9f633638b206f042671bbb527bbaaa42">   96</a></span><a class="code hl_function" href="classtoolbox_1_1io_1_1ReactorRunner.html#a9f633638b206f042671bbb527bbaaa42">ReactorRunner::~ReactorRunner</a>()</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>{</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    stop_.store(<span class="keyword">true</span>, std::memory_order_release);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    reactor_.<a class="code hl_function" href="classtoolbox_1_1io_1_1Waker.html#a964db2dc971779107dedf0d172e830a6">wakeup</a>();</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    thread_.join();</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>}</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>} <span class="comment">// namespace io</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>} <span class="comment">// namespace toolbox</span></div>
 <div class="ttc" id="aLog_8hpp_html"><div class="ttname"><a href="Log_8hpp.html">Log.hpp</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_a5b03a968e886a76c3a92a47fbe11cf01"><div class="ttname"><a href="Log_8hpp.html#a5b03a968e886a76c3a92a47fbe11cf01">TOOLBOX_CRIT</a></div><div class="ttdeci">#define TOOLBOX_CRIT</div><div class="ttdef"><b>Definition:</b> <a href="Log_8hpp_source.html#l00091">Log.hpp:91</a></div></div>
 <div class="ttc" id="aLog_8hpp_html_a9860898bebf2a6f7a82cd2364369dfae"><div class="ttname"><a href="Log_8hpp.html#a9860898bebf2a6f7a82cd2364369dfae">TOOLBOX_NOTICE</a></div><div class="ttdeci">#define TOOLBOX_NOTICE</div><div class="ttdef"><b>Definition:</b> <a href="Log_8hpp_source.html#l00095">Log.hpp:95</a></div></div>
 <div class="ttc" id="aReactor_8hpp_html"><div class="ttname"><a href="Reactor_8hpp.html">Reactor.hpp</a></div></div>
 <div class="ttc" id="aSignal_8hpp_html"><div class="ttname"><a href="Signal_8hpp.html">Signal.hpp</a></div></div>
-<div class="ttc" id="aclasstoolbox_1_1io_1_1ReactorRunner_html_a66916c57b54e15058ba5ef140a462890"><div class="ttname"><a href="classtoolbox_1_1io_1_1ReactorRunner.html#a66916c57b54e15058ba5ef140a462890">toolbox::io::ReactorRunner::ReactorRunner</a></div><div class="ttdeci">ReactorRunner(Reactor &amp;r, long busy_cycles, ThreadConfig config)</div><div class="ttdef"><b>Definition:</b> <a href="io_2Runner_8cpp_source.html#l00049">Runner.cpp:49</a></div></div>
-<div class="ttc" id="aclasstoolbox_1_1io_1_1ReactorRunner_html_a9f633638b206f042671bbb527bbaaa42"><div class="ttname"><a href="classtoolbox_1_1io_1_1ReactorRunner.html#a9f633638b206f042671bbb527bbaaa42">toolbox::io::ReactorRunner::~ReactorRunner</a></div><div class="ttdeci">~ReactorRunner()</div><div class="ttdef"><b>Definition:</b> <a href="io_2Runner_8cpp_source.html#l00055">Runner.cpp:55</a></div></div>
+<div class="ttc" id="aclasstoolbox_1_1io_1_1ReactorRunner_html_a1156c7b62c71bf1b6d5f130363507c23"><div class="ttname"><a href="classtoolbox_1_1io_1_1ReactorRunner.html#a1156c7b62c71bf1b6d5f130363507c23">toolbox::io::ReactorRunner::ReactorRunner</a></div><div class="ttdeci">ReactorRunner(Reactor &amp;r, long busy_cycles, ThreadConfig config, MetricCallbackFunction metric_callback=nullptr)</div><div class="ttdef"><b>Definition:</b> <a href="io_2Runner_8cpp_source.html#l00089">Runner.cpp:89</a></div></div>
+<div class="ttc" id="aclasstoolbox_1_1io_1_1ReactorRunner_html_a9f633638b206f042671bbb527bbaaa42"><div class="ttname"><a href="classtoolbox_1_1io_1_1ReactorRunner.html#a9f633638b206f042671bbb527bbaaa42">toolbox::io::ReactorRunner::~ReactorRunner</a></div><div class="ttdeci">~ReactorRunner()</div><div class="ttdef"><b>Definition:</b> <a href="io_2Runner_8cpp_source.html#l00096">Runner.cpp:96</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1Reactor_html"><div class="ttname"><a href="classtoolbox_1_1io_1_1Reactor.html">toolbox::io::Reactor</a></div><div class="ttdef"><b>Definition:</b> <a href="Reactor_8hpp_source.html#l00034">Reactor.hpp:34</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1io_1_1Waker_html_a964db2dc971779107dedf0d172e830a6"><div class="ttname"><a href="classtoolbox_1_1io_1_1Waker.html#a964db2dc971779107dedf0d172e830a6">toolbox::io::Waker::wakeup</a></div><div class="ttdeci">void wakeup() noexcept</div><div class="ttdef"><b>Definition:</b> <a href="Waker_8hpp_source.html#l00040">Waker.hpp:40</a></div></div>
 <div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdoc">STL namespace.</div></div>
 <div class="ttc" id="anamespacetoolbox_1_1io_html_a21ca3c18b252161e1a4c6efcb85d0e4b"><div class="ttname"><a href="namespacetoolbox_1_1io.html#a21ca3c18b252161e1a4c6efcb85d0e4b">toolbox::io::NoTimeout</a></div><div class="ttdeci">constexpr Duration NoTimeout</div><div class="ttdef"><b>Definition:</b> <a href="Reactor_8hpp_source.html#l00029">Reactor.hpp:29</a></div></div>
+<div class="ttc" id="anamespacetoolbox_1_1io_html_aefabfadce71f1cf5a6e140f7f8396cb9"><div class="ttname"><a href="namespacetoolbox_1_1io.html#aefabfadce71f1cf5a6e140f7f8396cb9">toolbox::io::MetricCallbackFunction</a></div><div class="ttdeci">std::function&lt; void(CyclTime, const Histogram &amp;)&gt; MetricCallbackFunction</div><div class="ttdef"><b>Definition:</b> <a href="io_2Runner_8hpp_source.html#l00031">Runner.hpp:31</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1sys_html_a932f019e19eddcea7ce9c9b98151e509"><div class="ttname"><a href="namespacetoolbox_1_1sys.html#a932f019e19eddcea7ce9c9b98151e509">toolbox::sys::set_thread_attrs</a></div><div class="ttdeci">void set_thread_attrs(const ThreadConfig &amp;config)</div><div class="ttdef"><b>Definition:</b> <a href="Thread_8cpp_source.html#l00069">Thread.cpp:69</a></div></div>
 <div class="ttc" id="anamespacetoolbox_1_1sys_html_ae9cef8103b7d5c133dc1079811b4e151"><div class="ttname"><a href="namespacetoolbox_1_1sys.html#ae9cef8103b7d5c133dc1079811b4e151">toolbox::sys::sig_block_all</a></div><div class="ttdeci">void sig_block_all()</div><div class="ttdoc">Block all signals.</div><div class="ttdef"><b>Definition:</b> <a href="Signal_8cpp_source.html#l00082">Signal.cpp:82</a></div></div>
 <div class="ttc" id="anamespacetoolbox_html"><div class="ttname"><a href="namespacetoolbox.html">toolbox</a></div><div class="ttdef"><b>Definition:</b> <a href="Benchmark_8cpp_source.html#l00026">Benchmark.cpp:26</a></div></div>
