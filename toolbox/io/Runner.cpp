@@ -24,8 +24,7 @@
 namespace toolbox {
 inline namespace io {
 namespace {
-void run_reactor(Reactor& r, long busy_cycles, ThreadConfig config, const std::atomic<bool>& stop,
-                 [[maybe_unused]] MetricCallbackFunction metric_callback)
+void run_reactor(Reactor& r, long busy_cycles, ThreadConfig config, const std::atomic<bool>& stop)
 {
     // ==== KEEP IN SYNC WITH CHANGES IN run_metrics_reactor ====
     sig_block_all();
@@ -47,34 +46,42 @@ void run_reactor(Reactor& r, long busy_cycles, ThreadConfig config, const std::a
     TOOLBOX_NOTICE << "stopping " << config.name << " thread";
 }
 
-static const std::chrono::seconds metric_interval = 60s;
-void run_metrics_reactor(Reactor& r, long busy_cycles, ThreadConfig config,
-                         const std::atomic<bool>& stop, MetricCallbackFunction metric_callback)
+HistogramPtr make_histogram()
 {
+    // Histogram is 100% accurate to 256, covering Reactor::MaxEvents of 128 work items.
+    return HistogramPtr{new Histogram{1, 1000, 2}};
+}
+
+void run_metrics_reactor(Reactor& r, long busy_cycles, ThreadConfig config,
+                         const std::atomic<bool>& stop, const MetricContext& metric_ctx,
+                         MetricCallbackFunction metric_cb)
+{
+    constexpr std::chrono::seconds MetricInterval = 60s;
+
     // ==== KEEP IN SYNC WITH CHANGES IN run_reactor ====
     sig_block_all();
     try {
         // 128 possible buffer slots in poll + high and low priority timers
-        Histogram hist{1, 1000, 2}; // 100% accutate to 256
+        HistogramPtr hist = make_histogram();
         set_thread_attrs(config);
         TOOLBOX_NOTICE << "started " << config.name << " thread";
         long i{0};
-        auto metric_time = WallClock::now() + metric_interval;
+        auto metric_time = WallClock::now() + MetricInterval;
         while (!stop.load(std::memory_order_acquire)) {
             // Busy-wait for "busy cycles" after work was done.
             const CyclTime& now = CyclTime::now();
             auto work = r.poll(now, i++ < busy_cycles ? 0s : NoTimeout);
             if (work > 0) {
                 // Don't skew distribution with a lot of zero work.
-                hist.record_value(work);
+                hist->record_value(work);
                 // Reset counter when work has been done.
                 i = 0;
             }
             if (now.wall_time() >= metric_time) {
                 // Metric reporting
-                metric_time = now.wall_time() + metric_interval;
-                metric_callback(now, hist);
-                hist.reset();
+                metric_time = now.wall_time() + MetricInterval;
+                metric_cb(now, metric_ctx, std::move(hist));
+                hist = make_histogram();
             }
         }
     } catch (const std::exception& e) {
@@ -86,10 +93,17 @@ void run_metrics_reactor(Reactor& r, long busy_cycles, ThreadConfig config,
 
 } // namespace
 
-ReactorRunner::ReactorRunner(Reactor& r, long busy_cycles, ThreadConfig config, MetricCallbackFunction metric_callback)
+ReactorRunner::ReactorRunner(Reactor& r, long busy_cycles, ThreadConfig config)
 : reactor_{r}
-, thread_{metric_callback == nullptr ? run_reactor : run_metrics_reactor,
-          std::ref(r), busy_cycles, config, std::cref(stop_), metric_callback}
+, thread_{run_reactor, std::ref(r), busy_cycles, config, std::cref(stop_)}
+{
+}
+
+ReactorRunner::ReactorRunner(Reactor& r, long busy_cycles, ThreadConfig config,
+                             const MetricContext& metric_ctx, MetricCallbackFunction metric_cb)
+: reactor_{r}
+, thread_{run_metrics_reactor, std::ref(r), busy_cycles, config,
+          std::cref(stop_),    metric_ctx,  metric_cb}
 {
 }
 
