@@ -94,6 +94,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1io_1_1Hook.html">Hook</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1io_1_1MetricContext.html">MetricContext</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1io_1_1MsgEvent.html">MsgEvent</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1OStream.html">OStream</a></td></tr>
@@ -129,8 +131,11 @@ Typedefs</h2></td></tr>
 <tr class="separator:a61ae4d7ecb44580a91e3ef87b3ca2330"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51270edb28d40f59f724a79e2e3ed0a6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#a51270edb28d40f59f724a79e2e3ed0a6">IoSlot</a> = <a class="el" href="classtoolbox_1_1util_1_1BasicSlot.html">BasicSlot</a>&lt; <a class="el" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a>, int, unsigned &gt;</td></tr>
 <tr class="separator:a51270edb28d40f59f724a79e2e3ed0a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefabfadce71f1cf5a6e140f7f8396cb9"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#aefabfadce71f1cf5a6e140f7f8396cb9">MetricCallbackFunction</a> = std::function&lt; void(<a class="el" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a>, const <a class="el" href="classtoolbox_1_1hdr_1_1Histogram.html">Histogram</a> &amp;)&gt;</td></tr>
-<tr class="separator:aefabfadce71f1cf5a6e140f7f8396cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a438f314c9a13294bc7e1ae4025df364e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#a438f314c9a13294bc7e1ae4025df364e">HistogramPtr</a> = std::unique_ptr&lt; <a class="el" href="classtoolbox_1_1hdr_1_1Histogram.html">Histogram</a> &gt;</td></tr>
+<tr class="separator:a438f314c9a13294bc7e1ae4025df364e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb198a971ea0885273fe69800dcb5a82"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#afb198a971ea0885273fe69800dcb5a82">MetricCallbackFunction</a> = std::function&lt; void(<a class="el" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a>, const <a class="el" href="structtoolbox_1_1io_1_1MetricContext.html">MetricContext</a> &amp;ctx, <a class="el" href="namespacetoolbox_1_1io.html#a438f314c9a13294bc7e1ae4025df364e">HistogramPtr</a> &amp;&amp;)&gt;</td></tr>
+<tr class="memdesc:afb198a971ea0885273fe69800dcb5a82"><td class="mdescLeft">&#160;</td><td class="mdescRight">MetricCallbackFunction implementer is responsible for deleting the <a class="el" href="classtoolbox_1_1hdr_1_1Histogram.html" title="A High Dynamic Range (HDR) Histogram.">Histogram</a>.  <a href="namespacetoolbox_1_1io.html#afb198a971ea0885273fe69800dcb5a82">More...</a><br /></td></tr>
+<tr class="separator:afb198a971ea0885273fe69800dcb5a82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9637530ce7cb05e3d37b882576fbcaa4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#a9637530ce7cb05e3d37b882576fbcaa4">TimerSlot</a> = <a class="el" href="classtoolbox_1_1util_1_1BasicSlot.html">BasicSlot</a>&lt; <a class="el" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a>, <a class="el" href="classtoolbox_1_1io_1_1Timer.html">Timer</a> &amp; &gt;</td></tr>
 <tr class="separator:a9637530ce7cb05e3d37b882576fbcaa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -299,19 +304,37 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="aefabfadce71f1cf5a6e140f7f8396cb9" name="aefabfadce71f1cf5a6e140f7f8396cb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aefabfadce71f1cf5a6e140f7f8396cb9">&#9670;&nbsp;</a></span>MetricCallbackFunction</h2>
+<a id="a438f314c9a13294bc7e1ae4025df364e" name="a438f314c9a13294bc7e1ae4025df364e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a438f314c9a13294bc7e1ae4025df364e">&#9670;&nbsp;</a></span>HistogramPtr</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespacetoolbox_1_1io.html#aefabfadce71f1cf5a6e140f7f8396cb9">toolbox::io::MetricCallbackFunction</a> = typedef std::function&lt;void(<a class="el" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a>, const <a class="el" href="classtoolbox_1_1hdr_1_1Histogram.html">Histogram</a>&amp;)&gt;</td>
+          <td class="memname">using <a class="el" href="namespacetoolbox_1_1io.html#a438f314c9a13294bc7e1ae4025df364e">toolbox::io::HistogramPtr</a> = typedef std::unique_ptr&lt;<a class="el" href="classtoolbox_1_1hdr_1_1Histogram.html">Histogram</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="io_2Runner_8hpp_source.html#l00031">31</a> of file <a class="el" href="io_2Runner_8hpp_source.html">Runner.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="io_2Runner_8hpp_source.html#l00037">37</a> of file <a class="el" href="io_2Runner_8hpp_source.html">Runner.hpp</a>.</p>
+
+</div>
+</div>
+<a id="afb198a971ea0885273fe69800dcb5a82" name="afb198a971ea0885273fe69800dcb5a82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb198a971ea0885273fe69800dcb5a82">&#9670;&nbsp;</a></span>MetricCallbackFunction</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacetoolbox_1_1io.html#afb198a971ea0885273fe69800dcb5a82">toolbox::io::MetricCallbackFunction</a> = typedef std::function&lt;void(<a class="el" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a>, const <a class="el" href="structtoolbox_1_1io_1_1MetricContext.html">MetricContext</a>&amp; ctx, <a class="el" href="namespacetoolbox_1_1io.html#a438f314c9a13294bc7e1ae4025df364e">HistogramPtr</a>&amp;&amp;)&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>MetricCallbackFunction implementer is responsible for deleting the <a class="el" href="classtoolbox_1_1hdr_1_1Histogram.html" title="A High Dynamic Range (HDR) Histogram.">Histogram</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="io_2Runner_8hpp_source.html#l00040">40</a> of file <a class="el" href="io_2Runner_8hpp_source.html">Runner.hpp</a>.</p>
 
 </div>
 </div>

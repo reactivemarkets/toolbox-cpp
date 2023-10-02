@@ -124,6 +124,8 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1io_1_1MetricContext.html">toolbox::io::MetricContext</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1ReactorRunner.html">toolbox::io::ReactorRunner</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -136,8 +138,11 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:aefabfadce71f1cf5a6e140f7f8396cb9"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#aefabfadce71f1cf5a6e140f7f8396cb9">toolbox::io::MetricCallbackFunction</a> = std::function&lt; void(CyclTime, const Histogram &amp;)&gt;</td></tr>
-<tr class="separator:aefabfadce71f1cf5a6e140f7f8396cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a438f314c9a13294bc7e1ae4025df364e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#a438f314c9a13294bc7e1ae4025df364e">toolbox::io::HistogramPtr</a> = std::unique_ptr&lt; Histogram &gt;</td></tr>
+<tr class="separator:a438f314c9a13294bc7e1ae4025df364e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb198a971ea0885273fe69800dcb5a82"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#afb198a971ea0885273fe69800dcb5a82">toolbox::io::MetricCallbackFunction</a> = std::function&lt; void(CyclTime, const MetricContext &amp;ctx, HistogramPtr &amp;&amp;)&gt;</td></tr>
+<tr class="memdesc:afb198a971ea0885273fe69800dcb5a82"><td class="mdescLeft">&#160;</td><td class="mdescRight">MetricCallbackFunction implementer is responsible for deleting the <a class="el" href="classtoolbox_1_1hdr_1_1Histogram.html" title="A High Dynamic Range (HDR) Histogram.">Histogram</a>.  <a href="namespacetoolbox_1_1io.html#afb198a971ea0885273fe69800dcb5a82">More...</a><br /></td></tr>
+<tr class="separator:afb198a971ea0885273fe69800dcb5a82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
