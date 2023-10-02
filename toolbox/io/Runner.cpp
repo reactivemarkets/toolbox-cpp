@@ -53,8 +53,7 @@ HistogramPtr make_histogram()
 }
 
 void run_metrics_reactor(Reactor& r, long busy_cycles, ThreadConfig config,
-                         const std::atomic<bool>& stop, const MetricContext& metric_ctx,
-                         MetricCallbackFunction metric_cb)
+                         const std::atomic<bool>& stop, MetricCallbackFunction metric_cb)
 {
     constexpr std::chrono::seconds MetricInterval = 60s;
 
@@ -80,7 +79,7 @@ void run_metrics_reactor(Reactor& r, long busy_cycles, ThreadConfig config,
             if (now.wall_time() >= metric_time) {
                 // Metric reporting
                 metric_time = now.wall_time() + MetricInterval;
-                metric_cb(now, metric_ctx, std::move(hist));
+                metric_cb(now, std::move(hist));
                 hist = make_histogram();
             }
         }
@@ -100,10 +99,9 @@ ReactorRunner::ReactorRunner(Reactor& r, long busy_cycles, ThreadConfig config)
 }
 
 ReactorRunner::ReactorRunner(Reactor& r, long busy_cycles, ThreadConfig config,
-                             const MetricContext& metric_ctx, MetricCallbackFunction metric_cb)
+                             MetricCallbackFunction metric_cb)
 : reactor_{r}
-, thread_{run_metrics_reactor, std::ref(r), busy_cycles, config,
-          std::cref(stop_),    metric_ctx,  metric_cb}
+, thread_{run_metrics_reactor, std::ref(r), busy_cycles, config, std::cref(stop_), metric_cb}
 {
 }
 

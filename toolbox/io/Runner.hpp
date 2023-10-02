@@ -28,17 +28,10 @@ namespace toolbox {
 inline namespace io {
 class Reactor;
 
-struct MetricContext {
-    std::string app_name;
-    std::string metric_type;
-    std::string metric_id;
-};
-
 using HistogramPtr = std::unique_ptr<Histogram>;
 
 /// MetricCallbackFunction implementer is responsible for deleting the Histogram.
-using MetricCallbackFunction
-    = std::function<void(CyclTime, const MetricContext& ctx, HistogramPtr&&)>;
+using MetricCallbackFunction = std::function<void(CyclTime, HistogramPtr&&)>;
 
 class TOOLBOX_API ReactorRunner {
   public:
@@ -64,10 +57,9 @@ class TOOLBOX_API ReactorRunner {
     /// \param r The reactor.
     /// \param busy_cycles The number of busy cycles after doing work.
     /// \param config The thread configuration.
-    /// \param metric_ctx Metric context. Accessed from background thread so must be const/immutable.
     /// \param metric_cb Metric callback function.
     ReactorRunner(Reactor& r, long busy_cycles, ThreadConfig config,
-                  const MetricContext& metric_ctx, MetricCallbackFunction metric_cb);
+                  MetricCallbackFunction metric_cb);
     ~ReactorRunner();
 
     // Copy.
