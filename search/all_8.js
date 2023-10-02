@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['id_0',['id',['../classtoolbox_1_1io_1_1Timer.html#a7fdabe26998aaec71a1c5989b7c15cbc',1,'toolbox::io::Timer::id()'],['../structtoolbox_1_1io_1_1Timer_1_1Impl.html#a68cb43299e3330f8d988339762198daf',1,'toolbox::io::Timer::Impl::id()']]],
-  ['id_1',['Id',['../structtoolbox_1_1sys_1_1WallClock.html#a884c180af4e57c13e634158f7e5e51b3',1,'toolbox::sys::WallClock::Id()'],['../structtoolbox_1_1sys_1_1MonoClock.html#a0b59acb57c5dac21774753d15df2bff1',1,'toolbox::sys::MonoClock::Id()'],['../structtoolbox_1_1io_1_1FilePolicy.html#a8efc39fdb122177561a2be7c8b16d13a',1,'toolbox::io::FilePolicy::Id()'],['../classtoolbox_1_1io_1_1BasicHandle.html#a8d9e937bf769ebc61782fbd96b4e588c',1,'toolbox::io::BasicHandle::Id()']]],
+  ['id_0',['Id',['../structtoolbox_1_1sys_1_1WallClock.html#a884c180af4e57c13e634158f7e5e51b3',1,'toolbox::sys::WallClock::Id()'],['../structtoolbox_1_1sys_1_1MonoClock.html#a0b59acb57c5dac21774753d15df2bff1',1,'toolbox::sys::MonoClock::Id()'],['../structtoolbox_1_1io_1_1FilePolicy.html#a8efc39fdb122177561a2be7c8b16d13a',1,'toolbox::io::FilePolicy::Id()'],['../classtoolbox_1_1io_1_1BasicHandle.html#a8d9e937bf769ebc61782fbd96b4e588c',1,'toolbox::io::BasicHandle::Id()']]],
+  ['id_1',['id',['../classtoolbox_1_1io_1_1Timer.html#a7fdabe26998aaec71a1c5989b7c15cbc',1,'toolbox::io::Timer::id()'],['../structtoolbox_1_1io_1_1Timer_1_1Impl.html#a68cb43299e3330f8d988339762198daf',1,'toolbox::io::Timer::Impl::id()']]],
   ['id16_2',['Id16',['../namespacetoolbox_1_1util.html#a391cdee9dc372d31c18400ae5d94d29a',1,'toolbox::util::Id16()'],['../namespacetoolbox_1_1util.html#a391cdee9dc372d31c18400ae5d94d29a',1,'toolbox::Id16()']]],
   ['id16policy_3',['Id16Policy',['../structtoolbox_1_1util_1_1Id16Policy.html',1,'toolbox::Id16Policy'],['../structtoolbox_1_1util_1_1Id16Policy.html',1,'toolbox::util::Id16Policy']]],
   ['id32_4',['Id32',['../namespacetoolbox_1_1util.html#a3a749987a235b61b098b59fd6c38ed40',1,'toolbox::util::Id32()'],['../namespacetoolbox_1_1util.html#a3a749987a235b61b098b59fd6c38ed40',1,'toolbox::Id32()']]],
@@ -65,9 +65,10 @@ var searchData=
   ['iso_5fto_5fjd_62',['iso_to_jd',['../namespacetoolbox_1_1sys.html#aa5231d47d1f3d3fe0850bf59fc011e39',1,'toolbox::iso_to_jd()'],['../namespacetoolbox_1_1sys.html#aa5231d47d1f3d3fe0850bf59fc011e39',1,'toolbox::sys::iso_to_jd()']]],
   ['isodate_63',['IsoDate',['../namespacetoolbox_1_1sys.html#a1566d16291b4b2ce84563d4daff190d1',1,'toolbox::IsoDate()'],['../namespacetoolbox_1_1sys.html#a1566d16291b4b2ce84563d4daff190d1',1,'toolbox::sys::IsoDate()']]],
   ['isodatepolicy_64',['IsoDatePolicy',['../structtoolbox_1_1sys_1_1IsoDatePolicy.html',1,'toolbox::IsoDatePolicy'],['../structtoolbox_1_1sys_1_1IsoDatePolicy.html',1,'toolbox::sys::IsoDatePolicy']]],
-  ['iterator_65',['iterator',['../classtoolbox_1_1util_1_1ArrayView.html#a39d67894f5da51a6cbe6c22eaaccc547',1,'toolbox::util::ArrayView']]],
-  ['iterator_66',['Iterator',['../classtoolbox_1_1hdr_1_1Iterator.html#ae9d285a90957663022ccc8b572372d8d',1,'toolbox::hdr::Iterator::Iterator(const Histogram &amp;h) noexcept'],['../classtoolbox_1_1hdr_1_1Iterator.html#ade4363458d80d1ebae8c1f47a68a9c13',1,'toolbox::hdr::Iterator::Iterator(const Iterator &amp;)=delete'],['../classtoolbox_1_1hdr_1_1Iterator.html#afde8acad7355c207ddfa3a1d5af77c49',1,'toolbox::hdr::Iterator::Iterator(Iterator &amp;&amp;) noexcept=default'],['../classtoolbox_1_1hdr_1_1Iterator.html',1,'toolbox::hdr::Iterator'],['../classtoolbox_1_1hdr_1_1Iterator.html',1,'toolbox::Iterator']]],
-  ['iterator_2ecpp_67',['Iterator.cpp',['../Iterator_8cpp.html',1,'']]],
-  ['iterator_2ehpp_68',['Iterator.hpp',['../Iterator_8hpp.html',1,'']]],
-  ['iterator_2eut_2ecpp_69',['Iterator.ut.cpp',['../Iterator_8ut_8cpp.html',1,'']]]
+  ['iterator_65',['Iterator',['../classtoolbox_1_1hdr_1_1Iterator.html#ae9d285a90957663022ccc8b572372d8d',1,'toolbox::hdr::Iterator::Iterator(const Histogram &amp;h) noexcept'],['../classtoolbox_1_1hdr_1_1Iterator.html#ade4363458d80d1ebae8c1f47a68a9c13',1,'toolbox::hdr::Iterator::Iterator(const Iterator &amp;)=delete'],['../classtoolbox_1_1hdr_1_1Iterator.html#afde8acad7355c207ddfa3a1d5af77c49',1,'toolbox::hdr::Iterator::Iterator(Iterator &amp;&amp;) noexcept=default']]],
+  ['iterator_66',['iterator',['../classtoolbox_1_1util_1_1ArrayView.html#a39d67894f5da51a6cbe6c22eaaccc547',1,'toolbox::util::ArrayView']]],
+  ['iterator_67',['Iterator',['../classtoolbox_1_1hdr_1_1Iterator.html',1,'toolbox::hdr::Iterator'],['../classtoolbox_1_1hdr_1_1Iterator.html',1,'toolbox::Iterator']]],
+  ['iterator_2ecpp_68',['Iterator.cpp',['../Iterator_8cpp.html',1,'']]],
+  ['iterator_2ehpp_69',['Iterator.hpp',['../Iterator_8hpp.html',1,'']]],
+  ['iterator_2eut_2ecpp_70',['Iterator.ut.cpp',['../Iterator_8ut_8cpp.html',1,'']]]
 ];
