@@ -15,6 +15,7 @@
 # limitations under the License.
 
 set(targets
+  tb-histogram-bench
   tb-log-bench
   tb-map-bench
   tb-time-bench
@@ -22,6 +23,9 @@ set(targets
   tb-util-bench)
 
 add_custom_target(tb-bench DEPENDS ${targets})
+
+add_executable(tb-histogram-bench Histogram.bm.cpp)
+target_link_libraries(tb-histogram-bench ${tb_bm_LIBRARY})
 
 add_executable(tb-log-bench Log.bm.cpp)
 target_link_libraries(tb-log-bench ${tb_bm_LIBRARY})
