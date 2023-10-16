@@ -31,7 +31,8 @@ class Reactor;
 using HistogramPtr = std::unique_ptr<Histogram>;
 
 /// MetricCallbackFunction implementer is responsible for deleting the Histogram.
-using MetricCallbackFunction = std::function<void(CyclTime, HistogramPtr&&)>;
+using MetricCallbackFunction
+    = std::function<void(CyclTime now, HistogramPtr&& time_hist, HistogramPtr&& work_hist)>;
 
 class TOOLBOX_API ReactorRunner {
   public:

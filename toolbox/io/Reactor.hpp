@@ -86,7 +86,7 @@ class TOOLBOX_API Reactor : public Waker {
             std::swap(sid_, rhs.sid_);
         }
 
-        /// Modify IO event subscription.
+        /// Modify I/O event subscription.
         void set_events(unsigned events, IoSlot slot, std::error_code& ec) noexcept
         {
             assert(reactor_);
@@ -140,6 +140,9 @@ class TOOLBOX_API Reactor : public Waker {
     // clang-format on
 
     void add_hook(Hook& hook) noexcept { hooks_.push_back(hook); }
+    /// Poll for I/O and timer events.
+    /// The thread-local cycle time is unconditionally updated after the call to epoll() returns.
+    /// Returns the number of events signalled.
     int poll(CyclTime now, Duration timeout = NoTimeout);
 
   protected:

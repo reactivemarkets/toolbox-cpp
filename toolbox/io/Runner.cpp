@@ -46,7 +46,13 @@ void run_reactor(Reactor& r, long busy_cycles, ThreadConfig config, const std::a
     TOOLBOX_NOTICE << "stopping " << config.name << " thread";
 }
 
-HistogramPtr make_histogram()
+HistogramPtr make_time_histogram()
+{
+    // Record microseconds with 3sf and max expected value of one second.
+    return HistogramPtr{new Histogram{1, 1'000'000, 3}};
+}
+
+HistogramPtr make_work_histogram()
 {
     // Histogram is 100% accurate to 256, covering Reactor::MaxEvents of 128 work items.
     return HistogramPtr{new Histogram{1, 1000, 2}};
@@ -60,27 +66,34 @@ void run_metrics_reactor(Reactor& r, long busy_cycles, ThreadConfig config,
     // ==== KEEP IN SYNC WITH CHANGES IN run_reactor ====
     sig_block_all();
     try {
-        // 128 possible buffer slots in poll + high and low priority timers
-        HistogramPtr hist = make_histogram();
         set_thread_attrs(config);
         TOOLBOX_NOTICE << "started " << config.name << " thread";
+
+        HistogramPtr time_hist = make_time_histogram();
+        // 128 possible buffer slots in poll + high and low priority timers
+        HistogramPtr work_hist = make_work_histogram();
+
         long i{0};
-        auto metric_time = WallClock::now() + MetricInterval;
+        auto metric_time = MonoClock::now() + MetricInterval;
         while (!stop.load(std::memory_order_acquire)) {
             // Busy-wait for "busy cycles" after work was done.
-            const CyclTime& now = CyclTime::now();
-            auto work = r.poll(now, i++ < busy_cycles ? 0s : NoTimeout);
+            auto work = r.poll(CyclTime::now(), i++ < busy_cycles ? 0s : NoTimeout);
+            const auto now = CyclTime::current();
             if (work > 0) {
                 // Don't skew distribution with a lot of zero work.
-                hist->record_value(work);
+                const Duration elapsed_us = std::chrono::duration_cast<std::chrono::microseconds>(
+                    MonoClock::now() - now.mono_time());
+                time_hist->record_value(elapsed_us.count());
+                work_hist->record_value(work);
                 // Reset counter when work has been done.
                 i = 0;
             }
-            if (now.wall_time() >= metric_time) {
-                // Metric reporting
-                metric_time = now.wall_time() + MetricInterval;
-                metric_cb(now, std::move(hist));
-                hist = make_histogram();
+            if (now.mono_time() >= metric_time) {
+                // Metric reporting.
+                metric_time = now.mono_time() + MetricInterval;
+                metric_cb(now, std::move(time_hist), std::move(work_hist));
+                time_hist = make_time_histogram();
+                work_hist = make_work_histogram();
             }
         }
     } catch (const std::exception& e) {
