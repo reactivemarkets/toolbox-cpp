@@ -79,15 +79,13 @@ int Reactor::poll(CyclTime now, Duration timeout)
         // Block indefinitely.
         n = epoll_.wait(buf, MaxEvents, ec);
     }
+    // Update cycle time after epoll() returns.
+    now = CyclTime::now();
     if (ec) {
         if (ec.value() != EINTR) {
             throw system_error{ec};
         }
         return 0;
-    }
-    // If the epoller call was a blocking call, then acquire the current time.
-    if (!is_zero(wait_until)) {
-        now = CyclTime::now();
     }
     int work{0};
     TOOLBOX_PROBE_SCOPED(reactor, dispatch, work);
