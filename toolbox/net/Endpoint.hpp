@@ -46,15 +46,15 @@ using UnixEndpoint = boost::asio::local::basic_endpoint<ProtocolT>;
 using UnixDgramEndpoint = UnixEndpoint<UnixDgramProtocol>;
 using UnixStreamEndpoint = UnixEndpoint<UnixStreamProtocol>;
 
-TOOLBOX_API AddrInfoPtr parse_endpoint(const std::string& uri, int type);
+TOOLBOX_API AddrInfoPtr parse_endpoint(std::string_view uri, int type);
 
-inline DgramEndpoint parse_dgram_endpoint(const std::string& uri)
+inline DgramEndpoint parse_dgram_endpoint(std::string_view uri)
 {
     const auto ai = parse_endpoint(uri, SOCK_DGRAM);
     return {ai->ai_addr, ai->ai_addrlen, ai->ai_protocol};
 }
 
-inline StreamEndpoint parse_stream_endpoint(const std::string& uri)
+inline StreamEndpoint parse_stream_endpoint(std::string_view uri)
 {
     const auto ai = parse_endpoint(uri, SOCK_STREAM);
     return {ai->ai_addr, ai->ai_addrlen, ai->ai_protocol};
