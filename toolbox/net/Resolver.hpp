@@ -59,7 +59,7 @@ class TOOLBOX_API Resolver {
     void clear();
 
     /// Schedule a URI socket name resolution.
-    AddrInfoFuture resolve(const std::string& uri, int type);
+    AddrInfoFuture resolve(std::string_view uri, int type);
 
   private:
     TaskQueue<Task> tq_;

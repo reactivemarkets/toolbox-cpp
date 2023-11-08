@@ -16,6 +16,8 @@
 
 #include "Endpoint.hpp"
 
+#include <toolbox/util/String.hpp>
+
 using namespace std;
 
 namespace toolbox {
@@ -40,7 +42,7 @@ pair<string, string> split_ip_addr(const string& addr, char delim)
     return {node, service};
 }
 
-pair<string, string> split_uri(const string& uri)
+pair<string, string> split_uri(string_view uri)
 {
     const auto pos = uri.find("://");
     string scheme, addr;
@@ -54,7 +56,7 @@ pair<string, string> split_uri(const string& uri)
 }
 } // namespace
 
-AddrInfoPtr parse_endpoint(const string& uri, int type)
+AddrInfoPtr parse_endpoint(string_view uri, int type)
 {
     int family{-1}, protocol{0};
     const auto [scheme, addr] = split_uri(uri);
@@ -88,7 +90,7 @@ AddrInfoPtr parse_endpoint(const string& uri, int type)
         return get_unix_addrinfo(addr, type);
     }
     if (family < 0) {
-        throw invalid_argument{"invalid uri: "s + uri};
+        throw invalid_argument{make_string("invalid uri: ", uri)};
     }
     auto [node, service] = split_ip_addr(addr, ':');
     return os::getaddrinfo(!node.empty() ? node.c_str() : nullptr,
