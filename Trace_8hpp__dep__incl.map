@@ -1,9 +1,15 @@
 <map id="toolbox/sys/Trace.hpp" name="toolbox/sys/Trace.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="199,5,362,32"/>
-<area shape="rect" id="node2" href="$Reactor_8cpp.html" title=" " alt="" coords="27,80,193,107"/>
-<area shape="rect" id="node3" href="$sys_8hpp.html" title=" " alt="" coords="218,80,343,107"/>
-<area shape="rect" id="node7" href="$Trace_8cpp.html" title=" " alt="" coords="367,80,530,107"/>
-<area shape="rect" id="node4" href="$EchoClnt_8cpp.html" title=" " alt="" coords="5,155,172,181"/>
-<area shape="rect" id="node5" href="$EchoServ_8cpp.html" title=" " alt="" coords="196,155,365,181"/>
-<area shape="rect" id="node6" href="$HttpServ_8cpp.html" title=" " alt="" coords="389,155,556,181"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="199,5,362,31"/>
+<area shape="rect" id="Node000002" href="$Reactor_8cpp.html" title=" " alt="" coords="27,79,193,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="242,38,139,81,137,76,239,33"/>
+<area shape="rect" id="Node000003" href="$sys_8hpp.html" title=" " alt="" coords="218,79,343,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="283,44,283,79,278,79,278,44"/>
+<area shape="rect" id="Node000007" href="$Trace_8cpp.html" title=" " alt="" coords="367,79,530,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="321,34,422,76,420,81,319,38"/>
+<area shape="rect" id="Node000004" href="$EchoClnt_8cpp.html" title=" " alt="" coords="5,152,172,177"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="238,111,121,154,119,149,236,106"/>
+<area shape="rect" id="Node000005" href="$EchoServ_8cpp.html" title=" " alt="" coords="196,152,365,177"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="283,118,283,152,278,152,278,118"/>
+<area shape="rect" id="Node000006" href="$HttpServ_8cpp.html" title=" " alt="" coords="389,152,556,177"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="325,106,442,149,440,154,324,111"/>
 </map>

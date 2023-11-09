@@ -1,8 +1,13 @@
 <map id="toolbox/util/Storage.cpp" name="toolbox/util/Storage.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="114,5,291,32"/>
-<area shape="rect" id="node2" href="$Storage_8hpp.html" title=" " alt="" coords="153,80,253,107"/>
-<area shape="rect" id="node3" href="$Allocator_8hpp.html" title=" " alt="" coords="33,155,218,181"/>
-<area shape="rect" id="node6" title=" " alt="" coords="243,155,320,181"/>
-<area shape="rect" id="node4" href="$Config_8h.html" title=" " alt="" coords="5,229,133,256"/>
-<area shape="rect" id="node5" title=" " alt="" coords="158,229,207,256"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="114,5,291,31"/>
+<area shape="rect" id="Node000002" href="$Storage_8hpp.html" title=" " alt="" coords="153,79,253,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,31,205,65,200,65,200,31"/>
+<area shape="rect" id="Node000003" href="$Allocator_8hpp.html" title=" " alt="" coords="33,152,218,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="192,106,150,144,146,141,188,102"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="243,152,320,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="217,102,260,141,257,145,214,106"/>
+<area shape="rect" id="Node000004" href="$Config_8h.html" title=" " alt="" coords="5,225,133,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="118,179,89,216,85,213,114,176"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="158,225,207,251"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="137,176,167,213,163,216,133,179"/>
 </map>

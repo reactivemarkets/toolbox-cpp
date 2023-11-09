@@ -1,5 +1,7 @@
 <map id="toolbox/util/Allocator.hpp" name="toolbox/util/Allocator.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="33,5,218,32"/>
-<area shape="rect" id="node2" href="$Config_8h.html" title=" " alt="" coords="5,80,133,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="158,80,207,107"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="33,5,218,31"/>
+<area shape="rect" id="Node000002" href="$Config_8h.html" title=" " alt="" coords="5,79,133,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,33,89,69,85,66,114,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="158,79,207,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="137,29,167,66,163,70,133,33"/>
 </map>

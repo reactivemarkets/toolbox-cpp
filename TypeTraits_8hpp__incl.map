@@ -1,9 +1,15 @@
 <map id="toolbox/util/TypeTraits.hpp" name="toolbox/util/TypeTraits.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="187,5,381,32"/>
-<area shape="rect" id="node2" href="$util_2Utility_8hpp.html" title=" " alt="" coords="133,80,299,107"/>
-<area shape="rect" id="node7" title=" " alt="" coords="324,80,383,107"/>
-<area shape="rect" id="node3" href="$Config_8h.html" title=" " alt="" coords="5,155,133,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="158,155,197,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="221,155,288,181"/>
-<area shape="rect" id="node6" title=" " alt="" coords="313,155,410,181"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="187,5,381,31"/>
+<area shape="rect" id="Node000002" href="$util_2Utility_8hpp.html" title=" " alt="" coords="133,79,299,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="275,33,239,70,235,67,271,29"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="324,79,383,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="297,29,335,67,331,71,294,33"/>
+<area shape="rect" id="Node000003" href="$Config_8h.html" title=" " alt="" coords="5,152,133,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="194,106,107,148,104,144,191,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="158,152,197,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="212,106,192,141,188,139,207,103"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="221,152,288,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="225,103,244,139,240,141,220,106"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="313,152,410,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="241,102,327,144,324,148,238,106"/>
 </map>

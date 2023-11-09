@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['messaging_0',['Messaging',['../md_doc_Messaging.html',1,'']]],
-  ['moscow_1',['MoSCoW',['../md_doc_MoSCoW.html',1,'']]]
+  ['from_20source_0',['Build from Source',['../md_doc_2BuildFromSource.html',1,'']]]
 ];

@@ -1,7 +1,11 @@
 <map id="toolbox::hdr::CountAddedIterator" name="toolbox::hdr::CountAddedIterator">
-<area shape="rect" id="node1" title="CountAddedIterator is a recorded value iterator." alt="" coords="209,49,396,90"/>
-<area shape="rect" id="node3" href="$classtoolbox_1_1hdr_1_1LinearIterator.html" title="LinearIterator is a linear value iterator." alt="" coords="455,5,651,32"/>
-<area shape="rect" id="node4" href="$classtoolbox_1_1hdr_1_1LogIterator.html" title="LogIterator is a logarithmic value iterator." alt="" coords="463,56,642,83"/>
-<area shape="rect" id="node5" href="$classtoolbox_1_1hdr_1_1RecordedIterator.html" title="RecordedIterator is a recorded value iterator." alt="" coords="444,107,661,133"/>
-<area shape="rect" id="node2" href="$classtoolbox_1_1hdr_1_1Iterator.html" title="Iterator is the base iterator for all iterator types." alt="" coords="5,56,161,83"/>
+<area shape="rect" id="Node000001" title="CountAddedIterator is a recorded value iterator." alt="" coords="209,47,396,87"/>
+<area shape="rect" id="Node000003" href="$classtoolbox_1_1hdr_1_1LinearIterator.html" title="LinearIterator is a linear value iterator." alt="" coords="455,5,651,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="409,44,487,28,488,33,410,49"/>
+<area shape="rect" id="Node000004" href="$classtoolbox_1_1hdr_1_1LogIterator.html" title="LogIterator is a logarithmic value iterator." alt="" coords="463,55,642,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="410,65,463,65,463,70,410,70"/>
+<area shape="rect" id="Node000005" href="$classtoolbox_1_1hdr_1_1RecordedIterator.html" title="RecordedIterator is a recorded value iterator." alt="" coords="444,104,661,129"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="410,86,488,101,487,107,409,91"/>
+<area shape="rect" id="Node000002" href="$classtoolbox_1_1hdr_1_1Iterator.html" title="Iterator is the base iterator for all iterator types." alt="" coords="5,55,161,80"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,65,209,65,209,70,175,70"/>
 </map>

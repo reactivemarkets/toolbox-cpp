@@ -1,7 +1,11 @@
 <map id="toolbox/util/RefCount.ut.cpp" name="toolbox/util/RefCount.ut.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="143,5,347,32"/>
-<area shape="rect" id="node2" href="$RefCount_8hpp.html" title=" " alt="" coords="106,80,217,107"/>
-<area shape="rect" id="node5" title=" " alt="" coords="241,80,417,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,155,176,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="200,155,267,181"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="143,5,347,31"/>
+<area shape="rect" id="Node000002" href="$RefCount_8hpp.html" title=" " alt="" coords="106,79,217,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="234,33,187,72,184,67,230,29"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="241,79,417,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="261,29,307,67,303,72,257,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,176,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="152,106,114,144,110,140,148,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="200,152,267,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="175,102,214,140,210,144,171,106"/>
 </map>

@@ -1,5 +1,7 @@
 <map id="toolbox/util/RefCount.hpp" name="toolbox/util/RefCount.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="67,5,255,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,176,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="200,80,267,107"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="67,5,255,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,176,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,33,114,71,110,67,148,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="200,79,267,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="175,29,214,67,210,71,171,33"/>
 </map>

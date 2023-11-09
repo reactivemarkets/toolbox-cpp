@@ -1,10 +1,19 @@
 <map id="toolbox/http/Conn.hpp" name="toolbox/http/Conn.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="203,5,370,32"/>
-<area shape="rect" id="node2" href="$http_8hpp.html" title=" " alt="" coords="187,155,317,181"/>
-<area shape="rect" id="node4" href="$App_8hpp.html" title=" " alt="" coords="30,80,189,107"/>
-<area shape="rect" id="node6" href="$Conn_8cpp.html" title=" " alt="" coords="264,80,429,107"/>
-<area shape="rect" id="node7" href="$Serv_8hpp.html" title=" " alt="" coords="454,80,615,107"/>
-<area shape="rect" id="node3" href="$HttpServ_8cpp.html" title=" " alt="" coords="169,229,335,256"/>
-<area shape="rect" id="node5" href="$App_8cpp.html" title=" " alt="" coords="5,155,163,181"/>
-<area shape="rect" id="node8" href="$Serv_8cpp.html" title=" " alt="" coords="455,155,615,181"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="203,5,370,31"/>
+<area shape="rect" id="Node000002" href="$http_8hpp.html" title=" " alt="" coords="187,152,317,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="272,43,255,79,250,118,253,151,247,152,245,118,249,78,267,41"/>
+<area shape="rect" id="Node000004" href="$App_8hpp.html" title=" " alt="" coords="30,79,189,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="246,38,139,81,137,76,244,33"/>
+<area shape="rect" id="Node000006" href="$Conn_8cpp.html" title=" " alt="" coords="264,79,429,104"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="307,40,339,77,335,80,303,43"/>
+<area shape="rect" id="Node000007" href="$Serv_8hpp.html" title=" " alt="" coords="454,79,615,104"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="340,32,495,76,494,81,339,37"/>
+<area shape="rect" id="Node000003" href="$HttpServ_8cpp.html" title=" " alt="" coords="169,225,335,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="255,191,255,225,249,225,249,191"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="146,108,230,149,227,154,143,112"/>
+<area shape="rect" id="Node000005" href="$App_8cpp.html" title=" " alt="" coords="5,152,163,177"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="103,118,91,153,86,151,98,116"/>
+<area shape="poly" id="edge8_Node000007_Node000002" title=" " alt="" coords="477,110,298,154,297,149,475,105"/>
+<area shape="rect" id="Node000008" href="$Serv_8cpp.html" title=" " alt="" coords="455,152,615,177"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="537,118,537,152,532,152,532,118"/>
 </map>

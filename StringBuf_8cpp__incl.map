@@ -1,7 +1,11 @@
 <map id="toolbox/util/StringBuf.cpp" name="toolbox/util/StringBuf.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="52,5,239,32"/>
-<area shape="rect" id="node2" href="$StringBuf_8hpp.html" title=" " alt="" coords="91,80,200,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,162,72,189"/>
-<area shape="rect" id="node4" title=" " alt="" coords="97,162,194,189"/>
-<area shape="rect" id="node5" title=" " alt="" coords="218,155,379,196"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="52,5,239,31"/>
+<area shape="rect" id="Node000002" href="$StringBuf_8hpp.html" title=" " alt="" coords="91,79,200,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,31,148,65,143,65,143,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,159,72,185"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="131,106,67,153,64,149,128,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="97,159,194,185"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="148,104,148,145,143,145,143,104"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="218,152,379,192"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="169,102,251,143,248,148,167,107"/>
 </map>

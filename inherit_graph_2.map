@@ -1,9 +1,15 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,81,96,108"/>
-<area shape="rect" id="node2" href="$structtoolbox_1_1net_1_1Sock.html" title=" " alt="" coords="144,81,283,108"/>
-<area shape="rect" id="node3" href="$structtoolbox_1_1net_1_1IoSock.html" title=" " alt="" coords="363,56,513,83"/>
-<area shape="rect" id="node7" href="$structtoolbox_1_1net_1_1StreamSockServ.html" title="Passive Server Stream Socket. All state is in base class, so object can be sliced." alt="" coords="331,107,545,133"/>
-<area shape="rect" id="node4" href="$structtoolbox_1_1net_1_1DgramSock.html" title="Connectionless Datagram Socket. All state is in base class, so object can be sliced." alt="" coords="608,5,791,32"/>
-<area shape="rect" id="node5" href="$structtoolbox_1_1net_1_1McastSock.html" title="Connectionless Datagram Socket. All state is in base class, so object can be sliced." alt="" coords="610,56,789,83"/>
-<area shape="rect" id="node6" href="$structtoolbox_1_1net_1_1StreamSockClnt.html" title="Active Client Stream Socket. All state is in base class, so object can be sliced." alt="" coords="593,107,805,133"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,80,96,105"/>
+<area shape="rect" id="Node000001" href="$structtoolbox_1_1net_1_1Sock.html" title=" " alt="" coords="144,80,283,105"/>
+<area shape="poly" id="edge5_Node000000_Node000001" title=" " alt="" coords="110,90,143,90,143,95,110,95"/>
+<area shape="rect" id="Node000002" href="$structtoolbox_1_1net_1_1IoSock.html" title=" " alt="" coords="363,55,513,80"/>
+<area shape="poly" id="edge6_Node000001_Node000002" title=" " alt="" coords="297,81,362,73,363,78,297,86"/>
+<area shape="rect" id="Node000006" href="$structtoolbox_1_1net_1_1StreamSockServ.html" title="Passive Server Stream Socket. All state is in base class, so object can be sliced." alt="" coords="331,104,545,129"/>
+<area shape="poly" id="edge10_Node000001_Node000006" title=" " alt="" coords="297,99,331,103,330,108,296,104"/>
+<area shape="rect" id="Node000003" href="$structtoolbox_1_1net_1_1DgramSock.html" title="Connectionless Datagram Socket. All state is in base class, so object can be sliced." alt="" coords="608,5,791,31"/>
+<area shape="poly" id="edge7_Node000002_Node000003" title=" " alt="" coords="519,49,631,28,632,33,520,55"/>
+<area shape="rect" id="Node000004" href="$structtoolbox_1_1net_1_1McastSock.html" title="Connectionless Datagram Socket. All state is in base class, so object can be sliced." alt="" coords="610,55,789,80"/>
+<area shape="poly" id="edge8_Node000002_Node000004" title=" " alt="" coords="527,65,610,65,610,70,527,70"/>
+<area shape="rect" id="Node000005" href="$structtoolbox_1_1net_1_1StreamSockClnt.html" title="Active Client Stream Socket. All state is in base class, so object can be sliced." alt="" coords="593,104,805,129"/>
+<area shape="poly" id="edge9_Node000002_Node000005" title=" " alt="" coords="520,80,632,101,631,107,519,85"/>
 </map>

@@ -1,6 +1,9 @@
 <map id="toolbox::http::BasicConn&lt; RequestT, AppT &gt;" name="toolbox::http::BasicConn&lt; RequestT, AppT &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="305,57,487,98"/>
-<area shape="rect" id="node2" title=" " alt="" coords="91,5,171,32"/>
-<area shape="rect" id="node3" title=" " alt="" coords="33,57,230,98"/>
-<area shape="rect" id="node4" href="$classtoolbox_1_1http_1_1BasicParser.html" title=" " alt="" coords="5,122,257,163"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="305,55,487,95"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="91,5,171,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,26,258,41,311,53,310,58,257,46,184,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="33,55,230,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="244,73,305,73,305,78,244,78"/>
+<area shape="rect" id="Node000004" href="$classtoolbox_1_1http_1_1BasicParser.html" title=" " alt="" coords="5,119,257,159"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="227,113,312,93,313,98,229,119"/>
 </map>

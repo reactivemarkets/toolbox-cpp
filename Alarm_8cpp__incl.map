@@ -1,5 +1,7 @@
 <map id="toolbox/util/Alarm.cpp" name="toolbox/util/Alarm.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,172,32"/>
-<area shape="rect" id="node2" href="$Alarm_8hpp.html" title=" " alt="" coords="44,80,133,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="57,155,121,181"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,172,31"/>
+<area shape="rect" id="Node000002" href="$Alarm_8hpp.html" title=" " alt="" coords="44,79,133,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,31,91,65,86,65,86,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="57,152,121,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="91,104,91,138,86,138,86,104"/>
 </map>

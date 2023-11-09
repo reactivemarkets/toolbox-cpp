@@ -1,16 +1,29 @@
 <map id="toolbox/http/Exception.hpp" name="toolbox/http/Exception.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="297,5,494,32"/>
-<area shape="rect" id="node2" href="$http_2Error_8hpp.html" title=" " alt="" coords="214,80,377,107"/>
-<area shape="rect" id="node7" href="$util_2Exception_8hpp.html" title=" " alt="" coords="401,80,593,107"/>
-<area shape="rect" id="node3" href="$Types_8hpp.html" title=" " alt="" coords="65,155,235,181"/>
-<area shape="rect" id="node6" title=" " alt="" coords="260,155,368,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,229,156,271"/>
-<area shape="rect" id="node5" title=" " alt="" coords="181,237,261,263"/>
-<area shape="rect" id="node8" href="$util_2Stream_8hpp.html" title=" " alt="" coords="409,155,584,181"/>
-<area shape="rect" id="node9" href="$Storage_8hpp.html" title=" " alt="" coords="337,237,515,263"/>
-<area shape="rect" id="node14" title=" " alt="" coords="540,237,701,263"/>
-<area shape="rect" id="node10" href="$Allocator_8hpp.html" title=" " alt="" coords="255,319,440,345"/>
-<area shape="rect" id="node13" title=" " alt="" coords="465,319,542,345"/>
-<area shape="rect" id="node11" href="$Config_8h.html" title=" " alt="" coords="227,393,355,420"/>
-<area shape="rect" id="node12" title=" " alt="" coords="380,393,429,420"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="297,5,494,31"/>
+<area shape="rect" id="Node000002" href="$http_2Error_8hpp.html" title=" " alt="" coords="214,79,377,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="381,33,324,73,321,68,378,29"/>
+<area shape="rect" id="Node000007" href="$util_2Exception_8hpp.html" title=" " alt="" coords="401,79,593,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="413,28,470,68,467,73,410,33"/>
+<area shape="rect" id="Node000003" href="$Types_8hpp.html" title=" " alt="" coords="65,152,235,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="273,106,187,148,185,144,271,102"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="260,152,368,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="301,104,310,138,305,140,296,105"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,225,156,265"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="142,179,108,217,104,213,138,176"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="181,233,261,258"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="162,176,203,221,199,224,158,179"/>
+<area shape="rect" id="Node000008" href="$util_2Stream_8hpp.html" title=" " alt="" coords="409,152,584,177"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="499,104,499,138,494,138,494,104"/>
+<area shape="rect" id="Node000009" href="$Storage_8hpp.html" title=" " alt="" coords="337,233,515,258"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="488,179,448,224,444,221,484,176"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="540,233,701,258"/>
+<area shape="poly" id="edge13_Node000008_Node000014" title=" " alt="" coords="516,175,592,223,589,227,514,180"/>
+<area shape="rect" id="Node000010" href="$Allocator_8hpp.html" title=" " alt="" coords="255,313,440,339"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="416,260,371,305,367,302,413,256"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="465,313,542,339"/>
+<area shape="poly" id="edge12_Node000009_Node000013" title=" " alt="" coords="439,256,484,302,480,305,436,260"/>
+<area shape="rect" id="Node000011" href="$Config_8h.html" title=" " alt="" coords="227,387,355,412"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="340,341,311,377,307,374,336,337"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="380,387,429,412"/>
+<area shape="poly" id="edge11_Node000010_Node000012" title=" " alt="" coords="359,337,389,374,385,378,355,341"/>
 </map>

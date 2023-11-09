@@ -1,14 +1,26 @@
 <map id="toolbox/util/Alarm.hpp" name="toolbox/util/Alarm.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="523,5,689,32"/>
-<area shape="rect" id="node2" href="$Context_8hpp.html" title=" " alt="" coords="135,80,314,107"/>
-<area shape="rect" id="node8" href="$util_8hpp.html" title=" " alt="" coords="544,80,668,107"/>
-<area shape="rect" id="node12" href="$Alarm_8cpp.html" title=" " alt="" coords="692,80,859,107"/>
-<area shape="rect" id="node3" href="$bm_8hpp.html" title=" " alt="" coords="5,229,129,256"/>
-<area shape="rect" id="node4" href="$Context_8cpp.html" title=" " alt="" coords="38,155,217,181"/>
-<area shape="rect" id="node5" href="$Suite_8hpp.html" title=" " alt="" coords="241,155,403,181"/>
-<area shape="rect" id="node6" href="$Benchmark_8cpp.html" title=" " alt="" coords="187,229,388,256"/>
-<area shape="rect" id="node7" href="$Suite_8cpp.html" title=" " alt="" coords="413,229,573,256"/>
-<area shape="rect" id="node9" href="$EchoClnt_8cpp.html" title=" " alt="" coords="427,155,593,181"/>
-<area shape="rect" id="node10" href="$EchoServ_8cpp.html" title=" " alt="" coords="617,155,787,181"/>
-<area shape="rect" id="node11" href="$HttpServ_8cpp.html" title=" " alt="" coords="811,155,977,181"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="523,5,689,31"/>
+<area shape="rect" id="Node000002" href="$Context_8hpp.html" title=" " alt="" coords="135,79,314,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="532,36,287,81,286,76,531,31"/>
+<area shape="rect" id="Node000008" href="$util_8hpp.html" title=" " alt="" coords="544,79,668,104"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="609,44,609,79,603,79,603,44"/>
+<area shape="rect" id="Node000012" href="$Alarm_8cpp.html" title=" " alt="" coords="692,79,859,104"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="647,34,749,76,747,81,645,38"/>
+<area shape="rect" id="Node000003" href="$bm_8hpp.html" title=" " alt="" coords="5,225,129,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="123,101,96,109,70,119,47,134,28,153,23,171,29,190,42,208,56,223,52,227,37,211,24,192,18,171,24,151,44,130,68,115,94,103,121,96"/>
+<area shape="rect" id="Node000004" href="$Context_8cpp.html" title=" " alt="" coords="38,152,217,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="199,114,145,154,142,150,196,110"/>
+<area shape="rect" id="Node000005" href="$Suite_8hpp.html" title=" " alt="" coords="241,152,403,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="253,110,308,150,305,154,250,114"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="268,184,109,228,108,223,267,179"/>
+<area shape="rect" id="Node000006" href="$Benchmark_8cpp.html" title=" " alt="" coords="187,225,388,251"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="313,191,295,226,291,224,308,189"/>
+<area shape="rect" id="Node000007" href="$Suite_8cpp.html" title=" " alt="" coords="413,225,573,251"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="363,180,466,223,464,228,361,185"/>
+<area shape="rect" id="Node000009" href="$EchoClnt_8cpp.html" title=" " alt="" coords="427,152,593,177"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="581,114,527,154,524,150,578,110"/>
+<area shape="rect" id="Node000010" href="$EchoServ_8cpp.html" title=" " alt="" coords="617,152,787,177"/>
+<area shape="poly" id="edge10_Node000008_Node000010" title=" " alt="" coords="634,110,688,150,685,154,631,114"/>
+<area shape="rect" id="Node000011" href="$HttpServ_8cpp.html" title=" " alt="" coords="811,152,977,177"/>
+<area shape="poly" id="edge11_Node000008_Node000011" title=" " alt="" coords="666,105,848,149,847,154,665,110"/>
 </map>

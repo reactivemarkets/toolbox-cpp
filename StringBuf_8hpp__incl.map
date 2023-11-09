@@ -1,6 +1,9 @@
 <map id="toolbox/util/StringBuf.hpp" name="toolbox/util/StringBuf.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="52,5,239,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,87,72,114"/>
-<area shape="rect" id="node3" title=" " alt="" coords="97,87,194,114"/>
-<area shape="rect" id="node4" title=" " alt="" coords="218,80,379,121"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="52,5,239,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,86,72,111"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,33,67,80,64,76,128,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="97,86,194,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="148,31,148,72,143,72,143,31"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="218,79,379,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="169,28,251,70,248,75,167,33"/>
 </map>

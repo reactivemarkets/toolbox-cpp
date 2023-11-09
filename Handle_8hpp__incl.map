@@ -1,5 +1,7 @@
 <map id="toolbox/io/Handle.hpp" name="toolbox/io/Handle.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,171,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="13,80,73,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="97,80,172,107"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,171,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="13,79,73,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,32,60,69,55,66,78,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="97,79,172,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="98,30,122,66,117,69,93,32"/>
 </map>

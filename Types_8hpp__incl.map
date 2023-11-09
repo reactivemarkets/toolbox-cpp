@@ -1,5 +1,7 @@
 <map id="toolbox/http/Types.hpp" name="toolbox/http/Types.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="65,5,235,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,80,156,121"/>
-<area shape="rect" id="node3" title=" " alt="" coords="181,87,261,114"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="65,5,235,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,156,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,33,108,70,104,67,138,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="181,86,261,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="162,29,203,74,199,77,158,33"/>
 </map>

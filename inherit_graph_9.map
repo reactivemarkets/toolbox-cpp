@@ -1,10 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,85,112,112"/>
-<area shape="rect" id="node2" title=" " alt="" coords="160,85,331,112"/>
-<area shape="rect" id="node3" title=" " alt="" coords="379,78,524,119"/>
-<area shape="rect" id="node4" title=" " alt="" coords="572,85,676,112"/>
-<area shape="rect" id="node5" href="$classtoolbox_1_1http_1_1OStream.html" title=" " alt="" coords="740,5,911,32"/>
-<area shape="rect" id="node6" href="$classtoolbox_1_1io_1_1OStream.html" title=" " alt="" coords="747,56,903,83"/>
-<area shape="rect" id="node7" href="$classtoolbox_1_1util_1_1OStaticStream.html" title=" " alt="" coords="724,107,927,149"/>
-<area shape="rect" id="node8" href="$classtoolbox_1_1util_1_1OStream.html" title="OStream uses a dynamic storage acquired from the custom allocator." alt="" coords="743,173,908,214"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,13,147,38"/>
+<area shape="rect" id="Node000001" href="$structtoolbox_1_1util_1_1is__string.html" title=" " alt="" coords="195,5,357,45"/>
+<area shape="poly" id="edge26_Node000000_Node000001" title=" " alt="" coords="161,23,195,23,195,28,161,28"/>
 </map>

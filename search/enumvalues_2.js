@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['cachelinebits_0',['CacheLineBits',['../namespacetoolbox_1_1sys.html#a5c730f2f9701593805e3100310236dafa8acfddd7a7f996d181c34e896bd56029',1,'toolbox::CacheLineBits()'],['../namespacetoolbox_1_1sys.html#a5c730f2f9701593805e3100310236dafa8acfddd7a7f996d181c34e896bd56029',1,'toolbox::sys::CacheLineBits()']]],
-  ['cachelinesize_1',['CacheLineSize',['../namespacetoolbox_1_1sys.html#a5c730f2f9701593805e3100310236dafa4fa18392e743231789ae324ea0f9c2ba',1,'toolbox::CacheLineSize()'],['../namespacetoolbox_1_1sys.html#a5c730f2f9701593805e3100310236dafa4fa18392e743231789ae324ea0f9c2ba',1,'toolbox::sys::CacheLineSize()']]],
+  ['cachelinebits_0',['cachelinebits',['../namespacetoolbox_1_1sys.html#a5c730f2f9701593805e3100310236dafa8acfddd7a7f996d181c34e896bd56029',1,'toolbox::CacheLineBits'],['../namespacetoolbox_1_1sys.html#a5c730f2f9701593805e3100310236dafa8acfddd7a7f996d181c34e896bd56029',1,'toolbox::sys::CacheLineBits']]],
+  ['cachelinesize_1',['cachelinesize',['../namespacetoolbox_1_1sys.html#a5c730f2f9701593805e3100310236dafa4fa18392e743231789ae324ea0f9c2ba',1,'toolbox::CacheLineSize'],['../namespacetoolbox_1_1sys.html#a5c730f2f9701593805e3100310236dafa4fa18392e743231789ae324ea0f9c2ba',1,'toolbox::sys::CacheLineSize']]],
   ['checkout_2',['Checkout',['../namespacetoolbox_1_1http.html#a5d4efc1a1b4fd201049d4805d48b7307a6ff063fbc860a79759a7369ac32cee22',1,'toolbox::http']]],
   ['commandline_3',['CommandLine',['../namespacetoolbox_1_1resp.html#a3d867d27a7f1688d91c4cb6d2998ec03adf714287fd34ddf055d734552da38b15',1,'toolbox::resp']]],
   ['connect_4',['Connect',['../namespacetoolbox_1_1http.html#a5d4efc1a1b4fd201049d4805d48b7307a49ab28040dfa07f53544970c6d147e1e',1,'toolbox::http']]],

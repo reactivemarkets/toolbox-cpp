@@ -1,9 +1,15 @@
 <map id="toolbox/bm/Context.cpp" name="toolbox/bm/Context.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="145,5,324,32"/>
-<area shape="rect" id="node2" href="$Context_8hpp.html" title=" " alt="" coords="184,80,285,107"/>
-<area shape="rect" id="node3" href="$Range_8hpp.html" title=" " alt="" coords="54,155,223,181"/>
-<area shape="rect" id="node6" href="$Alarm_8hpp.html" title=" " alt="" coords="247,155,414,181"/>
-<area shape="rect" id="node4" href="$Config_8h.html" title=" " alt="" coords="5,229,133,256"/>
-<area shape="rect" id="node5" title=" " alt="" coords="157,229,224,256"/>
-<area shape="rect" id="node7" title=" " alt="" coords="299,229,363,256"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="145,5,324,31"/>
+<area shape="rect" id="Node000002" href="$Context_8hpp.html" title=" " alt="" coords="184,79,285,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="237,31,237,65,232,65,232,31"/>
+<area shape="rect" id="Node000003" href="$Range_8hpp.html" title=" " alt="" coords="54,152,223,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="221,106,167,146,164,141,218,102"/>
+<area shape="rect" id="Node000006" href="$Alarm_8hpp.html" title=" " alt="" coords="247,152,414,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="252,102,305,141,302,146,249,106"/>
+<area shape="rect" id="Node000004" href="$Config_8h.html" title=" " alt="" coords="5,225,133,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="129,180,92,217,88,214,125,176"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="157,225,224,251"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="149,176,176,213,172,216,145,179"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="299,225,363,251"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="333,178,333,212,328,212,328,178"/>
 </map>

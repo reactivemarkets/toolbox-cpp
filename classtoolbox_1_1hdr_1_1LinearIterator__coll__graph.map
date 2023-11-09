@@ -1,6 +1,9 @@
 <map id="toolbox::hdr::LinearIterator" name="toolbox::hdr::LinearIterator">
-<area shape="rect" id="node1" title="LinearIterator is a linear value iterator." alt="" coords="5,261,201,288"/>
-<area shape="rect" id="node2" href="$classtoolbox_1_1hdr_1_1CountAddedIterator.html" title="CountAddedIterator is a recorded value iterator." alt="" coords="10,171,197,212"/>
-<area shape="rect" id="node3" href="$classtoolbox_1_1hdr_1_1Iterator.html" title="Iterator is the base iterator for all iterator types." alt="" coords="25,95,181,121"/>
-<area shape="rect" id="node4" href="$classtoolbox_1_1hdr_1_1Histogram.html" title="A High Dynamic Range (HDR) Histogram." alt="" coords="15,5,191,32"/>
+<area shape="rect" id="Node000001" title="LinearIterator is a linear value iterator." alt="" coords="5,257,201,283"/>
+<area shape="rect" id="Node000002" href="$classtoolbox_1_1hdr_1_1CountAddedIterator.html" title="CountAddedIterator is a recorded value iterator." alt="" coords="10,168,197,208"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,222,106,257,101,257,101,222"/>
+<area shape="rect" id="Node000003" href="$classtoolbox_1_1hdr_1_1Iterator.html" title="Iterator is the base iterator for all iterator types." alt="" coords="25,93,181,119"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="106,132,106,168,101,168,101,132"/>
+<area shape="rect" id="Node000004" href="$classtoolbox_1_1hdr_1_1Histogram.html" title="A High Dynamic Range (HDR) Histogram." alt="" coords="15,5,191,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="106,45,106,93,101,93,101,45"/>
 </map>

@@ -1,7 +1,11 @@
 <map id="toolbox/http/Types.ut.cpp" name="toolbox/http/Types.ut.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="134,5,321,32"/>
-<area shape="rect" id="node2" href="$Types_8hpp.html" title=" " alt="" coords="107,80,193,107"/>
-<area shape="rect" id="node5" title=" " alt="" coords="218,80,394,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,155,156,196"/>
-<area shape="rect" id="node4" title=" " alt="" coords="181,162,261,189"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="134,5,321,31"/>
+<area shape="rect" id="Node000002" href="$Types_8hpp.html" title=" " alt="" coords="107,79,193,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,33,175,71,171,67,213,29"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="218,79,394,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="242,29,285,68,281,71,238,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,156,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="142,106,108,144,104,140,138,102"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="181,159,261,185"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="162,102,203,147,199,151,158,106"/>
 </map>

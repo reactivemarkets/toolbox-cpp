@@ -1,6 +1,9 @@
 <map id="toolbox/util/TaskQueue.cpp" name="toolbox/util/TaskQueue.cpp">
-<area shape="rect" id="node1" title=" " alt="" coords="40,5,239,32"/>
-<area shape="rect" id="node2" href="$TaskQueue_8hpp.html" title=" " alt="" coords="79,80,200,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,155,148,181"/>
-<area shape="rect" id="node4" title=" " alt="" coords="172,155,235,181"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="40,5,239,31"/>
+<area shape="rect" id="Node000002" href="$TaskQueue_8hpp.html" title=" " alt="" coords="79,79,200,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,31,142,65,137,65,137,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,148,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="131,106,98,143,94,140,127,103"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="172,152,235,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="152,103,186,140,182,144,148,106"/>
 </map>

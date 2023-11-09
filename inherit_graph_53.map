@@ -1,4 +1,13 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classtoolbox_1_1http_1_1BasicUrl.html" title=" " alt="" coords="5,5,172,47"/>
-<area shape="rect" id="node2" href="$classtoolbox_1_1http_1_1UrlView.html" title=" " alt="" coords="220,13,384,39"/>
+<area shape="rect" id="Node000000" href="$structtoolbox_1_1util_1_1IntPolicy.html" title=" " alt="" coords="20,15,155,55"/>
+<area shape="rect" id="Node000001" href="$structtoolbox_1_1util_1_1Id16Policy.html" title=" " alt="" coords="217,5,392,31"/>
+<area shape="poly" id="edge55_Node000000_Node000001" title=" " alt="" coords="168,26,217,22,217,28,169,32"/>
+<area shape="rect" id="Node000003" href="$structtoolbox_1_1util_1_1Id32Policy.html" title=" " alt="" coords="217,55,392,80"/>
+<area shape="poly" id="edge56_Node000000_Node000003" title=" " alt="" coords="169,45,218,52,218,57,168,50"/>
+<area shape="rect" id="Node000004" href="$structtoolbox_1_1util_1_1Id64Policy.html" title=" " alt="" coords="217,104,392,129"/>
+<area shape="poly" id="edge57_Node000000_Node000004" title=" " alt="" coords="155,58,170,65,218,89,255,101,254,106,216,94,168,70,152,63"/>
+<area shape="rect" id="Node000002" href="$structtoolbox_1_1util_1_1IntPolicy.html" title=" " alt="" coords="5,79,169,119"/>
+<area shape="poly" id="edge58_Node000002_Node000001" title=" " alt="" coords="153,72,168,65,216,40,250,28,252,33,218,44,170,70,155,77"/>
+<area shape="poly" id="edge59_Node000002_Node000003" title=" " alt="" coords="183,83,218,77,219,83,184,88"/>
+<area shape="poly" id="edge60_Node000002_Node000004" title=" " alt="" coords="184,104,217,107,217,112,183,110"/>
 </map>

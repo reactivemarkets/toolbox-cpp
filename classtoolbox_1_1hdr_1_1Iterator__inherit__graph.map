@@ -1,8 +1,13 @@
 <map id="toolbox::hdr::Iterator" name="toolbox::hdr::Iterator">
-<area shape="rect" id="node1" title="Iterator is the base iterator for all iterator types." alt="" coords="5,89,161,116"/>
-<area shape="rect" id="node2" href="$classtoolbox_1_1hdr_1_1CountAddedIterator.html" title="CountAddedIterator is a recorded value iterator." alt="" coords="209,49,396,90"/>
-<area shape="rect" id="node6" href="$classtoolbox_1_1hdr_1_1PercentileIterator.html" title="PercentileIterator is a percentile iterator." alt="" coords="216,114,389,155"/>
-<area shape="rect" id="node3" href="$classtoolbox_1_1hdr_1_1LinearIterator.html" title="LinearIterator is a linear value iterator." alt="" coords="455,5,651,32"/>
-<area shape="rect" id="node4" href="$classtoolbox_1_1hdr_1_1LogIterator.html" title="LogIterator is a logarithmic value iterator." alt="" coords="463,56,642,83"/>
-<area shape="rect" id="node5" href="$classtoolbox_1_1hdr_1_1RecordedIterator.html" title="RecordedIterator is a recorded value iterator." alt="" coords="444,107,661,133"/>
+<area shape="rect" id="Node000001" title="Iterator is the base iterator for all iterator types." alt="" coords="5,87,161,112"/>
+<area shape="rect" id="Node000002" href="$classtoolbox_1_1hdr_1_1CountAddedIterator.html" title="CountAddedIterator is a recorded value iterator." alt="" coords="209,47,396,87"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,83,209,78,209,84,176,89"/>
+<area shape="rect" id="Node000006" href="$classtoolbox_1_1hdr_1_1PercentileIterator.html" title="PercentileIterator is a percentile iterator." alt="" coords="216,111,389,151"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="175,110,216,116,215,121,175,115"/>
+<area shape="rect" id="Node000003" href="$classtoolbox_1_1hdr_1_1LinearIterator.html" title="LinearIterator is a linear value iterator." alt="" coords="455,5,651,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="409,44,487,28,488,33,410,49"/>
+<area shape="rect" id="Node000004" href="$classtoolbox_1_1hdr_1_1LogIterator.html" title="LogIterator is a logarithmic value iterator." alt="" coords="463,55,642,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="410,65,463,65,463,70,410,70"/>
+<area shape="rect" id="Node000005" href="$classtoolbox_1_1hdr_1_1RecordedIterator.html" title="RecordedIterator is a recorded value iterator." alt="" coords="444,104,661,129"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="410,86,488,101,487,107,409,91"/>
 </map>

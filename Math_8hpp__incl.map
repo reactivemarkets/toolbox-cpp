@@ -1,6 +1,9 @@
 <map id="toolbox/util/Math.hpp" name="toolbox/util/Math.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="97,5,258,32"/>
-<area shape="rect" id="node2" href="$Config_8h.html" title=" " alt="" coords="5,80,133,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="158,80,197,107"/>
-<area shape="rect" id="node4" title=" " alt="" coords="221,80,283,107"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="97,5,258,31"/>
+<area shape="rect" id="Node000002" href="$Config_8h.html" title=" " alt="" coords="5,79,133,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,33,100,73,97,69,159,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="158,79,197,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="180,31,180,65,175,65,175,31"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="221,79,283,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="191,29,232,67,228,71,187,33"/>
 </map>

@@ -1,6 +1,9 @@
 <map id="toolbox::util::IntPolicy&lt; ValueT &gt;" name="toolbox::util::IntPolicy&lt; ValueT &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="209,5,373,47"/>
-<area shape="rect" id="node2" href="$structtoolbox_1_1util_1_1Id16Policy.html" title=" " alt="" coords="5,95,180,121"/>
-<area shape="rect" id="node3" href="$structtoolbox_1_1util_1_1Id32Policy.html" title=" " alt="" coords="204,95,379,121"/>
-<area shape="rect" id="node4" href="$structtoolbox_1_1util_1_1Id64Policy.html" title=" " alt="" coords="403,95,577,121"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="209,5,373,45"/>
+<area shape="rect" id="Node000002" href="$structtoolbox_1_1util_1_1Id16Policy.html" title=" " alt="" coords="5,93,180,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="232,53,123,96,121,91,230,48"/>
+<area shape="rect" id="Node000003" href="$structtoolbox_1_1util_1_1Id32Policy.html" title=" " alt="" coords="204,93,379,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="294,59,294,93,289,93,289,59"/>
+<area shape="rect" id="Node000004" href="$structtoolbox_1_1util_1_1Id64Policy.html" title=" " alt="" coords="403,93,577,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="352,48,462,91,460,96,350,53"/>
 </map>

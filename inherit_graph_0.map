@@ -1,6 +1,9 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="91,5,171,32"/>
-<area shape="rect" id="node2" href="$classtoolbox_1_1http_1_1BasicConn.html" title=" " alt="" coords="305,49,487,90"/>
-<area shape="rect" id="node3" title=" " alt="" coords="74,56,189,83"/>
-<area shape="rect" id="node4" href="$classtoolbox_1_1http_1_1BasicParser.html" title=" " alt="" coords="5,107,257,149"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="91,5,171,31"/>
+<area shape="rect" id="Node000001" href="$classtoolbox_1_1http_1_1BasicConn.html" title=" " alt="" coords="305,47,487,87"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="186,25,306,48,305,53,185,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="74,55,189,80"/>
+<area shape="poly" id="edge2_Node000002_Node000001" title=" " alt="" coords="202,65,305,65,305,70,202,70"/>
+<area shape="rect" id="Node000003" href="$classtoolbox_1_1http_1_1BasicParser.html" title=" " alt="" coords="5,105,257,145"/>
+<area shape="poly" id="edge3_Node000003_Node000001" title=" " alt="" coords="237,99,305,84,306,89,238,104"/>
 </map>
