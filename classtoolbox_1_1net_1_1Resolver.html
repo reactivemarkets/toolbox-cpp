@@ -99,9 +99,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2dd9e0deca65ec6f0488deeb2ba7944a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1net_1_1Resolver.html#a2dd9e0deca65ec6f0488deeb2ba7944a">clear</a> ()</td></tr>
 <tr class="memdesc:a2dd9e0deca65ec6f0488deeb2ba7944a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear task queue. Any pending tasks will be cancelled, resulting in a broken promise.  <a href="classtoolbox_1_1net_1_1Resolver.html#a2dd9e0deca65ec6f0488deeb2ba7944a">More...</a><br /></td></tr>
 <tr class="separator:a2dd9e0deca65ec6f0488deeb2ba7944a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0fb295b302152b537064a5621e5ee03"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1net.html#ac4480cb34e79fe172f654642e7d0089e">AddrInfoFuture</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1net_1_1Resolver.html#ae0fb295b302152b537064a5621e5ee03">resolve</a> (const std::string &amp;uri, int type)</td></tr>
-<tr class="memdesc:ae0fb295b302152b537064a5621e5ee03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Schedule a URI socket name resolution.  <a href="classtoolbox_1_1net_1_1Resolver.html#ae0fb295b302152b537064a5621e5ee03">More...</a><br /></td></tr>
-<tr class="separator:ae0fb295b302152b537064a5621e5ee03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeffe5c64725503e0fd51988beb728c34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1net.html#ac4480cb34e79fe172f654642e7d0089e">AddrInfoFuture</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1net_1_1Resolver.html#aeffe5c64725503e0fd51988beb728c34">resolve</a> (std::string_view uri, int type)</td></tr>
+<tr class="memdesc:aeffe5c64725503e0fd51988beb728c34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Schedule a URI socket name resolution.  <a href="classtoolbox_1_1net_1_1Resolver.html#aeffe5c64725503e0fd51988beb728c34">More...</a><br /></td></tr>
+<tr class="separator:aeffe5c64725503e0fd51988beb728c34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="classtoolbox_1_1net_1_1Resolver.html">Resolver</a> is designed to resolve socket URIs to address endpoints on a background thread, which may include a DNS lookup depending on the URI. </p>
@@ -330,8 +330,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae0fb295b302152b537064a5621e5ee03" name="ae0fb295b302152b537064a5621e5ee03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0fb295b302152b537064a5621e5ee03">&#9670;&nbsp;</a></span>resolve()</h2>
+<a id="aeffe5c64725503e0fd51988beb728c34" name="aeffe5c64725503e0fd51988beb728c34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeffe5c64725503e0fd51988beb728c34">&#9670;&nbsp;</a></span>resolve()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -339,7 +339,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="namespacetoolbox_1_1net.html#ac4480cb34e79fe172f654642e7d0089e">AddrInfoFuture</a> toolbox::net::Resolver::resolve </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramtype">std::string_view&#160;</td>
           <td class="paramname"><em>uri</em>, </td>
         </tr>
         <tr>
