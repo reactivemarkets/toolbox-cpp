@@ -189,23 +189,35 @@ AsyncLogger::AsyncLogger(Logger& logger)
 {
 }
 
+AsyncLogger::AsyncLogger(Logger& logger, std::size_t tq_size)
+: logger_{logger}
+, tq_{tq_size}
+, tq_size_{tq_size}
+{
+}
+
 AsyncLogger::~AsyncLogger()
 {
     write_all_messages();
 }
 
-void AsyncLogger::write_all_messages()
+bool AsyncLogger::write_all_messages()
 {
+    std::size_t cnt{0};
     Task t;
     while (tq_.pop(t)) {
         logger_.write_log(t.ts, t.level, t.tid, LogMsgPtr{t.msg}, t.size);
+        ++cnt;
     }
+    return static_cast<double>(cnt) / tq_size_ > 0.8; // 80% full => full
 }
 
 bool AsyncLogger::run()
 {
-    write_all_messages();
-    std::this_thread::sleep_for(50ms);
+    bool full = write_all_messages();
+    if (!full) {
+        std::this_thread::sleep_for(50ms);
+    }
 
     return (!tq_.empty() || !stop_);
 }

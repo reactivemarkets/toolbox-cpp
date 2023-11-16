@@ -128,6 +128,7 @@ class TOOLBOX_API AsyncLogger : public Logger {
 
   public:
     explicit AsyncLogger(Logger& logger);
+    AsyncLogger(Logger& logger, std::size_t tq_size);
     ~AsyncLogger() override;
 
     // Copy.
@@ -146,13 +147,15 @@ class TOOLBOX_API AsyncLogger : public Logger {
     void stop();
 
   private:
-    void write_all_messages();
+    /// Returns whether tq_ was full
+    bool write_all_messages();
     void do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
                       std::size_t size) noexcept override;
 
     Logger& logger_;
     boost::lockfree::queue<Task, boost::lockfree::fixed_sized<true>> tq_{128};
     std::atomic<bool> stop_{false};
+    const std::size_t tq_size_{};
 };
 
 /// ScopedLogLevel provides a convenient RAII-style utility for setting the log-level for the
