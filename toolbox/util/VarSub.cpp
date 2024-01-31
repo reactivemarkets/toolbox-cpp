@@ -49,51 +49,52 @@ bool VarSub::substitute(string& s, const size_t i, size_t j, set<string>* outer)
     while (j < s.size()) {
         if (state == '\\') {
             state = 0;
-            // Remove backslash.
+            // Remove backslash. This shifts all remaining characters one place to the left,
+            // so there is no need to increment j.
             s.erase(j - 1, 1);
-        } else {
-            const auto ch = s[j];
-            if (state == '$') {
-                state = 0;
-                if (ch == '{') {
-                    if (j > last) {
-                        // Position has advanced.
-                        last = j;
-                        inner.clear();
-                    }
-                    // Reverse to '$'.
-                    --j;
-                    // Descend: search for closing brace and substitute.
-                    if (!substitute(s, j, j + 2, &inner)) {
-                        return false;
-                    }
-                    continue;
+            continue;
+        }
+        const auto ch = s[j];
+        if (state == '$') {
+            state = 0;
+            if (ch == '{') {
+                if (j > last) {
+                    // Position has advanced.
+                    last = j;
+                    inner.clear();
                 }
-            }
-            switch (ch) {
-            case '$':
-            case '\\':
-                state = ch;
-                break;
-            case '}':
-                // If outer is null then the closing brace was found at the top level. I.e. there is no
-                // matching opening brace.
-                if (outer) {
-                    // Substitute variable.
-                    const auto n = j - i;
-                    auto name = s.substr(i + 2, n - 2);
-                    if (outer->count(name) == 0) {
-                        s.replace(i, n + 1, fn_(name));
-                        outer->insert(std::move(name));
-                    } else {
-                        // Loop detected: this name has already been substituted at this position.
-                        s.erase(i, n + 1);
-                    }
-                    // Ascend: matched closing brace.
-                    return true;
+                // Reverse to '$'.
+                --j;
+                // Descend: search for closing brace and substitute.
+                if (!substitute(s, j, j + 2, &inner)) {
+                    return false;
                 }
-                break;
+                continue;
             }
+        }
+        switch (ch) {
+        case '$':
+        case '\\':
+            state = ch;
+            break;
+        case '}':
+            // If outer is null then the closing brace was found at the top level. I.e. there is no
+            // matching opening brace.
+            if (outer) {
+                // Substitute variable.
+                const auto n = j - i;
+                auto name = s.substr(i + 2, n - 2);
+                if (outer->count(name) == 0) {
+                    s.replace(i, n + 1, fn_(name));
+                    outer->insert(std::move(name));
+                } else {
+                    // Loop detected: this name has already been substituted at this position.
+                    s.erase(i, n + 1);
+                }
+                // Ascend: matched closing brace.
+                return true;
+            }
+            break;
         }
         ++j;
     }
