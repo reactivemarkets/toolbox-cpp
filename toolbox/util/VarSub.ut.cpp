@@ -74,14 +74,17 @@ BOOST_AUTO_TEST_CASE(VarSubEscapeCase)
 {
     VarSub fn{get_var};
 
-    BOOST_CHECK_EQUAL(apply_copy(fn, "\\\\"), "\\");
-    BOOST_CHECK_EQUAL(apply_copy(fn, "\\\\>"), "\\>");
-    BOOST_CHECK_EQUAL(apply_copy(fn, "<\\\\"), "<\\");
-    BOOST_CHECK_EQUAL(apply_copy(fn, "\\${FOO}"), "${FOO}");
-    BOOST_CHECK_EQUAL(apply_copy(fn, "$\\{FOO}"), "${FOO}");
-    BOOST_CHECK_EQUAL(apply_copy(fn, "${\\FOO}"), "101");
-    BOOST_CHECK_EQUAL(apply_copy(fn, "${FOO\\}"), "${FOO}");
-    BOOST_CHECK_EQUAL(apply_copy(fn, "${FOO}\\"), "101\\");
+    BOOST_CHECK_EQUAL(apply_copy(fn, R"(\\)"), R"(\)");
+    BOOST_CHECK_EQUAL(apply_copy(fn, R"(\\\\)"), R"(\\)");
+    BOOST_CHECK_EQUAL(apply_copy(fn, R"(\\>)"), R"(\>)");
+    BOOST_CHECK_EQUAL(apply_copy(fn, R"(<\\)"), R"(<\)");
+    BOOST_CHECK_EQUAL(apply_copy(fn, R"(\\a\\b\\c)"), R"(\a\b\c)");
+    BOOST_CHECK_EQUAL(apply_copy(fn, R"(\a\b\c)"), R"(abc)");
+    BOOST_CHECK_EQUAL(apply_copy(fn, R"(\${FOO})"), R"(${FOO})");
+    BOOST_CHECK_EQUAL(apply_copy(fn, R"($\{FOO})"), R"(${FOO})");
+    BOOST_CHECK_EQUAL(apply_copy(fn, R"(${\FOO})"), R"(101)");
+    BOOST_CHECK_EQUAL(apply_copy(fn, R"(${FOO\})"), R"(${FOO})");
+    BOOST_CHECK_EQUAL(apply_copy(fn, R"(${FOO}\)"), R"(101\)");
 }
 
 BOOST_AUTO_TEST_CASE(VarSubPartialCase)

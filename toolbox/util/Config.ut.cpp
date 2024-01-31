@@ -170,4 +170,19 @@ baz=404
     BOOST_CHECK_THROW(child.get<int>("bad"), runtime_error);
 }
 
+BOOST_AUTO_TEST_CASE(ConfigEscapeCase)
+{
+    const string text{R"(
+foo=\a\b\c
+)"};
+
+    istringstream is{text};
+
+    Config config;
+    config.read_section(is);
+
+    BOOST_CHECK_EQUAL(config.size(), 1U);
+    BOOST_CHECK_EQUAL(config.get("foo"), "abc");
+}
+
 BOOST_AUTO_TEST_SUITE_END()
