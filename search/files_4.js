@@ -18,7 +18,7 @@ var searchData=
   ['event_2ehpp_15',['Event.hpp',['../Event_8hpp.html',1,'']]],
   ['eventfd_2ecpp_16',['EventFd.cpp',['../EventFd_8cpp.html',1,'']]],
   ['eventfd_2ehpp_17',['EventFd.hpp',['../EventFd_8hpp.html',1,'']]],
-  ['exception_2ecpp_18',['exception.cpp',['../resp_2Exception_8cpp.html',1,'(Global Namespace)'],['../util_2Exception_8cpp.html',1,'(Global Namespace)'],['../http_2Exception_8cpp.html',1,'(Global Namespace)']]],
+  ['exception_2ecpp_18',['exception.cpp',['../util_2Exception_8cpp.html',1,'(Global Namespace)'],['../http_2Exception_8cpp.html',1,'(Global Namespace)'],['../resp_2Exception_8cpp.html',1,'(Global Namespace)']]],
   ['exception_2ehpp_19',['exception.hpp',['../util_2Exception_8hpp.html',1,'(Global Namespace)'],['../resp_2Exception_8hpp.html',1,'(Global Namespace)'],['../http_2Exception_8hpp.html',1,'(Global Namespace)']]],
   ['exception_2eut_2ecpp_20',['Exception.ut.cpp',['../Exception_8ut_8cpp.html',1,'']]]
 ];
