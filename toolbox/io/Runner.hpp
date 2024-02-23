@@ -33,6 +33,9 @@ using HistogramPtr = std::unique_ptr<Histogram>;
 /// MetricCallbackFunction implementer is responsible for deleting the Histogram.
 using MetricCallbackFunction
     = std::function<void(CyclTime now, HistogramPtr&& time_hist, HistogramPtr&& work_hist)>;
+/// LoopCallbackFunction called at end of each Reactor loop, indicating micros taken and work done.
+using LoopCallbackFunction
+    = std::function<void(CyclTime now)>;
 
 class TOOLBOX_API ReactorRunner {
   public:
@@ -61,6 +64,22 @@ class TOOLBOX_API ReactorRunner {
     /// \param metric_cb Metric callback function.
     ReactorRunner(Reactor& r, long busy_cycles, ThreadConfig config,
                   MetricCallbackFunction metric_cb);
+
+    /// Constructs a ReactorRunner instance.
+    ///
+    /// When work is processed by the Reactor during a call to Reactor::poll, the next 'n' calls to
+    /// Reactor::poll, where 'n' is \a busy_cycles, will not cause the thread to block or yield if
+    /// no further work is available. This feature can be useful for keeping the reactor warm and
+    /// responsive for short periods of time immediately after work is processed.
+    ///
+    /// \param r The reactor.
+    /// \param busy_cycles The number of busy cycles after doing work.
+    /// \param config The thread configuration.
+    /// \param metric_cb Metric callback function.
+    /// \param loop_cb Loop callback function.
+    ReactorRunner(Reactor& r, long busy_cycles, ThreadConfig config,
+                  MetricCallbackFunction metric_cb, LoopCallbackFunction loop_cb);
+
     ~ReactorRunner();
 
     // Copy.

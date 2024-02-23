@@ -59,7 +59,8 @@ HistogramPtr make_work_histogram()
 }
 
 void run_metrics_reactor(Reactor& r, long busy_cycles, ThreadConfig config,
-                         const std::atomic<bool>& stop, MetricCallbackFunction metric_cb)
+                         const std::atomic<bool>& stop, MetricCallbackFunction metric_cb,
+                         LoopCallbackFunction loop_cb)
 {
     constexpr std::chrono::seconds MetricInterval = 60s;
 
@@ -85,6 +86,7 @@ void run_metrics_reactor(Reactor& r, long busy_cycles, ThreadConfig config,
                     MonoClock::now() - now.mono_time());
                 time_hist->record_value(elapsed_us.count());
                 work_hist->record_value(work);
+                loop_cb(now);
                 // Reset counter when work has been done.
                 i = 0;
             }
@@ -113,8 +115,15 @@ ReactorRunner::ReactorRunner(Reactor& r, long busy_cycles, ThreadConfig config)
 
 ReactorRunner::ReactorRunner(Reactor& r, long busy_cycles, ThreadConfig config,
                              MetricCallbackFunction metric_cb)
+: ReactorRunner(r, busy_cycles, config, metric_cb, [](CyclTime) {})
+{
+}
+
+ReactorRunner::ReactorRunner(Reactor& r, long busy_cycles, ThreadConfig config,
+                             MetricCallbackFunction metric_cb, LoopCallbackFunction loop_cb)
 : reactor_{r}
-, thread_{run_metrics_reactor, std::ref(r), busy_cycles, config, std::cref(stop_), metric_cb}
+, thread_{run_metrics_reactor, std::ref(r), busy_cycles, config, std::cref(stop_),
+          metric_cb, loop_cb}
 {
 }
 
