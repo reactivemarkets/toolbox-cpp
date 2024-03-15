@@ -23,13 +23,13 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-    container: reactivemarkets/build-cpp:0.30.0
+    container: reactivemarkets/build-cpp:0.32.0
 
     strategy:
       matrix:
         build_type: [Release]
         compiler:
-          - {cc: gcc-12, cxx: g++-12}
+          - {cc: gcc-13, cxx: g++-13}
 
     steps:
       - name: Checkout project
