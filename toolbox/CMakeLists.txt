@@ -128,13 +128,13 @@ set(lib_SOURCES
 
 add_library(tb-core-static STATIC ${lib_SOURCES})
 set_target_properties(tb-core-static PROPERTIES OUTPUT_NAME tb_core)
-target_link_libraries(tb-core-static pthread)
+target_link_libraries(tb-core-static pthread stdc++)
 install(TARGETS tb-core-static DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT static)
 
 if(TOOLBOX_BUILD_SHARED)
   add_library(tb-core-shared SHARED ${lib_SOURCES})
   set_target_properties(tb-core-shared PROPERTIES OUTPUT_NAME tb_core)
-  target_link_libraries(tb-core-shared pthread)
+  target_link_libraries(tb-core-shared pthread stdc++)
   install(TARGETS tb-core-shared DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT shared)
 endif()
 
@@ -259,7 +259,7 @@ add_executable(tb-core-test
   ${test_SOURCES}
   Main.ut.cpp)
 target_link_libraries(tb-core-test
-  ${tb_core_LIBRARY} "${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}" stdc++fs)
+  ${tb_core_LIBRARY} "${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}" stdc++fs m stdc++)
 
 foreach(file ${test_SOURCES})
   get_filename_component(dir  "${file}" DIRECTORY)
