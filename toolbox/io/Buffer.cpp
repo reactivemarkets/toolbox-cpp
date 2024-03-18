@@ -45,18 +45,6 @@ void Buffer::consume(std::size_t count) noexcept
     }
 }
 
-MutableBuffer Buffer::prepare(std::size_t size)
-{
-    auto avail = available();
-    if (size > avail) {
-        // More buffer space required.
-        const auto diff = size - avail;
-        buf_.resize(buf_.size() + diff);
-        avail = size;
-    }
-    return {wptr(), avail};
-}
-
 ConstBuffer advance(ConstBuffer buf, std::size_t n) noexcept
 {
     const auto* const data = buffer_cast<const char*>(buf);

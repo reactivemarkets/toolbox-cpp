@@ -87,7 +87,17 @@ class TOOLBOX_API Buffer {
     void consume(std::size_t count) noexcept;
 
     /// Returns write buffer of at least size bytes.
-    MutableBuffer prepare(std::size_t size);
+    MutableBuffer prepare(std::size_t size)
+    {
+        auto avail = available();
+        if (size > avail) {
+            // More buffer space required.
+            const auto diff = size - avail;
+            buf_.resize(buf_.size() + diff);
+            avail = size;
+        }
+        return {wptr(), avail};
+    }
 
     /// Reserve storage.
     void reserve(std::size_t capacity) { buf_.reserve(capacity); }
