@@ -40,4 +40,4 @@ add_executable(tb-timer-bench Timer.bm.cpp)
 target_link_libraries(tb-timer-bench ${tb_bm_LIBRARY})
 
 add_executable(tb-util-bench Util.bm.cpp)
-target_link_libraries(tb-util-bench ${tb_bm_LIBRARY})
+target_link_libraries(tb-util-bench ${tb_bm_LIBRARY} m)
