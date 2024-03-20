@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['status_0',['status',['../namespacetoolbox_1_1http.html#aa155f89ef95e501ee8878301aa4320e7',1,'toolbox::Status'],['../namespacetoolbox_1_1http.html#aa155f89ef95e501ee8878301aa4320e7',1,'toolbox::http::Status']]]
+  ['priority_0',['priority',['../namespacetoolbox_1_1io.html#a3ebeb41d6195a7beeb4a1734379c4684',1,'toolbox::Priority'],['../namespacetoolbox_1_1io.html#a3ebeb41d6195a7beeb4a1734379c4684',1,'toolbox::io::Priority']]]
 ];

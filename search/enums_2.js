@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['method_0',['method',['../namespacetoolbox_1_1http.html#a5d4efc1a1b4fd201049d4805d48b7307',1,'toolbox::Method'],['../namespacetoolbox_1_1http.html#a5d4efc1a1b4fd201049d4805d48b7307',1,'toolbox::http::Method']]]
+  ['loglevel_0',['loglevel',['../namespacetoolbox_1_1sys.html#ad70de488b6f18b15990850b5cb4293da',1,'toolbox::LogLevel'],['../namespacetoolbox_1_1sys.html#ad70de488b6f18b15990850b5cb4293da',1,'toolbox::sys::LogLevel']]]
 ];

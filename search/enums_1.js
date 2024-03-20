@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['loglevel_0',['loglevel',['../namespacetoolbox_1_1sys.html#ad70de488b6f18b15990850b5cb4293da',1,'toolbox::LogLevel'],['../namespacetoolbox_1_1sys.html#ad70de488b6f18b15990850b5cb4293da',1,'toolbox::sys::LogLevel']]]
+  ['hooktype_0',['HookType',['../classtoolbox_1_1io_1_1Reactor.html#a8caa46df73314ea4d3e14d0cd136586c',1,'toolbox::io::Reactor']]]
 ];

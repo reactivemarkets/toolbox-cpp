@@ -114,6 +114,10 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
+<tr class="memitem:a8caa46df73314ea4d3e14d0cd136586c" id="r_a8caa46df73314ea4d3e14d0cd136586c"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Reactor.html#a8caa46df73314ea4d3e14d0cd136586c">HookType</a> : int { <a class="el" href="classtoolbox_1_1io_1_1Reactor.html#a8caa46df73314ea4d3e14d0cd136586ca60b9a59ab0a05eed2428a5e500aa55a3">EndOfCycleNoWait</a> = 1
+, <a class="el" href="classtoolbox_1_1io_1_1Reactor.html#a8caa46df73314ea4d3e14d0cd136586ca1d9a01ed48401de70ee64d8c7cd8f2b5">EndOfEventDispatch</a> = 2
+ }</td></tr>
+<tr class="separator:a8caa46df73314ea4d3e14d0cd136586c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a466ec457a5eaa88d847621cd642d265f" id="r_a466ec457a5eaa88d847621cd642d265f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Reactor.html#a466ec457a5eaa88d847621cd642d265f">Event</a> = <a class="el" href="namespacetoolbox_1_1io.html#aa906343658b2f619691c0fc614f4f12e">EpollEvent</a></td></tr>
 <tr class="separator:a466ec457a5eaa88d847621cd642d265f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -139,8 +143,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ace5de03a0a9b87bfa9a24e35be036487" id="r_ace5de03a0a9b87bfa9a24e35be036487"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtoolbox_1_1io_1_1Timer.html">Timer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Reactor.html#ace5de03a0a9b87bfa9a24e35be036487">timer</a> (<a class="el" href="namespacetoolbox_1_1sys.html#a8370f3f6bd9eb78dd325ae3f4e582247">MonoTime</a> expiry, <a class="el" href="namespacetoolbox_1_1io.html#a3ebeb41d6195a7beeb4a1734379c4684">Priority</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">priority</a>, <a class="el" href="namespacetoolbox_1_1io.html#a9637530ce7cb05e3d37b882576fbcaa4">TimerSlot</a> slot)</td></tr>
 <tr class="memdesc:ace5de03a0a9b87bfa9a24e35be036487"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws std::bad_alloc only.  <br /></td></tr>
 <tr class="separator:ace5de03a0a9b87bfa9a24e35be036487"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a434bd66186cc08dc3ec24752444624a6" id="r_a434bd66186cc08dc3ec24752444624a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Reactor.html#a434bd66186cc08dc3ec24752444624a6">add_hook</a> (<a class="el" href="structtoolbox_1_1io_1_1Hook.html">Hook</a> &amp;hook) <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">noexcept</a></td></tr>
-<tr class="separator:a434bd66186cc08dc3ec24752444624a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4c61ec8fb23415abc1efbb87f7cf966" id="r_aa4c61ec8fb23415abc1efbb87f7cf966"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Reactor.html#aa4c61ec8fb23415abc1efbb87f7cf966">add_hook</a> (<a class="el" href="structtoolbox_1_1io_1_1Hook.html">Hook</a> &amp;hook, <a class="el" href="classtoolbox_1_1io_1_1Reactor.html#a8caa46df73314ea4d3e14d0cd136586c">HookType</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">ht</a>=<a class="el" href="classtoolbox_1_1io_1_1Reactor.html#a8caa46df73314ea4d3e14d0cd136586ca60b9a59ab0a05eed2428a5e500aa55a3">HookType::EndOfCycleNoWait</a>) <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">noexcept</a></td></tr>
+<tr class="separator:aa4c61ec8fb23415abc1efbb87f7cf966"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5a07e56db7390a3fee845aaedec4abb" id="r_ab5a07e56db7390a3fee845aaedec4abb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1io_1_1Reactor.html#ab5a07e56db7390a3fee845aaedec4abb">poll</a> (<a class="el" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now, <a class="el" href="namespacetoolbox_1_1sys.html#aedb936b32edd1672f938990ce346f0e2">Duration</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">timeout</a>=<a class="el" href="namespacetoolbox_1_1io.html#a21ca3c18b252161e1a4c6efcb85d0e4b">NoTimeout</a>)</td></tr>
 <tr class="separator:ab5a07e56db7390a3fee845aaedec4abb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classtoolbox_1_1io_1_1Waker"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classtoolbox_1_1io_1_1Waker')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classtoolbox_1_1io_1_1Waker.html">toolbox::io::Waker</a></td></tr>
@@ -182,6 +186,35 @@ Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="Reactor_8hpp_source.html#l00036">36</a> of file <a class="el" href="Reactor_8hpp_source.html">Reactor.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a8caa46df73314ea4d3e14d0cd136586c" name="a8caa46df73314ea4d3e14d0cd136586c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8caa46df73314ea4d3e14d0cd136586c">&#9670;&#160;</a></span>HookType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">enum</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">class</a> <a class="el" href="classtoolbox_1_1io_1_1Reactor.html#a8caa46df73314ea4d3e14d0cd136586c">toolbox::io::Reactor::HookType</a> : <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">int</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a8caa46df73314ea4d3e14d0cd136586ca60b9a59ab0a05eed2428a5e500aa55a3" name="a8caa46df73314ea4d3e14d0cd136586ca60b9a59ab0a05eed2428a5e500aa55a3"></a>EndOfCycleNoWait&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a8caa46df73314ea4d3e14d0cd136586ca1d9a01ed48401de70ee64d8c7cd8f2b5" name="a8caa46df73314ea4d3e14d0cd136586ca1d9a01ed48401de70ee64d8c7cd8f2b5"></a>EndOfEventDispatch&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="Reactor_8hpp_source.html#l00038">38</a> of file <a class="el" href="Reactor_8hpp_source.html">Reactor.hpp</a>.</p>
 
 </div>
 </div>
@@ -430,7 +463,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Throws std::bad_alloc only. </p>
 
-<p class="definition">Definition at line <a class="el" href="Reactor_8hpp_source.html#l00131">131</a> of file <a class="el" href="Reactor_8hpp_source.html">Reactor.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Reactor_8hpp_source.html#l00142">142</a> of file <a class="el" href="Reactor_8hpp_source.html">Reactor.hpp</a>.</p>
 
 </div>
 </div>
@@ -476,12 +509,12 @@ Protected Member Functions</h2></td></tr>
 
 <p>Throws std::bad_alloc only. </p>
 
-<p class="definition">Definition at line <a class="el" href="Reactor_8hpp_source.html#l00136">136</a> of file <a class="el" href="Reactor_8hpp_source.html">Reactor.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Reactor_8hpp_source.html#l00147">147</a> of file <a class="el" href="Reactor_8hpp_source.html">Reactor.hpp</a>.</p>
 
 </div>
 </div>
-<a id="a434bd66186cc08dc3ec24752444624a6" name="a434bd66186cc08dc3ec24752444624a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a434bd66186cc08dc3ec24752444624a6">&#9670;&#160;</a></span>add_hook()</h2>
+<a id="aa4c61ec8fb23415abc1efbb87f7cf966" name="aa4c61ec8fb23415abc1efbb87f7cf966"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4c61ec8fb23415abc1efbb87f7cf966">&#9670;&#160;</a></span>add_hook()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -493,8 +526,18 @@ Protected Member Functions</h2></td></tr>
           <td class="memname"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">void</a> toolbox::io::Reactor::add_hook </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structtoolbox_1_1io_1_1Hook.html">Hook</a> &amp;&#160;</td>
-          <td class="paramname"><em>hook</em></td><td>)</td>
+          <td class="paramname"><em>hook</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="classtoolbox_1_1io_1_1Reactor.html#a8caa46df73314ea4d3e14d0cd136586c">HookType</a>&#160;</td>
+          <td class="paramname"><em>ht</em> = <code><a class="el" href="classtoolbox_1_1io_1_1Reactor.html#a8caa46df73314ea4d3e14d0cd136586ca60b9a59ab0a05eed2428a5e500aa55a3">HookType::EndOfCycleNoWait</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -504,7 +547,7 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Reactor_8hpp_source.html#l00142">142</a> of file <a class="el" href="Reactor_8hpp_source.html">Reactor.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Reactor_8hpp_source.html#l00153">153</a> of file <a class="el" href="Reactor_8hpp_source.html">Reactor.hpp</a>.</p>
 
 </div>
 </div>
@@ -566,7 +609,7 @@ Protected Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="classtoolbox_1_1io_1_1Waker.html#a79a3c154d358f01a200994287f577fc6">toolbox::io::Waker</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="Reactor_8cpp_source.html#l00105">105</a> of file <a class="el" href="Reactor_8cpp_source.html">Reactor.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Reactor_8cpp_source.html#l00108">108</a> of file <a class="el" href="Reactor_8cpp_source.html">Reactor.cpp</a>.</p>
 
 </div>
 </div>
