@@ -34,6 +34,17 @@ using IoSlot = BasicSlot<CyclTime, int, unsigned>;
 class TOOLBOX_API Reactor : public Waker {
   public:
     using Event = EpollEvent;
+    // HookType describes the kind of hook.
+    enum class HookType : int {
+        // EndOfCycleNoWait hooks are called at the end of the Reactor cycle.
+        // The Reactor cycle will not wait for i/o and/or timer events
+        // while any of these hooks are installed.
+        EndOfCycleNoWait = 1,
+        // EndOfEventDispatch hooks are called after all i/o and timer events have been dispatched.
+        // These hooks are called, and only if, work done in the cycle is greater than zero.
+        // And they are always called before EndOfCycleNoWait hooks.
+        EndOfEventDispatch = 2,
+    };
     class Handle {
       public:
         Handle(Reactor& reactor, int fd, int sid)
@@ -139,7 +150,17 @@ class TOOLBOX_API Reactor : public Waker {
     }
     // clang-format on
 
-    void add_hook(Hook& hook) noexcept { hooks_.push_back(hook); }
+    void add_hook(Hook& hook, HookType ht = HookType::EndOfCycleNoWait) noexcept
+    {
+        switch (ht) {
+        case HookType::EndOfCycleNoWait:
+            end_of_cycle_no_wait_hooks.push_back(hook);
+            break;
+        case HookType::EndOfEventDispatch:
+            end_of_event_dispatch_hooks_.push_back(hook);
+            break;
+        }
+    }
     /// Poll for I/O and timer events.
     /// The thread-local cycle time is unconditionally updated after the call to epoll() returns.
     /// Returns the number of events signalled.
@@ -171,7 +192,7 @@ class TOOLBOX_API Reactor : public Waker {
     static_assert(static_cast<int>(Priority::Low) == 1);
     TimerPool tp_;
     std::array<TimerQueue, 2> tqs_{tp_, tp_};
-    HookList hooks_;
+    HookList end_of_cycle_no_wait_hooks, end_of_event_dispatch_hooks_;
 };
 
 } // namespace io

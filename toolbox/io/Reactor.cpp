@@ -60,7 +60,7 @@ int Reactor::poll(CyclTime now, Duration timeout)
 
     // If timeout is zero then the wait_until time should also be zero to signify no wait.
     MonoTime wait_until{};
-    if (!is_zero(timeout) && hooks_.empty()) {
+    if (!is_zero(timeout) && end_of_cycle_no_wait_hooks.empty()) {
         const MonoTime next
             = next_expiry(timeout == NoTimeout ? MonoClock::max() : now.mono_time() + timeout);
         if (next > now.mono_time()) {
@@ -98,7 +98,10 @@ int Reactor::poll(CyclTime now, Duration timeout)
         work += tqs_[Low].dispatch(now);
     }
     // End of cycle hooks.
-    io::dispatch(now, hooks_);
+    if (work > 0) {
+        io::dispatch(now, end_of_event_dispatch_hooks_);
+    }
+    io::dispatch(now, end_of_cycle_no_wait_hooks);
     return work;
 }
 
