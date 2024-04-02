@@ -20,6 +20,7 @@
 #include <toolbox/Config.h>
 
 #include <boost/asio/buffer.hpp>
+#include <boost/container/vector.hpp>
 
 namespace toolbox {
 inline namespace io {
@@ -108,7 +109,7 @@ class TOOLBOX_API Buffer {
     std::size_t available() const noexcept { return buf_.size() - wpos_; }
 
     std::size_t rpos_{}, wpos_{};
-    std::vector<char> buf_;
+    boost::container::vector<char> buf_;
 };
 
 TOOLBOX_API ConstBuffer advance(ConstBuffer buf, std::size_t n) noexcept;
