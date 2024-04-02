@@ -1,11 +1,13 @@
 <map id="toolbox/io/Buffer.ut.cpp" name="toolbox/io/Buffer.ut.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="144,5,317,31"/>
-<area shape="rect" id="Node000002" href="$Buffer_8hpp.html" title=" " alt="" coords="109,79,197,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,33,178,71,174,67,216,29"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="221,79,397,104"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="245,29,288,68,285,71,242,33"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="228,5,401,31"/>
+<area shape="rect" id="Node000002" href="$Buffer_8hpp.html" title=" " alt="" coords="193,79,281,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="304,33,262,71,258,67,300,29"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="305,79,481,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="329,29,372,68,369,71,326,33"/>
 <area shape="rect" id="Node000003" href="$Config_8h.html" title=" " alt="" coords="5,152,133,177"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="142,106,95,145,92,141,138,102"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="211,106,110,149,108,144,209,102"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="158,152,317,177"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="169,102,215,141,211,145,165,106"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="240,104,240,138,235,138,235,104"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="341,152,536,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="271,102,394,145,392,150,269,107"/>
 </map>
