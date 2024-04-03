@@ -78,7 +78,6 @@ class TOOLBOX_API Buffer {
     void clear() noexcept
     {
         rpos_ = wpos_ = 0;
-        buf_.clear();
     }
 
     /// Move characters from the write sequence to the read sequence.
