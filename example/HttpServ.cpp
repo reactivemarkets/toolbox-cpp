@@ -19,6 +19,8 @@
 #include <toolbox/sys.hpp>
 #include <toolbox/util.hpp>
 
+#include <map>
+
 using namespace std;
 using namespace toolbox;
 
@@ -37,7 +39,7 @@ void on_bar(const Request& /*req*/, http::OStream& os)
 class ExampleApp final : public App {
   public:
     using Slot = BasicSlot<const Request&, http::OStream&>;
-    using SlotMap = RobinMap<std::string, Slot>;
+    using SlotMap = std::map<std::string, Slot>;
 
     ~ExampleApp() override = default;
     void bind(const std::string& path, Slot slot) { slot_map_[path] = slot; }

@@ -25,6 +25,7 @@
 #include "io/File.hpp"
 #include "io/Handle.hpp"
 #include "io/Hook.hpp"
+#include "io/Inotify.hpp"
 #include "io/Reactor.hpp"
 #include "io/Runner.hpp"
 #include "io/Stream.hpp"

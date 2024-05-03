@@ -32,7 +32,6 @@ using AddrInfoFuture = std::future<AddrInfoPtr>;
 /// The Resolver is designed to resolve socket URIs to address endpoints on a background thread,
 /// which may include a DNS lookup depending on the URI.
 class TOOLBOX_API Resolver {
-    using Lock = std::unique_lock<std::mutex>;
     using Task = std::packaged_task<AddrInfoPtr()>;
 
   public:
@@ -59,7 +58,7 @@ class TOOLBOX_API Resolver {
     void clear();
 
     /// Schedule a URI socket name resolution.
-    AddrInfoFuture resolve(std::string_view uri, int type);
+    AddrInfoFuture resolve(std::string uri, int type);
 
   private:
     TaskQueue<Task> tq_;
