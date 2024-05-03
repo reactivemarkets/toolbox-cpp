@@ -102,7 +102,7 @@ constexpr bool operator!=(const BasicHandle<PolicyT>& lhs, const BasicHandle<Pol
 struct FilePolicy {
     using Id = int;
     static constexpr int invalid() noexcept { return -1; }
-    static void close(int d) noexcept { ::close(d); }
+    static void close(int fd) noexcept { ::close(fd); }
 };
 
 using FileHandle = BasicHandle<FilePolicy>;

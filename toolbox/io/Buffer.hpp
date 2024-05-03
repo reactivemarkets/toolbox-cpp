@@ -75,10 +75,7 @@ class TOOLBOX_API Buffer {
     std::size_t size() const noexcept { return wpos_ - rpos_; }
 
     /// Clear buffer.
-    void clear() noexcept
-    {
-        rpos_ = wpos_ = 0;
-    }
+    void clear() noexcept { rpos_ = wpos_ = 0; }
 
     /// Move characters from the write sequence to the read sequence.
     void commit(std::size_t count) noexcept { wpos_ += count; }

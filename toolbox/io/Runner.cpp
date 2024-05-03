@@ -122,8 +122,8 @@ ReactorRunner::ReactorRunner(Reactor& r, long busy_cycles, ThreadConfig config,
 ReactorRunner::ReactorRunner(Reactor& r, long busy_cycles, ThreadConfig config,
                              MetricCallbackFunction metric_cb, LoopCallbackFunction loop_cb)
 : reactor_{r}
-, thread_{run_metrics_reactor, std::ref(r), busy_cycles, config, std::cref(stop_),
-          metric_cb, loop_cb}
+, thread_{run_metrics_reactor, std::ref(r), busy_cycles, config,
+          std::cref(stop_),    metric_cb,   loop_cb}
 {
 }
 

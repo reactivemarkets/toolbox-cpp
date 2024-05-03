@@ -37,9 +37,9 @@ void Resolver::clear()
     return tq_.clear();
 }
 
-AddrInfoFuture Resolver::resolve(std::string_view uri, int type)
+AddrInfoFuture Resolver::resolve(std::string uri, int type)
 {
-    Task task{[=]() -> AddrInfoPtr { return parse_endpoint(uri, type); }};
+    Task task{[uri = std::move(uri), type]() -> AddrInfoPtr { return parse_endpoint(uri, type); }};
     auto future = task.get_future();
     tq_.push(std::move(task));
     return future;

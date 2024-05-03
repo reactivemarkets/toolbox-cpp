@@ -59,6 +59,7 @@ set(lib_SOURCES
   io/File.cpp
   io/Handle.cpp
   io/Hook.cpp
+  io/Inotify.cpp
   io/Reactor.cpp
   io/Runner.cpp
   io/Stream.cpp

@@ -1,6 +1,6 @@
 # The Reactive C++ Toolbox.
 # Copyright (C) 2013-2019 Swirly Cloud Limited
-# Copyright (C) 2021 Reactive Markets Limited
+# Copyright (C) 2024 Reactive Markets Limited
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,7 +17,8 @@
 set(targets
   tb-echo-clnt
   tb-echo-serv
-  tb-http-serv)
+  tb-http-serv
+  tb-inotify)
 
 add_custom_target(tb-example DEPENDS ${targets})
 
@@ -29,3 +30,6 @@ target_link_libraries(tb-echo-serv ${tb_core_LIBRARY})
 
 add_executable(tb-http-serv HttpServ.cpp)
 target_link_libraries(tb-http-serv ${tb_core_LIBRARY})
+
+add_executable(tb-inotify Inotify.cpp)
+target_link_libraries(tb-inotify ${tb_core_LIBRARY})
