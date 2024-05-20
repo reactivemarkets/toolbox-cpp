@@ -25,7 +25,7 @@ namespace toolbox {
 inline namespace util {
 using sv = std::string_view;
 
-class Tokeniser {
+class Tokeniser {    
   public:
     constexpr Tokeniser(std::string_view buf, std::string_view delims) noexcept
     {
