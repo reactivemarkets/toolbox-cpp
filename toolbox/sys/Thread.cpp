@@ -17,6 +17,7 @@
 #include "Thread.hpp"
 
 #include <toolbox/sys/Error.hpp>
+#include <toolbox/util/String.hpp>
 #include <toolbox/util/Tokeniser.hpp>
 
 namespace toolbox {

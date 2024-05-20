@@ -17,8 +17,6 @@
 #ifndef TOOLBOX_NET_PROTOCOL_HPP
 #define TOOLBOX_NET_PROTOCOL_HPP
 
-#include <toolbox/Config.h>
-
 #include <netinet/in.h>
 
 namespace toolbox {

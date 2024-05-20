@@ -28,6 +28,7 @@
 
 namespace toolbox {
 inline namespace sys {
+using namespace std::literals::string_literals;
 
 void detail::PidFileDeleter::operator()(pidfh* pfh) const noexcept
 {

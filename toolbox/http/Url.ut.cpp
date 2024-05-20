@@ -16,8 +16,6 @@
 
 #include "Url.hpp"
 
-#include <toolbox/util/String.hpp>
-
 #include <boost/test/unit_test.hpp>
 
 using namespace std;

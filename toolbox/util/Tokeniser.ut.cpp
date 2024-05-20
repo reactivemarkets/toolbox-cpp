@@ -19,6 +19,7 @@
 #include <boost/test/unit_test.hpp>
 
 using namespace toolbox;
+using namespace std::literals::string_view_literals;
 
 BOOST_AUTO_TEST_SUITE(TokeniserSuite)
 

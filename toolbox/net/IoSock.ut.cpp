@@ -16,7 +16,7 @@
 
 #include "IoSock.hpp"
 
-#include "Endpoint.hpp"
+#include "Protocol.hpp"
 
 #include <boost/test/unit_test.hpp>
 

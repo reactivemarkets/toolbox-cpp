@@ -26,8 +26,6 @@
 
 namespace toolbox {
 inline namespace util {
-using namespace std::literals::string_literals;
-using namespace std::literals::string_view_literals;
 
 template <typename ValueT>
 constexpr ValueT from_string(std::string_view sv)
@@ -35,7 +33,7 @@ constexpr ValueT from_string(std::string_view sv)
     using Traits = TypeTraits<ValueT>;
     return Traits::from_string(sv);
 }
-static_assert(from_string<int>("-123"sv) == -123);
+static_assert(from_string<int>(std::string_view{"-123"}) == -123);
 
 template <typename ValueT>
 constexpr ValueT from_string(const std::string& s)

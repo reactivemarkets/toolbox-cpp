@@ -17,8 +17,6 @@
 #ifndef TOOLBOX_NET_ENDIAN_HPP
 #define TOOLBOX_NET_ENDIAN_HPP
 
-#include <toolbox/Config.h>
-
 #include <bit>
 #include <concepts>
 #include <cstdint>

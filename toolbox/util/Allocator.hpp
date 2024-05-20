@@ -19,7 +19,7 @@
 
 #include <toolbox/Config.h>
 
-#include <new>
+#include <cstddef>
 
 namespace toolbox {
 
