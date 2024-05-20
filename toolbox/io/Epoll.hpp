@@ -20,6 +20,8 @@
 #include <toolbox/io/Event.hpp>
 #include <toolbox/io/TimerFd.hpp>
 
+#include <sys/epoll.h>
+
 namespace toolbox {
 namespace os {
 

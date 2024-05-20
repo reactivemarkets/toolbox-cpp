@@ -34,10 +34,7 @@
 namespace toolbox {
 inline namespace util {
 
-class Options;
-
 class NoOp {};
-
 class Help {};
 
 template <typename DerivedT>

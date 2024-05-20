@@ -17,21 +17,21 @@
 #ifndef TOOLBOX_UTIL_TOKENISER_HPP
 #define TOOLBOX_UTIL_TOKENISER_HPP
 
-#include <toolbox/util/String.hpp>
-
 #include <algorithm>
 #include <array>
+#include <string_view>
 
 namespace toolbox {
 inline namespace util {
+using sv = std::string_view;
 
-class Tokeniser {
+class Tokeniser {    
   public:
     constexpr Tokeniser(std::string_view buf, std::string_view delims) noexcept
     {
         reset(buf, delims);
     }
-    constexpr Tokeniser() noexcept { reset(""sv, ""sv); }
+    constexpr Tokeniser() noexcept { reset(sv{""}, sv{""}); }
     constexpr ~Tokeniser() = default;
 
     // Copy.
@@ -85,7 +85,7 @@ class Tokeniser {
 template <typename FnT>
 constexpr std::size_t parse_line(std::string_view buf, FnT fn)
 {
-    Tokeniser lines{buf, "\n"sv};
+    Tokeniser lines{buf, sv{"\n"}};
     while (lines.has_delim()) {
         fn(lines.top());
         lines.pop();

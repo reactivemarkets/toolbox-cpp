@@ -17,8 +17,6 @@
 #ifndef TOOLBOX_UTIL_VARIANT_HPP
 #define TOOLBOX_UTIL_VARIANT_HPP
 
-#include <variant>
-
 namespace toolbox {
 inline namespace util {
 

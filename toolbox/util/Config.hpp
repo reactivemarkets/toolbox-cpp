@@ -101,7 +101,7 @@ class TOOLBOX_API Config {
             }
         }
         if (!parent_) {
-            throw std::runtime_error{"missing config key: "s + key};
+            throw std::runtime_error{std::string{"missing config key: "} + key};
         }
         return parent_->get<ValueT>(key);
     }

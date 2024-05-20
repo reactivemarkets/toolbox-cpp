@@ -19,7 +19,6 @@
 #include <boost/test/unit_test.hpp>
 
 #include <algorithm> // equal()
-#include <numeric>   // accumulate()
 
 using namespace std;
 using namespace toolbox;

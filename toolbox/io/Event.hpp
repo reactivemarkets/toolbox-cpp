@@ -20,8 +20,6 @@
 #include <cstdint>
 #include <utility>
 
-#include <sys/epoll.h>
-
 namespace toolbox {
 inline namespace io {
 

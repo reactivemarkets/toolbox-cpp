@@ -17,7 +17,7 @@
 #ifndef TOOLBOX_UTIL_STRUCT_HPP
 #define TOOLBOX_UTIL_STRUCT_HPP
 
-#include <cstdint>
+#include <cstddef>
 
 // The Struct concept is essentially a tag-based tuple that was inspired by:
 // 1. Bronek Kozicki and his open souce projects (https://github.com/Bronek)

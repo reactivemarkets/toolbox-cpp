@@ -16,8 +16,6 @@
 #ifndef TOOLBOX_BM_UTILITY_HPP
 #define TOOLBOX_BM_UTILITY_HPP
 
-#include <toolbox/Config.h>
-
 namespace toolbox::bm {
 
 // The clobber_memory and do_not_optimise functions below are used to defeat the optimiser.

@@ -16,7 +16,6 @@
 
 #include "Utility.hpp"
 #include "Histogram.hpp"
-#include "Iterator.hpp"
 
 #include <boost/test/unit_test.hpp>
 

@@ -16,7 +16,6 @@
 
 #include "Endpoint.hpp"
 
-#include <toolbox/net/Endpoint.hpp>
 #include <toolbox/util/String.hpp>
 
 #include <boost/test/unit_test.hpp>
