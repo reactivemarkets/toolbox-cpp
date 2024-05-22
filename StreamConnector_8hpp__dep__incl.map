@@ -1,11 +1,13 @@
 <map id="toolbox/net/StreamConnector.hpp" name="toolbox/net/StreamConnector.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="167,5,407,31"/>
-<area shape="rect" id="Node000002" href="$net_8hpp.html" title=" " alt="" coords="123,79,247,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="261,41,203,81,200,76,258,36"/>
-<area shape="rect" id="Node000005" href="$StreamConnector_8cpp.html" title=" " alt="" coords="271,79,509,104"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="317,36,375,76,372,81,314,41"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="263,5,503,31"/>
+<area shape="rect" id="Node000002" href="$net_8hpp.html" title=" " alt="" coords="219,79,343,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="357,41,299,81,296,76,354,36"/>
+<area shape="rect" id="Node000006" href="$StreamConnector_8cpp.html" title=" " alt="" coords="367,79,605,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="413,36,471,76,468,81,410,41"/>
 <area shape="rect" id="Node000003" href="$EchoClnt_8cpp.html" title=" " alt="" coords="5,152,172,177"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="160,114,106,154,103,150,157,110"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="238,111,121,154,119,149,236,106"/>
 <area shape="rect" id="Node000004" href="$EchoServ_8cpp.html" title=" " alt="" coords="196,152,365,177"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="213,110,267,150,263,154,210,114"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="283,118,283,152,278,152,278,118"/>
+<area shape="rect" id="Node000005" href="$example_2Inotify_8cpp.html" title=" " alt="" coords="390,152,539,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="324,106,436,149,434,154,322,111"/>
 </map>

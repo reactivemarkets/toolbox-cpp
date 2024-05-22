@@ -1,17 +1,19 @@
 <map id="toolbox/util/Tokeniser.hpp" name="toolbox/util/Tokeniser.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="276,5,464,31"/>
-<area shape="rect" id="Node000002" href="$Thread_8cpp.html" title=" " alt="" coords="21,79,194,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="315,37,151,81,149,76,314,32"/>
-<area shape="rect" id="Node000003" href="$util_8hpp.html" title=" " alt="" coords="219,79,343,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="347,41,297,81,294,76,343,37"/>
-<area shape="rect" id="Node000007" href="$Tokeniser_8cpp.html" title=" " alt="" coords="367,79,554,104"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="397,37,447,76,444,81,394,41"/>
-<area shape="rect" id="Node000008" href="$Tokeniser_8ut_8cpp.html" title=" " alt="" coords="579,79,783,104"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="434,31,631,76,630,81,432,36"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="372,5,560,31"/>
+<area shape="rect" id="Node000002" href="$Thread_8cpp.html" title=" " alt="" coords="117,79,290,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="411,37,247,81,245,76,410,32"/>
+<area shape="rect" id="Node000003" href="$util_8hpp.html" title=" " alt="" coords="315,79,439,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="443,41,393,81,390,76,439,37"/>
+<area shape="rect" id="Node000008" href="$Tokeniser_8cpp.html" title=" " alt="" coords="463,79,650,104"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="493,37,543,76,540,81,490,41"/>
+<area shape="rect" id="Node000009" href="$Tokeniser_8ut_8cpp.html" title=" " alt="" coords="675,79,879,104"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="530,31,727,76,726,81,528,36"/>
 <area shape="rect" id="Node000004" href="$EchoClnt_8cpp.html" title=" " alt="" coords="5,152,172,177"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="238,111,121,154,119,149,236,106"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="318,110,136,154,135,149,317,105"/>
 <area shape="rect" id="Node000005" href="$EchoServ_8cpp.html" title=" " alt="" coords="196,152,365,177"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="283,118,283,152,278,152,278,118"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="352,114,298,154,295,150,349,110"/>
 <area shape="rect" id="Node000006" href="$HttpServ_8cpp.html" title=" " alt="" coords="389,152,556,177"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="325,106,442,149,440,154,324,111"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="405,110,459,150,455,154,402,114"/>
+<area shape="rect" id="Node000007" href="$example_2Inotify_8cpp.html" title=" " alt="" coords="581,152,730,177"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="435,105,611,149,610,154,434,110"/>
 </map>

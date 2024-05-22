@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['id_0',['id',['../structtoolbox_1_1io_1_1FilePolicy.html#a8efc39fdb122177561a2be7c8b16d13a',1,'toolbox::io::FilePolicy::Id'],['../classtoolbox_1_1io_1_1BasicHandle.html#a8d9e937bf769ebc61782fbd96b4e588c',1,'toolbox::io::BasicHandle::Id']]],
+  ['id_0',['id',['../structtoolbox_1_1io_1_1FilePolicy.html#a8efc39fdb122177561a2be7c8b16d13a',1,'toolbox::io::FilePolicy::Id'],['../structtoolbox_1_1io_1_1WatchFilePolicy.html#af1b0802210e3a129d5cc4ae8bd559533',1,'toolbox::io::WatchFilePolicy::Id'],['../classtoolbox_1_1io_1_1BasicHandle.html#a8d9e937bf769ebc61782fbd96b4e588c',1,'toolbox::io::BasicHandle::Id']]],
   ['id16_1',['id16',['../namespacetoolbox_1_1util.html#a391cdee9dc372d31c18400ae5d94d29a',1,'toolbox::Id16'],['../namespacetoolbox_1_1util.html#a391cdee9dc372d31c18400ae5d94d29a',1,'toolbox::util::Id16']]],
   ['id32_2',['id32',['../namespacetoolbox_1_1util.html#a3a749987a235b61b098b59fd6c38ed40',1,'toolbox::Id32'],['../namespacetoolbox_1_1util.html#a3a749987a235b61b098b59fd6c38ed40',1,'toolbox::util::Id32']]],
   ['id64_3',['id64',['../namespacetoolbox_1_1util.html#a28d032cfe7fdd88ce36331647850c7df',1,'toolbox::Id64'],['../namespacetoolbox_1_1util.html#a28d032cfe7fdd88ce36331647850c7df',1,'toolbox::util::Id64']]],

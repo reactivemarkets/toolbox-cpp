@@ -1,13 +1,15 @@
 <map id="toolbox/util/RobinHood.hpp" name="toolbox/util/RobinHood.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="273,5,472,31"/>
-<area shape="rect" id="Node000002" href="$util_8hpp.html" title=" " alt="" coords="219,79,343,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="349,41,297,81,294,76,346,37"/>
-<area shape="rect" id="Node000006" href="$RobinHood_8cpp.html" title=" " alt="" coords="367,79,565,104"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="400,37,452,76,449,81,397,41"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="369,5,568,31"/>
+<area shape="rect" id="Node000002" href="$util_8hpp.html" title=" " alt="" coords="315,79,439,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="445,41,393,81,390,76,442,37"/>
+<area shape="rect" id="Node000007" href="$RobinHood_8cpp.html" title=" " alt="" coords="463,79,661,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="496,37,548,76,545,81,493,41"/>
 <area shape="rect" id="Node000003" href="$EchoClnt_8cpp.html" title=" " alt="" coords="5,152,172,177"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="238,111,121,154,119,149,236,106"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="318,110,136,154,135,149,317,105"/>
 <area shape="rect" id="Node000004" href="$EchoServ_8cpp.html" title=" " alt="" coords="196,152,365,177"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="283,118,283,152,278,152,278,118"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="352,114,298,154,295,150,349,110"/>
 <area shape="rect" id="Node000005" href="$HttpServ_8cpp.html" title=" " alt="" coords="389,152,556,177"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="325,106,442,149,440,154,324,111"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="405,110,459,150,455,154,402,114"/>
+<area shape="rect" id="Node000006" href="$example_2Inotify_8cpp.html" title=" " alt="" coords="581,152,730,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="435,105,611,149,610,154,434,110"/>
 </map>

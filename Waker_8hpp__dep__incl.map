@@ -1,53 +1,61 @@
 <map id="toolbox/io/Waker.hpp" name="toolbox/io/Waker.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="430,5,589,31"/>
-<area shape="rect" id="Node000002" href="$io_8hpp.html" title=" " alt="" coords="131,225,246,251"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="417,33,306,51,186,77,129,93,80,111,41,131,16,154,9,168,11,181,20,192,36,202,81,217,131,227,130,232,80,222,34,207,17,196,6,183,3,168,12,150,38,127,78,106,128,88,184,72,305,46,416,28"/>
-<area shape="rect" id="Node000006" href="$Reactor_8hpp.html" title=" " alt="" coords="426,79,594,104"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="512,44,512,79,507,79,507,44"/>
-<area shape="rect" id="Node000022" href="$Waker_8cpp.html" title=" " alt="" coords="618,79,775,104"/>
-<area shape="poly" id="edge29_Node000001_Node000022" title=" " alt="" coords="553,33,667,76,665,81,551,38"/>
-<area shape="rect" id="Node000003" href="$EchoClnt_8cpp.html" title=" " alt="" coords="258,299,425,324"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="226,254,318,296,316,301,224,259"/>
-<area shape="rect" id="Node000004" href="$EchoServ_8cpp.html" title=" " alt="" coords="460,299,629,324"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="259,251,487,296,486,301,258,256"/>
-<area shape="rect" id="Node000005" href="$HttpServ_8cpp.html" title=" " alt="" coords="637,372,804,397"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="200,262,219,294,232,309,247,322,277,335,318,346,421,363,535,373,637,378,636,384,534,378,420,368,316,351,275,340,244,326,228,313,214,297,196,265"/>
-<area shape="poly" id="edge16_Node000006_Node000002" title=" " alt="" coords="491,116,455,149,410,180,335,205,241,228,240,223,334,200,407,175,452,145,488,112"/>
-<area shape="rect" id="Node000007" href="$Conn_8hpp.html" title=" " alt="" coords="1057,152,1224,177"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="608,102,1057,152,1057,157,607,107"/>
-<area shape="rect" id="Node000014" href="$Reactor_8cpp.html" title=" " alt="" coords="1248,152,1414,177"/>
-<area shape="poly" id="edge17_Node000006_Node000014" title=" " alt="" coords="608,101,785,116,924,125,1062,134,1237,149,1248,150,1247,156,1236,155,1061,140,924,131,785,122,607,107"/>
-<area shape="rect" id="Node000015" href="$Reactor_8ut_8cpp.html" title=" " alt="" coords="26,152,210,177"/>
-<area shape="poly" id="edge18_Node000006_Node000015" title=" " alt="" coords="434,109,182,155,181,149,433,104"/>
-<area shape="rect" id="Node000016" href="$io_2Runner_8cpp.html" title=" " alt="" coords="234,152,396,177"/>
-<area shape="poly" id="edge19_Node000006_Node000016" title=" " alt="" coords="467,111,348,154,346,149,465,106"/>
-<area shape="rect" id="Node000017" href="$StreamAcceptor_8hpp.html" title=" " alt="" coords="472,152,702,177"/>
-<area shape="poly" id="edge20_Node000006_Node000017" title=" " alt="" coords="534,111,576,150,573,154,530,115"/>
-<area shape="rect" id="Node000020" href="$StreamConnector_8hpp.html" title=" " alt="" coords="727,152,967,177"/>
-<area shape="poly" id="edge26_Node000006_Node000020" title=" " alt="" coords="578,104,793,149,792,155,577,109"/>
-<area shape="rect" id="Node000008" href="$http_8hpp.html" title=" " alt="" coords="1165,299,1294,324"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="1237,179,1273,196,1301,224,1306,235,1306,247,1295,268,1274,286,1253,301,1250,296,1271,282,1290,265,1301,245,1301,236,1297,227,1270,201,1235,184"/>
-<area shape="rect" id="Node000009" href="$App_8hpp.html" title=" " alt="" coords="1362,225,1521,251"/>
-<area shape="poly" id="edge9_Node000007_Node000009" title=" " alt="" coords="1202,178,1394,223,1392,228,1201,183"/>
-<area shape="rect" id="Node000011" href="$Conn_8cpp.html" title=" " alt="" coords="1122,225,1287,251"/>
-<area shape="poly" id="edge12_Node000007_Node000011" title=" " alt="" coords="1162,186,1196,223,1192,227,1158,189"/>
-<area shape="rect" id="Node000012" href="$Serv_8hpp.html" title=" " alt="" coords="936,225,1097,251"/>
-<area shape="poly" id="edge13_Node000007_Node000012" title=" " alt="" coords="1110,186,1038,227,1035,223,1107,182"/>
-<area shape="poly" id="edge8_Node000008_Node000005" title=" " alt="" coords="1152,326,803,375,802,369,1151,321"/>
-<area shape="poly" id="edge10_Node000009_Node000008" title=" " alt="" coords="1396,257,1265,301,1263,296,1394,252"/>
-<area shape="rect" id="Node000010" href="$App_8cpp.html" title=" " alt="" coords="1363,299,1520,324"/>
-<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="1444,264,1444,299,1439,299,1439,264"/>
-<area shape="poly" id="edge14_Node000012_Node000008" title=" " alt="" coords="1064,252,1196,296,1194,301,1063,257"/>
-<area shape="rect" id="Node000013" href="$Serv_8cpp.html" title=" " alt="" coords="936,299,1096,324"/>
-<area shape="poly" id="edge15_Node000012_Node000013" title=" " alt="" coords="1019,264,1019,299,1014,299,1014,264"/>
-<area shape="poly" id="edge21_Node000017_Node000012" title=" " alt="" coords="670,177,948,223,947,228,669,182"/>
-<area shape="rect" id="Node000018" href="$net_8hpp.html" title=" " alt="" coords="525,225,649,251"/>
-<area shape="poly" id="edge22_Node000017_Node000018" title=" " alt="" coords="590,191,590,225,584,225,584,191"/>
-<area shape="rect" id="Node000019" href="$StreamAcceptor_8cpp.html" title=" " alt="" coords="270,225,501,251"/>
-<area shape="poly" id="edge25_Node000017_Node000019" title=" " alt="" coords="543,184,420,228,418,223,541,179"/>
-<area shape="poly" id="edge23_Node000018_Node000003" title=" " alt="" coords="535,257,382,301,381,296,534,252"/>
-<area shape="poly" id="edge24_Node000018_Node000004" title=" " alt="" coords="575,264,554,300,549,297,571,261"/>
-<area shape="poly" id="edge27_Node000020_Node000018" title=" " alt="" coords="793,183,630,228,628,223,791,178"/>
-<area shape="rect" id="Node000021" href="$StreamConnector_8cpp.html" title=" " alt="" coords="673,225,912,251"/>
-<area shape="poly" id="edge28_Node000020_Node000021" title=" " alt="" coords="832,190,803,227,799,224,828,187"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="599,5,758,31"/>
+<area shape="rect" id="Node000002" href="$io_8hpp.html" title=" " alt="" coords="5,225,120,251"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="586,33,459,51,316,78,247,94,186,112,136,132,100,154,86,170,77,190,67,226,62,224,72,188,82,167,97,150,133,128,184,107,246,89,315,73,458,46,585,28"/>
+<area shape="rect" id="Node000007" href="$Reactor_8hpp.html" title=" " alt="" coords="595,79,763,104"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="681,44,681,79,676,79,676,44"/>
+<area shape="rect" id="Node000025" href="$Waker_8cpp.html" title=" " alt="" coords="787,79,944,104"/>
+<area shape="poly" id="edge34_Node000001_Node000025" title=" " alt="" coords="722,33,836,76,834,81,720,38"/>
+<area shape="rect" id="Node000003" href="$EchoClnt_8cpp.html" title=" " alt="" coords="494,299,661,324"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="134,248,494,297,494,302,133,253"/>
+<area shape="rect" id="Node000004" href="$EchoServ_8cpp.html" title=" " alt="" coords="297,299,466,324"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="127,251,330,296,329,301,126,256"/>
+<area shape="rect" id="Node000005" href="$HttpServ_8cpp.html" title=" " alt="" coords="403,372,570,397"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="71,263,83,295,93,310,106,322,127,333,157,344,235,359,322,370,403,377,403,382,321,375,234,365,156,349,125,338,102,326,89,313,78,297,66,265"/>
+<area shape="rect" id="Node000006" href="$example_2Inotify_8cpp.html" title=" " alt="" coords="116,299,265,324"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="97,255,171,296,168,301,94,260"/>
+<area shape="poly" id="edge17_Node000007_Node000002" title=" " alt="" coords="581,97,465,103,335,113,218,129,171,141,136,154,114,170,96,189,71,226,67,223,92,186,111,166,133,150,169,136,217,124,335,107,464,97,581,92"/>
+<area shape="rect" id="Node000008" href="$Conn_8hpp.html" title=" " alt="" coords="595,152,762,177"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="681,118,681,152,676,152,676,118"/>
+<area shape="rect" id="Node000015" href="$Inotify_8hpp.html" title=" " alt="" coords="147,152,306,177"/>
+<area shape="poly" id="edge18_Node000007_Node000015" title=" " alt="" coords="593,109,300,155,299,149,592,103"/>
+<area shape="rect" id="Node000017" href="$Reactor_8cpp.html" title=" " alt="" coords="786,152,953,177"/>
+<area shape="poly" id="edge21_Node000007_Node000017" title=" " alt="" coords="723,106,839,149,837,154,721,111"/>
+<area shape="rect" id="Node000018" href="$Reactor_8ut_8cpp.html" title=" " alt="" coords="977,152,1161,177"/>
+<area shape="poly" id="edge22_Node000007_Node000018" title=" " alt="" coords="755,104,1007,149,1006,155,754,109"/>
+<area shape="rect" id="Node000019" href="$io_2Runner_8cpp.html" title=" " alt="" coords="1185,152,1348,177"/>
+<area shape="poly" id="edge23_Node000007_Node000019" title=" " alt="" coords="777,102,1174,149,1186,151,1185,156,1173,155,776,107"/>
+<area shape="rect" id="Node000020" href="$StreamAcceptor_8hpp.html" title=" " alt="" coords="1373,152,1603,177"/>
+<area shape="poly" id="edge24_Node000007_Node000020" title=" " alt="" coords="777,101,1070,127,1360,149,1373,150,1372,156,1360,155,1070,132,776,107"/>
+<area shape="rect" id="Node000023" href="$StreamConnector_8hpp.html" title=" " alt="" coords="331,152,571,177"/>
+<area shape="poly" id="edge31_Node000007_Node000023" title=" " alt="" coords="630,111,488,154,487,149,628,106"/>
+<area shape="rect" id="Node000009" href="$http_8hpp.html" title=" " alt="" coords="869,299,998,324"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="768,177,852,196,886,209,910,223,923,241,931,262,936,298,931,299,925,263,918,244,906,227,884,214,850,202,767,182"/>
+<area shape="rect" id="Node000010" href="$App_8hpp.html" title=" " alt="" coords="737,225,895,251"/>
+<area shape="poly" id="edge10_Node000008_Node000010" title=" " alt="" coords="714,181,795,223,792,227,711,186"/>
+<area shape="rect" id="Node000012" href="$Conn_8cpp.html" title=" " alt="" coords="971,225,1136,251"/>
+<area shape="poly" id="edge13_Node000008_Node000012" title=" " alt="" coords="752,177,993,223,992,228,752,182"/>
+<area shape="rect" id="Node000013" href="$Serv_8hpp.html" title=" " alt="" coords="1161,225,1322,251"/>
+<area shape="poly" id="edge14_Node000008_Node000013" title=" " alt="" coords="776,176,1161,224,1160,229,776,181"/>
+<area shape="poly" id="edge9_Node000009_Node000005" title=" " alt="" coords="855,328,559,375,558,369,854,322"/>
+<area shape="poly" id="edge11_Node000010_Node000009" title=" " alt="" coords="848,255,916,296,913,301,845,260"/>
+<area shape="rect" id="Node000011" href="$App_8cpp.html" title=" " alt="" coords="687,299,844,324"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="802,264,776,300,771,297,797,261"/>
+<area shape="poly" id="edge15_Node000013_Node000009" title=" " alt="" coords="1179,256,984,301,983,296,1178,251"/>
+<area shape="rect" id="Node000014" href="$Serv_8cpp.html" title=" " alt="" coords="1161,299,1321,324"/>
+<area shape="poly" id="edge16_Node000013_Node000014" title=" " alt="" coords="1244,264,1244,299,1239,299,1239,264"/>
+<area shape="poly" id="edge19_Node000015_Node000002" title=" " alt="" coords="189,185,91,228,88,223,187,180"/>
+<area shape="rect" id="Node000016" href="$toolbox_2io_2Inotify_8cpp.html" title=" " alt="" coords="144,225,301,251"/>
+<area shape="poly" id="edge20_Node000015_Node000016" title=" " alt="" coords="228,191,226,225,221,225,223,191"/>
+<area shape="poly" id="edge25_Node000020_Node000013" title=" " alt="" coords="1436,184,1282,228,1281,223,1435,179"/>
+<area shape="rect" id="Node000021" href="$net_8hpp.html" title=" " alt="" coords="589,225,713,251"/>
+<area shape="poly" id="edge26_Node000020_Node000021" title=" " alt="" coords="1359,180,1040,201,901,210,726,228,713,230,713,224,725,223,901,205,1040,195,1359,175"/>
+<area shape="rect" id="Node000022" href="$StreamAcceptor_8cpp.html" title=" " alt="" coords="1373,225,1603,251"/>
+<area shape="poly" id="edge30_Node000020_Node000022" title=" " alt="" coords="1491,191,1491,225,1485,225,1485,191"/>
+<area shape="poly" id="edge27_Node000021_Node000003" title=" " alt="" coords="631,262,591,300,587,297,627,258"/>
+<area shape="poly" id="edge28_Node000021_Node000004" title=" " alt="" coords="595,257,426,301,424,296,594,252"/>
+<area shape="poly" id="edge29_Node000021_Node000006" title=" " alt="" coords="576,254,265,301,264,296,575,248"/>
+<area shape="poly" id="edge32_Node000023_Node000021" title=" " alt="" coords="497,179,619,223,617,228,495,184"/>
+<area shape="rect" id="Node000024" href="$StreamConnector_8cpp.html" title=" " alt="" coords="326,225,565,251"/>
+<area shape="poly" id="edge33_Node000023_Node000024" title=" " alt="" coords="451,191,449,225,444,225,446,191"/>
 </map>
