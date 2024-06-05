@@ -44,11 +44,7 @@ constexpr bool operator!=(WatchFile lhs, WatchFile rhs)
 struct WatchFilePolicy {
     using Id = WatchFile;
     static constexpr WatchFile invalid() noexcept { return WatchFile{}; }
-    static void close(WatchFile wf) noexcept
-    {
-        ::inotify_rm_watch(wf.fd, wf.wd);
-        ::close(wf.wd);
-    }
+    static void close(WatchFile wf) noexcept { ::inotify_rm_watch(wf.fd, wf.wd); }
 };
 
 using WatchFileHandle = BasicHandle<WatchFilePolicy>;
@@ -137,15 +133,13 @@ class TOOLBOX_API Inotify {
     FileHandle fh_;
 };
 
-/// FileWatcher watches for changes to files in a directory.
+/// FileWatcher watches for changes to files.
 class TOOLBOX_API FileWatcher {
   public:
     using Path = std::filesystem::path;
-    using Slot = BasicSlot<const Path&, std::uint32_t>;
-    using SlotMap = std::map<Path, Slot>;
+    using Slot = BasicSlot<const Path&, int, std::uint32_t>;
 
-    FileWatcher(Reactor& r, Inotify& inotify, const Path& dir_name,
-                std::uint32_t mask = IN_CLOSE_WRITE | IN_MOVED_TO);
+    FileWatcher(Reactor& r, Inotify& inotify);
     ~FileWatcher() = default;
 
     // Copy.
@@ -156,15 +150,21 @@ class TOOLBOX_API FileWatcher {
     FileWatcher(FileWatcher&&) noexcept = default;
     FileWatcher& operator=(FileWatcher&&) noexcept = default;
 
-    /// Bind slot to a file within the directory.
-    void bind(const Path& file_name, Slot slot) { slot_map_[file_name] = slot; }
+    void watch(const Path& path, Slot slot, std::uint32_t mask = IN_ALL_EVENTS);
 
   private:
+    struct Watch {
+        Path path;
+        Slot slot;
+        WatchFileHandle wh;
+    };
+
     void on_inotify(CyclTime /*now*/, int fd, unsigned events);
 
-    WatchFileHandle watch_dir_;
+    Inotify* inotify_;
     Reactor::Handle sub_;
-    SlotMap slot_map_;
+    std::map<Path, Watch> path_index_;
+    std::map<int, const Watch*> wd_index_;
 };
 
 } // namespace io
