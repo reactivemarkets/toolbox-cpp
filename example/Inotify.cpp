@@ -37,8 +37,8 @@ class ConfigLoader {
     using Task = std::packaged_task<ConfigPtr()>;
 
   public:
-    explicit ConfigLoader(const Path& dir_name)
-    : dir_name_{dir_name}
+    explicit ConfigLoader(const Path& path)
+    : path_{path}
     {
     }
     ~ConfigLoader() = default;
@@ -51,7 +51,7 @@ class ConfigLoader {
     ConfigLoader(ConfigLoader&&) = delete;
     ConfigLoader& operator=(ConfigLoader&&) = delete;
 
-    const Path& dir_name() const noexcept { return dir_name_; }
+    const Path& path() const noexcept { return path_; }
     bool run()
     {
         return tq_.run([](Task&& t) { t(); });
@@ -62,11 +62,11 @@ class ConfigLoader {
         // This will unblock waiters by throwing a "broken promise" exception.
         return tq_.clear();
     }
-    ConfigFuture load(const Path& file_name)
+    ConfigFuture load()
     {
-        Task task{[this, file_name = std::move(file_name)]() -> ConfigPtr {
+        Task task{[this]() -> ConfigPtr {
             // TODO: load config from filesystem.
-            return ConfigPtr{new Config{.path = dir_name_ / file_name}};
+            return ConfigPtr{new Config{.path = path_}};
         }};
         auto future{task.get_future()};
         tq_.push(std::move(task));
@@ -74,7 +74,7 @@ class ConfigLoader {
     }
 
   private:
-    const Path dir_name_;
+    const Path path_;
     TaskQueue<Task> tq_;
 };
 
@@ -82,27 +82,38 @@ class App {
   public:
     App(CyclTime now, Reactor& reactor, Inotify& inotify, ConfigLoader& config_loader)
     : config_loader_{config_loader}
-    , file_watcher_{reactor, inotify, config_loader.dir_name()}
+    , file_watcher_{reactor, inotify}
     // Immediate and then at 5s intervals.
     , tmr_{reactor.timer(now.mono_time(), 5s, Priority::Low, bind<&App::on_timer>(this))}
     {
         // Bind on_config_update slot to the foo.conf configuration file.
-        file_watcher_.bind("foo.conf", bind<&App::on_config_update>(this));
+        file_watcher_.watch(config_loader.path(), bind<&App::on_config_update>(this),
+                            IN_CLOSE_WRITE | IN_DELETE_SELF);
         // Trigger initial config load.
-        config_future_ = config_loader_.load("foo.conf");
+        config_future_ = config_loader_.load();
     }
     ~App() = default;
 
   private:
-    void on_config_update(const Path& file_name, std::uint32_t event_mask)
+    void on_config_update(const Path& path, int /*wd*/, std::uint32_t event_mask)
     {
+        if (path != config_loader_.path()) {
+            return;
+        }
         if ((event_mask & IN_CLOSE_WRITE) == IN_CLOSE_WRITE) {
-            TOOLBOX_INFO << "config " << file_name << " updated (IN_CLOSE_WRITE)";
+            TOOLBOX_INFO << "config " << path << " updated (IN_CLOSE_WRITE)";
         }
-        if ((event_mask & IN_MOVED_TO) == IN_MOVED_TO) {
-            TOOLBOX_INFO << "config " << file_name << " updated (IN_MOVED_TO)";
+        if ((event_mask & IN_DELETE_SELF) == IN_DELETE_SELF) {
+            TOOLBOX_INFO << "config " << path << " updated (IN_DELETE_SELF)";
+
+            // On Kubernetes, inotify only receives the IN_DELETE_SELF event on config maps.
+            // This deletion event breaks the inotify watch and so code needs to handle
+            // re-establishing the watch every time the file is updated.
+
+            file_watcher_.watch(path, bind<&App::on_config_update>(this),
+                                IN_CLOSE_WRITE | IN_DELETE_SELF);
         }
-        config_future_ = config_loader_.load(file_name);
+        config_future_ = config_loader_.load();
     }
     void on_timer(CyclTime /*now*/, Timer& /*tmr*/)
     {
@@ -115,7 +126,7 @@ class App {
                 config_ = config_future_.get();
             } catch (const std::exception& e) {
                 TOOLBOX_ERROR << "could not load config: " << e.what();
-                config_future_ = config_loader_.load("foo.conf");
+                config_future_ = config_loader_.load();
                 return;
             }
             TOOLBOX_INFO << "config loaded: " << config_->path;
@@ -139,7 +150,7 @@ int main()
         const auto start_time{CyclTime::now()};
         Reactor reactor{1024};
         Inotify inotify{IN_NONBLOCK};
-        ConfigLoader config_loader{"/tmp/config"};
+        ConfigLoader config_loader{"/tmp/inotify_test/files/foo.txt"};
         App app{start_time, reactor, inotify, config_loader};
 
         // Start service threads.
