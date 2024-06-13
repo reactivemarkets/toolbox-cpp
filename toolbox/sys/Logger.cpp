@@ -205,7 +205,7 @@ void AsyncLogger::write_all_messages()
 bool AsyncLogger::run()
 {
     write_all_messages();
-    std::this_thread::sleep_for(50ms);
+    std::this_thread::sleep_for(25ms);
 
     return (!tq_.empty() || !stop_);
 }
