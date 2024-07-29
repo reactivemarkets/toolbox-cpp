@@ -86,7 +86,8 @@ class Log {
 } // namespace toolbox
 
 // clang-format off
-#define TOOLBOX_LOG(LEVEL) toolbox::is_log_level(LEVEL) && toolbox::Log{WallClock::now(), LEVEL}()
+#define TOOLBOX_LOG(LEVEL) \
+toolbox::is_log_level(LEVEL) && toolbox::Log{toolbox::WallClock::now(), LEVEL}()
 
 #define TOOLBOX_CRIT TOOLBOX_LOG(toolbox::LogLevel::Crit)
 #define TOOLBOX_ERROR TOOLBOX_LOG(toolbox::LogLevel::Error)
