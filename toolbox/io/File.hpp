@@ -22,7 +22,7 @@
 #include <toolbox/sys/Error.hpp>
 
 #include <fcntl.h>
-
+#include <stdio.h>
 #include <sys/stat.h>
 
 namespace toolbox {
@@ -66,6 +66,24 @@ inline FileHandle open(const char* path, int flags)
         throw std::system_error{make_error(errno), "open"};
     }
     return fd;
+}
+
+inline int remove(const char* path)
+{
+    const auto ret = ::remove(path);
+    if (ret < 0) {
+        throw std::system_error{make_error(errno), "remove"};
+    }
+    return ret;
+}
+
+inline int remove(const char* path, std::error_code& ec) noexcept
+{
+    const auto ret = ::remove(path);
+    if (ret < 0) {
+        ec = make_error(errno);
+    }
+    return ret;
 }
 
 /// Create pipe.
