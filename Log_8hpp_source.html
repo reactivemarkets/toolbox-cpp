@@ -176,23 +176,26 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>} <span class="comment">// namespace toolbox</span></div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">// clang-format off</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="Log_8hpp.html#aeef575d3c8dddce294263a9f904b2ecd">   89</a></span><span class="preprocessor">#define TOOLBOX_LOG(LEVEL) toolbox::is_log_level(LEVEL) &amp;&amp; toolbox::Log{WallClock::now(), LEVEL}()</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="Log_8hpp.html#a5b03a968e886a76c3a92a47fbe11cf01">   91</a></span><span class="preprocessor">#define TOOLBOX_CRIT TOOLBOX_LOG(toolbox::LogLevel::Crit)</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="Log_8hpp.html#aca90da8a175ed216c67a7b0d6f517eda">   92</a></span><span class="preprocessor">#define TOOLBOX_ERROR TOOLBOX_LOG(toolbox::LogLevel::Error)</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="Log_8hpp.html#a8efe682ee270dbc710ef556ff52a0eee">   93</a></span><span class="preprocessor">#define TOOLBOX_WARN TOOLBOX_LOG(toolbox::LogLevel::Warn)</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="Log_8hpp.html#a43fe72c208a6aff38411e7e3d47cc74d">   94</a></span><span class="preprocessor">#define TOOLBOX_METRIC TOOLBOX_LOG(toolbox::LogLevel::Metric)</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="Log_8hpp.html#a9860898bebf2a6f7a82cd2364369dfae">   95</a></span><span class="preprocessor">#define TOOLBOX_NOTICE TOOLBOX_LOG(toolbox::LogLevel::Notice)</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="Log_8hpp.html#aaaca7789578fae79a1968cc989889940">   96</a></span><span class="preprocessor">#define TOOLBOX_INFO TOOLBOX_LOG(toolbox::LogLevel::Info)</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="preprocessor">#if TOOLBOX_BUILD_DEBUG</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">#define TOOLBOX_DEBUG TOOLBOX_LOG(toolbox::LogLevel::Debug)</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="Log_8hpp.html#a53c7e19e45aa1316b0eeb8815f6631aa">  101</a></span><span class="preprocessor">#define TOOLBOX_DEBUG false &amp;&amp; toolbox::Log{WallClock::now(), toolbox::LogLevel::Debug}()</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">// clang-format on</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="preprocessor">#endif </span><span class="comment">// TOOLBOX_SYS_LOG_HPP</span></div>
+<div class="foldopen" id="foldopen00089" data-start="" data-end="">
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="Log_8hpp.html#aeef575d3c8dddce294263a9f904b2ecd">   89</a></span><span class="preprocessor">#define TOOLBOX_LOG(LEVEL) \</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="preprocessor">toolbox::is_log_level(LEVEL) &amp;&amp; toolbox::Log{toolbox::WallClock::now(), LEVEL}()</span></div>
+</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="Log_8hpp.html#a5b03a968e886a76c3a92a47fbe11cf01">   92</a></span><span class="preprocessor">#define TOOLBOX_CRIT TOOLBOX_LOG(toolbox::LogLevel::Crit)</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="Log_8hpp.html#aca90da8a175ed216c67a7b0d6f517eda">   93</a></span><span class="preprocessor">#define TOOLBOX_ERROR TOOLBOX_LOG(toolbox::LogLevel::Error)</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="Log_8hpp.html#a8efe682ee270dbc710ef556ff52a0eee">   94</a></span><span class="preprocessor">#define TOOLBOX_WARN TOOLBOX_LOG(toolbox::LogLevel::Warn)</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="Log_8hpp.html#a43fe72c208a6aff38411e7e3d47cc74d">   95</a></span><span class="preprocessor">#define TOOLBOX_METRIC TOOLBOX_LOG(toolbox::LogLevel::Metric)</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="Log_8hpp.html#a9860898bebf2a6f7a82cd2364369dfae">   96</a></span><span class="preprocessor">#define TOOLBOX_NOTICE TOOLBOX_LOG(toolbox::LogLevel::Notice)</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="Log_8hpp.html#aaaca7789578fae79a1968cc989889940">   97</a></span><span class="preprocessor">#define TOOLBOX_INFO TOOLBOX_LOG(toolbox::LogLevel::Info)</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">#if TOOLBOX_BUILD_DEBUG</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">#define TOOLBOX_DEBUG TOOLBOX_LOG(toolbox::LogLevel::Debug)</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="Log_8hpp.html#a53c7e19e45aa1316b0eeb8815f6631aa">  102</a></span><span class="preprocessor">#define TOOLBOX_DEBUG false &amp;&amp; toolbox::Log{WallClock::now(), toolbox::LogLevel::Debug}()</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">// clang-format on</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">#endif </span><span class="comment">// TOOLBOX_SYS_LOG_HPP</span></div>
 <div class="ttc" id="aConfig_8h_html_ae1d5e2ff332359a2f7905596626f2bf3"><div class="ttname"><a href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a></div><div class="ttdeci">#define TOOLBOX_API</div><div class="ttdef"><b>Definition</b> <a href="Config_8h_source.html#l00039">Config.h:39</a></div></div>
 <div class="ttc" id="aLogger_8hpp_html"><div class="ttname"><a href="Logger_8hpp.html">Logger.hpp</a></div></div>
 <div class="ttc" id="aclasstoolbox_1_1sys_1_1Log_html"><div class="ttname"><a href="classtoolbox_1_1sys_1_1Log.html">toolbox::Log</a></div><div class="ttdef"><b>Definition</b> <a href="Log_8hpp_source.html#l00035">Log.hpp:35</a></div></div>
