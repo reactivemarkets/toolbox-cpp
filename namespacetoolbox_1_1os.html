@@ -123,6 +123,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a4611135ccc106a49d68a469353715077" id="r_a4611135ccc106a49d68a469353715077"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1io.html#a0382b7b7f259044db618bbc41b273ee4">FileHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1os.html#a4611135ccc106a49d68a469353715077">open</a> (<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">const</a> <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">char</a> *path, <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">int</a> <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">flags</a>)</td></tr>
 <tr class="memdesc:a4611135ccc106a49d68a469353715077"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open and possibly create a file.  <br /></td></tr>
 <tr class="separator:a4611135ccc106a49d68a469353715077"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa19bf33f4e33c69499b45dfb90d81f54" id="r_aa19bf33f4e33c69499b45dfb90d81f54"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1os.html#aa19bf33f4e33c69499b45dfb90d81f54">remove</a> (<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">const</a> <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">char</a> *path)</td></tr>
+<tr class="separator:aa19bf33f4e33c69499b45dfb90d81f54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72c3a170704f80bdd6fde1c807f1a395" id="r_a72c3a170704f80bdd6fde1c807f1a395"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1os.html#a72c3a170704f80bdd6fde1c807f1a395">remove</a> (<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">const</a> <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">char</a> *path, std::error_code &amp;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">ec</a>) <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">noexcept</a></td></tr>
+<tr class="separator:a72c3a170704f80bdd6fde1c807f1a395"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50205aa389a5deab573d3d1e757e24da" id="r_a50205aa389a5deab573d3d1e757e24da"><td class="memItemLeft" align="right" valign="top">std::pair&lt; <a class="el" href="namespacetoolbox_1_1io.html#a0382b7b7f259044db618bbc41b273ee4">FileHandle</a>, <a class="el" href="namespacetoolbox_1_1io.html#a0382b7b7f259044db618bbc41b273ee4">FileHandle</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1os.html#a50205aa389a5deab573d3d1e757e24da">pipe2</a> (<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">int</a> <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">flags</a>, std::error_code &amp;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">ec</a>) <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">noexcept</a></td></tr>
 <tr class="memdesc:a50205aa389a5deab573d3d1e757e24da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create pipe.  <br /></td></tr>
 <tr class="separator:a50205aa389a5deab573d3d1e757e24da"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1081,6 +1085,74 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aa19bf33f4e33c69499b45dfb90d81f54" name="aa19bf33f4e33c69499b45dfb90d81f54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa19bf33f4e33c69499b45dfb90d81f54">&#9670;&#160;</a></span>remove() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">int</a> toolbox::os::remove </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">const</a> <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">char</a> *&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00071">71</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="File_8hpp_source.html#l00071">remove()</a>, and <a class="el" href="File_8hpp_source.html#l00080">remove()</a>.</p>
+
+</div>
+</div>
+<a id="a72c3a170704f80bdd6fde1c807f1a395" name="a72c3a170704f80bdd6fde1c807f1a395"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72c3a170704f80bdd6fde1c807f1a395">&#9670;&#160;</a></span>remove() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">int</a> toolbox::os::remove </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">const</a> <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">char</a> *&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::error_code &amp;&#160;</td>
+          <td class="paramname"><em>ec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00080">80</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a50205aa389a5deab573d3d1e757e24da" name="a50205aa389a5deab573d3d1e757e24da"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a50205aa389a5deab573d3d1e757e24da">&#9670;&#160;</a></span>pipe2() <span class="overload">[1/2]</span></h2>
 
@@ -1117,9 +1189,9 @@ Functions</h2></td></tr>
 
 <p>Create pipe. </p>
 
-<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00072">72</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00090">90</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="File_8hpp_source.html#l00082">pipe2()</a>, and <a class="el" href="File_8hpp_source.html#l00072">pipe2()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="File_8hpp_source.html#l00100">pipe2()</a>, and <a class="el" href="File_8hpp_source.html#l00090">pipe2()</a>.</p>
 
 </div>
 </div>
@@ -1149,7 +1221,7 @@ Functions</h2></td></tr>
 
 <p>Create pipe. </p>
 
-<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00082">82</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00100">100</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
 
 </div>
 </div>
@@ -1195,9 +1267,9 @@ Functions</h2></td></tr>
 
 <p>Get file status. </p>
 
-<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00092">92</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00110">110</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="File_8hpp_source.html#l00101">fstat()</a>, and <a class="el" href="File_8hpp_source.html#l00092">fstat()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="File_8hpp_source.html#l00119">fstat()</a>, and <a class="el" href="File_8hpp_source.html#l00110">fstat()</a>.</p>
 
 </div>
 </div>
@@ -1237,7 +1309,7 @@ Functions</h2></td></tr>
 
 <p>Get file status. </p>
 
-<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00101">101</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00119">119</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
 
 </div>
 </div>
@@ -1283,9 +1355,9 @@ Functions</h2></td></tr>
 
 <p>Truncate a file to a specified length. </p>
 
-<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00110">110</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00128">128</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="File_8hpp_source.html#l00119">ftruncate()</a>, and <a class="el" href="File_8hpp_source.html#l00110">ftruncate()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="File_8hpp_source.html#l00137">ftruncate()</a>, and <a class="el" href="File_8hpp_source.html#l00128">ftruncate()</a>.</p>
 
 </div>
 </div>
@@ -1325,7 +1397,7 @@ Functions</h2></td></tr>
 
 <p>Truncate a file to a specified length. </p>
 
-<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00119">119</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00137">137</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
 
 </div>
 </div>
@@ -1377,9 +1449,9 @@ Functions</h2></td></tr>
 
 <p>Read from a file descriptor. </p>
 
-<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00128">128</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00146">146</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="EventFd_8hpp_source.html#l00067">toolbox::io::EventFd::read()</a>, <a class="el" href="File_8hpp_source.html#l00154">read()</a>, <a class="el" href="File_8hpp_source.html#l00148">read()</a>, <a class="el" href="File_8hpp_source.html#l00138">read()</a>, <a class="el" href="File_8hpp_source.html#l00128">read()</a>, <a class="el" href="IoSock_8hpp_source.html#l00044">toolbox::net::IoSock::read()</a>, <a class="el" href="IoSock_8hpp_source.html#l00040">toolbox::net::IoSock::read()</a>, <a class="el" href="IoSock_8hpp_source.html#l00038">toolbox::net::IoSock::read()</a>, and <a class="el" href="IoSock_8hpp_source.html#l00034">toolbox::net::IoSock::read()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="EventFd_8hpp_source.html#l00067">toolbox::io::EventFd::read()</a>, <a class="el" href="File_8hpp_source.html#l00172">read()</a>, <a class="el" href="File_8hpp_source.html#l00166">read()</a>, <a class="el" href="File_8hpp_source.html#l00156">read()</a>, <a class="el" href="File_8hpp_source.html#l00146">read()</a>, <a class="el" href="IoSock_8hpp_source.html#l00044">toolbox::net::IoSock::read()</a>, <a class="el" href="IoSock_8hpp_source.html#l00040">toolbox::net::IoSock::read()</a>, <a class="el" href="IoSock_8hpp_source.html#l00038">toolbox::net::IoSock::read()</a>, and <a class="el" href="IoSock_8hpp_source.html#l00034">toolbox::net::IoSock::read()</a>.</p>
 
 </div>
 </div>
@@ -1425,7 +1497,7 @@ Functions</h2></td></tr>
 
 <p>Read from a file descriptor. </p>
 
-<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00138">138</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00156">156</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
 
 </div>
 </div>
@@ -1471,7 +1543,7 @@ Functions</h2></td></tr>
 
 <p>Read from a file descriptor. </p>
 
-<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00148">148</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00166">166</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
 
 </div>
 </div>
@@ -1511,7 +1583,7 @@ Functions</h2></td></tr>
 
 <p>Read from a file descriptor. </p>
 
-<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00154">154</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00172">172</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
 
 </div>
 </div>
@@ -1563,9 +1635,9 @@ Functions</h2></td></tr>
 
 <p>Write to a file descriptor. </p>
 
-<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00160">160</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00178">178</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Conn_8hpp_source.html#l00081">toolbox::http::BasicConn&lt; RequestT, AppT &gt;::dispose_now()</a>, <a class="el" href="IoSock_8hpp_source.html#l00065">toolbox::net::IoSock::write()</a>, <a class="el" href="IoSock_8hpp_source.html#l00061">toolbox::net::IoSock::write()</a>, <a class="el" href="IoSock_8hpp_source.html#l00071">toolbox::net::IoSock::write()</a>, <a class="el" href="IoSock_8hpp_source.html#l00067">toolbox::net::IoSock::write()</a>, <a class="el" href="File_8hpp_source.html#l00170">write()</a>, <a class="el" href="File_8hpp_source.html#l00160">write()</a>, <a class="el" href="File_8hpp_source.html#l00186">write()</a>, <a class="el" href="File_8hpp_source.html#l00180">write()</a>, <a class="el" href="EventFd_8hpp_source.html#l00086">toolbox::io::EventFd::write()</a>, and <a class="el" href="EventFd_8hpp_source.html#l00076">toolbox::io::EventFd::write()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Conn_8hpp_source.html#l00081">toolbox::http::BasicConn&lt; RequestT, AppT &gt;::dispose_now()</a>, <a class="el" href="IoSock_8hpp_source.html#l00065">toolbox::net::IoSock::write()</a>, <a class="el" href="IoSock_8hpp_source.html#l00061">toolbox::net::IoSock::write()</a>, <a class="el" href="IoSock_8hpp_source.html#l00071">toolbox::net::IoSock::write()</a>, <a class="el" href="IoSock_8hpp_source.html#l00067">toolbox::net::IoSock::write()</a>, <a class="el" href="File_8hpp_source.html#l00188">write()</a>, <a class="el" href="File_8hpp_source.html#l00178">write()</a>, <a class="el" href="File_8hpp_source.html#l00204">write()</a>, <a class="el" href="File_8hpp_source.html#l00198">write()</a>, <a class="el" href="EventFd_8hpp_source.html#l00086">toolbox::io::EventFd::write()</a>, and <a class="el" href="EventFd_8hpp_source.html#l00076">toolbox::io::EventFd::write()</a>.</p>
 
 </div>
 </div>
@@ -1611,7 +1683,7 @@ Functions</h2></td></tr>
 
 <p>Write to a file descriptor. </p>
 
-<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00170">170</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00188">188</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
 
 </div>
 </div>
@@ -1657,7 +1729,7 @@ Functions</h2></td></tr>
 
 <p>Write to a file descriptor. </p>
 
-<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00180">180</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00198">198</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
 
 </div>
 </div>
@@ -1697,7 +1769,7 @@ Functions</h2></td></tr>
 
 <p>Write to a file descriptor. </p>
 
-<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00186">186</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00204">204</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
 
 </div>
 </div>
@@ -1743,9 +1815,9 @@ Functions</h2></td></tr>
 
 <p>File control. </p>
 
-<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00192">192</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00210">210</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="File_8hpp_source.html#l00213">fcntl()</a>, <a class="el" href="File_8hpp_source.html#l00224">fcntl()</a>, <a class="el" href="File_8hpp_source.html#l00203">fcntl()</a>, and <a class="el" href="File_8hpp_source.html#l00192">fcntl()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="File_8hpp_source.html#l00231">fcntl()</a>, <a class="el" href="File_8hpp_source.html#l00242">fcntl()</a>, <a class="el" href="File_8hpp_source.html#l00221">fcntl()</a>, and <a class="el" href="File_8hpp_source.html#l00210">fcntl()</a>.</p>
 
 </div>
 </div>
@@ -1799,7 +1871,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>File control. </p>
 
-<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00203">203</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00221">221</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
 
 </div>
 </div>
@@ -1839,7 +1911,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>File control. </p>
 
-<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00213">213</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00231">231</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
 
 </div>
 </div>
@@ -1887,7 +1959,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>File control. </p>
 
-<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00224">224</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="File_8hpp_source.html#l00242">242</a> of file <a class="el" href="File_8hpp_source.html">File.hpp</a>.</p>
 
 </div>
 </div>

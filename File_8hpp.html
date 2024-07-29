@@ -85,23 +85,26 @@ $(function() {
 <code>#include &lt;<a class="el" href="Handle_8hpp_source.html">toolbox/io/Handle.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="sys_2Error_8hpp_source.html">toolbox/sys/Error.hpp</a>&gt;</code><br />
 <code>#include &lt;fcntl.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;sys/stat.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for File.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="File_8hpp__incl.png" border="0" usemap="#atoolbox_2io_2File_8hpp" alt=""/></div>
 <map name="atoolbox_2io_2File_8hpp" id="atoolbox_2io_2File_8hpp">
-<area shape="rect" title=" " alt="" coords="717,5,859,31"/>
+<area shape="rect" title=" " alt="" coords="783,5,926,31"/>
 <area shape="rect" href="Buffer_8hpp.html" title=" " alt="" coords="253,79,411,104"/>
-<area shape="poly" title=" " alt="" coords="717,33,419,79,418,74,716,28"/>
+<area shape="poly" title=" " alt="" coords="783,32,425,80,424,75,783,26"/>
 <area shape="rect" href="Handle_8hpp.html" title=" " alt="" coords="519,79,684,104"/>
-<area shape="poly" title=" " alt="" coords="759,33,645,76,644,71,757,28"/>
+<area shape="poly" title=" " alt="" coords="815,33,656,77,655,72,813,28"/>
 <area shape="rect" href="sys_2Error_8hpp.html" title=" " alt="" coords="709,79,867,104"/>
-<area shape="poly" title=" " alt="" coords="791,31,791,65,785,65,785,31"/>
+<area shape="poly" title=" " alt="" coords="846,33,810,70,806,67,842,29"/>
 <area shape="rect" title=" " alt="" coords="891,79,954,104"/>
-<area shape="poly" title=" " alt="" coords="811,28,890,70,887,74,808,33"/>
-<area shape="rect" title=" " alt="" coords="979,79,1064,104"/>
-<area shape="poly" title=" " alt="" coords="826,28,971,72,970,77,825,33"/>
+<area shape="poly" title=" " alt="" coords="868,29,904,67,900,70,864,33"/>
+<area shape="rect" title=" " alt="" coords="979,79,1045,104"/>
+<area shape="poly" title=" " alt="" coords="881,28,975,71,973,75,879,33"/>
+<area shape="rect" title=" " alt="" coords="1069,79,1155,104"/>
+<area shape="poly" title=" " alt="" coords="897,28,1058,72,1057,78,895,33"/>
 <area shape="rect" href="Config_8h.html" title=" " alt="" coords="5,152,133,177"/>
 <area shape="poly" title=" " alt="" coords="290,107,126,151,124,146,289,101"/>
 <area shape="rect" title=" " alt="" coords="158,152,317,177"/>
@@ -279,6 +282,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a4611135ccc106a49d68a469353715077" id="r_a4611135ccc106a49d68a469353715077"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1io.html#a0382b7b7f259044db618bbc41b273ee4">FileHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1os.html#a4611135ccc106a49d68a469353715077">toolbox::os::open</a> (<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">const</a> <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">char</a> *path, <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">int</a> <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">flags</a>)</td></tr>
 <tr class="memdesc:a4611135ccc106a49d68a469353715077"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open and possibly create a file.  <br /></td></tr>
 <tr class="separator:a4611135ccc106a49d68a469353715077"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa19bf33f4e33c69499b45dfb90d81f54" id="r_aa19bf33f4e33c69499b45dfb90d81f54"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1os.html#aa19bf33f4e33c69499b45dfb90d81f54">toolbox::os::remove</a> (<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">const</a> <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">char</a> *path)</td></tr>
+<tr class="separator:aa19bf33f4e33c69499b45dfb90d81f54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72c3a170704f80bdd6fde1c807f1a395" id="r_a72c3a170704f80bdd6fde1c807f1a395"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1os.html#a72c3a170704f80bdd6fde1c807f1a395">toolbox::os::remove</a> (<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">const</a> <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">char</a> *path, std::error_code &amp;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">ec</a>) <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">noexcept</a></td></tr>
+<tr class="separator:a72c3a170704f80bdd6fde1c807f1a395"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50205aa389a5deab573d3d1e757e24da" id="r_a50205aa389a5deab573d3d1e757e24da"><td class="memItemLeft" align="right" valign="top">std::pair&lt; <a class="el" href="namespacetoolbox_1_1io.html#a0382b7b7f259044db618bbc41b273ee4">FileHandle</a>, <a class="el" href="namespacetoolbox_1_1io.html#a0382b7b7f259044db618bbc41b273ee4">FileHandle</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1os.html#a50205aa389a5deab573d3d1e757e24da">toolbox::os::pipe2</a> (<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">int</a> <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">flags</a>, std::error_code &amp;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">ec</a>) <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">noexcept</a></td></tr>
 <tr class="memdesc:a50205aa389a5deab573d3d1e757e24da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create pipe.  <br /></td></tr>
 <tr class="separator:a50205aa389a5deab573d3d1e757e24da"><td class="memSeparator" colspan="2">&#160;</td></tr>
