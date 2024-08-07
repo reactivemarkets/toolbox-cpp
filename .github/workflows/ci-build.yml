@@ -27,7 +27,7 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
-    container: reactivemarkets/build-cpp:0.34.0
+    container: reactivemarkets/build-cpp:0.35.0
 
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
 
@@ -40,8 +40,8 @@ jobs:
           mkdir -p build
           cd build
           cmake .. -G "Unix Makefiles" \
-            -DCMAKE_C_COMPILER=gcc-13 \
-            -DCMAKE_CXX_COMPILER=g++-13
+            -DCMAKE_C_COMPILER=gcc \
+            -DCMAKE_CXX_COMPILER=g++
 
       - name: Run clang-format
         run: cd build && make clang-format &&
@@ -50,7 +50,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    container: reactivemarkets/build-cpp:0.34.0
+    container: reactivemarkets/build-cpp:0.35.0
     needs: lint
 
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
@@ -59,8 +59,8 @@ jobs:
       matrix:
         build_type: [Debug, Release]
         compiler:
-          - {cc: clang-17, cxx: clang++-17}
-          - {cc: gcc-13, cxx: g++-13}
+          - {cc: clang, cxx: clang++}
+          - {cc: gcc, cxx: g++}
 
     steps:
       - name: Checkout project
