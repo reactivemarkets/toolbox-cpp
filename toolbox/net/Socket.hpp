@@ -50,7 +50,7 @@ inline AddrInfoPtr getaddrinfo(const char* node, const char* service, const addr
     const auto err = ::getaddrinfo(node, service, &hints, &ai);
     if (err != 0) {
         throw std::system_error{make_gai_error_code(err),
-                                "getaddrinfo (" + std::string{node} + ")"};
+                                "getaddrinfo (" + std::string{node ? node : ""} + ")"};
     }
     return {ai, freeaddrinfo};
 }

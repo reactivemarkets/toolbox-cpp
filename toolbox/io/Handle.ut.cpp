@@ -102,7 +102,7 @@ BOOST_AUTO_TEST_CASE(HandleMoveCase)
     TestHandle h{1};
     TestHandle{std::move(h)};
     BOOST_CHECK_EQUAL(last_closed, 1);
-    // NOLINTNEXTLINE(bugprone-use-after-move)
+    // NOLINTNEXTLINE(bugprone-use-after-move, clang-analyzer-cplusplus.Move)
     BOOST_CHECK_EQUAL(h.get(), -1);
 
     h.reset(2);
@@ -111,7 +111,7 @@ BOOST_AUTO_TEST_CASE(HandleMoveCase)
         tmp = std::move(h);
     }
     BOOST_CHECK_EQUAL(last_closed, 2);
-    // NOLINTNEXTLINE(bugprone-use-after-move)
+    // NOLINTNEXTLINE(bugprone-use-after-move, clang-analyzer-cplusplus.Move)
     BOOST_CHECK_EQUAL(h.get(), -1);
 }
 
