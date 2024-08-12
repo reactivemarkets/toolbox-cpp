@@ -198,9 +198,11 @@ install(FILES
   COMPONENT doc
 )
 
+option(ENABLE_CLANG_TIDY "Enable clang-tidy" ON)
+
 # Enable clang-tidy if program exists.
 find_program(CLANG_TIDY clang-tidy HINTS "${TOOLBOX_TOOLSET}/bin")
-if(CLANG_TIDY AND "${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
+if(CLANG_TIDY AND ENABLE_CLANG_TIDY AND "${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
   message(STATUS "Found clang-tidy")
   set(CMAKE_CXX_CLANG_TIDY
     "${CLANG_TIDY}"
