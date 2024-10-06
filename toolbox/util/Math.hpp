@@ -21,6 +21,9 @@
 
 #include <bit>
 #include <cmath>
+#include <array>
+#include <cassert>
+#include <cstdint>
 
 namespace toolbox {
 inline namespace util {
@@ -151,6 +154,37 @@ constexpr std::size_t ceil(std::size_t dividend, std::size_t divisor) noexcept
 {
     return (dividend - 1) / divisor + 1;
 }
+
+/// Returns the value of 10 raised to the power n (i.e. 10^n)
+///
+/// \param n exponent -- must be in the range [0, 19]
+constexpr std::uint64_t pow10(int n) noexcept {
+    constexpr std::array<std::uint64_t, 20> DecimalPowers = {
+        1ULL,
+        10ULL,
+        100ULL,
+        1000ULL,
+        10000ULL,
+        100000ULL,
+        1000000ULL,
+        10000000ULL,
+        100000000ULL,
+        1000000000ULL,
+        10000000000ULL,
+        100000000000ULL,
+        1000000000000ULL,
+        10000000000000ULL,
+        100000000000000ULL,
+        1000000000000000ULL,
+        10000000000000000ULL,
+        100000000000000000ULL,
+        1000000000000000000ULL,
+        10000000000000000000ULL
+    };
+
+    assert(n >= 0 && static_cast<std::size_t>(n) < DecimalPowers.size());
+    return DecimalPowers[n];
+};
 
 } // namespace util
 } // namespace toolbox
