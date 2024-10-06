@@ -18,6 +18,7 @@
 #define TOOLBOX_UTIL_UTILITY_HPP
 
 #include <toolbox/Config.h>
+#include <toolbox/util/Math.hpp>
 
 #include <bit>
 #include <cstdint>
@@ -41,28 +42,53 @@ constexpr bool isdigit(int c) noexcept
 }
 static_assert(isdigit('0') && isdigit('9') && !isdigit('A'));
 
-/// Returns the number of decimal digits in a positive, signed integer.
+/// Returns the number of decimal digits in a unsigned integer.
 ///
-/// \param i Integer value.
+/// \param i integer value.
 /// \return the number of decimal digits.
-/// \todo consider adding support for negative integers.
-constexpr int dec_digits(std::int64_t i) noexcept
-{
-    return i < 10000000000        ? i < 100000 ? i < 100 ? i < 10 ? 1 : 2
-                       : i < 1000                        ? 3
-                       : i < 10000                       ? 4
-                                                         : 5
-                   : i < 10000000              ? i < 1000000 ? 6 : 7
-                   : i < 100000000             ? 8
-                   : i < 1000000000            ? 9
-                                               : 10
-        : i < 1000000000000000    ? i < 1000000000000 ? i < 100000000000 ? 11 : 12
-               : i < 10000000000000                   ? 13
-               : i < 100000000000000                  ? 14
-                                                      : 15
-        : i < 100000000000000000  ? i < 10000000000000000 ? 16 : 17
-        : i < 1000000000000000000 ? 18
-                                  : 19;
+template <typename ValueT>
+    requires std::unsigned_integral<ValueT>
+constexpr int dec_digits(ValueT i) noexcept {
+    std::uint64_t v{i};
+
+    // map v such that: even v --> v+1
+    //                  odd  v --> v.
+    //
+    // The number of digits in v remains unchanged after this mapping.
+    // However, the purpose of the mapping is to eliminate the need
+    // for a branch to handle the case when v equals 0.
+    v |= 1;
+    [[assume(v != 0)]];
+
+    // The number of digits in a *positive* base-10 number v is exactly:
+    //      1+floor(log_2(v) / log_2(10))
+
+    // 4096/1233 is a well known approximation to log_2(10).
+    // (dividing by 4096 is equivalent to shifting right by 12).
+    int digits = ((std::bit_width(v) * 1233) >> 12);
+
+    // Due to the nature of approximations, the calculation is
+    // of by 1 in the intervals: [10^k, next_pow2(10^k)).
+    return digits + int{v >= pow10(digits)};
+}
+
+/// Returns the number of decimal digits in a signed integer.
+///
+/// \param i integer value.
+/// \return the number of decimal digits.
+template <typename ValueT>
+    requires std::signed_integral<ValueT>
+constexpr int dec_digits(ValueT i) noexcept {
+    std::int64_t v{i};
+
+    // abs(min value of int64_t) cannot be stored in int64_t
+    // so handle it separately.
+    if (v == std::numeric_limits<std::int64_t>::min()) [[unlikely]] {
+        return 19;
+    } else {
+        std::int64_t abs_v = (v < 0) ? -v : v;
+        return dec_digits(static_cast<std::uint64_t>(abs_v));
+    }
 }
 
 /// Returns the number of hexadecimal digits in a positive integer.

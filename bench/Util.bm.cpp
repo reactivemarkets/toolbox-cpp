@@ -71,6 +71,26 @@ std::vector<std::int64_t> generate_mixed_digit_nums(std::int64_t N, int K) noexc
 
 const std::vector random_digit_nums = generate_mixed_digit_nums(1'000'000, 7);
 
+int dec_digits_branch(std::int64_t i) noexcept __attribute__((noinline));
+int dec_digits_branch(std::int64_t i) noexcept
+{
+    return i < 10000000000        ? i < 100000 ? i < 100 ? i < 10 ? 1 : 2
+                       : i < 1000                        ? 3
+                       : i < 10000                       ? 4
+                                                         : 5
+                   : i < 10000000              ? i < 1000000 ? 6 : 7
+                   : i < 100000000             ? 8
+                   : i < 1000000000            ? 9
+                                               : 10
+        : i < 1000000000000000    ? i < 1000000000000 ? i < 100000000000 ? 11 : 12
+               : i < 10000000000000                   ? 13
+               : i < 100000000000000                  ? 14
+                                                      : 15
+        : i < 100000000000000000  ? i < 10000000000000000 ? 16 : 17
+        : i < 1000000000000000000 ? 18
+                                  : 19;
+}
+
 int dec_digits_div(int64_t i) noexcept __attribute__((noinline));
 int dec_digits_div(int64_t i) noexcept
 {
@@ -248,11 +268,32 @@ TOOLBOX_BENCHMARK(to_string_int)
     }
 }
 
-TOOLBOX_BENCHMARK(dec_digits_lib)
+TOOLBOX_BENCHMARK(dec_digits_lib_unsigned)
+{
+    while (ctx) {
+        for (auto i : ctx.range(random_digit_nums.size())) {
+            auto rnum = static_cast<uint64_t>(random_digit_nums[i]);
+            auto x = util::dec_digits(rnum);
+            bm::do_not_optimise(x);
+        }
+    }
+}
+
+TOOLBOX_BENCHMARK(dec_digits_lib_signed)
 {
     while (ctx) {
         for (auto i : ctx.range(random_digit_nums.size())) {
             auto x = util::dec_digits(random_digit_nums[i]);
+            bm::do_not_optimise(x);
+        }
+    }
+}
+
+TOOLBOX_BENCHMARK(dec_digits_branch)
+{
+    while (ctx) {
+        for (auto i : ctx.range(random_digit_nums.size())) {
+            auto x = ::dec_digits_branch(random_digit_nums[i]);
             bm::do_not_optimise(x);
         }
     }
