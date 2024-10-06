@@ -16,6 +16,7 @@
 
 #include "Utility.hpp"
 #include <cmath>
+#include <limits>
 
 #include <boost/test/unit_test.hpp>
 
@@ -208,28 +209,186 @@ BOOST_AUTO_TEST_CASE(HexDigitsCase)
     BOOST_CHECK_EQUAL(hex_digits(0x1234567890abcdefU), 16);
 }
 
-BOOST_AUTO_TEST_CASE(DecDigitsCase)
+BOOST_AUTO_TEST_CASE(DecDigitsUnsignedCase)
 {
-    BOOST_CHECK_EQUAL(dec_digits(0), 1);
-    BOOST_CHECK_EQUAL(dec_digits(1), 1);
-    BOOST_CHECK_EQUAL(dec_digits(10), 2);
-    BOOST_CHECK_EQUAL(dec_digits(100), 3);
-    BOOST_CHECK_EQUAL(dec_digits(1000), 4);
-    BOOST_CHECK_EQUAL(dec_digits(10000), 5);
-    BOOST_CHECK_EQUAL(dec_digits(100000), 6);
-    BOOST_CHECK_EQUAL(dec_digits(1000000), 7);
-    BOOST_CHECK_EQUAL(dec_digits(10000000), 8);
-    BOOST_CHECK_EQUAL(dec_digits(100000000), 9);
-    BOOST_CHECK_EQUAL(dec_digits(1000000000), 10);
-    BOOST_CHECK_EQUAL(dec_digits(10000000000), 11);
-    BOOST_CHECK_EQUAL(dec_digits(100000000000), 12);
-    BOOST_CHECK_EQUAL(dec_digits(1000000000000), 13);
-    BOOST_CHECK_EQUAL(dec_digits(10000000000000), 14);
-    BOOST_CHECK_EQUAL(dec_digits(100000000000000), 15);
-    BOOST_CHECK_EQUAL(dec_digits(1000000000000000), 16);
-    BOOST_CHECK_EQUAL(dec_digits(10000000000000000), 17);
-    BOOST_CHECK_EQUAL(dec_digits(100000000000000000), 18);
-    BOOST_CHECK_EQUAL(dec_digits(1000000000000000000), 19);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{0}), 1);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{1}), 1);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{9}), 1);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{10}), 2);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{11}), 2);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{99}), 2);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{100}), 3);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{101}), 3);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{999}), 3);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{1000}), 4);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{1001}), 4);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{9999}), 4);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{10000}), 5);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{10001}), 5);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{99999}), 5);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{100000}), 6);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{100001}), 6);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{999999}), 6);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{1000000}), 7);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{1000001}), 7);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{9999999}), 7);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{10000000}), 8);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{10000001}), 8);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{99999999}), 8);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{100000000}), 9);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{100000001}), 9);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{999999999}), 9);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{1000000000}), 10);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{1000000001}), 10);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{9999999999}), 10);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{10000000000}), 11);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{10000000001}), 11);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{99999999999}), 11);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{100000000000}), 12);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{100000000001}), 12);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{999999999999}), 12);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{1000000000000}), 13);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{1000000000001}), 13);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{9999999999999}), 13);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{10000000000000}), 14);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{10000000000001}), 14);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{99999999999999}), 14);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{100000000000000}), 15);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{100000000000001}), 15);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{999999999999999}), 15);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{1000000000000000}), 16);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{1000000000000001}), 16);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{9999999999999999}), 16);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{10000000000000000}), 17);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{10000000000000001}), 17);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{99999999999999999}), 17);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{100000000000000000}), 18);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{100000000000000001}), 18);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{999999999999999999}), 18);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{1000000000000000000}), 19);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{1000000000000000001}), 19);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{9999999999999999999ULL}), 19);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{10000000000000000000ULL}), 20);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{10000000000000000001ULL}), 20);
+    BOOST_CHECK_EQUAL(dec_digits(std::uint64_t{18446744073709551615ULL}), 20);
+}
+
+BOOST_AUTO_TEST_CASE(DecDigitSignedCase)
+{
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-1}), 1);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-9}), 1);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-10}), 2);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-11}), 2);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-99}), 2);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-100}), 3);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-101}), 3);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-999}), 3);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-1000}), 4);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-1001}), 4);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-9999}), 4);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-10000}), 5);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-10001}), 5);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-99999}), 5);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-100000}), 6);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-100001}), 6);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-999999}), 6);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-1000000}), 7);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-1000001}), 7);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-9999999}), 7);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-10000000}), 8);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-10000001}), 8);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-99999999}), 8);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-100000000}), 9);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-100000001}), 9);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-999999999}), 9);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-1000000000}), 10);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-1000000001}), 10);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-9999999999}), 10);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-10000000000}), 11);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-10000000001}), 11);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-99999999999}), 11);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-100000000000}), 12);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-100000000001}), 12);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-999999999999}), 12);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-1000000000000}), 13);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-1000000000001}), 13);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-9999999999999}), 13);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-10000000000000}), 14);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-10000000000001}), 14);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-99999999999999}), 14);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-100000000000000}), 15);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-100000000000001}), 15);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-999999999999999}), 15);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-1000000000000000}), 16);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-1000000000000001}), 16);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-9999999999999999}), 16);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-10000000000000000}), 17);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-10000000000000001}), 17);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-99999999999999999}), 17);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-100000000000000000}), 18);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-100000000000000001}), 18);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-999999999999999999}), 18);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-1000000000000000000}), 19);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-1000000000000000001}), 19);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{-9223372036854775807}), 19);
+    BOOST_CHECK_EQUAL(dec_digits(std::numeric_limits<std::int64_t>::min()), 19);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{0}), 1);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{1}), 1);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{9}), 1);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{10}), 2);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{11}), 2);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{99}), 2);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{100}), 3);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{101}), 3);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{999}), 3);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{1000}), 4);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{1001}), 4);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{9999}), 4);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{10000}), 5);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{10001}), 5);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{99999}), 5);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{100000}), 6);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{100001}), 6);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{999999}), 6);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{1000000}), 7);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{1000001}), 7);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{9999999}), 7);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{10000000}), 8);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{10000001}), 8);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{99999999}), 8);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{100000000}), 9);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{100000001}), 9);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{999999999}), 9);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{1000000000}), 10);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{1000000001}), 10);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{9999999999}), 10);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{10000000000}), 11);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{10000000001}), 11);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{99999999999}), 11);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{100000000000}), 12);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{100000000001}), 12);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{999999999999}), 12);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{1000000000000}), 13);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{1000000000001}), 13);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{9999999999999}), 13);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{10000000000000}), 14);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{10000000000001}), 14);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{99999999999999}), 14);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{100000000000000}), 15);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{100000000000001}), 15);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{999999999999999}), 15);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{1000000000000000}), 16);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{1000000000000001}), 16);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{9999999999999999}), 16);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{10000000000000000}), 17);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{10000000000000001}), 17);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{99999999999999999}), 17);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{100000000000000000}), 18);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{100000000000000001}), 18);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{999999999999999999}), 18);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{1000000000000000000}), 19);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{1000000000000000001}), 19);
+    BOOST_CHECK_EQUAL(dec_digits(std::int64_t{9223372036854775807}), 19);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
