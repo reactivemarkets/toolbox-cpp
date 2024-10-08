@@ -55,7 +55,7 @@ std::vector<std::int64_t> generate_mixed_digit_nums(std::int64_t N, int K) noexc
         digit_dists.emplace_back(util::pow10(i), util::pow10(i+1) - 1u);
     }
 
-    std::uniform_int_distribution<int> selector_dist(0, digit_dists.size());
+    std::uniform_int_distribution<int> selector_dist(0, digit_dists.size()-1u);
 
     std::vector<std::int64_t> res;
     res.reserve(N);
