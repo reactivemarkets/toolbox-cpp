@@ -27,7 +27,7 @@ namespace {
 // Number of entries per 4K slab, assuming that malloc overhead is no more than 16 bytes.
 constexpr size_t Overhead = 16;
 constexpr size_t PageSize = 4096;
-constexpr size_t SlabSize = (PageSize - Overhead) / sizeof(Timer);
+constexpr size_t SlabSize = (PageSize - Overhead) / sizeof(Timer::Impl);
 
 bool is_after(const Timer& lhs, const Timer& rhs)
 {
@@ -36,7 +36,7 @@ bool is_after(const Timer& lhs, const Timer& rhs)
 
 } // namespace
 
-Timer::Impl* TimerPool::allocate(MonoTime /*expiry*/, Duration /*interval*/, TimerSlot /*slot*/)
+Timer::Impl* TimerPool::allocate()
 {
     Timer::Impl* impl;
 
@@ -99,7 +99,7 @@ int TimerQueue::dispatch(CyclTime now, int max_work)
 
 Timer TimerQueue::allocate(MonoTime expiry, Duration interval, TimerSlot slot)
 {
-    Timer::Impl* impl{pool_.allocate(expiry, interval, slot)};
+    Timer::Impl* impl{pool_.allocate()};
 
     impl->tq = this;
     impl->ref_count = 1;
