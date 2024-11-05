@@ -114,7 +114,7 @@ class TOOLBOX_API TimerPool {
     TimerPool(TimerPool&&) = delete;
     TimerPool& operator=(TimerPool&&) = delete;
 
-    Timer::Impl* allocate(MonoTime expiry, Duration interval, TimerSlot slot);
+    Timer::Impl* allocate();
     void deallocate(Timer::Impl* impl) noexcept
     {
         assert(impl);
@@ -126,8 +126,6 @@ class TOOLBOX_API TimerPool {
     std::vector<SlabPtr> slabs_;
     /// Head of free-list.
     Timer::Impl* free_{nullptr};
-    /// Heap of timers ordered by expiry time.
-    std::vector<Timer> heap_;
 };
 
 class TOOLBOX_API TimerQueue {
