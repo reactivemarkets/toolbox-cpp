@@ -95,7 +95,7 @@ int Reactor::poll(CyclTime now, Duration timeout)
     work += dispatch(now, buf, n);
     // Low priority timers are only dispatched during empty cycles.
     if (work == 0) {
-        work += tqs_[Low].dispatch(now);
+        work += tqs_[Low].dispatch(now, 1);
     }
     // End of cycle hooks.
     if (work > 0) {
