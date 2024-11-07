@@ -76,11 +76,10 @@ Timer TimerQueue::insert(MonoTime expiry, Duration interval, TimerSlot slot)
     return tmr;
 }
 
-int TimerQueue::dispatch(CyclTime now)
+int TimerQueue::dispatch(CyclTime now, int max_work)
 {
-    int work{};
-    while (!heap_.empty()) {
-
+    int timers_processed{0};
+    for (int i = 0; (i < max_work) && (!heap_.empty()); i++) {
         // If not pending, then must have been cancelled.
         if (!heap_.front().pending()) {
             pop();
@@ -88,13 +87,14 @@ int TimerQueue::dispatch(CyclTime now)
             assert(cancelled_ >= 0);
         } else if (heap_.front().expiry() <= now.mono_time()) {
             expire(now);
-            ++work;
+            ++timers_processed;
         } else {
             break;
         }
     }
+
     gc();
-    return work;
+    return timers_processed;
 }
 
 Timer TimerQueue::allocate(MonoTime expiry, Duration interval, TimerSlot slot)

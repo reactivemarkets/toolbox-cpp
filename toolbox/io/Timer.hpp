@@ -17,6 +17,7 @@
 #ifndef TOOLBOX_IO_TIMER_HPP
 #define TOOLBOX_IO_TIMER_HPP
 
+#include <limits>
 #include <toolbox/sys/Time.hpp>
 #include <toolbox/util/Slot.hpp>
 
@@ -167,7 +168,7 @@ class TOOLBOX_API TimerQueue {
     }
     // clang-format on
 
-    int dispatch(CyclTime now);
+    int dispatch(CyclTime now, int max_work = std::numeric_limits<int>::max());
 
   private:
     Timer allocate(MonoTime expiry, Duration interval, TimerSlot slot);
