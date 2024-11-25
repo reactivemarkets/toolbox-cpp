@@ -72,7 +72,7 @@ class Value : public Presence<Value> {
     template <typename ValueT>
     Value& default_value(const ValueT& value)
     {
-        if constexpr (is_string<ValueT>::value) {
+        if constexpr (is_string_type_v<ValueT>) {
             func_(value);
         } else {
             func_(std::to_string(value));

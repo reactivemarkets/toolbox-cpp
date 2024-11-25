@@ -122,6 +122,7 @@ set(lib_SOURCES
   util/Traits.cpp
   util/Trans.cpp
   util/TypeTraits.cpp
+  util/TypeTraits.ut.cpp
   util/Utility.cpp
   util/Variant.cpp
   util/VarSub.cpp

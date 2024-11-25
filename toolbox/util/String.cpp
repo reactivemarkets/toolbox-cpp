@@ -15,6 +15,7 @@
 // limitations under the License.
 
 #include "String.hpp"
+#include <string_view>
 
 namespace toolbox {
 inline namespace util {
@@ -48,7 +49,7 @@ void rtrim(string& s) noexcept
     s.erase(pos != string_view::npos ? pos + 1 : 0);
 }
 
-pair<string_view, string_view> split_pair(string_view s, char delim) noexcept
+pair<string_view, string_view> split_pair(string_view s, string_view delim) noexcept
 {
     const auto pos = s.find_first_of(delim);
     string_view key, val;
@@ -56,22 +57,26 @@ pair<string_view, string_view> split_pair(string_view s, char delim) noexcept
         key = s;
     } else {
         key = s.substr(0, pos);
-        val = s.substr(pos + 1);
+        val = s.substr(pos + delim.size());
     }
     return {key, val};
 }
 
+pair<string_view, string_view> split_pair(string_view s, char delim) noexcept
+{
+    return split_pair(s, string_view{&delim, 1});
+}
+
+pair<string, string> split_pair(const string& s, string_view delim)
+{
+    auto [k, v] = split_pair(string_view{s}, delim);
+    return pair<string, string>{k, v};
+}
+
 pair<string, string> split_pair(const string& s, char delim)
 {
-    const auto pos = s.find_first_of(delim);
-    string key, val;
-    if (pos == string::npos) {
-        key = s;
-    } else {
-        key = s.substr(0, pos);
-        val = s.substr(pos + 1);
-    }
-    return {key, val};
+    auto [k, v] = split_pair(string_view{s}, delim);
+    return pair<string, string>{k, v};
 }
 
 } // namespace util

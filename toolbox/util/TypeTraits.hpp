@@ -20,6 +20,7 @@
 #include <toolbox/util/Utility.hpp>
 
 #include <string>
+#include <type_traits>
 
 namespace toolbox {
 inline namespace util {
@@ -63,20 +64,49 @@ struct TypeTraits<std::string> {
     static std::string from_string(const std::string& s) { return s; }
 };
 
-template <typename TypeT>
-struct is_string : std::is_same<char*, std::remove_cv_t<typename std::decay_t<TypeT>>>::type {};
+template <typename T, template <typename...> class Tpl>
+struct is_instantiation_of_helper : std::false_type {};
 
-template <>
-struct is_string<std::string> : std::true_type {};
+template <typename... Ts, template <typename...> class Tpl>
+struct is_instantiation_of_helper<Tpl<Ts...>, Tpl> : std::true_type {};
 
-template <>
-struct is_string<std::string_view> : std::true_type {};
+template <typename T, template <typename...> class Tpl>
+struct is_instantiation_of : is_instantiation_of_helper<std::remove_cv_t<T>, Tpl> {};
 
-template <typename TypeT, template <typename> class TemplateTypeT>
-struct is_instantiation_of : std::false_type {};
+template <typename T, template <typename...> class Tpl>
+inline constexpr bool is_instantiation_of_v = is_instantiation_of<T, Tpl>::value;
 
-template <typename TypeT, template <typename> class TemplateTypeT>
-struct is_instantiation_of<TemplateTypeT<TypeT>, TemplateTypeT> : std::true_type {};
+template <typename T>
+using is_string = is_instantiation_of<T, std::basic_string>;
+
+template <typename T>
+inline constexpr bool is_string_v = is_string<T>::value;
+
+template <typename T>
+using is_string_view = is_instantiation_of<T, std::basic_string_view>;
+
+template <typename T>
+inline constexpr bool is_string_view_v = is_string_view<T>::value;
+
+template <typename T>
+struct is_decay_to_cstring_helper : std::false_type {};
+
+template <typename T>
+struct is_decay_to_cstring_helper<T*> : std::is_same<std::remove_cv_t<T>, char> {};
+
+template <typename T>
+struct is_decay_to_cstring : is_decay_to_cstring_helper<std::remove_cv_t<std::decay_t<T>>> {};
+
+template <typename T>
+inline constexpr bool is_decay_to_cstring_v = is_decay_to_cstring<T>::value;
+
+template <typename T>
+struct is_string_type : std::integral_constant<bool, is_string_v<T> ||
+                                                     is_string_view_v<T> ||
+                                                     is_decay_to_cstring_v<T>> {};
+
+template <typename T>
+inline constexpr bool is_string_type_v = is_string_type<T>::value;
 
 } // namespace util
 } // namespace toolbox

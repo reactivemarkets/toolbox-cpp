@@ -23,6 +23,7 @@
 #include <bit>
 #include <cstdint>
 #include <string_view>
+#include <string>
 
 namespace toolbox {
 inline namespace util {
@@ -147,6 +148,22 @@ constexpr ValueT ston(std::string_view sv) noexcept
     }
 }
 static_assert(ston<int>(std::string_view{"-123"}) == -123);
+
+struct string_hash {
+    using is_transparent = void;
+    std::size_t operator()(std::string_view txt) const
+    {
+        return std::hash<std::string_view>{}(txt);
+    }
+    std::size_t operator()(const char* txt) const
+    {
+        return std::hash<std::string_view>{}(txt);
+    }
+    std::size_t operator()(const std::string& txt) const
+    {
+        return std::hash<std::string>{}(txt);
+    }
+};
 
 } // namespace util
 } // namespace toolbox

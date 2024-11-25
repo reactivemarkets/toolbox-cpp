@@ -130,6 +130,12 @@ inline std::string trim_copy(std::string s) noexcept
 }
 
 TOOLBOX_API std::pair<std::string_view, std::string_view> split_pair(std::string_view s,
+                                                                     std::string_view delim) noexcept;
+
+TOOLBOX_API std::pair<std::string, std::string> split_pair(const std::string& s,
+                                                           std::string_view delim);
+
+TOOLBOX_API std::pair<std::string_view, std::string_view> split_pair(std::string_view s,
                                                                      char delim) noexcept;
 
 TOOLBOX_API std::pair<std::string, std::string> split_pair(const std::string& s, char delim);
