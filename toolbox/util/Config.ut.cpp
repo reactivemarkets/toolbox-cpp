@@ -232,6 +232,23 @@ foo +==abcd
     BOOST_CHECK_EQUAL(it == rng.end(), true);
 }
 
+BOOST_AUTO_TEST_CASE(MultipleValuesForKey)
+{
+    const string text{R"(
+foo=101
+foo=202
+)"};
+
+    istringstream is{text};
+
+    Config config;
+    config.read_section(is);
+
+    BOOST_CHECK_EQUAL(config.size(), 2U);
+    BOOST_CHECK_EQUAL(config.get("foo"), "202");
+    BOOST_CHECK_EQUAL(config.get<int>("foo"), 202);
+}
+
 BOOST_AUTO_TEST_CASE(MultipleValuesForKeyTextualIter)
 {
     const string text{R"(
@@ -245,7 +262,7 @@ foo+=202
     config.read_section(is);
 
     BOOST_CHECK_EQUAL(config.size(), 2U);
-    BOOST_CHECK_THROW(config.get<int>("foo", 0), runtime_error);
+    BOOST_CHECK_EQUAL(config.get("foo"), "202");
 
     auto rng = config.get_multi("foo");
     BOOST_CHECK_EQUAL(rng.size(), 2);
@@ -269,7 +286,7 @@ foo+=202
     config.read_section(is);
 
     BOOST_CHECK_EQUAL(config.size(), 2U);
-    BOOST_CHECK_THROW(config.get<int>("foo", 0), runtime_error);
+    BOOST_CHECK_EQUAL(config.get<int>("foo"), 202);
 
     auto rng = config.get_multi<int>("foo");
     BOOST_CHECK_EQUAL(rng.size(), 2);
@@ -293,7 +310,7 @@ foo+=202
     config.read_section(is);
 
     BOOST_CHECK_EQUAL(config.size(), 2U);
-    BOOST_CHECK_THROW(config.get<int>("foo", 0), runtime_error);
+    BOOST_CHECK_EQUAL(config.get<string_view>("foo"), "202"sv);
 
     auto rng = config.get_multi<string_view>("foo");
     BOOST_CHECK_EQUAL(rng.size(), 2);
@@ -314,7 +331,7 @@ foo=202
     istringstream is{text};
 
     Config config;
-    BOOST_CHECK_THROW(config.read_section(is), runtime_error);
+    BOOST_CHECK_NO_THROW(config.read_section(is));
 }
 
 BOOST_AUTO_TEST_CASE(ReassignSingleValuedKey)
@@ -398,7 +415,7 @@ foo=101
 
     BOOST_CHECK_EQUAL(config.get("bar"), "202");
     BOOST_CHECK_EQUAL(config.get<int>("bar"), 202);
-    BOOST_CHECK_THROW(config.get<int>("foo"), runtime_error);
+    BOOST_CHECK_EQUAL(config.get<int>("foo"), 102);
 
     auto foo_rng = config.get_multi<int>("foo");
     BOOST_CHECK_EQUAL(foo_rng.size(), 2);
@@ -428,7 +445,7 @@ foo=101
 
     BOOST_CHECK_EQUAL(config.get("bar"), "100");
     BOOST_CHECK_EQUAL(config.get<int>("bar"), 100);
-    BOOST_CHECK_THROW(config.get<int>("foo"), runtime_error);
+    BOOST_CHECK_EQUAL(config.get<int>("foo"), 444);
 
     auto foo_rng = config.get_multi<int>("foo");
     BOOST_CHECK_EQUAL(foo_rng.size(), 4);

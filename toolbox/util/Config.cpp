@@ -35,11 +35,7 @@ Config& Config::operator=(Config&&) noexcept = default;
 
 const std::string& Config::get(const std::string& key) const
 {
-    if (map_.count(key) > 1) [[unlikely]] {
-        throw std::runtime_error{std::string{"multiple values exist for key: "} + key};
-    }
-
-    auto it = map_.find(key);
+    auto it = get_last_value(key);
     if (it != map_.end()) {
         return it->second;
     }
@@ -51,11 +47,7 @@ const std::string& Config::get(const std::string& key) const
 
 const char* Config::get(const std::string& key, const char* dfl) const
 {
-    if (map_.count(key) > 1) [[unlikely]] {
-        throw std::runtime_error{std::string{"multiple values exist for key: "} + key};
-    }
-
-    auto it = map_.find(key);
+    auto it = get_last_value(key);
     if (it != map_.end()) {
         return it->second.c_str();
     }
