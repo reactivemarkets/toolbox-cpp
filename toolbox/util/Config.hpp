@@ -79,12 +79,7 @@ std::istream& parse_section(std::istream& is, FnT fn, std::string* name = nullpt
                     std::string{key}.append(" is already set as a single-valued key (with '=') "
                                             "and cannot be reassigned with '+='")};
             }
-            else if (*key_class == KeyClassification::SingleValued) {
-                // i.e. is_multi == false
-                throw std::runtime_error{"multiple values set for key: "s.append(key)};
-            }
-            else if (!is_multi) {
-                // i.e. key_class == multi_valued && !is_multi
+            else if (*key_class == KeyClassification::MultiValued && !is_multi) {
                 throw std::runtime_error{
                     std::string{key}.append(" is already set as a multi-valued key (with '+=') "
                                             "and cannot be reassigned with '='")};
@@ -128,11 +123,7 @@ class TOOLBOX_API Config {
     template <typename ValueT>
     ValueT get(const std::string& key) const
     {
-        if (map_.count(key) > 1) [[unlikely]] {
-            throw std::runtime_error{std::string{"multiple values exist for key: "} + key};
-        }
-
-        const auto it{map_.find(key)};
+        const auto it{get_last_value(key)};
         if (it != map_.end()) {
             return transform_value<ValueT>(it->second);
         }
@@ -144,11 +135,7 @@ class TOOLBOX_API Config {
     template <typename ValueT>
     ValueT get(const std::string& key, ValueT dfl) const
     {
-        if (map_.count(key) > 1) [[unlikely]] {
-            throw std::runtime_error{std::string{"multiple values exist for key: "} + key};
-        }
-
-        const auto it{map_.find(key)};
+        const auto it{get_last_value(key)};
         if (it != map_.end()) {
             return transform_value<ValueT>(it->second);
         }
@@ -217,6 +204,13 @@ class TOOLBOX_API Config {
         } else {
             return from_string<ValueT>(v);
         };
+    }
+
+    auto get_last_value(const std::string& key) const
+        -> std::multimap<std::string, std::string>::const_iterator
+    {
+        auto [first, second] = map_.equal_range(key);
+        return (first == second) ? map_.end() : std::prev(second);
     }
 
     std::istream& read_section(std::istream& is, std::string* next);
