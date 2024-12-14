@@ -107,6 +107,7 @@ set(lib_SOURCES
   util/IntTypes.cpp
   util/Math.cpp
   util/Options.cpp
+  util/Random.cpp
   util/RefCount.cpp
   util/RingBuffer.cpp
   util/RobinHood.cpp
@@ -242,6 +243,7 @@ set(test_SOURCES
   util/IntTypes.ut.cpp
   util/Math.ut.cpp
   util/Options.ut.cpp
+  util/Random.ut.cpp
   util/RefCount.ut.cpp
   util/RingBuffer.ut.cpp
   util/Slot.ut.cpp

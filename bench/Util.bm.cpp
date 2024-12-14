@@ -13,6 +13,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include <toolbox/util/Random.hpp>
 #include <toolbox/util/Utility.hpp>
 #include <toolbox/util/Math.hpp>
 
@@ -22,7 +23,6 @@
 #include <array>
 #include <cmath>
 #include <cstdio>
-#include <random>
 #include <vector>
 
 TOOLBOX_BENCHMARK_MAIN
@@ -42,28 +42,19 @@ constexpr array BoolArray{
 
 // K must be within the range [0,19]
 std::vector<std::int64_t> generate_mixed_digit_nums(std::int64_t N, int K) noexcept {
-    std::random_device dev;
-    std::mt19937_64 rng(dev());
-
-    // Create K distributions allowing for random number generation of up to 10^K,
-    // e.g. for K=3, the following distributions would be created:
-    //      1 - 9
-    //      10 - 99
-    //      100 - 999
-    std::vector<std::uniform_int_distribution<std::int64_t>> digit_dists;
-    for (int i = 0; i < K; i++) {
-        digit_dists.emplace_back(util::pow10(i), util::pow10(i+1) - 1u);
-    }
-
-    std::uniform_int_distribution<int> selector_dist(0, digit_dists.size()-1u);
-
     std::vector<std::int64_t> res;
     res.reserve(N);
 
     for(std::int64_t i = 0; i < N; i++) {
-        int dist_index = selector_dist(rng);
-        auto& selected_dist = digit_dists[dist_index];
-        res.push_back(selected_dist(rng));
+        int num_of_digits = randint(1, K);
+
+        // e.g. if num_of_digits=3
+        // lr := 10^(3-1) = 100
+        // ur := 10^3 - 1 = 999
+        std::int64_t lr = util::pow10(num_of_digits-1);
+        std::int64_t ur = util::pow10(num_of_digits) - 1u;
+
+        res.push_back(randint(lr, ur));
     }
 
     return res;

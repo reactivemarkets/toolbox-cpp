@@ -13,12 +13,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include <toolbox/util/Random.hpp>
 #include <toolbox/util/RobinHood.hpp>
 
 #include <toolbox/bm.hpp>
 
 #include <map>
-#include <random>
 #include <unordered_map>
 
 // This benchmark is designed to measure random insertions and removals in a map of packed-sized
@@ -37,14 +37,10 @@ struct Elem {
 
 vector<int> make_rand_data(int range, size_t count)
 {
-    random_device rd;
-    mt19937 gen{rd()};
-    uniform_int_distribution<> dis{1, range};
-
     vector<int> data;
     data.reserve(count);
     for (size_t i{0}; i < count; ++i) {
-        data.push_back(dis(gen));
+        data.push_back(randint(1, range));
     }
     return data;
 }
