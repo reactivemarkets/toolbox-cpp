@@ -21,6 +21,7 @@
 #include <toolbox/util/RefCount.hpp>
 
 #include <boost/test/unit_test.hpp>
+#include <thread>
 
 using namespace std;
 using namespace toolbox;
@@ -126,6 +127,64 @@ BOOST_AUTO_TEST_CASE(ReactorHookCase)
 
     BOOST_CHECK_EQUAL(r.poll(CyclTime::now(), 0ms), 0);
     BOOST_CHECK_EQUAL(i, 1);
+}
+
+BOOST_AUTO_TEST_CASE(ReactorLowPriorityProgress)
+{
+    Reactor r{1024};
+
+    struct counter {
+        int invocation_count{0};
+        void operator()(CyclTime, Timer&) { ++invocation_count; }
+    };
+    counter lpc;
+    counter hpc;
+
+    auto now = CyclTime::now();
+
+    // schedule 2 low priority timers for immediate execution
+    Timer lpts[] = {
+        r.timer(now.mono_time(), Priority::Low, bind<&counter::operator()>(&lpc)),
+        r.timer(now.mono_time(), Priority::Low, bind<&counter::operator()>(&lpc)),
+    };
+
+    Timer hpt;
+
+    int num_of_times_polled = 0;
+    const auto end = now.mono_time() + 95ms;
+
+    // using 95ms instead of 100ms, because Reactor::poll internally
+    // uses own CyclTime, not the one we pass to it. 
+
+    while (now.mono_time() < end) {
+
+        // schedule a high priority timer for immediate execution
+        hpt = r.timer(now.mono_time(), Priority::High, bind<&counter::operator()>(&hpc));
+
+        // low priority timers won't be executed because it will be a busy cycle
+        // due to high priority timer that is due execution.
+        r.poll(now, 0s);
+
+        BOOST_CHECK_EQUAL(hpc.invocation_count, ++num_of_times_polled);
+        BOOST_CHECK_EQUAL(lpc.invocation_count, 0);
+
+        now = CyclTime::now();
+    }
+
+    std::this_thread::sleep_for(10ms);
+
+    // at this point, both low priority timers are delayed by >100ms.
+    // they will now activately executed (one per cycle) even if cycle is busy.
+    for (int i = 0; i < 2; i++) {
+        hpt = r.timer(now.mono_time(), Priority::High, bind<&counter::operator()>(&hpc));
+
+        r.poll(now, 0s);
+
+        BOOST_CHECK_EQUAL(hpc.invocation_count, ++num_of_times_polled);
+        BOOST_CHECK_EQUAL(lpc.invocation_count, i+1);
+
+        now = CyclTime::now();
+    }
 }
 
 BOOST_AUTO_TEST_SUITE_END()

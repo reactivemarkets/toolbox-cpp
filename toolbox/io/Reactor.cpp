@@ -25,6 +25,21 @@ inline namespace io {
 using namespace std;
 namespace {
 constexpr size_t MaxEvents{128};
+
+int dispatch_low_priority_timers(CyclTime now, TimerQueue& tq, bool idle_cycle)
+{
+    int work_done = 0;
+    if (idle_cycle) {
+        work_done = tq.dispatch(now, 1);
+    }
+    else if (!tq.empty()) {
+        // actively execute low priority timers if they've been delayed by 100ms or more.
+        if ((now.mono_time() - tq.front().expiry()) > 100ms) {
+            work_done = tq.dispatch(now, 1);
+        }
+    }
+    return work_done;
+}
 } // namespace
 
 Reactor::Reactor(std::size_t size_hint)
@@ -93,10 +108,8 @@ int Reactor::poll(CyclTime now, Duration timeout)
     work = tqs_[High].dispatch(now);
     // I/O events.
     work += dispatch(now, buf, n);
-    // Low priority timers are only dispatched during empty cycles.
-    if (work == 0) {
-        work += tqs_[Low].dispatch(now, 1);
-    }
+    // Low priority timers (typically only dispatched during empty cycles).
+    work += dispatch_low_priority_timers(now, tqs_[Low], work == 0);
     // End of cycle hooks.
     if (work > 0) {
         io::dispatch(now, end_of_event_dispatch_hooks_);
