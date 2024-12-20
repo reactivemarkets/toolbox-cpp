@@ -32,7 +32,6 @@ BOOST_AUTO_TEST_CASE(RandIntCase)
     vector<int> rand_ints;
     for (int i = 0; i < 100; i++) {
         rand_ints.push_back(randint(lower_bound, upper_bound));
-        std::cout << rand_ints.back() << '\n';
     }
 
     for (int num : rand_ints) {
@@ -49,7 +48,6 @@ BOOST_AUTO_TEST_CASE(RandIntNegativeCase)
     vector<int> rand_ints;
     for (int i = 0; i < 100; i++) {
         rand_ints.push_back(randint(lower_bound, upper_bound));
-        std::cout << rand_ints.back() << '\n';
     }
 
     for (int num : rand_ints) {
