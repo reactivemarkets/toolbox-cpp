@@ -84,8 +84,10 @@ void run_metrics_reactor(Reactor& r, long busy_cycles, ThreadConfig config,
                 // Don't skew distribution with a lot of zero work.
                 const auto elapsed_us = std::chrono::duration_cast<std::chrono::microseconds>(
                     MonoClock::now() - now.mono_time());
-                time_hist->record_value(elapsed_us.count());
-                work_hist->record_value(work);
+                if (elapsed_us.count() != 0) {
+                    time_hist->record_value(elapsed_us.count());
+                    work_hist->record_value(work);
+                }
                 loop_cb(now);
                 // Reset counter when work has been done.
                 i = 0;
