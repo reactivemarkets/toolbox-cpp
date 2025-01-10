@@ -44,7 +44,8 @@ class StreamBuf final : public std::streambuf {
     StreamBuf()
     : storage_{make_storage<MaxN>}
     {
-        setp(storage_->begin(), storage_->end());
+        char* begin = static_cast<char*>(storage_.get());
+        setp(begin, begin + MaxN);
     }
     ~StreamBuf() override = default;
 
@@ -74,7 +75,8 @@ class StreamBuf final : public std::streambuf {
     void reset() noexcept
     {
         if (storage_) {
-            setp(storage_->begin(), storage_->end());
+            char* begin = static_cast<char*>(storage_.get());
+            setp(begin, begin + MaxN);
         }
     }
 
