@@ -33,6 +33,9 @@ target_link_libraries(tb-log-bench ${tb_bm_LIBRARY})
 add_executable(tb-map-bench Map.bm.cpp)
 target_link_libraries(tb-map-bench ${tb_bm_LIBRARY})
 
+add_executable(tb-net-bench Net.bm.cpp)
+target_link_libraries(tb-net-bench ${tb_bm_LIBRARY})
+
 add_executable(tb-time-bench Time.bm.cpp)
 target_link_libraries(tb-time-bench ${tb_bm_LIBRARY})
 

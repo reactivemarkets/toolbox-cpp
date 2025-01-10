@@ -179,9 +179,41 @@ ostream& operator<<(ostream& os, const StreamEndpoint& ep)
 
 ostream& operator<<(ostream& os, const sockaddr_in& sa)
 {
-    char buf[INET_ADDRSTRLEN];
-    inet_ntop(AF_INET, &toolbox::remove_const(sa).sin_addr, buf, sizeof(buf));
-    return os << buf << ':' << ntohs(sa.sin_port);
+    // biggest possible str: 255.255.255.255:
+    char buf[16];
+    char* p = buf;
+
+    auto write_u8 = [&p](std::uint8_t v) {
+        char rd = '0' + (v % 10u);
+        if (v >= 100u) {
+            char ld = '0' + ((v / 100u) % 10u);
+            char md = '0' + ((v / 10u) % 10u);
+            *p++ = ld;
+            *p++ = md;
+            *p++ = rd;
+        } else if (v >= 10u) {
+            char ld = '0' + ((v / 10u) % 10u);
+            *p++ = ld;
+            *p++ = rd;
+        } else {
+            *p++ = rd;
+        }
+    };
+
+    // ip address in sockaddr_in is in network order (i.e. big endian)
+    uint32_t addr = sa.sin_addr.s_addr;
+    auto* ipv4 = std::bit_cast<unsigned char*>(&addr);
+
+    write_u8(ipv4[0]);
+    *p++ = '.';
+    write_u8(ipv4[1]);
+    *p++ = '.';
+    write_u8(ipv4[2]);
+    *p++ = '.';
+    write_u8(ipv4[3]);
+    *p++ = ':';
+
+    return os << std::string_view(buf, p) << ntohs(sa.sin_port);
 }
 
 ostream& operator<<(ostream& os, const sockaddr_in6& sa)

@@ -17,11 +17,42 @@
 #include "Endpoint.hpp"
 
 #include <toolbox/util/String.hpp>
+#include <toolbox/util/Random.hpp>
+#include <toolbox/util/Stream.hpp>
 
 #include <boost/test/unit_test.hpp>
 
+#include <vector>
+
 using namespace std;
 using namespace toolbox;
+
+namespace {
+std::vector<sockaddr_in> generate_random_ipv4_addresses(size_t N) {
+    std::vector<sockaddr_in> ret;
+    ret.reserve(N);
+
+    for (size_t i = 0; i < N; i++) {
+        sockaddr_in s;
+        s.sin_family = AF_INET;
+        s.sin_port = htons(randint<in_port_t>(0, std::numeric_limits<in_port_t>::max()));
+        s.sin_addr = in_addr{randint<uint32_t>(0, std::numeric_limits<uint32_t>::max())};
+        ret.push_back(s);
+    }
+
+    return ret;
+}
+
+ostream& write_ipv4_libc(ostream& os, const sockaddr_in& sa)
+{
+    char buf[INET_ADDRSTRLEN];
+    inet_ntop(AF_INET, &toolbox::remove_const(sa).sin_addr, buf, sizeof(buf));
+    return os << buf << ':' << ntohs(sa.sin_port);
+}
+
+util::OStream<32> ipv4_os{nullptr};
+
+} // namespace
 
 BOOST_AUTO_TEST_SUITE(EndpointSuite)
 
@@ -152,6 +183,34 @@ BOOST_AUTO_TEST_CASE(ParseStreamBindCase)
     BOOST_CHECK_EQUAL(ep.protocol().type(), SOCK_STREAM);
     BOOST_CHECK_EQUAL(ep.protocol().protocol(), IPPROTO_TCP);
     BOOST_CHECK_EQUAL(to_string(ep), "tcp4://0.0.0.0:80");
+}
+
+BOOST_AUTO_TEST_CASE(IPv4Formatting)
+{
+    ipv4_os.set_storage(ipv4_os.make_storage());
+
+    const auto rand_ips = generate_random_ipv4_addresses(131'072);
+    for (const auto& ip : rand_ips) {
+        ipv4_os.reset();
+        ipv4_os << ip;
+        std::string our_str {ipv4_os.data(), ipv4_os.size()};
+
+        ipv4_os.reset();
+        write_ipv4_libc(ipv4_os, ip);
+        std::string libc_str {ipv4_os.data(), ipv4_os.size()};
+
+        // min size = 9
+        // 0.0.0.0:0
+
+        // max size = 21
+        // 255.255.255.255:65535
+
+        BOOST_CHECK(our_str.size() >= 9);
+        BOOST_CHECK(libc_str.size() >= 9);
+        BOOST_CHECK(our_str.size() <= 21);
+        BOOST_CHECK(libc_str.size() <= 21);
+        BOOST_CHECK_EQUAL(our_str, libc_str);
+    }
 }
 
 BOOST_AUTO_TEST_SUITE_END()
