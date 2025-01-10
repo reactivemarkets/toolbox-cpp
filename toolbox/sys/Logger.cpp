@@ -38,7 +38,21 @@ const char* Labels[] = {"NONE", "CRIT", "ERROR", "WARN", "METRIC", "NOTICE", "IN
 #if defined(__linux__)
 inline pid_t gettid()
 {
-    return syscall(SYS_gettid);
+    struct S {
+        pid_t tid = {};
+        bool init_done = false;
+    };
+
+    thread_local S s{};
+
+    // 'tid' cannot be set during initialisation of struct S -- because
+    // the C++ standard doesn't guarantee which thread initialises it.
+    if (!s.init_done) [[unlikely]] {
+        s.tid = syscall(SYS_gettid);
+        s.init_done = true;
+    } 
+
+    return s.tid;
 }
 #else
 inline pid_t gettid()
