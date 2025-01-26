@@ -17,6 +17,7 @@
 #ifndef TOOLBOX_UTIL_INTTYPES_HPP
 #define TOOLBOX_UTIL_INTTYPES_HPP
 
+#include <toolbox/util/Concepts.hpp>
 #include <toolbox/util/TypeTraits.hpp>
 
 #include <boost/functional/hash.hpp>
@@ -236,9 +237,12 @@ struct TOOLBOX_PACKED IntWrapper {
     // Stream.
 
     /// Insertion.
-    friend constexpr std::ostream& operator<<(std::ostream& os, IntWrapper rhs)
+    template <typename StreamT>
+        requires Streamable<StreamT>
+    friend constexpr StreamT& operator<<(StreamT& os, IntWrapper rhs)
     {
-        return os << rhs.value_;
+        os << rhs.value_;
+        return os;
     }
 
   private:

@@ -17,6 +17,8 @@
 #ifndef TOOLBOX_HTTP_TYPES_HPP
 #define TOOLBOX_HTTP_TYPES_HPP
 
+#include <toolbox/util/Concepts.hpp>
+
 #include <toolbox/contrib/http_parser.h>
 
 #include <iostream>
@@ -70,9 +72,12 @@ inline const char* enum_string(Method method) noexcept
     return http_method_str(static_cast<http_method>(method));
 }
 
-inline std::ostream& operator<<(std::ostream& os, Method method)
+template <typename StreamT>
+    requires Streamable<StreamT>
+StreamT& operator<<(StreamT& os, Method method)
 {
-    return os << enum_string(method);
+    os << enum_string(method);
+    return os;
 }
 
 enum class Status : int {
@@ -90,9 +95,12 @@ enum class Status : int {
 
 TOOLBOX_API const char* enum_string(Status status) noexcept;
 
-inline std::ostream& operator<<(std::ostream& os, Status status)
+template <typename StreamT>
+    requires Streamable<StreamT>
+StreamT& operator<<(StreamT& os, Status status)
 {
-    return os << static_cast<int>(status);
+    os << static_cast<int>(status);
+    return os;
 }
 
 enum class Type : int { Request = HTTP_REQUEST, Response = HTTP_RESPONSE };

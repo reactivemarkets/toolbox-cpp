@@ -30,6 +30,7 @@
 
 #include <map>
 #include <variant>
+#include <iomanip>
 
 namespace toolbox {
 inline namespace util {
@@ -209,7 +210,9 @@ class TOOLBOX_API Options {
     void parse(int argc, const char* const argv[]);
 
   private:
-    friend std::ostream& operator<<(std::ostream& out, const Options& options);
+    template <typename StreamT>
+        requires Streamable<StreamT>
+    friend StreamT& operator<<(StreamT& out, const Options& options);
 
     std::string description_;
     using HelpVec = std::vector<OptionDataPtr>;
@@ -220,7 +223,32 @@ class TOOLBOX_API Options {
     DataVec positional_;
 };
 
-TOOLBOX_API std::ostream& operator<<(std::ostream& out, const Options& options);
+template <typename StreamT>
+    requires Streamable<StreamT>
+StreamT& operator<<(StreamT& out, const Options& options)
+{
+    out << "Usage: " << options.description_ << "\nOptions:\n";
+
+    for (const auto& opt : options.help_) {
+        unsigned max_width{15};
+        // value find
+        out << "  ";
+        if (!opt->short_opt.empty()) {
+            max_width -= 2;
+            out << '-' << opt->short_opt;
+        }
+        if (!opt->long_opt.empty()) {
+            if (!opt->short_opt.empty()) {
+                max_width -= 2;
+                out << ", ";
+            }
+            max_width -= 2 + opt->long_opt.size();
+            out << "--" << opt->long_opt;
+        }
+        out << std::setw(max_width) << ' ' << opt->description << "\n";
+    }
+    return out;
+}
 
 } // namespace util
 } // namespace toolbox

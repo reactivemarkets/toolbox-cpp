@@ -18,6 +18,7 @@
 #define TOOLBOX_SYS_TIME_HPP
 
 #include <toolbox/util/TypeTraits.hpp>
+#include <toolbox/util/Concepts.hpp>
 
 #include <boost/io/ios_state.hpp>
 
@@ -109,9 +110,6 @@ struct WallClock {
 
 using MonoTime = MonoClock::time_point;
 using WallTime = WallClock::time_point;
-
-TOOLBOX_API std::ostream& operator<<(std::ostream& os, MonoTime t);
-TOOLBOX_API std::ostream& operator<<(std::ostream& os, WallTime t);
 
 /// The "cycle-time" represents the start of a processing cycle. This could be, for example, when a
 /// thread wakes from a call to epoll_wait().
@@ -245,6 +243,22 @@ constexpr timespec to_timespec(std::chrono::time_point<ClockT, Duration> t) noex
     return to_timespec(time_since_epoch<ClockT, nanoseconds>(t));
 }
 
+template <typename StreamT>
+    requires Streamable<StreamT>
+StreamT& operator<<(StreamT& os, MonoTime t)
+{
+    os << ns_since_epoch(t);
+    return os;
+}
+
+template <typename StreamT>
+    requires Streamable<StreamT>
+StreamT& operator<<(StreamT& os, WallTime t)
+{
+    os << ns_since_epoch(t);
+    return os;
+}
+
 template <typename DurationT>
 struct PutTime {
     WallTime time;
@@ -257,8 +271,9 @@ auto put_time(WallTime t, const char* fmt) noexcept
     return PutTime<DurationT>{t, fmt};
 }
 
-template <typename DurationT>
-std::ostream& operator<<(std::ostream& os, PutTime<DurationT> pt)
+template <typename DurationT, typename StreamT>
+    requires Streamable<StreamT>
+StreamT& operator<<(StreamT& os, PutTime<DurationT> pt)
 {
     const auto t = WallClock::to_time_t(pt.time);
     struct tm gmt;

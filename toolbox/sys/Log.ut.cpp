@@ -42,9 +42,12 @@ struct Foo {
     U second;
 };
 
-ostream& operator<<(ostream& os, const Foo<int, int>& val)
+template <typename StreamT>
+    requires Streamable<StreamT>
+StreamT& operator<<(StreamT& os, const Foo<int, int>& val)
 {
-    return os << '(' << val.first << ',' << val.second << ')';
+    os << '(' << val.first << ',' << val.second << ')';
+    return os;
 }
 
 struct TestLogger final : Logger {
