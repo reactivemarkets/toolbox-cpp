@@ -18,11 +18,7 @@
 #include "Histogram.hpp"
 #include "Iterator.hpp"
 
-#include <boost/io/ios_state.hpp>
-
 #include <cmath>
-#include <iomanip>
-#include <ostream>
 
 namespace toolbox {
 inline namespace hdr {
@@ -91,51 +87,6 @@ double stddev(const Histogram& h) noexcept
         }
     }
     return sqrt(geometric_dev_total / total_count);
-}
-
-ostream& operator<<(ostream& os, PutPercentiles pp)
-{
-    const auto sf = pp.h.significant_figures();
-    boost::io::ios_all_saver all_saver{os};
-
-    os << "       Value     Percentile TotalCount 1/(1-Percentile)\n\n";
-
-    PercentileIterator iter{pp.h, pp.ticks_per_half_distance};
-    while (iter.next()) {
-        const double value{iter.highest_equivalent_value() / pp.value_scale};
-        const double percentile{iter.percentile() / 100.0};
-        const int64_t total_count{iter.cumulative_count()};
-
-        // clang-format off
-        os << setw(12) << fixed << setprecision(sf) << value
-           << setw(15) << fixed << setprecision(6) << percentile
-           << setw(11) << total_count;
-        // clang-format on
-
-        if (percentile < 1.0) {
-            const double inverted_percentile{(1.0 / (1.0 - percentile))};
-            os << setw(15) << fixed << setprecision(2) << inverted_percentile;
-        }
-        os << '\n';
-    }
-
-    const double mean_val{mean(pp.h) / pp.value_scale};
-    const double stddev_val{stddev(pp.h)};
-    const double max_val{pp.h.max() / pp.value_scale};
-    const int64_t total_val{pp.h.total_count()};
-
-    // clang-format off
-    return os
-        << "#[Mean    = " << setw(12) << fixed << setprecision(sf) << mean_val
-        << ", StdDeviation   = " << setw(12) << fixed << setprecision(sf) << stddev_val
-        << "]\n"
-        "#[Max     = " << setw(12) << fixed << setprecision(sf) << max_val
-        << ", TotalCount     = " << setw(12) << total_val
-        << "]\n"
-        "#[Buckets = " << setw(12) << pp.h.bucket_count()
-        << ", SubBuckets     = " << setw(12) << pp.h.sub_bucket_count()
-        << "]";
-    // clang-format on
 }
 
 } // namespace hdr

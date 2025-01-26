@@ -17,6 +17,8 @@
 #ifndef TOOLBOX_UTIL_STRINGBUF_HPP
 #define TOOLBOX_UTIL_STRINGBUF_HPP
 
+#include <toolbox/util/Concepts.hpp>
+
 #include <cstring>
 #include <string_view>
 
@@ -132,10 +134,12 @@ constexpr std::string_view operator+(const StringBuf<MaxN>& s) noexcept
     return {s.data(), s.size()};
 }
 
-template <std::size_t MaxN>
-std::ostream& operator<<(std::ostream& os, const StringBuf<MaxN>& rhs)
+template <std::size_t MaxN, typename StreamT>
+    requires Streamable<StreamT>
+StreamT& operator<<(StreamT& os, const StringBuf<MaxN>& rhs)
 {
-    return std::operator<<(os, std::string_view{rhs.data(), rhs.size()});
+    os << std::string_view{rhs.data(), rhs.size()};
+    return os;
 }
 
 } // namespace util
