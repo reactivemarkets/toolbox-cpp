@@ -46,7 +46,9 @@ BOOST_AUTO_TEST_CASE(OStaticStreamCase)
 
     os.reset();
     BOOST_CHECK(!!os);
-    BOOST_CHECK_EQUAL((os << "test").str(), "test");
+
+    os << "test";
+    BOOST_CHECK_EQUAL(os.str(), "test");
 }
 
 BOOST_AUTO_TEST_CASE(OStreamJoinerCase)

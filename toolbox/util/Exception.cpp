@@ -56,7 +56,7 @@ void Exception::to_json(ostream& os, int code, const char* message)
 
 ErrMsg& err_msg() noexcept
 {
-    err_msg_.reset();
+    err_msg_.os_.reset();
     return err_msg_;
 }
 

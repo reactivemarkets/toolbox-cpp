@@ -194,10 +194,6 @@ class OStaticStream final : public std::ostream {
     std::size_t size() const noexcept { return buf_.size(); }
 
     std::string_view str() const noexcept { return buf_.str(); }
-    operator std::string_view() const noexcept
-    {
-        return buf_.str();
-    } // NOLINT(hicpp-explicit-conversions)
     /// Reset the current position back to the beginning of the buffer.
     void reset() noexcept
     {
@@ -208,13 +204,6 @@ class OStaticStream final : public std::ostream {
   private:
     StaticStreamBuf<MaxN> buf_;
 };
-
-template <std::size_t MaxN, typename ValueT>
-auto& operator<<(OStaticStream<MaxN>& os, ValueT&& val)
-{
-    static_cast<std::ostream&>(os) << std::forward<ValueT>(val);
-    return os;
-}
 
 using OStreamJoiner = std::experimental::ostream_joiner<char>;
 
