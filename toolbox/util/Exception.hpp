@@ -17,6 +17,7 @@
 #ifndef TOOLBOX_UTIL_EXCEPTION_HPP
 #define TOOLBOX_UTIL_EXCEPTION_HPP
 
+#include <string_view>
 #include <toolbox/util/Stream.hpp>
 
 namespace toolbox {
@@ -25,7 +26,19 @@ inline namespace util {
 /// Maximum error message length.
 constexpr std::size_t MaxErrSize{511};
 
-using ErrMsg = OStaticStream<MaxErrSize>;
+struct ErrMsg {
+    OStaticStream<MaxErrSize> os_;
+    operator std::string_view() const noexcept {
+        return os_.str();
+    }
+};
+
+template <typename ValueT>
+ErrMsg& operator<<(ErrMsg& err, ValueT&& val)
+{
+    err.os_ << std::forward<ValueT>(val);
+    return err;
+}
 
 class TOOLBOX_API Exception : public std::runtime_error {
   public:
