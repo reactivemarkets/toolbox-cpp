@@ -19,7 +19,6 @@
 #include <toolbox/util/Argv.hpp>
 #include <toolbox/util/Variant.hpp>
 
-#include <iomanip>
 #include <iostream>
 
 namespace toolbox {
@@ -107,31 +106,6 @@ void Options::parse(int argc, const char* const argv[])
                          }},
               data);
     }
-}
-
-ostream& operator<<(ostream& out, const Options& options)
-{
-    out << "Usage: " << options.description_ << "\nOptions:\n";
-
-    for (const auto& opt : options.help_) {
-        unsigned max_width{15};
-        // value find
-        out << "  ";
-        if (!opt->short_opt.empty()) {
-            max_width -= 2;
-            out << '-' << opt->short_opt;
-        }
-        if (!opt->long_opt.empty()) {
-            if (!opt->short_opt.empty()) {
-                max_width -= 2;
-                out << ", ";
-            }
-            max_width -= 2 + opt->long_opt.size();
-            out << "--" << opt->long_opt;
-        }
-        out << setw(max_width) << ' ' << opt->description << "\n";
-    }
-    return out;
 }
 
 } // namespace util

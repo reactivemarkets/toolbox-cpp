@@ -27,6 +27,20 @@ concept Arithmetic = std::is_arithmetic_v<T>;
 template <typename T>
 concept Enum = std::is_enum_v<T>;
 
+// N.B. The concept doesn't check for operator<< overloads on the streamable object.
+// Checking for operator<< overloads would've been nice, but it's not possible/difficult due
+// to recursions. For example, consider this constraint "os << int/float/etc" -- to check this
+// constraint the compiler has to check if there is a valid (unambiguous) operator<< overload.
+// However, some generic operator<< overloads for custom types will make use of this concept to
+// accept any streamable type -- this is an infinite recursion because the compiler has to then
+// check are the constraints satisfied on that overload, which means checking "os << int/float/etc"
+// constraint again, checking all operator<< overloads again, etc repeating in a cycle.
+template <typename T>
+concept Streamable = requires (T& os) {
+    os.put(std::declval<char>());
+    os.write(std::declval<const char*>(), std::declval<std::size_t>());
+};
+
 } // namespace util
 } // namespace toolbox
 

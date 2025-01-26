@@ -17,8 +17,10 @@
 #ifndef TOOLBOX_UTIL_EXCEPTION_HPP
 #define TOOLBOX_UTIL_EXCEPTION_HPP
 
-#include <string_view>
 #include <toolbox/util/Stream.hpp>
+#include <toolbox/util/Concepts.hpp>
+
+#include <string_view>
 
 namespace toolbox {
 inline namespace util {
@@ -89,8 +91,10 @@ struct PutAsJson {
     const ExceptionT* e;
 };
 
-template <typename ExceptionT>
-std::ostream& operator<<(std::ostream& os, PutAsJson<ExceptionT> val)
+
+template <typename ExceptionT, typename StreamT>
+    requires Streamable<StreamT>
+StreamT& operator<<(StreamT& os, PutAsJson<ExceptionT> val)
 {
     val.e->to_json(os);
     return os;
@@ -101,10 +105,12 @@ struct PutWithCode {
     const ExceptionT* e;
 };
 
-template <typename ExceptionT>
-std::ostream& operator<<(std::ostream& os, PutWithCode<ExceptionT> val)
+template <typename ExceptionT, typename StreamT>
+    requires Streamable<StreamT>
+StreamT& operator<<(StreamT& os, PutWithCode<ExceptionT> val)
 {
-    return os << val.e->what() << " (" << val.e->code().value() << ')';
+    os << val.e->what() << " (" << val.e->code().value() << ')';
+    return os;
 }
 
 } // namespace detail

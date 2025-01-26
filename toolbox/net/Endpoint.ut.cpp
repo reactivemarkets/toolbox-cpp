@@ -43,11 +43,14 @@ std::vector<sockaddr_in> generate_random_ipv4_addresses(size_t N) {
     return ret;
 }
 
-ostream& write_ipv4_libc(ostream& os, const sockaddr_in& sa)
+template <class StreamT>
+    requires Streamable<StreamT>
+StreamT& write_ipv4_libc(StreamT& os, const sockaddr_in& sa)
 {
     char buf[INET_ADDRSTRLEN];
     inet_ntop(AF_INET, &toolbox::remove_const(sa).sin_addr, buf, sizeof(buf));
-    return os << buf << ':' << ntohs(sa.sin_port);
+    os << buf << ':' << ntohs(sa.sin_port);
+    return os;
 }
 
 util::OStream<32> ipv4_os{nullptr};
