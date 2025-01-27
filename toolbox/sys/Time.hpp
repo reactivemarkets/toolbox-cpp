@@ -19,11 +19,10 @@
 
 #include <toolbox/util/TypeTraits.hpp>
 #include <toolbox/util/Concepts.hpp>
-
-#include <boost/io/ios_state.hpp>
+#include <toolbox/util/Stream.hpp>
 
 #include <chrono>
-#include <iomanip>
+#include <format>
 #include <optional>
 
 namespace toolbox {
@@ -281,19 +280,13 @@ StreamT& operator<<(StreamT& os, PutTime<DurationT> pt)
 
     if constexpr (std::is_same_v<DurationT, Nanos>) {
         const auto ns = ns_since_epoch<WallClock>(pt.time);
-        boost::io::ios_fill_saver ifs{os};
-        boost::io::ios_width_saver iws{os};
-        os << '.' << std::setfill('0') << std::setw(9) << (ns % 1'000'000'000L);
+        os << '.' << std::format("{:0>9}", ns % 1'000'000'000L);
     } else if constexpr (std::is_same_v<DurationT, Micros>) {
         const auto us = us_since_epoch<WallClock>(pt.time);
-        boost::io::ios_fill_saver ifs{os};
-        boost::io::ios_width_saver iws{os};
-        os << '.' << std::setfill('0') << std::setw(6) << (us % 1'000'000L);
+        os << '.' << std::format("{:0>6}", us % 1'000'000L);
     } else if constexpr (std::is_same_v<DurationT, Millis>) {
         const auto ms = ms_since_epoch<WallClock>(pt.time);
-        boost::io::ios_fill_saver ifs{os};
-        boost::io::ios_width_saver iws{os};
-        os << '.' << std::setfill('0') << std::setw(3) << (ms % 1'000L);
+        os << '.' << std::format("{:0>3}", ms % 1'000L);
     } else if constexpr (std::is_same_v<DurationT, Seconds>) {
     } else {
         static_assert(AlwaysFalse<DurationT>::value);

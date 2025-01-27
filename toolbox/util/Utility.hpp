@@ -165,6 +165,11 @@ struct string_hash {
     }
 };
 
+inline constexpr std::string_view bool_to_alpha(bool b) noexcept
+{
+    return b ? "true" : "false";
+}
+
 } // namespace util
 } // namespace toolbox
 
