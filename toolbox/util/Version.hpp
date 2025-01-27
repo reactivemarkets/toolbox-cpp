@@ -25,7 +25,7 @@ namespace toolbox {
 inline namespace util {
 
 struct Version {
-    constexpr Version(int major = 0, int minor = 0) noexcept // NOLINT(hicpp-explicit-conversions)
+    constexpr explicit Version(int major = 0, int minor = 0) noexcept
     : major{major}
     , minor{minor}
     {
