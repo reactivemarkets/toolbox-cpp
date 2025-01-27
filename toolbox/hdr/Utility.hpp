@@ -21,10 +21,8 @@
 #include <toolbox/util/Concepts.hpp>
 #include <toolbox/Config.h>
 
-#include <boost/io/ios_state.hpp>
-
 #include <cstdint>
-#include <iomanip>
+#include <format>
 
 namespace toolbox {
 /// A C++ port of HdrHistogram_c written Michael Barker and released to the public domain.
@@ -69,10 +67,7 @@ template <typename StreamT>
     requires Streamable<StreamT>
 StreamT& operator<<(StreamT& os, PutPercentiles pp)
 {
-    using namespace std;
-
     const auto sf = pp.h.significant_figures();
-    boost::io::ios_all_saver all_saver{os};
 
     os << "       Value     Percentile TotalCount 1/(1-Percentile)\n\n";
 
@@ -82,15 +77,13 @@ StreamT& operator<<(StreamT& os, PutPercentiles pp)
         const double percentile{iter.percentile() / 100.0};
         const int64_t total_count{iter.cumulative_count()};
 
-        // clang-format off
-        os << setw(12) << fixed << setprecision(sf) << value
-           << setw(15) << fixed << setprecision(6) << percentile
-           << setw(11) << total_count;
-        // clang-format on
+        os << std::format("{:12.{}f}", value, sf);
+        os << std::format("{:15.6f}", percentile);
+        os << std::format("{:11}", total_count);
 
         if (percentile < 1.0) {
             const double inverted_percentile{(1.0 / (1.0 - percentile))};
-            os << setw(15) << fixed << setprecision(2) << inverted_percentile;
+            os << std::format("{:15.2f}", inverted_percentile);
         }
         os << '\n';
     }
@@ -101,18 +94,14 @@ StreamT& operator<<(StreamT& os, PutPercentiles pp)
     const int64_t total_val{pp.h.total_count()};
 
     // clang-format off
-    os << "#[Mean    = " << setw(12) << fixed << setprecision(sf) << mean_val
-       << ", StdDeviation   = " << setw(12) << fixed << setprecision(sf) << stddev_val
-       << "]\n"
-       "#[Max     = " << setw(12) << fixed << setprecision(sf) << max_val
-       << ", TotalCount     = " << setw(12) << total_val
-       << "]\n"
-       "#[Buckets = " << setw(12) << pp.h.bucket_count()
-       << ", SubBuckets     = " << setw(12) << pp.h.sub_bucket_count()
+    os << "#[Mean    = " << std::format("{:12.{}f}", mean_val, sf)
+       << ", StdDeviation   = " << std::format("{:12.{}f}", stddev_val, sf)
+       << "]\n#[Max     = " << std::format("{:12.{}f}", max_val, sf)
+       << ", TotalCount     = " << std::format("{:12}", total_val)
+       << "]\n#[Buckets = " << std::format("{:12}", pp.h.bucket_count())
+       << ", SubBuckets     = " << std::format("{:12}", pp.h.sub_bucket_count())
        << "]";
-
     return os;
-    // clang-format on
 }
 
 

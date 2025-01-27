@@ -26,11 +26,12 @@
 /// \author Rodrigo Fernandes
 
 #include <toolbox/util/RefCount.hpp>
+#include <toolbox/util/Stream.hpp>
 #include <toolbox/util/String.hpp>
 
 #include <map>
 #include <variant>
-#include <iomanip>
+#include <format>
 
 namespace toolbox {
 inline namespace util {
@@ -245,7 +246,7 @@ StreamT& operator<<(StreamT& out, const Options& options)
             max_width -= 2 + opt->long_opt.size();
             out << "--" << opt->long_opt;
         }
-        out << std::setw(max_width) << ' ' << opt->description << "\n";
+        out << std::format("{:{}}", ' ', max_width) << opt->description << '\n';
     }
     return out;
 }

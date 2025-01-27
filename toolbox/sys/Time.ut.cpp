@@ -15,8 +15,10 @@
 // limitations under the License.
 
 #include "Time.hpp"
+#include "Date.hpp"
 
 #include <boost/test/unit_test.hpp>
+#include <sstream>
 
 namespace std::chrono {
 template <typename RepT, typename PeriodT>
@@ -74,6 +76,52 @@ BOOST_AUTO_TEST_CASE(TimeParseTimeOnlyCase)
     BOOST_CHECK_EQUAL(*parse_time_only("00:00:00.789"sv), 789ms);
     BOOST_CHECK_EQUAL(*parse_time_only("00:00:00.000789"sv), 789us);
     BOOST_CHECK_EQUAL(*parse_time_only("00:00:00.000000789"sv), 789ns);
+}
+
+BOOST_AUTO_TEST_CASE(PutTimeOutput)
+{
+    std::stringstream stream;
+
+    auto tm = parse_time("20180824T05:32:29.123456789"sv);
+    BOOST_CHECK(tm.has_value());
+
+    stream << put_time<Seconds>(*tm, "%Y%m%dT%H:%M:%S");
+    BOOST_CHECK_EQUAL(stream.str(), "20180824T05:32:29");
+
+    stream.str("");
+    stream << put_time<Millis>(*tm, "%Y%m%dT%H:%M:%S");
+    BOOST_CHECK_EQUAL(stream.str(), "20180824T05:32:29.123");
+
+    stream.str("");
+    stream << put_time<Micros>(*tm, "%Y%m%dT%H:%M:%S");
+    BOOST_CHECK_EQUAL(stream.str(), "20180824T05:32:29.123456");
+
+    stream.str("");
+    stream << put_time<Nanos>(*tm, "%Y%m%dT%H:%M:%S");
+    BOOST_CHECK_EQUAL(stream.str(), "20180824T05:32:29.123456789");
+}
+
+BOOST_AUTO_TEST_CASE(PutTimeOutput2)
+{
+    std::stringstream stream;
+
+    auto tm = parse_time("20180824T05:32:29.001001001"sv);
+    BOOST_CHECK(tm.has_value());
+
+    stream << put_time<Seconds>(*tm, "%Y%m%dT%H:%M:%S");
+    BOOST_CHECK_EQUAL(stream.str(), "20180824T05:32:29");
+
+    stream.str("");
+    stream << put_time<Millis>(*tm, "%Y%m%dT%H:%M:%S");
+    BOOST_CHECK_EQUAL(stream.str(), "20180824T05:32:29.001");
+
+    stream.str("");
+    stream << put_time<Micros>(*tm, "%Y%m%dT%H:%M:%S");
+    BOOST_CHECK_EQUAL(stream.str(), "20180824T05:32:29.001001");
+
+    stream.str("");
+    stream << put_time<Nanos>(*tm, "%Y%m%dT%H:%M:%S");
+    BOOST_CHECK_EQUAL(stream.str(), "20180824T05:32:29.001001001");
 }
 
 BOOST_AUTO_TEST_SUITE_END()

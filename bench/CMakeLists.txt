@@ -20,7 +20,8 @@ set(targets
   tb-map-bench
   tb-time-bench
   tb-timer-bench
-  tb-util-bench)
+  tb-util-bench
+  tb-stream-bench)
 
 add_custom_target(tb-bench DEPENDS ${targets})
 
@@ -44,3 +45,6 @@ target_link_libraries(tb-timer-bench ${tb_bm_LIBRARY})
 
 add_executable(tb-util-bench Util.bm.cpp)
 target_link_libraries(tb-util-bench ${tb_bm_LIBRARY})
+
+add_executable(tb-stream-bench Stream.bm.cpp)
+target_link_libraries(tb-stream-bench ${tb_bm_LIBRARY})

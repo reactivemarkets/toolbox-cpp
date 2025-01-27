@@ -17,6 +17,7 @@
 #ifndef TOOLBOX_UTIL_STREAM_HPP
 #define TOOLBOX_UTIL_STREAM_HPP
 
+#include <toolbox/util/Concepts.hpp>
 #include <toolbox/util/Storage.hpp>
 
 #include <experimental/iterator>
@@ -203,6 +204,43 @@ class OStaticStream final : public std::ostream {
 
   private:
     StaticStreamBuf<MaxN> buf_;
+};
+
+// Similar to std::ostream_iterator, but this works with any "Streamable" type.
+template <class StreamT>
+    requires Streamable<StreamT>
+class OStreamIterator {
+  public:
+    OStreamIterator() = delete;
+
+    explicit OStreamIterator(StreamT& os, const char* delim = nullptr) noexcept
+    : os_(&os)
+    , delim_(delim)
+    {
+    }
+
+    template <class T>
+    OStreamIterator& operator=(const T& value)
+    {
+        *os_ << value;
+        if (delim_) [[unlikely]] {
+            *os_ << delim_;
+        }
+        return *this;
+    }
+
+    OStreamIterator& operator*() noexcept { return *this; }
+    OStreamIterator& operator++() noexcept { return *this; }
+    OStreamIterator& operator++(int) noexcept { return *this; }
+
+    // required by std::output_iterator concept
+    using difference_type = ptrdiff_t;
+
+  private:
+    // Pointer (instead of reference) because this class needs to be assignable
+    // to satisfy std::output_iterator concept (references can't be assigned).
+    StreamT* os_;
+    const char* delim_{nullptr};
 };
 
 using OStreamJoiner = std::experimental::ostream_joiner<char>;
