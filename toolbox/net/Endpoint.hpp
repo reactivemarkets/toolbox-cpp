@@ -19,6 +19,7 @@
 
 #include <toolbox/net/Protocol.hpp>
 #include <toolbox/net/Socket.hpp>
+#include <toolbox/util/Concepts.hpp>
 #include <toolbox/util/TypeTraits.hpp>
 
 #include <boost/asio/generic/basic_endpoint.hpp>
@@ -62,8 +63,84 @@ inline StreamEndpoint parse_stream_endpoint(std::string_view uri)
 
 TOOLBOX_API std::istream& operator>>(std::istream& is, DgramEndpoint& ep);
 TOOLBOX_API std::istream& operator>>(std::istream& is, StreamEndpoint& ep);
-TOOLBOX_API std::ostream& operator<<(std::ostream& os, const DgramEndpoint& ep);
-TOOLBOX_API std::ostream& operator<<(std::ostream& os, const StreamEndpoint& ep);
+
+namespace detail {
+template <typename StreamT, typename T>
+    requires Streamable<StreamT>
+StreamT& print_unix_endpoint(StreamT& os, const T& ep)
+{
+    constexpr const char* scheme = "unix://";
+    // abstract unix socket's path starts with '\0' and not null-terminated
+    const auto* path = reinterpret_cast<const sockaddr_un*>(ep.data())->sun_path;
+    if (path[0] == '\0') {
+        size_t size = ep.size() - sizeof(std::declval<sockaddr_un>().sun_family) - 1;
+        os << scheme << '|' << std::string_view{path + 1, size};
+        return os;
+    }
+    os << scheme << *ep.data();
+    return os;
+}
+} // detail namespace
+
+// Unfortunately, DgramEndpoint has an implicit converting constructor -- it accepts any type.
+// Therefore, this overload becomes a valid candidate whenever a value of any type is being streamed
+// into a stream -- resulting in ambiguous overload errors. DgramEndpoint is defined in boost::asio
+// so the impl can't be modified. Therefore, a templated type is used to constrain this overload to
+// DgramEndpoint only.
+template <typename StreamT, class T>
+    requires Streamable<StreamT> && std::same_as<T, DgramEndpoint>
+StreamT& operator<<(StreamT& os, const T& ep)
+{
+    const char* scheme = "";
+    const auto p = ep.protocol();
+    if (p.family() == AF_INET) {
+        if (p.protocol() == IPPROTO_UDP) {
+            scheme = "udp4://";
+        } else {
+            scheme = "ip4://";
+        }
+    } else if (p.family() == AF_INET6) {
+        if (p.protocol() == IPPROTO_UDP) {
+            scheme = "udp6://";
+        } else {
+            scheme = "ip6://";
+        }
+    } else if (p.family() == AF_UNIX) {
+        return detail::print_unix_endpoint(os, ep);
+    }
+    os << scheme << *ep.data();
+    return os;
+}
+
+// Unfortunately, StreamEndpoint has an implicit converting constructor -- it accepts any type.
+// Therefore, this overload becomes a valid candidate whenever a value of any type is being streamed
+// into a stream -- resulting in ambiguous overload errors. StreamEndpoint is defined in boost::asio
+// so the impl can't be modified. Therefore, a templated type is used to constrain this overload to
+// StreamEndpoint only.
+template <typename StreamT, class T>
+    requires Streamable<StreamT> && std::same_as<T, StreamEndpoint>
+StreamT& operator<<(StreamT& os, const T& ep)
+{
+    const char* scheme = "";
+    const auto p = ep.protocol();
+    if (p.family() == AF_INET) {
+        if (p.protocol() == IPPROTO_TCP) {
+            scheme = "tcp4://";
+        } else {
+            scheme = "ip4://";
+        }
+    } else if (p.family() == AF_INET6) {
+        if (p.protocol() == IPPROTO_TCP) {
+            scheme = "tcp6://";
+        } else {
+            scheme = "ip6://";
+        }
+    } else if (p.family() == AF_UNIX) {
+        return detail::print_unix_endpoint(os, ep);
+    }
+    os << scheme << *ep.data();
+    return os;
+}
 
 } // namespace net
 inline namespace util {
@@ -82,10 +159,108 @@ struct TypeTraits<StreamEndpoint> {
 } // namespace util
 } // namespace toolbox
 
-TOOLBOX_API std::ostream& operator<<(std::ostream& os, const sockaddr_in& sa);
-TOOLBOX_API std::ostream& operator<<(std::ostream& os, const sockaddr_in6& sa);
-TOOLBOX_API std::ostream& operator<<(std::ostream& os, const sockaddr_un& sa);
-TOOLBOX_API std::ostream& operator<<(std::ostream& os, const sockaddr& sa);
-TOOLBOX_API std::ostream& operator<<(std::ostream& os, const addrinfo& ai);
+template <typename StreamT>
+    requires toolbox::util::Streamable<StreamT>
+StreamT& operator<<(StreamT& os, const sockaddr_in& sa)
+{
+    // biggest possible str: 255.255.255.255:
+    char buf[16];
+    char* p = buf;
+
+    auto write_u8 = [&p](std::uint8_t v) {
+        char rd = '0' + (v % 10u);
+        if (v >= 100u) {
+            char ld = '0' + ((v / 100u) % 10u);
+            char md = '0' + ((v / 10u) % 10u);
+            *p++ = ld;
+            *p++ = md;
+            *p++ = rd;
+        } else if (v >= 10u) {
+            char ld = '0' + ((v / 10u) % 10u);
+            *p++ = ld;
+            *p++ = rd;
+        } else {
+            *p++ = rd;
+        }
+    };
+
+    // ip address in sockaddr_in is in network order (i.e. big endian)
+    uint32_t addr = sa.sin_addr.s_addr;
+    auto* ipv4 = std::bit_cast<unsigned char*>(&addr);
+
+    write_u8(ipv4[0]);
+    *p++ = '.';
+    write_u8(ipv4[1]);
+    *p++ = '.';
+    write_u8(ipv4[2]);
+    *p++ = '.';
+    write_u8(ipv4[3]);
+    *p++ = ':';
+
+    os << std::string_view(buf, p) << ntohs(sa.sin_port);
+    return os;
+}
+
+template <typename StreamT>
+    requires toolbox::util::Streamable<StreamT>
+StreamT& operator<<(StreamT& os, const sockaddr_in6& sa)
+{
+    char buf[INET6_ADDRSTRLEN];
+    inet_ntop(AF_INET6, &toolbox::remove_const(sa).sin6_addr, buf, sizeof(buf));
+    os << '[' << buf << "]:" << ntohs(sa.sin6_port);
+    return os;
+}
+
+template <typename StreamT>
+    requires toolbox::util::Streamable<StreamT>
+StreamT& operator<<(StreamT& os, const sockaddr_un& sa)
+{
+    os << sa.sun_path;
+    return os;
+}
+
+template <typename StreamT>
+    requires toolbox::util::Streamable<StreamT>
+StreamT& operator<<(StreamT& os, const sockaddr& sa)
+{
+    if (sa.sa_family == AF_INET) {
+        os << reinterpret_cast<const sockaddr_in&>(sa);
+    } else if (sa.sa_family == AF_INET6) {
+        os << reinterpret_cast<const sockaddr_in6&>(sa);
+    } else if (sa.sa_family == AF_UNIX) {
+        os << reinterpret_cast<const sockaddr_un&>(sa);
+    } else {
+        os << "<sockaddr>";
+    }
+    return os;
+}
+
+template <typename StreamT>
+    requires toolbox::util::Streamable<StreamT>
+StreamT& operator<<(StreamT& os, const addrinfo& ai)
+{
+    const char* scheme = "";
+    if (ai.ai_family == AF_INET) {
+        if (ai.ai_protocol == IPPROTO_TCP) {
+            scheme = "tcp4://";
+        } else if (ai.ai_protocol == IPPROTO_UDP) {
+            scheme = "udp4://";
+        } else {
+            scheme = "ip4://";
+        }
+    } else if (ai.ai_family == AF_INET6) {
+        if (ai.ai_protocol == IPPROTO_TCP) {
+            scheme = "tcp6://";
+        } else if (ai.ai_protocol == IPPROTO_UDP) {
+            scheme = "udp6://";
+        } else {
+            scheme = "ip6://";
+        }
+    } else if (ai.ai_family == AF_UNIX) {
+        scheme = "unix://";
+    }
+    os << scheme << *ai.ai_addr;
+    return os;
+}
 
 #endif // TOOLBOX_NET_ENDPOINT_HPP

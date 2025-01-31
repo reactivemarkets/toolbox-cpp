@@ -30,16 +30,6 @@ NanoTime get_time(clockid_t clock_id) noexcept
     return NanoTime{ts.tv_sec * 1'000'000'000LL + ts.tv_nsec};
 }
 
-ostream& operator<<(ostream& os, MonoTime t)
-{
-    return os << ns_since_epoch(t);
-}
-
-ostream& operator<<(ostream& os, WallTime t)
-{
-    return os << ns_since_epoch(t);
-}
-
 thread_local CyclTime::Time CyclTime::time_;
 
 } // namespace sys

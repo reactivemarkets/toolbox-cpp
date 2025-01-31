@@ -23,6 +23,7 @@
 #include <toolbox/sys/Limits.hpp>
 #include <toolbox/sys/Time.hpp>
 #include <toolbox/util/Storage.hpp>
+#include <toolbox/util/Concepts.hpp>
 
 namespace toolbox {
 inline namespace sys {
@@ -199,9 +200,12 @@ class TOOLBOX_API ScopedLogger {
     Logger& prev_;
 };
 
-inline std::ostream& operator<<(std::ostream& os, LogLevel level)
+template <typename StreamT>
+    requires Streamable<StreamT>
+StreamT& operator<<(StreamT& os, LogLevel level)
 {
-    return os << log_label(level);
+    os << log_label(level);
+    return os;
 }
 
 } // namespace sys

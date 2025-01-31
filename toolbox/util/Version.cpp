@@ -15,17 +15,3 @@
 // limitations under the License.
 
 #include "Version.hpp"
-
-#include <iostream>
-
-namespace toolbox {
-inline namespace util {
-using namespace std;
-
-ostream& operator<<(ostream& os, Version ver)
-{
-    return os << ver.major << '.' << ver.minor;
-}
-
-} // namespace util
-} // namespace toolbox

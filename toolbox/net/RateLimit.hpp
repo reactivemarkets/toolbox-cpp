@@ -16,6 +16,7 @@
 #ifndef TOOLBOX_NET_RATELIMIT_HPP
 #define TOOLBOX_NET_RATELIMIT_HPP
 
+#include <toolbox/util/Concepts.hpp>
 #include <toolbox/sys/Time.hpp>
 
 #include <boost/container/small_vector.hpp>
@@ -54,7 +55,14 @@ class TOOLBOX_API RateLimit {
 
 TOOLBOX_API RateLimit parse_rate_limit(const std::string& s);
 TOOLBOX_API std::istream& operator>>(std::istream& is, RateLimit& rl);
-TOOLBOX_API std::ostream& operator<<(std::ostream& os, RateLimit rl);
+
+template <typename StreamT>
+    requires Streamable<StreamT>
+StreamT& operator<<(StreamT& os, RateLimit rl)
+{
+    os << rl.limit() << '/' << rl.interval().count();
+    return os;
+}
 
 /// RateWindow maintains a sliding window of second time buckets for the specified interval.
 class TOOLBOX_API RateWindow {

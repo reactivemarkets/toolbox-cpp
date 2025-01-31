@@ -65,7 +65,13 @@ static_assert(Version{1, 2} == Version{1, 2});
 static_assert(Version{1, 2} < Version{1, 3});
 static_assert(Version{1, 2} < Version{2, 2});
 
-TOOLBOX_API std::ostream& operator<<(std::ostream& os, Version ver);
+template <typename StreamT>
+    requires Streamable<StreamT>
+StreamT& operator<<(StreamT& os, Version ver)
+{
+    os << ver.major << '.' << ver.minor;
+    return os;
+}
 
 template <>
 struct TypeTraits<Version> {

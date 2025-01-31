@@ -36,11 +36,6 @@ istream& operator>>(istream& is, RateLimit& rl)
     return is;
 }
 
-ostream& operator<<(ostream& os, RateLimit rl)
-{
-    return os << rl.limit() << '/' << rl.interval().count();
-}
-
 RateWindow::~RateWindow() = default;
 
 // Copy.
