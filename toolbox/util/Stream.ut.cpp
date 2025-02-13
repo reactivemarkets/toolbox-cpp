@@ -20,6 +20,7 @@
 
 #include <array>
 #include <sstream>
+#include <limits>
 
 using namespace std;
 using namespace toolbox;
@@ -39,16 +40,148 @@ BOOST_AUTO_TEST_CASE(OStaticStreamCase)
 
     os.reset();
     BOOST_CHECK(os.empty());
-    os << 12345678;
+    os << 1234567;
     BOOST_CHECK_EQUAL(os.size(), 7U);
     BOOST_CHECK_EQUAL(os.str(), "1234567");
+    BOOST_CHECK(os);
+
+    // overflow
+    os.reset();
+    BOOST_CHECK(os.empty());
+    os << 12345678;
+    BOOST_CHECK_EQUAL(os.size(), 0U);
+    BOOST_CHECK_EQUAL(os.str(), "");
     BOOST_CHECK(!os);
 
     os.reset();
     BOOST_CHECK(!!os);
+    BOOST_CHECK(os.empty());
+    os << float{1.2345};
+    BOOST_CHECK_EQUAL(os.size(), 6U);
+    BOOST_CHECK_EQUAL(os.str(), "1.2345");
+    BOOST_CHECK(os);
+
+    os.reset();
+    BOOST_CHECK(!!os);
+    BOOST_CHECK(os.empty());
+    os << double{1.23456};
+    BOOST_CHECK_EQUAL(os.size(), 7U);
+    BOOST_CHECK_EQUAL(os.str(), "1.23456");
+    BOOST_CHECK(os);
+
+    // inf
+    os.reset();
+    BOOST_CHECK(!!os);
+    BOOST_CHECK(os.empty());
+    os << std::numeric_limits<double>::infinity();
+    BOOST_CHECK_EQUAL(os.size(), 3U);
+    BOOST_CHECK_EQUAL(os.str(), "inf");
+    BOOST_CHECK(os);
+
+    // nan
+    os.reset();
+    BOOST_CHECK(!!os);
+    BOOST_CHECK(os.empty());
+    os << std::numeric_limits<double>::quiet_NaN();
+    BOOST_CHECK_EQUAL(os.size(), 3U);
+    BOOST_CHECK_EQUAL(os.str(), "nan");
+    BOOST_CHECK(os);
+
+    // overflow
+    os.reset();
+    BOOST_CHECK(!!os);
+    BOOST_CHECK(os.empty());
+    os << double{1.234567};
+    BOOST_CHECK_EQUAL(os.size(), 0U);
+    BOOST_CHECK_EQUAL(os.str(), "");
+    BOOST_CHECK(!os);
 
     os << "test";
     BOOST_CHECK_EQUAL(os.str(), "test");
+}
+
+BOOST_AUTO_TEST_CASE(OStreamCase)
+{
+    OStream<7> os{OStream<7>::make_storage()};
+    BOOST_CHECK(os.empty());
+    os << "foo";
+    BOOST_CHECK_EQUAL(os.size(), 3U);
+    BOOST_CHECK_EQUAL(os.str(), "foo");
+    os << ',' << "bar";
+    BOOST_CHECK_EQUAL(os.size(), 7U);
+    BOOST_CHECK_EQUAL(os.str(), "foo,bar");
+
+    os.reset();
+    BOOST_CHECK(os.empty());
+    os << 1234567;
+    BOOST_CHECK_EQUAL(os.size(), 7U);
+    BOOST_CHECK_EQUAL(os.str(), "1234567");
+    BOOST_CHECK(os);
+
+    // overflow
+    os.reset();
+    BOOST_CHECK(os.empty());
+    os << 12345678;
+    BOOST_CHECK_EQUAL(os.size(), 0U);
+    BOOST_CHECK_EQUAL(os.str(), "");
+    BOOST_CHECK(!os);
+
+    os.reset();
+    BOOST_CHECK(!!os);
+    BOOST_CHECK(os.empty());
+    os << float{1.2345};
+    BOOST_CHECK_EQUAL(os.size(), 6U);
+    BOOST_CHECK_EQUAL(os.str(), "1.2345");
+    BOOST_CHECK(os);
+
+    os.reset();
+    BOOST_CHECK(!!os);
+    BOOST_CHECK(os.empty());
+    os << double{1.23456};
+    BOOST_CHECK_EQUAL(os.size(), 7U);
+    BOOST_CHECK_EQUAL(os.str(), "1.23456");
+    BOOST_CHECK(os);
+
+    // inf
+    os.reset();
+    BOOST_CHECK(!!os);
+    BOOST_CHECK(os.empty());
+    os << std::numeric_limits<double>::infinity();
+    BOOST_CHECK_EQUAL(os.size(), 3U);
+    BOOST_CHECK_EQUAL(os.str(), "inf");
+    BOOST_CHECK(os);
+
+    // nan
+    os.reset();
+    BOOST_CHECK(!!os);
+    BOOST_CHECK(os.empty());
+    os << std::numeric_limits<double>::quiet_NaN();
+    BOOST_CHECK_EQUAL(os.size(), 3U);
+    BOOST_CHECK_EQUAL(os.str(), "nan");
+    BOOST_CHECK(os);
+
+    // overflow
+    os.reset();
+    BOOST_CHECK(!!os);
+    BOOST_CHECK(os.empty());
+    os << double{1.234567};
+    BOOST_CHECK_EQUAL(os.size(), 0U);
+    BOOST_CHECK_EQUAL(os.str(), "");
+    BOOST_CHECK(!os);
+
+    os << "test";
+    BOOST_CHECK_EQUAL(os.str(), "test");
+}
+
+BOOST_AUTO_TEST_CASE(OStreamIteratorDelimCase)
+{
+    array<string, 3> arr{{"foo", "bar", "baz"}};
+    stringstream os;
+    copy(arr.begin(), arr.end(), OStreamIterator{os, ","});
+    BOOST_CHECK_EQUAL(os.str(), "foo,bar,baz,");
+    // Note, the comma at the end! This is correct as per
+    // the spec of std::ostream_iterator. OStreamJoiner
+    // behaves differently.
 }
 
 BOOST_AUTO_TEST_CASE(OStreamJoinerCase)
@@ -57,18 +190,6 @@ BOOST_AUTO_TEST_CASE(OStreamJoinerCase)
     stringstream os;
     copy(arr.begin(), arr.end(), OStreamJoiner{os, ','});
     BOOST_CHECK_EQUAL(os.str(), "foo,bar,baz");
-}
-
-BOOST_AUTO_TEST_CASE(OStreamResetCase)
-{
-    OStaticStream<6> os{};
-    // overflows the buffer, setting a bad flag
-    os << "foobarbaz";
-    BOOST_CHECK_EQUAL(os.data(), "foobar");
-    // resets flag, allowing yes to be written
-    os.reset();
-    os << "yes";
-    BOOST_CHECK_EQUAL(os.data(), "yesbar");
 }
 
 BOOST_AUTO_TEST_SUITE_END()

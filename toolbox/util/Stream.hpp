@@ -17,102 +17,41 @@
 #ifndef TOOLBOX_UTIL_STREAM_HPP
 #define TOOLBOX_UTIL_STREAM_HPP
 
+#include <toolbox/util/OStreamBase.hpp>
 #include <toolbox/util/Concepts.hpp>
 #include <toolbox/util/Storage.hpp>
 
-#include <experimental/iterator>
-
 namespace toolbox {
 inline namespace util {
-namespace detail {
 
+namespace detail {
 struct ResetState {};
 TOOLBOX_API std::ostream& operator<<(std::ostream& os, ResetState) noexcept;
-
 } // namespace detail
 
 /// I/O manipulator that resets I/O state.
+/// Only for Streams inheriting from std::ostream.
 constexpr detail::ResetState reset_state{};
-
-TOOLBOX_API void reset(std::ostream& os) noexcept;
-
-/// StreamBuf uses a dynamic storage acquired from the custom allocator.
-template <std::size_t MaxN>
-class StreamBuf final : public std::streambuf {
-  public:
-    /// Constructor for initialising the StreamBuf with a null buffer.
-    explicit StreamBuf(std::nullptr_t) noexcept {}
-    StreamBuf()
-    : storage_{make_storage<MaxN>}
-    {
-        char* begin = static_cast<char*>(storage_.get());
-        setp(begin, begin + MaxN);
-    }
-    ~StreamBuf() override = default;
-
-    // Copy.
-    StreamBuf(const StreamBuf&) = delete;
-    StreamBuf& operator=(const StreamBuf&) = delete;
-
-    // Move.
-    StreamBuf(StreamBuf&&) = delete;
-    StreamBuf& operator=(StreamBuf&&) = delete;
-
-    const char* data() const noexcept { return pbase(); }
-    bool empty() const noexcept { return pbase() == pptr(); }
-    std::size_t size() const noexcept { return pptr() - pbase(); }
-
-    /// Release the managed storage.
-    StoragePtr<MaxN> release_storage() noexcept
-    {
-        StoragePtr<MaxN> storage;
-        storage_.swap(storage);
-        setp(nullptr, nullptr);
-        return storage;
-    }
-    /// Update the internal storage.
-    void set_storage(StoragePtr<MaxN> storage) noexcept { swap_storage(storage); }
-    /// Reset the current position back to the beginning of the buffer.
-    void reset() noexcept
-    {
-        if (storage_) {
-            char* begin = static_cast<char*>(storage_.get());
-            setp(begin, begin + MaxN);
-        }
-    }
-
-  private:
-    /// Swap the internal storage.
-    void swap_storage(StoragePtr<MaxN>& storage) noexcept
-    {
-        storage_.swap(storage);
-        if (storage_) {
-            auto* const begin = static_cast<char*>(storage_.get());
-            setp(begin, begin + MaxN);
-        } else {
-            setp(nullptr, nullptr);
-        }
-    }
-    StoragePtr<MaxN> storage_;
-};
 
 /// OStream uses a dynamic storage acquired from the custom allocator.
 template <std::size_t MaxN>
-class OStream final : public std::ostream {
+class OStream final : public OStreamBase<OStream<MaxN>> {
   public:
     /// Constructor for initialising the StreamBuf with a null buffer.
     explicit OStream(std::nullptr_t) noexcept
-    : std::ostream{nullptr}
-    , buf_{nullptr}
+    : storage_(nullptr)
     {
-        rdbuf(&buf_);
     }
-    OStream()
-    : std::ostream{nullptr}
+
+    /// Constructor for initialising the StreamBuf with pre-allocated storage.
+    explicit OStream(StoragePtr<MaxN> storage) noexcept
+    : storage_(std::move(storage))
     {
-        rdbuf(&buf_);
     }
-    ~OStream() override = default;
+
+    /// Default constructor allocates required storage
+    OStream() : storage_(make_storage()) {}
+    ~OStream() = default;
 
     // Copy.
     OStream(const OStream&) = delete;
@@ -123,64 +62,92 @@ class OStream final : public std::ostream {
     OStream& operator=(OStream&&) = delete;
 
     static StoragePtr<MaxN> make_storage() { return util::make_storage<MaxN>(); }
-    const char* data() const noexcept { return buf_.data(); }
-    bool empty() const noexcept { return buf_.empty(); }
-    std::size_t size() const noexcept { return buf_.size(); }
+    const char* data() const noexcept { return static_cast<const char*>(storage_.get()); }
+    bool empty() const noexcept { return bytes_written_ == 0u; }
+    std::size_t size() const noexcept { return bytes_written_; }
+    std::string_view str() const noexcept { return std::string_view{data(), size()}; }
+
+    // returns false if overflowed or output error.
+    // return true otherwise.
+    explicit operator bool() const noexcept {
+        return !badbit_;
+    }
 
     /// Release the managed storage.
-    StoragePtr<MaxN> release_storage() noexcept { return buf_.release_storage(); }
+    StoragePtr<MaxN> release_storage() noexcept
+    {
+        StoragePtr<MaxN> storage;
+        storage_.swap(storage);
+        reset();
+        return storage;
+    }
+
     /// Update the internal storage and clear i/o state.
     void set_storage(StoragePtr<MaxN> storage) noexcept
     {
-        buf_.set_storage(std::move(storage));
-        clear();
+        storage_ = std::move(storage);
+        reset();
     }
-    /// Reset the current position back to the beginning of the buffer and clear i/o state.
+
+    /// Reset the current position back to the beginning of the buffer.
     void reset() noexcept
     {
-        buf_.reset();
-        clear();
+        bytes_written_ = 0u;
+        badbit_ = false;
     }
 
   private:
-    StreamBuf<MaxN> buf_;
-};
+    friend OStreamBase<OStream<MaxN>>;
 
-template <std::size_t MaxN>
-class StaticStreamBuf final : public std::streambuf {
-  public:
-    StaticStreamBuf() noexcept { reset(); }
-    ~StaticStreamBuf() override = default;
-
-    // Copy.
-    StaticStreamBuf(const StaticStreamBuf&) = delete;
-    StaticStreamBuf& operator=(const StaticStreamBuf&) = delete;
-
-    // Move.
-    StaticStreamBuf(StaticStreamBuf&&) = delete;
-    StaticStreamBuf& operator=(StaticStreamBuf&&) = delete;
-
-    const char* data() const noexcept { return pbase(); }
-    bool empty() const noexcept { return pbase() == pptr(); }
-    std::size_t size() const noexcept { return pptr() - pbase(); }
-
-    std::string_view str() const noexcept { return {data(), size()}; }
-    /// Reset the current position back to the beginning of the buffer.
-    void reset() noexcept { setp(buf_, buf_ + MaxN); };
-
-  private:
-    char buf_[MaxN];
-};
-
-template <std::size_t MaxN>
-class OStaticStream final : public std::ostream {
-  public:
-    OStaticStream()
-    : std::ostream{nullptr}
+    std::size_t available() noexcept
     {
-        rdbuf(&buf_);
+        if (storage_ != nullptr) [[likely]] {
+            return MaxN - bytes_written_;
+        } else {
+            return 0u;
+        }
     }
-    ~OStaticStream() override = default;
+
+    char* wptr() noexcept
+    {
+        assert(storage_ != nullptr);
+        void* buf_base = storage_.get();
+        return static_cast<char*>(buf_base) + bytes_written_;
+    }
+
+    // Required by CRTP base (BasicOStream)
+    char* do_prepare_space(std::size_t num_bytes)
+    {
+        if (num_bytes <= available()) [[likely]] {
+            return wptr();
+        } else {
+            return nullptr;
+        }
+    }
+
+    // Required by CRTP base (BasicOStream)
+    void do_relinquish_space(std::size_t consumed_num_bytes)
+    {
+        bytes_written_ += consumed_num_bytes;
+        assert(bytes_written_ <= MaxN);
+    }
+
+    // Required by CRTP base (BasicOStream)
+    void do_set_badbit()
+    {
+        badbit_ = true;
+    }
+
+    StoragePtr<MaxN> storage_;
+    std::size_t bytes_written_{0u};
+    bool badbit_{false};
+};
+
+template <std::size_t MaxN>
+class OStaticStream final : public OStreamBase<OStaticStream<MaxN>> {
+  public:
+    OStaticStream() = default;
+    ~OStaticStream() = default;
 
     // Copy.
     OStaticStream(const OStaticStream&) = delete;
@@ -190,20 +157,73 @@ class OStaticStream final : public std::ostream {
     OStaticStream(OStaticStream&&) = delete;
     OStaticStream& operator=(OStaticStream&&) = delete;
 
-    const char* data() const noexcept { return buf_.data(); }
-    bool empty() const noexcept { return buf_.empty(); }
-    std::size_t size() const noexcept { return buf_.size(); }
+    const char* data() const noexcept { return buf_; }
+    bool empty() const noexcept { return bytes_written_ == 0u; }
+    std::size_t size() const noexcept { return std::min(bytes_written_, MaxN); }
+    std::string_view str() const noexcept { return std::string_view{buf_, size()}; }
 
-    std::string_view str() const noexcept { return buf_.str(); }
+    // returns false if overflowed or output error.
+    // return true otherwise.
+    explicit operator bool() const {
+        return !badbit_;
+    }
+
     /// Reset the current position back to the beginning of the buffer.
     void reset() noexcept
     {
-        buf_.reset();
-        clear();
+        bytes_written_ = 0;
+        badbit_ = false;
     };
 
   private:
-    StaticStreamBuf<MaxN> buf_;
+    friend OStreamBase<OStaticStream<MaxN>>;
+
+    std::size_t available() noexcept
+    {
+        return BufSize - bytes_written_;
+    }
+
+    char* wptr() noexcept
+    {
+        return buf_ + bytes_written_;
+    }
+
+    // Required by CRTP base (BasicOStream)
+    char* do_prepare_space(std::size_t num_bytes)
+    {
+        if (num_bytes <= available()) [[likely]] {
+            return wptr();
+        } else {
+            return nullptr;
+        }
+    }
+
+    // Required by CRTP base (BasicOStream)
+    void do_relinquish_space(std::size_t consumed_num_bytes)
+    {
+        std::size_t new_written_count = bytes_written_ + consumed_num_bytes;
+        if (new_written_count > MaxN) [[unlikely]] {
+            badbit_ = true;
+        } else {
+            bytes_written_ = new_written_count;
+        }
+    }
+
+    // Required by CRTP base (BasicOStream)
+    void do_set_badbit()
+    {
+        badbit_ = true;
+    }
+
+    // size the buffer slightly bigger than requested as it allows
+    // for higher performance outputting in OStreamBase. However, this
+    // is an internal detail, not visible to user via API.
+    static constexpr std::size_t BufSize
+        = MaxN + OStreamBase<OStaticStream<MaxN>>::PutNumMaxBufRequest;
+
+    char buf_[BufSize];
+    std::size_t bytes_written_{0u};
+    bool badbit_{false};
 };
 
 // Similar to std::ostream_iterator, but this works with any "Streamable" type.
@@ -243,25 +263,56 @@ class OStreamIterator {
     const char* delim_{nullptr};
 };
 
-using OStreamJoiner = std::experimental::ostream_joiner<char>;
+// similar to std::experimental::ostream_joiner, but this works with any "Streamable" type.
+template <class StreamT, class DelimT>
+    requires Streamable<StreamT>
+class OStreamJoiner {
+  public:
+    OStreamJoiner() = delete;
+    ~OStreamJoiner() = default;
 
-template <auto DelimT, typename ArgT, typename... ArgsT>
-void join(std::ostream& os, const ArgT& arg, const ArgsT&... args)
-{
-    os << arg;
-    (..., [&os](const auto& arg) { os << DelimT << arg; }(args));
-}
+    explicit OStreamJoiner(StreamT& os) noexcept
+    : os_(os)
+    {
+    }
+
+    explicit OStreamJoiner(StreamT& os, DelimT delim)
+        noexcept(std::is_nothrow_move_constructible_v<DelimT>)
+    : os_(&os)
+    , delim_(std::move(delim))
+    {
+    }
+
+    template <class T>
+    OStreamJoiner& operator=(const T& value)
+    {
+        if (!first_) {
+            *os_ << delim_;
+        }
+        *os_ << value;
+        first_ = false;
+        return *this;
+    }
+
+    OStreamJoiner& operator*() noexcept { return *this; }
+    OStreamJoiner& operator++() noexcept { return *this; }
+    OStreamJoiner& operator++(int) noexcept { return *this; }
+
+    // required by std::output_iterator concept
+    using difference_type = ptrdiff_t;
+
+  private:
+    // Pointer (instead of reference) because this class needs to be assignable
+    // to satisfy std::output_iterator concept (references can't be assigned).
+    StreamT* os_;
+    DelimT delim_;
+    bool first_{true};
+};
+
+static_assert(std::output_iterator<OStreamIterator<OStream<4096>>, const char&>, "");
+static_assert(std::output_iterator<OStreamJoiner<OStream<4096>, int>, const char&>, "");
 
 } // namespace util
 } // namespace toolbox
-
-namespace std::experimental {
-template <typename ValueT>
-ostream_joiner<char>& operator<<(ostream_joiner<char>& osj, const ValueT& value)
-{
-    osj = value;
-    return osj;
-}
-} // namespace std::experimental
 
 #endif // TOOLBOX_UTIL_STREAM_HPP

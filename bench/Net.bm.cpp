@@ -65,7 +65,7 @@ std::vector<sockaddr_in> generate_random_ipv4_addresses(size_t N) {
 OStream<32768>& os = make_stream<32768>();
 std::vector<sockaddr_in> rand_ipv4_addresses = generate_random_ipv4_addresses(1024);
 
-ostream& write_ipv4_libc(const sockaddr_in& sa)
+auto& write_ipv4_libc(const sockaddr_in& sa)
 {
     char buf[INET_ADDRSTRLEN];
     inet_ntop(AF_INET, &toolbox::remove_const(sa).sin_addr, buf, sizeof(buf));
