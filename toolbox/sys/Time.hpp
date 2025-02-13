@@ -20,6 +20,7 @@
 #include <toolbox/util/TypeTraits.hpp>
 #include <toolbox/util/Concepts.hpp>
 #include <toolbox/util/Stream.hpp>
+#include <toolbox/util/String.hpp>
 
 #include <chrono>
 #include <format>
@@ -276,7 +277,7 @@ StreamT& operator<<(StreamT& os, PutTime<DurationT> pt)
 {
     const auto t = WallClock::to_time_t(pt.time);
     struct tm gmt;
-    os << std::put_time(gmtime_r(&t, &gmt), pt.fmt);
+    os << to_string(std::put_time(gmtime_r(&t, &gmt), pt.fmt));
 
     if constexpr (std::is_same_v<DurationT, Nanos>) {
         const auto ns = ns_since_epoch<WallClock>(pt.time);

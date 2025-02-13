@@ -108,6 +108,12 @@ struct is_string_type : std::integral_constant<bool, is_string_v<T> ||
 template <typename T>
 inline constexpr bool is_string_type_v = is_string_type<T>::value;
 
+template <class T, class... Ts>
+struct is_any_of : std::integral_constant<bool, (std::is_same_v<T, Ts> || ...)> {};
+
+template <class T, class... Ts>
+inline constexpr bool is_any_of_v = is_any_of<T, Ts...>::value;
+
 } // namespace util
 } // namespace toolbox
 
