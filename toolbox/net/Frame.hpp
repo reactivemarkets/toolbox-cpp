@@ -78,7 +78,7 @@ constexpr std::uint16_t get_length(const char* buf, std::endian net_byte_order) 
 inline std::uint16_t get_length(ConstBuffer buf, std::endian net_byte_order) noexcept
 {
     assert(buffer_size(buf) >= 2);
-    return get_length(buffer_cast<const char*>(buf), net_byte_order);
+    return get_length(static_cast<const char*>(buf.data()), net_byte_order);
 }
 
 /// Writes a binary-encoded 2 byte integer to the output buffer.
@@ -99,7 +99,7 @@ inline void put_length(char* buf, std::uint16_t len, std::endian net_byte_order)
 inline void put_length(MutableBuffer buf, std::uint16_t len, std::endian net_byte_order) noexcept
 {
     assert(buffer_size(buf) >= 2);
-    put_length(buffer_cast<char*>(buf), len, net_byte_order);
+    put_length(static_cast<char*>(buf.data()), len, net_byte_order);
 }
 
 /// Calls the function object for each message encapsulated in a length-prefixed frame.
@@ -114,7 +114,7 @@ std::size_t parse_frame(ConstBuffer buf, FnT fn, std::endian net_byte_order)
 {
     std::size_t consumed{0};
     for (;;) {
-        const auto* data = buffer_cast<const char*>(buf);
+        const auto* data = static_cast<const char*>(buf.data());
         const std::size_t size = buffer_size(buf);
         if (size < sizeof(std::uint16_t)) {
             break;

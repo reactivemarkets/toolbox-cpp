@@ -66,7 +66,7 @@ class BasicParser {
     std::size_t parse(CyclTime /*now*/, ConstBuffer buf)
     {
         static http_parser_settings settings{make_settings()};
-        const auto rc = http_parser_execute(&parser_, &settings, buffer_cast<const char*>(buf),
+        const auto rc = http_parser_execute(&parser_, &settings, static_cast<const char*>(buf.data()),
                                             buffer_size(buf));
         const auto err = static_cast<http_errno>(parser_.http_errno);
         if (err != HPE_OK) {

@@ -373,13 +373,13 @@ inline std::size_t recv(int sockfd, void* buf, std::size_t len, int flags)
 /// Receive a message from a socket.
 inline ssize_t recv(int sockfd, MutableBuffer buf, int flags, std::error_code& ec) noexcept
 {
-    return recv(sockfd, buffer_cast<void*>(buf), buffer_size(buf), flags, ec);
+    return recv(sockfd, static_cast<void*>(buf.data()), buffer_size(buf), flags, ec);
 }
 
 /// Receive a message from a socket.
 inline std::size_t recv(int sockfd, MutableBuffer buf, int flags)
 {
-    return recv(sockfd, buffer_cast<void*>(buf), buffer_size(buf), flags);
+    return recv(sockfd, static_cast<void*>(buf.data()), buffer_size(buf), flags);
 }
 
 /// Receive a message from a socket.
@@ -436,14 +436,14 @@ template <typename EndpointT>
 inline ssize_t recvfrom(int sockfd, MutableBuffer buf, int flags, EndpointT& ep,
                         std::error_code& ec) noexcept
 {
-    return recvfrom(sockfd, buffer_cast<void*>(buf), buffer_size(buf), flags, ep, ec);
+    return recvfrom(sockfd, static_cast<void*>(buf.data()), buffer_size(buf), flags, ep, ec);
 }
 
 /// Receive a message from a socket.
 template <typename EndpointT>
 inline std::size_t recvfrom(int sockfd, MutableBuffer buf, int flags, EndpointT& ep)
 {
-    return recvfrom(sockfd, buffer_cast<void*>(buf), buffer_size(buf), flags, ep);
+    return recvfrom(sockfd, static_cast<void*>(buf.data()), buffer_size(buf), flags, ep);
 }
 
 /// Send a message on a socket.
@@ -470,13 +470,13 @@ inline std::size_t send(int sockfd, const void* buf, std::size_t len, int flags)
 /// Send a message on a socket.
 inline ssize_t send(int sockfd, ConstBuffer buf, int flags, std::error_code& ec) noexcept
 {
-    return send(sockfd, buffer_cast<const void*>(buf), buffer_size(buf), flags, ec);
+    return send(sockfd, static_cast<const void*>(buf.data()), buffer_size(buf), flags, ec);
 }
 
 /// Send a message on a socket.
 inline std::size_t send(int sockfd, ConstBuffer buf, int flags)
 {
-    return send(sockfd, buffer_cast<const void*>(buf), buffer_size(buf), flags);
+    return send(sockfd, static_cast<const void*>(buf.data()), buffer_size(buf), flags);
 }
 
 /// Send a message on a socket.
@@ -522,7 +522,7 @@ template <typename EndpointT>
 inline ssize_t sendto(int sockfd, ConstBuffer buf, int flags, const EndpointT& ep,
                       std::error_code& ec) noexcept
 {
-    return sendto(sockfd, buffer_cast<const void*>(buf), buffer_size(buf), flags, *ep.data(),
+    return sendto(sockfd, static_cast<const void*>(buf.data()), buffer_size(buf), flags, *ep.data(),
                   ep.size(), ec);
 }
 
@@ -530,7 +530,7 @@ inline ssize_t sendto(int sockfd, ConstBuffer buf, int flags, const EndpointT& e
 template <typename EndpointT>
 inline std::size_t sendto(int sockfd, ConstBuffer buf, int flags, const EndpointT& ep)
 {
-    return sendto(sockfd, buffer_cast<const void*>(buf), buffer_size(buf), flags, *ep.data(),
+    return sendto(sockfd, static_cast<const void*>(buf.data()), buffer_size(buf), flags, *ep.data(),
                   ep.size());
 }
 

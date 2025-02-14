@@ -47,7 +47,7 @@ void Buffer::consume(std::size_t count) noexcept
 
 ConstBuffer advance(ConstBuffer buf, std::size_t n) noexcept
 {
-    const auto* const data = buffer_cast<const char*>(buf);
+    const auto* const data = static_cast<const char*>(buf.data());
     const std::size_t size = buffer_size(buf);
     const auto offset = std::min(n, size);
     return {data + offset, size - offset};
@@ -55,7 +55,7 @@ ConstBuffer advance(ConstBuffer buf, std::size_t n) noexcept
 
 MutableBuffer advance(MutableBuffer buf, std::size_t n) noexcept
 {
-    auto* const data = buffer_cast<char*>(buf);
+    auto* const data = static_cast<char*>(buf.data());
     const std::size_t size = buffer_size(buf);
     const auto offset = std::min(n, size);
     return {data + offset, size - offset};

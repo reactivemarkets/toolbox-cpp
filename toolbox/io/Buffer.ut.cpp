@@ -27,14 +27,14 @@ void write(Buffer& buf, const char* data)
 {
     const auto len = strlen(data);
     const auto out = buf.prepare(len);
-    memcpy(buffer_cast<char*>(out), data, len);
+    memcpy(static_cast<char*>(out.data()), data, len);
     buf.commit(len);
 }
 
 string read(Buffer& buf)
 {
     const auto in = buf.data();
-    const string s{buffer_cast<const char*>(in), buffer_size(in)};
+    const string s{static_cast<const char*>(in.data()), buffer_size(in)};
     buf.consume(buffer_size(in));
     return s;
 }
@@ -42,7 +42,7 @@ string read(Buffer& buf)
 string read(Buffer& buf, std::size_t limit)
 {
     const auto in = buf.data(limit);
-    const string s{buffer_cast<const char*>(in), buffer_size(in)};
+    const string s{static_cast<const char*>(in.data()), buffer_size(in)};
     buf.consume(buffer_size(in));
     return s;
 }
@@ -62,25 +62,25 @@ BOOST_AUTO_TEST_CASE(ReadWriteCase)
     BOOST_CHECK(!buf.empty());
     BOOST_CHECK_EQUAL(buf.size(), 3U);
     BOOST_CHECK_EQUAL(buffer_size(buf.data()), 3U);
-    BOOST_CHECK_EQUAL(memcmp(buffer_cast<const char*>(buf.data()), "foo", 3), 0);
+    BOOST_CHECK_EQUAL(memcmp(static_cast<const char*>(buf.data().data()), "foo", 3), 0);
 
     write(buf, "bar");
     BOOST_CHECK(!buf.empty());
     BOOST_CHECK_EQUAL(buf.size(), 6U);
     BOOST_CHECK_EQUAL(buffer_size(buf.data()), 6U);
-    BOOST_CHECK_EQUAL(memcmp(buffer_cast<const char*>(buf.data()), "foobar", 6), 0);
+    BOOST_CHECK_EQUAL(memcmp(static_cast<const char*>(buf.data().data()), "foobar", 6), 0);
 
     BOOST_CHECK_EQUAL(read(buf, 4), "foob");
     BOOST_CHECK(!buf.empty());
     BOOST_CHECK_EQUAL(buf.size(), 2U);
     BOOST_CHECK_EQUAL(buffer_size(buf.data()), 2U);
-    BOOST_CHECK_EQUAL(memcmp(buffer_cast<const char*>(buf.data()), "ar", 2), 0);
+    BOOST_CHECK_EQUAL(memcmp(static_cast<const char*>(buf.data().data()), "ar", 2), 0);
 
     write(buf, "baz");
     BOOST_CHECK(!buf.empty());
     BOOST_CHECK_EQUAL(buf.size(), 5U);
     BOOST_CHECK_EQUAL(buffer_size(buf.data()), 5U);
-    BOOST_CHECK_EQUAL(memcmp(buffer_cast<const char*>(buf.data()), "arbaz", 5), 0);
+    BOOST_CHECK_EQUAL(memcmp(static_cast<const char*>(buf.data().data()), "arbaz", 5), 0);
 
     BOOST_CHECK_EQUAL(read(buf), "arbaz");
     BOOST_CHECK(buf.empty());
@@ -95,7 +95,7 @@ BOOST_AUTO_TEST_CASE(NoShrinkSmallCase)
     // Avoid vector reallocation.
     buf.reserve(4096);
     // Base address.
-    const auto* base = buffer_cast<const char*>(buf.data());
+    const auto* base = static_cast<const char*>(buf.data().data());
 
     // Simulated write.
     buf.prepare(16);
@@ -103,14 +103,14 @@ BOOST_AUTO_TEST_CASE(NoShrinkSmallCase)
     BOOST_CHECK(!buf.empty());
     BOOST_CHECK_EQUAL(buf.size(), 16U);
     BOOST_CHECK_EQUAL(buffer_size(buf.data()), 16U);
-    BOOST_CHECK_EQUAL(distance(base, buffer_cast<const char*>(buf.data())), 0);
+    BOOST_CHECK_EQUAL(distance(base, static_cast<const char*>(buf.data().data())), 0);
 
     // Consume less than half.
     buf.consume(7);
     BOOST_CHECK(!buf.empty());
     BOOST_CHECK_EQUAL(buf.size(), 9U);
     BOOST_CHECK_EQUAL(buffer_size(buf.data()), 9U);
-    BOOST_CHECK_EQUAL(distance(base, buffer_cast<const char*>(buf.data())), 7);
+    BOOST_CHECK_EQUAL(distance(base, static_cast<const char*>(buf.data().data())), 7);
 
     // Consuming one more should not trigger shrink, because the buffer size is less than the shrink
     // threshold.
@@ -118,7 +118,7 @@ BOOST_AUTO_TEST_CASE(NoShrinkSmallCase)
     BOOST_CHECK(!buf.empty());
     BOOST_CHECK_EQUAL(buf.size(), 8U);
     BOOST_CHECK_EQUAL(buffer_size(buf.data()), 8U);
-    BOOST_CHECK_NE(distance(base, buffer_cast<const char*>(buf.data())), 0);
+    BOOST_CHECK_NE(distance(base, static_cast<const char*>(buf.data().data())), 0);
 }
 
 BOOST_AUTO_TEST_CASE(ShrinkLargeCase)
@@ -128,7 +128,7 @@ BOOST_AUTO_TEST_CASE(ShrinkLargeCase)
     // Avoid vector reallocation.
     buf.reserve(4096);
     // Base address.
-    const auto* base = buffer_cast<const char*>(buf.data());
+    const auto* base = static_cast<const char*>(buf.data().data());
 
     // Simulated write.
     buf.prepare(2048);
@@ -136,14 +136,14 @@ BOOST_AUTO_TEST_CASE(ShrinkLargeCase)
     BOOST_CHECK(!buf.empty());
     BOOST_CHECK_EQUAL(buf.size(), 2048U);
     BOOST_CHECK_EQUAL(buffer_size(buf.data()), 2048U);
-    BOOST_CHECK_EQUAL(buffer_cast<const char*>(buf.data()), base);
+    BOOST_CHECK_EQUAL(static_cast<const char*>(buf.data().data()), base);
 
     // Consume less than half.
     buf.consume(1023);
     BOOST_CHECK(!buf.empty());
     BOOST_CHECK_EQUAL(buf.size(), 1025U);
     BOOST_CHECK_EQUAL(buffer_size(buf.data()), 1025U);
-    BOOST_CHECK_EQUAL(buffer_cast<const char*>(buf.data()), base + 1023);
+    BOOST_CHECK_EQUAL(static_cast<const char*>(buf.data().data()), base + 1023);
 
     // Consuming one more should not trigger shrink, because the buffer size is less than the shrink
     // threshold.
@@ -151,7 +151,7 @@ BOOST_AUTO_TEST_CASE(ShrinkLargeCase)
     BOOST_CHECK(!buf.empty());
     BOOST_CHECK_EQUAL(buf.size(), 1024U);
     BOOST_CHECK_EQUAL(buffer_size(buf.data()), 1024U);
-    BOOST_CHECK_EQUAL(buffer_cast<const char*>(buf.data()), base);
+    BOOST_CHECK_EQUAL(static_cast<const char*>(buf.data().data()), base);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
