@@ -58,7 +58,7 @@ BOOST_AUTO_TEST_CASE(ParseFrameCase)
     size_t consumed{0};
     auto fn = [&](auto msg) {
         ++msg_count;
-        msg_data.append(buffer_cast<const char*>(msg), buffer_size(msg));
+        msg_data.append(static_cast<const char*>(msg.data()), buffer_size(msg));
     };
 
     consumed += parse_frame("\003"sv, fn, endian::little);

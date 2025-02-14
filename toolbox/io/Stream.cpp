@@ -26,7 +26,7 @@ StreamBuf::int_type StreamBuf::overflow(int_type c) noexcept
 {
     if (c != traits_type::eof()) {
         auto buf = buf_.prepare(pcount_ + 1);
-        pbase_ = buffer_cast<char*>(buf);
+        pbase_ = static_cast<char*>(buf.data());
         pbase_[pcount_++] = c;
     }
     return c;
@@ -35,7 +35,7 @@ StreamBuf::int_type StreamBuf::overflow(int_type c) noexcept
 streamsize StreamBuf::xsputn(const char_type* s, streamsize count) noexcept
 {
     auto buf = buf_.prepare(pcount_ + count);
-    pbase_ = buffer_cast<char*>(buf);
+    pbase_ = static_cast<char*>(buf.data());
     memcpy(pbase_ + pcount_, s, count);
     pcount_ += count;
     return count;
