@@ -28,7 +28,6 @@ inline namespace io {
 using ConstBuffer = boost::asio::const_buffer;
 using MutableBuffer = boost::asio::mutable_buffer;
 
-using boost::asio::buffer_cast;
 using boost::asio::buffer_size;
 
 class TOOLBOX_API Buffer {
