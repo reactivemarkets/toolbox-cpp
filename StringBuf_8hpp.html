@@ -82,7 +82,8 @@ $(function() {
   <div class="headertitle"><div class="title">StringBuf.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;cstring&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="Concepts_8hpp_source.html">toolbox/util/Concepts.hpp</a>&gt;</code><br />
+<code>#include &lt;cstring&gt;</code><br />
 <code>#include &lt;string_view&gt;</code><br />
 <code>#include &lt;boost/container_hash/hash.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -90,13 +91,17 @@ Include dependency graph for StringBuf.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="StringBuf_8hpp__incl.png" border="0" usemap="#atoolbox_2util_2StringBuf_8hpp" alt=""/></div>
 <map name="atoolbox_2util_2StringBuf_8hpp" id="atoolbox_2util_2StringBuf_8hpp">
-<area shape="rect" title=" " alt="" coords="52,5,239,31"/>
-<area shape="rect" title=" " alt="" coords="5,86,72,111"/>
-<area shape="poly" title=" " alt="" coords="131,33,67,80,64,76,128,29"/>
-<area shape="rect" title=" " alt="" coords="97,86,194,111"/>
-<area shape="poly" title=" " alt="" coords="148,31,148,72,143,72,143,31"/>
-<area shape="rect" title=" " alt="" coords="218,79,379,119"/>
-<area shape="poly" title=" " alt="" coords="169,28,251,70,248,75,167,33"/>
+<area shape="rect" title=" " alt="" coords="211,5,398,31"/>
+<area shape="rect" href="Concepts_8hpp.html" title=" " alt="" coords="5,86,193,111"/>
+<area shape="poly" title=" " alt="" coords="276,33,143,84,141,79,274,28"/>
+<area shape="rect" title=" " alt="" coords="218,86,285,111"/>
+<area shape="poly" title=" " alt="" coords="299,32,269,76,265,73,295,29"/>
+<area shape="rect" title=" " alt="" coords="309,86,407,111"/>
+<area shape="poly" title=" " alt="" coords="315,29,344,73,340,76,310,32"/>
+<area shape="rect" title=" " alt="" coords="431,79,592,119"/>
+<area shape="poly" title=" " alt="" coords="336,28,450,71,448,76,334,33"/>
+<area shape="rect" title=" " alt="" coords="53,167,145,192"/>
+<area shape="poly" title=" " alt="" coords="102,112,102,153,97,153,97,112"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -145,9 +150,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a48d47c413ff867b728c431e24bdc41b0" id="r_a48d47c413ff867b728c431e24bdc41b0"><td class="memTemplParams" colspan="2">template&lt;std::size_t MaxN&gt; </td></tr>
 <tr class="memitem:a48d47c413ff867b728c431e24bdc41b0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">constexpr</a> std::string_view&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a48d47c413ff867b728c431e24bdc41b0">toolbox::util::operator+</a> (<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">const</a> <a class="el" href="classtoolbox_1_1util_1_1StringBuf.html">StringBuf</a>&lt; <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">MaxN</a> &gt; &amp;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">s</a>) <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">noexcept</a></td></tr>
 <tr class="separator:a48d47c413ff867b728c431e24bdc41b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61172dc905e48d14dcefadb5dac3ae6b" id="r_a61172dc905e48d14dcefadb5dac3ae6b"><td class="memTemplParams" colspan="2">template&lt;std::size_t MaxN&gt; </td></tr>
-<tr class="memitem:a61172dc905e48d14dcefadb5dac3ae6b"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a61172dc905e48d14dcefadb5dac3ae6b">toolbox::util::operator&lt;&lt;</a> (std::ostream &amp;os, <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">const</a> <a class="el" href="classtoolbox_1_1util_1_1StringBuf.html">StringBuf</a>&lt; <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">MaxN</a> &gt; &amp;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">rhs</a>)</td></tr>
-<tr class="separator:a61172dc905e48d14dcefadb5dac3ae6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ed1df67b02a76a0d337d11cc59a65dc" id="r_a4ed1df67b02a76a0d337d11cc59a65dc"><td class="memTemplParams" colspan="2">template&lt;std::size_t MaxN, <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">typename</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &gt; <br />
+requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a>&gt;</td></tr>
+<tr class="memitem:a4ed1df67b02a76a0d337d11cc59a65dc"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a4ed1df67b02a76a0d337d11cc59a65dc">toolbox::util::operator&lt;&lt;</a> (<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &amp;os, <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">const</a> <a class="el" href="classtoolbox_1_1util_1_1StringBuf.html">StringBuf</a>&lt; <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">MaxN</a> &gt; &amp;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">rhs</a>)</td></tr>
+<tr class="separator:a4ed1df67b02a76a0d337d11cc59a65dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

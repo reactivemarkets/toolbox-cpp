@@ -82,91 +82,127 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="Endpoint_8hpp_source.html">Endpoint.hpp</a>&quot;</code><br />
 <code>#include &lt;<a class="el" href="String_8hpp_source.html">toolbox/util/String.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="Random_8hpp_source.html">toolbox/util/Random.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="util_2Stream_8hpp_source.html">toolbox/util/Stream.hpp</a>&gt;</code><br />
 <code>#include &lt;boost/test/unit_test.hpp&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Endpoint.ut.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="Endpoint_8ut_8cpp__incl.png" border="0" usemap="#atoolbox_2net_2Endpoint_8ut_8cpp" alt=""/></div>
 <map name="atoolbox_2net_2Endpoint_8ut_8cpp" id="atoolbox_2net_2Endpoint_8ut_8cpp">
-<area shape="rect" title=" " alt="" coords="921,5,1123,31"/>
-<area shape="rect" href="Endpoint_8hpp.html" title=" " alt="" coords="969,79,1075,104"/>
-<area shape="poly" title=" " alt="" coords="1025,31,1025,65,1019,65,1019,31"/>
-<area shape="rect" href="String_8hpp.html" title=" " alt="" coords="321,79,488,104"/>
-<area shape="poly" title=" " alt="" coords="923,33,502,82,501,76,923,28"/>
-<area shape="rect" title=" " alt="" coords="1099,79,1275,104"/>
-<area shape="poly" title=" " alt="" coords="1050,28,1149,71,1147,76,1048,33"/>
-<area shape="rect" href="Protocol_8hpp.html" title=" " alt="" coords="731,159,913,185"/>
-<area shape="poly" title=" " alt="" coords="994,106,865,157,863,152,992,102"/>
-<area shape="rect" href="Socket_8hpp.html" title=" " alt="" coords="937,159,1107,185"/>
-<area shape="poly" title=" " alt="" coords="1025,104,1025,145,1019,145,1019,104"/>
-<area shape="rect" href="TypeTraits_8hpp.html" title=" " alt="" coords="513,159,707,185"/>
-<area shape="poly" title=" " alt="" coords="969,105,684,159,683,154,968,100"/>
-<area shape="rect" title=" " alt="" coords="1131,152,1283,192"/>
-<area shape="poly" title=" " alt="" coords="1050,102,1151,144,1149,149,1048,106"/>
-<area shape="rect" title=" " alt="" coords="1308,152,1451,192"/>
-<area shape="poly" title=" " alt="" coords="1075,101,1295,149,1294,154,1074,107"/>
-<area shape="rect" title=" " alt="" coords="1475,152,1638,192"/>
-<area shape="poly" title=" " alt="" coords="1076,100,1088,101,1273,124,1462,149,1462,155,1273,130,1087,107,1075,105"/>
-<area shape="rect" title=" " alt="" coords="718,240,814,265"/>
-<area shape="poly" title=" " alt="" coords="816,186,784,230,780,227,812,183"/>
-<area shape="rect" href="net_2Error_8hpp.html" title=" " alt="" coords="956,313,1115,339"/>
-<area shape="poly" title=" " alt="" coords="1065,182,1108,203,1127,219,1143,239,1147,251,1147,262,1135,282,1112,298,1086,311,1084,306,1110,293,1131,278,1142,260,1142,251,1138,241,1124,223,1105,208,1063,187"/>
-<area shape="rect" href="File_8hpp.html" title=" " alt="" coords="1204,240,1347,265"/>
-<area shape="poly" title=" " alt="" coords="1060,182,1226,233,1225,238,1058,187"/>
-<area shape="rect" title=" " alt="" coords="838,240,905,265"/>
-<area shape="poly" title=" " alt="" coords="1001,187,907,236,904,231,999,182"/>
-<area shape="rect" title=" " alt="" coords="929,240,1000,265"/>
-<area shape="poly" title=" " alt="" coords="1016,186,983,230,979,227,1011,183"/>
-<area shape="rect" title=" " alt="" coords="1025,240,1129,265"/>
-<area shape="poly" title=" " alt="" coords="1032,183,1063,227,1059,230,1028,186"/>
-<area shape="rect" href="Config_8h.html" title=" " alt="" coords="906,387,1034,412"/>
-<area shape="poly" title=" " alt="" coords="1027,341,992,378,988,375,1023,337"/>
-<area shape="rect" title=" " alt="" coords="1295,387,1403,412"/>
-<area shape="poly" title=" " alt="" coords="1086,336,1285,381,1284,386,1085,341"/>
-<area shape="rect" href="Buffer_8hpp.html" title=" " alt="" coords="723,313,881,339"/>
-<area shape="poly" title=" " alt="" coords="1204,267,892,314,891,309,1204,262"/>
-<area shape="rect" href="Handle_8hpp.html" title=" " alt="" coords="1610,313,1775,339"/>
-<area shape="poly" title=" " alt="" coords="1343,263,1613,308,1612,314,1342,268"/>
-<area shape="rect" href="sys_2Error_8hpp.html" title=" " alt="" coords="1427,313,1585,339"/>
-<area shape="poly" title=" " alt="" coords="1313,263,1457,307,1455,312,1312,268"/>
-<area shape="rect" title=" " alt="" coords="1139,313,1201,339"/>
-<area shape="poly" title=" " alt="" coords="1260,268,1200,308,1197,303,1257,263"/>
-<area shape="rect" title=" " alt="" coords="1226,313,1293,339"/>
-<area shape="poly" title=" " alt="" coords="1275,266,1267,301,1262,300,1270,265"/>
-<area shape="rect" title=" " alt="" coords="1317,313,1402,339"/>
-<area shape="poly" title=" " alt="" coords="1291,263,1337,302,1333,306,1287,267"/>
-<area shape="poly" title=" " alt="" coords="830,336,931,379,929,384,828,341"/>
-<area shape="rect" title=" " alt="" coords="723,387,881,412"/>
-<area shape="poly" title=" " alt="" coords="805,339,805,373,799,373,799,339"/>
-<area shape="rect" title=" " alt="" coords="503,387,698,412"/>
-<area shape="poly" title=" " alt="" coords="771,341,647,385,645,379,769,336"/>
-<area shape="rect" title=" " alt="" coords="1616,387,1676,412"/>
-<area shape="poly" title=" " alt="" coords="1687,340,1663,377,1659,374,1683,338"/>
-<area shape="rect" title=" " alt="" coords="1701,387,1775,412"/>
-<area shape="poly" title=" " alt="" coords="1702,338,1726,374,1721,377,1698,340"/>
-<area shape="poly" title=" " alt="" coords="1482,341,1388,383,1386,379,1480,336"/>
-<area shape="rect" href="util_2Utility_8hpp.html" title=" " alt="" coords="444,240,611,265"/>
-<area shape="poly" title=" " alt="" coords="600,187,551,232,548,229,596,183"/>
-<area shape="rect" title=" " alt="" coords="635,240,694,265"/>
-<area shape="poly" title=" " alt="" coords="620,183,651,227,647,230,616,186"/>
-<area shape="poly" title=" " alt="" coords="611,262,781,286,853,299,894,311,931,340,957,373,953,376,927,344,891,316,852,305,780,292,610,267"/>
-<area shape="rect" title=" " alt="" coords="431,313,469,339"/>
-<area shape="poly" title=" " alt="" coords="517,267,475,306,471,302,513,263"/>
-<area shape="rect" title=" " alt="" coords="494,313,561,339"/>
-<area shape="poly" title=" " alt="" coords="530,266,530,300,525,300,525,266"/>
-<area shape="rect" title=" " alt="" coords="585,313,683,339"/>
-<area shape="poly" title=" " alt="" coords="546,263,607,303,604,308,543,268"/>
-<area shape="poly" title=" " alt="" coords="435,102,568,152,566,157,434,107"/>
-<area shape="rect" href="Concepts_8hpp.html" title=" " alt="" coords="5,159,193,185"/>
-<area shape="poly" title=" " alt="" coords="361,107,158,159,156,153,360,101"/>
-<area shape="rect" title=" " alt="" coords="217,159,299,185"/>
-<area shape="poly" title=" " alt="" coords="384,107,293,155,291,150,382,102"/>
-<area shape="rect" title=" " alt="" coords="323,159,390,185"/>
-<area shape="poly" title=" " alt="" coords="400,106,373,149,369,146,395,103"/>
-<area shape="rect" title=" " alt="" coords="414,159,489,185"/>
-<area shape="poly" title=" " alt="" coords="414,103,440,146,435,149,409,106"/>
-<area shape="rect" title=" " alt="" coords="53,240,145,265"/>
-<area shape="poly" title=" " alt="" coords="102,185,102,226,97,226,97,185"/>
+<area shape="rect" title=" " alt="" coords="1677,5,1878,31"/>
+<area shape="rect" href="Endpoint_8hpp.html" title=" " alt="" coords="1015,79,1121,104"/>
+<area shape="poly" title=" " alt="" coords="1677,32,1135,86,1135,81,1676,27"/>
+<area shape="rect" href="String_8hpp.html" title=" " alt="" coords="238,79,405,104"/>
+<area shape="poly" title=" " alt="" coords="1676,27,419,88,418,83,1676,22"/>
+<area shape="rect" href="Random_8hpp.html" title=" " alt="" coords="1585,79,1767,104"/>
+<area shape="poly" title=" " alt="" coords="1763,33,1705,73,1702,68,1760,28"/>
+<area shape="rect" href="util_2Stream_8hpp.html" title=" " alt="" coords="1791,79,1966,104"/>
+<area shape="poly" title=" " alt="" coords="1795,28,1852,68,1849,73,1792,33"/>
+<area shape="rect" title=" " alt="" coords="1991,79,2167,104"/>
+<area shape="poly" title=" " alt="" coords="1826,28,2017,73,2016,78,1825,33"/>
+<area shape="rect" title=" " alt="" coords="2191,79,2254,104"/>
+<area shape="poly" title=" " alt="" coords="1874,28,2014,47,2178,76,2177,81,2013,53,1874,33"/>
+<area shape="rect" href="Protocol_8hpp.html" title=" " alt="" coords="1457,159,1639,185"/>
+<area shape="poly" title=" " alt="" coords="1122,98,1446,149,1474,154,1473,159,1445,155,1121,103"/>
+<area shape="rect" href="Socket_8hpp.html" title=" " alt="" coords="1263,159,1433,185"/>
+<area shape="poly" title=" " alt="" coords="1109,101,1295,153,1293,158,1108,107"/>
+<area shape="rect" href="Concepts_8hpp.html" title=" " alt="" coords="697,159,885,185"/>
+<area shape="poly" title=" " alt="" coords="1028,107,845,158,843,153,1027,101"/>
+<area shape="rect" href="TypeTraits_8hpp.html" title=" " alt="" coords="302,159,495,185"/>
+<area shape="poly" title=" " alt="" coords="1015,100,794,121,508,155,475,160,474,154,508,149,793,116,1014,95"/>
+<area shape="rect" title=" " alt="" coords="520,152,672,192"/>
+<area shape="poly" title=" " alt="" coords="1015,103,870,124,686,154,685,149,870,119,1014,97"/>
+<area shape="rect" title=" " alt="" coords="909,152,1051,192"/>
+<area shape="poly" title=" " alt="" coords="1057,106,1013,145,1009,141,1053,102"/>
+<area shape="rect" title=" " alt="" coords="1076,152,1239,192"/>
+<area shape="poly" title=" " alt="" coords="1083,102,1127,141,1124,145,1079,106"/>
+<area shape="rect" title=" " alt="" coords="1543,240,1639,265"/>
+<area shape="poly" title=" " alt="" coords="1557,184,1580,227,1576,229,1552,186"/>
+<area shape="rect" href="net_2Error_8hpp.html" title=" " alt="" coords="1143,313,1302,339"/>
+<area shape="poly" title=" " alt="" coords="1293,187,1140,220,1050,242,1043,254,1043,264,1048,274,1058,283,1090,298,1131,309,1129,314,1088,303,1055,287,1044,277,1038,266,1038,252,1046,238,1139,215,1292,182"/>
+<area shape="rect" href="File_8hpp.html" title=" " alt="" coords="1375,240,1518,265"/>
+<area shape="poly" title=" " alt="" coords="1364,183,1423,229,1420,233,1361,187"/>
+<area shape="rect" title=" " alt="" coords="1060,240,1127,265"/>
+<area shape="poly" title=" " alt="" coords="1312,187,1141,240,1139,235,1310,182"/>
+<area shape="rect" title=" " alt="" coords="1151,240,1222,265"/>
+<area shape="poly" title=" " alt="" coords="1326,187,1223,237,1221,232,1323,182"/>
+<area shape="rect" title=" " alt="" coords="1247,240,1351,265"/>
+<area shape="poly" title=" " alt="" coords="1343,186,1315,230,1311,227,1338,183"/>
+<area shape="rect" href="Config_8h.html" title=" " alt="" coords="1259,387,1387,412"/>
+<area shape="poly" title=" " alt="" coords="1240,337,1297,376,1294,381,1237,341"/>
+<area shape="rect" title=" " alt="" coords="1055,387,1163,412"/>
+<area shape="poly" title=" " alt="" coords="1206,341,1141,382,1138,377,1203,336"/>
+<area shape="rect" href="Buffer_8hpp.html" title=" " alt="" coords="1715,313,1872,339"/>
+<area shape="poly" title=" " alt="" coords="1503,263,1724,308,1723,313,1502,268"/>
+<area shape="rect" href="Handle_8hpp.html" title=" " alt="" coords="1896,313,2061,339"/>
+<area shape="poly" title=" " alt="" coords="1519,261,1531,263,1882,309,1882,315,1530,268,1518,266"/>
+<area shape="rect" href="sys_2Error_8hpp.html" title=" " alt="" coords="961,313,1119,339"/>
+<area shape="poly" title=" " alt="" coords="1382,268,1119,314,1118,308,1381,263"/>
+<area shape="rect" title=" " alt="" coords="1326,313,1389,339"/>
+<area shape="poly" title=" " alt="" coords="1434,267,1384,307,1381,302,1431,263"/>
+<area shape="rect" title=" " alt="" coords="1413,313,1480,339"/>
+<area shape="poly" title=" " alt="" coords="1449,266,1449,300,1444,300,1444,266"/>
+<area shape="rect" title=" " alt="" coords="1504,313,1589,339"/>
+<area shape="poly" title=" " alt="" coords="1464,263,1521,303,1518,307,1461,268"/>
+<area shape="poly" title=" " alt="" coords="1718,341,1401,389,1400,384,1717,336"/>
+<area shape="rect" title=" " alt="" coords="1521,387,1679,412"/>
+<area shape="poly" title=" " alt="" coords="1763,341,1645,384,1643,379,1761,336"/>
+<area shape="rect" title=" " alt="" coords="1704,387,1899,412"/>
+<area shape="poly" title=" " alt="" coords="1797,339,1801,373,1796,373,1792,339"/>
+<area shape="rect" title=" " alt="" coords="1939,387,1999,412"/>
+<area shape="poly" title=" " alt="" coords="1980,339,1975,374,1970,373,1974,339"/>
+<area shape="rect" title=" " alt="" coords="2024,387,2099,412"/>
+<area shape="poly" title=" " alt="" coords="1994,337,2039,375,2036,380,1990,341"/>
+<area shape="poly" title=" " alt="" coords="1053,337,1091,375,1087,379,1050,341"/>
+<area shape="rect" title=" " alt="" coords="651,240,743,265"/>
+<area shape="poly" title=" " alt="" coords="779,187,723,233,720,229,775,183"/>
+<area shape="poly" title=" " alt="" coords="443,182,642,234,640,239,441,187"/>
+<area shape="rect" href="util_2Utility_8hpp.html" title=" " alt="" coords="342,240,509,265"/>
+<area shape="poly" title=" " alt="" coords="405,184,420,226,415,228,400,186"/>
+<area shape="rect" title=" " alt="" coords="600,313,659,339"/>
+<area shape="poly" title=" " alt="" coords="423,183,521,238,607,302,603,306,519,242,421,187"/>
+<area shape="poly" title=" " alt="" coords="443,263,505,301,546,321,589,336,1245,389,1245,395,587,341,544,325,503,305,441,268"/>
+<area shape="rect" href="Math_8hpp.html" title=" " alt="" coords="191,313,353,339"/>
+<area shape="poly" title=" " alt="" coords="402,268,310,310,308,305,400,263"/>
+<area shape="rect" title=" " alt="" coords="445,387,483,412"/>
+<area shape="poly" title=" " alt="" coords="445,264,469,284,488,312,491,329,490,345,480,375,475,373,485,344,486,329,483,314,465,288,442,268"/>
+<area shape="rect" title=" " alt="" coords="129,387,196,412"/>
+<area shape="poly" title=" " alt="" coords="342,267,246,286,206,300,181,315,172,328,167,343,163,373,158,373,161,341,167,325,177,311,204,295,244,281,341,262"/>
+<area shape="rect" title=" " alt="" coords="377,313,474,339"/>
+<area shape="poly" title=" " alt="" coords="428,266,428,300,423,300,423,266"/>
+<area shape="poly" title=" " alt="" coords="459,263,588,308,586,313,457,268"/>
+<area shape="poly" title=" " alt="" coords="353,335,364,336,592,354,769,363,947,371,1175,384,1245,389,1245,394,1174,389,946,376,769,368,591,359,364,341,352,340"/>
+<area shape="poly" title=" " alt="" coords="304,336,433,384,431,389,302,341"/>
+<area shape="rect" title=" " alt="" coords="309,387,371,412"/>
+<area shape="poly" title=" " alt="" coords="285,337,321,375,317,378,281,341"/>
+<area shape="rect" title=" " alt="" coords="228,387,284,412"/>
+<area shape="poly" title=" " alt="" coords="272,340,264,374,259,373,267,338"/>
+<area shape="poly" title=" " alt="" coords="256,341,194,381,191,377,253,336"/>
+<area shape="poly" title=" " alt="" coords="393,101,684,149,714,154,713,160,684,155,392,107"/>
+<area shape="poly" title=" " alt="" coords="335,102,379,148,376,151,331,106"/>
+<area shape="rect" title=" " alt="" coords="105,159,186,185"/>
+<area shape="poly" title=" " alt="" coords="297,106,184,156,182,151,295,102"/>
+<area shape="rect" title=" " alt="" coords="211,159,277,185"/>
+<area shape="poly" title=" " alt="" coords="312,106,267,151,263,148,308,102"/>
+<area shape="rect" title=" " alt="" coords="5,159,80,185"/>
+<area shape="poly" title=" " alt="" coords="271,107,187,127,93,155,85,157,83,152,91,149,186,122,270,101"/>
+<area shape="poly" title=" " alt="" coords="1680,104,1680,151,1673,217,1664,252,1650,286,1630,316,1603,341,1554,367,1502,384,1449,394,1401,400,1400,394,1448,389,1500,379,1552,362,1600,336,1626,313,1645,284,1659,251,1668,216,1675,150,1674,104"/>
+<area shape="rect" title=" " alt="" coords="1713,159,1785,185"/>
+<area shape="poly" title=" " alt="" coords="1689,102,1731,147,1727,151,1685,106"/>
+<area shape="poly" title=" " alt="" coords="1791,106,1780,107,1532,122,1338,126,1144,133,896,155,861,160,860,154,896,149,1144,127,1337,121,1531,116,1780,101,1791,100"/>
+<area shape="rect" href="Storage_8hpp.html" title=" " alt="" coords="1809,159,1988,185"/>
+<area shape="poly" title=" " alt="" coords="1884,104,1895,145,1890,147,1879,105"/>
+<area shape="rect" title=" " alt="" coords="2013,159,2174,185"/>
+<area shape="poly" title=" " alt="" coords="1911,102,2050,152,2048,157,1909,107"/>
+<area shape="rect" href="Allocator_8hpp.html" title=" " alt="" coords="1759,240,1945,265"/>
+<area shape="poly" title=" " alt="" coords="1894,186,1868,229,1864,227,1889,183"/>
+<area shape="rect" title=" " alt="" coords="1969,240,2047,265"/>
+<area shape="poly" title=" " alt="" coords="1916,183,1982,230,1979,234,1913,187"/>
+<area shape="poly" title=" " alt="" coords="1823,268,1704,316,1675,329,1646,341,1518,372,1401,392,1400,386,1516,367,1645,336,1673,325,1702,311,1821,263"/>
+<area shape="rect" title=" " alt="" coords="2086,313,2157,339"/>
+<area shape="poly" title=" " alt="" coords="1896,263,2073,309,2072,314,1895,268"/>
 </map>
 </div>
 </div>
@@ -200,10 +236,12 @@ Functions</h2></td></tr>
 <tr class="separator:ace196d42540db35b4d24535ed0d45de6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8dd387ed0a8df67af7c1f7abb4569e82" id="r_a8dd387ed0a8df67af7c1f7abb4569e82"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Endpoint_8ut_8cpp.html#a8dd387ed0a8df67af7c1f7abb4569e82">BOOST_AUTO_TEST_CASE</a> (ParseStreamBindCase)</td></tr>
 <tr class="separator:a8dd387ed0a8df67af7c1f7abb4569e82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e70664848d21ae83f54cc4323a1b6c5" id="r_a9e70664848d21ae83f54cc4323a1b6c5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Endpoint_8ut_8cpp.html#a9e70664848d21ae83f54cc4323a1b6c5">BOOST_AUTO_TEST_CASE</a> (IPv4Formatting)</td></tr>
+<tr class="separator:a9e70664848d21ae83f54cc4323a1b6c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ab34c84e8961d8bae29f534abdd5c80c7" name="ab34c84e8961d8bae29f534abdd5c80c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab34c84e8961d8bae29f534abdd5c80c7">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[1/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab34c84e8961d8bae29f534abdd5c80c7">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[1/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -218,12 +256,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00028">28</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00062">62</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a64dc176defbc2f0ed405b7a70efc4d39" name="a64dc176defbc2f0ed405b7a70efc4d39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64dc176defbc2f0ed405b7a70efc4d39">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[2/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a64dc176defbc2f0ed405b7a70efc4d39">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[2/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -238,12 +276,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00038">38</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00072">72</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a1b377b42bd9aa44c8d13a35cb5850983" name="a1b377b42bd9aa44c8d13a35cb5850983"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b377b42bd9aa44c8d13a35cb5850983">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[3/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b377b42bd9aa44c8d13a35cb5850983">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[3/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -258,12 +296,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00048">48</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00082">82</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a7a8b937010f0023fda2e455f99b539f0" name="a7a8b937010f0023fda2e455f99b539f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a8b937010f0023fda2e455f99b539f0">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[4/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a8b937010f0023fda2e455f99b539f0">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[4/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -278,12 +316,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00058">58</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00092">92</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a811a23da95f6d4f1e6f70c5096fa517d" name="a811a23da95f6d4f1e6f70c5096fa517d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a811a23da95f6d4f1e6f70c5096fa517d">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[5/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a811a23da95f6d4f1e6f70c5096fa517d">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[5/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -298,12 +336,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00068">68</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00102">102</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="ae08dd8eaaca78e3cf3b9eaef48a253a4" name="ae08dd8eaaca78e3cf3b9eaef48a253a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae08dd8eaaca78e3cf3b9eaef48a253a4">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[6/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae08dd8eaaca78e3cf3b9eaef48a253a4">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[6/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -318,12 +356,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00078">78</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00112">112</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="aea7373aae39410fff7479f437fcf6ab3" name="aea7373aae39410fff7479f437fcf6ab3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea7373aae39410fff7479f437fcf6ab3">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[7/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aea7373aae39410fff7479f437fcf6ab3">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[7/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -338,12 +376,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00088">88</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00122">122</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="afc8115fb8720974b9a2a5ae2eaa9449f" name="afc8115fb8720974b9a2a5ae2eaa9449f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc8115fb8720974b9a2a5ae2eaa9449f">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[8/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afc8115fb8720974b9a2a5ae2eaa9449f">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[8/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -358,12 +396,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00098">98</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00132">132</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a89ddea601012a144a47e5179a3a4288c" name="a89ddea601012a144a47e5179a3a4288c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89ddea601012a144a47e5179a3a4288c">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[9/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a89ddea601012a144a47e5179a3a4288c">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[9/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -378,12 +416,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00108">108</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00142">142</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a9c4763fc0fa81f3f143d1534f134054c" name="a9c4763fc0fa81f3f143d1534f134054c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c4763fc0fa81f3f143d1534f134054c">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[10/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c4763fc0fa81f3f143d1534f134054c">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[10/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -398,12 +436,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00118">118</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00152">152</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a9f89cf41397727be0cee07dc7f543d97" name="a9f89cf41397727be0cee07dc7f543d97"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f89cf41397727be0cee07dc7f543d97">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[11/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f89cf41397727be0cee07dc7f543d97">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[11/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -418,12 +456,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00128">128</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00162">162</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="ace196d42540db35b4d24535ed0d45de6" name="ace196d42540db35b4d24535ed0d45de6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace196d42540db35b4d24535ed0d45de6">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[12/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ace196d42540db35b4d24535ed0d45de6">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[12/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -438,12 +476,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00138">138</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00172">172</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a8dd387ed0a8df67af7c1f7abb4569e82" name="a8dd387ed0a8df67af7c1f7abb4569e82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8dd387ed0a8df67af7c1f7abb4569e82">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[13/13]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8dd387ed0a8df67af7c1f7abb4569e82">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[13/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -458,7 +496,27 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00148">148</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00182">182</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9e70664848d21ae83f54cc4323a1b6c5" name="a9e70664848d21ae83f54cc4323a1b6c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e70664848d21ae83f54cc4323a1b6c5">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[14/14]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOST_AUTO_TEST_CASE </td>
+          <td>(</td>
+          <td class="paramtype">IPv4Formatting&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Endpoint_8ut_8cpp_source.html#l00191">191</a> of file <a class="el" href="Endpoint_8ut_8cpp_source.html">Endpoint.ut.cpp</a>.</p>
 
 </div>
 </div>

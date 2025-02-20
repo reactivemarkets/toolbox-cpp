@@ -82,40 +82,71 @@ $(function() {
   <div class="headertitle"><div class="title">RateLimit.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="Time_8hpp_source.html">toolbox/sys/Time.hpp</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="Concepts_8hpp_source.html">toolbox/util/Concepts.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="Time_8hpp_source.html">toolbox/sys/Time.hpp</a>&gt;</code><br />
 <code>#include &lt;boost/container/small_vector.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for RateLimit.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="RateLimit_8hpp__incl.png" border="0" usemap="#atoolbox_2net_2RateLimit_8hpp" alt=""/></div>
 <map name="atoolbox_2net_2RateLimit_8hpp" id="atoolbox_2net_2RateLimit_8hpp">
-<area shape="rect" title=" " alt="" coords="626,5,817,31"/>
-<area shape="rect" href="Time_8hpp.html" title=" " alt="" coords="547,86,709,111"/>
-<area shape="poly" title=" " alt="" coords="709,33,654,79,651,75,706,29"/>
-<area shape="rect" title=" " alt="" coords="733,79,896,119"/>
-<area shape="poly" title=" " alt="" coords="737,29,783,68,780,72,733,33"/>
-<area shape="rect" href="TypeTraits_8hpp.html" title=" " alt="" coords="187,167,381,192"/>
-<area shape="poly" title=" " alt="" coords="579,114,348,166,347,161,577,109"/>
-<area shape="rect" title=" " alt="" coords="405,167,571,192"/>
-<area shape="poly" title=" " alt="" coords="609,114,522,162,519,158,606,109"/>
-<area shape="rect" title=" " alt="" coords="595,167,661,192"/>
-<area shape="poly" title=" " alt="" coords="631,112,631,153,625,153,625,112"/>
-<area shape="rect" title=" " alt="" coords="685,167,760,192"/>
-<area shape="poly" title=" " alt="" coords="644,109,700,156,696,160,640,114"/>
-<area shape="rect" title=" " alt="" coords="784,167,859,192"/>
-<area shape="poly" title=" " alt="" coords="657,109,782,159,780,164,655,114"/>
-<area shape="rect" href="util_2Utility_8hpp.html" title=" " alt="" coords="133,240,299,265"/>
-<area shape="poly" title=" " alt="" coords="275,194,239,232,235,228,271,190"/>
-<area shape="rect" title=" " alt="" coords="324,240,383,265"/>
-<area shape="poly" title=" " alt="" coords="297,190,335,228,331,232,294,194"/>
-<area shape="rect" href="Config_8h.html" title=" " alt="" coords="5,313,133,339"/>
-<area shape="poly" title=" " alt="" coords="194,268,107,310,104,305,191,263"/>
-<area shape="rect" title=" " alt="" coords="158,313,197,339"/>
-<area shape="poly" title=" " alt="" coords="212,267,192,303,188,300,207,264"/>
-<area shape="rect" title=" " alt="" coords="221,313,288,339"/>
-<area shape="poly" title=" " alt="" coords="225,264,244,300,240,303,220,267"/>
-<area shape="rect" title=" " alt="" coords="313,313,410,339"/>
-<area shape="poly" title=" " alt="" coords="241,263,327,305,324,310,238,268"/>
+<area shape="rect" title=" " alt="" coords="464,5,655,31"/>
+<area shape="rect" href="Concepts_8hpp.html" title=" " alt="" coords="395,240,583,265"/>
+<area shape="poly" title=" " alt="" coords="528,33,494,52,480,64,468,80,461,98,457,117,459,157,468,195,479,226,474,228,463,197,453,158,452,117,456,97,464,77,476,61,491,47,525,28"/>
+<area shape="rect" href="Time_8hpp.html" title=" " alt="" coords="478,86,641,111"/>
+<area shape="poly" title=" " alt="" coords="562,31,562,72,557,72,557,31"/>
+<area shape="rect" title=" " alt="" coords="665,79,827,119"/>
+<area shape="poly" title=" " alt="" coords="588,28,690,71,687,76,585,33"/>
+<area shape="rect" title=" " alt="" coords="443,313,535,339"/>
+<area shape="poly" title=" " alt="" coords="491,266,491,300,486,300,486,266"/>
+<area shape="poly" title=" " alt="" coords="552,113,534,138,516,168,496,227,491,226,512,166,530,135,548,110"/>
+<area shape="rect" href="TypeTraits_8hpp.html" title=" " alt="" coords="807,167,1000,192"/>
+<area shape="poly" title=" " alt="" coords="610,109,841,161,839,166,609,114"/>
+<area shape="rect" href="util_2Stream_8hpp.html" title=" " alt="" coords="209,167,384,192"/>
+<area shape="poly" title=" " alt="" coords="522,114,349,165,347,160,520,109"/>
+<area shape="rect" title=" " alt="" coords="526,167,593,192"/>
+<area shape="poly" title=" " alt="" coords="562,112,562,153,557,153,557,112"/>
+<area shape="rect" title=" " alt="" coords="617,167,683,192"/>
+<area shape="poly" title=" " alt="" coords="574,109,628,156,625,160,571,114"/>
+<area shape="rect" title=" " alt="" coords="707,167,782,192"/>
+<area shape="poly" title=" " alt="" coords="587,109,706,159,704,164,585,114"/>
+<area shape="poly" title=" " alt="" coords="871,195,535,311,533,306,870,190"/>
+<area shape="rect" href="util_2Utility_8hpp.html" title=" " alt="" coords="820,240,987,265"/>
+<area shape="poly" title=" " alt="" coords="906,192,906,226,901,226,901,192"/>
+<area shape="rect" title=" " alt="" coords="1019,313,1078,339"/>
+<area shape="poly" title=" " alt="" coords="930,190,966,210,1001,238,1024,269,1041,299,1036,302,1020,272,997,242,963,214,928,194"/>
+<area shape="rect" href="Config_8h.html" title=" " alt="" coords="486,387,614,412"/>
+<area shape="poly" title=" " alt="" coords="863,268,796,289,722,316,586,383,584,378,720,311,795,284,862,263"/>
+<area shape="rect" href="Math_8hpp.html" title=" " alt="" coords="732,313,893,339"/>
+<area shape="poly" title=" " alt="" coords="890,267,840,307,837,302,887,263"/>
+<area shape="rect" title=" " alt="" coords="899,387,937,412"/>
+<area shape="poly" title=" " alt="" coords="907,266,918,373,913,373,902,266"/>
+<area shape="rect" title=" " alt="" coords="962,387,1029,412"/>
+<area shape="poly" title=" " alt="" coords="913,264,983,374,978,377,909,267"/>
+<area shape="rect" title=" " alt="" coords="559,313,656,339"/>
+<area shape="poly" title=" " alt="" coords="856,268,669,313,668,307,855,263"/>
+<area shape="poly" title=" " alt="" coords="928,263,1014,305,1012,310,926,268"/>
+<area shape="poly" title=" " alt="" coords="771,341,607,386,605,380,770,336"/>
+<area shape="poly" title=" " alt="" coords="831,336,891,377,888,381,828,341"/>
+<area shape="rect" title=" " alt="" coords="812,387,875,412"/>
+<area shape="poly" title=" " alt="" coords="820,338,835,373,831,375,815,340"/>
+<area shape="rect" title=" " alt="" coords="638,387,694,412"/>
+<area shape="poly" title=" " alt="" coords="790,341,703,383,701,378,788,336"/>
+<area shape="rect" title=" " alt="" coords="718,387,787,412"/>
+<area shape="poly" title=" " alt="" coords="805,341,773,378,769,374,801,337"/>
+<area shape="poly" title=" " alt="" coords="843,336,954,379,952,384,841,341"/>
+<area shape="poly" title=" " alt="" coords="328,190,445,232,443,237,327,195"/>
+<area shape="rect" href="Storage_8hpp.html" title=" " alt="" coords="191,240,370,265"/>
+<area shape="poly" title=" " alt="" coords="297,193,289,227,284,226,291,192"/>
+<area shape="rect" title=" " alt="" coords="5,240,167,265"/>
+<area shape="poly" title=" " alt="" coords="264,195,134,238,132,233,262,189"/>
+<area shape="rect" href="Allocator_8hpp.html" title=" " alt="" coords="131,313,316,339"/>
+<area shape="poly" title=" " alt="" coords="273,267,243,304,239,301,269,264"/>
+<area shape="rect" title=" " alt="" coords="341,313,418,339"/>
+<area shape="poly" title=" " alt="" coords="298,263,354,303,351,307,295,268"/>
+<area shape="poly" title=" " alt="" coords="276,336,484,381,483,386,275,341"/>
+<area shape="rect" title=" " alt="" coords="188,387,259,412"/>
+<area shape="poly" title=" " alt="" coords="226,339,226,373,221,373,221,339"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -164,8 +195,10 @@ Functions</h2></td></tr>
 <tr class="separator:a9e36b85df46357ffbb6a5494691aac67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd201701bb195428d966289138bdd78a" id="r_acd201701bb195428d966289138bdd78a"><td class="memItemLeft" align="right" valign="top">istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#acd201701bb195428d966289138bdd78a">toolbox::net::operator&gt;&gt;</a> (istream &amp;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">is</a>, <a class="el" href="classtoolbox_1_1net_1_1RateLimit.html">RateLimit</a> &amp;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">rl</a>)</td></tr>
 <tr class="separator:acd201701bb195428d966289138bdd78a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe671202012d30e5e7237b284e8f8e33" id="r_afe671202012d30e5e7237b284e8f8e33"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#afe671202012d30e5e7237b284e8f8e33">toolbox::net::operator&lt;&lt;</a> (ostream &amp;os, <a class="el" href="classtoolbox_1_1net_1_1RateLimit.html">RateLimit</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">rl</a>)</td></tr>
-<tr class="separator:afe671202012d30e5e7237b284e8f8e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7becadf6eb870b85b7661949bd4af9b7" id="r_a7becadf6eb870b85b7661949bd4af9b7"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">typename</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &gt; <br />
+requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a>&gt;</td></tr>
+<tr class="memitem:a7becadf6eb870b85b7661949bd4af9b7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#a7becadf6eb870b85b7661949bd4af9b7">toolbox::net::operator&lt;&lt;</a> (<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &amp;os, <a class="el" href="classtoolbox_1_1net_1_1RateLimit.html">RateLimit</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">rl</a>)</td></tr>
+<tr class="separator:a7becadf6eb870b85b7661949bd4af9b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

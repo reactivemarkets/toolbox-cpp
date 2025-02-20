@@ -112,12 +112,29 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="concepttoolbox_1_1util_1_1Enum.html">   28</a></span><span class="keyword">concept </span><a class="code hl_concept" href="concepttoolbox_1_1util_1_1Enum.html">Enum</a> = std::is_enum_v&lt;T&gt;;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>} <span class="comment">// namespace util</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>} <span class="comment">// namespace toolbox</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#endif </span><span class="comment">// TOOLBOX_UTIL_CONCEPTS_HPP</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">// N.B. The concept doesn&#39;t check for operator&lt;&lt; overloads on the streamable object.</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">// Checking for operator&lt;&lt; overloads would&#39;ve been nice, but it&#39;s not possible/difficult due</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">// to recursions. For example, consider this constraint &quot;os &lt;&lt; int/float/etc&quot; -- to check this</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">// constraint the compiler has to check if there is a valid (unambiguous) operator&lt;&lt; overload.</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">// However, some generic operator&lt;&lt; overloads for custom types will make use of this concept to</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">// accept any streamable type -- this is an infinite recursion because the compiler has to then</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">// check are the constraints satisfied on that overload, which means checking &quot;os &lt;&lt; int/float/etc&quot;</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">// constraint again, checking all operator&lt;&lt; overloads again, etc repeating in a cycle.</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00039" data-start="{" data-end="}">
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="concepttoolbox_1_1util_1_1Streamable.html">   39</a></span><span class="keyword">concept </span><a class="code hl_concept" href="concepttoolbox_1_1util_1_1Streamable.html">Streamable</a> = <span class="keyword">requires</span> (T&amp; os) {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    os.put(std::declval&lt;char&gt;());</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    os.write(std::declval&lt;const char*&gt;(), std::declval&lt;std::size_t&gt;());</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>
+</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>} <span class="comment">// namespace util</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>} <span class="comment">// namespace toolbox</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#endif </span><span class="comment">// TOOLBOX_UTIL_CONCEPTS_HPP</span></div>
 <div class="ttc" id="aconcepttoolbox_1_1util_1_1Arithmetic_html"><div class="ttname"><a href="concepttoolbox_1_1util_1_1Arithmetic.html">toolbox::util::Arithmetic</a></div><div class="ttdef"><b>Definition</b> <a href="Concepts_8hpp_source.html#l00025">Concepts.hpp:25</a></div></div>
 <div class="ttc" id="aconcepttoolbox_1_1util_1_1Enum_html"><div class="ttname"><a href="concepttoolbox_1_1util_1_1Enum.html">toolbox::util::Enum</a></div><div class="ttdef"><b>Definition</b> <a href="Concepts_8hpp_source.html#l00028">Concepts.hpp:28</a></div></div>
+<div class="ttc" id="aconcepttoolbox_1_1util_1_1Streamable_html"><div class="ttname"><a href="concepttoolbox_1_1util_1_1Streamable.html">toolbox::util::Streamable</a></div><div class="ttdef"><b>Definition</b> <a href="Concepts_8hpp_source.html#l00039">Concepts.hpp:39</a></div></div>
 <div class="ttc" id="anamespacetoolbox_html"><div class="ttname"><a href="namespacetoolbox.html">toolbox</a></div><div class="ttdef"><b>Definition</b> <a href="Benchmark_8cpp_source.html#l00026">Benchmark.cpp:26</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

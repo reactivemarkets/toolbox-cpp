@@ -203,14 +203,18 @@ requires std::integral&lt;<a class="el" href="namespacetoolbox_1_1util.html#af60
 <tr class="separator:a01db7a7a01e6f386f90923bf9e2e9895"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d7dfbe22019dd32760a626f0ff36454" id="r_a8d7dfbe22019dd32760a626f0ff36454"><td class="memItemLeft" align="right" valign="top">istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#a8d7dfbe22019dd32760a626f0ff36454">operator&gt;&gt;</a> (istream &amp;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">is</a>, <a class="el" href="namespacetoolbox_1_1net.html#a85f1daa5df3c65656cf09655449408fc">StreamEndpoint</a> &amp;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">ep</a>)</td></tr>
 <tr class="separator:a8d7dfbe22019dd32760a626f0ff36454"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac30a49066920e40098733a48712b0d4e" id="r_ac30a49066920e40098733a48712b0d4e"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#ac30a49066920e40098733a48712b0d4e">operator&lt;&lt;</a> (ostream &amp;os, <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">const</a> <a class="el" href="namespacetoolbox_1_1net.html#a0007c7989e60a8c2b2eeabf64c1e60f2">DgramEndpoint</a> &amp;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">ep</a>)</td></tr>
-<tr class="separator:ac30a49066920e40098733a48712b0d4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae744d061a87931cd2ebf57deb236af65" id="r_ae744d061a87931cd2ebf57deb236af65"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#ae744d061a87931cd2ebf57deb236af65">operator&lt;&lt;</a> (ostream &amp;os, <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">const</a> <a class="el" href="namespacetoolbox_1_1net.html#a85f1daa5df3c65656cf09655449408fc">StreamEndpoint</a> &amp;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">ep</a>)</td></tr>
-<tr class="separator:ae744d061a87931cd2ebf57deb236af65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9d213ba9b17572759331a6e64c5fce1" id="r_ac9d213ba9b17572759331a6e64c5fce1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1net.html#a0007c7989e60a8c2b2eeabf64c1e60f2">DgramEndpoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#ac9d213ba9b17572759331a6e64c5fce1">parse_dgram_endpoint</a> (std::string_view <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">uri</a>)</td></tr>
 <tr class="separator:ac9d213ba9b17572759331a6e64c5fce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af13b592e1fd31133f504c577563b6a9e" id="r_af13b592e1fd31133f504c577563b6a9e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1net.html#a85f1daa5df3c65656cf09655449408fc">StreamEndpoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#af13b592e1fd31133f504c577563b6a9e">parse_stream_endpoint</a> (std::string_view <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">uri</a>)</td></tr>
 <tr class="separator:af13b592e1fd31133f504c577563b6a9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a434a3300e50a29eb6dec4d7138e227" id="r_a5a434a3300e50a29eb6dec4d7138e227"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">typename</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> , <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">class</a> T &gt; <br />
+requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a>&gt; &amp;&amp; std::same_as&lt;T, <a class="el" href="namespacetoolbox_1_1net.html#a0007c7989e60a8c2b2eeabf64c1e60f2">DgramEndpoint</a>&gt;</td></tr>
+<tr class="memitem:a5a434a3300e50a29eb6dec4d7138e227"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#a5a434a3300e50a29eb6dec4d7138e227">operator&lt;&lt;</a> (<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &amp;os, <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">const</a> T &amp;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">ep</a>)</td></tr>
+<tr class="separator:a5a434a3300e50a29eb6dec4d7138e227"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c1f668104c79d1ff3c5f0297529a68b" id="r_a2c1f668104c79d1ff3c5f0297529a68b"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">typename</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> , <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">class</a> T &gt; <br />
+requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a>&gt; &amp;&amp; std::same_as&lt;T, <a class="el" href="namespacetoolbox_1_1net.html#a85f1daa5df3c65656cf09655449408fc">StreamEndpoint</a>&gt;</td></tr>
+<tr class="memitem:a2c1f668104c79d1ff3c5f0297529a68b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#a2c1f668104c79d1ff3c5f0297529a68b">operator&lt;&lt;</a> (<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &amp;os, <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">const</a> T &amp;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">ep</a>)</td></tr>
+<tr class="separator:a2c1f668104c79d1ff3c5f0297529a68b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d3350d8de8d0d0c43b6b406ed297eeb" id="r_a7d3350d8de8d0d0c43b6b406ed297eeb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">const</a> std::error_category &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#a7d3350d8de8d0d0c43b6b406ed297eeb">gai_error_category</a> () <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">noexcept</a></td></tr>
 <tr class="separator:a7d3350d8de8d0d0c43b6b406ed297eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91de8504237f550e20b0bf30a163f01e" id="r_a91de8504237f550e20b0bf30a163f01e"><td class="memItemLeft" align="right" valign="top">std::error_code&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#a91de8504237f550e20b0bf30a163f01e">make_gai_error_code</a> (<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">int</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">err</a>) <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">noexcept</a></td></tr>
@@ -292,8 +296,10 @@ requires std::integral&lt;<a class="el" href="namespacetoolbox_1_1util.html#af60
 <tr class="separator:a9e36b85df46357ffbb6a5494691aac67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd201701bb195428d966289138bdd78a" id="r_acd201701bb195428d966289138bdd78a"><td class="memItemLeft" align="right" valign="top">istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#acd201701bb195428d966289138bdd78a">operator&gt;&gt;</a> (istream &amp;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">is</a>, <a class="el" href="classtoolbox_1_1net_1_1RateLimit.html">RateLimit</a> &amp;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">rl</a>)</td></tr>
 <tr class="separator:acd201701bb195428d966289138bdd78a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe671202012d30e5e7237b284e8f8e33" id="r_afe671202012d30e5e7237b284e8f8e33"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#afe671202012d30e5e7237b284e8f8e33">operator&lt;&lt;</a> (ostream &amp;os, <a class="el" href="classtoolbox_1_1net_1_1RateLimit.html">RateLimit</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">rl</a>)</td></tr>
-<tr class="separator:afe671202012d30e5e7237b284e8f8e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7becadf6eb870b85b7661949bd4af9b7" id="r_a7becadf6eb870b85b7661949bd4af9b7"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">typename</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &gt; <br />
+requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a>&gt;</td></tr>
+<tr class="memitem:a7becadf6eb870b85b7661949bd4af9b7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#a7becadf6eb870b85b7661949bd4af9b7">operator&lt;&lt;</a> (<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &amp;os, <a class="el" href="classtoolbox_1_1net_1_1RateLimit.html">RateLimit</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">rl</a>)</td></tr>
+<tr class="separator:a7becadf6eb870b85b7661949bd4af9b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3103cebd4f3c38545246bf18a13737ac" id="r_a3103cebd4f3c38545246bf18a13737ac"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">typename</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">EndpointT</a> &gt; </td></tr>
 <tr class="memitem:a3103cebd4f3c38545246bf18a13737ac"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">EndpointT</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1net.html#a3103cebd4f3c38545246bf18a13737ac">get_endpoint</a> (<a class="el" href="namespacetoolbox_1_1net.html#ac4480cb34e79fe172f654642e7d0089e">AddrInfoFuture</a> &amp;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">future</a>)</td></tr>
 <tr class="memdesc:a3103cebd4f3c38545246bf18a13737ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait for future and convert result to endpoint.  <br /></td></tr>
@@ -363,7 +369,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endpoint_8hpp_source.html#l00032">32</a> of file <a class="el" href="Endpoint_8hpp_source.html">Endpoint.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endpoint_8hpp_source.html#l00033">33</a> of file <a class="el" href="Endpoint_8hpp_source.html">Endpoint.hpp</a>.</p>
 
 </div>
 </div>
@@ -379,7 +385,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endpoint_8hpp_source.html#l00034">34</a> of file <a class="el" href="Endpoint_8hpp_source.html">Endpoint.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endpoint_8hpp_source.html#l00035">35</a> of file <a class="el" href="Endpoint_8hpp_source.html">Endpoint.hpp</a>.</p>
 
 </div>
 </div>
@@ -395,7 +401,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endpoint_8hpp_source.html#l00035">35</a> of file <a class="el" href="Endpoint_8hpp_source.html">Endpoint.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endpoint_8hpp_source.html#l00036">36</a> of file <a class="el" href="Endpoint_8hpp_source.html">Endpoint.hpp</a>.</p>
 
 </div>
 </div>
@@ -413,7 +419,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endpoint_8hpp_source.html#l00038">38</a> of file <a class="el" href="Endpoint_8hpp_source.html">Endpoint.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endpoint_8hpp_source.html#l00039">39</a> of file <a class="el" href="Endpoint_8hpp_source.html">Endpoint.hpp</a>.</p>
 
 </div>
 </div>
@@ -429,7 +435,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endpoint_8hpp_source.html#l00040">40</a> of file <a class="el" href="Endpoint_8hpp_source.html">Endpoint.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endpoint_8hpp_source.html#l00041">41</a> of file <a class="el" href="Endpoint_8hpp_source.html">Endpoint.hpp</a>.</p>
 
 </div>
 </div>
@@ -445,7 +451,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endpoint_8hpp_source.html#l00041">41</a> of file <a class="el" href="Endpoint_8hpp_source.html">Endpoint.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endpoint_8hpp_source.html#l00042">42</a> of file <a class="el" href="Endpoint_8hpp_source.html">Endpoint.hpp</a>.</p>
 
 </div>
 </div>
@@ -463,7 +469,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endpoint_8hpp_source.html#l00044">44</a> of file <a class="el" href="Endpoint_8hpp_source.html">Endpoint.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endpoint_8hpp_source.html#l00045">45</a> of file <a class="el" href="Endpoint_8hpp_source.html">Endpoint.hpp</a>.</p>
 
 </div>
 </div>
@@ -479,7 +485,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endpoint_8hpp_source.html#l00046">46</a> of file <a class="el" href="Endpoint_8hpp_source.html">Endpoint.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endpoint_8hpp_source.html#l00047">47</a> of file <a class="el" href="Endpoint_8hpp_source.html">Endpoint.hpp</a>.</p>
 
 </div>
 </div>
@@ -495,7 +501,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endpoint_8hpp_source.html#l00047">47</a> of file <a class="el" href="Endpoint_8hpp_source.html">Endpoint.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endpoint_8hpp_source.html#l00048">48</a> of file <a class="el" href="Endpoint_8hpp_source.html">Endpoint.hpp</a>.</p>
 
 </div>
 </div>
@@ -966,66 +972,6 @@ requires std::integral&lt;<a class="el" href="namespacetoolbox_1_1util.html#af60
 
 </div>
 </div>
-<a id="ac30a49066920e40098733a48712b0d4e" name="ac30a49066920e40098733a48712b0d4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac30a49066920e40098733a48712b0d4e">&#9670;&#160;</a></span>operator&lt;&lt;() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> std::ostream &amp; toolbox::net::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">ostream &amp;&#160;</td>
-          <td class="paramname"><em>os</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">const</a> <a class="el" href="namespacetoolbox_1_1net.html#a0007c7989e60a8c2b2eeabf64c1e60f2">DgramEndpoint</a> &amp;&#160;</td>
-          <td class="paramname"><em>ep</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Endpoint_8cpp_source.html#l00133">133</a> of file <a class="el" href="Endpoint_8cpp_source.html">Endpoint.cpp</a>.</p>
-
-</div>
-</div>
-<a id="ae744d061a87931cd2ebf57deb236af65" name="ae744d061a87931cd2ebf57deb236af65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae744d061a87931cd2ebf57deb236af65">&#9670;&#160;</a></span>operator&lt;&lt;() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> std::ostream &amp; toolbox::net::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">ostream &amp;&#160;</td>
-          <td class="paramname"><em>os</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">const</a> <a class="el" href="namespacetoolbox_1_1net.html#a85f1daa5df3c65656cf09655449408fc">StreamEndpoint</a> &amp;&#160;</td>
-          <td class="paramname"><em>ep</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Endpoint_8cpp_source.html#l00155">155</a> of file <a class="el" href="Endpoint_8cpp_source.html">Endpoint.cpp</a>.</p>
-
-</div>
-</div>
 <a id="ac9d213ba9b17572759331a6e64c5fce1" name="ac9d213ba9b17572759331a6e64c5fce1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac9d213ba9b17572759331a6e64c5fce1">&#9670;&#160;</a></span>parse_dgram_endpoint()</h2>
 
@@ -1050,7 +996,7 @@ requires std::integral&lt;<a class="el" href="namespacetoolbox_1_1util.html#af60
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endpoint_8hpp_source.html#l00051">51</a> of file <a class="el" href="Endpoint_8hpp_source.html">Endpoint.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endpoint_8hpp_source.html#l00052">52</a> of file <a class="el" href="Endpoint_8hpp_source.html">Endpoint.hpp</a>.</p>
 
 </div>
 </div>
@@ -1078,7 +1024,73 @@ requires std::integral&lt;<a class="el" href="namespacetoolbox_1_1util.html#af60
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Endpoint_8hpp_source.html#l00057">57</a> of file <a class="el" href="Endpoint_8hpp_source.html">Endpoint.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Endpoint_8hpp_source.html#l00058">58</a> of file <a class="el" href="Endpoint_8hpp_source.html">Endpoint.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a5a434a3300e50a29eb6dec4d7138e227" name="a5a434a3300e50a29eb6dec4d7138e227"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a434a3300e50a29eb6dec4d7138e227">&#9670;&#160;</a></span>operator&lt;&lt;() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">typename</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> , <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">class</a> T &gt; <br />
+requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a>&gt; &amp;&amp; std::same_as&lt;T, <a class="el" href="namespacetoolbox_1_1net.html#a0007c7989e60a8c2b2eeabf64c1e60f2">DgramEndpoint</a>&gt;</div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &amp; toolbox::net::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">const</a> T &amp;&#160;</td>
+          <td class="paramname"><em>ep</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Endpoint_8hpp_source.html#l00092">92</a> of file <a class="el" href="Endpoint_8hpp_source.html">Endpoint.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a2c1f668104c79d1ff3c5f0297529a68b" name="a2c1f668104c79d1ff3c5f0297529a68b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c1f668104c79d1ff3c5f0297529a68b">&#9670;&#160;</a></span>operator&lt;&lt;() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">typename</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> , <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">class</a> T &gt; <br />
+requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a>&gt; &amp;&amp; std::same_as&lt;T, <a class="el" href="namespacetoolbox_1_1net.html#a85f1daa5df3c65656cf09655449408fc">StreamEndpoint</a>&gt;</div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &amp; toolbox::net::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">const</a> T &amp;&#160;</td>
+          <td class="paramname"><em>ep</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Endpoint_8hpp_source.html#l00122">122</a> of file <a class="el" href="Endpoint_8hpp_source.html">Endpoint.hpp</a>.</p>
 
 </div>
 </div>
@@ -2473,16 +2485,19 @@ template&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63
 
 </div>
 </div>
-<a id="afe671202012d30e5e7237b284e8f8e33" name="afe671202012d30e5e7237b284e8f8e33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe671202012d30e5e7237b284e8f8e33">&#9670;&#160;</a></span>operator&lt;&lt;() <span class="overload">[3/3]</span></h2>
+<a id="a7becadf6eb870b85b7661949bd4af9b7" name="a7becadf6eb870b85b7661949bd4af9b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7becadf6eb870b85b7661949bd4af9b7">&#9670;&#160;</a></span>operator&lt;&lt;() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">typename</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &gt; <br />
+requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a>&gt;</div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> std::ostream &amp; toolbox::net::operator&lt;&lt; </td>
+          <td class="memname"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &amp; toolbox::net::operator&lt;&lt; </td>
           <td>(</td>
-          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &amp;&#160;</td>
           <td class="paramname"><em>os</em>, </td>
         </tr>
         <tr>
@@ -2499,7 +2514,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RateLimit_8cpp_source.html#l00039">39</a> of file <a class="el" href="RateLimit_8cpp_source.html">RateLimit.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RateLimit_8hpp_source.html#l00061">61</a> of file <a class="el" href="RateLimit_8hpp_source.html">RateLimit.hpp</a>.</p>
 
 </div>
 </div>

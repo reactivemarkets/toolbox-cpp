@@ -1,5 +1,7 @@
-<map id="toolbox::util::is_instantiation_of&lt; TypeT, TemplateTypeT &gt;" name="toolbox::util::is_instantiation_of&lt; TypeT, TemplateTypeT &gt;">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,79,221,119"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="54,5,173,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,44,116,79,111,79,111,44"/>
+<map id="toolbox::util::is_instantiation_of&lt; T, Tpl &gt;" name="toolbox::util::is_instantiation_of&lt; T, Tpl &gt;">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,181,213,221"/>
+<area shape="rect" id="Node000002" href="$structtoolbox_1_1util_1_1is__instantiation__of__helper.html" title=" " alt="" coords="5,79,213,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,147,112,181,107,181,107,147"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="50,5,169,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="112,44,112,79,107,79,107,44"/>
 </map>

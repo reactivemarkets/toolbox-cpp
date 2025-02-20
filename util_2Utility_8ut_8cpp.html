@@ -82,27 +82,42 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>&quot;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
+<code>#include &lt;limits&gt;</code><br />
 <code>#include &lt;boost/test/unit_test.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Utility.ut.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="util_2Utility_8ut_8cpp__incl.png" border="0" usemap="#atoolbox_2util_2Utility_8ut_8cpp" alt=""/></div>
 <map name="atoolbox_2util_2Utility_8ut_8cpp" id="atoolbox_2util_2Utility_8ut_8cpp">
-<area shape="rect" title=" " alt="" coords="225,5,407,31"/>
-<area shape="rect" href="util_2Utility_8hpp.html" title=" " alt="" coords="172,79,260,104"/>
-<area shape="poly" title=" " alt="" coords="301,33,245,73,242,68,298,29"/>
-<area shape="rect" title=" " alt="" coords="285,79,347,104"/>
-<area shape="poly" title=" " alt="" coords="319,31,319,65,313,65,313,31"/>
-<area shape="rect" title=" " alt="" coords="372,79,548,104"/>
-<area shape="poly" title=" " alt="" coords="340,28,425,70,423,75,338,33"/>
-<area shape="rect" href="Config_8h.html" title=" " alt="" coords="5,152,133,177"/>
-<area shape="poly" title=" " alt="" coords="194,106,107,148,104,144,191,102"/>
-<area shape="rect" title=" " alt="" coords="158,152,197,177"/>
-<area shape="poly" title=" " alt="" coords="212,106,192,141,188,139,207,103"/>
-<area shape="rect" title=" " alt="" coords="221,152,288,177"/>
-<area shape="poly" title=" " alt="" coords="225,103,244,139,240,141,220,106"/>
-<area shape="rect" title=" " alt="" coords="313,152,410,177"/>
-<area shape="poly" title=" " alt="" coords="241,102,327,144,324,148,238,106"/>
+<area shape="rect" title=" " alt="" coords="589,5,771,31"/>
+<area shape="rect" href="util_2Utility_8hpp.html" title=" " alt="" coords="347,79,435,104"/>
+<area shape="poly" title=" " alt="" coords="634,33,449,79,447,73,633,28"/>
+<area shape="rect" title=" " alt="" coords="539,225,602,251"/>
+<area shape="poly" title=" " alt="" coords="680,32,660,96,644,138,624,179,594,217,590,214,619,176,639,136,655,94,675,30"/>
+<area shape="rect" title=" " alt="" coords="684,79,743,104"/>
+<area shape="poly" title=" " alt="" coords="688,30,705,65,700,67,683,32"/>
+<area shape="rect" title=" " alt="" coords="767,79,943,104"/>
+<area shape="poly" title=" " alt="" coords="709,28,814,71,812,76,707,33"/>
+<area shape="rect" href="Config_8h.html" title=" " alt="" coords="5,225,133,251"/>
+<area shape="poly" title=" " alt="" coords="347,101,261,119,213,134,167,154,124,184,90,217,87,213,121,180,164,150,211,129,259,113,346,96"/>
+<area shape="rect" href="Math_8hpp.html" title=" " alt="" coords="191,152,353,177"/>
+<area shape="poly" title=" " alt="" coords="373,106,305,147,302,142,370,102"/>
+<area shape="rect" title=" " alt="" coords="158,225,197,251"/>
+<area shape="poly" title=" " alt="" coords="347,102,251,122,208,136,182,154,175,167,172,181,174,212,168,212,167,181,170,165,178,150,206,132,249,116,346,96"/>
+<area shape="rect" title=" " alt="" coords="395,225,461,251"/>
+<area shape="poly" title=" " alt="" coords="396,104,424,211,419,213,391,105"/>
+<area shape="rect" title=" " alt="" coords="429,152,526,177"/>
+<area shape="poly" title=" " alt="" coords="406,102,454,141,451,145,403,106"/>
+<area shape="rect" title=" " alt="" coords="551,152,609,177"/>
+<area shape="poly" title=" " alt="" coords="422,102,538,145,537,150,420,107"/>
+<area shape="poly" title=" " alt="" coords="240,180,116,223,114,218,239,175"/>
+<area shape="poly" title=" " alt="" coords="258,179,205,219,202,215,255,175"/>
+<area shape="poly" title=" " alt="" coords="321,175,527,224,525,229,319,180"/>
+<area shape="rect" title=" " alt="" coords="221,225,277,251"/>
+<area shape="poly" title=" " alt="" coords="271,178,260,213,255,211,266,177"/>
+<area shape="rect" title=" " alt="" coords="301,225,371,251"/>
+<area shape="poly" title=" " alt="" coords="285,176,319,213,315,217,281,179"/>
+<area shape="poly" title=" " alt="" coords="298,175,391,217,389,222,296,180"/>
 </map>
 </div>
 </div>
@@ -168,12 +183,14 @@ Functions</h2></td></tr>
 <tr class="separator:af4a0155c3bea6aae79e339ffd247e8d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a085b83411557a476554ac487af9c819f" id="r_a085b83411557a476554ac487af9c819f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_2Utility_8ut_8cpp.html#a085b83411557a476554ac487af9c819f">BOOST_AUTO_TEST_CASE</a> (HexDigitsCase)</td></tr>
 <tr class="separator:a085b83411557a476554ac487af9c819f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77888b3327b780816617af7888b4bca1" id="r_a77888b3327b780816617af7888b4bca1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_2Utility_8ut_8cpp.html#a77888b3327b780816617af7888b4bca1">BOOST_AUTO_TEST_CASE</a> (DecDigitsCase)</td></tr>
-<tr class="separator:a77888b3327b780816617af7888b4bca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af520b77774ebc92caaa9853962f12857" id="r_af520b77774ebc92caaa9853962f12857"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_2Utility_8ut_8cpp.html#af520b77774ebc92caaa9853962f12857">BOOST_AUTO_TEST_CASE</a> (DecDigitsUnsignedCase)</td></tr>
+<tr class="separator:af520b77774ebc92caaa9853962f12857"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0c6450e515b80823025e98b468cb5ef" id="r_aa0c6450e515b80823025e98b468cb5ef"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="util_2Utility_8ut_8cpp.html#aa0c6450e515b80823025e98b468cb5ef">BOOST_AUTO_TEST_CASE</a> (DecDigitSignedCase)</td></tr>
+<tr class="separator:aa0c6450e515b80823025e98b468cb5ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a555dbd47e331cf66aaff3786bed1fdde" name="a555dbd47e331cf66aaff3786bed1fdde"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a555dbd47e331cf66aaff3786bed1fdde">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[1/11]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a555dbd47e331cf66aaff3786bed1fdde">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[1/12]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -188,7 +205,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00029">29</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00030">30</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
 
 </div>
 </div>
@@ -218,7 +235,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00211">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00194">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00029">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00109">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00122">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00135">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00145">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00102">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00158">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00170">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00182">BOOST_AUTO_TEST_CASE()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00276">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00212">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00195">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00030">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00110">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00123">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00136">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00146">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00103">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00159">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00171">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00183">BOOST_AUTO_TEST_CASE()</a>.</p>
 
 </div>
 </div>
@@ -434,7 +451,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="Argv_8ut_8cpp_source.html#l00060">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Argv_8ut_8cpp_source.html#l00164">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Argv_8ut_8cpp_source.html#l00211">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Argv_8ut_8cpp_source.html#l00136">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Argv_8ut_8cpp_source.html#l00072">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Argv_8ut_8cpp_source.html#l00089">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Argv_8ut_8cpp_source.html#l00239">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="resp_2Parser_8ut_8cpp_source.html#l00180">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Array_8ut_8cpp_source.html#l00034">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="http_2Parser_8ut_8cpp_source.html#l00167">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="http_2Parser_8ut_8cpp_source.html#l00192">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="http_2Parser_8ut_8cpp_source.html#l00274">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="hdr_2Utility_8ut_8cpp_source.html#l00031">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Disposer_8ut_8cpp_source.html#l00041">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Finally_8ut_8cpp_source.html#l00025">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="String_8ut_8cpp_source.html#l00432">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Socket_8ut_8cpp_source.html#l00028">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Handle_8ut_8cpp_source.html#l00059">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Handle_8ut_8cpp_source.html#l00046">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="hdr_2Utility_8ut_8cpp_source.html#l00044">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Histogram_8ut_8cpp_source.html#l00075">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Histogram_8ut_8cpp_source.html#l00082">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Histogram_8ut_8cpp_source.html#l00092">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Hook_8ut_8cpp_source.html#l00053">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Hook_8ut_8cpp_source.html#l00092">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="http_2Parser_8ut_8cpp_source.html#l00127">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="http_2Parser_8ut_8cpp_source.html#l00147">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Iterator_8ut_8cpp_source.html#l00029">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="http_2Parser_8ut_8cpp_source.html#l00251">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="resp_2Parser_8ut_8cpp_source.html#l00196">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="http_2Parser_8ut_8cpp_source.html#l00311">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="hdr_2Utility_8ut_8cpp_source.html#l00055">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Buffer_8ut_8cpp_source.html#l00091">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Stream_8ut_8cpp_source.html#l00029">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Frame_8ut_8cpp_source.html#l00054">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="http_2Parser_8ut_8cpp_source.html#l00220">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Buffer_8ut_8cpp_source.html#l00054">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Resolver_8ut_8cpp_source.html#l00031">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="RingBuffer_8ut_8cpp_source.html#l00026">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Buffer_8ut_8cpp_source.html#l00124">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Slot_8ut_8cpp_source.html#l00038">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="hdr_2Utility_8ut_8cpp_source.html#l00062">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="StringBuf_8ut_8cpp_source.html#l00057">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="StringBuf_8ut_8cpp_source.html#l00026">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="StringBuf_8ut_8cpp_source.html#l00036">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Struct_8ut_8cpp_source.html#l00041">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Struct_8ut_8cpp_source.html#l00064">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Struct_8ut_8cpp_source.html#l00050">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Thread_8ut_8cpp_source.html#l00039">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Date_8ut_8cpp_source.html#l00062">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Time_8ut_8cpp_source.html#l00055">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Timer_8ut_8cpp_source.html#l00043">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Timer_8ut_8cpp_source.html#l00052">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Tokeniser_8ut_8cpp_source.html#l00026">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Tokeniser_8ut_8cpp_source.html#l00114">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Tokeniser_8ut_8cpp_source.html#l00147">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Tokeniser_8ut_8cpp_source.html#l00038">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Tokeniser_8ut_8cpp_source.html#l00090">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Tokeniser_8ut_8cpp_source.html#l00066">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Tokeniser_8ut_8cpp_source.html#l00052">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Tokeniser_8ut_8cpp_source.html#l00133">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Traits_8ut_8cpp_source.html#l00071">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Traits_8ut_8cpp_source.html#l00141">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Traits_8ut_8cpp_source.html#l00200">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Traits_8ut_8cpp_source.html#l00089">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Traits_8ut_8cpp_source.html#l00157">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Traits_8ut_8cpp_source.html#l00035">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Traits_8ut_8cpp_source.html#l00053">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Traits_8ut_8cpp_source.html#l00125">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Traits_8ut_8cpp_source.html#l00173">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Traits_8ut_8cpp_source.html#l00107">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Url_8ut_8cpp_source.html#l00026">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Url_8ut_8cpp_source.html#l00038">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="VarSub_8ut_8cpp_source.html#l00064">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="VarSub_8ut_8cpp_source.html#l00115">BOOST_AUTO_TEST_CASE()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Argv_8ut_8cpp_source.html#l00060">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Argv_8ut_8cpp_source.html#l00164">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Argv_8ut_8cpp_source.html#l00211">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Argv_8ut_8cpp_source.html#l00136">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Argv_8ut_8cpp_source.html#l00072">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Argv_8ut_8cpp_source.html#l00089">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Argv_8ut_8cpp_source.html#l00239">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="resp_2Parser_8ut_8cpp_source.html#l00180">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Array_8ut_8cpp_source.html#l00034">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="http_2Parser_8ut_8cpp_source.html#l00167">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="http_2Parser_8ut_8cpp_source.html#l00192">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="http_2Parser_8ut_8cpp_source.html#l00274">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="hdr_2Utility_8ut_8cpp_source.html#l00031">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Disposer_8ut_8cpp_source.html#l00041">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Finally_8ut_8cpp_source.html#l00025">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="String_8ut_8cpp_source.html#l00432">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Socket_8ut_8cpp_source.html#l00028">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Handle_8ut_8cpp_source.html#l00059">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Handle_8ut_8cpp_source.html#l00046">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="hdr_2Utility_8ut_8cpp_source.html#l00044">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Histogram_8ut_8cpp_source.html#l00075">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Histogram_8ut_8cpp_source.html#l00082">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Histogram_8ut_8cpp_source.html#l00092">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Hook_8ut_8cpp_source.html#l00053">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Hook_8ut_8cpp_source.html#l00092">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="http_2Parser_8ut_8cpp_source.html#l00127">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="http_2Parser_8ut_8cpp_source.html#l00147">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Endpoint_8ut_8cpp_source.html#l00191">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Iterator_8ut_8cpp_source.html#l00029">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="http_2Parser_8ut_8cpp_source.html#l00251">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="resp_2Parser_8ut_8cpp_source.html#l00196">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="http_2Parser_8ut_8cpp_source.html#l00311">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="hdr_2Utility_8ut_8cpp_source.html#l00055">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Buffer_8ut_8cpp_source.html#l00091">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Stream_8ut_8cpp_source.html#l00029">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Frame_8ut_8cpp_source.html#l00054">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="http_2Parser_8ut_8cpp_source.html#l00220">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Time_8ut_8cpp_source.html#l00081">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Time_8ut_8cpp_source.html#l00104">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Buffer_8ut_8cpp_source.html#l00054">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Resolver_8ut_8cpp_source.html#l00031">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="RingBuffer_8ut_8cpp_source.html#l00026">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Buffer_8ut_8cpp_source.html#l00124">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Slot_8ut_8cpp_source.html#l00038">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="hdr_2Utility_8ut_8cpp_source.html#l00062">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="StringBuf_8ut_8cpp_source.html#l00057">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="StringBuf_8ut_8cpp_source.html#l00026">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="StringBuf_8ut_8cpp_source.html#l00036">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Struct_8ut_8cpp_source.html#l00041">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Struct_8ut_8cpp_source.html#l00064">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Struct_8ut_8cpp_source.html#l00050">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Thread_8ut_8cpp_source.html#l00039">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Date_8ut_8cpp_source.html#l00062">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Time_8ut_8cpp_source.html#l00057">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Timer_8ut_8cpp_source.html#l00043">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Timer_8ut_8cpp_source.html#l00052">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Tokeniser_8ut_8cpp_source.html#l00026">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Tokeniser_8ut_8cpp_source.html#l00114">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Tokeniser_8ut_8cpp_source.html#l00147">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Tokeniser_8ut_8cpp_source.html#l00038">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Tokeniser_8ut_8cpp_source.html#l00090">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Tokeniser_8ut_8cpp_source.html#l00066">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Tokeniser_8ut_8cpp_source.html#l00052">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Tokeniser_8ut_8cpp_source.html#l00133">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Traits_8ut_8cpp_source.html#l00071">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Traits_8ut_8cpp_source.html#l00141">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Traits_8ut_8cpp_source.html#l00200">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Traits_8ut_8cpp_source.html#l00089">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Traits_8ut_8cpp_source.html#l00157">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Traits_8ut_8cpp_source.html#l00035">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Traits_8ut_8cpp_source.html#l00053">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Traits_8ut_8cpp_source.html#l00125">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Traits_8ut_8cpp_source.html#l00173">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Traits_8ut_8cpp_source.html#l00107">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Url_8ut_8cpp_source.html#l00026">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Url_8ut_8cpp_source.html#l00038">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="VarSub_8ut_8cpp_source.html#l00064">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="VarSub_8ut_8cpp_source.html#l00115">BOOST_AUTO_TEST_CASE()</a>.</p>
 
 </div>
 </div>
@@ -709,7 +726,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="a8e2995e74b4de5d2f6e5e840e2ac5830" name="a8e2995e74b4de5d2f6e5e840e2ac5830"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e2995e74b4de5d2f6e5e840e2ac5830">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[2/11]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e2995e74b4de5d2f6e5e840e2ac5830">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[2/12]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -724,12 +741,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00102">102</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00103">103</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a165cf5ecc173338c80c0db3c9392abba" name="a165cf5ecc173338c80c0db3c9392abba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a165cf5ecc173338c80c0db3c9392abba">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[3/11]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a165cf5ecc173338c80c0db3c9392abba">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[3/12]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -744,12 +761,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00109">109</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00110">110</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a8e5b6a53b7fd494bdf3b1c8d6b419eec" name="a8e5b6a53b7fd494bdf3b1c8d6b419eec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e5b6a53b7fd494bdf3b1c8d6b419eec">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[4/11]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e5b6a53b7fd494bdf3b1c8d6b419eec">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[4/12]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -764,12 +781,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00122">122</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00123">123</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="aaeb73f4ad25876999fcc3b72dd2520bc" name="aaeb73f4ad25876999fcc3b72dd2520bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaeb73f4ad25876999fcc3b72dd2520bc">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[5/11]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aaeb73f4ad25876999fcc3b72dd2520bc">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[5/12]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -784,12 +801,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00135">135</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00136">136</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a367fc93b6f2a6d093fe8525e7ea8b106" name="a367fc93b6f2a6d093fe8525e7ea8b106"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a367fc93b6f2a6d093fe8525e7ea8b106">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[6/11]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a367fc93b6f2a6d093fe8525e7ea8b106">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[6/12]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -804,12 +821,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00145">145</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00146">146</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a5514e6af20864b8a8f04dfc1d117a14f" name="a5514e6af20864b8a8f04dfc1d117a14f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5514e6af20864b8a8f04dfc1d117a14f">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[7/11]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5514e6af20864b8a8f04dfc1d117a14f">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[7/12]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -824,12 +841,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00158">158</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00159">159</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a41a860c3e83e5f32eb7a9c54d73bc125" name="a41a860c3e83e5f32eb7a9c54d73bc125"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41a860c3e83e5f32eb7a9c54d73bc125">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[8/11]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a41a860c3e83e5f32eb7a9c54d73bc125">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[8/12]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -844,12 +861,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00170">170</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00171">171</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="af4a0155c3bea6aae79e339ffd247e8d8" name="af4a0155c3bea6aae79e339ffd247e8d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4a0155c3bea6aae79e339ffd247e8d8">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[9/11]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af4a0155c3bea6aae79e339ffd247e8d8">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[9/12]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -864,12 +881,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00182">182</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00183">183</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a085b83411557a476554ac487af9c819f" name="a085b83411557a476554ac487af9c819f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a085b83411557a476554ac487af9c819f">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[10/11]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a085b83411557a476554ac487af9c819f">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[10/12]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -884,12 +901,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00194">194</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00195">195</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a77888b3327b780816617af7888b4bca1" name="a77888b3327b780816617af7888b4bca1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77888b3327b780816617af7888b4bca1">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[11/11]</span></h2>
+<a id="af520b77774ebc92caaa9853962f12857" name="af520b77774ebc92caaa9853962f12857"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af520b77774ebc92caaa9853962f12857">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[11/12]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -897,14 +914,34 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">BOOST_AUTO_TEST_CASE </td>
           <td>(</td>
-          <td class="paramtype">DecDigitsCase&#160;</td>
+          <td class="paramtype">DecDigitsUnsignedCase&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00211">211</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00212">212</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa0c6450e515b80823025e98b468cb5ef" name="aa0c6450e515b80823025e98b468cb5ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0c6450e515b80823025e98b468cb5ef">&#9670;&#160;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[12/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOST_AUTO_TEST_CASE </td>
+          <td>(</td>
+          <td class="paramtype">DecDigitSignedCase&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="util_2Utility_8ut_8cpp_source.html#l00276">276</a> of file <a class="el" href="util_2Utility_8ut_8cpp_source.html">Utility.ut.cpp</a>.</p>
 
 </div>
 </div>

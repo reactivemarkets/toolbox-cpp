@@ -82,38 +82,53 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="String_8hpp_source.html">String.hpp</a>&quot;</code><br />
+<code>#include &lt;string_view&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for String.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="String_8cpp__incl.png" border="0" usemap="#atoolbox_2util_2String_8cpp" alt=""/></div>
 <map name="atoolbox_2util_2String_8cpp" id="atoolbox_2util_2String_8cpp">
-<area shape="rect" title=" " alt="" coords="393,5,558,31"/>
-<area shape="rect" href="String_8hpp.html" title=" " alt="" coords="431,79,519,104"/>
-<area shape="poly" title=" " alt="" coords="478,31,478,65,473,65,473,31"/>
-<area shape="rect" href="Concepts_8hpp.html" title=" " alt="" coords="5,152,193,177"/>
-<area shape="poly" title=" " alt="" coords="432,104,174,152,173,147,431,98"/>
-<area shape="rect" href="TypeTraits_8hpp.html" title=" " alt="" coords="217,152,411,177"/>
-<area shape="poly" title=" " alt="" coords="450,106,354,149,352,144,448,102"/>
-<area shape="rect" title=" " alt="" coords="435,152,516,177"/>
-<area shape="poly" title=" " alt="" coords="478,104,478,138,473,138,473,104"/>
-<area shape="rect" title=" " alt="" coords="541,152,607,177"/>
-<area shape="poly" title=" " alt="" coords="493,102,548,142,545,146,490,106"/>
-<area shape="rect" title=" " alt="" coords="631,152,706,177"/>
-<area shape="poly" title=" " alt="" coords="507,102,625,145,624,150,505,107"/>
-<area shape="rect" title=" " alt="" coords="53,225,145,251"/>
-<area shape="poly" title=" " alt="" coords="102,178,102,212,97,212,97,178"/>
-<area shape="rect" href="util_2Utility_8hpp.html" title=" " alt="" coords="200,225,367,251"/>
-<area shape="poly" title=" " alt="" coords="311,179,296,214,291,212,306,177"/>
-<area shape="rect" title=" " alt="" coords="391,225,450,251"/>
-<area shape="poly" title=" " alt="" coords="333,175,393,215,390,220,330,180"/>
-<area shape="rect" href="Config_8h.html" title=" " alt="" coords="73,299,201,324"/>
-<area shape="poly" title=" " alt="" coords="261,253,174,295,172,290,259,248"/>
-<area shape="rect" title=" " alt="" coords="225,299,264,324"/>
-<area shape="poly" title=" " alt="" coords="279,252,260,288,255,285,275,250"/>
-<area shape="rect" title=" " alt="" coords="289,299,355,324"/>
-<area shape="poly" title=" " alt="" coords="292,250,312,285,307,288,287,252"/>
-<area shape="rect" title=" " alt="" coords="380,299,477,324"/>
-<area shape="poly" title=" " alt="" coords="308,248,394,290,392,295,306,253"/>
+<area shape="rect" title=" " alt="" coords="496,5,661,31"/>
+<area shape="rect" href="String_8hpp.html" title=" " alt="" coords="451,79,539,104"/>
+<area shape="poly" title=" " alt="" coords="567,33,521,72,517,67,563,29"/>
+<area shape="rect" title=" " alt="" coords="695,299,793,324"/>
+<area shape="poly" title=" " alt="" coords="599,29,660,76,694,111,721,151,735,186,743,222,747,285,742,285,738,223,730,187,716,153,690,114,657,80,596,33"/>
+<area shape="rect" href="Concepts_8hpp.html" title=" " alt="" coords="105,152,293,177"/>
+<area shape="poly" title=" " alt="" coords="451,106,260,151,259,146,450,101"/>
+<area shape="rect" href="TypeTraits_8hpp.html" title=" " alt="" coords="317,152,510,177"/>
+<area shape="poly" title=" " alt="" coords="483,106,439,145,435,141,480,102"/>
+<area shape="rect" title=" " alt="" coords="534,152,615,177"/>
+<area shape="poly" title=" " alt="" coords="509,102,553,141,550,145,506,106"/>
+<area shape="rect" title=" " alt="" coords="640,152,707,177"/>
+<area shape="poly" title=" " alt="" coords="524,102,633,144,631,149,522,107"/>
+<area shape="rect" title=" " alt="" coords="5,152,80,177"/>
+<area shape="poly" title=" " alt="" coords="451,101,297,121,94,155,93,149,296,116,450,95"/>
+<area shape="rect" title=" " alt="" coords="163,225,255,251"/>
+<area shape="poly" title=" " alt="" coords="203,177,208,211,203,212,198,178"/>
+<area shape="poly" title=" " alt="" coords="381,180,256,223,254,218,380,175"/>
+<area shape="rect" href="util_2Utility_8hpp.html" title=" " alt="" coords="341,225,507,251"/>
+<area shape="poly" title=" " alt="" coords="418,177,423,211,418,212,412,178"/>
+<area shape="rect" title=" " alt="" coords="273,299,332,324"/>
+<area shape="poly" title=" " alt="" coords="391,180,360,199,331,227,317,256,309,286,304,284,312,254,327,224,356,195,388,175"/>
+<area shape="rect" href="Config_8h.html" title=" " alt="" coords="248,372,376,397"/>
+<area shape="poly" title=" " alt="" coords="417,253,331,363,327,360,413,249"/>
+<area shape="rect" href="Math_8hpp.html" title=" " alt="" coords="458,299,619,324"/>
+<area shape="poly" title=" " alt="" coords="444,248,510,289,507,294,441,253"/>
+<area shape="rect" title=" " alt="" coords="401,372,439,397"/>
+<area shape="poly" title=" " alt="" coords="426,251,423,358,418,358,421,251"/>
+<area shape="rect" title=" " alt="" coords="725,372,792,397"/>
+<area shape="poly" title=" " alt="" coords="482,248,556,267,633,296,689,328,735,361,732,366,687,333,631,301,554,272,481,253"/>
+<area shape="poly" title=" " alt="" coords="476,248,682,294,681,299,475,253"/>
+<area shape="poly" title=" " alt="" coords="406,253,335,294,333,289,403,248"/>
+<area shape="poly" title=" " alt="" coords="503,327,363,370,361,365,501,321"/>
+<area shape="poly" title=" " alt="" coords="521,326,453,367,450,362,518,322"/>
+<area shape="rect" title=" " alt="" coords="558,372,621,397"/>
+<area shape="poly" title=" " alt="" coords="549,323,575,359,571,362,545,326"/>
+<area shape="rect" title=" " alt="" coords="645,372,701,397"/>
+<area shape="poly" title=" " alt="" coords="562,322,640,363,638,368,559,326"/>
+<area shape="rect" title=" " alt="" coords="464,372,533,397"/>
+<area shape="poly" title=" " alt="" coords="534,326,514,361,510,359,530,323"/>
+<area shape="poly" title=" " alt="" coords="575,321,713,366,712,371,573,327"/>
 </map>
 </div>
 </div>
@@ -136,8 +151,12 @@ Functions</h2></td></tr>
 <tr class="separator:a285ef210548733694898f3eb199abd44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa620fa04821c3d8c3dfb8d5ef494c246" id="r_aa620fa04821c3d8c3dfb8d5ef494c246"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#aa620fa04821c3d8c3dfb8d5ef494c246">toolbox::util::rtrim</a> (string &amp;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">s</a>) <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">noexcept</a></td></tr>
 <tr class="separator:aa620fa04821c3d8c3dfb8d5ef494c246"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a069e3e0ceba843f5371be7f9b480e793" id="r_a069e3e0ceba843f5371be7f9b480e793"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">pair</a>&lt; string_view, string_view &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a069e3e0ceba843f5371be7f9b480e793">toolbox::util::split_pair</a> (string_view <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">s</a>, string_view <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">delim</a>) <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">noexcept</a></td></tr>
+<tr class="separator:a069e3e0ceba843f5371be7f9b480e793"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c220b4678c5964fdf41cc51dc103f16" id="r_a0c220b4678c5964fdf41cc51dc103f16"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">pair</a>&lt; string_view, string_view &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a0c220b4678c5964fdf41cc51dc103f16">toolbox::util::split_pair</a> (string_view <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">s</a>, <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">char</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">delim</a>) <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">noexcept</a></td></tr>
 <tr class="separator:a0c220b4678c5964fdf41cc51dc103f16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaad79a54ad4af43c3854a7cfa05bd56" id="r_aeaad79a54ad4af43c3854a7cfa05bd56"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">pair</a>&lt; string, string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#aeaad79a54ad4af43c3854a7cfa05bd56">toolbox::util::split_pair</a> (<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">const</a> string &amp;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">s</a>, string_view <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">delim</a>)</td></tr>
+<tr class="separator:aeaad79a54ad4af43c3854a7cfa05bd56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00c6ad587f96f88fcd48d116b3dec8c9" id="r_a00c6ad587f96f88fcd48d116b3dec8c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">pair</a>&lt; string, string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a00c6ad587f96f88fcd48d116b3dec8c9">toolbox::util::split_pair</a> (<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">const</a> string &amp;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">s</a>, <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">char</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">delim</a>)</td></tr>
 <tr class="separator:a00c6ad587f96f88fcd48d116b3dec8c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>

@@ -1,11 +1,12 @@
 var searchData=
 [
-  ['testvaluelevel_0',['TestValueLevel',['../Histogram_8ut_8cpp.html#acff2cdcca73d7c082bfc5cce5e90e063',1,'Histogram.ut.cpp']]],
-  ['texthtml_1',['texthtml',['../namespacetoolbox_1_1http.html#ad25ae097393ed6e3fb57ed747baa1274',1,'toolbox::TextHtml'],['../namespacetoolbox_1_1http.html#ad25ae097393ed6e3fb57ed747baa1274',1,'toolbox::http::TextHtml']]],
-  ['textplain_2',['textplain',['../namespacetoolbox_1_1http.html#af80d97dc016c2035d69ea2a111f419ef',1,'toolbox::TextPlain'],['../namespacetoolbox_1_1http.html#af80d97dc016c2035d69ea2a111f419ef',1,'toolbox::http::TextPlain']]],
-  ['ticks_5fper_5fhalf_5fdistance_3',['ticks_per_half_distance',['../structtoolbox_1_1hdr_1_1PutPercentiles.html#ae2ebaedfbd2df29a9861dbe1c19ec7d0',1,'toolbox::hdr::PutPercentiles']]],
-  ['time_4',['time',['../structtoolbox_1_1sys_1_1PutTime.html#a8c50413dacb3e6d70189db7a5ce46728',1,'toolbox::sys::PutTime']]],
-  ['total_5fcount_5f_5',['total_count_',['../classtoolbox_1_1hdr_1_1Iterator.html#a7afbc851cf77d7360fa9868e0b4f68a0',1,'toolbox::hdr::Iterator']]],
-  ['tq_6',['tq',['../structtoolbox_1_1io_1_1Timer_1_1Impl.html#aa099016dcd855981775495c3f00cb593',1,'toolbox::io::Timer::Impl']]],
-  ['type_7',['type',['../structtoolbox_1_1io_1_1MsgEvent.html#aa5e879f35bbe739189dede0f18c3ffe5',1,'toolbox::io::MsgEvent']]]
+  ['sched_5fpolicy_0',['sched_policy',['../structtoolbox_1_1sys_1_1ThreadConfig.html#aa1ebb5df44ce2006ab6d8b610e4ad9aa',1,'toolbox::sys::ThreadConfig']]],
+  ['significant_1',['Significant',['../Histogram_8ut_8cpp.html#a22678a40293e741b6038b8d9bf2af131',1,'Histogram.ut.cpp']]],
+  ['significant_5ffigures_2',['significant_figures',['../structtoolbox_1_1hdr_1_1BucketConfig.html#acfc7142f20969085e6244b35bc3402f7',1,'toolbox::hdr::BucketConfig']]],
+  ['slot_3',['slot',['../structtoolbox_1_1io_1_1Hook.html#afb2d73253e9534a4a6fea80a027c4030',1,'toolbox::io::Hook::slot'],['../structtoolbox_1_1io_1_1Timer_1_1Impl.html#a93cee9355408d5f62ea2064e5ae8e1a6',1,'toolbox::io::Timer::Impl::slot']]],
+  ['struct_4',['struct',['../namespacetoolbox_1_1util.html#a423a7e6275c1fd514196e626688e1cf5',1,'toolbox::Struct'],['../namespacetoolbox_1_1util.html#a423a7e6275c1fd514196e626688e1cf5',1,'toolbox::util::Struct']]],
+  ['sub_5fbucket_5fcount_5',['sub_bucket_count',['../structtoolbox_1_1hdr_1_1BucketConfig.html#aaec07134d48a0f365e8fd5717a27b301',1,'toolbox::hdr::BucketConfig']]],
+  ['sub_5fbucket_5fhalf_5fcount_6',['sub_bucket_half_count',['../structtoolbox_1_1hdr_1_1BucketConfig.html#a4fc4fb7fa47ded25999e669297a09f35',1,'toolbox::hdr::BucketConfig']]],
+  ['sub_5fbucket_5fhalf_5fcount_5fmagnitude_7',['sub_bucket_half_count_magnitude',['../structtoolbox_1_1hdr_1_1BucketConfig.html#ab69d1ab7ccd5bb757a1e8901e0fa7ec2',1,'toolbox::hdr::BucketConfig']]],
+  ['sub_5fbucket_5fmask_8',['sub_bucket_mask',['../structtoolbox_1_1hdr_1_1BucketConfig.html#a53038d3e15a9b60c7b25b6fff05b6e42',1,'toolbox::hdr::BucketConfig']]]
 ];

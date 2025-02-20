@@ -82,21 +82,38 @@ $(function() {
   <div class="headertitle"><div class="title">Utility.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="Config_8h_source.html">toolbox/Config.h</a>&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="Iterator_8hpp_source.html">Iterator.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Histogram_8hpp_source.html">Histogram.hpp</a>&quot;</code><br />
+<code>#include &lt;<a class="el" href="Concepts_8hpp_source.html">toolbox/util/Concepts.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="Config_8h_source.html">toolbox/Config.h</a>&gt;</code><br />
 <code>#include &lt;cstdint&gt;</code><br />
-<code>#include &lt;iosfwd&gt;</code><br />
+<code>#include &lt;format&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Utility.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="hdr_2Utility_8hpp__incl.png" border="0" usemap="#atoolbox_2hdr_2Utility_8hpp" alt=""/></div>
 <map name="atoolbox_2hdr_2Utility_8hpp" id="atoolbox_2hdr_2Utility_8hpp">
-<area shape="rect" title=" " alt="" coords="107,5,274,31"/>
-<area shape="rect" href="Config_8h.html" title=" " alt="" coords="5,79,133,104"/>
-<area shape="poly" title=" " alt="" coords="173,33,102,74,99,69,170,28"/>
-<area shape="rect" title=" " alt="" coords="157,79,224,104"/>
-<area shape="poly" title=" " alt="" coords="193,31,193,65,188,65,188,31"/>
-<area shape="rect" title=" " alt="" coords="248,79,312,104"/>
-<area shape="poly" title=" " alt="" coords="207,29,256,68,253,72,203,33"/>
+<area shape="rect" title=" " alt="" coords="169,5,336,31"/>
+<area shape="rect" href="Iterator_8hpp.html" title=" " alt="" coords="24,79,121,104"/>
+<area shape="poly" title=" " alt="" coords="225,33,116,76,114,71,223,28"/>
+<area shape="rect" href="Config_8h.html" title=" " alt="" coords="9,152,137,177"/>
+<area shape="poly" title=" " alt="" coords="170,31,75,50,37,64,13,80,8,96,14,112,28,128,45,142,41,146,24,132,10,114,3,96,9,77,34,59,74,45,169,26"/>
+<area shape="rect" title=" " alt="" coords="166,152,233,177"/>
+<area shape="poly" title=" " alt="" coords="263,30,279,64,282,85,278,105,260,129,237,147,234,143,256,125,273,103,277,84,274,65,258,32"/>
+<area shape="rect" href="Histogram_8hpp.html" title=" " alt="" coords="145,79,264,104"/>
+<area shape="poly" title=" " alt="" coords="247,33,222,69,218,66,242,30"/>
+<area shape="rect" href="Concepts_8hpp.html" title=" " alt="" coords="340,79,528,104"/>
+<area shape="poly" title=" " alt="" coords="283,28,393,71,391,76,281,33"/>
+<area shape="rect" title=" " alt="" coords="553,79,619,104"/>
+<area shape="poly" title=" " alt="" coords="312,28,540,76,538,81,311,33"/>
+<area shape="poly" title=" " alt="" coords="75,104,75,138,70,138,70,104"/>
+<area shape="poly" title=" " alt="" coords="94,102,168,143,165,147,92,106"/>
+<area shape="poly" title=" " alt="" coords="185,106,107,148,105,143,182,102"/>
+<area shape="poly" title=" " alt="" coords="206,105,204,139,198,138,201,104"/>
+<area shape="rect" title=" " alt="" coords="257,152,320,177"/>
+<area shape="poly" title=" " alt="" coords="220,102,266,141,263,145,216,106"/>
+<area shape="rect" title=" " alt="" coords="388,152,480,177"/>
+<area shape="poly" title=" " alt="" coords="437,104,437,138,431,138,431,104"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -147,8 +164,10 @@ Functions</h2></td></tr>
 <tr class="separator:acaa02c73eae0674cebfb704fcd7150d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e18ceb8bdf5eb22576d8d80128dfa00" id="r_a2e18ceb8bdf5eb22576d8d80128dfa00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">auto</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1hdr.html#a2e18ceb8bdf5eb22576d8d80128dfa00">toolbox::hdr::put_percentiles</a> (<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">const</a> <a class="el" href="classtoolbox_1_1hdr_1_1Histogram.html">Histogram</a> &amp;h, std::int32_t ticks_per_half_distance, <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">double</a> value_scale) <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">noexcept</a></td></tr>
 <tr class="separator:a2e18ceb8bdf5eb22576d8d80128dfa00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0ca8215da3b57b3aabf36a261b91f0d" id="r_ac0ca8215da3b57b3aabf36a261b91f0d"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1hdr.html#ac0ca8215da3b57b3aabf36a261b91f0d">toolbox::hdr::operator&lt;&lt;</a> (ostream &amp;os, <a class="el" href="structtoolbox_1_1hdr_1_1PutPercentiles.html">PutPercentiles</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">pp</a>)</td></tr>
-<tr class="separator:ac0ca8215da3b57b3aabf36a261b91f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add72c59603a707936a4423763c4e750f" id="r_add72c59603a707936a4423763c4e750f"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">typename</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &gt; <br />
+requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a>&gt;</td></tr>
+<tr class="memitem:add72c59603a707936a4423763c4e750f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1hdr.html#add72c59603a707936a4423763c4e750f">toolbox::hdr::operator&lt;&lt;</a> (<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &amp;os, <a class="el" href="structtoolbox_1_1hdr_1_1PutPercentiles.html">PutPercentiles</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">pp</a>)</td></tr>
+<tr class="separator:add72c59603a707936a4423763c4e750f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

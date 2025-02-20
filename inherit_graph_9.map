@@ -1,5 +1,19 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" title=" " alt="" coords="5,13,147,38"/>
-<area shape="rect" id="Node000001" href="$structtoolbox_1_1util_1_1is__string.html" title=" " alt="" coords="195,5,357,45"/>
-<area shape="poly" id="edge26_Node000000_Node000001" title=" " alt="" coords="161,23,195,23,195,28,161,28"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,119,112,145"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="160,119,331,145"/>
+<area shape="poly" id="edge25_Node000000_Node000001" title=" " alt="" coords="126,129,160,129,160,135,126,135"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="379,112,524,152"/>
+<area shape="poly" id="edge26_Node000001_Node000002" title=" " alt="" coords="344,129,378,129,378,135,344,135"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="572,119,676,145"/>
+<area shape="poly" id="edge27_Node000002_Node000003" title=" " alt="" coords="538,129,572,129,572,135,538,135"/>
+<area shape="rect" id="Node000004" href="$classtoolbox_1_1util_1_1OStaticStream.html" title=" " alt="" coords="724,5,927,45"/>
+<area shape="poly" id="edge28_Node000003_Node000004" title=" " alt="" coords="647,108,682,81,723,55,750,43,752,48,725,60,685,85,651,112"/>
+<area shape="rect" id="Node000005" href="$classtoolbox_1_1http_1_1OStream.html" title=" " alt="" coords="740,70,911,95"/>
+<area shape="poly" id="edge29_Node000003_Node000005" title=" " alt="" coords="687,113,723,104,770,93,771,98,725,109,688,118"/>
+<area shape="rect" id="Node000006" href="$classtoolbox_1_1io_1_1OStream.html" title=" " alt="" coords="747,119,903,145"/>
+<area shape="poly" id="edge30_Node000003_Node000006" title=" " alt="" coords="690,129,747,129,747,135,690,135"/>
+<area shape="rect" id="Node000007" href="$classtoolbox_1_1util_1_1OStaticStream.html" title=" " alt="" coords="724,169,927,209"/>
+<area shape="poly" id="edge31_Node000003_Node000007" title=" " alt="" coords="683,146,755,167,754,172,682,151"/>
+<area shape="rect" id="Node000008" href="$classtoolbox_1_1util_1_1OStream.html" title="OStream uses a dynamic storage acquired from the custom allocator." alt="" coords="743,233,908,273"/>
+<area shape="poly" id="edge32_Node000003_Node000008" title=" " alt="" coords="647,153,682,187,725,219,750,231,748,236,723,224,678,191,643,157"/>
 </map>

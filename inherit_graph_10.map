@@ -1,11 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" title=" " alt="" coords="5,84,123,109"/>
-<area shape="rect" id="Node000001" href="$classtoolbox_1_1http_1_1StreamBuf.html" title=" " alt="" coords="175,5,358,31"/>
-<area shape="poly" id="edge27_Node000000_Node000001" title=" " alt="" coords="97,75,170,40,205,28,207,33,172,44,99,80"/>
-<area shape="rect" id="Node000002" href="$classtoolbox_1_1io_1_1StreamBuf.html" title=" " alt="" coords="183,55,351,80"/>
-<area shape="poly" id="edge28_Node000000_Node000002" title=" " alt="" coords="136,84,182,77,183,82,137,89"/>
-<area shape="rect" id="Node000003" href="$classtoolbox_1_1util_1_1StaticStreamBuf.html" title=" " alt="" coords="171,105,363,145"/>
-<area shape="poly" id="edge29_Node000000_Node000003" title=" " alt="" coords="137,104,171,109,170,114,136,109"/>
-<area shape="rect" id="Node000004" href="$classtoolbox_1_1util_1_1StreamBuf.html" title="StreamBuf uses a dynamic storage acquired from the custom allocator." alt="" coords="178,169,355,209"/>
-<area shape="poly" id="edge30_Node000000_Node000004" title=" " alt="" coords="98,114,172,154,202,166,200,171,170,159,95,119"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,13,109,38"/>
+<area shape="rect" id="Node000001" href="$structtoolbox_1_1util_1_1is__decay__to__cstring__helper_3_01T_01_5_01_4.html" title=" " alt="" coords="157,5,348,45"/>
+<area shape="poly" id="edge33_Node000000_Node000001" title=" " alt="" coords="123,23,157,23,157,28,123,28"/>
 </map>

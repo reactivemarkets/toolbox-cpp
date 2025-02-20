@@ -1,15 +1,19 @@
 <map id="toolbox/util/Stream.hpp" name="toolbox/util/Stream.hpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="218,5,393,31"/>
-<area shape="rect" id="Node000002" href="$Storage_8hpp.html" title=" " alt="" coords="119,79,297,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="291,33,237,72,234,68,288,29"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="322,79,483,104"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="323,29,377,68,374,72,319,33"/>
-<area shape="rect" id="Node000003" href="$Allocator_8hpp.html" title=" " alt="" coords="38,152,223,177"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="197,106,155,144,152,141,194,102"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="248,152,325,177"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="222,102,266,141,262,145,219,106"/>
-<area shape="rect" id="Node000004" href="$Config_8h.html" title=" " alt="" coords="5,225,133,251"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="123,179,90,217,86,213,119,176"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="158,225,229,251"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="143,176,176,213,172,217,139,179"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="220,5,395,31"/>
+<area shape="rect" id="Node000002" href="$Concepts_8hpp.html" title=" " alt="" coords="5,79,193,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="275,33,147,77,145,72,273,28"/>
+<area shape="rect" id="Node000004" href="$Storage_8hpp.html" title=" " alt="" coords="218,79,397,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="310,31,310,65,305,65,305,31"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="421,79,583,104"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="340,28,458,71,457,76,338,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="53,152,145,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="102,104,102,138,97,138,97,104"/>
+<area shape="rect" id="Node000005" href="$Allocator_8hpp.html" title=" " alt="" coords="192,152,377,177"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="306,105,295,140,290,138,301,104"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="402,152,479,177"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="330,102,408,143,406,148,328,106"/>
+<area shape="rect" id="Node000006" href="$Config_8h.html" title=" " alt="" coords="158,225,286,251"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="276,179,243,217,239,213,272,176"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="311,225,381,251"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="297,176,329,213,325,217,293,179"/>
 </map>

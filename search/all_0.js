@@ -16,7 +16,7 @@ var searchData=
   ['alarm_2ehpp_13',['Alarm.hpp',['../Alarm_8hpp.html',1,'']]],
   ['algorithms_14',['Algorithms',['../md_doc_2Algorithms.html',1,'']]],
   ['algorithms_2emd_15',['Algorithms.md',['../Algorithms_8md.html',1,'']]],
-  ['allocate_16',['allocate',['../namespacetoolbox.html#a95c4bf790e288af418a65d361531ab17',1,'toolbox::allocate()'],['../classtoolbox_1_1io_1_1TimerPool.html#a01a503d82451fcfad3283d1366fea827',1,'toolbox::io::TimerPool::allocate()'],['../namespacetoolbox.html#a68032542904e1df77c7aa6525f48f3db',1,'toolbox::allocate(size_t size)']]],
+  ['allocate_16',['allocate',['../namespacetoolbox.html#a95c4bf790e288af418a65d361531ab17',1,'toolbox::allocate()'],['../classtoolbox_1_1io_1_1TimerPool.html#a62060b99ec609133bae428513df0b272',1,'toolbox::io::TimerPool::allocate()'],['../namespacetoolbox.html#a68032542904e1df77c7aa6525f48f3db',1,'toolbox::allocate(size_t size)']]],
   ['allocator_17',['allocator',['../structtoolbox_1_1util_1_1Allocator.html',1,'toolbox::Allocator'],['../structtoolbox_1_1util_1_1Allocator.html',1,'toolbox::util::Allocator']]],
   ['allocator_2ecpp_18',['Allocator.cpp',['../Allocator_8cpp.html',1,'']]],
   ['allocator_2ehpp_19',['Allocator.hpp',['../Allocator_8hpp.html',1,'']]],
