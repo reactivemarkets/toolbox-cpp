@@ -22,6 +22,7 @@
 
 #include <boost/test/unit_test.hpp>
 #include <thread>
+#include <string_view>
 
 using namespace std;
 using namespace toolbox;
@@ -74,6 +75,70 @@ BOOST_AUTO_TEST_CASE(ReactorLevelCase)
 
     BOOST_CHECK_EQUAL(r.poll(now, 0ms), 0);
     BOOST_CHECK_EQUAL(h->matches, 3);
+}
+
+BOOST_AUTO_TEST_CASE(ReactorSocketPriority)
+{
+    using namespace literals::chrono_literals;
+
+    Reactor r{1024};
+
+    auto [first_sock, second_sock] = socketpair(UnixStreamProtocol{});
+
+    std::vector<int> fd_process_order;
+    auto handler = [&](CyclTime, int fd, unsigned) {
+        char buf[5];
+        auto rcvd = os::recv(fd, buf, 5, 0);
+        BOOST_CHECK_EQUAL(rcvd, 5);
+
+        std::string_view bsv(buf, buf+sizeof(buf));
+        BOOST_CHECK_EQUAL(bsv, "Hello");
+        fd_process_order.push_back(fd);
+    };
+
+    auto sub1 = r.subscribe(*first_sock, EpollIn, bind(&handler));
+    auto sub2 = r.subscribe(*second_sock, EpollIn, bind(&handler));
+
+    // test send data from first_sock --> second_sock
+    first_sock.send("Hello", 5, 0);
+    r.poll(CyclTime::now(), 0ms);
+    BOOST_CHECK_EQUAL(fd_process_order.size(), 1);
+    BOOST_CHECK_EQUAL(fd_process_order[0], *second_sock);
+    fd_process_order.clear();
+
+    // test send data from second_sock --> first_sock
+    second_sock.send("Hello", 5, 0);
+    r.poll(CyclTime::now(), 0ms);
+    BOOST_CHECK_EQUAL(fd_process_order.size(), 1);
+    BOOST_CHECK_EQUAL(fd_process_order[0], *first_sock);
+    fd_process_order.clear();
+
+    // send data to both sockets -- but from `first_sock` first
+    // Set priority of `first_sock` to be High.
+    // `second_sock` will receive data first, but because of High priority
+    // of `first_sock`, it will be processed first.
+    sub1.set_io_priority(Priority::High);
+    sub2.set_io_priority(Priority::Low);
+    first_sock.send("Hello", 5, 0);
+    std::this_thread::sleep_for(100ms);
+    second_sock.send("Hello", 5, 0);
+    r.poll(CyclTime::now(), 0ms);
+    BOOST_CHECK_EQUAL(fd_process_order.size(), 2);
+    BOOST_CHECK_EQUAL(fd_process_order[0], *first_sock);
+    BOOST_CHECK_EQUAL(fd_process_order[1], *second_sock);
+    fd_process_order.clear();
+
+    // Do same again, except switch priorities.
+    sub1.set_io_priority(Priority::Low);
+    sub2.set_io_priority(Priority::High);
+    first_sock.send("Hello", 5, 0);
+    std::this_thread::sleep_for(100ms);
+    second_sock.send("Hello", 5, 0);
+    r.poll(CyclTime::now(), 0ms);
+    BOOST_CHECK_EQUAL(fd_process_order.size(), 2);
+    BOOST_CHECK_EQUAL(fd_process_order[0], *second_sock);
+    BOOST_CHECK_EQUAL(fd_process_order[1], *first_sock);
+    fd_process_order.clear();
 }
 
 BOOST_AUTO_TEST_CASE(ReactorEdgeCase)

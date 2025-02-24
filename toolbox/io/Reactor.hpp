@@ -119,6 +119,12 @@ class TOOLBOX_API Reactor : public Waker {
             reactor_->set_events(fd_, sid_, events);
         }
 
+        void set_io_priority(Priority priority)
+        {
+            assert(reactor_);
+            reactor_->set_io_priority(fd_, sid_, priority);
+        }
+
       private:
         Reactor* reactor_{nullptr};
         int fd_{-1}, sid_{0};
@@ -173,17 +179,20 @@ class TOOLBOX_API Reactor : public Waker {
   private:
     MonoTime next_expiry(MonoTime next) const;
 
-    int dispatch(CyclTime now, Event* buf, int size);
+    // dispatch events only for file descriptors with specified priority
+    int dispatch(CyclTime now, Event* buf, int size, Priority priority);
     void set_events(int fd, int sid, unsigned events, IoSlot slot, std::error_code& ec) noexcept;
     void set_events(int fd, int sid, unsigned events, IoSlot slot);
     void set_events(int fd, int sid, unsigned events, std::error_code& ec) noexcept;
     void set_events(int fd, int sid, unsigned events);
     void unsubscribe(int fd, int sid) noexcept;
+    void set_io_priority(int fd, int sid, Priority priority) noexcept;
 
     struct Data {
         int sid{};
         unsigned events{};
         IoSlot slot;
+        Priority priority = Priority::Low;
     };
     Epoll epoll_;
     std::vector<Data> data_;
