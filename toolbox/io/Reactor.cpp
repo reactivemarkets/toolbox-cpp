@@ -65,6 +65,7 @@ Reactor::Handle Reactor::subscribe(int fd, unsigned events, IoSlot slot)
     epoll_.add(fd, ++ref.sid, events);
     ref.events = events;
     ref.slot = slot;
+    ref.priority = Priority::Low;
     return {*this, fd, ref.sid};
 }
 
@@ -107,7 +108,8 @@ int Reactor::poll(CyclTime now, Duration timeout)
     // High priority timers.
     work = tqs_[High].dispatch(now);
     // I/O events.
-    work += dispatch(now, buf, n);
+    work += dispatch(now, buf, n, Priority::High);
+    work += dispatch(now, buf, n, Priority::Low);
     // Low priority timers (typically only dispatched during empty cycles).
     work += dispatch_low_priority_timers(now, tqs_[Low], work == 0);
     // End of cycle hooks.
@@ -147,18 +149,24 @@ MonoTime Reactor::next_expiry(MonoTime next) const
     return next;
 }
 
-int Reactor::dispatch(CyclTime now, Event* buf, int size)
+int Reactor::dispatch(CyclTime now, Event* buf, int size, Priority priority)
 {
     int work{0};
     for (int i{0}; i < size; ++i) {
 
         auto& ev = buf[i];
         const auto fd = epoll_.fd(ev);
+        const auto& ref = data_[fd];
+
+        if (ref.priority != priority) {
+            continue;
+        }
+
         if (fd == notify_.fd()) {
             notify_.read();
             continue;
         }
-        const auto& ref = data_[fd];
+
         if (!ref.slot) {
             // Ignore timerfd.
             continue;
@@ -243,6 +251,15 @@ void Reactor::unsubscribe(int fd, int sid) noexcept
         epoll_.del(fd);
         ref.events = 0;
         ref.slot.reset();
+        ref.priority = Priority::Low;
+    }
+}
+
+void Reactor::set_io_priority(int fd, int sid, Priority priority) noexcept
+{
+    auto& ref = data_[fd];
+    if (ref.sid == sid) {
+        ref.priority = priority;
     }
 }
 
