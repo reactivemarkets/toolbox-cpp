@@ -96,9 +96,10 @@ class TOOLBOX_API Buffer {
     /// Reserve storage.
     void reserve(std::size_t capacity) { buf_.reserve(capacity); }
 
+    char* wptr() noexcept { return buf_.data() + wpos_; }
+
   private:
     const char* rptr() const noexcept { return buf_.data() + rpos_; }
-    char* wptr() noexcept { return buf_.data() + wpos_; }
     std::size_t available() const noexcept { return buf_.size() - wpos_; }
 
     std::size_t rpos_{}, wpos_{};
