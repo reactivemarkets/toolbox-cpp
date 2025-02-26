@@ -1,11 +1,5 @@
 <map id="toolbox::util::OStaticStream&lt; MaxN &gt;" name="toolbox::util::OStaticStream&lt; MaxN &gt;">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,313,208,353"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="55,240,159,265"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,279,109,313,104,313,104,279"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="34,152,179,192"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="109,206,109,240,104,240,104,206"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="21,79,192,104"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="109,118,109,152,104,152,104,118"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="53,5,160,31"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="109,44,109,79,104,79,104,44"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="11,93,214,133"/>
+<area shape="rect" id="Node000002" href="$classtoolbox_1_1util_1_1OStreamBase.html" title=" " alt="" coords="5,5,220,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,59,115,93,110,93,110,59"/>
 </map>

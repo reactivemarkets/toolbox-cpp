@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['value_5ftype_0',['value_type',['../classtoolbox_1_1util_1_1ArrayView.html#a2f42774104954d981f6f7cd34d888e23',1,'toolbox::util::ArrayView']]],
-  ['valuetype_1',['valuetype',['../structtoolbox_1_1util_1_1IntPolicy.html#ade0bf144c40a316b83df83c49460454f',1,'toolbox::util::IntPolicy::ValueType'],['../structtoolbox_1_1util_1_1IntWrapper.html#a70bc524136ec3ada22de54944021f452',1,'toolbox::util::IntWrapper::ValueType']]]
+  ['walltime_0',['walltime',['../namespacetoolbox_1_1sys.html#a657ecd4f98265bd34f835f59975db04e',1,'toolbox::WallTime'],['../namespacetoolbox_1_1sys.html#a657ecd4f98265bd34f835f59975db04e',1,'toolbox::sys::WallTime']]],
+  ['watchfilehandle_1',['watchfilehandle',['../namespacetoolbox_1_1io.html#a8f0df13468c4484da518e52788605e2b',1,'toolbox::WatchFileHandle'],['../namespacetoolbox_1_1io.html#a8f0df13468c4484da518e52788605e2b',1,'toolbox::io::WatchFileHandle']]]
 ];

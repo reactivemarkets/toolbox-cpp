@@ -78,37 +78,74 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">Stream.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="Concepts_8hpp_source.html">toolbox/util/Concepts.hpp</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="OStreamBase_8hpp_source.html">toolbox/util/OStreamBase.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="Concepts_8hpp_source.html">toolbox/util/Concepts.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="Storage_8hpp_source.html">toolbox/util/Storage.hpp</a>&gt;</code><br />
-<code>#include &lt;experimental/iterator&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Stream.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="util_2Stream_8hpp__incl.png" border="0" usemap="#atoolbox_2util_2Stream_8hpp" alt=""/></div>
 <map name="atoolbox_2util_2Stream_8hpp" id="atoolbox_2util_2Stream_8hpp">
-<area shape="rect" title=" " alt="" coords="220,5,395,31"/>
-<area shape="rect" href="Concepts_8hpp.html" title=" " alt="" coords="5,79,193,104"/>
-<area shape="poly" title=" " alt="" coords="275,33,147,77,145,72,273,28"/>
-<area shape="rect" href="Storage_8hpp.html" title=" " alt="" coords="218,79,397,104"/>
-<area shape="poly" title=" " alt="" coords="310,31,310,65,305,65,305,31"/>
-<area shape="rect" title=" " alt="" coords="421,79,583,104"/>
-<area shape="poly" title=" " alt="" coords="340,28,458,71,457,76,338,33"/>
-<area shape="rect" title=" " alt="" coords="53,152,145,177"/>
-<area shape="poly" title=" " alt="" coords="102,104,102,138,97,138,97,104"/>
-<area shape="rect" href="Allocator_8hpp.html" title=" " alt="" coords="192,152,377,177"/>
-<area shape="poly" title=" " alt="" coords="306,105,295,140,290,138,301,104"/>
-<area shape="rect" title=" " alt="" coords="402,152,479,177"/>
-<area shape="poly" title=" " alt="" coords="330,102,408,143,406,148,328,106"/>
-<area shape="rect" href="Config_8h.html" title=" " alt="" coords="158,225,286,251"/>
-<area shape="poly" title=" " alt="" coords="276,179,243,217,239,213,272,176"/>
-<area shape="rect" title=" " alt="" coords="311,225,381,251"/>
-<area shape="poly" title=" " alt="" coords="297,176,329,213,325,217,293,179"/>
+<area shape="rect" title=" " alt="" coords="734,5,909,31"/>
+<area shape="rect" href="OStreamBase_8hpp.html" title=" " alt="" coords="347,79,565,104"/>
+<area shape="poly" title=" " alt="" coords="763,33,529,79,528,73,762,28"/>
+<area shape="rect" href="Concepts_8hpp.html" title=" " alt="" coords="727,79,915,104"/>
+<area shape="poly" title=" " alt="" coords="824,31,824,65,819,65,819,31"/>
+<area shape="rect" href="Storage_8hpp.html" title=" " alt="" coords="940,79,1119,104"/>
+<area shape="poly" title=" " alt="" coords="856,28,983,72,982,77,854,33"/>
+<area shape="rect" title=" " alt="" coords="527,152,612,177"/>
+<area shape="poly" title=" " alt="" coords="476,102,541,142,538,147,473,106"/>
+<area shape="rect" title=" " alt="" coords="637,152,718,177"/>
+<area shape="poly" title=" " alt="" coords="492,101,630,145,628,150,491,107"/>
+<area shape="rect" title=" " alt="" coords="743,152,823,177"/>
+<area shape="poly" title=" " alt="" coords="509,101,730,149,728,154,508,107"/>
+<area shape="rect" title=" " alt="" coords="362,225,454,251"/>
+<area shape="poly" title=" " alt="" coords="434,106,406,126,393,138,384,153,380,168,382,183,394,213,389,215,376,185,375,168,379,151,389,135,402,122,431,102"/>
+<area shape="rect" title=" " alt="" coords="53,299,112,324"/>
+<area shape="poly" title=" " alt="" coords="348,103,267,120,227,135,189,154,155,183,128,219,108,256,94,287,89,285,103,253,124,216,151,179,187,150,225,130,265,115,347,97"/>
+<area shape="rect" title=" " alt="" coords="475,299,573,324"/>
+<area shape="poly" title=" " alt="" coords="462,104,519,284,514,286,457,105"/>
+<area shape="rect" title=" " alt="" coords="5,372,75,397"/>
+<area shape="poly" title=" " alt="" coords="347,98,300,105,250,115,201,132,156,154,113,184,84,214,63,250,44,299,38,330,39,359,34,359,33,329,39,298,58,248,80,211,109,180,153,150,199,127,249,110,299,99,347,93"/>
+<area shape="rect" title=" " alt="" coords="393,152,452,177"/>
+<area shape="poly" title=" " alt="" coords="453,105,436,141,431,139,448,103"/>
+<area shape="rect" href="TypeTraits_8hpp.html" title=" " alt="" coords="200,152,315,177"/>
+<area shape="poly" title=" " alt="" coords="425,107,304,150,302,145,423,102"/>
+<area shape="poly" title=" " alt="" coords="283,175,372,217,370,222,280,180"/>
+<area shape="poly" title=" " alt="" coords="235,180,199,200,160,227,128,259,101,290,97,286,124,255,157,223,196,196,233,175"/>
+<area shape="rect" href="util_2Utility_8hpp.html" title=" " alt="" coords="171,225,338,251"/>
+<area shape="poly" title=" " alt="" coords="260,178,258,212,253,212,254,178"/>
+<area shape="poly" title=" " alt="" coords="228,253,124,296,122,291,226,248"/>
+<area shape="poly" title=" " alt="" coords="299,248,468,293,467,298,297,253"/>
+<area shape="rect" href="Config_8h.html" title=" " alt="" coords="444,372,572,397"/>
+<area shape="poly" title=" " alt="" coords="285,248,334,269,388,296,441,330,485,362,481,366,438,334,385,301,332,274,283,253"/>
+<area shape="rect" href="Math_8hpp.html" title=" " alt="" coords="187,299,349,324"/>
+<area shape="poly" title=" " alt="" coords="259,251,266,285,261,286,254,251"/>
+<area shape="rect" title=" " alt="" coords="123,372,162,397"/>
+<area shape="poly" title=" " alt="" coords="234,253,205,273,177,300,161,330,151,359,146,358,156,328,173,297,201,269,231,249"/>
+<area shape="rect" title=" " alt="" coords="353,372,420,397"/>
+<area shape="poly" title=" " alt="" coords="290,248,327,267,346,281,362,297,378,327,386,357,381,359,373,329,358,300,343,285,325,272,287,253"/>
+<area shape="poly" title=" " alt="" coords="232,327,89,371,87,366,231,321"/>
+<area shape="poly" title=" " alt="" coords="307,321,457,365,455,371,306,327"/>
+<area shape="poly" title=" " alt="" coords="249,326,176,368,173,363,247,322"/>
+<area shape="rect" title=" " alt="" coords="186,372,249,397"/>
+<area shape="poly" title=" " alt="" coords="262,326,236,362,231,359,257,323"/>
+<area shape="rect" title=" " alt="" coords="273,372,329,397"/>
+<area shape="poly" title=" " alt="" coords="276,323,293,359,288,361,271,325"/>
+<area shape="poly" title=" " alt="" coords="288,322,357,362,354,367,286,326"/>
+<area shape="poly" title=" " alt="" coords="831,103,844,139,845,160,837,179,811,198,773,212,726,223,674,230,563,238,468,240,468,235,563,233,673,225,725,217,772,207,809,193,833,176,840,159,839,140,826,105"/>
+<area shape="rect" href="Allocator_8hpp.html" title=" " alt="" coords="898,152,1083,177"/>
+<area shape="poly" title=" " alt="" coords="1025,106,1006,141,1001,139,1021,103"/>
+<area shape="rect" title=" " alt="" coords="1108,152,1185,177"/>
+<area shape="poly" title=" " alt="" coords="1050,102,1117,142,1114,147,1047,106"/>
+<area shape="poly" title=" " alt="" coords="966,180,547,369,545,364,964,175"/>
+<area shape="rect" title=" " alt="" coords="955,225,1026,251"/>
+<area shape="poly" title=" " alt="" coords="993,178,993,212,988,212,988,178"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -260,17 +297,14 @@ This graph shows which files directly or indirectly include this file:</div>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1util_1_1detail_1_1ResetState.html">toolbox::util::detail::ResetState</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1util_1_1StreamBuf.html">toolbox::util::StreamBuf&lt; MaxN &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classtoolbox_1_1util_1_1StreamBuf.html" title="StreamBuf uses a dynamic storage acquired from the custom allocator.">StreamBuf</a> uses a dynamic storage acquired from the custom allocator.  <a href="classtoolbox_1_1util_1_1StreamBuf.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1util_1_1OStream.html">toolbox::util::OStream&lt; MaxN &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classtoolbox_1_1util_1_1OStream.html" title="OStream uses a dynamic storage acquired from the custom allocator.">OStream</a> uses a dynamic storage acquired from the custom allocator.  <a href="classtoolbox_1_1util_1_1OStream.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1util_1_1StaticStreamBuf.html">toolbox::util::StaticStreamBuf&lt; MaxN &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1util_1_1OStaticStream.html">toolbox::util::OStaticStream&lt; MaxN &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1util_1_1OStreamIterator.html">toolbox::util::OStreamIterator&lt; StreamT &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1util_1_1OStreamJoiner.html">toolbox::util::OStreamJoiner&lt; StreamT, DelimT &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -281,31 +315,15 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacetoolbox_1_1util_1_1detail" id="r_namespacetoolbox_1_1util_1_1detail"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util_1_1detail.html">toolbox::util::detail</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespacestd" id="r_namespacestd"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestd.html">std</a></td></tr>
-<tr class="memdesc:namespacestd"><td class="mdescLeft">&#160;</td><td class="mdescRight">STL namespace. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespacestd_1_1experimental" id="r_namespacestd_1_1experimental"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestd_1_1experimental.html">std::experimental</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a33f065adac243948f57cc49a55bbf348" id="r_a33f065adac243948f57cc49a55bbf348"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a33f065adac243948f57cc49a55bbf348">toolbox::util::OStreamJoiner</a> = std::experimental::ostream_joiner&lt; <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">char</a> &gt;</td></tr>
-<tr class="separator:a33f065adac243948f57cc49a55bbf348"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a4c1a0cfa910eacd509e0534ab1ba4868" id="r_a4c1a0cfa910eacd509e0534ab1ba4868"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util_1_1detail.html#a4c1a0cfa910eacd509e0534ab1ba4868">toolbox::util::detail::operator&lt;&lt;</a> (ostream &amp;os, <a class="el" href="structtoolbox_1_1util_1_1detail_1_1ResetState.html">ResetState</a>) <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">noexcept</a></td></tr>
 <tr class="separator:a4c1a0cfa910eacd509e0534ab1ba4868"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12e933f09d08f3d4e212107b35ff6587" id="r_a12e933f09d08f3d4e212107b35ff6587"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a12e933f09d08f3d4e212107b35ff6587">toolbox::util::reset</a> (std::ostream &amp;os) <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">noexcept</a></td></tr>
-<tr class="separator:a12e933f09d08f3d4e212107b35ff6587"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27cbff2e545c5d6bfb5e86ae934485d1" id="r_a27cbff2e545c5d6bfb5e86ae934485d1"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">auto</a> DelimT, <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">typename</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">ArgT</a> , typename... ArgsT&gt; </td></tr>
-<tr class="memitem:a27cbff2e545c5d6bfb5e86ae934485d1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a27cbff2e545c5d6bfb5e86ae934485d1">toolbox::util::join</a> (std::ostream &amp;os, <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">const</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">ArgT</a> &amp;arg, <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">const</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">ArgsT</a> &amp;... args)</td></tr>
-<tr class="separator:a27cbff2e545c5d6bfb5e86ae934485d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a03a4d256b11589552b8d561ed6eabcbe" id="r_a03a4d256b11589552b8d561ed6eabcbe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">constexpr</a> <a class="el" href="structtoolbox_1_1util_1_1detail_1_1ResetState.html">detail::ResetState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a03a4d256b11589552b8d561ed6eabcbe">toolbox::util::reset_state</a> {}</td></tr>
-<tr class="memdesc:a03a4d256b11589552b8d561ed6eabcbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">I/O manipulator that resets I/O state.  <br /></td></tr>
 <tr class="separator:a03a4d256b11589552b8d561ed6eabcbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
