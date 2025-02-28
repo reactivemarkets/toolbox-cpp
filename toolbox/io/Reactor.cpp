@@ -76,7 +76,7 @@ int Reactor::poll(CyclTime now, Duration timeout)
 
     // If timeout is zero then the wait_until time should also be zero to signify no wait.
     MonoTime wait_until{};
-    if (!is_zero(timeout) && end_of_cycle_no_wait_hooks.empty()) {
+    if (!is_zero(timeout) && end_of_cycle_no_wait_hooks.empty() && more_data_.empty()) {
         const MonoTime next
             = next_expiry(timeout == NoTimeout ? MonoClock::max() : now.mono_time() + timeout);
         if (next > now.mono_time()) {
@@ -186,8 +186,27 @@ int Reactor::dispatch(CyclTime now, Event* buf, int size, Priority priority)
             continue;
         }
 
+        more_data_.erase({.fd = fd});
         try {
             ref.slot(now, fd, events);
+        } catch (const std::exception& e) {
+            TOOLBOX_ERROR << "exception in i/o event handler: " << e.what();
+        }
+        ++work;
+    }
+    for (auto it{more_data_.begin()}; it != more_data_.cend();) {
+        const auto& ref = data_[it->fd];
+        // The counter will be zero for entries added in this cycle.
+        if (ref.priority != priority || it->counter++ == 0) {
+            ++it;
+            continue;
+        }
+        it = more_data_.erase(it);
+        if (ref.sid > it->sid) {
+            continue;
+        }
+        try {
+            ref.slot(now, it->fd, 0);
         } catch (const std::exception& e) {
             TOOLBOX_ERROR << "exception in i/o event handler: " << e.what();
         }
@@ -260,6 +279,14 @@ void Reactor::set_io_priority(int fd, int sid, Priority priority) noexcept
     auto& ref = data_[fd];
     if (ref.sid == sid) {
         ref.priority = priority;
+    }
+}
+
+void Reactor::set_more_data(int fd, int sid) noexcept
+{
+    auto& ref = data_[fd];
+    if (ref.sid == sid) {
+        more_data_.insert({.fd = fd, .sid = ref.sid});
     }
 }
 
