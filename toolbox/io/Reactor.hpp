@@ -23,6 +23,8 @@
 #include <toolbox/io/Timer.hpp>
 #include <toolbox/io/Waker.hpp>
 
+#include <boost/container/flat_set.hpp>
+
 namespace toolbox {
 inline namespace io {
 
@@ -124,6 +126,11 @@ class TOOLBOX_API Reactor : public Waker {
             assert(reactor_);
             reactor_->set_io_priority(fd_, sid_, priority);
         }
+        void set_partial()
+        {
+            assert(reactor_);
+            reactor_->set_partial(fd_, sid_);
+        }
 
       private:
         Reactor* reactor_{nullptr};
@@ -187,6 +194,7 @@ class TOOLBOX_API Reactor : public Waker {
     void set_events(int fd, int sid, unsigned events);
     void unsubscribe(int fd, int sid) noexcept;
     void set_io_priority(int fd, int sid, Priority priority) noexcept;
+    void set_more_data(int fd, int sid) noexcept;
 
     struct Data {
         int sid{};
@@ -194,8 +202,14 @@ class TOOLBOX_API Reactor : public Waker {
         IoSlot slot;
         Priority priority = Priority::Low;
     };
+    struct MoreData {
+        constexpr auto operator<=>(const MoreData& rhs) const noexcept { return fd <=> rhs.fd; }
+        constexpr bool operator==(const MoreData& rhs) const noexcept { return fd == rhs.fd; }
+        int fd{}, sid{}, counter{};
+    };
     Epoll epoll_;
     std::vector<Data> data_;
+    boost::container::flat_set<MoreData> more_data_;
     EventFd notify_{0, EFD_NONBLOCK};
     static_assert(static_cast<int>(Priority::High) == 0);
     static_assert(static_cast<int>(Priority::Low) == 1);
