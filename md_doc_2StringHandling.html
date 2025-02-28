@@ -179,7 +179,7 @@ $(function() {
 <div class="fragment"><div class="line"> cpp</div>
 <div class="line">std::string_view surname() const</div>
 <div class="line">{</div>
-<div class="line">    return {surname_, strnlen(surname_)};</div>
+<div class="line">    return {surname_, strnlen(surname_, sizeof(surname_))};</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>Again, the key point is to think of <code>strncpy()</code> as a function that copies a c-style string into a fixed length buffer, and then zero pads any remaining bytes.</p>
 <h1>Summary</h1>
