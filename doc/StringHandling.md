@@ -180,7 +180,7 @@ zero-terminated string, the cleanest solution is to use `std::string_view<>`:
 ``` cpp
 std::string_view surname() const
 {
-    return {surname_, strnlen(surname_)};
+    return {surname_, strnlen(surname_, sizeof(surname_))};
 }
 ```
 
