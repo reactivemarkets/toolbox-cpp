@@ -72,25 +72,25 @@ concept InheritsBasicOStream =
 template <class DerivedT>
 class OStreamBase {
   public:
-    DerivedT& put_data(const char* data, std::size_t data_size) noexcept;
+    DerivedT& put_data(const char* data, std::size_t data_size);
 
     template <class T>
         requires detail::AllowedChar<T>
-    DerivedT& put_char(T ch) noexcept;
+    DerivedT& put_char(T ch);
 
-    DerivedT& put_num(bool val) noexcept;
+    DerivedT& put_num(bool val);
 
     template <class T>
         requires (detail::AllowedIntegral<T> && !std::same_as<T, bool>)
-    DerivedT& put_num(T val) noexcept;
+    DerivedT& put_num(T val);
 
     template <class T>
         requires std::floating_point<T>
-    DerivedT& put_num(T val) noexcept;
+    DerivedT& put_num(T val);
 
     /// For compatability with std::ostream API.
-    DerivedT& put(char ch) noexcept;
-    DerivedT& write(const char* data, std::size_t sz) noexcept;
+    DerivedT& put(char ch);
+    DerivedT& write(const char* data, std::size_t sz);
 
   protected:
     // A number requires exactly N bytes to print, however put_num() will request a larger buffer
@@ -136,7 +136,7 @@ void OStreamBase<DerivedT>::set_badbit()
 }
 
 template <class DerivedT>
-DerivedT& OStreamBase<DerivedT>::put_data(const char* data, std::size_t data_size) noexcept
+DerivedT& OStreamBase<DerivedT>::put_data(const char* data, std::size_t data_size)
 {
     char* buf = prepare_space(data_size);
     if (buf != nullptr) [[likely]] {
@@ -150,7 +150,7 @@ DerivedT& OStreamBase<DerivedT>::put_data(const char* data, std::size_t data_siz
 
 template <class DerivedT>
 template <class T> requires detail::AllowedChar<T>
-DerivedT& OStreamBase<DerivedT>::put_char(T ch) noexcept
+DerivedT& OStreamBase<DerivedT>::put_char(T ch)
 {
     char* buf = prepare_space(1);
     if (buf != nullptr) [[likely]] {
@@ -163,7 +163,7 @@ DerivedT& OStreamBase<DerivedT>::put_char(T ch) noexcept
 }
 
 template <class DerivedT>
-DerivedT& OStreamBase<DerivedT>::put_num(bool val) noexcept
+DerivedT& OStreamBase<DerivedT>::put_num(bool val)
 {
     put_char(val ? '1' : '0');
     return get_derived();
@@ -171,7 +171,7 @@ DerivedT& OStreamBase<DerivedT>::put_num(bool val) noexcept
 
 template <class DerivedT>
 template <class T> requires (detail::AllowedIntegral<T> && !std::same_as<T, bool>)
-DerivedT& OStreamBase<DerivedT>::put_num(T val) noexcept
+DerivedT& OStreamBase<DerivedT>::put_num(T val)
 {
     constexpr std::size_t MaxBytesNeeded
         = dec_digits(std::numeric_limits<T>::max())
@@ -193,7 +193,7 @@ DerivedT& OStreamBase<DerivedT>::put_num(T val) noexcept
     }
 
     if (buf != nullptr) [[likely]] {
-        // impossible for it to fail
+        // impossible for it to fail (N.B. to_chars is non-throwing)
         const auto [end, ec] = std::to_chars(buf, buf + buf_sz, val);
         assert(ec == std::errc());
         relinquish_space(end - buf);
@@ -206,18 +206,18 @@ DerivedT& OStreamBase<DerivedT>::put_num(T val) noexcept
 
 template <class DerivedT>
 template <class T> requires std::floating_point<T>
-DerivedT& OStreamBase<DerivedT>::put_num(T val) noexcept
+DerivedT& OStreamBase<DerivedT>::put_num(T val)
 {
     char* buf = prepare_space(PutNumMaxBufRequest);
     if (buf != nullptr) [[likely]] { // fast path
-        // impossible for to_chars to fail
+        // impossible for to_chars to fail (N.B. to_chars is non-throwing)
         const auto [end, ec] = std::to_chars(buf, buf + PutNumMaxBufRequest, val);
         relinquish_space(end - buf);
         assert(ec == std::errc());
     }
     else {
         // slower path
-        // impossible for to_chars to fail
+        // impossible for to_chars to fail (N.B. to_chars is non-throwing)
         char local_space[PutNumMaxBufRequest];
         const auto [end, ec] = std::to_chars(local_space, local_space + PutNumMaxBufRequest, val);
         assert(ec == std::errc());
@@ -237,20 +237,20 @@ DerivedT& OStreamBase<DerivedT>::put_num(T val) noexcept
 }
 
 template <class DerivedT>
-DerivedT& OStreamBase<DerivedT>::put(char ch) noexcept
+DerivedT& OStreamBase<DerivedT>::put(char ch)
 {
     return put_char(ch);
 }
 
 template <class DerivedT>
-DerivedT& OStreamBase<DerivedT>::write(const char* data, std::size_t sz) noexcept
+DerivedT& OStreamBase<DerivedT>::write(const char* data, std::size_t sz)
 {
     return put_data(data, sz);
 }
 
 template <class StreamT>
     requires detail::InheritsBasicOStream<StreamT>
-StreamT& operator<<(StreamT&& os, bool value) noexcept
+StreamT& operator<<(StreamT&& os, bool value)
 {
     os.put_num(value);
     return os;
@@ -258,7 +258,7 @@ StreamT& operator<<(StreamT&& os, bool value) noexcept
 
 template <class StreamT>
     requires detail::InheritsBasicOStream<StreamT>
-StreamT& operator<<(StreamT&& os, short value) noexcept
+StreamT& operator<<(StreamT&& os, short value)
 {
     os.put_num(value);
     return os;
@@ -266,7 +266,7 @@ StreamT& operator<<(StreamT&& os, short value) noexcept
 
 template <class StreamT>
     requires detail::InheritsBasicOStream<StreamT>
-StreamT& operator<<(StreamT&& os, unsigned short value) noexcept
+StreamT& operator<<(StreamT&& os, unsigned short value)
 {
     os.put_num(value);
     return os;
@@ -274,7 +274,7 @@ StreamT& operator<<(StreamT&& os, unsigned short value) noexcept
 
 template <class StreamT>
     requires detail::InheritsBasicOStream<StreamT>
-StreamT& operator<<(StreamT&& os, int value) noexcept
+StreamT& operator<<(StreamT&& os, int value)
 {
     os.put_num(value);
     return os;
@@ -282,7 +282,7 @@ StreamT& operator<<(StreamT&& os, int value) noexcept
 
 template <class StreamT>
     requires detail::InheritsBasicOStream<StreamT>
-StreamT& operator<<(StreamT&& os, unsigned int value) noexcept
+StreamT& operator<<(StreamT&& os, unsigned int value)
 {
     os.put_num(value);
     return os;
@@ -290,7 +290,7 @@ StreamT& operator<<(StreamT&& os, unsigned int value) noexcept
 
 template <class StreamT>
     requires detail::InheritsBasicOStream<StreamT>
-StreamT& operator<<(StreamT&& os, long value) noexcept
+StreamT& operator<<(StreamT&& os, long value)
 {
     os.put_num(value);
     return os;
@@ -298,7 +298,7 @@ StreamT& operator<<(StreamT&& os, long value) noexcept
 
 template <class StreamT>
     requires detail::InheritsBasicOStream<StreamT>
-StreamT& operator<<(StreamT&& os, unsigned long value) noexcept
+StreamT& operator<<(StreamT&& os, unsigned long value)
 {
     os.put_num(value);
     return os;
@@ -306,7 +306,7 @@ StreamT& operator<<(StreamT&& os, unsigned long value) noexcept
 
 template <class StreamT>
     requires detail::InheritsBasicOStream<StreamT>
-StreamT& operator<<(StreamT&& os, long long value) noexcept
+StreamT& operator<<(StreamT&& os, long long value)
 {
     os.put_num(value);
     return os;
@@ -314,7 +314,7 @@ StreamT& operator<<(StreamT&& os, long long value) noexcept
 
 template <class StreamT>
     requires detail::InheritsBasicOStream<StreamT>
-StreamT& operator<<(StreamT&& os, unsigned long long value) noexcept
+StreamT& operator<<(StreamT&& os, unsigned long long value)
 {
     os.put_num(value);
     return os;
@@ -322,7 +322,7 @@ StreamT& operator<<(StreamT&& os, unsigned long long value) noexcept
 
 template <class StreamT>
     requires detail::InheritsBasicOStream<StreamT>
-StreamT& operator<<(StreamT&& os, float value) noexcept
+StreamT& operator<<(StreamT&& os, float value)
 {
     os.put_num(value);
     return os;
@@ -330,7 +330,7 @@ StreamT& operator<<(StreamT&& os, float value) noexcept
 
 template <class StreamT>
     requires detail::InheritsBasicOStream<StreamT>
-StreamT& operator<<(StreamT&& os, double value) noexcept
+StreamT& operator<<(StreamT&& os, double value)
 {
     os.put_num(value);
     return os;
@@ -338,7 +338,7 @@ StreamT& operator<<(StreamT&& os, double value) noexcept
 
 template <class StreamT>
     requires detail::InheritsBasicOStream<StreamT>
-StreamT& operator<<(StreamT&& os, long double value) noexcept
+StreamT& operator<<(StreamT&& os, long double value)
 {
     os.put_num(value);
     return os;
@@ -346,7 +346,7 @@ StreamT& operator<<(StreamT&& os, long double value) noexcept
 
 template <class StreamT>
     requires detail::InheritsBasicOStream<StreamT>
-StreamT& operator<<(StreamT& os, char ch) noexcept
+StreamT& operator<<(StreamT& os, char ch)
 {
     os.put_char(ch);
     return os;
@@ -354,7 +354,7 @@ StreamT& operator<<(StreamT& os, char ch) noexcept
 
 template <class StreamT>
     requires detail::InheritsBasicOStream<StreamT>
-StreamT& operator<<(StreamT& os, signed char ch) noexcept
+StreamT& operator<<(StreamT& os, signed char ch)
 {
     os.put_char(ch);
     return os;
@@ -362,7 +362,7 @@ StreamT& operator<<(StreamT& os, signed char ch) noexcept
 
 template <class StreamT>
     requires detail::InheritsBasicOStream<StreamT>
-StreamT& operator<<(StreamT& os, unsigned char ch) noexcept
+StreamT& operator<<(StreamT& os, unsigned char ch)
 {
     os.put_char(ch);
     return os;
@@ -399,7 +399,7 @@ StreamT& operator<<(StreamT& os, const unsigned char* s)
 
 template <class StreamT>
     requires detail::InheritsBasicOStream<StreamT>
-StreamT& operator<<(StreamT& os, const std::string& s) noexcept
+StreamT& operator<<(StreamT& os, const std::string& s)
 {
     os.put_data(s.data(), s.size());
     return os;
@@ -407,7 +407,7 @@ StreamT& operator<<(StreamT& os, const std::string& s) noexcept
 
 template <class StreamT>
     requires detail::InheritsBasicOStream<StreamT>
-StreamT& operator<<(StreamT& os, std::string_view s) noexcept
+StreamT& operator<<(StreamT& os, std::string_view s)
 {
     os.put_data(s.data(), s.size());
     return os;
