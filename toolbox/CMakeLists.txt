@@ -107,6 +107,7 @@ set(lib_SOURCES
   util/IntTypes.cpp
   util/Math.cpp
   util/Options.cpp
+  util/OStreamBase.cpp
   util/Random.cpp
   util/RefCount.cpp
   util/RingBuffer.cpp

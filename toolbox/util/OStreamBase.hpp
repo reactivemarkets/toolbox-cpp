@@ -44,7 +44,7 @@ DerivedT is required to implement the following:
 3) void do_set_badbit()
     - informs derived type of failure when outputting, specifically invoked on:
         - failure to allocate space
-        - failure to output (e.g. attempting to output a NaN floating point value)
+        - failure to output
 */
 
 template <class DerivedT>
