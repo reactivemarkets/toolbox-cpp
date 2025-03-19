@@ -29,7 +29,7 @@ inline namespace io {
 constexpr Duration NoTimeout{-1};
 enum class Priority { High = 0, Low = 1 };
 
-using IoSlot = BasicSlot<CyclTime, int, unsigned>;
+using IoSlot = BasicSlot<void(CyclTime, int, unsigned)>;
 
 class TOOLBOX_API Reactor : public Waker {
   public:

@@ -32,7 +32,7 @@ inline namespace io {
 
 class Timer;
 class TimerQueue;
-using TimerSlot = BasicSlot<CyclTime, Timer&>;
+using TimerSlot = BasicSlot<void(CyclTime, Timer&)>;
 
 class TOOLBOX_API Timer {
     friend class TimerQueue;

@@ -29,16 +29,16 @@ void foo(int& x)
 } // namespace
 
 // Test constexpr.
-static_assert(BasicSlot<int>{} == BasicSlot<int>{});
-static_assert(BasicSlot<int>{}.empty());
-static_assert(!BasicSlot<int>{});
+static_assert(BasicSlot<void(int)>{} == BasicSlot<void(int)>{});
+static_assert(BasicSlot<void(int)>{}.empty());
+static_assert(!BasicSlot<void(int)>{});
 
 BOOST_AUTO_TEST_SUITE(SlotSuite)
 
 BOOST_AUTO_TEST_CASE(SlotEmptyCase)
 {
-    BOOST_CHECK(BasicSlot<int>{}.empty());
-    BOOST_CHECK(!BasicSlot<int>{});
+    BOOST_CHECK(BasicSlot<void(int)>{}.empty());
+    BOOST_CHECK(!BasicSlot<void(int)>{});
 }
 
 BOOST_AUTO_TEST_CASE(SlotFreeFunCase)
@@ -138,12 +138,22 @@ BOOST_AUTO_TEST_CASE(SlotRvalueFunCase)
     int x{2};
     auto fn = [&x](int&& y) { x = x + y; };
 
-    BasicSlot<int&&> cb = toolbox::bind(&fn);
+    BasicSlot<void(int&&)> cb = toolbox::bind(&fn);
     cb(3);
     BOOST_CHECK_EQUAL(x, 5);
     int&& m = 6;
     cb.invoke(std::move(m));
     BOOST_CHECK_EQUAL(x, 11);
+}
+
+BOOST_AUTO_TEST_CASE(SlotReturnValue)
+{
+    auto fn = [](int x) { return x+2; };
+    BasicSlot<int(int)> cb = toolbox::bind(&fn);
+    BOOST_CHECK_EQUAL(cb(3), 5);
+    BOOST_CHECK_EQUAL(cb(5), 7);
+    BOOST_CHECK_EQUAL(cb.invoke(3), 5);
+    BOOST_CHECK_EQUAL(cb.invoke(5), 7);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

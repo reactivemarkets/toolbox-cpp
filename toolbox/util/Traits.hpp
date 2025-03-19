@@ -39,9 +39,9 @@ struct FunctionTraits<ReturnT (*)(ArgsT...)> {
     template <std::size_t i>
     using ArgType = std::tuple_element_t<i, std::tuple<ArgsT...>>;
 
-    // Apply parameter pack to template.
+    // Apply function signature to template.
     template <template <typename...> typename TemplT>
-    using Pack = TemplT<ArgsT...>;
+    using Apply = TemplT<ReturnT(ArgsT...)>;
 };
 
 /// Specialisation for noexcept free functions.
