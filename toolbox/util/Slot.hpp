@@ -22,8 +22,11 @@
 namespace toolbox {
 inline namespace util {
 
-template <typename... ArgsT>
-class BasicSlot {
+template <typename Sig>
+class BasicSlot;
+
+template <typename RetT, typename... ArgsT>
+class BasicSlot<RetT(ArgsT...)> {
   public:
     friend constexpr bool operator==(BasicSlot lhs, BasicSlot rhs) noexcept
     {
@@ -44,17 +47,19 @@ class BasicSlot {
     constexpr BasicSlot(BasicSlot&&) noexcept = default;
     constexpr BasicSlot& operator=(BasicSlot&&) noexcept = default;
 
-    void invoke(ArgsT... args) const { fn_(obj_, std::forward<ArgsT>(args)...); }
-    void operator()(ArgsT... args) const { fn_(obj_, std::forward<ArgsT>(args)...); }
+    RetT invoke(ArgsT... args) const { return fn_(obj_, std::forward<ArgsT>(args)...); }
+    RetT operator()(ArgsT... args) const { return fn_(obj_, std::forward<ArgsT>(args)...); }
     constexpr bool empty() const noexcept { return fn_ == nullptr; }
     constexpr explicit operator bool() const noexcept { return fn_ != nullptr; }
 
     // Free function.
-    template <void (*FnT)(ArgsT...)>
+    template <RetT (*FnT)(ArgsT...)>
     constexpr auto& bind() noexcept
     {
         obj_ = nullptr;
-        fn_ = [](void* /*obj*/, ArgsT... args) { FnT(std::forward<ArgsT>(args)...); };
+        fn_ = [](void* /*obj*/, ArgsT... args) -> RetT {
+            return FnT(std::forward<ArgsT>(args)...);
+        };
         return *this;
     }
     // Lambda function.
@@ -62,8 +67,8 @@ class BasicSlot {
     constexpr auto& bind(ClassT* obj) noexcept
     {
         obj_ = obj;
-        fn_ = [](void* obj, ArgsT... args) {
-            (*static_cast<ClassT*>(obj))(std::forward<ArgsT>(args)...);
+        fn_ = [](void* obj, ArgsT... args) -> RetT {
+            return (*static_cast<ClassT*>(obj))(std::forward<ArgsT>(args)...);
         };
         return *this;
     }
@@ -72,8 +77,8 @@ class BasicSlot {
     constexpr auto& bind(ClassT* obj) noexcept
     {
         obj_ = obj;
-        fn_ = [](void* obj, ArgsT... args) {
-            (static_cast<ClassT*>(obj)->*MemFnT)(std::forward<ArgsT>(args)...);
+        fn_ = [](void* obj, ArgsT... args) -> RetT {
+            return (static_cast<ClassT*>(obj)->*MemFnT)(std::forward<ArgsT>(args)...);
         };
         return *this;
     }
@@ -85,14 +90,14 @@ class BasicSlot {
 
   private:
     void* obj_{nullptr};
-    void (*fn_)(void*, ArgsT...){nullptr};
+    RetT (*fn_)(void*, ArgsT...){nullptr};
 };
 
 template <auto FnT>
 constexpr auto bind() noexcept
 {
     using Traits = FunctionTraits<decltype(FnT)>;
-    using Slot = typename Traits::template Pack<BasicSlot>;
+    using Slot = typename Traits::template Apply<BasicSlot>;
     return Slot{}.template bind<FnT>();
 }
 
@@ -100,7 +105,7 @@ template <typename ClassT>
 constexpr auto bind(ClassT* obj) noexcept
 {
     using Traits = FunctionTraits<decltype(&ClassT::operator())>;
-    using Slot = typename Traits::template Pack<BasicSlot>;
+    using Slot = typename Traits::template Apply<BasicSlot>;
     return Slot{}.bind(obj);
 }
 
@@ -108,7 +113,7 @@ template <auto MemFnT, typename ClassT = typename FunctionTraits<decltype(MemFnT
 constexpr auto bind(ClassT* obj) noexcept
 {
     using Traits = FunctionTraits<decltype(MemFnT)>;
-    using Slot = typename Traits::template Pack<BasicSlot>;
+    using Slot = typename Traits::template Apply<BasicSlot>;
     return Slot{}.template bind<MemFnT>(obj);
 }
 

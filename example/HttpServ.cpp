@@ -38,7 +38,7 @@ void on_bar(const Request& /*req*/, http::OStream& os)
 
 class ExampleApp final : public App {
   public:
-    using Slot = BasicSlot<const Request&, http::OStream&>;
+    using Slot = BasicSlot<void(const Request&, http::OStream&)>;
     using SlotMap = std::map<std::string, Slot>;
 
     ~ExampleApp() override = default;

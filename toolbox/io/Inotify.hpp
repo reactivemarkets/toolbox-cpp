@@ -137,7 +137,7 @@ class TOOLBOX_API Inotify {
 class TOOLBOX_API FileWatcher {
   public:
     using Path = std::filesystem::path;
-    using Slot = BasicSlot<const Path&, int, std::uint32_t>;
+    using Slot = BasicSlot<void(const Path&, int, std::uint32_t)>;
 
     FileWatcher(Reactor& r, Inotify& inotify);
     ~FileWatcher() = default;

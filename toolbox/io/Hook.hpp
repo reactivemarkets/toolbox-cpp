@@ -27,7 +27,7 @@ inline namespace io {
 
 struct Hook
 : boost::intrusive::list_base_hook<boost::intrusive::link_mode<boost::intrusive::auto_unlink>> {
-    using Slot = BasicSlot<CyclTime>;
+    using Slot = BasicSlot<void(CyclTime)>;
     explicit Hook(Slot slot) noexcept
     : slot{slot}
     {
