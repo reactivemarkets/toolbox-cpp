@@ -11,7 +11,7 @@ var searchData=
   ['_7ebasichandle_8',['~BasicHandle',['../classtoolbox_1_1io_1_1BasicHandle.html#a8d6fa5b51e5a6a8aaf264a3565c9cc76',1,'toolbox::io::BasicHandle']]],
   ['_7ebasicparser_9',['~basicparser',['../classtoolbox_1_1http_1_1BasicParser.html#ab036276fa4e98b84e25f02ff638caa8b',1,'toolbox::http::BasicParser::~BasicParser()'],['../classtoolbox_1_1resp_1_1BasicParser.html#a1fa4810c02bbb0d93643e3809a07a56c',1,'toolbox::resp::BasicParser::~BasicParser()']]],
   ['_7ebasicserv_10',['~BasicServ',['../classtoolbox_1_1http_1_1BasicServ.html#a1b8c35a31b684472fde5ae7ac955c255',1,'toolbox::http::BasicServ']]],
-  ['_7ebasicslot_11',['~BasicSlot',['../classtoolbox_1_1util_1_1BasicSlot.html#a44e285e215b30e3a2421d444f8e11cc5',1,'toolbox::util::BasicSlot']]],
+  ['_7ebasicslot_11',['~BasicSlot',['../classtoolbox_1_1util_1_1BasicSlot_3_01RetT_07ArgsT_8_8_8_08_4.html#ae418b846cbb71288e96d9f0ff3ad15a7',1,'toolbox::util::BasicSlot&lt; RetT(ArgsT...)&gt;']]],
   ['_7ebasictrans_12',['~BasicTrans',['../classtoolbox_1_1util_1_1BasicTrans.html#af2c6286276ee54dc80f93ccaef318188',1,'toolbox::util::BasicTrans']]],
   ['_7ebasicurl_13',['~BasicUrl',['../classtoolbox_1_1http_1_1BasicUrl.html#a312f506cfc9b8f0ab5493be50a10d5a1',1,'toolbox::http::BasicUrl']]],
   ['_7ebenchmarkrange_14',['~BenchmarkRange',['../classtoolbox_1_1bm_1_1BenchmarkRange.html#ad1c80a39ffcdc2f17b9d1baaff49db58',1,'toolbox::bm::BenchmarkRange']]],
