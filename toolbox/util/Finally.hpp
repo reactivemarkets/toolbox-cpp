@@ -17,6 +17,7 @@
 #ifndef TOOLBOX_UTIL_FINALLY_HPP
 #define TOOLBOX_UTIL_FINALLY_HPP
 
+#include <type_traits>
 #include <utility>
 
 namespace toolbox {
@@ -25,23 +26,38 @@ inline namespace util {
 template <typename FnT>
 class Finally {
     static_assert(std::is_nothrow_invocable_v<FnT>);
+    static_assert(std::is_nothrow_move_constructible_v<FnT>);
 
   public:
     explicit Finally(FnT fn) noexcept
     : fn_{std::move(fn)}
+    , exec_on_destruction_{true}
     {
     }
-    ~Finally() { fn_(); }
+
+    ~Finally()
+    {
+        if (exec_on_destruction_) [[likely]] {
+            fn_();
+        }
+    }
+
     // Copy.
     Finally(const Finally&) = delete;
     Finally& operator=(const Finally&) = delete;
 
     // Move.
-    Finally(Finally&&) noexcept = default;
+    Finally(Finally&& o) noexcept
+    : fn_{std::move(o.fn_)}
+    , exec_on_destruction_{o.exec_on_destruction_}
+    {
+        o.exec_on_destruction_ = false;
+    }
     Finally& operator=(Finally&&) noexcept = delete;
 
   private:
     FnT fn_;
+    bool exec_on_destruction_;
 };
 
 template <typename FnT>
