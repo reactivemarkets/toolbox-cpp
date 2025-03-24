@@ -141,6 +141,217 @@ BOOST_AUTO_TEST_CASE(ReactorSocketPriority)
     fd_process_order.clear();
 }
 
+BOOST_AUTO_TEST_CASE(ReactorHighPriorityYield)
+{
+    using namespace literals::chrono_literals;
+
+    Reactor r{1024};
+    r.set_high_priority_poll_threshold(50us);
+
+    // h0, h1 will be high priority
+    // l0, l1 will be low priority
+    auto [h0, h1] = socketpair(UnixStreamProtocol{});
+    auto [l0, l1] = socketpair(UnixStreamProtocol{});
+
+    auto send_data_to = [&](IoSock& sock) {
+        IoSock& corresponding = (sock == h0) ? h1
+                              : (sock == h1) ? h0
+                              : (sock == l0) ? l1
+                              : l0;
+        corresponding.send("Hello", 5, 0);
+    };
+
+    // this will track entry/exit of handlers of each of the sockets
+    struct Audit {
+        enum { Entry, Exit } what;
+        int fd;
+        bool operator==(const Audit& o) const = default;
+    };
+    std::vector<Audit> audit_trail;
+
+    // each invocation will take ~100ms
+    auto spin_and_yield_periodically = [&r]() {
+        WallTime now = WallClock::now();
+        WallTime end = now + 100ms;
+        while (now < end) {
+            // wait for 10us, then yield
+            auto next_stop = now + 10us;
+            while (now < next_stop) {
+                now = WallClock::now();
+            }
+            r.yield();
+        };
+    };
+
+    // reads data from fd, then pretends to do work (by spinning),
+    // yielding periodically to the reactor.
+    auto high_handler = [&](CyclTime, int fd, unsigned) {
+        audit_trail.push_back({.what = Audit::Entry, .fd = fd});
+        char buf[5];
+        auto rcvd = os::recv(fd, buf, 5, 0);
+        BOOST_CHECK_EQUAL(rcvd, 5);
+        spin_and_yield_periodically();
+        audit_trail.push_back({.what = Audit::Exit, .fd = fd});
+    };
+
+    // reads data from fd, sends message to h0/h1, then pretends to do work (by spinning),
+    // yielding periodically to the reactor. In those yields, the messages sent to the
+    // high priority sockets should be processed.
+    auto low_handler = [&]<bool H0, bool H1>(CyclTime, int fd, unsigned) {
+        audit_trail.push_back({.what = Audit::Entry, .fd = fd});
+
+        char buf[5];
+        auto rcvd = os::recv(fd, buf, 5, 0);
+        BOOST_CHECK_EQUAL(rcvd, 5);
+
+        // send data to both high priority sockets
+        if constexpr (H0) {
+            send_data_to(h0);
+        }
+        if constexpr (H1) {
+            send_data_to(h1);
+        }
+
+        spin_and_yield_periodically();
+        audit_trail.push_back({.what = Audit::Exit, .fd = fd});
+    };
+
+    auto l0_handler = [&low_handler](CyclTime ct, int fd, unsigned int e) {
+        low_handler.template operator()<true, true>(ct, fd, e);
+    };
+
+    auto l1_handler = [&low_handler](CyclTime ct, int fd, unsigned int e) {
+        low_handler.template operator()<false, true>(ct, fd, e);
+    };
+
+    auto sub_l0 = r.subscribe(*l0, EpollIn, bind(&l0_handler));
+    auto sub_l1 = r.subscribe(*l1, EpollIn, bind(&l1_handler));
+    auto sub_h0 = r.subscribe(*h0, EpollIn, bind(&high_handler));
+    auto sub_h1 = r.subscribe(*h1, EpollIn, bind(&high_handler));
+
+    sub_h0.set_io_priority(Priority::High);
+    sub_h1.set_io_priority(Priority::High);
+
+    // start off with l0, l1, h0 having data to read
+    send_data_to(l0);
+    send_data_to(l1);
+    send_data_to(h0);
+
+    r.poll(CyclTime::now(), 0ms);
+
+    std::vector<Audit> valid_seq1 = {
+        // high priority always first
+        Audit{Audit::Entry, *h0},
+        Audit{Audit::Exit, *h0},
+
+        // AT THIS POINT l0/l1 handlers could be executed in any order
+        // Lets assume l0 chosen first [choices so far: (l0)]
+        Audit{Audit::Entry, *l0}, // l0 handler sends data to h0 and h1
+
+        // Reactor will poll on high priority sockets when l0 handler yields
+        // AT THIS POINT h0/h1 handlers could be executed in any order
+        // Lets assume h0 is chosen first [choices so far: (l0, h0)]
+        Audit{Audit::Entry, *h0},
+        Audit{Audit::Exit, *h0},
+        Audit{Audit::Entry, *h1},
+        Audit{Audit::Exit, *h1},
+
+        // control returned back to l0 handler
+        Audit{Audit::Exit, *l0},
+
+        // Now, l1 handler executes
+        Audit{Audit::Entry, *l1}, // l1 handler sends data to h1
+        Audit{Audit::Entry, *h1},
+        Audit{Audit::Exit, *h1},
+        Audit{Audit::Exit, *l1}, // l1 handler sends data to h1
+    };
+
+    std::vector<Audit> valid_seq2 = {
+        // high priority always first
+        Audit{Audit::Entry, *h0},
+        Audit{Audit::Exit, *h0},
+
+        // AT THIS POINT l0/l1 handlers could be executed in any order
+        // Lets assume l0 chosen first [choices so far: (l0)]
+        Audit{Audit::Entry, *l0}, // l0 handler sends data to h0 and h1
+
+        // Reactor will poll on high priority sockets when l0 handler yields
+        // AT THIS POINT h0/h1 handlers could be executed in any order
+        // Lets assume h1 chosen first [choices so far: (l0, h1)]
+        Audit{Audit::Entry, *h1},
+        Audit{Audit::Exit, *h1},
+        Audit{Audit::Entry, *h0},
+        Audit{Audit::Exit, *h0},
+
+        // control returned back to l0 handler
+        Audit{Audit::Exit, *l0},
+
+        // Now, l1 handler executes
+        Audit{Audit::Entry, *l1}, // l1 handler sends data to h1
+        Audit{Audit::Entry, *h1},
+        Audit{Audit::Exit, *h1},
+        Audit{Audit::Exit, *l1}, // l1 handler sends data to h1
+    };
+
+    std::vector<Audit> valid_seq3 = {
+        // high priority always first
+        Audit{Audit::Entry, *h0},
+        Audit{Audit::Exit, *h0},
+
+        // AT THIS POINT l0/l1 handlers could be executed in any order
+        // Lets assume l0 chosen first [choices so far: (l1)]
+        Audit{Audit::Entry, *l1}, // l1 handler sends data to h1
+        Audit{Audit::Entry, *h1},
+        Audit{Audit::Exit, *h1},
+        Audit{Audit::Exit, *l1},
+
+        // Now, l0 handler executes
+        Audit{Audit::Entry, *l0}, // l0 handler sends data to h0 and h1
+        // Reactor will poll on high priority sockets when l0 handler yields
+        // AT THIS POINT h0/h1 handlers could be executed in any order
+        // Lets assume h0 chosen first [choices so far: (l1, h0)]
+        Audit{Audit::Entry, *h0},
+        Audit{Audit::Exit, *h0},
+        Audit{Audit::Entry, *h1},
+        Audit{Audit::Exit, *h1},
+
+        // control returned back to l0 handler
+        Audit{Audit::Exit, *l0},
+    };
+
+    std::vector<Audit> valid_seq4 = {
+        // high priority always first
+        Audit{Audit::Entry, *h0},
+        Audit{Audit::Exit, *h0},
+
+        // AT THIS POINT l0/l1 handlers could be executed in any order
+        // Lets assume l0 chosen first [choices so far: (l1)]
+        Audit{Audit::Entry, *l1}, // l1 handler sends data to h1
+        Audit{Audit::Entry, *h1},
+        Audit{Audit::Exit, *h1},
+        Audit{Audit::Exit, *l1},
+
+        // Now, l0 handler executes
+        Audit{Audit::Entry, *l0}, // l0 handler sends data to h0 and h1
+        // Reactor will poll on high priority sockets when l0 handler yields
+        // AT THIS POINT h0/h1 handlers could be executed in any order
+        // Lets assume h1 chosen first [choices so far: (l1, h1)]
+        Audit{Audit::Entry, *h1},
+        Audit{Audit::Exit, *h1},
+        Audit{Audit::Entry, *h0},
+        Audit{Audit::Exit, *h0},
+
+        // control returned back to l0 handler
+        Audit{Audit::Exit, *l0},
+    };
+
+    bool trail_matches =  (audit_trail == valid_seq1)
+                       || (audit_trail == valid_seq2)
+                       || (audit_trail == valid_seq3)
+                       || (audit_trail == valid_seq4);
+    BOOST_CHECK_EQUAL(trail_matches, true);
+}
+
 BOOST_AUTO_TEST_CASE(ReactorEdgeCase)
 {
     using namespace literals::chrono_literals;

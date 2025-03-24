@@ -97,27 +97,29 @@ int Reactor::poll(CyclTime now, Duration timeout)
     }
     // Update cycle time after epoll() returns.
     now = CyclTime::now();
+    last_time_priority_io_polled_ = now.wall_time();
+
     if (ec) {
         if (ec.value() != EINTR) {
             throw system_error{ec};
         }
         return 0;
     }
-    int work{0};
-    TOOLBOX_PROBE_SCOPED(reactor, dispatch, work);
+    cycle_work_ = 0;
+    TOOLBOX_PROBE_SCOPED(reactor, dispatch, cycle_work_);
     // High priority timers.
-    work = tqs_[High].dispatch(now);
+    cycle_work_ = tqs_[High].dispatch(now);
     // I/O events.
-    work += dispatch(now, buf, n, Priority::High);
-    work += dispatch(now, buf, n, Priority::Low);
+    cycle_work_ += dispatch(now, buf, n, Priority::High);
+    cycle_work_ += dispatch(now, buf, n, Priority::Low);
     // Low priority timers (typically only dispatched during empty cycles).
-    work += dispatch_low_priority_timers(now, tqs_[Low], work == 0);
+    cycle_work_ += dispatch_low_priority_timers(now, tqs_[Low], cycle_work_ == 0);
     // End of cycle hooks.
-    if (work > 0) {
+    if (cycle_work_ > 0) {
         io::dispatch(now, end_of_event_dispatch_hooks_);
     }
     io::dispatch(now, end_of_cycle_no_wait_hooks);
-    return work;
+    return cycle_work_;
 }
 
 void Reactor::do_wakeup() noexcept
@@ -149,8 +151,45 @@ MonoTime Reactor::next_expiry(MonoTime next) const
     return next;
 }
 
+void Reactor::yield()
+{
+    if (currently_handling_priority_events_) [[unlikely]] {
+        return;
+    }
+
+    if (priority_io_poll_threshold == Micros::max()) {
+        return;
+    }
+
+    WallTime now = WallClock::now();
+    if (now - last_time_priority_io_polled_ > priority_io_poll_threshold) {
+        last_time_priority_io_polled_ = now;
+
+        error_code ec;
+        Event buf[MaxEvents];
+        int n = high_prio_epoll_.wait(buf, MaxEvents, MonoTime{}, ec);
+
+        if (ec) {
+            if (ec.value() != EINTR) {
+                throw system_error{ec};
+            }
+            return;
+        }
+
+        cycle_work_ += dispatch(CyclTime::current(), buf, n, Priority::High);
+    }
+}
+
 int Reactor::dispatch(CyclTime now, Event* buf, int size, Priority priority)
 {
+    if (priority == Priority::High) {
+        assert(!currently_handling_priority_events_);
+        currently_handling_priority_events_ = true;
+    }
+    const auto reset_flag = make_finally([this]() noexcept {
+        currently_handling_priority_events_ = false;
+    });
+
     int work{0};
     for (int i{0}; i < size; ++i) {
 
@@ -205,6 +244,9 @@ void Reactor::set_events(int fd, int sid, unsigned events, IoSlot slot, error_co
             if (ec) {
                 return;
             }
+            if (ref.priority == Priority::High) {
+                high_prio_epoll_.mod(fd, sid, events);
+            }
             ref.events = events;
         }
         ref.slot = slot;
@@ -217,6 +259,9 @@ void Reactor::set_events(int fd, int sid, unsigned events, IoSlot slot)
     if (ref.sid == sid) {
         if (ref.events != events) {
             epoll_.mod(fd, sid, events);
+            if (ref.priority == Priority::High) {
+                high_prio_epoll_.mod(fd, sid, events);
+            }
             ref.events = events;
         }
         ref.slot = slot;
@@ -231,6 +276,9 @@ void Reactor::set_events(int fd, int sid, unsigned events, error_code& ec) noexc
         if (ec) {
             return;
         }
+        if (ref.priority == Priority::High) {
+            high_prio_epoll_.mod(fd, sid, events);
+        }
         ref.events = events;
     }
 }
@@ -241,6 +289,9 @@ void Reactor::set_events(int fd, int sid, unsigned events)
     if (ref.sid == sid && ref.events != events) {
         epoll_.mod(fd, sid, events);
         ref.events = events;
+        if (ref.priority == Priority::High) {
+            high_prio_epoll_.mod(fd, sid, events);
+        }
     }
 }
 
@@ -248,6 +299,9 @@ void Reactor::unsubscribe(int fd, int sid) noexcept
 {
     auto& ref = data_[fd];
     if (ref.sid == sid) {
+        if (ref.priority == Priority::High) {
+            high_prio_epoll_.del(fd);
+        }
         epoll_.del(fd);
         ref.events = 0;
         ref.slot.reset();
@@ -258,7 +312,12 @@ void Reactor::unsubscribe(int fd, int sid) noexcept
 void Reactor::set_io_priority(int fd, int sid, Priority priority) noexcept
 {
     auto& ref = data_[fd];
-    if (ref.sid == sid) {
+    if (ref.sid == sid && ref.priority != priority) {
+        if (priority == Priority::High) {
+            high_prio_epoll_.add(fd, sid, ref.events);
+        } else {
+            high_prio_epoll_.del(fd);
+        }
         ref.priority = priority;
     }
 }

@@ -28,7 +28,6 @@ inline namespace io {
 
 constexpr Duration NoTimeout{-1};
 enum class Priority { High = 0, Low = 1 };
-
 using IoSlot = BasicSlot<void(CyclTime, int, unsigned)>;
 
 class TOOLBOX_API Reactor : public Waker {
@@ -172,6 +171,10 @@ class TOOLBOX_API Reactor : public Waker {
     /// Returns the number of events signalled.
     int poll(CyclTime now, Duration timeout = NoTimeout);
 
+    void yield();
+
+    void set_high_priority_poll_threshold(Micros thresh) { priority_io_poll_threshold = thresh; }
+
   protected:
     /// Thread-safe.
     void do_wakeup() noexcept final;
@@ -195,6 +198,7 @@ class TOOLBOX_API Reactor : public Waker {
         Priority priority = Priority::Low;
     };
     Epoll epoll_;
+    Epoll high_prio_epoll_;
     std::vector<Data> data_;
     EventFd notify_{0, EFD_NONBLOCK};
     static_assert(static_cast<int>(Priority::High) == 0);
@@ -202,6 +206,10 @@ class TOOLBOX_API Reactor : public Waker {
     TimerPool tp_;
     std::array<TimerQueue, 2> tqs_{tp_, tp_};
     HookList end_of_cycle_no_wait_hooks, end_of_event_dispatch_hooks_;
+    Micros priority_io_poll_threshold = Micros::max();
+    WallTime last_time_priority_io_polled_{};
+    int cycle_work_{0};
+    bool currently_handling_priority_events_{false};
 };
 
 } // namespace io
