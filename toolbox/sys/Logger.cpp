@@ -82,10 +82,11 @@ class StdLogger final : public Logger {
         // Example:
         // 2022/03/14 00:00:00.000000 NOTICE [0123456789]: msg...
         // <---------------------------------------------->
-        char head[48 + 1];
+        static constexpr size_t upper_bound{48 + 1};
+        char head[upper_bound];
         size_t hlen{strftime(head, sizeof(head), "%Y/%m/%d %H:%M:%S", &tm)};
         const auto us{static_cast<int>(us_since_epoch(ts) % 1000000)};
-        hlen += sprintf(head + hlen, ".%06d %-6s [%d]: ", us, log_label(level), tid);
+        hlen += snprintf(head + hlen, upper_bound - hlen, ".%06d %-6s [%d]: ", us, log_label(level), tid);
         char tail{'\n'};
         iovec iov[] = {
             {head, hlen},      //
