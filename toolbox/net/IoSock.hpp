@@ -52,6 +52,16 @@ struct IoSock : Sock {
         return os::recv(get(), buf, len, flags);
     }
 
+    ssize_t recvmsg(msghdr& msg, int flags, std::error_code& ec) noexcept
+    {
+        return os::recvmsg(get(), msg, flags, ec);
+    }
+
+    std::size_t recvmsg(msghdr& msg, int flags)
+    {
+        return os::recvmsg(get(), msg, flags);
+    }
+
     ssize_t recv(MutableBuffer buf, int flags, std::error_code& ec) noexcept
     {
         return os::recv(get(), buf, flags, ec);
