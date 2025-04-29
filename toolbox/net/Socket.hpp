@@ -24,6 +24,7 @@
 #include <net/if.h>
 #include <netdb.h>
 #include <netinet/tcp.h>
+#include <linux/net_tstamp.h>
 
 namespace toolbox {
 inline namespace net {
@@ -380,6 +381,24 @@ inline ssize_t recv(int sockfd, MutableBuffer buf, int flags, std::error_code& e
 inline std::size_t recv(int sockfd, MutableBuffer buf, int flags)
 {
     return recv(sockfd, static_cast<void*>(buf.data()), buffer_size(buf), flags);
+}
+
+inline ssize_t recvmsg(int sockfd, msghdr& msg, int flags, std::error_code& ec) noexcept
+{
+    const auto ret = ::recvmsg(sockfd, &msg, flags);
+    if (ret < 0) {
+        ec = make_error(errno);
+    }
+    return ret;
+}
+
+inline std::size_t recvmsg(int sockfd, msghdr& msg, int flags)
+{
+    const auto ret = ::recvmsg(sockfd, &msg, flags);
+    if (ret < 0) {
+        throw std::system_error{make_error(errno), "recvmsg"};
+    }
+    return ret;
 }
 
 /// Receive a message from a socket.
@@ -777,6 +796,32 @@ inline void set_tcp_syn_nt(int sockfd, int retrans)
     os::setsockopt(sockfd, IPPROTO_TCP, TCP_SYNCNT, &retrans, sizeof(retrans));
 }
 
+inline void set_so_timestamping(int sockfd, int flags, std::error_code& ec) noexcept
+{
+    os::setsockopt(sockfd, SOL_SOCKET, SO_TIMESTAMPING, &flags, sizeof(flags), ec);
+}
+
+inline void set_so_timestamping(int sockfd, int flags)
+{
+    os::setsockopt(sockfd, SOL_SOCKET, SO_TIMESTAMPING, &flags, sizeof(flags));
+}
+
+inline int get_so_timestamping(int sockfd, std::error_code& ec) noexcept
+{
+    int optval{};
+    socklen_t optlen{sizeof(optval)};
+    os::getsockopt(sockfd, SOL_SOCKET, SO_TIMESTAMPING, &optval, optlen, ec);
+    return optval;
+}
+
+inline int get_so_timestamping(int sockfd)
+{
+    int optval{};
+    socklen_t optlen{sizeof(optval)};
+    os::getsockopt(sockfd, SOL_SOCKET, SO_TIMESTAMPING, &optval, optlen);
+    return optval;
+}
+
 struct Sock : FileHandle {
     Sock(FileHandle&& sock, int family)
     : FileHandle{std::move(sock)}
@@ -834,6 +879,42 @@ struct Sock : FileHandle {
         toolbox::set_so_snd_buf(get(), size, ec);
     }
     void set_snd_buf(int size) { toolbox::set_so_snd_buf(get(), size); }
+
+    void enable_hardware_rcv_timestamps()
+    {
+        int flags = get_so_timestamping(get());
+        flags |= SOF_TIMESTAMPING_RX_HARDWARE | SOF_TIMESTAMPING_RAW_HARDWARE;
+        set_so_timestamping(get(), flags);
+    }
+
+    void enable_hardware_rcv_timestamps(std::error_code& ec) noexcept
+    {
+        if (int flags = get_so_timestamping(get(), ec); !ec) {
+            flags |= SOF_TIMESTAMPING_RX_HARDWARE | SOF_TIMESTAMPING_RAW_HARDWARE;
+            set_so_timestamping(get(), flags, ec);
+        }
+    }
+
+    void disable_hardware_rcv_timestamps()
+    {
+        int flags = get_so_timestamping(get());
+        flags &= ~SOF_TIMESTAMPING_RX_HARDWARE;
+        if (!(flags & SOF_TIMESTAMPING_TX_HARDWARE)) {
+            flags &= ~SOF_TIMESTAMPING_RAW_HARDWARE;
+        }
+        set_so_timestamping(get(), flags);
+    }
+
+    void disable_hardware_rcv_timestamps(std::error_code& ec) noexcept
+    {
+        if (int flags = get_so_timestamping(get(), ec); !ec) {
+            flags &= ~SOF_TIMESTAMPING_RX_HARDWARE;
+            if (!(flags & SOF_TIMESTAMPING_TX_HARDWARE)) {
+                flags &= ~SOF_TIMESTAMPING_RAW_HARDWARE;
+            }
+            set_so_timestamping(get(), flags, ec);
+        }
+    }
 
   private:
     int family_{};
