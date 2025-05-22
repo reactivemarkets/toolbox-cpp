@@ -142,6 +142,13 @@ constexpr JDay maybe_iso_to_jd(IsoDate iso) noexcept
     return iso != 0_ymd ? iso_to_jd(iso) : 0_jd;
 }
 
+/// ISO8601 to Unix time
+constexpr WallTime iso_to_time(IsoDate iso) noexcept
+{
+    // jd_to_time provides noon UTC for the Julian Day; IsoDate implies 00:00:00 UTC. Adjust by -12h.
+    return jd_to_time(iso_to_jd(iso)) - 12h;
+}
+
 constexpr bool is_week_day(JDay jday) noexcept
 {
     return (jday.count() % 7) < 5;
