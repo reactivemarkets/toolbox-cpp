@@ -19,6 +19,9 @@
 #include <toolbox/io/TimerFd.hpp>
 #include <toolbox/sys/Log.hpp>
 #include <toolbox/sys/Trace.hpp>
+#include <toolbox/util/Variant.hpp>
+
+#include <variant>
 
 namespace toolbox {
 inline namespace io {
@@ -42,16 +45,26 @@ int dispatch_low_priority_timers(CyclTime now, TimerQueue& tq, bool idle_cycle)
 }
 } // namespace
 
-Reactor::Reactor(std::size_t size_hint)
+Reactor::Reactor(ReactorMode mode, std::size_t size_hint)
 {
     const auto notify = notify_.fd();
     data_.resize(max<size_t>(notify + 1, size_hint));
-    epoll_.add(notify, 0, EpollIn);
+
+    if (mode == ReactorMode::Immediate) {
+        auto& dev = device_.emplace<ImmediateDevice>();
+        dev.low_prio_epoll.add(notify, 0, EpollIn);
+    } else {
+        auto& dev = device_.emplace<BlockingDevice>();
+        dev.epoll.add(notify, 0, EpollIn);
+    }
 }
 
 Reactor::~Reactor()
 {
-    epoll_.del(notify_.fd());
+    std::visit(overloaded{
+        [this](ImmediateDevice& dev) { dev.low_prio_epoll.del(notify_.fd()); },
+        [this](BlockingDevice& dev) { dev.epoll.del(notify_.fd()); }
+    }, device_);
 }
 
 Reactor::Handle Reactor::subscribe(int fd, unsigned events, IoSlot slot)
@@ -62,14 +75,17 @@ Reactor::Handle Reactor::subscribe(int fd, unsigned events, IoSlot slot)
         data_.resize(fd + 1);
     }
     auto& ref = data_[fd];
-    epoll_.add(fd, ++ref.sid, events);
+    std::visit(overloaded{
+        [&](ImmediateDevice& dev) { dev.low_prio_epoll.add(fd, ++ref.sid, events); },
+        [&](BlockingDevice& dev) { dev.epoll.add(fd, ++ref.sid, events); }
+    }, device_);
     ref.events = events;
     ref.slot = slot;
     ref.priority = Priority::Low;
     return {*this, fd, ref.sid};
 }
 
-int Reactor::poll(CyclTime now, Duration timeout)
+int Reactor::poll_blocking(BlockingDevice& dev, CyclTime now, Duration timeout)
 {
     enum { High = 0, Low = 1 };
     using namespace chrono;
@@ -90,10 +106,10 @@ int Reactor::poll(CyclTime now, Duration timeout)
     error_code ec;
     if (wait_until < MonoClock::max()) {
         // The wait function will not block if time is zero.
-        n = epoll_.wait(buf, MaxEvents, wait_until, ec);
+        n = dev.epoll.wait(buf, MaxEvents, wait_until, ec);
     } else {
         // Block indefinitely.
-        n = epoll_.wait(buf, MaxEvents, ec);
+        n = dev.epoll.wait(buf, MaxEvents, ec);
     }
     // Update cycle time after epoll() returns.
     now = CyclTime::now();
@@ -120,6 +136,62 @@ int Reactor::poll(CyclTime now, Duration timeout)
     }
     io::dispatch(now, end_of_cycle_no_wait_hooks);
     return cycle_work_;
+}
+
+int Reactor::poll_immediate(ImmediateDevice& dev, CyclTime now)
+{
+    enum { High = 0, Low = 1 };
+
+    auto dispatch_io = [&]() -> int {
+        Event buf[MaxEvents];
+        error_code ec;
+
+        // high priority IO
+        last_time_priority_io_polled_ = now.wall_time();
+        int hn = dev.high_prio_epoll.wait(buf, MaxEvents, MonoTime{}, ec);
+        if (ec) {
+            if (ec.value() != EINTR) {
+                throw system_error{ec};
+            }
+            return 0;
+        }
+        dispatch(now, buf, hn, Priority::High);
+
+        // low priority IO
+        int ln = dev.low_prio_epoll.wait(buf, MaxEvents, MonoTime{}, ec);
+        if (ec) {
+            if (ec.value() != EINTR) {
+                throw system_error{ec};
+            }
+            return hn;
+        }
+        dispatch(now, buf, ln, Priority::Low);
+
+        return hn + ln;
+    };
+
+    cycle_work_ = 0;
+    TOOLBOX_PROBE_SCOPED(reactor, dispatch, cycle_work_);
+    // High priority timers.
+    cycle_work_ = tqs_[High].dispatch(now);
+    // I/O events.
+    cycle_work_ += dispatch_io();
+    // Low priority timers (typically only dispatched during empty cycles).
+    cycle_work_ += dispatch_low_priority_timers(now, tqs_[Low], cycle_work_ == 0);
+    // End of cycle hooks.
+    if (cycle_work_ > 0) {
+        io::dispatch(now, end_of_event_dispatch_hooks_);
+    }
+    io::dispatch(now, end_of_cycle_no_wait_hooks);
+    return cycle_work_;
+}
+
+int Reactor::poll(CyclTime now, Duration timeout)
+{
+    return std::visit(overloaded{
+        [&](ImmediateDevice& dev) { return poll_immediate(dev, now); },
+        [&](BlockingDevice& dev) { return poll_blocking(dev, now, timeout); }
+    }, device_);
 }
 
 void Reactor::do_wakeup() noexcept
@@ -167,7 +239,13 @@ void Reactor::yield()
 
         error_code ec;
         Event buf[MaxEvents];
-        int n = high_prio_epoll_.wait(buf, MaxEvents, MonoTime{}, ec);
+
+        Epoll& epoll = std::visit(overloaded{
+            [&](ImmediateDevice& dev) -> Epoll& { return dev.high_prio_epoll; },
+            [&](BlockingDevice& dev) -> Epoll& { return dev.epoll; }
+        }, device_);
+
+        int n = epoll.wait(buf, MaxEvents, MonoTime{}, ec);
 
         if (ec) {
             if (ec.value() != EINTR) {
@@ -194,7 +272,7 @@ int Reactor::dispatch(CyclTime now, Event* buf, int size, Priority priority)
     for (int i{0}; i < size; ++i) {
 
         auto& ev = buf[i];
-        const auto fd = epoll_.fd(ev);
+        const auto fd = Epoll::fd(ev);
         const auto& ref = data_[fd];
 
         if (ref.priority != priority) {
@@ -211,7 +289,7 @@ int Reactor::dispatch(CyclTime now, Event* buf, int size, Priority priority)
             continue;
         }
 
-        const auto sid = epoll_.sid(ev);
+        const auto sid = Epoll::sid(ev);
         // Skip this socket if it was modified after the call to wait().
         if (ref.sid > sid) {
             continue;
@@ -235,17 +313,26 @@ int Reactor::dispatch(CyclTime now, Event* buf, int size, Priority priority)
     return work;
 }
 
+Epoll& Reactor::get_resident_epoll(Data& data)
+{
+    return std::visit(overloaded{
+        [&](ImmediateDevice& dev) -> Epoll& {
+            return (data.priority == Priority::High) ? dev.high_prio_epoll
+                                                     : dev.low_prio_epoll;
+            },
+        [&](BlockingDevice& dev) -> Epoll& { return dev.epoll; }
+    }, device_);
+}
+
 void Reactor::set_events(int fd, int sid, unsigned events, IoSlot slot, error_code& ec) noexcept
 {
     auto& ref = data_[fd];
     if (ref.sid == sid) {
         if (ref.events != events) {
-            epoll_.mod(fd, sid, events, ec);
+            Epoll& epoll = get_resident_epoll(ref);
+            epoll.mod(fd, sid, events, ec);
             if (ec) {
                 return;
-            }
-            if (ref.priority == Priority::High) {
-                high_prio_epoll_.mod(fd, sid, events);
             }
             ref.events = events;
         }
@@ -258,10 +345,8 @@ void Reactor::set_events(int fd, int sid, unsigned events, IoSlot slot)
     auto& ref = data_[fd];
     if (ref.sid == sid) {
         if (ref.events != events) {
-            epoll_.mod(fd, sid, events);
-            if (ref.priority == Priority::High) {
-                high_prio_epoll_.mod(fd, sid, events);
-            }
+            Epoll& epoll = get_resident_epoll(ref);
+            epoll.mod(fd, sid, events);
             ref.events = events;
         }
         ref.slot = slot;
@@ -272,12 +357,10 @@ void Reactor::set_events(int fd, int sid, unsigned events, error_code& ec) noexc
 {
     auto& ref = data_[fd];
     if (ref.sid == sid && ref.events != events) {
-        epoll_.mod(fd, sid, events, ec);
+        Epoll& epoll = get_resident_epoll(ref);
+        epoll.mod(fd, sid, events, ec);
         if (ec) {
             return;
-        }
-        if (ref.priority == Priority::High) {
-            high_prio_epoll_.mod(fd, sid, events);
         }
         ref.events = events;
     }
@@ -287,11 +370,9 @@ void Reactor::set_events(int fd, int sid, unsigned events)
 {
     auto& ref = data_[fd];
     if (ref.sid == sid && ref.events != events) {
-        epoll_.mod(fd, sid, events);
+        Epoll& epoll = get_resident_epoll(ref);
+        epoll.mod(fd, sid, events);
         ref.events = events;
-        if (ref.priority == Priority::High) {
-            high_prio_epoll_.mod(fd, sid, events);
-        }
     }
 }
 
@@ -299,10 +380,8 @@ void Reactor::unsubscribe(int fd, int sid) noexcept
 {
     auto& ref = data_[fd];
     if (ref.sid == sid) {
-        if (ref.priority == Priority::High) {
-            high_prio_epoll_.del(fd);
-        }
-        epoll_.del(fd);
+        Epoll& epoll = get_resident_epoll(ref);
+        epoll.del(fd);
         ref.events = 0;
         ref.slot.reset();
         ref.priority = Priority::Low;
@@ -313,11 +392,18 @@ void Reactor::set_io_priority(int fd, int sid, Priority priority) noexcept
 {
     auto& ref = data_[fd];
     if (ref.sid == sid && ref.priority != priority) {
-        if (priority == Priority::High) {
-            high_prio_epoll_.add(fd, sid, ref.events);
-        } else {
-            high_prio_epoll_.del(fd);
-        }
+        std::visit(overloaded{
+            [&](ImmediateDevice& dev) {
+                if (ref.priority == Priority::Low) {
+                    dev.low_prio_epoll.del(fd);
+                    dev.high_prio_epoll.add(fd, sid, ref.events);
+                } else {
+                    dev.high_prio_epoll.del(fd);
+                    dev.low_prio_epoll.add(fd, sid, ref.events);
+                }
+            },
+            [&](BlockingDevice& /*dev*/) {}
+        }, device_);
         ref.priority = priority;
     }
 }
