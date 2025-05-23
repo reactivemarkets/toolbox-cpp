@@ -89,7 +89,7 @@ int main()
 
         const auto start_time = CyclTime::now();
 
-        Reactor reactor{1024};
+        Reactor reactor{};
         ExampleApp app;
         app.bind("/foo", bind<on_foo>());
         app.bind("/bar", bind<on_bar>());
