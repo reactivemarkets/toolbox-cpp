@@ -227,6 +227,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ab69c55bcbc756a9c5cc9bc0e9f3dc5e5" id="r_ab69c55bcbc756a9c5cc9bc0e9f3dc5e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">constexpr</a> <a class="el" href="namespacetoolbox_1_1sys.html#ad3e11d6c6094b92f8417b03cbb66cd3a">JDay</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#ab69c55bcbc756a9c5cc9bc0e9f3dc5e5">maybe_iso_to_jd</a> (<a class="el" href="namespacetoolbox_1_1sys.html#a1566d16291b4b2ce84563d4daff190d1">IsoDate</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">iso</a>) <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">noexcept</a></td></tr>
 <tr class="memdesc:ab69c55bcbc756a9c5cc9bc0e9f3dc5e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">ISO8601 to Julian day if argument is non-zero.  <br /></td></tr>
 <tr class="separator:ab69c55bcbc756a9c5cc9bc0e9f3dc5e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa16e25e8b55a9db204ad7d594aac4224" id="r_aa16e25e8b55a9db204ad7d594aac4224"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">constexpr</a> <a class="el" href="namespacetoolbox_1_1sys.html#a657ecd4f98265bd34f835f59975db04e">WallTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#aa16e25e8b55a9db204ad7d594aac4224">iso_to_time</a> (<a class="el" href="namespacetoolbox_1_1sys.html#a1566d16291b4b2ce84563d4daff190d1">IsoDate</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">iso</a>) <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">noexcept</a></td></tr>
+<tr class="memdesc:aa16e25e8b55a9db204ad7d594aac4224"><td class="mdescLeft">&#160;</td><td class="mdescRight">ISO8601 to Unix time.  <br /></td></tr>
+<tr class="separator:aa16e25e8b55a9db204ad7d594aac4224"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afce705382046df9cdda1b692ac393897" id="r_afce705382046df9cdda1b692ac393897"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">constexpr</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#afce705382046df9cdda1b692ac393897">is_week_day</a> (<a class="el" href="namespacetoolbox_1_1sys.html#ad3e11d6c6094b92f8417b03cbb66cd3a">JDay</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">jday</a>) <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">noexcept</a></td></tr>
 <tr class="separator:afce705382046df9cdda1b692ac393897"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a057dab6f57581e23589b82756a7a0e4b" id="r_a057dab6f57581e23589b82756a7a0e4b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">constexpr</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a057dab6f57581e23589b82756a7a0e4b">is_weekend_day</a> (<a class="el" href="namespacetoolbox_1_1sys.html#ad3e11d6c6094b92f8417b03cbb66cd3a">JDay</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">jday</a>) <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">noexcept</a></td></tr>
@@ -1137,6 +1140,36 @@ requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b
 
 </div>
 </div>
+<a id="aa16e25e8b55a9db204ad7d594aac4224" name="aa16e25e8b55a9db204ad7d594aac4224"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa16e25e8b55a9db204ad7d594aac4224">&#9670;&#160;</a></span>iso_to_time()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">constexpr</a> <a class="el" href="namespacetoolbox_1_1sys.html#a657ecd4f98265bd34f835f59975db04e">WallTime</a> toolbox::sys::iso_to_time </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1sys.html#a1566d16291b4b2ce84563d4daff190d1">IsoDate</a>&#160;</td>
+          <td class="paramname"><em>iso</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ISO8601 to Unix time. </p>
+
+<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00146">146</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
+
+</div>
+</div>
 <a id="afce705382046df9cdda1b692ac393897" name="afce705382046df9cdda1b692ac393897"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afce705382046df9cdda1b692ac393897">&#9670;&#160;</a></span>is_week_day()</h2>
 
@@ -1161,7 +1194,7 @@ requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00145">145</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00152">152</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
 
 </div>
 </div>
@@ -1189,7 +1222,7 @@ requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00150">150</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00157">157</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
 
 </div>
 </div>
@@ -1223,7 +1256,7 @@ requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b
 <li>DD = 01-31. </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00163">163</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00170">170</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
 
 </div>
 </div>
@@ -1261,7 +1294,7 @@ requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b
 <li>sss = 000-999 (indicating milliseconds). </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00181">181</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Date_8hpp_source.html#l00188">188</a> of file <a class="el" href="Date_8hpp_source.html">Date.hpp</a>.</p>
 
 </div>
 </div>
