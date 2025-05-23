@@ -21,6 +21,7 @@
 #include <toolbox/util/RefCount.hpp>
 
 #include <boost/test/unit_test.hpp>
+#include <boost/test/data/test_case.hpp>
 #include <thread>
 #include <string_view>
 
@@ -43,13 +44,32 @@ struct TestHandler : RefCount<TestHandler, ThreadUnsafePolicy> {
 
 } // namespace
 
+namespace param {
+    struct ReactorModeWrapper {
+        ReactorMode v;
+    };
+
+    static constexpr ReactorModeWrapper reactor_modes[] = {
+        {ReactorMode::Blocking},
+        {ReactorMode::Immediate}
+    };
+
+    static std::ostream& operator<<(std::ostream& os, ReactorModeWrapper mode) {
+        if (mode.v == ReactorMode::Blocking) {
+            return os << "ReactorMode::Blocking";
+        } else {
+            return os << "ReactorMode::Immediate";
+        }
+    }
+}
+
 BOOST_AUTO_TEST_SUITE(ReactorSuite)
 
-BOOST_AUTO_TEST_CASE(ReactorLevelCase)
+BOOST_DATA_TEST_CASE(ReactorLevelCase, param::reactor_modes, mode)
 {
     using namespace literals::chrono_literals;
 
-    Reactor r{1024};
+    Reactor r{mode.v, 1024};
     auto h = make_intrusive<TestHandler>();
 
     auto socks = socketpair(UnixStreamProtocol{});
@@ -77,11 +97,11 @@ BOOST_AUTO_TEST_CASE(ReactorLevelCase)
     BOOST_CHECK_EQUAL(h->matches, 3);
 }
 
-BOOST_AUTO_TEST_CASE(ReactorSocketPriority)
+BOOST_DATA_TEST_CASE(ReactorSocketPriority, param::reactor_modes, mode)
 {
     using namespace literals::chrono_literals;
 
-    Reactor r{1024};
+    Reactor r{mode.v, 1024};
 
     auto [first_sock, second_sock] = socketpair(UnixStreamProtocol{});
 
@@ -141,11 +161,11 @@ BOOST_AUTO_TEST_CASE(ReactorSocketPriority)
     fd_process_order.clear();
 }
 
-BOOST_AUTO_TEST_CASE(ReactorHighPriorityYield)
+BOOST_DATA_TEST_CASE(ReactorHighPriorityYield, param::reactor_modes, mode)
 {
     using namespace literals::chrono_literals;
 
-    Reactor r{1024};
+    Reactor r{mode.v, 1024};
     r.set_high_priority_poll_threshold(50us);
 
     // h0, h1 will be high priority
@@ -352,11 +372,11 @@ BOOST_AUTO_TEST_CASE(ReactorHighPriorityYield)
     BOOST_CHECK_EQUAL(trail_matches, true);
 }
 
-BOOST_AUTO_TEST_CASE(ReactorEdgeCase)
+BOOST_DATA_TEST_CASE(ReactorEdgeCase, param::reactor_modes, mode)
 {
     using namespace literals::chrono_literals;
 
-    Reactor r{1024};
+    Reactor r{mode.v, 1024};
     auto h = make_intrusive<TestHandler>();
 
     auto socks = socketpair(UnixStreamProtocol{});
@@ -391,12 +411,12 @@ BOOST_AUTO_TEST_CASE(ReactorEdgeCase)
     BOOST_CHECK_EQUAL(h->matches, 3);
 }
 
-BOOST_AUTO_TEST_CASE(ReactorHookCase)
+BOOST_DATA_TEST_CASE(ReactorHookCase, param::reactor_modes, mode)
 {
     int i{0};
     auto fn = [&i](CyclTime) { ++i; };
 
-    Reactor r{1024};
+    Reactor r{mode.v, 1024};
 
     Hook h{bind(&fn)};
     r.add_hook(h);
@@ -405,9 +425,9 @@ BOOST_AUTO_TEST_CASE(ReactorHookCase)
     BOOST_CHECK_EQUAL(i, 1);
 }
 
-BOOST_AUTO_TEST_CASE(ReactorLowPriorityProgress)
+BOOST_DATA_TEST_CASE(ReactorLowPriorityProgress, param::reactor_modes, mode)
 {
-    Reactor r{1024};
+    Reactor r{mode.v, 1024};
 
     struct counter {
         int invocation_count{0};
@@ -433,18 +453,16 @@ BOOST_AUTO_TEST_CASE(ReactorLowPriorityProgress)
     // uses own CyclTime, not the one we pass to it. 
 
     while (now.mono_time() < end) {
-
         // schedule a high priority timer for immediate execution
         hpt = r.timer(now.mono_time(), Priority::High, bind<&counter::operator()>(&hpc));
 
         // low priority timers won't be executed because it will be a busy cycle
         // due to high priority timer that is due execution.
+        now = CyclTime::now();
         r.poll(now, 0s);
 
         BOOST_CHECK_EQUAL(hpc.invocation_count, ++num_of_times_polled);
         BOOST_CHECK_EQUAL(lpc.invocation_count, 0);
-
-        now = CyclTime::now();
     }
 
     std::this_thread::sleep_for(10ms);
@@ -454,12 +472,11 @@ BOOST_AUTO_TEST_CASE(ReactorLowPriorityProgress)
     for (int i = 0; i < 2; i++) {
         hpt = r.timer(now.mono_time(), Priority::High, bind<&counter::operator()>(&hpc));
 
+        now = CyclTime::now();
         r.poll(now, 0s);
 
         BOOST_CHECK_EQUAL(hpc.invocation_count, ++num_of_times_polled);
         BOOST_CHECK_EQUAL(lpc.invocation_count, i+1);
-
-        now = CyclTime::now();
     }
 }
 
