@@ -148,7 +148,7 @@ int main()
     try {
 
         const auto start_time{CyclTime::now()};
-        Reactor reactor{1024};
+        Reactor reactor{ReactorMode::Blocking, 1024};
         Inotify inotify{IN_NONBLOCK};
         ConfigLoader config_loader{"/tmp/inotify_test/files/foo.txt"};
         App app{start_time, reactor, inotify, config_loader};

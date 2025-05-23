@@ -140,7 +140,7 @@ int main()
 
         const auto start_time = CyclTime::now();
 
-        Reactor reactor{1024};
+        Reactor reactor{ReactorMode::Blocking, 1024};
         const TcpEndpoint ep{TcpProtocol::v4(), 7777};
         EchoServ echo_serv{start_time, reactor, ep};
 
