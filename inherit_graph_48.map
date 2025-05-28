@@ -1,3 +1,16 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$structtoolbox_1_1hdr_1_1PutPercentiles.html" title=" " alt="" coords="5,5,207,31"/>
+<area shape="rect" id="Node000000" href="$classtoolbox_1_1hdr_1_1Iterator.html" title="Iterator is the base iterator for all iterator types." alt="" coords="5,59,161,84"/>
+<area shape="rect" id="Node000001" href="$classtoolbox_1_1hdr_1_1CountAddedIterator.html" title="CountAddedIterator is a recorded value iterator." alt="" coords="209,47,396,87"/>
+<area shape="poly" id="edge46_Node000000_Node000001" title=" " alt="" coords="175,67,209,66,209,72,175,72"/>
+<area shape="rect" id="Node000006" href="$classtoolbox_1_1hdr_1_1PercentileIterator.html" title="PercentileIterator is a percentile iterator." alt="" coords="216,111,389,151"/>
+<area shape="poly" id="edge50_Node000000_Node000006" title=" " alt="" coords="144,85,230,109,228,114,143,90"/>
+<area shape="rect" id="Node000002" href="$classtoolbox_1_1hdr_1_1LinearIterator.html" title="LinearIterator is a linear value iterator." alt="" coords="455,5,651,31"/>
+<area shape="poly" id="edge47_Node000001_Node000002" title=" " alt="" coords="409,44,487,28,488,33,410,49"/>
+<area shape="rect" id="Node000003" href="$classtoolbox_1_1hdr_1_1LogIterator.html" title="LogIterator is a logarithmic value iterator." alt="" coords="463,55,642,80"/>
+<area shape="poly" id="edge48_Node000001_Node000003" title=" " alt="" coords="410,65,463,65,463,70,410,70"/>
+<area shape="rect" id="Node000004" href="$classtoolbox_1_1hdr_1_1RecordedIterator.html" title="RecordedIterator is a recorded value iterator." alt="" coords="444,104,661,129"/>
+<area shape="poly" id="edge49_Node000001_Node000004" title=" " alt="" coords="410,86,488,101,487,107,409,91"/>
+<area shape="rect" id="Node000005" href="$classtoolbox_1_1hdr_1_1Iterator.html" title="Iterator is the base iterator for all iterator types." alt="" coords="20,112,147,137"/>
+<area shape="poly" id="edge51_Node000005_Node000001" title=" " alt="" coords="145,106,225,85,226,90,146,111"/>
+<area shape="poly" id="edge52_Node000005_Node000006" title=" " alt="" coords="160,124,216,126,216,131,160,130"/>
 </map>
