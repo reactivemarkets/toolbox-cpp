@@ -16,6 +16,8 @@
 
 #include "Utility.hpp"
 
+#include <toolbox/contrib/fast_float/fast_float.h>
+
 #include <boost/spirit/home/qi/numeric/real.hpp>
 #include <boost/spirit/home/qi/parse.hpp>
 
@@ -94,6 +96,14 @@ double stod(std::string_view sv, double dfl) noexcept
         return dfl;
     }
     return val;
+}
+
+double fast_stod(std::string_view sv, double dfl) noexcept
+{
+    double out{};
+    auto res = fast_float::from_chars(sv.data(), sv.data() + sv.size(), out,
+                                      fast_float::chars_format::fixed);
+    return res.ptr == nullptr ? dfl : out;
 }
 
 } // namespace util

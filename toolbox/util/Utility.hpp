@@ -22,8 +22,8 @@
 
 #include <bit>
 #include <cstdint>
-#include <string_view>
 #include <string>
+#include <string_view>
 
 namespace toolbox {
 inline namespace util {
@@ -49,7 +49,8 @@ static_assert(isdigit('0') && isdigit('9') && !isdigit('A'));
 /// \return the number of decimal digits.
 template <typename ValueT>
     requires std::unsigned_integral<ValueT>
-constexpr int dec_digits(ValueT i) noexcept {
+constexpr int dec_digits(ValueT i) noexcept
+{
     std::uint64_t v{i};
 
     // map v such that: even v --> v+1
@@ -79,7 +80,8 @@ constexpr int dec_digits(ValueT i) noexcept {
 /// \return the number of decimal digits.
 template <typename ValueT>
     requires std::signed_integral<ValueT>
-constexpr int dec_digits(ValueT i) noexcept {
+constexpr int dec_digits(ValueT i) noexcept
+{
     std::int64_t v{i};
 
     // abs(min value of int64_t) cannot be stored in int64_t
@@ -112,6 +114,7 @@ static_assert(hex_digits(std::uint64_t{0xffffffffffff}) == 12);
 
 TOOLBOX_API bool stob(std::string_view sv, bool dfl = false) noexcept;
 TOOLBOX_API double stod(std::string_view sv, double dfl = {}) noexcept;
+TOOLBOX_API double fast_stod(std::string_view sv, double dfl = {}) noexcept;
 
 template <typename ValueT>
     requires std::integral<ValueT> || std::same_as<ValueT, double>
@@ -155,14 +158,8 @@ struct string_hash {
     {
         return std::hash<std::string_view>{}(txt);
     }
-    std::size_t operator()(const char* txt) const
-    {
-        return std::hash<std::string_view>{}(txt);
-    }
-    std::size_t operator()(const std::string& txt) const
-    {
-        return std::hash<std::string>{}(txt);
-    }
+    std::size_t operator()(const char* txt) const { return std::hash<std::string_view>{}(txt); }
+    std::size_t operator()(const std::string& txt) const { return std::hash<std::string>{}(txt); }
 };
 
 inline constexpr std::string_view bool_to_alpha(bool b) noexcept
