@@ -21,6 +21,7 @@
 
 #include <sched.h>
 #include <string>
+#include <functional>
 
 namespace toolbox {
 inline namespace sys {
@@ -28,10 +29,11 @@ inline namespace sys {
 /// ThreadConfig holds the thread attributes.
 struct ThreadConfig {
     ThreadConfig(std::string name, std::string affinity = {}, // NOLINT(hicpp-explicit-conversions)
-                 std::string sched_policy = {}) noexcept
+                 std::string sched_policy = {}, std::function<void()> init_fn = [](){}) noexcept
     : name{std::move(name)}
     , affinity{std::move(affinity)}
     , sched_policy{std::move(sched_policy)}
+    , init_fn{std::move(init_fn)}
     {
     }
     ThreadConfig() noexcept = default;
@@ -51,6 +53,8 @@ struct ThreadConfig {
     std::string affinity;
     /// The thread's scheduling policy.
     std::string sched_policy;
+    /// Other custom attributes/configuration set via function
+    std::function<void()> init_fn;
 };
 
 /// Parse an isolcpus-style set of CPUs.
