@@ -92,6 +92,7 @@ void set_thread_attrs(const ThreadConfig& config)
             throw system_error{make_error(err), "pthread_setschedparam"};
         }
     }
+    config.init_fn();
 }
 
 } // namespace sys
