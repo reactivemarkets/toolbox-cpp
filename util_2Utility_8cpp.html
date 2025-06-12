@@ -82,6 +82,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="util_2Utility_8hpp_source.html">Utility.hpp</a>&quot;</code><br />
+<code>#include &lt;toolbox/contrib/fast_float/fast_float.h&gt;</code><br />
 <code>#include &lt;boost/spirit/home/qi/numeric/real.hpp&gt;</code><br />
 <code>#include &lt;boost/spirit/home/qi/parse.hpp&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -89,13 +90,15 @@ Include dependency graph for Utility.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="util_2Utility_8cpp__incl.png" border="0" usemap="#atoolbox_2util_2Utility_8cpp" alt=""/></div>
 <map name="atoolbox_2util_2Utility_8cpp" id="atoolbox_2util_2Utility_8cpp">
-<area shape="rect" title=" " alt="" coords="416,5,581,31"/>
+<area shape="rect" title=" " alt="" coords="501,5,667,31"/>
 <area shape="rect" href="util_2Utility_8hpp.html" title=" " alt="" coords="311,86,399,111"/>
-<area shape="poly" title=" " alt="" coords="479,33,389,82,387,77,476,28"/>
-<area shape="rect" title=" " alt="" coords="423,79,575,119"/>
-<area shape="poly" title=" " alt="" coords="501,31,501,65,496,65,496,31"/>
-<area shape="rect" title=" " alt="" coords="599,79,751,119"/>
-<area shape="poly" title=" " alt="" coords="525,28,621,71,619,76,523,33"/>
+<area shape="poly" title=" " alt="" coords="552,33,402,84,400,79,550,28"/>
+<area shape="rect" title=" " alt="" coords="423,79,572,119"/>
+<area shape="poly" title=" " alt="" coords="573,33,530,71,527,67,569,29"/>
+<area shape="rect" title=" " alt="" coords="596,79,748,119"/>
+<area shape="poly" title=" " alt="" coords="599,29,643,68,639,72,595,33"/>
+<area shape="rect" title=" " alt="" coords="772,79,924,119"/>
+<area shape="poly" title=" " alt="" coords="623,28,772,72,771,77,622,33"/>
 <area shape="rect" href="Config_8h.html" title=" " alt="" coords="5,240,133,265"/>
 <area shape="poly" title=" " alt="" coords="318,114,254,137,184,169,135,201,94,233,91,229,132,197,181,164,252,132,316,109"/>
 <area shape="rect" href="Math_8hpp.html" title=" " alt="" coords="215,167,377,192"/>
@@ -103,11 +106,11 @@ Include dependency graph for Utility.cpp:</div>
 <area shape="rect" title=" " alt="" coords="158,240,197,265"/>
 <area shape="poly" title=" " alt="" coords="311,112,256,132,229,148,206,168,190,196,182,226,177,225,185,194,202,165,226,144,254,127,310,107"/>
 <area shape="rect" title=" " alt="" coords="481,240,548,265"/>
-<area shape="poly" title=" " alt="" coords="367,110,443,190,490,229,487,234,440,194,363,114"/>
-<area shape="rect" title=" " alt="" coords="453,167,550,192"/>
-<area shape="poly" title=" " alt="" coords="378,109,469,158,466,162,375,114"/>
-<area shape="rect" title=" " alt="" coords="575,167,633,192"/>
-<area shape="poly" title=" " alt="" coords="389,109,411,116,562,163,561,168,410,121,388,114"/>
+<area shape="poly" title=" " alt="" coords="367,110,399,147,442,190,490,230,486,234,438,194,395,150,363,114"/>
+<area shape="rect" title=" " alt="" coords="452,167,511,192"/>
+<area shape="poly" title=" " alt="" coords="375,109,452,157,449,162,372,114"/>
+<area shape="rect" title=" " alt="" coords="535,167,633,192"/>
+<area shape="poly" title=" " alt="" coords="389,109,538,160,537,165,387,114"/>
 <area shape="poly" title=" " alt="" coords="260,195,120,238,118,233,259,189"/>
 <area shape="poly" title=" " alt="" coords="278,194,210,235,207,230,276,190"/>
 <area shape="rect" title=" " alt="" coords="221,240,283,265"/>
@@ -135,6 +138,8 @@ Functions</h2></td></tr>
 <tr class="separator:a02971d2bfcfc734253cafd92a59302ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae783c02fb86bf723878d4a2161655ade" id="r_ae783c02fb86bf723878d4a2161655ade"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#ae783c02fb86bf723878d4a2161655ade">toolbox::util::stod</a> (std::string_view <a class="el" href="namespacetoolbox_1_1util.html#ab0e8390e06ed1ddfdfddf09408afb48e">sv</a>, <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">double</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">dfl</a>) <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">noexcept</a></td></tr>
 <tr class="separator:ae783c02fb86bf723878d4a2161655ade"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82352152b03895289a10d5cb32886912" id="r_a82352152b03895289a10d5cb32886912"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a82352152b03895289a10d5cb32886912">toolbox::util::fast_stod</a> (std::string_view <a class="el" href="namespacetoolbox_1_1util.html#ab0e8390e06ed1ddfdfddf09408afb48e">sv</a>, <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">double</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">dfl</a>) <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">noexcept</a></td></tr>
+<tr class="separator:a82352152b03895289a10d5cb32886912"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
