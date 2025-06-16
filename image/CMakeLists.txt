@@ -46,4 +46,4 @@ if(DOT_EXECUTABLE)
 
 endif()
 
-add_custom_target(tb-image ALL DEPENDS ${outfiles})
+add_custom_target(tb-image DEPENDS ${outfiles})
