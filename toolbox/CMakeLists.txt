@@ -132,13 +132,13 @@ set(lib_SOURCES
 
 add_library(tb-core-static STATIC ${lib_SOURCES})
 set_target_properties(tb-core-static PROPERTIES OUTPUT_NAME tb_core)
-target_link_libraries(tb-core-static pthread)
+target_link_libraries(tb-core-static atomic pthread)
 install(TARGETS tb-core-static DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT static)
 
 if(TOOLBOX_BUILD_SHARED)
   add_library(tb-core-shared SHARED ${lib_SOURCES})
   set_target_properties(tb-core-shared PROPERTIES OUTPUT_NAME tb_core)
-  target_link_libraries(tb-core-shared pthread)
+  target_link_libraries(tb-core-shared atomic pthread)
   install(TARGETS tb-core-shared DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT shared)
 endif()
 
