@@ -152,7 +152,7 @@ class TOOLBOX_API AsyncLogger : public Logger {
                       std::size_t size) noexcept override;
 
     Logger& logger_;
-    boost::lockfree::queue<Task, boost::lockfree::fixed_sized<true>> tq_{512};
+    boost::lockfree::queue<Task, boost::lockfree::fixed_sized<false>> tq_{512};
     std::atomic<bool> stop_{false};
 };
 
