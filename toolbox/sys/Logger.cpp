@@ -233,11 +233,18 @@ void AsyncLogger::stop()
 void AsyncLogger::do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
                                size_t size) noexcept
 {
-    // if the queue is full, skip the message
-    if (void* msg_ptr = msg.release();
-        !tq_.push(Task{.ts = ts, .level = level, .tid = tid, .msg = msg_ptr, .size = size})) {
-        LogMsgPtr{msg_ptr};
+    void* const msg_ptr = msg.release();
+    try {
+        if (tq_.push(Task{.ts = ts, .level = level, .tid = tid, .msg = msg_ptr, .size = size})) {
+            // Successfully pushed the task to the queue, release ownership of msg_ptr.
+            return;
+        }
+    } catch (const std::bad_alloc&) {
+        // Catching `std::bad_alloc` here is *defensive plumbing* that keeps the logger non-throwing
+        // and prevents crashes caused by an out-of-memory situation during rare log-burst spikes.
     }
+    // Failed to push the task, restore ownership of msg_ptr.
+    LogMsgPtr{msg_ptr};
 }
 
 } // namespace sys
