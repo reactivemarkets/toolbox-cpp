@@ -18,9 +18,11 @@
 #ifndef TOOLBOX_CONTRIB_LIBUTIL_H
 #define TOOLBOX_CONTRIB_LIBUTIL_H
 
-static const char* getprogname(void) { return program_invocation_short_name; }
+#include <toolbox/Config.h>
 
-int flopen(const char *path, int flags, ...);
+inline const char* getprogname(void) { return program_invocation_short_name; }
+
+TOOLBOX_API int flopen(const char *path, int flags, ...);
 int pidfile_write(struct pidfh* pfh);
 int pidfile_close(struct pidfh* pfh);
 int pidfile_remove(struct pidfh* pfh);
