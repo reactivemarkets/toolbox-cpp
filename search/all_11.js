@@ -85,7 +85,7 @@ var searchData=
   ['storage_2ecpp_82',['Storage.cpp',['../Storage_8cpp.html',1,'']]],
   ['storage_2ehpp_83',['Storage.hpp',['../Storage_8hpp.html',1,'']]],
   ['storagedeleter_84',['StorageDeleter',['../structtoolbox_1_1util_1_1detail_1_1StorageDeleter.html',1,'toolbox::util::detail']]],
-  ['storageptr_85',['storageptr',['../namespacetoolbox_1_1util.html#ad09444d2adeb2a837168654823968f43',1,'toolbox::util::StoragePtr'],['../namespacetoolbox_1_1util.html#ad09444d2adeb2a837168654823968f43',1,'toolbox::StoragePtr']]],
+  ['storageptr_85',['storageptr',['../namespacetoolbox_1_1util.html#aeb288a1a60b3b04011a1c4b65a2c143a',1,'toolbox::util::StoragePtr'],['../namespacetoolbox_1_1util.html#aeb288a1a60b3b04011a1c4b65a2c143a',1,'toolbox::StoragePtr']]],
   ['str_86',['str',['../classtoolbox_1_1util_1_1OStream.html#a86b60e362d76ce20c8d07b91088fd19a',1,'toolbox::util::OStream::str()'],['../classtoolbox_1_1io_1_1Buffer.html#a9bbc1a2b1bbbec1aa015600726ab236c',1,'toolbox::io::Buffer::str()'],['../classtoolbox_1_1util_1_1OStaticStream.html#aca70fb71a20c13a589c68b8f2a7465ce',1,'toolbox::util::OStaticStream::str()']]],
   ['stream_2ecpp_87',['stream.cpp',['../util_2Stream_8cpp.html',1,'(Global Namespace)'],['../io_2Stream_8cpp.html',1,'(Global Namespace)'],['../http_2Stream_8cpp.html',1,'(Global Namespace)']]],
   ['stream_2ehpp_88',['stream.hpp',['../util_2Stream_8hpp.html',1,'(Global Namespace)'],['../io_2Stream_8hpp.html',1,'(Global Namespace)'],['../http_2Stream_8hpp.html',1,'(Global Namespace)']]],

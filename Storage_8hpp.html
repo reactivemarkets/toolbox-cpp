@@ -83,22 +83,15 @@ $(function() {
   <div class="headertitle"><div class="title">Storage.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="Allocator_8hpp_source.html">toolbox/util/Allocator.hpp</a>&gt;</code><br />
-<code>#include &lt;memory&gt;</code><br />
+<div class="textblock"><code>#include &lt;memory&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Storage.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="Storage_8hpp__incl.png" border="0" usemap="#atoolbox_2util_2Storage_8hpp" alt=""/></div>
 <map name="atoolbox_2util_2Storage_8hpp" id="atoolbox_2util_2Storage_8hpp">
-<area shape="rect" title=" " alt="" coords="119,5,297,31"/>
-<area shape="rect" href="Allocator_8hpp.html" title=" " alt="" coords="38,79,223,104"/>
-<area shape="poly" title=" " alt="" coords="197,33,155,71,152,67,194,29"/>
-<area shape="rect" title=" " alt="" coords="248,79,325,104"/>
-<area shape="poly" title=" " alt="" coords="222,29,266,68,262,71,219,33"/>
-<area shape="rect" href="Config_8h.html" title=" " alt="" coords="5,152,133,177"/>
-<area shape="poly" title=" " alt="" coords="123,106,90,143,86,140,119,103"/>
-<area shape="rect" title=" " alt="" coords="158,152,229,177"/>
-<area shape="poly" title=" " alt="" coords="143,103,176,140,172,143,139,106"/>
+<area shape="rect" title=" " alt="" coords="5,5,184,31"/>
+<area shape="rect" title=" " alt="" coords="56,79,133,104"/>
+<area shape="poly" title=" " alt="" coords="97,31,97,65,92,65,92,31"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -262,15 +255,16 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ad09444d2adeb2a837168654823968f43" id="r_ad09444d2adeb2a837168654823968f43"><td class="memTemplParams" colspan="2">template&lt;std::size_t SizeN&gt; </td></tr>
-<tr class="memitem:ad09444d2adeb2a837168654823968f43"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#ad09444d2adeb2a837168654823968f43">toolbox::util::StoragePtr</a> = std::unique_ptr&lt; <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">void</a>, <a class="el" href="structtoolbox_1_1util_1_1detail_1_1StorageDeleter.html">detail::StorageDeleter</a>&lt; <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">SizeN</a> &gt; &gt;</td></tr>
-<tr class="separator:ad09444d2adeb2a837168654823968f43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb288a1a60b3b04011a1c4b65a2c143a" id="r_aeb288a1a60b3b04011a1c4b65a2c143a"><td class="memTemplParams" colspan="2">template&lt;std::size_t SizeN&gt; </td></tr>
+<tr class="memitem:aeb288a1a60b3b04011a1c4b65a2c143a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">using</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#aeb288a1a60b3b04011a1c4b65a2c143a">toolbox::util::StoragePtr</a> = std::unique_ptr&lt; <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">char</a>[], <a class="el" href="structtoolbox_1_1util_1_1detail_1_1StorageDeleter.html">detail::StorageDeleter</a>&lt; <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">SizeN</a> &gt; &gt;</td></tr>
+<tr class="memdesc:aeb288a1a60b3b04011a1c4b65a2c143a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to an uninitialised char array of SizeN, freed with delete[].  <br /></td></tr>
+<tr class="separator:aeb288a1a60b3b04011a1c4b65a2c143a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:acfb687d6b630a20b7d53a2681c8c76ed" id="r_acfb687d6b630a20b7d53a2681c8c76ed"><td class="memTemplParams" colspan="2">template&lt;std::size_t SizeN&gt; </td></tr>
-<tr class="memitem:acfb687d6b630a20b7d53a2681c8c76ed"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#ad09444d2adeb2a837168654823968f43">StoragePtr</a>&lt; <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">SizeN</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#acfb687d6b630a20b7d53a2681c8c76ed">toolbox::util::make_storage</a> ()</td></tr>
-<tr class="memdesc:acfb687d6b630a20b7d53a2681c8c76ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a block of dynamic storage acquired from the custom allocator.  <br /></td></tr>
+<tr class="memitem:acfb687d6b630a20b7d53a2681c8c76ed"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#aeb288a1a60b3b04011a1c4b65a2c143a">StoragePtr</a>&lt; <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">SizeN</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#acfb687d6b630a20b7d53a2681c8c76ed">toolbox::util::make_storage</a> ()</td></tr>
+<tr class="memdesc:acfb687d6b630a20b7d53a2681c8c76ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a block of dynamic storage.  <br /></td></tr>
 <tr class="separator:acfb687d6b630a20b7d53a2681c8c76ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
