@@ -17,8 +17,6 @@
 #ifndef TOOLBOX_UTIL_STORAGE_HPP
 #define TOOLBOX_UTIL_STORAGE_HPP
 
-#include <toolbox/util/Allocator.hpp>
-
 #include <memory>
 
 namespace toolbox {
@@ -26,18 +24,19 @@ inline namespace util {
 namespace detail {
 template <std::size_t SizeN>
 struct StorageDeleter {
-    void operator()(void* ptr) const noexcept { deallocate(ptr, SizeN); }
+    void operator()(char* ptr) const noexcept { delete[] ptr; }
 };
 } // namespace detail
 
+/// Pointer to an uninitialised char array of SizeN, freed with delete[].
 template <std::size_t SizeN>
-using StoragePtr = std::unique_ptr<void, detail::StorageDeleter<SizeN>>;
+using StoragePtr = std::unique_ptr<char[], detail::StorageDeleter<SizeN>>;
 
-/// Returns a block of dynamic storage acquired from the custom allocator.
+/// Returns a block of dynamic storage.
 template <std::size_t SizeN>
 StoragePtr<SizeN> make_storage()
 {
-    return StoragePtr<SizeN>{allocate(SizeN)};
+    return StoragePtr<SizeN>{new char[SizeN]};
 }
 
 } // namespace util

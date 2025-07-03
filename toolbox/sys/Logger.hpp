@@ -123,7 +123,7 @@ class TOOLBOX_API AsyncLogger : public Logger {
         WallTime ts;
         LogLevel level;
         int tid;
-        void* msg;
+        char* msg;
         std::size_t size;
     };
 

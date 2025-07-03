@@ -62,7 +62,7 @@ class OStream final : public OStreamBase<OStream<MaxN>> {
     OStream& operator=(OStream&&) = delete;
 
     static StoragePtr<MaxN> make_storage() { return util::make_storage<MaxN>(); }
-    const char* data() const noexcept { return static_cast<const char*>(storage_.get()); }
+    const char* data() const noexcept { return storage_.get(); }
     bool empty() const noexcept { return bytes_written_ == 0u; }
     std::size_t size() const noexcept { return bytes_written_; }
     std::string_view str() const noexcept { return std::string_view{data(), size()}; }
