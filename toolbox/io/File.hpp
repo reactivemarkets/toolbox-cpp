@@ -20,6 +20,7 @@
 #include <toolbox/io/Buffer.hpp>
 #include <toolbox/io/Handle.hpp>
 #include <toolbox/sys/Error.hpp>
+#include <toolbox/contrib/libutil.h>
 
 #include <fcntl.h>
 #include <stdio.h>
@@ -66,6 +67,22 @@ inline FileHandle open(const char* path, int flags)
         throw std::system_error{make_error(errno), "open"};
     }
     return fd;
+}
+
+inline void rename(const char* oldpath, const char* newpath, std::error_code& ec)
+{
+    const auto ret = ::rename(oldpath, newpath);
+    if (ret < 0) {
+        ec = make_error(errno);
+    }
+}
+
+inline void rename(const char* oldpath, const char* newpath)
+{
+    const auto ret = ::rename(oldpath, newpath);
+    if (ret < 0) {
+        throw std::system_error{make_error(errno), "rename"};
+    }
 }
 
 inline int remove(const char* path)
@@ -276,6 +293,29 @@ inline void set_non_block(int fd)
 {
     os::fcntl(fd, F_SETFL, O_NONBLOCK);
 }
+
+// Reliably open and lock a file
+inline FileHandle flopen(const char* path, int flags, mode_t mode, std::error_code& ec)
+{
+    // flopen comes from library 'libbsd'
+    const auto fd = ::flopen(path, flags, mode);
+    if (fd < 0) {
+        ec = make_error(errno);
+    }
+    return fd;
+}
+
+// Reliably open and lock a file
+inline FileHandle flopen(const char* path, int flags, mode_t mode)
+{
+    // flopen comes from library 'libbsd'
+    const auto fd = ::flopen(path, flags, mode);
+    if (fd < 0) {
+        throw std::system_error{make_error(errno), "flopen"};
+    }
+    return fd;
+}
+
 
 } // namespace io
 } // namespace toolbox
