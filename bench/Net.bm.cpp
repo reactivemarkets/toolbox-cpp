@@ -40,7 +40,7 @@ OStream<N>& make_stream() {
 
     // make sure all allocated memory is backed by physical pages,
     // so that no page faults occur during our benchmarks.
-    unsigned char* p = static_cast<unsigned char*>(storage.get());
+    char* p = storage.get();
     std::fill(p, p+N, 0);
 
     stream.set_storage(std::move(storage));

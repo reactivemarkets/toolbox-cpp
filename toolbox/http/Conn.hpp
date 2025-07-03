@@ -24,6 +24,7 @@
 #include <toolbox/io/Reactor.hpp>
 #include <toolbox/net/Endpoint.hpp>
 #include <toolbox/net/IoSock.hpp>
+#include <toolbox/util/Allocator.hpp>
 
 namespace toolbox {
 inline namespace http {

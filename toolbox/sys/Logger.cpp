@@ -132,7 +132,7 @@ class SysLogger final : public Logger {
         default:
             prio = LOG_DEBUG;
         }
-        syslog(prio, "%.*s", static_cast<int>(size), static_cast<const char*>(msg.get()));
+        syslog(prio, "%.*s", static_cast<int>(size), msg.get());
     }
 } sys_logger_;
 
@@ -233,7 +233,7 @@ void AsyncLogger::stop()
 void AsyncLogger::do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
                                size_t size) noexcept
 {
-    void* const msg_ptr = msg.release();
+    char* const msg_ptr = msg.release();
     try {
         if (tq_.push(Task{.ts = ts, .level = level, .tid = tid, .msg = msg_ptr, .size = size})) {
             // Successfully pushed the task to the queue, release ownership of msg_ptr.
