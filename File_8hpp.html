@@ -84,6 +84,7 @@ $(function() {
 <div class="textblock"><code>#include &lt;<a class="el" href="Buffer_8hpp_source.html">toolbox/io/Buffer.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="Handle_8hpp_source.html">toolbox/io/Handle.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="sys_2Error_8hpp_source.html">toolbox/sys/Error.hpp</a>&gt;</code><br />
+<code>#include &lt;toolbox/contrib/libutil.h&gt;</code><br />
 <code>#include &lt;fcntl.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;sys/stat.h&gt;</code><br />
@@ -92,19 +93,21 @@ Include dependency graph for File.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="File_8hpp__incl.png" border="0" usemap="#atoolbox_2io_2File_8hpp" alt=""/></div>
 <map name="atoolbox_2io_2File_8hpp" id="atoolbox_2io_2File_8hpp">
-<area shape="rect" title=" " alt="" coords="783,5,926,31"/>
+<area shape="rect" title=" " alt="" coords="907,5,1050,31"/>
 <area shape="rect" href="Buffer_8hpp.html" title=" " alt="" coords="253,79,411,104"/>
-<area shape="poly" title=" " alt="" coords="783,32,425,80,424,75,783,26"/>
+<area shape="poly" title=" " alt="" coords="907,30,425,83,424,77,907,25"/>
 <area shape="rect" href="Handle_8hpp.html" title=" " alt="" coords="519,79,684,104"/>
-<area shape="poly" title=" " alt="" coords="815,33,656,77,655,72,813,28"/>
+<area shape="poly" title=" " alt="" coords="919,33,676,79,675,73,918,28"/>
 <area shape="rect" href="sys_2Error_8hpp.html" title=" " alt="" coords="709,79,867,104"/>
-<area shape="poly" title=" " alt="" coords="846,33,810,70,806,67,842,29"/>
-<area shape="rect" title=" " alt="" coords="891,79,954,104"/>
-<area shape="poly" title=" " alt="" coords="868,29,904,67,900,70,864,33"/>
-<area shape="rect" title=" " alt="" coords="979,79,1045,104"/>
-<area shape="poly" title=" " alt="" coords="881,28,975,71,973,75,879,33"/>
-<area shape="rect" title=" " alt="" coords="1069,79,1155,104"/>
-<area shape="poly" title=" " alt="" coords="897,28,1058,72,1057,78,895,33"/>
+<area shape="poly" title=" " alt="" coords="949,33,833,76,831,71,947,28"/>
+<area shape="rect" title=" " alt="" coords="892,79,1065,104"/>
+<area shape="poly" title=" " alt="" coords="981,31,981,65,976,65,976,31"/>
+<area shape="rect" title=" " alt="" coords="1090,79,1153,104"/>
+<area shape="poly" title=" " alt="" coords="1003,28,1087,70,1085,75,1000,33"/>
+<area shape="rect" title=" " alt="" coords="1177,79,1244,104"/>
+<area shape="poly" title=" " alt="" coords="1017,28,1165,73,1164,78,1015,33"/>
+<area shape="rect" title=" " alt="" coords="1268,79,1353,104"/>
+<area shape="poly" title=" " alt="" coords="1033,28,1255,75,1254,81,1031,33"/>
 <area shape="rect" href="Config_8h.html" title=" " alt="" coords="5,152,133,177"/>
 <area shape="poly" title=" " alt="" coords="290,107,126,151,124,146,289,101"/>
 <area shape="rect" title=" " alt="" coords="158,152,317,177"/>
@@ -282,6 +285,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a4611135ccc106a49d68a469353715077" id="r_a4611135ccc106a49d68a469353715077"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1io.html#a0382b7b7f259044db618bbc41b273ee4">FileHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1os.html#a4611135ccc106a49d68a469353715077">toolbox::os::open</a> (<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">const</a> <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">char</a> *path, <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">int</a> <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">flags</a>)</td></tr>
 <tr class="memdesc:a4611135ccc106a49d68a469353715077"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open and possibly create a file.  <br /></td></tr>
 <tr class="separator:a4611135ccc106a49d68a469353715077"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0f64d4567cce97da24141d4a4598bc2" id="r_ae0f64d4567cce97da24141d4a4598bc2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1os.html#ae0f64d4567cce97da24141d4a4598bc2">toolbox::os::rename</a> (<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">const</a> <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">char</a> *<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">oldpath</a>, <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">const</a> <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">char</a> *<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">newpath</a>, std::error_code &amp;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">ec</a>)</td></tr>
+<tr class="separator:ae0f64d4567cce97da24141d4a4598bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3266218cf1071c826329e5701bc30c0d" id="r_a3266218cf1071c826329e5701bc30c0d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1os.html#a3266218cf1071c826329e5701bc30c0d">toolbox::os::rename</a> (<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">const</a> <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">char</a> *<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">oldpath</a>, <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">const</a> <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">char</a> *<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">newpath</a>)</td></tr>
+<tr class="separator:a3266218cf1071c826329e5701bc30c0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa19bf33f4e33c69499b45dfb90d81f54" id="r_aa19bf33f4e33c69499b45dfb90d81f54"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1os.html#aa19bf33f4e33c69499b45dfb90d81f54">toolbox::os::remove</a> (<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">const</a> <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">char</a> *path)</td></tr>
 <tr class="separator:aa19bf33f4e33c69499b45dfb90d81f54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72c3a170704f80bdd6fde1c807f1a395" id="r_a72c3a170704f80bdd6fde1c807f1a395"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1os.html#a72c3a170704f80bdd6fde1c807f1a395">toolbox::os::remove</a> (<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">const</a> <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">char</a> *path, std::error_code &amp;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">ec</a>) <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">noexcept</a></td></tr>
@@ -352,6 +359,10 @@ Functions</h2></td></tr>
 <tr class="separator:a9010a7d14906f3b95fd674d74646090e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb7bea71634318defe905b3f00e7c5fa" id="r_aeb7bea71634318defe905b3f00e7c5fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#aeb7bea71634318defe905b3f00e7c5fa">toolbox::io::set_non_block</a> (<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">int</a> fd)</td></tr>
 <tr class="separator:aeb7bea71634318defe905b3f00e7c5fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa150d5afc1c82dbb9a727163f8a5bd95" id="r_aa150d5afc1c82dbb9a727163f8a5bd95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1io.html#a0382b7b7f259044db618bbc41b273ee4">FileHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#aa150d5afc1c82dbb9a727163f8a5bd95">toolbox::io::flopen</a> (<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">const</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">char</a> *path, <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">int</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">flags</a>, <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">mode_t</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">mode</a>, std::error_code &amp;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">ec</a>)</td></tr>
+<tr class="separator:aa150d5afc1c82dbb9a727163f8a5bd95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65ffec855214b915dd566e35c7dc07ff" id="r_a65ffec855214b915dd566e35c7dc07ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1io.html#a0382b7b7f259044db618bbc41b273ee4">FileHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#a65ffec855214b915dd566e35c7dc07ff">toolbox::io::flopen</a> (<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">const</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">char</a> *path, <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">int</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">flags</a>, <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">mode_t</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">mode</a>)</td></tr>
+<tr class="separator:a65ffec855214b915dd566e35c7dc07ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
