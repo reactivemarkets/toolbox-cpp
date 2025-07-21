@@ -22,7 +22,6 @@
 #include <toolbox/io/Hook.hpp>
 #include <toolbox/io/Timer.hpp>
 #include <toolbox/io/Waker.hpp>
-#include <variant>
 
 namespace toolbox {
 inline namespace io {
@@ -30,17 +29,6 @@ inline namespace io {
 constexpr Duration NoTimeout{-1};
 enum class Priority { High = 0, Low = 1 };
 using IoSlot = BasicSlot<void(CyclTime, int, unsigned)>;
-
-enum class ReactorMode {
-    // The Reactor may block when polling if a non-zero timeout is specified.
-    // Recommended when the Reactor shares a CPU resource with other processes.
-    Blocking,
-
-    // The Reactor returns immediately if no events are pending -- i.e. no blocking occurs.
-    // Ideal when the Reactor runs on a dedicated (pinned) CPU resource and is polled
-    // continuously in a loop.
-    Immediate
-};
 
 class TOOLBOX_API Reactor : public Waker {
   public:
@@ -141,7 +129,7 @@ class TOOLBOX_API Reactor : public Waker {
         int fd_{-1}, sid_{0};
     };
 
-    explicit Reactor(ReactorMode mode = ReactorMode::Blocking, std::size_t size_hint = 0);
+    explicit Reactor(std::size_t size_hint = 0);
     ~Reactor() override;
 
     // Copy.
@@ -195,25 +183,6 @@ class TOOLBOX_API Reactor : public Waker {
   private:
     MonoTime next_expiry(MonoTime next) const;
 
-    struct BlockingDevice {
-        Epoll epoll;
-    };
-
-    struct ImmediateDevice {
-        Epoll low_prio_epoll;
-        Epoll high_prio_epoll;
-    };
-
-    struct Data {
-        int sid{};
-        unsigned events{};
-        IoSlot slot;
-        Priority priority = Priority::Low;
-    };
-
-    Epoll& get_resident_epoll(Data& data);
-    int poll_immediate(ImmediateDevice& dev,CyclTime now);
-    int poll_blocking(BlockingDevice& dev,CyclTime now, Duration timeout);
     // dispatch events only for file descriptors with specified priority
     int dispatch(CyclTime now, Event* buf, int size, Priority priority);
     void set_events(int fd, int sid, unsigned events, IoSlot slot, std::error_code& ec) noexcept;
@@ -223,7 +192,14 @@ class TOOLBOX_API Reactor : public Waker {
     void unsubscribe(int fd, int sid) noexcept;
     void set_io_priority(int fd, int sid, Priority priority) noexcept;
 
-    std::variant<BlockingDevice, ImmediateDevice> device_;
+    struct Data {
+        int sid{};
+        unsigned events{};
+        IoSlot slot;
+        Priority priority = Priority::Low;
+    };
+
+    Epoll epoll_;
     std::vector<Data> data_;
     EventFd notify_{0, EFD_NONBLOCK};
     static_assert(static_cast<int>(Priority::High) == 0);
