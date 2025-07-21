@@ -169,16 +169,37 @@ void Reactor::yield()
         Event buf[MaxEvents];
 
         int n = epoll_.wait(buf, MaxEvents, MonoTime{}, ec);
-
         if (ec) {
             if (ec.value() != EINTR) {
-                throw system_error{ec};
+                TOOLBOX_ERROR << "epoll failure during high priority poll: "
+                            << ec << " [" << ec.message() << ']';
             }
-            return;
+        } else {
+            cycle_work_ += dispatch(CyclTime::current(), buf, n, Priority::High);
         }
 
-        cycle_work_ += dispatch(CyclTime::current(), buf, n, Priority::High);
+        cycle_work_ += dispatch_user_hp_hook();
     }
+}
+
+int Reactor::dispatch_user_hp_hook()
+{
+    currently_handling_priority_events_ = true;
+    const auto reset_flag = make_finally([this]() noexcept {
+        currently_handling_priority_events_ = false;
+    });
+
+    int ret = 0;
+
+    try {
+        if (priority_poll_user_hook_) {
+            ret = priority_poll_user_hook_(CyclTime::current());
+        }
+    } catch (const std::exception& e) {
+        TOOLBOX_ERROR << "exception during user high priority hook: " << e.what();
+    }
+
+    return ret;
 }
 
 int Reactor::dispatch(CyclTime now, Event* buf, int size, Priority priority)

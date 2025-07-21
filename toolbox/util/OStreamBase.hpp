@@ -19,6 +19,7 @@
 #include <algorithm>
 #include <charconv>
 #include <concepts>
+#include <system_error>
 #include <type_traits>
 #include <string>
 #include <string_view>
@@ -410,6 +411,20 @@ template <class StreamT>
 StreamT& operator<<(StreamT& os, std::string_view s)
 {
     os.put_data(s.data(), s.size());
+    return os;
+}
+
+template <class StreamT>
+    requires detail::InheritsBasicOStream<StreamT>
+StreamT& operator<<(StreamT& os, const std::error_code& ec)
+{
+    const char* category = ec.category().name();
+    std::size_t category_len = std::char_traits<char>::length(category);
+
+    os.put_data(category, category_len);
+    os.put_char(':');
+    os.put_num(ec.value());
+
     return os;
 }
 
