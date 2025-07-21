@@ -141,6 +141,45 @@ BOOST_AUTO_TEST_CASE(ReactorSocketPriority)
     fd_process_order.clear();
 }
 
+BOOST_AUTO_TEST_CASE(ReactorHighPriorityHook)
+{
+    Reactor r{1024};
+    r.set_high_priority_poll_threshold(50us);
+
+    // install high priority user hook
+    std::size_t hook_invocation_count = 0;
+    auto high_prio_hook = [&](CyclTime) { hook_invocation_count++; return 0; };
+    r.set_user_high_priority_hook(bind(&high_prio_hook));
+
+    auto [s1, s2] = socketpair(UnixStreamProtocol{});
+
+    // This is handler for data on s1. It is an expensive function taking ~100ms
+    std::size_t yield_count = 0;
+    auto on_data_received = [&](CyclTime, int, unsigned) {
+        WallTime now = WallClock::now();
+        WallTime end = now + 100ms;
+        while (now < end) {
+            // wait for 100us, then yield
+            auto next_stop = now + 100us;
+            while (now < next_stop) {
+                now = WallClock::now();
+            }
+            r.yield();
+            yield_count++;
+        };
+    };
+
+    // data to s1 will be sent => on_data_received will be invoked by the reactor.
+    // every 100us on_data_received will yield to the reactor, at which point the reactor
+    // should invoke our custom high priority hook.
+    (void)r.subscribe(*s1, EpollIn, bind(&on_data_received));
+
+    s2.send("Hello", 5, 0);
+    r.poll(CyclTime::now(), 0ms);
+
+    BOOST_CHECK_EQUAL(yield_count, hook_invocation_count);
+}
+
 BOOST_AUTO_TEST_CASE(ReactorHighPriorityYield)
 {
     using namespace literals::chrono_literals;
