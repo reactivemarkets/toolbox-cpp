@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['reactormode_0',['reactormode',['../namespacetoolbox_1_1io.html#afca97b44e5220e5fedcc644fa2127e31',1,'toolbox::ReactorMode'],['../namespacetoolbox_1_1io.html#afca97b44e5220e5fedcc644fa2127e31',1,'toolbox::io::ReactorMode']]]
+  ['status_0',['status',['../namespacetoolbox_1_1http.html#aa155f89ef95e501ee8878301aa4320e7',1,'toolbox::Status'],['../namespacetoolbox_1_1http.html#aa155f89ef95e501ee8878301aa4320e7',1,'toolbox::http::Status']]]
 ];

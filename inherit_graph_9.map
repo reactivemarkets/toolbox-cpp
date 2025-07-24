@@ -1,7 +1,13 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" title=" " alt="" coords="5,45,168,70"/>
-<area shape="rect" id="Node000001" href="$structtoolbox_1_1util_1_1is__any__of.html" title=" " alt="" coords="222,5,373,45"/>
-<area shape="poly" id="edge24_Node000000_Node000001" title=" " alt="" coords="181,40,222,34,222,39,182,46"/>
-<area shape="rect" id="Node000002" href="$structtoolbox_1_1util_1_1is__string__type.html" title=" " alt="" coords="216,69,379,109"/>
-<area shape="poly" id="edge25_Node000000_Node000002" title=" " alt="" coords="182,69,216,74,215,80,181,74"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,31,112,56"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="160,31,331,56"/>
+<area shape="poly" id="edge26_Node000000_Node000001" title=" " alt="" coords="126,41,160,41,160,46,126,46"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="379,23,524,63"/>
+<area shape="poly" id="edge27_Node000001_Node000002" title=" " alt="" coords="344,41,378,41,378,46,344,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="572,31,676,56"/>
+<area shape="poly" id="edge28_Node000002_Node000003" title=" " alt="" coords="538,41,572,41,572,46,538,46"/>
+<area shape="rect" id="Node000004" href="$classtoolbox_1_1http_1_1OStream.html" title=" " alt="" coords="724,5,895,31"/>
+<area shape="poly" id="edge29_Node000003_Node000004" title=" " alt="" coords="689,32,723,27,724,32,690,37"/>
+<area shape="rect" id="Node000005" href="$classtoolbox_1_1io_1_1OStream.html" title=" " alt="" coords="731,55,887,80"/>
+<area shape="poly" id="edge30_Node000003_Node000005" title=" " alt="" coords="690,49,731,55,731,60,689,54"/>
 </map>

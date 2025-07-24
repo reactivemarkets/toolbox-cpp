@@ -12,13 +12,13 @@ var searchData=
   ['enum_2eut_2ecpp_9',['Enum.ut.cpp',['../Enum_8ut_8cpp.html',1,'']]],
   ['epoll_2ecpp_10',['Epoll.cpp',['../Epoll_8cpp.html',1,'']]],
   ['epoll_2ehpp_11',['Epoll.hpp',['../Epoll_8hpp.html',1,'']]],
-  ['error_2ecpp_12',['error.cpp',['../net_2Error_8cpp.html',1,'(Global Namespace)'],['../sys_2Error_8cpp.html',1,'(Global Namespace)'],['../http_2Error_8cpp.html',1,'(Global Namespace)']]],
+  ['error_2ecpp_12',['error.cpp',['../sys_2Error_8cpp.html',1,'(Global Namespace)'],['../net_2Error_8cpp.html',1,'(Global Namespace)'],['../http_2Error_8cpp.html',1,'(Global Namespace)']]],
   ['error_2ehpp_13',['error.hpp',['../http_2Error_8hpp.html',1,'(Global Namespace)'],['../net_2Error_8hpp.html',1,'(Global Namespace)'],['../sys_2Error_8hpp.html',1,'(Global Namespace)']]],
   ['event_2ecpp_14',['Event.cpp',['../Event_8cpp.html',1,'']]],
   ['event_2ehpp_15',['Event.hpp',['../Event_8hpp.html',1,'']]],
   ['eventfd_2ecpp_16',['EventFd.cpp',['../EventFd_8cpp.html',1,'']]],
   ['eventfd_2ehpp_17',['EventFd.hpp',['../EventFd_8hpp.html',1,'']]],
-  ['exception_2ecpp_18',['exception.cpp',['../http_2Exception_8cpp.html',1,'(Global Namespace)'],['../resp_2Exception_8cpp.html',1,'(Global Namespace)'],['../util_2Exception_8cpp.html',1,'(Global Namespace)']]],
-  ['exception_2ehpp_19',['exception.hpp',['../http_2Exception_8hpp.html',1,'(Global Namespace)'],['../resp_2Exception_8hpp.html',1,'(Global Namespace)'],['../util_2Exception_8hpp.html',1,'(Global Namespace)']]],
+  ['exception_2ecpp_18',['exception.cpp',['../util_2Exception_8cpp.html',1,'(Global Namespace)'],['../http_2Exception_8cpp.html',1,'(Global Namespace)'],['../resp_2Exception_8cpp.html',1,'(Global Namespace)']]],
+  ['exception_2ehpp_19',['exception.hpp',['../util_2Exception_8hpp.html',1,'(Global Namespace)'],['../resp_2Exception_8hpp.html',1,'(Global Namespace)'],['../http_2Exception_8hpp.html',1,'(Global Namespace)']]],
   ['exception_2eut_2ecpp_20',['Exception.ut.cpp',['../Exception_8ut_8cpp.html',1,'']]]
 ];
