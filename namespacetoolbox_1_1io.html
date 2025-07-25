@@ -148,6 +148,8 @@ Typedefs</h2></td></tr>
 <tr class="separator:a8f0df13468c4484da518e52788605e2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbee471295db6b0c4cf6284806f1e6c7" id="r_acbee471295db6b0c4cf6284806f1e6c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#acbee471295db6b0c4cf6284806f1e6c7">IoSlot</a> = <a class="el" href="classtoolbox_1_1util_1_1BasicSlot.html">BasicSlot</a>&lt; <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">void</a>(<a class="el" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a>, <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">int</a>, <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">unsigned</a>)&gt;</td></tr>
 <tr class="separator:acbee471295db6b0c4cf6284806f1e6c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85cc8ec1717bb26cf0a71f13212634b3" id="r_a85cc8ec1717bb26cf0a71f13212634b3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#a85cc8ec1717bb26cf0a71f13212634b3">PollSlot</a> = <a class="el" href="classtoolbox_1_1util_1_1BasicSlot.html">BasicSlot</a>&lt; <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">int</a>(<a class="el" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a>)&gt;</td></tr>
+<tr class="separator:a85cc8ec1717bb26cf0a71f13212634b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a438f314c9a13294bc7e1ae4025df364e" id="r_a438f314c9a13294bc7e1ae4025df364e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#a438f314c9a13294bc7e1ae4025df364e">HistogramPtr</a> = std::unique_ptr&lt; <a class="el" href="classtoolbox_1_1hdr_1_1Histogram.html">Histogram</a> &gt;</td></tr>
 <tr class="separator:a438f314c9a13294bc7e1ae4025df364e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a305150349cf0769922fee345ba4a7184" id="r_a305150349cf0769922fee345ba4a7184"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1io.html#a305150349cf0769922fee345ba4a7184">MetricCallbackFunction</a> = std::function&lt; <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">void</a>(<a class="el" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a> now, <a class="el" href="namespacetoolbox_1_1io.html#a438f314c9a13294bc7e1ae4025df364e">HistogramPtr</a> &amp;&amp;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">time_hist</a>, <a class="el" href="namespacetoolbox_1_1io.html#a438f314c9a13294bc7e1ae4025df364e">HistogramPtr</a> &amp;&amp;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">work_hist</a>)&gt;</td></tr>
@@ -359,6 +361,22 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="Reactor_8hpp_source.html#l00031">31</a> of file <a class="el" href="Reactor_8hpp_source.html">Reactor.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a85cc8ec1717bb26cf0a71f13212634b3" name="a85cc8ec1717bb26cf0a71f13212634b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85cc8ec1717bb26cf0a71f13212634b3">&#9670;&#160;</a></span>PollSlot</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">using</a> <a class="el" href="namespacetoolbox_1_1io.html#a85cc8ec1717bb26cf0a71f13212634b3">toolbox::io::PollSlot</a> = <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">typedef</a> <a class="el" href="classtoolbox_1_1util_1_1BasicSlot.html">BasicSlot</a>&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">int</a>(<a class="el" href="classtoolbox_1_1sys_1_1CyclTime.html">CyclTime</a>)&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Reactor_8hpp_source.html#l00032">32</a> of file <a class="el" href="Reactor_8hpp_source.html">Reactor.hpp</a>.</p>
 
 </div>
 </div>
