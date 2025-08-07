@@ -151,48 +151,67 @@ MonoTime Reactor::next_expiry(MonoTime next) const
     return next;
 }
 
-void Reactor::yield()
+void Reactor::yield() noexcept
 {
     if (currently_handling_priority_events_) [[unlikely]] {
         return;
     }
 
-    if (priority_io_poll_threshold == Micros::max()) {
-        return;
-    }
-
     WallTime now = WallClock::now();
-    if (now - last_time_priority_io_polled_ > priority_io_poll_threshold) {
-        last_time_priority_io_polled_ = now;
-
-        error_code ec;
-        Event buf[MaxEvents];
-
-        int n = epoll_.wait(buf, MaxEvents, MonoTime{}, ec);
-        if (ec) {
-            if (ec.value() != EINTR) {
-                TOOLBOX_ERROR << "epoll failure during high priority poll: "
-                            << ec << " [" << ec.message() << ']';
-            }
-        } else {
-            cycle_work_ += dispatch(CyclTime::current(), buf, n, Priority::High);
-        }
-
-        cycle_work_ += dispatch_user_hp_hook();
-    }
+    cycle_work_ += do_io_priority_poll(now);
+    cycle_work_ += do_user_priority_poll(now);
 }
 
-int Reactor::dispatch_user_hp_hook()
+int Reactor::do_io_priority_poll(WallTime now) noexcept
 {
-    currently_handling_priority_events_ = true;
-    const auto reset_flag = make_finally([this]() noexcept {
-        currently_handling_priority_events_ = false;
-    });
-
     int ret = 0;
-
     try {
-        if (priority_poll_user_hook_) {
+        const bool enabled = priority_io_poll_threshold_ != Micros::max();
+        const bool breached = (now - last_time_priority_io_polled_) > priority_io_poll_threshold_;
+
+        if (enabled && breached) {
+            const auto update_poll_time = make_finally([this]() noexcept {
+                last_time_priority_io_polled_ = WallClock::now();
+            });
+
+            error_code ec;
+            Event buf[MaxEvents];
+
+            int n = epoll_.wait(buf, MaxEvents, MonoTime{}, ec);
+            if (ec) {
+                if (ec.value() != EINTR) {
+                    TOOLBOX_ERROR << "epoll failure during high priority io poll: "
+                                << ec << " [" << ec.message() << ']';
+                }
+            } else {
+                ret = dispatch(CyclTime::current(), buf, n, Priority::High);
+            }
+        }
+    } catch (const std::exception& e) {
+        TOOLBOX_ERROR << "exception during high priority io poll: " << e.what();
+    }
+
+    return ret;
+}
+
+int Reactor::do_user_priority_poll(WallTime now) noexcept
+{
+    int ret = 0;
+    try {
+        const bool enabled = (user_hook_poll_threshold_ != Micros::max()) &&
+                             priority_poll_user_hook_;
+        const bool breached = (now - last_time_user_hook_polled_) > user_hook_poll_threshold_;
+
+        if (enabled && breached) {
+            const auto update_poll_time = make_finally([this]() noexcept {
+                last_time_user_hook_polled_ = WallClock::now();
+            });
+
+            currently_handling_priority_events_ = true;
+            const auto reset_flag = make_finally([this]() noexcept {
+                currently_handling_priority_events_ = false;
+            });
+
             ret = priority_poll_user_hook_(CyclTime::current());
         }
     } catch (const std::exception& e) {

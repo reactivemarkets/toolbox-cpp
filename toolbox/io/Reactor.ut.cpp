@@ -144,7 +144,7 @@ BOOST_AUTO_TEST_CASE(ReactorSocketPriority)
 BOOST_AUTO_TEST_CASE(ReactorHighPriorityHook)
 {
     Reactor r{1024};
-    r.set_high_priority_poll_threshold(50us);
+    r.set_user_hook_poll_threshold(50us);
 
     // install high priority user hook
     std::size_t hook_invocation_count = 0;
@@ -157,10 +157,10 @@ BOOST_AUTO_TEST_CASE(ReactorHighPriorityHook)
     std::size_t yield_count = 0;
     auto on_data_received = [&](CyclTime, int, unsigned) {
         WallTime now = WallClock::now();
-        WallTime end = now + 100ms;
+        WallTime end = now + 500ms;
         while (now < end) {
             // wait for 100us, then yield
-            auto next_stop = now + 100us;
+            auto next_stop = now + 1ms;
             while (now < next_stop) {
                 now = WallClock::now();
             }
@@ -172,11 +172,12 @@ BOOST_AUTO_TEST_CASE(ReactorHighPriorityHook)
     // data to s1 will be sent => on_data_received will be invoked by the reactor.
     // every 100us on_data_received will yield to the reactor, at which point the reactor
     // should invoke our custom high priority hook.
-    (void)r.subscribe(*s1, EpollIn, bind(&on_data_received));
+    auto handle = r.subscribe(*s1, EpollIn, bind(&on_data_received));
 
     s2.send("Hello", 5, 0);
     r.poll(CyclTime::now(), 0ms);
 
+    BOOST_CHECK_GT(yield_count, 0);
     BOOST_CHECK_EQUAL(yield_count, hook_invocation_count);
 }
 
