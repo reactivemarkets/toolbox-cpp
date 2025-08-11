@@ -167,7 +167,8 @@ int Reactor::do_io_priority_poll(WallTime now) noexcept
     int ret = 0;
     try {
         const bool enabled = priority_io_poll_threshold_ != Micros::max();
-        const bool breached = (now - last_time_priority_io_polled_) > priority_io_poll_threshold_;
+        const auto delta = duration_cast<Micros>(now - last_time_priority_io_polled_);
+        const bool breached = delta > priority_io_poll_threshold_;
 
         if (enabled && breached) {
             const auto update_poll_time = make_finally([this]() noexcept {
@@ -200,7 +201,8 @@ int Reactor::do_user_priority_poll(WallTime now) noexcept
     try {
         const bool enabled = (user_hook_poll_threshold_ != Micros::max()) &&
                              priority_poll_user_hook_;
-        const bool breached = (now - last_time_user_hook_polled_) > user_hook_poll_threshold_;
+        const auto delta = duration_cast<Micros>(now - last_time_user_hook_polled_);
+        const bool breached = delta > user_hook_poll_threshold_;
 
         if (enabled && breached) {
             const auto update_poll_time = make_finally([this]() noexcept {
