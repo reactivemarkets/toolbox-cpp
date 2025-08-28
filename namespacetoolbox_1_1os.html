@@ -241,6 +241,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a5571d6dd7403cb54a998f6fa4487cebd"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1net.html#a527fd7fbab8cb71aed64b28e782c6d8e">AddrInfoPtr</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1os.html#a5571d6dd7403cb54a998f6fa4487cebd">getaddrinfo</a> (<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">const</a> <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">char</a> *<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">node</a>, <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">const</a> <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">char</a> *<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">service</a>, <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">ProtocolT</a> protocol)</td></tr>
 <tr class="memdesc:a5571d6dd7403cb54a998f6fa4487cebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get network address from Internet host and service.  <br /></td></tr>
 <tr class="separator:a5571d6dd7403cb54a998f6fa4487cebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6394697b1d21be9774bd65cc7a97d4e8" id="r_a6394697b1d21be9774bd65cc7a97d4e8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1os.html#a6394697b1d21be9774bd65cc7a97d4e8">gethostname</a> ()</td></tr>
+<tr class="separator:a6394697b1d21be9774bd65cc7a97d4e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc0bd779277049e6ed2ea6038fdd72dc" id="r_afc0bd779277049e6ed2ea6038fdd72dc"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1os.html#afc0bd779277049e6ed2ea6038fdd72dc">gethostname</a> (std::error_code &amp;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">ec</a>) <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">noexcept</a></td></tr>
+<tr class="separator:afc0bd779277049e6ed2ea6038fdd72dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9d8299ca5a6677c7d66cbca46e51780" id="r_aa9d8299ca5a6677c7d66cbca46e51780"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">unsigned</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1os.html#aa9d8299ca5a6677c7d66cbca46e51780">if_nametoindex</a> (<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">const</a> <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">char</a> *<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">ifname</a>, std::error_code &amp;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">ec</a>) <a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e6449814391ab830727">noexcept</a></td></tr>
 <tr class="memdesc:aa9d8299ca5a6677c7d66cbca46e51780"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the index of the network interface corresponding to the name ifname.  <br /></td></tr>
 <tr class="separator:aa9d8299ca5a6677c7d66cbca46e51780"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2893,6 +2897,63 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 </div>
 </div>
+<a id="a6394697b1d21be9774bd65cc7a97d4e8" name="a6394697b1d21be9774bd65cc7a97d4e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6394697b1d21be9774bd65cc7a97d4e8">&#9670;&#160;</a></span>gethostname() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string toolbox::os::gethostname </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00100">100</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00100">gethostname()</a>, and <a class="el" href="Socket_8hpp_source.html#l00110">gethostname()</a>.</p>
+
+</div>
+</div>
+<a id="afc0bd779277049e6ed2ea6038fdd72dc" name="afc0bd779277049e6ed2ea6038fdd72dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc0bd779277049e6ed2ea6038fdd72dc">&#9670;&#160;</a></span>gethostname() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string toolbox::os::gethostname </td>
+          <td>(</td>
+          <td class="paramtype">std::error_code &amp;&#160;</td>
+          <td class="paramname"><em>ec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00110">110</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+
+</div>
+</div>
 <a id="aa9d8299ca5a6677c7d66cbca46e51780" name="aa9d8299ca5a6677c7d66cbca46e51780"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa9d8299ca5a6677c7d66cbca46e51780">&#9670;&#160;</a></span>if_nametoindex() <span class="overload">[1/2]</span></h2>
 
@@ -2929,9 +2990,9 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Returns the index of the network interface corresponding to the name ifname. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00101">101</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00122">122</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00113">if_nametoindex()</a>, and <a class="el" href="Socket_8hpp_source.html#l00101">if_nametoindex()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00134">if_nametoindex()</a>, and <a class="el" href="Socket_8hpp_source.html#l00122">if_nametoindex()</a>.</p>
 
 </div>
 </div>
@@ -2961,7 +3022,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Returns the index of the network interface corresponding to the name ifname. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00113">113</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00134">134</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -3013,9 +3074,9 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Create an endpoint for communication. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00125">125</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00146">146</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Socket_8ut_8cpp_source.html#l00046">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="DgramSock_8hpp_source.html#l00033">toolbox::net::DgramSock::DgramSock()</a>, <a class="el" href="McastSock_8hpp_source.html#l00239">toolbox::net::McastSock::McastSock()</a>, <a class="el" href="Socket_8hpp_source.html#l00135">socket()</a>, <a class="el" href="Socket_8hpp_source.html#l00125">socket()</a>, <a class="el" href="Socket_8hpp_source.html#l00153">socket()</a>, <a class="el" href="Socket_8hpp_source.html#l00146">socket()</a>, <a class="el" href="StreamSock_8hpp_source.html#l00069">toolbox::net::StreamSockClnt::StreamSockClnt()</a>, and <a class="el" href="StreamSock_8hpp_source.html#l00033">toolbox::net::StreamSockServ::StreamSockServ()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Socket_8ut_8cpp_source.html#l00046">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="DgramSock_8hpp_source.html#l00033">toolbox::net::DgramSock::DgramSock()</a>, <a class="el" href="McastSock_8hpp_source.html#l00239">toolbox::net::McastSock::McastSock()</a>, <a class="el" href="Socket_8hpp_source.html#l00156">socket()</a>, <a class="el" href="Socket_8hpp_source.html#l00146">socket()</a>, <a class="el" href="Socket_8hpp_source.html#l00174">socket()</a>, <a class="el" href="Socket_8hpp_source.html#l00167">socket()</a>, <a class="el" href="StreamSock_8hpp_source.html#l00069">toolbox::net::StreamSockClnt::StreamSockClnt()</a>, and <a class="el" href="StreamSock_8hpp_source.html#l00033">toolbox::net::StreamSockServ::StreamSockServ()</a>.</p>
 
 </div>
 </div>
@@ -3061,7 +3122,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Create an endpoint for communication. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00135">135</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00156">156</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -3103,7 +3164,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Create an endpoint for communication. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00146">146</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00167">167</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -3135,7 +3196,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Create an endpoint for communication. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00153">153</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00174">174</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -3187,9 +3248,9 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Create a pair of connected sockets. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00159">159</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00180">180</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00170">socketpair()</a>, <a class="el" href="Socket_8hpp_source.html#l00159">socketpair()</a>, <a class="el" href="Socket_8hpp_source.html#l00189">socketpair()</a>, and <a class="el" href="Socket_8hpp_source.html#l00181">socketpair()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00191">socketpair()</a>, <a class="el" href="Socket_8hpp_source.html#l00180">socketpair()</a>, <a class="el" href="Socket_8hpp_source.html#l00210">socketpair()</a>, and <a class="el" href="Socket_8hpp_source.html#l00202">socketpair()</a>.</p>
 
 </div>
 </div>
@@ -3235,7 +3296,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Create a pair of connected sockets. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00170">170</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00191">191</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -3277,7 +3338,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Create a pair of connected sockets. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00181">181</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00202">202</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -3309,7 +3370,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Create a pair of connected sockets. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00189">189</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00210">210</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -3361,9 +3422,9 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Accept a connection on a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00195">195</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00216">216</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="StreamSock_8hpp_source.html#l00059">toolbox::net::StreamSockServ::accept()</a>, <a class="el" href="StreamSock_8hpp_source.html#l00055">toolbox::net::StreamSockServ::accept()</a>, <a class="el" href="Socket_8hpp_source.html#l00230">accept()</a>, <a class="el" href="Socket_8hpp_source.html#l00253">accept()</a>, <a class="el" href="Socket_8hpp_source.html#l00241">accept()</a>, <a class="el" href="Socket_8hpp_source.html#l00208">accept()</a>, <a class="el" href="Socket_8hpp_source.html#l00195">accept()</a>, <a class="el" href="Socket_8hpp_source.html#l00220">accept()</a>, <a class="el" href="Socket_8ut_8cpp_source.html#l00046">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="classtoolbox_1_1net_1_1StreamAcceptor.html#a45e990d0ff62d8fce4b9f088a6972cd1">toolbox::net::StreamAcceptor&lt; DerivedT &gt;::~StreamAcceptor()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="StreamSock_8hpp_source.html#l00059">toolbox::net::StreamSockServ::accept()</a>, <a class="el" href="StreamSock_8hpp_source.html#l00055">toolbox::net::StreamSockServ::accept()</a>, <a class="el" href="Socket_8hpp_source.html#l00251">accept()</a>, <a class="el" href="Socket_8hpp_source.html#l00274">accept()</a>, <a class="el" href="Socket_8hpp_source.html#l00262">accept()</a>, <a class="el" href="Socket_8hpp_source.html#l00229">accept()</a>, <a class="el" href="Socket_8hpp_source.html#l00216">accept()</a>, <a class="el" href="Socket_8hpp_source.html#l00241">accept()</a>, <a class="el" href="Socket_8ut_8cpp_source.html#l00046">BOOST_AUTO_TEST_CASE()</a>, and <a class="el" href="classtoolbox_1_1net_1_1StreamAcceptor.html#a45e990d0ff62d8fce4b9f088a6972cd1">toolbox::net::StreamAcceptor&lt; DerivedT &gt;::~StreamAcceptor()</a>.</p>
 
 </div>
 </div>
@@ -3409,7 +3470,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Accept a connection on a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00208">208</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00229">229</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -3449,7 +3510,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Accept a connection on a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00220">220</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00241">241</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -3479,7 +3540,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Accept a connection on a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00230">230</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00251">251</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -3527,7 +3588,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Accept a connection on a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00241">241</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00262">262</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -3569,7 +3630,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Accept a connection on a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00253">253</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00274">274</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -3621,7 +3682,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Bind a name to a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00262">262</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00283">283</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="DgramSock_8hpp_source.html#l00050">toolbox::net::DgramSock::bind()</a>, <a class="el" href="McastSock_8hpp_source.html#l00256">toolbox::net::McastSock::bind()</a>, <a class="el" href="StreamSock_8hpp_source.html#l00050">toolbox::net::StreamSockServ::bind()</a>, <a class="el" href="DgramSock_8hpp_source.html#l00049">toolbox::net::DgramSock::bind()</a>, <a class="el" href="McastSock_8hpp_source.html#l00255">toolbox::net::McastSock::bind()</a>, <a class="el" href="StreamSock_8hpp_source.html#l00049">toolbox::net::StreamSockServ::bind()</a>, and <a class="el" href="Socket_8ut_8cpp_source.html#l00046">BOOST_AUTO_TEST_CASE()</a>.</p>
 
@@ -3669,7 +3730,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Bind a name to a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00270">270</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00291">291</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -3717,7 +3778,7 @@ template&lt;typename EndpointT &gt; </div>
 
 <p>Bind a name to a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00279">279</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00300">300</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -3759,7 +3820,7 @@ template&lt;typename EndpointT &gt; </div>
 
 <p>Bind a name to a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00286">286</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00307">307</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -3811,9 +3872,9 @@ template&lt;typename EndpointT &gt; </div>
 
 <p>Initiate a connection on a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00292">292</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00313">313</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Socket_8ut_8cpp_source.html#l00046">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="DgramSock_8hpp_source.html#l00055">toolbox::net::DgramSock::connect()</a>, <a class="el" href="McastSock_8hpp_source.html#l00261">toolbox::net::McastSock::connect()</a>, <a class="el" href="StreamSock_8hpp_source.html#l00089">toolbox::net::StreamSockClnt::connect()</a>, <a class="el" href="DgramSock_8hpp_source.html#l00051">toolbox::net::DgramSock::connect()</a>, <a class="el" href="McastSock_8hpp_source.html#l00257">toolbox::net::McastSock::connect()</a>, <a class="el" href="StreamSock_8hpp_source.html#l00085">toolbox::net::StreamSockClnt::connect()</a>, <a class="el" href="Socket_8hpp_source.html#l00317">connect()</a>, <a class="el" href="Socket_8hpp_source.html#l00310">connect()</a>, <a class="el" href="Socket_8hpp_source.html#l00301">connect()</a>, and <a class="el" href="Socket_8hpp_source.html#l00292">connect()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Socket_8ut_8cpp_source.html#l00046">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="DgramSock_8hpp_source.html#l00055">toolbox::net::DgramSock::connect()</a>, <a class="el" href="McastSock_8hpp_source.html#l00261">toolbox::net::McastSock::connect()</a>, <a class="el" href="StreamSock_8hpp_source.html#l00089">toolbox::net::StreamSockClnt::connect()</a>, <a class="el" href="DgramSock_8hpp_source.html#l00051">toolbox::net::DgramSock::connect()</a>, <a class="el" href="McastSock_8hpp_source.html#l00257">toolbox::net::McastSock::connect()</a>, <a class="el" href="StreamSock_8hpp_source.html#l00085">toolbox::net::StreamSockClnt::connect()</a>, <a class="el" href="Socket_8hpp_source.html#l00338">connect()</a>, <a class="el" href="Socket_8hpp_source.html#l00331">connect()</a>, <a class="el" href="Socket_8hpp_source.html#l00322">connect()</a>, and <a class="el" href="Socket_8hpp_source.html#l00313">connect()</a>.</p>
 
 </div>
 </div>
@@ -3859,7 +3920,7 @@ template&lt;typename EndpointT &gt; </div>
 
 <p>Initiate a connection on a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00301">301</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00322">322</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -3907,7 +3968,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Initiate a connection on a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00310">310</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00331">331</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -3949,7 +4010,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Initiate a connection on a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00317">317</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00338">338</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -3995,9 +4056,9 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Listen for connections on a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00323">323</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00344">344</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Socket_8ut_8cpp_source.html#l00046">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="StreamSock_8hpp_source.html#l00053">toolbox::net::StreamSockServ::listen()</a>, <a class="el" href="StreamSock_8hpp_source.html#l00052">toolbox::net::StreamSockServ::listen()</a>, <a class="el" href="Socket_8hpp_source.html#l00331">listen()</a>, and <a class="el" href="Socket_8hpp_source.html#l00323">listen()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Socket_8ut_8cpp_source.html#l00046">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="StreamSock_8hpp_source.html#l00053">toolbox::net::StreamSockServ::listen()</a>, <a class="el" href="StreamSock_8hpp_source.html#l00052">toolbox::net::StreamSockServ::listen()</a>, <a class="el" href="Socket_8hpp_source.html#l00352">listen()</a>, and <a class="el" href="Socket_8hpp_source.html#l00344">listen()</a>.</p>
 
 </div>
 </div>
@@ -4037,7 +4098,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Listen for connections on a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00331">331</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00352">352</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -4083,9 +4144,9 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Shut-down part of a full-duplex connection. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00339">339</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00360">360</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="IoSock_8hpp_source.html#l00032">toolbox::net::IoSock::shutdown()</a>, <a class="el" href="Socket_8hpp_source.html#l00347">shutdown()</a>, and <a class="el" href="Socket_8hpp_source.html#l00339">shutdown()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="IoSock_8hpp_source.html#l00032">toolbox::net::IoSock::shutdown()</a>, <a class="el" href="Socket_8hpp_source.html#l00368">shutdown()</a>, and <a class="el" href="Socket_8hpp_source.html#l00360">shutdown()</a>.</p>
 
 </div>
 </div>
@@ -4125,7 +4186,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Shut-down part of a full-duplex connection. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00347">347</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00368">368</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -4183,9 +4244,9 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Receive a message from a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00355">355</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00376">376</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Socket_8ut_8cpp_source.html#l00046">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Reactor_8ut_8cpp_source.html#l00184">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Reactor_8ut_8cpp_source.html#l00080">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Socket_8hpp_source.html#l00381">recv()</a>, <a class="el" href="Socket_8hpp_source.html#l00375">recv()</a>, <a class="el" href="Socket_8hpp_source.html#l00365">recv()</a>, <a class="el" href="Socket_8hpp_source.html#l00355">recv()</a>, <a class="el" href="IoSock_8hpp_source.html#l00069">toolbox::net::IoSock::recv()</a>, <a class="el" href="IoSock_8hpp_source.html#l00065">toolbox::net::IoSock::recv()</a>, <a class="el" href="IoSock_8hpp_source.html#l00050">toolbox::net::IoSock::recv()</a>, and <a class="el" href="IoSock_8hpp_source.html#l00046">toolbox::net::IoSock::recv()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Socket_8ut_8cpp_source.html#l00046">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Reactor_8ut_8cpp_source.html#l00184">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Reactor_8ut_8cpp_source.html#l00080">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="Socket_8hpp_source.html#l00402">recv()</a>, <a class="el" href="Socket_8hpp_source.html#l00396">recv()</a>, <a class="el" href="Socket_8hpp_source.html#l00386">recv()</a>, <a class="el" href="Socket_8hpp_source.html#l00376">recv()</a>, <a class="el" href="IoSock_8hpp_source.html#l00069">toolbox::net::IoSock::recv()</a>, <a class="el" href="IoSock_8hpp_source.html#l00065">toolbox::net::IoSock::recv()</a>, <a class="el" href="IoSock_8hpp_source.html#l00050">toolbox::net::IoSock::recv()</a>, and <a class="el" href="IoSock_8hpp_source.html#l00046">toolbox::net::IoSock::recv()</a>.</p>
 
 </div>
 </div>
@@ -4237,7 +4298,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Receive a message from a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00365">365</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00386">386</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -4289,7 +4350,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Receive a message from a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00375">375</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00396">396</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -4335,7 +4396,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Receive a message from a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00381">381</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00402">402</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -4385,9 +4446,9 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00386">386</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00407">407</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00395">recvmsg()</a>, <a class="el" href="Socket_8hpp_source.html#l00386">recvmsg()</a>, <a class="el" href="IoSock_8hpp_source.html#l00060">toolbox::net::IoSock::recvmsg()</a>, and <a class="el" href="IoSock_8hpp_source.html#l00055">toolbox::net::IoSock::recvmsg()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00416">recvmsg()</a>, <a class="el" href="Socket_8hpp_source.html#l00407">recvmsg()</a>, <a class="el" href="IoSock_8hpp_source.html#l00060">toolbox::net::IoSock::recvmsg()</a>, and <a class="el" href="IoSock_8hpp_source.html#l00055">toolbox::net::IoSock::recvmsg()</a>.</p>
 
 </div>
 </div>
@@ -4431,7 +4492,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00395">395</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00416">416</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -4501,9 +4562,9 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Receive a message from a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00405">405</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00426">426</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00463">recvfrom()</a>, <a class="el" href="Socket_8hpp_source.html#l00455">recvfrom()</a>, <a class="el" href="Socket_8hpp_source.html#l00445">recvfrom()</a>, <a class="el" href="Socket_8hpp_source.html#l00432">recvfrom()</a>, <a class="el" href="Socket_8hpp_source.html#l00418">recvfrom()</a>, <a class="el" href="Socket_8hpp_source.html#l00405">recvfrom()</a>, <a class="el" href="DgramSock_8hpp_source.html#l00071">toolbox::net::DgramSock::recvfrom()</a>, <a class="el" href="McastSock_8hpp_source.html#l00277">toolbox::net::McastSock::recvfrom()</a>, <a class="el" href="DgramSock_8hpp_source.html#l00067">toolbox::net::DgramSock::recvfrom()</a>, <a class="el" href="McastSock_8hpp_source.html#l00273">toolbox::net::McastSock::recvfrom()</a>, <a class="el" href="DgramSock_8hpp_source.html#l00062">toolbox::net::DgramSock::recvfrom()</a>, <a class="el" href="McastSock_8hpp_source.html#l00268">toolbox::net::McastSock::recvfrom()</a>, <a class="el" href="DgramSock_8hpp_source.html#l00057">toolbox::net::DgramSock::recvfrom()</a>, and <a class="el" href="McastSock_8hpp_source.html#l00263">toolbox::net::McastSock::recvfrom()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00484">recvfrom()</a>, <a class="el" href="Socket_8hpp_source.html#l00476">recvfrom()</a>, <a class="el" href="Socket_8hpp_source.html#l00466">recvfrom()</a>, <a class="el" href="Socket_8hpp_source.html#l00453">recvfrom()</a>, <a class="el" href="Socket_8hpp_source.html#l00439">recvfrom()</a>, <a class="el" href="Socket_8hpp_source.html#l00426">recvfrom()</a>, <a class="el" href="DgramSock_8hpp_source.html#l00071">toolbox::net::DgramSock::recvfrom()</a>, <a class="el" href="McastSock_8hpp_source.html#l00277">toolbox::net::McastSock::recvfrom()</a>, <a class="el" href="DgramSock_8hpp_source.html#l00067">toolbox::net::DgramSock::recvfrom()</a>, <a class="el" href="McastSock_8hpp_source.html#l00273">toolbox::net::McastSock::recvfrom()</a>, <a class="el" href="DgramSock_8hpp_source.html#l00062">toolbox::net::DgramSock::recvfrom()</a>, <a class="el" href="McastSock_8hpp_source.html#l00268">toolbox::net::McastSock::recvfrom()</a>, <a class="el" href="DgramSock_8hpp_source.html#l00057">toolbox::net::DgramSock::recvfrom()</a>, and <a class="el" href="McastSock_8hpp_source.html#l00263">toolbox::net::McastSock::recvfrom()</a>.</p>
 
 </div>
 </div>
@@ -4567,7 +4628,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Receive a message from a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00418">418</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00439">439</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -4633,7 +4694,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Receive a message from a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00432">432</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00453">453</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -4693,7 +4754,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Receive a message from a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00445">445</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00466">466</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -4753,7 +4814,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Receive a message from a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00455">455</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00476">476</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -4807,7 +4868,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Receive a message from a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00463">463</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00484">484</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -4865,9 +4926,9 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Send a message on a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00469">469</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00490">490</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Socket_8ut_8cpp_source.html#l00046">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="IoSock_8hpp_source.html#l00087">toolbox::net::IoSock::send()</a>, <a class="el" href="IoSock_8hpp_source.html#l00083">toolbox::net::IoSock::send()</a>, <a class="el" href="IoSock_8hpp_source.html#l00096">toolbox::net::IoSock::send()</a>, <a class="el" href="IoSock_8hpp_source.html#l00092">toolbox::net::IoSock::send()</a>, <a class="el" href="Socket_8hpp_source.html#l00480">send()</a>, <a class="el" href="Socket_8hpp_source.html#l00469">send()</a>, <a class="el" href="Socket_8hpp_source.html#l00496">send()</a>, and <a class="el" href="Socket_8hpp_source.html#l00490">send()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Socket_8ut_8cpp_source.html#l00046">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="IoSock_8hpp_source.html#l00087">toolbox::net::IoSock::send()</a>, <a class="el" href="IoSock_8hpp_source.html#l00083">toolbox::net::IoSock::send()</a>, <a class="el" href="IoSock_8hpp_source.html#l00096">toolbox::net::IoSock::send()</a>, <a class="el" href="IoSock_8hpp_source.html#l00092">toolbox::net::IoSock::send()</a>, <a class="el" href="Socket_8hpp_source.html#l00501">send()</a>, <a class="el" href="Socket_8hpp_source.html#l00490">send()</a>, <a class="el" href="Socket_8hpp_source.html#l00517">send()</a>, and <a class="el" href="Socket_8hpp_source.html#l00511">send()</a>.</p>
 
 </div>
 </div>
@@ -4919,7 +4980,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Send a message on a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00480">480</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00501">501</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -4971,7 +5032,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Send a message on a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00490">490</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00511">511</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -5017,7 +5078,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Send a message on a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00496">496</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00517">517</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -5087,9 +5148,9 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Send a message on a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00502">502</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00523">523</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="DgramSock_8hpp_source.html#l00081">toolbox::net::DgramSock::sendto()</a>, <a class="el" href="McastSock_8hpp_source.html#l00287">toolbox::net::McastSock::sendto()</a>, <a class="el" href="DgramSock_8hpp_source.html#l00076">toolbox::net::DgramSock::sendto()</a>, <a class="el" href="McastSock_8hpp_source.html#l00282">toolbox::net::McastSock::sendto()</a>, <a class="el" href="DgramSock_8hpp_source.html#l00090">toolbox::net::DgramSock::sendto()</a>, <a class="el" href="McastSock_8hpp_source.html#l00296">toolbox::net::McastSock::sendto()</a>, <a class="el" href="DgramSock_8hpp_source.html#l00086">toolbox::net::DgramSock::sendto()</a>, <a class="el" href="McastSock_8hpp_source.html#l00292">toolbox::net::McastSock::sendto()</a>, <a class="el" href="Socket_8hpp_source.html#l00533">sendto()</a>, <a class="el" href="Socket_8hpp_source.html#l00525">sendto()</a>, <a class="el" href="Socket_8hpp_source.html#l00513">sendto()</a>, <a class="el" href="Socket_8hpp_source.html#l00502">sendto()</a>, <a class="el" href="Socket_8hpp_source.html#l00550">sendto()</a>, and <a class="el" href="Socket_8hpp_source.html#l00541">sendto()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="DgramSock_8hpp_source.html#l00081">toolbox::net::DgramSock::sendto()</a>, <a class="el" href="McastSock_8hpp_source.html#l00287">toolbox::net::McastSock::sendto()</a>, <a class="el" href="DgramSock_8hpp_source.html#l00076">toolbox::net::DgramSock::sendto()</a>, <a class="el" href="McastSock_8hpp_source.html#l00282">toolbox::net::McastSock::sendto()</a>, <a class="el" href="DgramSock_8hpp_source.html#l00090">toolbox::net::DgramSock::sendto()</a>, <a class="el" href="McastSock_8hpp_source.html#l00296">toolbox::net::McastSock::sendto()</a>, <a class="el" href="DgramSock_8hpp_source.html#l00086">toolbox::net::DgramSock::sendto()</a>, <a class="el" href="McastSock_8hpp_source.html#l00292">toolbox::net::McastSock::sendto()</a>, <a class="el" href="Socket_8hpp_source.html#l00554">sendto()</a>, <a class="el" href="Socket_8hpp_source.html#l00546">sendto()</a>, <a class="el" href="Socket_8hpp_source.html#l00534">sendto()</a>, <a class="el" href="Socket_8hpp_source.html#l00523">sendto()</a>, <a class="el" href="Socket_8hpp_source.html#l00571">sendto()</a>, and <a class="el" href="Socket_8hpp_source.html#l00562">sendto()</a>.</p>
 
 </div>
 </div>
@@ -5153,7 +5214,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Send a message on a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00513">513</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00534">534</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -5219,7 +5280,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Send a message on a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00525">525</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00546">546</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -5279,7 +5340,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Send a message on a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00533">533</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00554">554</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -5339,7 +5400,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Send a message on a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00541">541</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00562">562</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -5393,7 +5454,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Send a message on a socket. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00550">550</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00571">571</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -5445,9 +5506,9 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Get the socket name. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00557">557</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00578">578</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Socket_8ut_8cpp_source.html#l00046">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="DgramSock_8hpp_source.html#l00048">toolbox::net::DgramSock::get_sock_name()</a>, <a class="el" href="McastSock_8hpp_source.html#l00254">toolbox::net::McastSock::get_sock_name()</a>, <a class="el" href="StreamSock_8hpp_source.html#l00048">toolbox::net::StreamSockServ::get_sock_name()</a>, <a class="el" href="StreamSock_8hpp_source.html#l00084">toolbox::net::StreamSockClnt::get_sock_name()</a>, <a class="el" href="DgramSock_8hpp_source.html#l00044">toolbox::net::DgramSock::get_sock_name()</a>, <a class="el" href="McastSock_8hpp_source.html#l00250">toolbox::net::McastSock::get_sock_name()</a>, <a class="el" href="StreamSock_8hpp_source.html#l00044">toolbox::net::StreamSockServ::get_sock_name()</a>, <a class="el" href="StreamSock_8hpp_source.html#l00080">toolbox::net::StreamSockClnt::get_sock_name()</a>, <a class="el" href="Socket_8hpp_source.html#l00590">getsockname()</a>, <a class="el" href="Socket_8hpp_source.html#l00579">getsockname()</a>, <a class="el" href="Socket_8hpp_source.html#l00568">getsockname()</a>, and <a class="el" href="Socket_8hpp_source.html#l00557">getsockname()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Socket_8ut_8cpp_source.html#l00046">BOOST_AUTO_TEST_CASE()</a>, <a class="el" href="DgramSock_8hpp_source.html#l00048">toolbox::net::DgramSock::get_sock_name()</a>, <a class="el" href="McastSock_8hpp_source.html#l00254">toolbox::net::McastSock::get_sock_name()</a>, <a class="el" href="StreamSock_8hpp_source.html#l00048">toolbox::net::StreamSockServ::get_sock_name()</a>, <a class="el" href="StreamSock_8hpp_source.html#l00084">toolbox::net::StreamSockClnt::get_sock_name()</a>, <a class="el" href="DgramSock_8hpp_source.html#l00044">toolbox::net::DgramSock::get_sock_name()</a>, <a class="el" href="McastSock_8hpp_source.html#l00250">toolbox::net::McastSock::get_sock_name()</a>, <a class="el" href="StreamSock_8hpp_source.html#l00044">toolbox::net::StreamSockServ::get_sock_name()</a>, <a class="el" href="StreamSock_8hpp_source.html#l00080">toolbox::net::StreamSockClnt::get_sock_name()</a>, <a class="el" href="Socket_8hpp_source.html#l00611">getsockname()</a>, <a class="el" href="Socket_8hpp_source.html#l00600">getsockname()</a>, <a class="el" href="Socket_8hpp_source.html#l00589">getsockname()</a>, and <a class="el" href="Socket_8hpp_source.html#l00578">getsockname()</a>.</p>
 
 </div>
 </div>
@@ -5493,7 +5554,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Get the socket name. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00568">568</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00589">589</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -5541,7 +5602,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Get the socket name. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00579">579</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00600">600</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -5583,7 +5644,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Get the socket name. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00590">590</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00611">611</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -5647,9 +5708,9 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Get socket option. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00598">598</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00619">619</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00607">getsockopt()</a>, and <a class="el" href="Socket_8hpp_source.html#l00598">getsockopt()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00628">getsockopt()</a>, and <a class="el" href="Socket_8hpp_source.html#l00619">getsockopt()</a>.</p>
 
 </div>
 </div>
@@ -5707,7 +5768,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Get socket option. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00607">607</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00628">628</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
@@ -5771,9 +5832,9 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Set socket option. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00615">615</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00636">636</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00624">setsockopt()</a>, and <a class="el" href="Socket_8hpp_source.html#l00615">setsockopt()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Socket_8hpp_source.html#l00645">setsockopt()</a>, and <a class="el" href="Socket_8hpp_source.html#l00636">setsockopt()</a>.</p>
 
 </div>
 </div>
@@ -5831,7 +5892,7 @@ template&lt;<a class="el" href="namespacetoolbox_1_1os.html#a64188db4aa869e64498
 
 <p>Set socket option. </p>
 
-<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00624">624</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Socket_8hpp_source.html#l00645">645</a> of file <a class="el" href="Socket_8hpp_source.html">Socket.hpp</a>.</p>
 
 </div>
 </div>
