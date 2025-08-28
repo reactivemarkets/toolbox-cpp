@@ -97,6 +97,27 @@ inline AddrInfoPtr getaddrinfo(const char* node, const char* service, ProtocolT 
     return getaddrinfo(node, service, protocol.family(), protocol.type(), protocol.protocol());
 }
 
+inline std::string gethostname()
+{
+    char buffer[HOST_NAME_MAX + 1];
+    if (::gethostname(buffer, sizeof(buffer)) < 0) {
+        throw std::system_error{make_error(errno), "gethostname"};
+    }
+    buffer[HOST_NAME_MAX] = '\0';
+    return std::string{buffer};
+}
+
+inline std::string gethostname(std::error_code& ec) noexcept
+{
+    char buffer[HOST_NAME_MAX + 1];
+    if (::gethostname(buffer, sizeof(buffer)) < 0) {
+        ec = make_error(errno);
+        return {};
+    }
+    buffer[HOST_NAME_MAX] = '\0';
+    return std::string{buffer};
+}
+
 /// Returns the index of the network interface corresponding to the name ifname.
 inline unsigned if_nametoindex(const char* ifname, std::error_code& ec) noexcept
 {
