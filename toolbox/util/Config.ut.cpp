@@ -458,4 +458,34 @@ foo=101
     BOOST_CHECK_EQUAL(foo_it == foo_rng.end(), true);
 }
 
+BOOST_AUTO_TEST_CASE(MultiConfig_for_each_section)
+{
+    const string text{R"(
+[First]
+key_abc=value_abc
+
+[Second]
+key_xyz=value_xyz
+)"};
+
+	std::map<std::string,util::Config> sections;
+
+	MultiConfig c;
+	istringstream is{text};
+	c.read(is);
+	c.for_each_section([&sections](const std::string& name, const util::Config& config) {
+		sections.emplace(name, config);
+	});
+	auto first{sections.find("First")};
+	auto second{sections.find("Second")};
+    if (first == sections.end()) {
+		BOOST_FAIL("Missing section 'First'");
+	}
+    if (second == sections.end()) {
+		BOOST_FAIL("Missing section 'Second'");
+	}
+	BOOST_CHECK_EQUAL(first->second.get<std::string_view>("key_abc"), "value_abc"sv);
+	BOOST_CHECK_EQUAL(second->second.get<std::string_view>("key_xyz"), "value_xyz"sv);
+}
+
 BOOST_AUTO_TEST_SUITE_END()
