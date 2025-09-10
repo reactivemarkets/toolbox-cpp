@@ -21,10 +21,12 @@
 #include <toolbox/util/Utility.hpp>
 #include <toolbox/util/String.hpp>
 
+#include <algorithm>
+#include <map>
 #include <ranges>
 #include <stdexcept>
 #include <unordered_map>
-#include <map>
+#include <utility>
 
 namespace toolbox {
 inline namespace util {
@@ -246,10 +248,23 @@ class TOOLBOX_API MultiConfig {
         return section(std::string{name});
     }
 
+    template <typename F>
+    void for_each_section(F f) const
+    noexcept(noexcept(
+        f(std::declval<const MultiConfig::MapType::key_type&>(),
+          std::declval<const MultiConfig::MapType::mapped_type&>())
+    ))
+    {
+       std::for_each(map_.begin(), map_.end(), [&f](const auto& kv) {
+           f(kv.first, kv.second);
+       });
+    }
+
   private:
     Config root_;
     // Map of named sections.
-    std::map<std::string, Config> map_;
+    using MapType = std::map<std::string, Config>;
+    MapType map_;
 };
 
 } // namespace util
