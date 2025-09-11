@@ -95,6 +95,11 @@ class StringBuf {
         return size() == rhs.size() && compare(rhs.data(), rhs.size()) == 0;
     }
 
+    explicit constexpr operator std::string_view() const noexcept
+    {
+        return std::string_view{data(), size()};
+    }
+
   private:
     void assign(const char* rdata, std::size_t rlen) noexcept
     {
