@@ -468,6 +468,27 @@ struct TypeTraits<WallTime> {
     }
 };
 
+/// Throttles the invocation of a callable to not exceed a specified rate.
+/// The rate is controlled by a cooldown interval.
+class ThrottledInvoker {
+  public:
+    explicit ThrottledInvoker(Seconds cooldown_interval)
+    : cooldown_interval_(cooldown_interval) {}
+
+    template <typename Callable>
+    void operator()(MonoTime now, Callable&& callable)
+    {
+        if (duration_cast<Seconds>(now - last_time_invoked_) >= cooldown_interval_) {
+            last_time_invoked_ = now;
+            std::forward<Callable>(callable)();
+        }
+    }
+
+  private:
+    const Seconds cooldown_interval_{};
+    MonoTime last_time_invoked_{};
+};
+
 } // namespace util
 } // namespace toolbox
 
