@@ -124,4 +124,36 @@ BOOST_AUTO_TEST_CASE(PutTimeOutput2)
     BOOST_CHECK_EQUAL(stream.str(), "20180824T05:32:29.001001001");
 }
 
+BOOST_AUTO_TEST_CASE(ThrottledInvokerCheck)
+{
+    constexpr auto threshold = 1s;
+    ThrottledInvoker throttler{threshold};
+
+    std::size_t count = 0;
+    auto fn = [&]() { ++count; };
+    auto now = MonoClock::now();
+
+    // First time, so throttler will invoke the callable.
+    // After this, the throttler should throttle until now + threshold.
+    throttler(now, fn);
+    BOOST_CHECK_EQUAL(count, 1);
+
+    now += Millis{500};
+    throttler(now, fn);
+    BOOST_CHECK_EQUAL(count, 1);
+
+    now += Millis{500};
+    throttler(now, fn);
+    BOOST_CHECK_EQUAL(count, 2);
+
+    now += Millis{500};
+    throttler(now, fn);
+    BOOST_CHECK_EQUAL(count, 2);
+
+    now += Millis{500};
+    throttler(now, fn);
+    BOOST_CHECK_EQUAL(count, 3);
+}
+
+
 BOOST_AUTO_TEST_SUITE_END()
