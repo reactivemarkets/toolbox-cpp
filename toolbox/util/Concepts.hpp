@@ -41,6 +41,9 @@ concept Streamable = requires (T& os) {
     os.write(std::declval<const char*>(), std::declval<std::size_t>());
 };
 
+template <class T>
+concept Pointer = std::is_pointer_v<T>;
+
 } // namespace util
 } // namespace toolbox
 
