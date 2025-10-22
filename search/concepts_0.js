@@ -9,5 +9,6 @@ var searchData=
   ['toolbox_3a_3autil_3a_3adetail_3a_3ainheritsbasicostream_6',['InheritsBasicOStream',['../concepttoolbox_1_1util_1_1detail_1_1InheritsBasicOStream.html',1,'toolbox::util::detail']]],
   ['toolbox_3a_3autil_3a_3aenum_7',['Enum',['../concepttoolbox_1_1util_1_1Enum.html',1,'toolbox::util']]],
   ['toolbox_3a_3autil_3a_3aisintwrapper_8',['IsIntWrapper',['../concepttoolbox_1_1util_1_1IsIntWrapper.html',1,'toolbox::util']]],
-  ['toolbox_3a_3autil_3a_3astreamable_9',['Streamable',['../concepttoolbox_1_1util_1_1Streamable.html',1,'toolbox::util']]]
+  ['toolbox_3a_3autil_3a_3apointer_9',['Pointer',['../concepttoolbox_1_1util_1_1Pointer.html',1,'toolbox::util']]],
+  ['toolbox_3a_3autil_3a_3astreamable_10',['Streamable',['../concepttoolbox_1_1util_1_1Streamable.html',1,'toolbox::util']]]
 ];
