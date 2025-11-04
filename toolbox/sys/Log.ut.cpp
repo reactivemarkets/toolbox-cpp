@@ -44,6 +44,9 @@ struct TestLogger final : Logger {
     void do_write_log(WallTime /*ts*/, LogLevel level, int /*tid*/, LogMsgPtr&& msg,
                       size_t size) noexcept override
     {
+        const auto finally = make_finally([&]() noexcept {
+            log_buf_pool().bounded_push(std::move(msg));
+        });
         last_level = level;
         last_msg.assign(static_cast<const char*>(msg.get()), size);
     }
