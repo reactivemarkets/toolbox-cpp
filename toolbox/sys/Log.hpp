@@ -46,7 +46,11 @@ class Log {
     , level_{level}
     , os_{log_stream()}
     {
-        os_.set_storage(os_.make_storage());
+        LogMsgPtr storage;
+        if (!log_buf_pool().pop(storage)) [[unlikely]] {
+            storage = LogStream::make_storage();
+        }
+        os_.set_storage(std::move(storage));
     }
     ~Log()
     {

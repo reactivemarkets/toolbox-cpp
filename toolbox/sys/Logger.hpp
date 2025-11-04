@@ -17,13 +17,15 @@
 #ifndef TOOLBOX_SYS_LOGGER_HPP
 #define TOOLBOX_SYS_LOGGER_HPP
 
-#include <boost/lockfree/queue.hpp>
-#include <thread>
-
 #include <toolbox/sys/Limits.hpp>
 #include <toolbox/sys/Time.hpp>
 #include <toolbox/util/Storage.hpp>
 #include <toolbox/util/Concepts.hpp>
+
+#include <boost/lockfree/queue.hpp>
+#include <boost/lockfree/stack.hpp>
+
+#include <thread>
 
 namespace toolbox {
 inline namespace sys {
@@ -50,6 +52,11 @@ enum class LogLevel : int {
 };
 
 using LogMsgPtr = StoragePtr<MaxLogLine>;
+inline constexpr std::size_t LogBufPoolCapacity = 64;
+using LogBufPool = boost::lockfree::stack<LogMsgPtr, boost::lockfree::capacity<LogBufPoolCapacity>>;
+
+/// A pool of log buffers, eliminating the need for dynamic memory allocations when logging
+TOOLBOX_API LogBufPool& log_buf_pool() noexcept;
 
 /// Null logger. This logger does nothing and is effectively /dev/null.
 TOOLBOX_API Logger& null_logger() noexcept;

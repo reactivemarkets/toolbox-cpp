@@ -16,6 +16,8 @@
 
 #include "Logger.hpp"
 
+#include <toolbox/util/Finally.hpp>
+
 #include <atomic>
 #include <mutex>
 
@@ -61,10 +63,23 @@ inline pid_t gettid()
 }
 #endif
 
+struct LogBufPoolWrapper {
+    static constexpr std::size_t InitialPoolSize = 8;
+    LogBufPoolWrapper()
+    {
+        for ([[maybe_unused]] std::size_t i = 0; i < InitialPoolSize; i++) {
+            pool.bounded_push(util::make_storage<MaxLogLine>());
+        }
+    }
+    LogBufPool pool;
+};
+static LogBufPoolWrapper log_buf_pool_{};
+
 class NullLogger final : public Logger {
-    void do_write_log(WallTime /*ts*/, LogLevel /*level*/, int /*tid*/, LogMsgPtr&& /*msg*/,
+    void do_write_log(WallTime /*ts*/, LogLevel /*level*/, int /*tid*/, LogMsgPtr&& msg,
                       size_t /*size*/) noexcept override
     {
+        log_buf_pool().bounded_push(std::move(msg));
     }
 } null_logger_;
 
@@ -72,6 +87,10 @@ class StdLogger final : public Logger {
     void do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
                       size_t size) noexcept override
     {
+        const auto finally = make_finally([&]() noexcept {
+            log_buf_pool().bounded_push(std::move(msg));
+        });
+
         const auto t{WallClock::to_time_t(ts)};
         tm tm;
         localtime_r(&t, &tm);
@@ -107,6 +126,10 @@ class SysLogger final : public Logger {
     void do_write_log(WallTime /*ts*/, LogLevel level, int /*tid*/, LogMsgPtr&& msg,
                       size_t size) noexcept override
     {
+        const auto finally = make_finally([&]() noexcept {
+            log_buf_pool().bounded_push(std::move(msg));
+        });
+
         int prio;
         switch (level) {
         case LogLevel::None:
@@ -151,6 +174,11 @@ inline Logger& acquire_logger() noexcept
 }
 
 } // namespace
+
+LogBufPool& log_buf_pool() noexcept
+{
+    return log_buf_pool_.pool;
+}
 
 Logger& null_logger() noexcept
 {
@@ -244,7 +272,7 @@ void AsyncLogger::do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&&
         // and prevents crashes caused by an out-of-memory situation during rare log-burst spikes.
     }
     // Failed to push the task, restore ownership of msg_ptr.
-    LogMsgPtr{msg_ptr};
+    log_buf_pool().bounded_push(LogMsgPtr{msg_ptr});
 }
 
 } // namespace sys
