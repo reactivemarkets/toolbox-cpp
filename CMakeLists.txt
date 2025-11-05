@@ -163,7 +163,7 @@ include_directories(
 
 set(Boost_REALPATH ON)
 
-find_package(Boost 1.74 CONFIG REQUIRED COMPONENTS date_time unit_test_framework)
+find_package(Boost 1.88 CONFIG REQUIRED COMPONENTS date_time unit_test_framework)
 include_directories(SYSTEM ${Boost_INCLUDE_DIRS})
 install_libraries("${Boost_DATE_TIME_LIBRARY_RELEASE}" "${Boost_UNIT_TEST_FRAMEWORK_LIBRARY_RELEASE}")
 message(STATUS "boost_date_time: ${Boost_DATE_TIME_LIBRARY_RELEASE}")
