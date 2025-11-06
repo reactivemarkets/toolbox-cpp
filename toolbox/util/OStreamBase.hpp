@@ -19,6 +19,7 @@
 #include <algorithm>
 #include <charconv>
 #include <concepts>
+#include <cstring>
 #include <system_error>
 #include <type_traits>
 #include <string>
@@ -141,7 +142,7 @@ DerivedT& OStreamBase<DerivedT>::put_data(const char* data, std::size_t data_siz
 {
     char* buf = prepare_space(data_size);
     if (buf != nullptr) [[likely]] {
-        std::copy(data, data + data_size, buf);
+        std::memcpy(buf, data, data_size);
         relinquish_space(data_size);
     } else {
         set_badbit();
