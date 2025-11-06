@@ -80,7 +80,8 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">toolbox::sys Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -135,6 +136,8 @@ Typedefs</h2></td></tr>
 <tr class="separator:a2d316964302f8ef8f39a43db2a5992db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90375ff3ad41e051d34219123f8cae1d" id="r_a90375ff3ad41e051d34219123f8cae1d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a90375ff3ad41e051d34219123f8cae1d">LogMsgPtr</a> = <a class="el" href="namespacetoolbox_1_1util.html#aeb288a1a60b3b04011a1c4b65a2c143a">StoragePtr</a>&lt; <a class="el" href="namespacetoolbox_1_1sys.html#a5c730f2f9701593805e3100310236dafacd948f993ddc09a59b17766ef1480db2">MaxLogLine</a> &gt;</td></tr>
 <tr class="separator:a90375ff3ad41e051d34219123f8cae1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00b3d28534d08a42e065d65ee8ae45e0" id="r_a00b3d28534d08a42e065d65ee8ae45e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a00b3d28534d08a42e065d65ee8ae45e0">LogBufPool</a> = boost::lockfree::stack&lt; <a class="el" href="namespacetoolbox_1_1sys.html#a90375ff3ad41e051d34219123f8cae1d">LogMsgPtr</a>, boost::lockfree::capacity&lt; <a class="el" href="namespacetoolbox_1_1sys.html#ad95cbdd1674fad9fad071783876d84ad">LogBufPoolCapacity</a> &gt; &gt;</td></tr>
+<tr class="separator:a00b3d28534d08a42e065d65ee8ae45e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90f0f82eec67b724f5e9f170e11192b2" id="r_a90f0f82eec67b724f5e9f170e11192b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a90f0f82eec67b724f5e9f170e11192b2">PidFile</a> = std::unique_ptr&lt; <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">pidfh</a>, <a class="el" href="structtoolbox_1_1sys_1_1detail_1_1PidFileDeleter.html">detail::PidFileDeleter</a> &gt;</td></tr>
 <tr class="separator:a90f0f82eec67b724f5e9f170e11192b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a926e572d5ea62970f67ab8c44cc5dcf4" id="r_a926e572d5ea62970f67ab8c44cc5dcf4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a926e572d5ea62970f67ab8c44cc5dcf4">Seconds</a> = std::chrono::seconds</td></tr>
@@ -246,6 +249,9 @@ Functions</h2></td></tr>
 <tr class="separator:ad04b0568efefc9d157229b67630249d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b04461f7abb09244a11754075dad53f" id="r_a9b04461f7abb09244a11754075dad53f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1sys.html#a2d316964302f8ef8f39a43db2a5992db">LogStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a9b04461f7abb09244a11754075dad53f">log_stream</a> () <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">noexcept</a></td></tr>
 <tr class="separator:a9b04461f7abb09244a11754075dad53f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad26b22688a0e897af9cda2e5e842769e" id="r_ad26b22688a0e897af9cda2e5e842769e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1sys.html#a00b3d28534d08a42e065d65ee8ae45e0">LogBufPool</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#ad26b22688a0e897af9cda2e5e842769e">log_buf_pool</a> () <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">noexcept</a></td></tr>
+<tr class="memdesc:ad26b22688a0e897af9cda2e5e842769e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pool of log buffers, eliminating the need for dynamic memory allocations when logging.  <br /></td></tr>
+<tr class="separator:ad26b22688a0e897af9cda2e5e842769e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a633068001e163cc39cde5c4a692f0747" id="r_a633068001e163cc39cde5c4a692f0747"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtoolbox_1_1sys_1_1Logger.html">Logger</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a633068001e163cc39cde5c4a692f0747">null_logger</a> () <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">noexcept</a></td></tr>
 <tr class="memdesc:a633068001e163cc39cde5c4a692f0747"><td class="mdescLeft">&#160;</td><td class="mdescRight">Null logger. This logger does nothing and is effectively /dev/null.  <br /></td></tr>
 <tr class="separator:a633068001e163cc39cde5c4a692f0747"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -373,6 +379,11 @@ requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b
 <tr class="separator:a6c97dd326b4ef3150369a6bc357badac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2731adaf98ddeaa7d2239fe0aac50d65" id="r_a2731adaf98ddeaa7d2239fe0aac50d65"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">constexpr</a> std::optional&lt; <a class="el" href="namespacetoolbox_1_1sys.html#a982f28e6caaaa07ee95deca8f662b6ef">Nanos</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a2731adaf98ddeaa7d2239fe0aac50d65">parse_time_only</a> (std::string_view <a class="el" href="namespacetoolbox_1_1util.html#ab0e8390e06ed1ddfdfddf09408afb48e">sv</a>) <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">noexcept</a></td></tr>
 <tr class="separator:a2731adaf98ddeaa7d2239fe0aac50d65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ad95cbdd1674fad9fad071783876d84ad" id="r_ad95cbdd1674fad9fad071783876d84ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">constexpr</a> std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#ad95cbdd1674fad9fad071783876d84ad">LogBufPoolCapacity</a> = 64</td></tr>
+<tr class="separator:ad95cbdd1674fad9fad071783876d84ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="a1566d16291b4b2ce84563d4daff190d1" name="a1566d16291b4b2ce84563d4daff190d1"></a>
@@ -441,7 +452,23 @@ requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00052">52</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00054">54</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a00b3d28534d08a42e065d65ee8ae45e0" name="a00b3d28534d08a42e065d65ee8ae45e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00b3d28534d08a42e065d65ee8ae45e0">&#9670;&#160;</a></span>LogBufPool</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">using</a> <a class="el" href="namespacetoolbox_1_1sys.html#a00b3d28534d08a42e065d65ee8ae45e0">toolbox::sys::LogBufPool</a> = <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">typedef</a> boost::lockfree::stack&lt;<a class="el" href="namespacetoolbox_1_1sys.html#a90375ff3ad41e051d34219123f8cae1d">LogMsgPtr</a>, boost::lockfree::capacity&lt;<a class="el" href="namespacetoolbox_1_1sys.html#ad95cbdd1674fad9fad071783876d84ad">LogBufPoolCapacity</a>&gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00056">56</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
 
 </div>
 </div>
@@ -667,7 +694,7 @@ requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00033">33</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00035">35</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
 
 </div>
 </div>
@@ -1412,6 +1439,35 @@ requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b
 
 </div>
 </div>
+<a id="ad26b22688a0e897af9cda2e5e842769e" name="ad26b22688a0e897af9cda2e5e842769e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad26b22688a0e897af9cda2e5e842769e">&#9670;&#160;</a></span>log_buf_pool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> <a class="el" href="namespacetoolbox_1_1sys.html#a00b3d28534d08a42e065d65ee8ae45e0">LogBufPool</a> &amp; toolbox::sys::log_buf_pool </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A pool of log buffers, eliminating the need for dynamic memory allocations when logging. </p>
+
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00178">178</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+
+</div>
+</div>
 <a id="a633068001e163cc39cde5c4a692f0747" name="a633068001e163cc39cde5c4a692f0747"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a633068001e163cc39cde5c4a692f0747">&#9670;&#160;</a></span>null_logger()</h2>
 
@@ -1437,7 +1493,7 @@ requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b
 
 <p>Null logger. This logger does nothing and is effectively /dev/null. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00155">155</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00183">183</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1465,7 +1521,7 @@ requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b
 </div><div class="memdoc">
 <p>Standard logger. This logger writes to stdout if the log level is greater than LogWarn, and stdout otherwise. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00160">160</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00188">188</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1494,7 +1550,7 @@ requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b
 
 <p>System logger. This logger calls <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">syslog()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00165">165</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00193">193</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1524,7 +1580,7 @@ requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b
 
 <p>Return log label for given log level. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00170">170</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00198">198</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1553,7 +1609,7 @@ requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b
 
 <p>Return current log level. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00175">175</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00203">203</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1583,7 +1639,7 @@ requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b
 
 <p>Set log level globally for all threads. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00180">180</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00208">208</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1612,7 +1668,7 @@ requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b
 
 <p>Return current logger. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00185">185</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00213">213</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1642,7 +1698,7 @@ requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b
 
 <p>Set logger globally for all threads. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00190">190</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00218">218</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1693,9 +1749,9 @@ requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b
 </div><div class="memdoc">
 <p>Unconditionally write log message to the logger. Specifically, this function does not check that level is allowed by the current log level; users are expected to call <a class="el" href="namespacetoolbox_1_1sys.html#a075bef199cd0476132d7db539b2ea94b" title="Return true if level is less than or equal to current log level.">is_log_level()</a> first, before formatting the log message. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00195">195</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00223">223</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Log_8hpp_source.html#l00051">toolbox::sys::Log::~Log()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Log_8hpp_source.html#l00055">toolbox::sys::Log::~Log()</a>.</p>
 
 </div>
 </div>
@@ -1725,7 +1781,7 @@ requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b
 
 <p>Return true if level is less than or equal to current log level. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00071">71</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00078">78</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
 
 </div>
 </div>
@@ -1753,7 +1809,7 @@ requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00085">85</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00092">92</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
 
 </div>
 </div>
@@ -1786,7 +1842,7 @@ requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00205">205</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00212">212</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
 
 </div>
 </div>
@@ -2882,6 +2938,31 @@ requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b
 <p>Time-only represented in UTC (Universal Time Coordinated, also known as "GMT") in either HH:MM:SS (whole seconds) or HH:MM:SS.sss (milliseconds) format, colons, and period required. This special-purpose field is paired with UTCDateOnly to form a proper UTCTimestamp for bandwidth-sensitive messages. Valid values: HH = 00-23, MM = 00-59, SS = 00-5960 (60 only if UTC leap second) (without milliseconds). HH = 00-23, MM = 00-59, SS = 00-5960 (60 only if UTC leap second), sss=000-999 (indicating milliseconds). </p>
 
 <p class="definition">Definition at line <a class="el" href="Time_8hpp_source.html#l00408">408</a> of file <a class="el" href="Time_8hpp_source.html">Time.hpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ad95cbdd1674fad9fad071783876d84ad" name="ad95cbdd1674fad9fad071783876d84ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad95cbdd1674fad9fad071783876d84ad">&#9670;&#160;</a></span>LogBufPoolCapacity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">constexpr</a> std::size_t toolbox::sys::LogBufPoolCapacity = 64</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00055">55</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
 
 </div>
 </div>
