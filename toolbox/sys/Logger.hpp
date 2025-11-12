@@ -58,6 +58,13 @@ using LogBufPool = boost::lockfree::stack<LogMsgPtr, boost::lockfree::capacity<L
 /// A pool of log buffers, eliminating the need for dynamic memory allocations when logging
 TOOLBOX_API LogBufPool& log_buf_pool() noexcept;
 
+/// Enables log warming mode. In this mode, the logging path is exercised without producing actual
+/// log output. This is a per-thread setting, so other threads will be able to log as normal.
+TOOLBOX_API void set_log_warming_mode(bool enabled) noexcept;
+
+/// Returns true if log warming mode is enabled.
+TOOLBOX_API bool log_warming_mode_enabled() noexcept;
+
 /// Null logger. This logger does nothing and is effectively /dev/null.
 TOOLBOX_API Logger& null_logger() noexcept;
 
@@ -114,14 +121,15 @@ class TOOLBOX_API Logger {
     Logger(Logger&&) noexcept = default;
     Logger& operator=(Logger&&) noexcept = default;
 
-    void write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg, std::size_t size) noexcept
+    void write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg, std::size_t size,
+                   bool warming_fake) noexcept
     {
-        do_write_log(ts, level, tid, std::move(msg), size);
+        do_write_log(ts, level, tid, std::move(msg), size, warming_fake);
     }
 
   protected:
     virtual void do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
-                              std::size_t size) noexcept
+                              std::size_t size, bool warming_fake) noexcept
         = 0;
 };
 
@@ -156,11 +164,16 @@ class TOOLBOX_API AsyncLogger : public Logger {
   private:
     void write_all_messages();
     void do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
-                      std::size_t size) noexcept override;
+                      std::size_t size, bool warming_fake) noexcept override;
 
     Logger& logger_;
     boost::lockfree::queue<Task, boost::lockfree::fixed_sized<false>> tq_{512};
     std::atomic<bool> stop_{false};
+
+    // warming mode variables
+    std::atomic<int> fake_pushed_count_{0};
+    std::atomic<WallTime> last_time_fake_pushed_{};
+    static_assert(std::atomic<WallTime>::is_always_lock_free, "atomic not lock free");
 };
 
 /// ScopedLogLevel provides a convenient RAII-style utility for setting the log-level for the
