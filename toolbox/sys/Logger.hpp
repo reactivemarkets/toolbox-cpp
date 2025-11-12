@@ -153,6 +153,9 @@ class TOOLBOX_API AsyncLogger : public Logger {
     /// Interrupt and exit any inprogress call to run().
     void stop();
 
+    /// Any logged lines will be dropped while this mode is enabled.
+    void set_warming_mode(bool enable) noexcept;
+
   private:
     void write_all_messages();
     void do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
@@ -161,6 +164,11 @@ class TOOLBOX_API AsyncLogger : public Logger {
     Logger& logger_;
     boost::lockfree::queue<Task, boost::lockfree::fixed_sized<false>> tq_{512};
     std::atomic<bool> stop_{false};
+
+    // warming variables
+    bool warming_mode_enabled_{false};
+    std::atomic<int> fake_pushed_count_{0};
+    WallTime last_time_fake_pushed_{};
 };
 
 /// ScopedLogLevel provides a convenient RAII-style utility for setting the log-level for the

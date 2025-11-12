@@ -240,9 +240,16 @@ AsyncLogger::~AsyncLogger()
 void AsyncLogger::write_all_messages()
 {
     Task t;
+    int fake_cnt = 0;
+
     while (tq_.pop(t)) {
-        logger_.write_log(t.ts, t.level, t.tid, LogMsgPtr{t.msg}, t.size);
+        if (t.msg != nullptr) {
+            logger_.write_log(t.ts, t.level, t.tid, LogMsgPtr{t.msg}, t.size);
+        } else {
+            fake_cnt++;
+        }
     }
+    fake_pushed_count_.fetch_sub(fake_cnt, std::memory_order_relaxed);
 }
 
 bool AsyncLogger::run()
@@ -258,12 +265,32 @@ void AsyncLogger::stop()
     stop_ = true;
 }
 
+void AsyncLogger::set_warming_mode(bool enable) noexcept
+{
+    warming_mode_enabled_ = enable;
+}
+
 void AsyncLogger::do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
                                size_t size) noexcept
 {
     char* const msg_ptr = msg.release();
+    auto push_to_queue = [&](char* ptr) {
+        return tq_.push(Task{.ts = ts, .level = level, .tid = tid, .msg = ptr, .size = size});
+    };
     try {
-        if (tq_.push(Task{.ts = ts, .level = level, .tid = tid, .msg = msg_ptr, .size = size})) {
+        if (warming_mode_enabled_) [[unlikely]] {
+            const auto d = ts - last_time_fake_pushed_;
+            const auto cnt = fake_pushed_count_.load(std::memory_order_relaxed);
+
+            constexpr Millis FakePushInterval = 10ms;
+            constexpr int MaxPushedFakeCount = 25;
+
+            if (duration_cast<Millis>(d) >= FakePushInterval && cnt < MaxPushedFakeCount) {
+                push_to_queue(nullptr);
+                last_time_fake_pushed_ = ts;
+                fake_pushed_count_.fetch_add(1, std::memory_order_relaxed);
+            }
+        } else if (push_to_queue(msg_ptr)) [[likely]] {
             // Successfully pushed the task to the queue, release ownership of msg_ptr.
             return;
         }
