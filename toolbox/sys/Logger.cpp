@@ -77,7 +77,7 @@ static LogBufPoolWrapper log_buf_pool_{};
 
 class NullLogger final : public Logger {
     void do_write_log(WallTime /*ts*/, LogLevel /*level*/, int /*tid*/, LogMsgPtr&& msg,
-                      size_t /*size*/) noexcept override
+                      size_t /*size*/, bool /*warming_fake*/) noexcept override
     {
         log_buf_pool().bounded_push(std::move(msg));
     }
@@ -85,11 +85,15 @@ class NullLogger final : public Logger {
 
 class StdLogger final : public Logger {
     void do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
-                      size_t size) noexcept override
+                      size_t size, bool warming_fake) noexcept override
     {
         const auto finally = make_finally([&]() noexcept {
             log_buf_pool().bounded_push(std::move(msg));
         });
+
+        if (warming_fake) [[unlikely]] {
+            return;
+        }
 
         const auto t{WallClock::to_time_t(ts)};
         tm tm;
@@ -124,11 +128,15 @@ class StdLogger final : public Logger {
 
 class SysLogger final : public Logger {
     void do_write_log(WallTime /*ts*/, LogLevel level, int /*tid*/, LogMsgPtr&& msg,
-                      size_t size) noexcept override
+                      size_t size, bool warming_fake) noexcept override
     {
         const auto finally = make_finally([&]() noexcept {
             log_buf_pool().bounded_push(std::move(msg));
         });
+
+        if (warming_fake) [[unlikely]] {
+            return;
+        }
 
         int prio;
         switch (level) {
@@ -162,6 +170,7 @@ class SysLogger final : public Logger {
 // Global log level and logger function.
 atomic<LogLevel> level_{LogLevel::Info};
 atomic<Logger*> logger_{&std_logger_};
+thread_local bool warming_mode_{false};
 
 inline LogLevel acquire_level() noexcept
 {
@@ -178,6 +187,16 @@ inline Logger& acquire_logger() noexcept
 LogBufPool& log_buf_pool() noexcept
 {
     return log_buf_pool_.pool;
+}
+
+void set_log_warming_mode(bool enabled) noexcept
+{
+    warming_mode_ = enabled;
+}
+
+bool log_warming_mode_enabled() noexcept
+{
+    return warming_mode_;
 }
 
 Logger& null_logger() noexcept
@@ -222,7 +241,8 @@ Logger& set_logger(Logger& logger) noexcept
 
 void write_log(WallTime ts, LogLevel level, LogMsgPtr&& msg, std::size_t size) noexcept
 {
-    acquire_logger().write_log(ts, level, static_cast<int>(gettid()), std::move(msg), size);
+    acquire_logger().write_log(ts, level, static_cast<int>(gettid()), std::move(msg), size,
+                               warming_mode_);
 }
 
 Logger::~Logger() = default;
@@ -240,9 +260,16 @@ AsyncLogger::~AsyncLogger()
 void AsyncLogger::write_all_messages()
 {
     Task t;
+    int fake_count = 0;
+
     while (tq_.pop(t)) {
-        logger_.write_log(t.ts, t.level, t.tid, LogMsgPtr{t.msg}, t.size);
+        if (t.msg != nullptr) {
+            logger_.write_log(t.ts, t.level, t.tid, LogMsgPtr{t.msg}, t.size, false);
+        } else {
+            fake_count++;
+        }
     }
+    fake_pushed_count_.fetch_sub(fake_count, std::memory_order_relaxed);
 }
 
 bool AsyncLogger::run()
@@ -259,11 +286,33 @@ void AsyncLogger::stop()
 }
 
 void AsyncLogger::do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
-                               size_t size) noexcept
+                               size_t size, bool warming_fake) noexcept
 {
     char* const msg_ptr = msg.release();
+    auto push_to_queue = [&](char* ptr) -> bool {
+        return tq_.push(Task{.ts = ts, .level = level, .tid = tid, .msg = ptr, .size = size});
+    };
     try {
-        if (tq_.push(Task{.ts = ts, .level = level, .tid = tid, .msg = msg_ptr, .size = size})) {
+        if (warming_fake) [[unlikely]] {
+            const auto cnt = fake_pushed_count_.load(std::memory_order_relaxed);
+            const auto d = ts - last_time_fake_pushed_.load(std::memory_order_relaxed);
+
+            constexpr Millis FakePushInterval = 10ms;
+            constexpr int MaxPushedFakeCount = 25;
+
+            // It's possible that `last_time_fake_pushed_` OR `fake_pushed_count_` have since
+            // been modified by another thread (since the load). In this extremely rare case, a back
+            // to back push to the queue will occur. But that's fine -- not a big deal, these limits
+            // are not supposed to absolute hard limits, they are just to ensure that the queue is
+            // not flooded with "fake" entries. This compromise allows keeping the implementation
+            // simple, otherwise more complicated code is required to deal with this case.
+            if (duration_cast<Millis>(d) >= FakePushInterval && cnt < MaxPushedFakeCount) {
+                if (push_to_queue(nullptr)) {
+                    last_time_fake_pushed_.store(ts, std::memory_order_relaxed);
+                    fake_pushed_count_.fetch_add(1, std::memory_order_relaxed);
+                }
+            }
+        } else if (push_to_queue(msg_ptr)) [[likely]] {
             // Successfully pushed the task to the queue, release ownership of msg_ptr.
             return;
         }
@@ -271,7 +320,7 @@ void AsyncLogger::do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&&
         // Catching `std::bad_alloc` here is *defensive plumbing* that keeps the logger non-throwing
         // and prevents crashes caused by an out-of-memory situation during rare log-burst spikes.
     }
-    // Failed to push the task, restore ownership of msg_ptr.
+    // Failed to push the task OR warming fake, restore ownership of msg_ptr.
     log_buf_pool().bounded_push(LogMsgPtr{msg_ptr});
 }
 
