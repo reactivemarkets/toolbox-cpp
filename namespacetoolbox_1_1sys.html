@@ -252,6 +252,11 @@ Functions</h2></td></tr>
 <tr class="memitem:ad26b22688a0e897af9cda2e5e842769e" id="r_ad26b22688a0e897af9cda2e5e842769e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1sys.html#a00b3d28534d08a42e065d65ee8ae45e0">LogBufPool</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#ad26b22688a0e897af9cda2e5e842769e">log_buf_pool</a> () <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">noexcept</a></td></tr>
 <tr class="memdesc:ad26b22688a0e897af9cda2e5e842769e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pool of log buffers, eliminating the need for dynamic memory allocations when logging.  <br /></td></tr>
 <tr class="separator:ad26b22688a0e897af9cda2e5e842769e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaf8afe7ad61c00e46a488a212013916" id="r_aeaf8afe7ad61c00e46a488a212013916"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#aeaf8afe7ad61c00e46a488a212013916">set_log_warming_mode</a> (<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">bool</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">enabled</a>) <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">noexcept</a></td></tr>
+<tr class="separator:aeaf8afe7ad61c00e46a488a212013916"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc05932c20bf7f3c75cd7f6282b67ac7" id="r_abc05932c20bf7f3c75cd7f6282b67ac7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#abc05932c20bf7f3c75cd7f6282b67ac7">log_warming_mode_enabled</a> () <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">noexcept</a></td></tr>
+<tr class="memdesc:abc05932c20bf7f3c75cd7f6282b67ac7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if log warming mode is enabled.  <br /></td></tr>
+<tr class="separator:abc05932c20bf7f3c75cd7f6282b67ac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a633068001e163cc39cde5c4a692f0747" id="r_a633068001e163cc39cde5c4a692f0747"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtoolbox_1_1sys_1_1Logger.html">Logger</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a633068001e163cc39cde5c4a692f0747">null_logger</a> () <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">noexcept</a></td></tr>
 <tr class="memdesc:a633068001e163cc39cde5c4a692f0747"><td class="mdescLeft">&#160;</td><td class="mdescRight">Null logger. This logger does nothing and is effectively /dev/null.  <br /></td></tr>
 <tr class="separator:a633068001e163cc39cde5c4a692f0747"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1464,7 +1469,65 @@ Variables</h2></td></tr>
 
 <p>A pool of log buffers, eliminating the need for dynamic memory allocations when logging. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00178">178</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00187">187</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aeaf8afe7ad61c00e46a488a212013916" name="aeaf8afe7ad61c00e46a488a212013916"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeaf8afe7ad61c00e46a488a212013916">&#9670;&#160;</a></span>set_log_warming_mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">void</a> toolbox::sys::set_log_warming_mode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">bool</a>&#160;</td>
+          <td class="paramname"><em>enabled</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Enables log warming mode. In this mode, the logging path is exercised without producing actual log output. This is a per-thread setting, so other threads will be able to log as normal. </p>
+
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00192">192</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+
+</div>
+</div>
+<a id="abc05932c20bf7f3c75cd7f6282b67ac7" name="abc05932c20bf7f3c75cd7f6282b67ac7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc05932c20bf7f3c75cd7f6282b67ac7">&#9670;&#160;</a></span>log_warming_mode_enabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Config_8h.html#ae1d5e2ff332359a2f7905596626f2bf3">TOOLBOX_API</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">bool</a> toolbox::sys::log_warming_mode_enabled </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns true if log warming mode is enabled. </p>
+
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00197">197</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1493,7 +1556,7 @@ Variables</h2></td></tr>
 
 <p>Null logger. This logger does nothing and is effectively /dev/null. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00183">183</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00202">202</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1521,7 +1584,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Standard logger. This logger writes to stdout if the log level is greater than LogWarn, and stdout otherwise. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00188">188</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00207">207</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1550,7 +1613,7 @@ Variables</h2></td></tr>
 
 <p>System logger. This logger calls <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">syslog()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00193">193</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00212">212</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1580,7 +1643,7 @@ Variables</h2></td></tr>
 
 <p>Return log label for given log level. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00198">198</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00217">217</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1609,7 +1672,7 @@ Variables</h2></td></tr>
 
 <p>Return current log level. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00203">203</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00222">222</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1639,7 +1702,7 @@ Variables</h2></td></tr>
 
 <p>Set log level globally for all threads. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00208">208</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00227">227</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1668,7 +1731,7 @@ Variables</h2></td></tr>
 
 <p>Return current logger. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00213">213</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00232">232</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1698,7 +1761,7 @@ Variables</h2></td></tr>
 
 <p>Set logger globally for all threads. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00218">218</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00237">237</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 </div>
 </div>
@@ -1749,7 +1812,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>Unconditionally write log message to the logger. Specifically, this function does not check that level is allowed by the current log level; users are expected to call <a class="el" href="namespacetoolbox_1_1sys.html#a075bef199cd0476132d7db539b2ea94b" title="Return true if level is less than or equal to current log level.">is_log_level()</a> first, before formatting the log message. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00223">223</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00242">242</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="Log_8hpp_source.html#l00055">toolbox::sys::Log::~Log()</a>.</p>
 
@@ -1781,7 +1844,7 @@ Variables</h2></td></tr>
 
 <p>Return true if level is less than or equal to current log level. </p>
 
-<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00078">78</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00085">85</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
 
 </div>
 </div>
@@ -1809,7 +1872,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00092">92</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00099">99</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
 
 </div>
 </div>
@@ -1842,7 +1905,7 @@ requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00212">212</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00225">225</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
 
 </div>
 </div>
