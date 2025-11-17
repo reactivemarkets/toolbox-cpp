@@ -23,6 +23,7 @@
 #include <charconv>
 #include <cstring>
 #include <sstream>
+#include <string_view>
 
 namespace toolbox {
 inline namespace util {
@@ -129,8 +130,8 @@ inline std::string trim_copy(std::string s) noexcept
     return s;
 }
 
-TOOLBOX_API std::pair<std::string_view, std::string_view> split_pair(std::string_view s,
-                                                                     std::string_view delim) noexcept;
+TOOLBOX_API std::pair<std::string_view, std::string_view>
+split_pair(std::string_view s, std::string_view delim) noexcept;
 
 TOOLBOX_API std::pair<std::string, std::string> split_pair(const std::string& s,
                                                            std::string_view delim);
@@ -139,6 +140,26 @@ TOOLBOX_API std::pair<std::string_view, std::string_view> split_pair(std::string
                                                                      char delim) noexcept;
 
 TOOLBOX_API std::pair<std::string, std::string> split_pair(const std::string& s, char delim);
+
+template <typename F>
+void for_each_csv_item(std::string_view csv,
+                       F f) noexcept(noexcept(split_pair(std::declval<std::string_view>(), ','))
+                                     && noexcept(f(std::declval<std::string_view>())))
+{
+    bool trailing_comma;
+    do {
+        std::string_view v;
+        trailing_comma = (!csv.empty() && csv.back() == ',');
+        std::tie(v, csv) = split_pair(csv, ',');
+        f(v);
+    } while (!csv.empty() || trailing_comma);
+}
+
+static_assert(noexcept(for_each_csv_item(std::string_view{"a,b"},
+                                         [](std::string_view) noexcept {})),
+              "for_each_csv_item is noexcept(true)");
+static_assert(!noexcept(for_each_csv_item(std::string_view{"a,b"}, [](std::string_view) {})),
+              "for_each_csv_item is noexcept(false)");
 
 /// Returns the length of right-padded string.
 /// \tparam PadC The character used for padding.

@@ -115,6 +115,72 @@ BOOST_AUTO_TEST_CASE(SplitPairCase)
     BOOST_CHECK_EQUAL(split_pair(" a = b "s, '='), make_pair(" a "s, " b "s));
 }
 
+BOOST_AUTO_TEST_CASE(for_each_csv_item_tests)
+{
+    std::vector<std::string> values;
+    auto f{[&values](std::string_view value) { values.emplace_back(value); }};
+    {
+        values.clear();
+        auto csv{""sv};
+        for_each_csv_item(csv, f);
+        BOOST_REQUIRE_EQUAL(values.size(), 1UL);
+        BOOST_CHECK_EQUAL(values[0], "");
+    }
+    {
+        values.clear();
+        auto csv{","sv};
+        for_each_csv_item(csv, f);
+        BOOST_REQUIRE_EQUAL(values.size(), 2UL);
+        BOOST_CHECK_EQUAL(values[0], "");
+        BOOST_CHECK_EQUAL(values[1], "");
+    }
+    {
+        values.clear();
+        auto csv{",,"sv};
+        for_each_csv_item(csv, f);
+        BOOST_REQUIRE_EQUAL(values.size(), 3UL);
+        BOOST_CHECK_EQUAL(values[0], "");
+        BOOST_CHECK_EQUAL(values[1], "");
+        BOOST_CHECK_EQUAL(values[2], "");
+    }
+    {
+        values.clear();
+        auto csv{"steve,,"sv};
+        for_each_csv_item(csv, f);
+        BOOST_REQUIRE_EQUAL(values.size(), 3UL);
+        BOOST_CHECK_EQUAL(values[0], "steve");
+        BOOST_CHECK_EQUAL(values[1], "");
+        BOOST_CHECK_EQUAL(values[2], "");
+    }
+    {
+        values.clear();
+        auto csv{",steve,"sv};
+        for_each_csv_item(csv, f);
+        BOOST_REQUIRE_EQUAL(values.size(), 3UL);
+        BOOST_CHECK_EQUAL(values[0], "");
+        BOOST_CHECK_EQUAL(values[1], "steve");
+        BOOST_CHECK_EQUAL(values[2], "");
+    }
+    {
+        values.clear();
+        auto csv{",,steve"sv};
+        for_each_csv_item(csv, f);
+        BOOST_REQUIRE_EQUAL(values.size(), 3UL);
+        BOOST_CHECK_EQUAL(values[0], "");
+        BOOST_CHECK_EQUAL(values[1], "");
+        BOOST_CHECK_EQUAL(values[2], "steve");
+    }
+    {
+        values.clear();
+        auto csv{"steve,woz,'ere"sv};
+        for_each_csv_item(csv, f);
+        BOOST_REQUIRE_EQUAL(values.size(), 3UL);
+        BOOST_CHECK_EQUAL(values[0], "steve");
+        BOOST_CHECK_EQUAL(values[1], "woz");
+        BOOST_CHECK_EQUAL(values[2], "'ere");
+    }
+}
+
 BOOST_AUTO_TEST_CASE(PstrlenCase)
 {
     constexpr char ZeroPad[] = "foo";
