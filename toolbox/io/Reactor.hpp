@@ -195,8 +195,8 @@ class TOOLBOX_API Reactor : public Waker {
     void set_events(int fd, int sid, unsigned events);
     void unsubscribe(int fd, int sid) noexcept;
     void set_io_priority(int fd, int sid, Priority priority) noexcept;
-    int do_io_priority_poll(WallTime now) noexcept;
-    int do_user_priority_poll(WallTime now) noexcept;
+    int do_io_priority_poll(MonoTime now) noexcept;
+    int do_user_priority_poll(MonoTime now) noexcept;
 
     struct Data {
         int sid{};
@@ -215,8 +215,8 @@ class TOOLBOX_API Reactor : public Waker {
     HookList end_of_cycle_no_wait_hooks, end_of_event_dispatch_hooks_;
     Micros priority_io_poll_threshold_ = Micros::max();
     Micros user_hook_poll_threshold_ = Micros::max();
-    WallTime last_time_priority_io_polled_{};
-    WallTime last_time_user_hook_polled_{};
+    MonoTime last_time_priority_io_polled_{};
+    MonoTime last_time_user_hook_polled_{};
     PollSlot priority_poll_user_hook_;
     int cycle_work_{0};
     bool currently_handling_priority_events_{false};
