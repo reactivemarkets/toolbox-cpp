@@ -153,16 +153,16 @@ BOOST_AUTO_TEST_CASE(ReactorHighPriorityHook)
 
     auto [s1, s2] = socketpair(UnixStreamProtocol{});
 
-    // This is handler for data on s1. It is an expensive function taking ~100ms
+    // This is handler for data on s1. It is an expensive function taking ~250ms
     std::size_t yield_count = 0;
     auto on_data_received = [&](CyclTime, int, unsigned) {
-        WallTime now = WallClock::now();
-        WallTime end = now + 500ms;
+        MonoTime now = MonoClock::now();
+        MonoTime end = now + 250ms;
         while (now < end) {
-            // wait for 100us, then yield
-            auto next_stop = now + 1ms;
+            // wait for 1ms, then yield
+            auto next_stop = MonoClock::now() + 1ms;
             while (now < next_stop) {
-                now = WallClock::now();
+                now = MonoClock::now();
             }
             r.yield();
             yield_count++;
@@ -211,13 +211,13 @@ BOOST_AUTO_TEST_CASE(ReactorHighPriorityYield)
 
     // each invocation will take ~100ms
     auto spin_and_yield_periodically = [&r]() {
-        WallTime now = WallClock::now();
-        WallTime end = now + 100ms;
+        MonoTime now = MonoClock::now();
+        MonoTime end = now + 100ms;
         while (now < end) {
             // wait for 10us, then yield
             auto next_stop = now + 10us;
             while (now < next_stop) {
-                now = WallClock::now();
+                now = MonoClock::now();
             }
             r.yield();
         };

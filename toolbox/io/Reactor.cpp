@@ -97,7 +97,8 @@ int Reactor::poll(CyclTime now, Duration timeout)
     }
     // Update cycle time after epoll() returns.
     now = CyclTime::now();
-    last_time_priority_io_polled_ = now.wall_time();
+    last_time_priority_io_polled_ = now.mono_time();
+    last_time_user_hook_polled_ = now.mono_time();
 
     if (ec) {
         if (ec.value() != EINTR) {
@@ -157,12 +158,12 @@ void Reactor::yield() noexcept
         return;
     }
 
-    WallTime now = WallClock::now();
+    MonoTime now = MonoClock::now();
     cycle_work_ += do_io_priority_poll(now);
     cycle_work_ += do_user_priority_poll(now);
 }
 
-int Reactor::do_io_priority_poll(WallTime now) noexcept
+int Reactor::do_io_priority_poll(MonoTime now) noexcept
 {
     int ret = 0;
     try {
@@ -172,7 +173,7 @@ int Reactor::do_io_priority_poll(WallTime now) noexcept
 
         if (enabled && breached) {
             const auto update_poll_time = make_finally([this]() noexcept {
-                last_time_priority_io_polled_ = WallClock::now();
+                last_time_priority_io_polled_ = MonoClock::now();
             });
 
             error_code ec;
@@ -195,7 +196,7 @@ int Reactor::do_io_priority_poll(WallTime now) noexcept
     return ret;
 }
 
-int Reactor::do_user_priority_poll(WallTime now) noexcept
+int Reactor::do_user_priority_poll(MonoTime now) noexcept
 {
     int ret = 0;
     try {
@@ -206,7 +207,7 @@ int Reactor::do_user_priority_poll(WallTime now) noexcept
 
         if (enabled && breached) {
             const auto update_poll_time = make_finally([this]() noexcept {
-                last_time_user_hook_polled_ = WallClock::now();
+                last_time_user_hook_polled_ = MonoClock::now();
             });
 
             currently_handling_priority_events_ = true;
