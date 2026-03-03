@@ -179,6 +179,28 @@ BOOST_AUTO_TEST_CASE(ParseStreamUnixAbstractCase)
     BOOST_CHECK_EQUAL(to_string(ep), uri);
 }
 
+BOOST_AUTO_TEST_CASE(ParseStreamUnixAbstractEmptyCase)
+{
+    const auto uri = "unix://|"s;
+    const auto ep = parse_stream_endpoint(uri);
+    BOOST_CHECK_EQUAL(ep.protocol().family(), AF_UNIX);
+    BOOST_CHECK_EQUAL(ep.protocol().type(), SOCK_STREAM);
+    BOOST_CHECK_EQUAL(ep.protocol().protocol(), 0);
+    BOOST_CHECK_EQUAL(to_string(ep), uri);
+}
+
+BOOST_AUTO_TEST_CASE(ParseStreamUnixEmptyCase)
+{
+    auto sock = os::socket(net::UnixStreamProtocol{});
+    StreamEndpoint ep;
+    get_sock_name(sock.get(), ep);
+
+    BOOST_CHECK_EQUAL(ep.protocol().family(), AF_UNIX);
+    BOOST_CHECK_EQUAL(ep.protocol().type(), SOCK_STREAM);
+    BOOST_CHECK_EQUAL(ep.protocol().protocol(), 0);
+    BOOST_CHECK_EQUAL(to_string(ep), "unix://");
+}
+
 BOOST_AUTO_TEST_CASE(ParseStreamBindCase)
 {
     const auto ep = parse_stream_endpoint("tcp4://:80");

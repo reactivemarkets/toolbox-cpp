@@ -70,11 +70,17 @@ template <typename StreamT, typename T>
 StreamT& print_unix_endpoint(StreamT& os, const T& ep)
 {
     constexpr const char* scheme = "unix://";
-    // abstract unix socket's path starts with '\0' and not null-terminated
+    const size_t family_size = sizeof(std::declval<sockaddr_un>().sun_family);
+    if (ep.size() <= family_size) {
+        // No path
+        os << scheme;
+        return os;
+    }
     const auto* path = reinterpret_cast<const sockaddr_un*>(ep.data())->sun_path;
     if (path[0] == '\0') {
-        size_t size = ep.size() - sizeof(std::declval<sockaddr_un>().sun_family) - 1;
-        os << scheme << '|' << std::string_view{path + 1, size};
+        // abstract unix socket's path starts with '\0' and not null-terminated
+        const size_t path_size = ep.size() - family_size;
+        os << scheme << '|' << std::string_view{path + 1, path_size - 1};
         return os;
     }
     os << scheme << *ep.data();
