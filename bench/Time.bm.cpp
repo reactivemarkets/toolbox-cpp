@@ -18,6 +18,7 @@
 #include <toolbox/bm.hpp>
 
 #include <sys/syscall.h>
+#include <unistd.h>
 
 TOOLBOX_BENCHMARK_MAIN
 
