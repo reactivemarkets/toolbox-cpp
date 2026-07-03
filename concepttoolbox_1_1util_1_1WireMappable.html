@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Toolbox: toolbox::util::Pointer Concept Reference</title>
+<title>Toolbox: toolbox::util::WireMappable Concept Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -71,22 +71,23 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacetoolbox.html">toolbox</a></li><li class="navelem"><a class="el" href="namespacetoolbox_1_1util.html">util</a></li><li class="navelem"><a class="el" href="concepttoolbox_1_1util_1_1Pointer.html">Pointer</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacetoolbox.html">toolbox</a></li><li class="navelem"><a class="el" href="namespacetoolbox_1_1util.html">util</a></li><li class="navelem"><a class="el" href="concepttoolbox_1_1util_1_1WireMappable.html">WireMappable</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">toolbox::util::Pointer Concept Reference</div></div>
+  <div class="headertitle"><div class="title">toolbox::util::WireMappable Concept Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="Concepts_8hpp_source.html">toolbox/util/Concepts.hpp</a>&gt;</code></p>
 <h2 class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="concepttoolbox_1_1util_1_1Pointer.html">toolbox::util::Pointer</a> =  std::is_pointer_v&lt;T&gt;</div>
-<div class="ttc" id="aconcepttoolbox_1_1util_1_1Pointer_html"><div class="ttname"><a href="concepttoolbox_1_1util_1_1Pointer.html">toolbox::util::Pointer</a></div><div class="ttdef"><b>Definition</b> <a href="Concepts_8hpp_source.html#l00045">Concepts.hpp:45</a></div></div>
+<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="concepttoolbox_1_1util_1_1WireMappable.html">toolbox::util::WireMappable</a> =  std::is_standard_layout_v&lt;T&gt; &amp;&amp; std::is_trivially_default_constructible_v&lt;T&gt;</div>
+<div class="line">    &amp;&amp; std::is_trivially_copyable_v&lt;T&gt;</div>
+<div class="ttc" id="aconcepttoolbox_1_1util_1_1WireMappable_html"><div class="ttname"><a href="concepttoolbox_1_1util_1_1WireMappable.html">toolbox::util::WireMappable</a></div><div class="ttdef"><b>Definition</b> <a href="Concepts_8hpp_source.html#l00049">Concepts.hpp:49</a></div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="Concepts_8hpp_source.html#l00045">45</a> of file <a class="el" href="Concepts_8hpp_source.html">Concepts.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Concepts_8hpp_source.html#l00049">49</a> of file <a class="el" href="Concepts_8hpp_source.html">Concepts.hpp</a>.</p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
