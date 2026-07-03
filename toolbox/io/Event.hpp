@@ -27,7 +27,9 @@ struct MsgEvent {
     int type;
     char data[1524];
 };
-static_assert(std::is_standard_layout_v<MsgEvent> && std::is_trivial_v<MsgEvent>);
+static_assert(std::is_standard_layout_v<MsgEvent>
+              && std::is_trivially_default_constructible_v<MsgEvent>
+              && std::is_trivially_copyable_v<MsgEvent>);
 static_assert(sizeof(MsgEvent) + sizeof(std::int64_t) == 1536);
 
 template <typename DataT>

@@ -41,8 +41,13 @@ concept Streamable = requires (T& os) {
     os.write(std::declval<const char*>(), std::declval<std::size_t>());
 };
 
-template <class T>
+template <typename T>
 concept Pointer = std::is_pointer_v<T>;
+
+// Type can be mapped directly to and from IPC/SBE binary buffers.
+template <typename T>
+concept WireMappable = std::is_standard_layout_v<T> && std::is_trivially_default_constructible_v<T>
+    && std::is_trivially_copyable_v<T>;
 
 } // namespace util
 } // namespace toolbox
