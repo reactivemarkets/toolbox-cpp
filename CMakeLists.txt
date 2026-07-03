@@ -106,7 +106,7 @@ endif()
 
 set(CMAKE_C_STANDARD 11)
 # Emits -std=gnu++1z on OSX which is not working as expected.
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 26)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(COMMON_WARN "-Wall -Werror -Wextra -Wstrict-aliasing=2 -Wno-error=deprecated-declarations")
