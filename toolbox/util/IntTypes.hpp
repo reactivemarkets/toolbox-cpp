@@ -251,8 +251,7 @@ struct TOOLBOX_PACKED IntWrapper {
 
 static_assert(IntWrapper<Int32Policy>{1} == IntWrapper<Int32Policy>{1});
 static_assert(IntWrapper<Int32Policy>{1} != IntWrapper<Int32Policy>{2});
-static_assert(std::is_standard_layout_v<IntWrapper<Int32Policy>>
-              && std::is_trivial_v<IntWrapper<Int32Policy>>);
+static_assert(WireMappable<IntWrapper<Int32Policy>>);
 static_assert(sizeof(IntWrapper<Int16Policy>) == 2, "must be specific size");
 static_assert(sizeof(IntWrapper<Int32Policy>) == 4, "must be specific size");
 static_assert(sizeof(IntWrapper<Int64Policy>) == 8, "must be specific size");
