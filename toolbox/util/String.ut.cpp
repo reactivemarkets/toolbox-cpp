@@ -53,6 +53,13 @@ BOOST_AUTO_TEST_CASE(ToStringCase)
     BOOST_CHECK_EQUAL(to_string("foo"sv), "foo"s);
     BOOST_CHECK_EQUAL(stoi(to_string(12345)), 12345);
     BOOST_CHECK_EQUAL(stod(to_string(12345.67)), 12345.67);
+
+    // IntWrapper-derived types (Id16/Id32/Id64) must resolve to this overload rather than the
+    // generic stringstream-based template, including at magnitudes that exceed the 15-character
+    // small-string-optimisation threshold in libstdc++ (e.g. epoch-microsecond serial ids).
+    BOOST_CHECK_EQUAL(to_string(Id64{123456789}), "123456789"s);
+    BOOST_CHECK_EQUAL(to_string(Id64{-123456789}), "-123456789"s);
+    BOOST_CHECK_EQUAL(to_string(Id64{1783894459839125}), "1783894459839125"s);
 }
 
 BOOST_AUTO_TEST_CASE(LtrimCopyCase)
