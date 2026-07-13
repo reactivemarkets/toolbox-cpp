@@ -18,6 +18,7 @@
 #define TOOLBOX_UTIL_STRING_HPP
 
 #include <toolbox/util/Concepts.hpp>
+#include <toolbox/util/IntTypes.hpp>
 #include <toolbox/util/TypeTraits.hpp>
 
 #include <charconv>
@@ -66,6 +67,15 @@ std::string to_string(ValueT&& val)
 // clang-format on
 {
     return std::to_string(val);
+}
+
+template <typename PolicyT>
+// clang-format off
+requires Arithmetic<typename PolicyT::ValueType>
+std::string to_string(IntWrapper<PolicyT> val)
+// clang-format on
+{
+    return std::to_string(val.count());
 }
 
 template <std::size_t SizeN>
