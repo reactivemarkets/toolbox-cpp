@@ -68,10 +68,36 @@ $ cd $BUILD_DIR/toolbox-cpp
 $ make
 ```
 
+### Documentation
+
+The `tb-doc` target is not part of the default build; build it explicitly to generate the Doxygen
+documentation, requiring Doxygen and Graphviz (`dot`) to be found by `cmake`:
+
+``` bash
+$ make tb-doc
+```
+
+`tb-doc` depends on `tb-image`, which renders the module dependency diagrams
+(`tb-util.png`, `tb-sys.png`, `tb-io.png`, `tb-net.png`, `tb-http.png`) referenced by
+[Dependencies.md](Dependencies.md), so both are generated automatically. To generate just the
+diagrams without running Doxygen:
+
+``` bash
+$ make tb-image
+```
+
 ### Install
 
 Install to `CMAKE_INSTALL_PREFIX`:
 
 ``` bash
 $ make install
+```
+
+The dependency diagrams install as part of the `doc` component if `tb-image` was built beforehand;
+otherwise they are silently omitted, since their install entries are optional. To include them,
+build `tb-doc` (or just `tb-image`) before installing:
+
+``` bash
+$ make tb-doc install
 ```
