@@ -113,10 +113,20 @@ $(function() {
 <div class="fragment"><div class="line"> bash</div>
 <div class="line">$ cd $BUILD_DIR/toolbox-cpp</div>
 <div class="line">$ make</div>
+</div><!-- fragment --><h2>Documentation</h2>
+<p>The <code>tb-doc</code> target is not part of the default build; build it explicitly to generate the Doxygen documentation, requiring Doxygen and Graphviz (<code>dot</code>) to be found by <code>cmake</code>:</p>
+<div class="fragment"><div class="line"> bash</div>
+<div class="line">$ make tb-doc</div>
+</div><!-- fragment --><p><code>tb-doc</code> depends on <code>tb-image</code>, which renders the module dependency diagrams (<code>tb-util.png</code>, <code>tb-sys.png</code>, <code>tb-io.png</code>, <code>tb-net.png</code>, <code>tb-http.png</code>) referenced by <a class="el" href="md_doc_2Dependencies.html">Dependencies.md</a>, so both are generated automatically. To generate just the diagrams without running Doxygen:</p>
+<div class="fragment"><div class="line"> bash</div>
+<div class="line">$ make tb-image</div>
 </div><!-- fragment --><h2>Install</h2>
 <p>Install to <code>CMAKE_INSTALL_PREFIX</code>:</p>
 <div class="fragment"><div class="line"> bash</div>
 <div class="line">$ make install</div>
+</div><!-- fragment --><p>The dependency diagrams install as part of the <code>doc</code> component if <code>tb-image</code> was built beforehand; otherwise they are silently omitted, since their install entries are optional. To include them, build <code>tb-doc</code> (or just <code>tb-image</code>) before installing:</p>
+<div class="fragment"><div class="line"> bash</div>
+<div class="line">$ make tb-doc install</div>
 </div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
