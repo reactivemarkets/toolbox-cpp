@@ -23,7 +23,7 @@ $ git clone git@github.com:reactivemarkets/toolbox-cpp.git toolbox-cpp
 $ mkdir toolbox-cpp/build
 $ cd toolbox-cpp/build
 $ cmake ..
-$ make -j all test install
+$ make -j all test tb-doc install
 ```
 
 ## Documentation

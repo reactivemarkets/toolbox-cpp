@@ -41,9 +41,9 @@ if(DOT_EXECUTABLE)
       DEPENDS "${PROJECT_SOURCE_DIR}/etc/dotdepend.pl")
 
     set(outfiles ${outfiles} "${outfile}")
-    install(FILES "${outfile}" DESTINATION image COMPONENT doc)
+    install(FILES "${outfile}" DESTINATION image COMPONENT doc OPTIONAL)
   endforeach()
 
 endif()
 
-add_custom_target(tb-image ALL DEPENDS ${outfiles})
+add_custom_target(tb-image DEPENDS ${outfiles})
