@@ -23,6 +23,7 @@ using namespace toolbox;
 
 namespace {
 struct Disposer : BasicDisposer<Disposer> {
+    using BasicDisposer<Disposer>::is_dispose_deferred;
     using BasicDisposer<Disposer>::is_locked;
     using BasicDisposer<Disposer>::lock_this;
     void dispose_now(CyclTime now) noexcept
@@ -43,25 +44,31 @@ BOOST_AUTO_TEST_CASE(DisposerCase)
     const auto now = CyclTime::now();
     Disposer d;
     BOOST_CHECK(!d.is_locked());
+    BOOST_CHECK(!d.is_dispose_deferred());
     BOOST_CHECK_EQUAL(d.disposed, 0);
     {
         auto lock = d.lock_this(now);
         BOOST_CHECK(d.is_locked());
+        BOOST_CHECK(!d.is_dispose_deferred());
     }
     BOOST_CHECK(!d.is_locked());
+    BOOST_CHECK(!d.is_dispose_deferred());
     BOOST_CHECK_EQUAL(d.disposed, 0);
     {
         auto outer_lock = d.lock_this(now);
         BOOST_CHECK(d.is_locked());
         {
             auto inner_lock = d.lock_this(now);
+            BOOST_CHECK(!d.is_dispose_deferred());
             d.dispose(now);
             BOOST_CHECK(d.is_locked());
+            BOOST_CHECK(d.is_dispose_deferred());
             BOOST_CHECK_EQUAL(d.disposed, 0);
         }
         // And again.
         d.dispose(now);
         BOOST_CHECK(d.is_locked());
+        BOOST_CHECK(d.is_dispose_deferred());
         BOOST_CHECK_EQUAL(d.disposed, 0);
     }
     BOOST_CHECK_EQUAL(d.disposed, 1);

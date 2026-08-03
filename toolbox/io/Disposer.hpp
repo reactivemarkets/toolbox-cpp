@@ -57,6 +57,10 @@ class BasicDisposer {
     /// Returns true if the lock is held or the object has been disposed.
     bool is_locked() const noexcept { return locks_ > 0; }
 
+    /// Returns true if disposal has been requested while a lock was held and is deferred until
+    /// the last lock is released.
+    bool is_dispose_deferred() const noexcept { return dispose_; }
+
     /// Returns a lock that prevents the disposer instance from being deleted while the lock is
     /// held.
     [[nodiscard]] auto lock_this(CyclTime now) noexcept
