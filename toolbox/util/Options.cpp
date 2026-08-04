@@ -86,7 +86,6 @@ void Options::parse(int argc, const char* const argv[])
     }
 
     // Ensure all required parameters have been set.
-    // FIXME: but we're not checking required positional arguments?
     for (const auto& data : opts_) {
         visit(overloaded{[](const auto& /*def*/) {},
                          [&](const Value& arg) {

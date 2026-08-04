@@ -68,8 +68,8 @@ TOOLBOX_API bool log_warming_mode_enabled() noexcept;
 /// Null logger. This logger does nothing and is effectively /dev/null.
 TOOLBOX_API Logger& null_logger() noexcept;
 
-/// Standard logger. This logger writes to stdout if the log level is greater than LogWarn, and
-/// stdout otherwise.
+/// Standard logger. This logger writes to stderr if the severity is Error or higher and stdout
+/// otherwise.
 TOOLBOX_API Logger& std_logger() noexcept;
 
 /// System logger. This logger calls syslog().
@@ -106,8 +106,7 @@ inline Logger& set_logger(std::nullptr_t) noexcept
 /// before formatting the log message.
 TOOLBOX_API void write_log(WallTime ts, LogLevel level, LogMsgPtr&& msg, std::size_t size) noexcept;
 
-/// The Logger is implemented by types that may be woken-up, interrupted or otherwise notified
-/// asynchronously.
+/// The Logger is implemented by types that write log messages to a sink.
 class TOOLBOX_API Logger {
   public:
     Logger() noexcept = default;
