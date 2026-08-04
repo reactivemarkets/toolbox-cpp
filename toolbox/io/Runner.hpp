@@ -33,7 +33,7 @@ using HistogramPtr = std::unique_ptr<Histogram>;
 /// MetricCallbackFunction implementer is responsible for deleting the Histogram.
 using MetricCallbackFunction
     = std::function<void(CyclTime now, HistogramPtr&& time_hist, HistogramPtr&& work_hist)>;
-/// LoopCallbackFunction called at end of each Reactor loop, indicating micros taken and work done.
+/// LoopCallbackFunction called after each Reactor poll that processed work.
 using LoopCallbackFunction = std::function<void(CyclTime now)>;
 
 class TOOLBOX_API ReactorRunner {
