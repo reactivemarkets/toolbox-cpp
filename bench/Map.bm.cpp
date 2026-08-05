@@ -18,25 +18,14 @@
 
 #include <toolbox/bm.hpp>
 
+#include <boost/functional/hash.hpp>
 #include <boost/unordered/unordered_flat_map.hpp>
 
-#include <algorithm>
 #include <cstdint>
-#include <numeric>
-#include <stdexcept>
+#include <cstring>
+#include <ranges>
 #include <unordered_map>
 #include <vector>
-
-// Compares toolbox::RobinMap against boost::unordered_flat_map (the proposed replacement) and
-// std::unordered_map (a stable baseline) across successful and unsuccessful lookups, insertion
-// into an initially empty map, steady-state churn, and full iteration.
-//
-// Keys are distinct integers, shuffled once per run and shared by every benchmark and
-// implementation, so all three implementations always compare against identical inputs while
-// varying between runs. Setup happens outside the timed ranges, results are consumed so
-// operations cannot be optimised away, and final cardinality is checked.
-//
-// Benchmark names follow <implementation>_<operation>_<entries>_<value shape>.
 
 TOOLBOX_BENCHMARK_MAIN
 
@@ -45,401 +34,304 @@ using namespace toolbox;
 
 namespace {
 
+/// Fixed-size character-array key.
+struct Key {
+    friend size_t hash_value(const Key& key)
+    {
+        size_t hash{0};
+        for (auto c : key.data) {
+            boost::hash_combine(hash, c);
+        }
+        return hash;
+    }
+
+    char data[64]{};
+
+    explicit Key(uint64_t value) noexcept { std::memcpy(data, &value, sizeof(value)); }
+
+    bool operator==(const Key&) const = default;
+};
+
 /// Small mapped value representing an id, index, or pointer-sized payload.
 using SmallValue = int64_t;
 
-/// Large mapped value comparable to a packet-sized payload.
+/// Larger counterpart to Key, with a distinct id in its first eight bytes.
 struct LargeValue {
-    char data[1472];
+    char data[1472]{};
+
+    explicit LargeValue(uint64_t value) noexcept { std::memcpy(data, &value, sizeof(value)); }
+
+    explicit operator uint64_t() const noexcept
+    {
+        uint64_t value{};
+        std::memcpy(&value, data, sizeof(value));
+        return value;
+    }
 };
 
-/// Number of passes over the key set per timed batch, to amortise timer overhead.
-constexpr size_t Sweeps{8};
-
-/// Returns count * 2 distinct keys, shuffled with the toolbox's shared RNG: the first count keys
-/// populate each map, and the remaining count keys are guaranteed-absent probes.
-vector<int> make_keys(size_t count)
+/// Returns count distinct keys, starting at offset and shuffled with the toolbox's shared RNG.
+vector<Key> make_keys(size_t offset, size_t count)
 {
-    vector<int> keys(count * 2);
-    ranges::iota(keys, 0);
+    vector<Key> keys;
+    keys.reserve(count);
+    for (size_t i{0}; i < count; ++i) {
+        keys.emplace_back(offset + i);
+    }
     ranges::shuffle(keys, mt19937_64_rng());
     return keys;
 }
 
-const auto Keys64 = make_keys(64);
-const auto Keys4096 = make_keys(4096);
+const auto present_keys_4096 = make_keys(0, 4096);
+const auto absent_keys_4096 = make_keys(4096, 4096);
 
-/// Populates m with the first half of keys; setup only, outside any timed range.
-template <typename MapT>
-void populate(MapT& m, const vector<int>& keys)
+/// Returns a shuffled probe sequence with an equal number of present and absent keys.
+vector<Key> make_find_probes(const vector<Key>& present_keys, const vector<Key>& absent_keys)
 {
-    const auto count{keys.size() / 2};
+    vector<Key> probes;
+    probes.reserve(present_keys.size() + absent_keys.size());
+    probes.insert(probes.end(), present_keys.begin(), present_keys.end());
+    probes.insert(probes.end(), absent_keys.begin(), absent_keys.end());
+    ranges::shuffle(probes, mt19937_64_rng());
+    return probes;
+}
+
+const auto find_probes_4096 = make_find_probes(present_keys_4096, absent_keys_4096);
+
+/// Populates m with present keys; setup only, outside any timed range.
+template <typename MapT>
+void populate(MapT& m, const vector<Key>& present_keys)
+{
+    const auto count{present_keys.size()};
     for (size_t i{0}; i < count; ++i) {
-        m.try_emplace(keys[i]);
+        m.try_emplace(present_keys[i], static_cast<uint64_t>(i));
     }
 }
 
-/// Successful lookups on a fully populated map that never mutates.
+/// Shuffled 50/50 successful and unsuccessful lookups on a fully populated map that never mutates.
 template <typename MapT>
-void run_find_hit(bm::Context& ctx, const vector<int>& keys)
+void run_find_50_50(bm::Context& ctx, const vector<Key>& present_keys, const vector<Key>& probes)
 {
-    const auto count{keys.size() / 2};
     MapT m;
-    populate(m, keys);
-
-    size_t hits{0};
-    size_t ops{0};
-    while (ctx) {
-        {
-            // Named so its lifetime spans the sweeps: batch records the elapsed time per
-            // operation when it leaves scope.
-            auto batch{ctx.range(static_cast<int>(Sweeps * count))};
-            for (size_t sweep{0}; sweep < Sweeps; ++sweep) {
-                for (size_t i{0}; i < count; ++i) {
-                    if (m.find(keys[i]) != m.end()) {
-                        ++hits;
-                    }
-                }
-                // Stop the optimiser caching lookups across sweeps of the same keys.
-                bm::clobber_memory();
-            }
-        }
-        ops += Sweeps * count;
-        bm::do_not_optimise(hits);
-    }
-    if (m.size() != count || hits != ops) {
-        throw runtime_error{"find hit benchmark invariant broken"};
-    }
-}
-
-/// Unsuccessful lookups on a fully populated map that never mutates.
-template <typename MapT>
-void run_find_miss(bm::Context& ctx, const vector<int>& keys)
-{
-    const auto count{keys.size() / 2};
-    MapT m;
-    populate(m, keys);
+    populate(m, present_keys);
 
     size_t hits{0};
     while (ctx) {
-        {
-            auto batch{ctx.range(static_cast<int>(Sweeps * count))};
-            for (size_t sweep{0}; sweep < Sweeps; ++sweep) {
-                for (size_t i{0}; i < count; ++i) {
-                    if (m.find(keys[count + i]) != m.end()) {
-                        ++hits;
-                    }
-                }
-                bm::clobber_memory();
-            }
+        for (auto i : ctx.range(static_cast<int>(probes.size()))) {
+            hits += m.find(probes[static_cast<size_t>(i)]) != m.end();
         }
         bm::do_not_optimise(hits);
     }
-    if (m.size() != count || hits != 0) {
-        throw runtime_error{"find miss benchmark invariant broken"};
-    }
 }
 
-/// Insertion into an initially empty map. The timed region covers growth from empty to count
-/// entries, including rehashes; construction and destruction of the map are not timed.
+/// Insertion into an initially empty, pre-reserved map. The timed region covers each insertion but
+/// excludes table allocation and rehashing; per-element allocation remains part of the measurement.
 template <typename MapT>
-void run_insert(bm::Context& ctx, const vector<int>& keys)
+void run_insert(bm::Context& ctx, const vector<Key>& keys)
 {
-    const auto count{keys.size() / 2};
+    const auto count{keys.size()};
     while (ctx) {
         MapT m;
+        m.reserve(count);
         for (auto i : ctx.range(static_cast<int>(count))) {
-            m.try_emplace(keys[static_cast<size_t>(i)]);
-        }
-        if (m.size() != count) {
-            throw runtime_error{"insert benchmark invariant broken"};
+            m.try_emplace(keys[static_cast<size_t>(i)], static_cast<uint64_t>(i));
         }
     }
 }
 
-/// Steady-state churn: each operation erases a present key and inserts an absent key, sliding a
-/// count-sized window over the key universe so cardinality never changes.
+/// Steady-state churn: each batch replaces all present keys with absent keys, then reverses that
+/// exchange in the next batch, so cardinality never changes.
 template <typename MapT>
-void run_churn(bm::Context& ctx, const vector<int>& keys)
+void run_churn(bm::Context& ctx, const vector<Key>& present_keys, const vector<Key>& absent_keys)
 {
-    const auto count{keys.size() / 2};
+    const auto count{present_keys.size()};
     MapT m;
-    populate(m, keys);
+    populate(m, present_keys);
 
     size_t erased{0};
-    size_t ops{0};
-    size_t erase_idx{0};
-    size_t insert_idx{count};
+    bool erase_present{true};
     while (ctx) {
-        for ([[maybe_unused]] auto _ : ctx.range(static_cast<int>(count))) {
-            erased += m.erase(keys[erase_idx]);
-            m.try_emplace(keys[insert_idx]);
-            // Wrap with predictable branches: modulo would add a division per timed operation.
-            if (++erase_idx == keys.size()) {
-                erase_idx = 0;
-            }
-            if (++insert_idx == keys.size()) {
-                insert_idx = 0;
-            }
+        const auto& erase_keys = erase_present ? present_keys : absent_keys;
+        const auto& insert_keys = erase_present ? absent_keys : present_keys;
+        for (auto i : ctx.range(static_cast<int>(count))) {
+            const auto key_idx = static_cast<size_t>(i);
+            erased += m.erase(erase_keys[key_idx]);
+            m.try_emplace(insert_keys[key_idx], static_cast<uint64_t>(key_idx));
         }
-        ops += count;
+        erase_present = !erase_present;
         bm::do_not_optimise(erased);
-    }
-    if (m.size() != count || erased != ops) {
-        throw runtime_error{"churn benchmark invariant broken"};
     }
 }
 
-/// Full iteration over a fully populated map, consuming a checksum of keys and values.
+/// Full iteration over a fully populated map, consuming every mapped value.
 template <typename MapT>
-void run_iterate(bm::Context& ctx, const vector<int>& keys)
+void run_iterate(bm::Context& ctx, const vector<Key>& keys)
 {
-    const auto count{keys.size() / 2};
+    const auto count{keys.size()};
     MapT m;
     for (size_t i{0}; i < count; ++i) {
-        m.try_emplace(keys[i], static_cast<typename MapT::mapped_type>(keys[i]));
+        m.try_emplace(keys[i], static_cast<uint64_t>(i));
     }
+    bm::clobber_memory();
 
     uint64_t sum{0};
     while (ctx) {
         {
-            auto batch{ctx.range(static_cast<int>(Sweeps * count))};
-            for (size_t sweep{0}; sweep < Sweeps; ++sweep) {
-                for (const auto& kv : m) {
-                    sum += static_cast<uint64_t>(kv.first) + static_cast<uint64_t>(kv.second);
-                }
-                bm::clobber_memory();
+            auto batch{ctx.range(static_cast<int>(count))};
+            for (const auto& kv : m) {
+                bm::do_not_optimise(kv.second);
+                sum += static_cast<uint64_t>(kv.second);
             }
         }
         bm::do_not_optimise(sum);
     }
-    if (m.size() != count) {
-        throw runtime_error{"iterate benchmark invariant broken"};
-    }
 }
 
-// --- find_hit: successful lookups on a fully populated map, small mapped value ---
+// --- find_50_50: shuffled successful and unsuccessful lookups on a fully populated map ---
 
-TOOLBOX_BENCHMARK(robin_map_find_hit_64_small)
+TOOLBOX_BENCHMARK(robin_map_find_50_50_4096_small)
 {
-    run_find_hit<RobinMap<int, SmallValue>>(ctx, Keys64);
+    run_find_50_50<RobinMap<Key, SmallValue, boost::hash<Key>>>(ctx, present_keys_4096,
+                                                                find_probes_4096);
 }
 
-TOOLBOX_BENCHMARK(boost_flat_map_find_hit_64_small)
+TOOLBOX_BENCHMARK(boost_flat_map_find_50_50_4096_small)
 {
-    run_find_hit<boost::unordered_flat_map<int, SmallValue>>(ctx, Keys64);
+    run_find_50_50<boost::unordered_flat_map<Key, SmallValue, boost::hash<Key>>>(
+        ctx, present_keys_4096, find_probes_4096);
 }
 
-TOOLBOX_BENCHMARK(std_unordered_map_find_hit_64_small)
+TOOLBOX_BENCHMARK(std_unordered_map_find_50_50_4096_small)
 {
-    run_find_hit<unordered_map<int, SmallValue>>(ctx, Keys64);
+    run_find_50_50<unordered_map<Key, SmallValue, boost::hash<Key>>>(ctx, present_keys_4096,
+                                                                     find_probes_4096);
 }
 
-TOOLBOX_BENCHMARK(robin_map_find_hit_4096_small)
+TOOLBOX_BENCHMARK(robin_map_find_50_50_4096_large)
 {
-    run_find_hit<RobinMap<int, SmallValue>>(ctx, Keys4096);
+    run_find_50_50<RobinMap<Key, LargeValue, boost::hash<Key>>>(ctx, present_keys_4096,
+                                                                find_probes_4096);
 }
 
-TOOLBOX_BENCHMARK(boost_flat_map_find_hit_4096_small)
+TOOLBOX_BENCHMARK(boost_flat_map_find_50_50_4096_large)
 {
-    run_find_hit<boost::unordered_flat_map<int, SmallValue>>(ctx, Keys4096);
+    run_find_50_50<boost::unordered_flat_map<Key, LargeValue, boost::hash<Key>>>(
+        ctx, present_keys_4096, find_probes_4096);
 }
 
-TOOLBOX_BENCHMARK(std_unordered_map_find_hit_4096_small)
+TOOLBOX_BENCHMARK(std_unordered_map_find_50_50_4096_large)
 {
-    run_find_hit<unordered_map<int, SmallValue>>(ctx, Keys4096);
+    run_find_50_50<unordered_map<Key, LargeValue, boost::hash<Key>>>(ctx, present_keys_4096,
+                                                                     find_probes_4096);
 }
 
-// --- find_miss: unsuccessful lookups on a fully populated map, small mapped value ---
-
-TOOLBOX_BENCHMARK(robin_map_find_miss_64_small)
-{
-    run_find_miss<RobinMap<int, SmallValue>>(ctx, Keys64);
-}
-
-TOOLBOX_BENCHMARK(boost_flat_map_find_miss_64_small)
-{
-    run_find_miss<boost::unordered_flat_map<int, SmallValue>>(ctx, Keys64);
-}
-
-TOOLBOX_BENCHMARK(std_unordered_map_find_miss_64_small)
-{
-    run_find_miss<unordered_map<int, SmallValue>>(ctx, Keys64);
-}
-
-TOOLBOX_BENCHMARK(robin_map_find_miss_4096_small)
-{
-    run_find_miss<RobinMap<int, SmallValue>>(ctx, Keys4096);
-}
-
-TOOLBOX_BENCHMARK(boost_flat_map_find_miss_4096_small)
-{
-    run_find_miss<boost::unordered_flat_map<int, SmallValue>>(ctx, Keys4096);
-}
-
-TOOLBOX_BENCHMARK(std_unordered_map_find_miss_4096_small)
-{
-    run_find_miss<unordered_map<int, SmallValue>>(ctx, Keys4096);
-}
-
-// --- iterate: full pass over a fully populated map, small mapped value ---
-
-TOOLBOX_BENCHMARK(robin_map_iterate_64_small)
-{
-    run_iterate<RobinMap<int, SmallValue>>(ctx, Keys64);
-}
-
-TOOLBOX_BENCHMARK(boost_flat_map_iterate_64_small)
-{
-    run_iterate<boost::unordered_flat_map<int, SmallValue>>(ctx, Keys64);
-}
-
-TOOLBOX_BENCHMARK(std_unordered_map_iterate_64_small)
-{
-    run_iterate<unordered_map<int, SmallValue>>(ctx, Keys64);
-}
+// --- iterate: full pass over a fully populated map ---
 
 TOOLBOX_BENCHMARK(robin_map_iterate_4096_small)
 {
-    run_iterate<RobinMap<int, SmallValue>>(ctx, Keys4096);
+    run_iterate<RobinMap<Key, SmallValue, boost::hash<Key>>>(ctx, present_keys_4096);
 }
 
 TOOLBOX_BENCHMARK(boost_flat_map_iterate_4096_small)
 {
-    run_iterate<boost::unordered_flat_map<int, SmallValue>>(ctx, Keys4096);
+    run_iterate<boost::unordered_flat_map<Key, SmallValue, boost::hash<Key>>>(ctx,
+                                                                              present_keys_4096);
 }
 
 TOOLBOX_BENCHMARK(std_unordered_map_iterate_4096_small)
 {
-    run_iterate<unordered_map<int, SmallValue>>(ctx, Keys4096);
+    run_iterate<unordered_map<Key, SmallValue, boost::hash<Key>>>(ctx, present_keys_4096);
+}
+
+TOOLBOX_BENCHMARK(robin_map_iterate_4096_large)
+{
+    run_iterate<RobinMap<Key, LargeValue, boost::hash<Key>>>(ctx, present_keys_4096);
+}
+
+TOOLBOX_BENCHMARK(boost_flat_map_iterate_4096_large)
+{
+    run_iterate<boost::unordered_flat_map<Key, LargeValue, boost::hash<Key>>>(ctx,
+                                                                              present_keys_4096);
+}
+
+TOOLBOX_BENCHMARK(std_unordered_map_iterate_4096_large)
+{
+    run_iterate<unordered_map<Key, LargeValue, boost::hash<Key>>>(ctx, present_keys_4096);
 }
 
 // --- insert: fill an initially empty map, small mapped value ---
 
-TOOLBOX_BENCHMARK(robin_map_insert_64_small)
-{
-    run_insert<RobinMap<int, SmallValue>>(ctx, Keys64);
-}
-
-TOOLBOX_BENCHMARK(boost_flat_map_insert_64_small)
-{
-    run_insert<boost::unordered_flat_map<int, SmallValue>>(ctx, Keys64);
-}
-
-TOOLBOX_BENCHMARK(std_unordered_map_insert_64_small)
-{
-    run_insert<unordered_map<int, SmallValue>>(ctx, Keys64);
-}
-
 TOOLBOX_BENCHMARK(robin_map_insert_4096_small)
 {
-    run_insert<RobinMap<int, SmallValue>>(ctx, Keys4096);
+    run_insert<RobinMap<Key, SmallValue, boost::hash<Key>>>(ctx, present_keys_4096);
 }
 
 TOOLBOX_BENCHMARK(boost_flat_map_insert_4096_small)
 {
-    run_insert<boost::unordered_flat_map<int, SmallValue>>(ctx, Keys4096);
+    run_insert<boost::unordered_flat_map<Key, SmallValue, boost::hash<Key>>>(ctx,
+                                                                             present_keys_4096);
 }
 
 TOOLBOX_BENCHMARK(std_unordered_map_insert_4096_small)
 {
-    run_insert<unordered_map<int, SmallValue>>(ctx, Keys4096);
+    run_insert<unordered_map<Key, SmallValue, boost::hash<Key>>>(ctx, present_keys_4096);
 }
 
 // --- insert: fill an initially empty map, large mapped value ---
 
-TOOLBOX_BENCHMARK(robin_map_insert_64_large)
-{
-    run_insert<RobinMap<int, LargeValue>>(ctx, Keys64);
-}
-
-TOOLBOX_BENCHMARK(boost_flat_map_insert_64_large)
-{
-    run_insert<boost::unordered_flat_map<int, LargeValue>>(ctx, Keys64);
-}
-
-TOOLBOX_BENCHMARK(std_unordered_map_insert_64_large)
-{
-    run_insert<unordered_map<int, LargeValue>>(ctx, Keys64);
-}
-
 TOOLBOX_BENCHMARK(robin_map_insert_4096_large)
 {
-    run_insert<RobinMap<int, LargeValue>>(ctx, Keys4096);
+    run_insert<RobinMap<Key, LargeValue, boost::hash<Key>>>(ctx, present_keys_4096);
 }
 
 TOOLBOX_BENCHMARK(boost_flat_map_insert_4096_large)
 {
-    run_insert<boost::unordered_flat_map<int, LargeValue>>(ctx, Keys4096);
+    run_insert<boost::unordered_flat_map<Key, LargeValue, boost::hash<Key>>>(ctx,
+                                                                             present_keys_4096);
 }
 
 TOOLBOX_BENCHMARK(std_unordered_map_insert_4096_large)
 {
-    run_insert<unordered_map<int, LargeValue>>(ctx, Keys4096);
+    run_insert<unordered_map<Key, LargeValue, boost::hash<Key>>>(ctx, present_keys_4096);
 }
 
 // --- churn: steady-state erase-and-insert, small mapped value ---
 
-TOOLBOX_BENCHMARK(robin_map_churn_64_small)
-{
-    run_churn<RobinMap<int, SmallValue>>(ctx, Keys64);
-}
-
-TOOLBOX_BENCHMARK(boost_flat_map_churn_64_small)
-{
-    run_churn<boost::unordered_flat_map<int, SmallValue>>(ctx, Keys64);
-}
-
-TOOLBOX_BENCHMARK(std_unordered_map_churn_64_small)
-{
-    run_churn<unordered_map<int, SmallValue>>(ctx, Keys64);
-}
-
 TOOLBOX_BENCHMARK(robin_map_churn_4096_small)
 {
-    run_churn<RobinMap<int, SmallValue>>(ctx, Keys4096);
+    run_churn<RobinMap<Key, SmallValue, boost::hash<Key>>>(ctx, present_keys_4096,
+                                                           absent_keys_4096);
 }
 
 TOOLBOX_BENCHMARK(boost_flat_map_churn_4096_small)
 {
-    run_churn<boost::unordered_flat_map<int, SmallValue>>(ctx, Keys4096);
+    run_churn<boost::unordered_flat_map<Key, SmallValue, boost::hash<Key>>>(ctx, present_keys_4096,
+                                                                            absent_keys_4096);
 }
 
 TOOLBOX_BENCHMARK(std_unordered_map_churn_4096_small)
 {
-    run_churn<unordered_map<int, SmallValue>>(ctx, Keys4096);
+    run_churn<unordered_map<Key, SmallValue, boost::hash<Key>>>(ctx, present_keys_4096,
+                                                                absent_keys_4096);
 }
 
 // --- churn: steady-state erase-and-insert, large mapped value ---
 
-TOOLBOX_BENCHMARK(robin_map_churn_64_large)
-{
-    run_churn<RobinMap<int, LargeValue>>(ctx, Keys64);
-}
-
-TOOLBOX_BENCHMARK(boost_flat_map_churn_64_large)
-{
-    run_churn<boost::unordered_flat_map<int, LargeValue>>(ctx, Keys64);
-}
-
-TOOLBOX_BENCHMARK(std_unordered_map_churn_64_large)
-{
-    run_churn<unordered_map<int, LargeValue>>(ctx, Keys64);
-}
-
 TOOLBOX_BENCHMARK(robin_map_churn_4096_large)
 {
-    run_churn<RobinMap<int, LargeValue>>(ctx, Keys4096);
+    run_churn<RobinMap<Key, LargeValue, boost::hash<Key>>>(ctx, present_keys_4096,
+                                                           absent_keys_4096);
 }
 
 TOOLBOX_BENCHMARK(boost_flat_map_churn_4096_large)
 {
-    run_churn<boost::unordered_flat_map<int, LargeValue>>(ctx, Keys4096);
+    run_churn<boost::unordered_flat_map<Key, LargeValue, boost::hash<Key>>>(ctx, present_keys_4096,
+                                                                            absent_keys_4096);
 }
 
 TOOLBOX_BENCHMARK(std_unordered_map_churn_4096_large)
 {
-    run_churn<unordered_map<int, LargeValue>>(ctx, Keys4096);
+    run_churn<unordered_map<Key, LargeValue, boost::hash<Key>>>(ctx, present_keys_4096,
+                                                                absent_keys_4096);
 }
 
 } // namespace
