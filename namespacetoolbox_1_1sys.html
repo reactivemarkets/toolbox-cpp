@@ -104,6 +104,7 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1sys_1_1Log.html">Log</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtoolbox_1_1sys_1_1Logger.html">Logger</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classtoolbox_1_1sys_1_1Logger.html" title="The Logger is implemented by types that write log messages to a sink.">Logger</a> is implemented by types that write log messages to a sink.  <a href="classtoolbox_1_1sys_1_1Logger.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtoolbox_1_1sys_1_1MonoClock.html">MonoClock</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,7 +133,7 @@ Typedefs</h2></td></tr>
 <tr class="memdesc:ad3e11d6c6094b92f8417b03cbb66cd3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Julian day.  <br /></td></tr>
 <tr class="separator:ad3e11d6c6094b92f8417b03cbb66cd3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d316964302f8ef8f39a43db2a5992db" id="r_a2d316964302f8ef8f39a43db2a5992db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a2d316964302f8ef8f39a43db2a5992db">LogStream</a> = <a class="el" href="classtoolbox_1_1util_1_1OStream.html">util::OStream</a>&lt; <a class="el" href="namespacetoolbox_1_1sys.html#a5c730f2f9701593805e3100310236dafacd948f993ddc09a59b17766ef1480db2">MaxLogLine</a> &gt;</td></tr>
-<tr class="memdesc:a2d316964302f8ef8f39a43db2a5992db"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classtoolbox_1_1sys_1_1Logger.html">Logger</a> callback function.  <br /></td></tr>
+<tr class="memdesc:a2d316964302f8ef8f39a43db2a5992db"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classtoolbox_1_1sys_1_1Logger.html" title="The Logger is implemented by types that write log messages to a sink.">Logger</a> callback function.  <br /></td></tr>
 <tr class="separator:a2d316964302f8ef8f39a43db2a5992db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90375ff3ad41e051d34219123f8cae1d" id="r_a90375ff3ad41e051d34219123f8cae1d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">using</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1sys.html#a90375ff3ad41e051d34219123f8cae1d">LogMsgPtr</a> = <a class="el" href="namespacetoolbox_1_1util.html#aeb288a1a60b3b04011a1c4b65a2c143a">StoragePtr</a>&lt; <a class="el" href="namespacetoolbox_1_1sys.html#a5c730f2f9701593805e3100310236dafacd948f993ddc09a59b17766ef1480db2">MaxLogLine</a> &gt;</td></tr>
 <tr class="separator:a90375ff3ad41e051d34219123f8cae1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -439,7 +440,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classtoolbox_1_1sys_1_1Logger.html">Logger</a> callback function. </p>
+<p><a class="el" href="classtoolbox_1_1sys_1_1Logger.html" title="The Logger is implemented by types that write log messages to a sink.">Logger</a> callback function. </p>
 
 <p class="definition">Definition at line <a class="el" href="Log_8hpp_source.html#l00028">28</a> of file <a class="el" href="Log_8hpp_source.html">Log.hpp</a>.</p>
 
@@ -1582,7 +1583,7 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Standard logger. This logger writes to stdout if the log level is greater than LogWarn, and stdout otherwise. </p>
+<p>Standard logger. This logger writes to stderr if the severity is Error or higher and stdout otherwise. </p>
 
 <p class="definition">Definition at line <a class="el" href="Logger_8cpp_source.html#l00207">207</a> of file <a class="el" href="Logger_8cpp_source.html">Logger.cpp</a>.</p>
 
@@ -1905,7 +1906,7 @@ requires Streamable&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00225">225</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Logger_8hpp_source.html#l00224">224</a> of file <a class="el" href="Logger_8hpp_source.html">Logger.hpp</a>.</p>
 
 </div>
 </div>
