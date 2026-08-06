@@ -22,6 +22,7 @@
 #include <iostream>
 #include <random>
 #include <regex>
+#include <vector>
 
 namespace toolbox::bm {
 using namespace std;
@@ -44,8 +45,8 @@ class BenchmarkStore {
     }
     void list(ostream& os) const
     {
-        for (const auto& runnable : store_) {
-            os << runnable.first << '\n';
+        for (const auto* bm : store_) {
+            os << bm->name << '\n';
         }
     }
     void run(ostream& os, const string& regex_str, bool randomise)
@@ -53,9 +54,9 @@ class BenchmarkStore {
         vector<Benchmark*> filtered;
 
         regex regex{regex_str};
-        for (const auto& bm : store_) {
-            if (regex_search(bm.first, regex)) {
-                filtered.push_back(bm.second);
+        for (auto* bm : store_) {
+            if (regex_search(bm->name, regex)) {
+                filtered.push_back(bm);
             }
         }
 
@@ -71,12 +72,12 @@ class BenchmarkStore {
             }
         }
     }
-    void store(const char* name, Benchmark& bm) { store_.insert_or_assign(name, &bm); }
+    void store(Benchmark& bm) { store_.push_back(&bm); }
 
   private:
     BenchmarkStore() = default;
 
-    map<const char*, Benchmark*> store_;
+    vector<Benchmark*> store_;
 };
 } // namespace
 
@@ -84,7 +85,7 @@ Benchmark::Benchmark(const char* name, void (*fn)(Context&))
 : name{name}
 , fn{fn}
 {
-    BenchmarkStore::instance().store(name, *this);
+    BenchmarkStore::instance().store(*this);
 }
 
 namespace detail {
