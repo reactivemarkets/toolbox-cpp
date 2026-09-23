@@ -103,7 +103,7 @@ class TOOLBOX_API VarAccum {
     double mean_{0.0};
     double sum2_{0.0};
     double min_{std::numeric_limits<double>::max()};
-    double max_{std::numeric_limits<double>::min()};
+    double max_{std::numeric_limits<double>::lowest()};
 };
 
 inline double var(const VarAccum& v) noexcept
