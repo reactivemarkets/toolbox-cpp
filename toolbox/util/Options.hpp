@@ -105,7 +105,7 @@ class Value : public Presence<Value> {
 
 class Switch : public Presence<Switch> {
   public:
-    Switch(bool& flag) // NOLINT(hicpp-explicit-conversions)
+    Switch(bool& flag)
     : flag_{flag}
     {
     }

@@ -27,7 +27,7 @@ inline namespace http {
 template <typename DerivedT>
 class BasicParser {
   public:
-    explicit BasicParser(Type type) noexcept // NOLINT(hicpp-member-init)
+    explicit BasicParser(Type type) noexcept
     : type_{type}
     {
         // The http_parser_init() function preserves "data".
