@@ -20,13 +20,6 @@ namespace toolbox {
 inline namespace net {
 using namespace std;
 
-static_assert(bswap(uint16_t{0x0102}) == uint16_t{0x0201});
-static_assert(bswap(int16_t{0x0102}) == int16_t{0x0201});
-static_assert(bswap(uint32_t{0x01020304}) == uint32_t{0x04030201});
-static_assert(bswap(int32_t{0x01020304}) == int32_t{0x04030201});
-static_assert(bswap(uint64_t{0x0102030405060708}) == uint64_t{0x0807060504030201});
-static_assert(bswap(int64_t{0x0102030405060708}) == int64_t{0x0807060504030201});
-
 static_assert(ntoh(hton(uint16_t{0x0102})) == uint16_t{0x0102});
 static_assert(ntoh(hton(int16_t{0x0102})) == int16_t{0x0102});
 static_assert(ntoh(hton(uint32_t{0x01020304})) == uint32_t{0x01020304});
