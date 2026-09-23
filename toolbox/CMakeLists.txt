@@ -99,7 +99,6 @@ set(lib_SOURCES
   util/Alarm.cpp
   util/Allocator.cpp
   util/Argv.cpp
-  util/Array.cpp
   util/Config.cpp
   util/Enum.cpp
   util/Exception.cpp
@@ -236,7 +235,6 @@ set(test_SOURCES
   sys/Time.ut.cpp
   util/Allocator.ut.cpp
   util/Argv.ut.cpp
-  util/Array.ut.cpp
   util/Config.ut.cpp
   util/Enum.ut.cpp
   util/Exception.ut.cpp
