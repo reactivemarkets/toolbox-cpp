@@ -24,43 +24,12 @@
 namespace toolbox {
 inline namespace net {
 
-constexpr std::uint16_t bswap(std::uint16_t n) noexcept
-{
-    return (n << 8) | (n >> 8);
-}
-
-constexpr std::int16_t bswap(std::int16_t n) noexcept
-{
-    return bswap(static_cast<std::uint16_t>(n));
-}
-
-constexpr std::uint32_t bswap(std::uint32_t n) noexcept
-{
-    return (n >> 24) | ((n >> 8) & 0xff00) | ((n << 8) & 0xff0000) | (n << 24);
-}
-
-constexpr std::int32_t bswap(std::int32_t n) noexcept
-{
-    return bswap(static_cast<std::uint32_t>(n));
-}
-
-constexpr std::uint64_t bswap(std::uint64_t n) noexcept
-{
-    const auto hi = std::uint64_t{bswap(static_cast<std::uint32_t>(n))} << 32;
-    return hi | bswap(static_cast<std::uint32_t>(n >> 32));
-}
-
-constexpr std::int64_t bswap(std::int64_t n) noexcept
-{
-    return bswap(static_cast<std::uint64_t>(n));
-}
-
 template <typename ValueT>
     requires std::integral<ValueT>
 constexpr ValueT ntoh(ValueT n) noexcept
 {
     if constexpr (std::endian::native == std::endian::little) {
-        return bswap(n);
+        return std::byteswap(n);
     } else {
         return n;
     }
@@ -71,7 +40,7 @@ template <typename ValueT>
 constexpr ValueT hton(ValueT n) noexcept
 {
     if constexpr (std::endian::native == std::endian::little) {
-        return bswap(n);
+        return std::byteswap(n);
     } else {
         return n;
     }
@@ -84,7 +53,7 @@ constexpr ValueT ltoh(ValueT n) noexcept
     if constexpr (std::endian::native == std::endian::little) {
         return n;
     } else {
-        return bswap(n);
+        return std::byteswap(n);
     }
 }
 
@@ -95,7 +64,7 @@ constexpr ValueT htol(ValueT n) noexcept
     if constexpr (std::endian::native == std::endian::little) {
         return n;
     } else {
-        return bswap(n);
+        return std::byteswap(n);
     }
 }
 // Prevent corner case if mixed platform would use htol of big endian
