@@ -53,7 +53,7 @@ class TOOLBOX_API Reactor : public Waker {
         , sid_{sid}
         {
         }
-        constexpr Handle(std::nullptr_t = nullptr) noexcept {} // NOLINT(hicpp-explicit-conversions)
+        constexpr Handle(std::nullptr_t = nullptr) noexcept {}
         ~Handle() { reset(); }
 
         // Copy.

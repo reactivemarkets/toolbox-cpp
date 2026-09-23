@@ -271,7 +271,7 @@ inline namespace io {
 /// Get file size.
 inline std::size_t file_size(int fd)
 {
-    struct stat st; // NOLINT(hicpp-member-init)
+    struct stat st;
     os::fstat(fd, st);
     return st.st_size;
 }

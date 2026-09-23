@@ -54,12 +54,12 @@ class ArrayView {
     {
     }
     template <typename TypeU, std::size_t SizeN>
-    constexpr ArrayView(TypeU (&arr)[SizeN]) noexcept // NOLINT(hicpp-explicit-conversions)
+    constexpr ArrayView(TypeU (&arr)[SizeN]) noexcept
     : len_{SizeN}
     , ptr_{arr}
     {
     }
-    ArrayView(const std::vector<ValueT>& arr) noexcept // NOLINT(hicpp-explicit-conversions)
+    ArrayView(const std::vector<ValueT>& arr) noexcept
     : len_{arr.size()}
     , ptr_{arr.empty() ? nullptr : &arr[0]}
     {

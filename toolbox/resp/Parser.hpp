@@ -214,7 +214,6 @@ class BasicParser {
             }
             clear_tok();
         });
-        // NOLINTNEXTLINE(readability-braces-around-statements)
         if (bad_) [[unlikely]] {
             if (is_top_level() && popped > 0) {
                 bad_ = false;
@@ -257,7 +256,6 @@ class BasicParser {
             }
             clear_tok();
         });
-        // NOLINTNEXTLINE(readability-braces-around-statements)
         if (bad_) [[unlikely]] {
             if (is_top_level() && popped > 0) {
                 bad_ = false;
