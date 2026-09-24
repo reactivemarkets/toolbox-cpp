@@ -16,7 +16,7 @@ cmake .. -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++
 make -j all test install
 ```
 
-Requires CMake, GCC or Clang with C++20/23 support, and Boost >= 1.88 (`date_time`,
+Requires CMake, GCC or Clang with C++26 support, and Boost >= 1.88 (`date_time`,
 `unit_test_framework` components). CMake defaults `CMAKE_BUILD_TYPE` to `RelWithDebInfo` if unset.
 
 Useful CMake options (pass as `-D<option>=<value>`):
