@@ -51,7 +51,7 @@ class RingBuffer {
     std::size_t available() const noexcept { return capacity_ - size(); }
     /// Returns the maximum number of elements the container can hold.
     /// I.e. the container's capacity.
-    std::size_t capacity() const noexcept { return wpos_ - rpos_; }
+    std::size_t capacity() const noexcept { return capacity_; }
     /// Returns the maximum number of elements the container can hold.
     /// I.e. the container's capacity.
     std::size_t max_size() const noexcept { return capacity(); }

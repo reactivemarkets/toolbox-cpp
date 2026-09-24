@@ -57,7 +57,7 @@ BOOST_AUTO_TEST_CASE(RingBufferCase)
 
     int val;
     rb.fetch([&val](const int& ref) { val = ref; });
-    BOOST_CHECK(2);
+    BOOST_CHECK(val == 2);
     BOOST_CHECK(!rb.empty());
     BOOST_CHECK(!rb.full());
     BOOST_CHECK_EQUAL(rb.size(), 3U);
