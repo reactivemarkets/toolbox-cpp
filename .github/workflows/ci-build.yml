@@ -49,20 +49,33 @@ jobs:
             { echo "Please ensure files are formatted by running target clang-format"; exit 1; }
 
   build:
-    runs-on: ubuntu-latest
-    container: reactivemarkets/build-cpp:0.50.0
+    runs-on: ${{ matrix.runner || 'ubuntu-latest' }}
+    container:
+      image: ${{ matrix.container || 'reactivemarkets/build-cpp:0.50.0' }}
     needs: lint
 
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
 
     strategy:
       matrix:
-        build_type: [Debug, Release]
-        compiler:
-          - {cc: clang, cxx: clang++}
-          - {cc: gcc, cxx: g++}
+        include:
+          - {build_type: Debug, cc: clang, cxx: clang++}
+          - {build_type: Debug, cc: gcc, cxx: g++}
+          - {build_type: Release, cc: clang, cxx: clang++}
+          - {build_type: Release, cc: gcc, cxx: g++}
+          # build-cpp is AMD64-only, so the ARM64 build uses stock Ubuntu and installs its tools.
+          - {build_type: Debug, cc: gcc, cxx: g++, runner: ubuntu-24.04-arm, container: 'ubuntu:26.04', install_tools: true}
 
     steps:
+      - name: Install build tools
+        if: matrix.install_tools
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends ca-certificates git g++ cmake make \
+            libboost-date-time-dev libboost-test-dev
+
       - name: Checkout project
         uses: actions/checkout@v2
 
@@ -73,8 +86,8 @@ jobs:
           cmake .. -G "Unix Makefiles" \
             -DTOOLBOX_BUILD_SHARED=ON \
             -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} \
-            -DCMAKE_C_COMPILER=${{ matrix.compiler.cc }} \
-            -DCMAKE_CXX_COMPILER=${{ matrix.compiler.cxx }} \
+            -DCMAKE_C_COMPILER=${{ matrix.cc }} \
+            -DCMAKE_CXX_COMPILER=${{ matrix.cxx }} \
             -DENABLE_CLANG_TIDY=OFF
 
       - name: Build project
