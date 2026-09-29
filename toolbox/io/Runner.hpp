@@ -20,6 +20,7 @@
 #include <toolbox/hdr/Histogram.hpp>
 #include <toolbox/sys/Thread.hpp>
 #include <toolbox/sys/Time.hpp>
+#include <toolbox/util/Slot.hpp>
 
 #include <functional>
 #include <thread>
@@ -33,8 +34,16 @@ using HistogramPtr = std::unique_ptr<Histogram>;
 /// MetricCallbackFunction implementer is responsible for deleting the Histogram.
 using MetricCallbackFunction
     = std::function<void(CyclTime now, HistogramPtr&& time_hist, HistogramPtr&& work_hist)>;
-/// LoopCallbackFunction called after each Reactor poll that processed work.
-using LoopCallbackFunction = std::function<void(CyclTime now)>;
+
+/// One iteration of a runner's loop.
+struct PassInfo {
+    WallTime start{};
+    Nanos duration{};
+    int work{0};
+};
+
+/// PassSlot receives every pass of a runner's loop, on the runner's thread.
+using PassSlot = BasicSlot<void(const PassInfo&)>;
 
 class TOOLBOX_API ReactorRunner {
   public:
@@ -64,7 +73,7 @@ class TOOLBOX_API ReactorRunner {
     ReactorRunner(Reactor& r, long busy_cycles, ThreadConfig config,
                   MetricCallbackFunction metric_cb);
 
-    /// Constructs a ReactorRunner instance.
+    /// Constructs a ReactorRunner instance that hands every pass of its loop to \a pass_slot.
     ///
     /// When work is processed by the Reactor during a call to Reactor::poll, the next 'n' calls to
     /// Reactor::poll, where 'n' is \a busy_cycles, will not cause the thread to block or yield if
@@ -75,9 +84,9 @@ class TOOLBOX_API ReactorRunner {
     /// \param busy_cycles The number of busy cycles after doing work.
     /// \param config The thread configuration.
     /// \param metric_cb Metric callback function.
-    /// \param loop_cb Loop callback function.
+    /// \param pass_slot Receives every pass, on the runner's thread; an empty slot receives none.
     ReactorRunner(Reactor& r, long busy_cycles, ThreadConfig config,
-                  MetricCallbackFunction metric_cb, LoopCallbackFunction loop_cb);
+                  MetricCallbackFunction metric_cb, PassSlot pass_slot);
 
     ~ReactorRunner();
 

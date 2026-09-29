@@ -60,7 +60,7 @@ HistogramPtr make_work_histogram()
 
 void run_metrics_reactor(Reactor& r, long busy_cycles, ThreadConfig config,
                          const std::atomic<bool>& stop, MetricCallbackFunction metric_cb,
-                         LoopCallbackFunction loop_cb)
+                         PassSlot pass_slot)
 {
     constexpr std::chrono::seconds MetricInterval = 60s;
 
@@ -76,9 +76,28 @@ void run_metrics_reactor(Reactor& r, long busy_cycles, ThreadConfig config,
 
         long i{0};
         auto metric_time = MonoClock::now() + MetricInterval;
+
+        PassInfo pass;
+        MonoTime pass_mono{};
+        const auto end_pass = [&](MonoTime now) {
+            if (!is_zero(pass_mono)) {
+                pass.duration = now - pass_mono;
+                pass_slot(pass);
+            }
+        };
+
         while (!stop.load(std::memory_order_acquire)) {
+            const auto start = CyclTime::now();
+            if (pass_slot) {
+                const auto mono{start.mono_time()};
+                const auto wall{start.wall_time()};
+                end_pass(mono);
+                pass.start = wall;
+                pass_mono = mono;
+            }
             // Busy-wait for "busy cycles" after work was done.
-            auto work = r.poll(CyclTime::now(), i++ < busy_cycles ? 0s : NoTimeout);
+            auto work = r.poll(start, i++ < busy_cycles ? 0s : NoTimeout);
+            pass.work = work;
             const auto now = CyclTime::current();
             if (work > 0) {
                 // Don't skew distribution with a lot of zero work.
@@ -88,7 +107,6 @@ void run_metrics_reactor(Reactor& r, long busy_cycles, ThreadConfig config,
                     time_hist->record_value(elapsed_us.count());
                     work_hist->record_value(work);
                 }
-                loop_cb(now);
                 // Reset counter when work has been done.
                 i = 0;
             }
@@ -100,6 +118,7 @@ void run_metrics_reactor(Reactor& r, long busy_cycles, ThreadConfig config,
                 work_hist = make_work_histogram();
             }
         }
+        end_pass(MonoClock::now());
     } catch (const std::exception& e) {
         TOOLBOX_CRIT << "exception on " << config.name << " thread: " << e.what();
         kill(getpid(), SIGTERM);
@@ -117,15 +136,15 @@ ReactorRunner::ReactorRunner(Reactor& r, long busy_cycles, ThreadConfig config)
 
 ReactorRunner::ReactorRunner(Reactor& r, long busy_cycles, ThreadConfig config,
                              MetricCallbackFunction metric_cb)
-: ReactorRunner(r, busy_cycles, config, metric_cb, [](CyclTime) {})
+: ReactorRunner(r, busy_cycles, config, metric_cb, PassSlot{})
 {
 }
 
 ReactorRunner::ReactorRunner(Reactor& r, long busy_cycles, ThreadConfig config,
-                             MetricCallbackFunction metric_cb, LoopCallbackFunction loop_cb)
+                             MetricCallbackFunction metric_cb, PassSlot pass_slot)
 : reactor_{r}
 , thread_{run_metrics_reactor, std::ref(r), busy_cycles, config,
-          std::cref(stop_),    metric_cb,   loop_cb}
+          std::cref(stop_),    metric_cb,   pass_slot}
 {
 }
 
