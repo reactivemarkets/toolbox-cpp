@@ -215,6 +215,20 @@ if(CLANG_TIDY AND ENABLE_CLANG_TIDY AND "${CMAKE_CXX_COMPILER_ID}" MATCHES "Clan
     "${CMAKE_BINARY_DIR}/.clang-tidy" @ONLY)
 endif()
 
+# Add tb-clang-tidy target if tool is available.
+find_program(RUN_CLANG_TIDY NAMES run-clang-tidy run-clang-tidy-19 run-clang-tidy.py
+  HINTS "${TOOLBOX_TOOLSET}/bin")
+if(RUN_CLANG_TIDY AND "${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
+  message(STATUS "Found run-clang-tidy")
+  add_custom_target(tb-clang-tidy
+    COMMAND "${RUN_CLANG_TIDY}"
+            -p "${CMAKE_BINARY_DIR}"
+            -quiet
+            "-header-filter=^${PROJECT_SOURCE_DIR}/.*[.](hpp|hxx)$"
+            "^${PROJECT_SOURCE_DIR}/.*[.]cpp$"
+    VERBATIM)
+endif()
+
 # Add clang-format target if tool is available.
 find_program(CLANG_FORMAT clang-format HINTS "${TOOLBOX_TOOLSET}/bin")
 if(CLANG_FORMAT)
