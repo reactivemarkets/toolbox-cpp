@@ -16,9 +16,9 @@
 
 #include "Endpoint.hpp"
 
-#include <toolbox/util/String.hpp>
 #include <toolbox/util/Random.hpp>
 #include <toolbox/util/Stream.hpp>
+#include <toolbox/util/String.hpp>
 
 #include <boost/test/unit_test.hpp>
 
@@ -28,7 +28,8 @@ using namespace std;
 using namespace toolbox;
 
 namespace {
-std::vector<sockaddr_in> generate_random_ipv4_addresses(size_t N) {
+std::vector<sockaddr_in> generate_random_ipv4_addresses(size_t N)
+{
     std::vector<sockaddr_in> ret;
     ret.reserve(N);
 
@@ -196,11 +197,11 @@ BOOST_AUTO_TEST_CASE(IPv4Formatting)
     for (const auto& ip : rand_ips) {
         ipv4_os.reset();
         ipv4_os << ip;
-        std::string our_str {ipv4_os.data(), ipv4_os.size()};
+        std::string our_str{ipv4_os.data(), ipv4_os.size()};
 
         ipv4_os.reset();
         write_ipv4_libc(ipv4_os, ip);
-        std::string libc_str {ipv4_os.data(), ipv4_os.size()};
+        std::string libc_str{ipv4_os.data(), ipv4_os.size()};
 
         // min size = 9
         // 0.0.0.0:0

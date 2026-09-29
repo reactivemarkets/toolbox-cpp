@@ -148,7 +148,7 @@ BOOST_AUTO_TEST_CASE(SlotRvalueFunCase)
 
 BOOST_AUTO_TEST_CASE(SlotReturnValue)
 {
-    auto fn = [](int x) { return x+2; };
+    auto fn = [](int x) { return x + 2; };
     BasicSlot<int(int)> cb = toolbox::bind(&fn);
     BOOST_CHECK_EQUAL(cb(3), 5);
     BOOST_CHECK_EQUAL(cb(5), 7);

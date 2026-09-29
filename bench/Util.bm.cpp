@@ -13,9 +13,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include <toolbox/util/Math.hpp>
 #include <toolbox/util/Random.hpp>
 #include <toolbox/util/Utility.hpp>
-#include <toolbox/util/Math.hpp>
 
 #include <toolbox/bm.hpp>
 
@@ -41,17 +41,18 @@ constexpr array BoolArray{
 };
 
 // K must be within the range [0,19]
-std::vector<std::int64_t> generate_mixed_digit_nums(std::int64_t N, int K) noexcept {
+std::vector<std::int64_t> generate_mixed_digit_nums(std::int64_t N, int K) noexcept
+{
     std::vector<std::int64_t> res;
     res.reserve(N);
 
-    for(std::int64_t i = 0; i < N; i++) {
+    for (std::int64_t i = 0; i < N; i++) {
         int num_of_digits = randint(1, K);
 
         // e.g. if num_of_digits=3
         // lr := 10^(3-1) = 100
         // ur := 10^3 - 1 = 999
-        std::int64_t lr = util::pow10(num_of_digits-1);
+        std::int64_t lr = util::pow10(num_of_digits - 1);
         std::int64_t ur = util::pow10(num_of_digits) - 1u;
 
         res.push_back(randint(lr, ur));

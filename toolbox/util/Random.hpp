@@ -27,7 +27,8 @@ inline namespace util {
 TOOLBOX_API std::mt19937_64& mt19937_64_rng() noexcept;
 
 template <class IntT>
-IntT randint(IntT a, IntT b) {
+IntT randint(IntT a, IntT b)
+{
     std::mt19937_64& rng_engine = mt19937_64_rng();
     std::uniform_int_distribution<IntT> dist(a, b);
     return dist(rng_engine);

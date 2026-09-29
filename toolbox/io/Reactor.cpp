@@ -31,8 +31,7 @@ int dispatch_low_priority_timers(CyclTime now, TimerQueue& tq, bool idle_cycle)
     int work_done = 0;
     if (idle_cycle) {
         work_done = tq.dispatch(now, 1);
-    }
-    else if (!tq.empty()) {
+    } else if (!tq.empty()) {
         // actively execute low priority timers if they've been delayed by 100ms or more.
         if ((now.mono_time() - tq.front().expiry()) > 100ms) {
             work_done = tq.dispatch(now, 1);
@@ -172,9 +171,8 @@ int Reactor::do_io_priority_poll(MonoTime now) noexcept
         const bool breached = delta > priority_io_poll_threshold_;
 
         if (enabled && breached) {
-            const auto update_poll_time = make_finally([this]() noexcept {
-                last_time_priority_io_polled_ = MonoClock::now();
-            });
+            const auto update_poll_time = make_finally(
+                [this]() noexcept { last_time_priority_io_polled_ = MonoClock::now(); });
 
             error_code ec;
             Event buf[MaxEvents];
@@ -182,8 +180,8 @@ int Reactor::do_io_priority_poll(MonoTime now) noexcept
             int n = epoll_.wait(buf, MaxEvents, MonoTime{}, ec);
             if (ec) {
                 if (ec.value() != EINTR) {
-                    TOOLBOX_ERROR << "epoll failure during high priority io poll: "
-                                << ec << " [" << ec.message() << ']';
+                    TOOLBOX_ERROR << "epoll failure during high priority io poll: " << ec << " ["
+                                  << ec.message() << ']';
                 }
             } else {
                 ret = dispatch(CyclTime::current(), buf, n, Priority::High);
@@ -200,20 +198,18 @@ int Reactor::do_user_priority_poll(MonoTime now) noexcept
 {
     int ret = 0;
     try {
-        const bool enabled = (user_hook_poll_threshold_ != Micros::max()) &&
-                             priority_poll_user_hook_;
+        const bool enabled
+            = (user_hook_poll_threshold_ != Micros::max()) && priority_poll_user_hook_;
         const auto delta = duration_cast<Micros>(now - last_time_user_hook_polled_);
         const bool breached = delta > user_hook_poll_threshold_;
 
         if (enabled && breached) {
-            const auto update_poll_time = make_finally([this]() noexcept {
-                last_time_user_hook_polled_ = MonoClock::now();
-            });
+            const auto update_poll_time = make_finally(
+                [this]() noexcept { last_time_user_hook_polled_ = MonoClock::now(); });
 
             currently_handling_priority_events_ = true;
-            const auto reset_flag = make_finally([this]() noexcept {
-                currently_handling_priority_events_ = false;
-            });
+            const auto reset_flag
+                = make_finally([this]() noexcept { currently_handling_priority_events_ = false; });
 
             ret = priority_poll_user_hook_(CyclTime::current());
         }
@@ -230,9 +226,8 @@ int Reactor::dispatch(CyclTime now, Event* buf, int size, Priority priority)
         assert(!currently_handling_priority_events_);
         currently_handling_priority_events_ = true;
     }
-    const auto reset_flag = make_finally([this]() noexcept {
-        currently_handling_priority_events_ = false;
-    });
+    const auto reset_flag
+        = make_finally([this]() noexcept { currently_handling_priority_events_ = false; });
 
     int work{0};
     for (int i{0}; i < size; ++i) {

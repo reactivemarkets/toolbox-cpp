@@ -80,7 +80,7 @@ StreamT& print_unix_endpoint(StreamT& os, const T& ep)
     os << scheme << *ep.data();
     return os;
 }
-} // detail namespace
+} // namespace detail
 
 // Unfortunately, DgramEndpoint has an implicit converting constructor -- it accepts any type.
 // Therefore, this overload becomes a valid candidate whenever a value of any type is being streamed

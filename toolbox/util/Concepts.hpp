@@ -36,7 +36,7 @@ concept Enum = std::is_enum_v<T>;
 // check are the constraints satisfied on that overload, which means checking "os << int/float/etc"
 // constraint again, checking all operator<< overloads again, etc repeating in a cycle.
 template <typename T>
-concept Streamable = requires (T& os) {
+concept Streamable = requires(T& os) {
     os.put(std::declval<char>());
     os.write(std::declval<const char*>(), std::declval<std::size_t>());
 };

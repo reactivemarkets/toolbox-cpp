@@ -29,9 +29,9 @@
 #include <toolbox/util/Stream.hpp>
 #include <toolbox/util/String.hpp>
 
+#include <format>
 #include <map>
 #include <variant>
-#include <format>
 
 namespace toolbox {
 inline namespace util {

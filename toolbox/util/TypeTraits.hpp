@@ -101,9 +101,9 @@ template <typename T>
 inline constexpr bool is_decay_to_cstring_v = is_decay_to_cstring<T>::value;
 
 template <typename T>
-struct is_string_type : std::integral_constant<bool, is_string_v<T> ||
-                                                     is_string_view_v<T> ||
-                                                     is_decay_to_cstring_v<T>> {};
+struct is_string_type
+: std::integral_constant<bool, is_string_v<T> || is_string_view_v<T> || is_decay_to_cstring_v<T>> {
+};
 
 template <typename T>
 inline constexpr bool is_string_type_v = is_string_type<T>::value;

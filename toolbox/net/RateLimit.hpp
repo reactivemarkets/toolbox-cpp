@@ -16,8 +16,8 @@
 #ifndef TOOLBOX_NET_RATELIMIT_HPP
 #define TOOLBOX_NET_RATELIMIT_HPP
 
-#include <toolbox/util/Concepts.hpp>
 #include <toolbox/sys/Time.hpp>
+#include <toolbox/util/Concepts.hpp>
 
 #include <boost/container/small_vector.hpp>
 

@@ -52,7 +52,7 @@ inline pid_t gettid()
     if (!s.init_done) [[unlikely]] {
         s.tid = syscall(SYS_gettid);
         s.init_done = true;
-    } 
+    }
 
     return s.tid;
 }
@@ -84,12 +84,11 @@ class NullLogger final : public Logger {
 } null_logger_;
 
 class StdLogger final : public Logger {
-    void do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
-                      size_t size, bool warming_fake) noexcept override
+    void do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg, size_t size,
+                      bool warming_fake) noexcept override
     {
-        const auto finally = make_finally([&]() noexcept {
-            log_buf_pool().bounded_push(std::move(msg));
-        });
+        const auto finally
+            = make_finally([&]() noexcept { log_buf_pool().bounded_push(std::move(msg)); });
 
         if (warming_fake) [[unlikely]] {
             return;
@@ -109,7 +108,8 @@ class StdLogger final : public Logger {
         char head[upper_bound];
         size_t hlen{strftime(head, sizeof(head), "%Y/%m/%d %H:%M:%S", &tm)};
         const auto us{static_cast<int>(us_since_epoch(ts) % 1000000)};
-        hlen += snprintf(head + hlen, upper_bound - hlen, ".%06d %-6s [%d]: ", us, log_label(level), tid);
+        hlen += snprintf(head + hlen, upper_bound - hlen, ".%06d %-6s [%d]: ", us, log_label(level),
+                         tid);
         char tail{'\n'};
         iovec iov[] = {
             {head, hlen},      //
@@ -127,12 +127,11 @@ class StdLogger final : public Logger {
 } std_logger_;
 
 class SysLogger final : public Logger {
-    void do_write_log(WallTime /*ts*/, LogLevel level, int /*tid*/, LogMsgPtr&& msg,
-                      size_t size, bool warming_fake) noexcept override
+    void do_write_log(WallTime /*ts*/, LogLevel level, int /*tid*/, LogMsgPtr&& msg, size_t size,
+                      bool warming_fake) noexcept override
     {
-        const auto finally = make_finally([&]() noexcept {
-            log_buf_pool().bounded_push(std::move(msg));
-        });
+        const auto finally
+            = make_finally([&]() noexcept { log_buf_pool().bounded_push(std::move(msg)); });
 
         if (warming_fake) [[unlikely]] {
             return;
@@ -285,8 +284,8 @@ void AsyncLogger::stop()
     stop_ = true;
 }
 
-void AsyncLogger::do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
-                               size_t size, bool warming_fake) noexcept
+void AsyncLogger::do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg, size_t size,
+                               bool warming_fake) noexcept
 {
     char* const msg_ptr = msg.release();
     auto push_to_queue = [&](char* ptr) -> bool {

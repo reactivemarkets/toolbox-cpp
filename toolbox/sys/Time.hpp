@@ -17,10 +17,10 @@
 #ifndef TOOLBOX_SYS_TIME_HPP
 #define TOOLBOX_SYS_TIME_HPP
 
-#include <toolbox/util/TypeTraits.hpp>
 #include <toolbox/util/Concepts.hpp>
 #include <toolbox/util/Stream.hpp>
 #include <toolbox/util/String.hpp>
+#include <toolbox/util/TypeTraits.hpp>
 
 #include <chrono>
 #include <format>
@@ -474,7 +474,9 @@ struct TypeTraits<WallTime> {
 class ThrottledInvoker {
   public:
     explicit ThrottledInvoker(Seconds cooldown_interval)
-    : cooldown_interval_(cooldown_interval) {}
+    : cooldown_interval_(cooldown_interval)
+    {
+    }
 
     template <typename Callable>
     void operator()(MonoTime now, Callable&& callable)

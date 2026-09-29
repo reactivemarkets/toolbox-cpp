@@ -155,5 +155,4 @@ BOOST_AUTO_TEST_CASE(ThrottledInvokerCheck)
     BOOST_CHECK_EQUAL(count, 3);
 }
 
-
 BOOST_AUTO_TEST_SUITE_END()

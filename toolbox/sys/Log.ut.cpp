@@ -41,12 +41,11 @@ StreamT& operator<<(StreamT& os, const Foo<int, int>& val)
 }
 
 struct TestLogger final : Logger {
-    void do_write_log(WallTime /*ts*/, LogLevel level, int /*tid*/, LogMsgPtr&& msg,
-                      size_t size, bool warming_fake) noexcept override
+    void do_write_log(WallTime /*ts*/, LogLevel level, int /*tid*/, LogMsgPtr&& msg, size_t size,
+                      bool warming_fake) noexcept override
     {
-        const auto finally = make_finally([&]() noexcept {
-            log_buf_pool().bounded_push(std::move(msg));
-        });
+        const auto finally
+            = make_finally([&]() noexcept { log_buf_pool().bounded_push(std::move(msg)); });
         if (!warming_fake) {
             last_level = level;
             last_msg.assign(static_cast<const char*>(msg.get()), size);

@@ -19,17 +19,18 @@
 
 #include <toolbox/Config.h>
 
+#include <functional>
 #include <sched.h>
 #include <string>
-#include <functional>
 
 namespace toolbox {
 inline namespace sys {
 
 /// ThreadConfig holds the thread attributes.
 struct ThreadConfig {
-    ThreadConfig(std::string name, std::string affinity = {},
-                 std::string sched_policy = {}, std::function<void()> init_fn = [](){}) noexcept
+    ThreadConfig(
+        std::string name, std::string affinity = {}, std::string sched_policy = {},
+        std::function<void()> init_fn = []() {}) noexcept
     : name{std::move(name)}
     , affinity{std::move(affinity)}
     , sched_policy{std::move(sched_policy)}

@@ -17,15 +17,15 @@
 #define TOOLBOX_UTIL_OSTREAM_BASE_HPP
 
 #include <algorithm>
+#include <cassert>
 #include <charconv>
 #include <concepts>
 #include <cstring>
-#include <system_error>
-#include <type_traits>
+#include <limits>
 #include <string>
 #include <string_view>
-#include <cassert>
-#include <limits>
+#include <system_error>
+#include <type_traits>
 
 #include "TypeTraits.hpp"
 
@@ -66,8 +66,8 @@ template <class T>
 concept AllowedChar = is_any_of_v<T, char, signed char, unsigned char>;
 
 template <class T>
-concept InheritsBasicOStream =
-    std::is_base_of_v<OStreamBase<std::remove_cvref_t<T>>, std::remove_cvref_t<T>>;
+concept InheritsBasicOStream
+    = std::is_base_of_v<OStreamBase<std::remove_cvref_t<T>>, std::remove_cvref_t<T>>;
 
 } // namespace detail
 
@@ -83,7 +83,7 @@ class OStreamBase {
     DerivedT& put_num(bool val);
 
     template <class T>
-        requires (detail::AllowedIntegral<T> && !std::same_as<T, bool>)
+        requires(detail::AllowedIntegral<T> && !std::same_as<T, bool>)
     DerivedT& put_num(T val);
 
     template <class T>
@@ -151,7 +151,8 @@ DerivedT& OStreamBase<DerivedT>::put_data(const char* data, std::size_t data_siz
 }
 
 template <class DerivedT>
-template <class T> requires detail::AllowedChar<T>
+template <class T>
+    requires detail::AllowedChar<T>
 DerivedT& OStreamBase<DerivedT>::put_char(T ch)
 {
     char* buf = prepare_space(1);
@@ -172,12 +173,12 @@ DerivedT& OStreamBase<DerivedT>::put_num(bool val)
 }
 
 template <class DerivedT>
-template <class T> requires (detail::AllowedIntegral<T> && !std::same_as<T, bool>)
+template <class T>
+    requires(detail::AllowedIntegral<T> && !std::same_as<T, bool>)
 DerivedT& OStreamBase<DerivedT>::put_num(T val)
 {
     constexpr std::size_t MaxBytesNeeded
-        = dec_digits(std::numeric_limits<T>::max())
-        + std::is_signed_v<T>;
+        = dec_digits(std::numeric_limits<T>::max()) + std::is_signed_v<T>;
 
     static_assert(MaxBytesNeeded <= PutNumMaxBufRequest);
 
@@ -207,7 +208,8 @@ DerivedT& OStreamBase<DerivedT>::put_num(T val)
 }
 
 template <class DerivedT>
-template <class T> requires std::floating_point<T>
+template <class T>
+    requires std::floating_point<T>
 DerivedT& OStreamBase<DerivedT>::put_num(T val)
 {
     char* buf = prepare_space(PutNumMaxBufRequest);
@@ -216,8 +218,7 @@ DerivedT& OStreamBase<DerivedT>::put_num(T val)
         const auto [end, ec] = std::to_chars(buf, buf + PutNumMaxBufRequest, val);
         relinquish_space(end - buf);
         assert(ec == std::errc());
-    }
-    else {
+    } else {
         // slower path
         // impossible for to_chars to fail (N.B. to_chars is non-throwing)
         char local_space[PutNumMaxBufRequest];
@@ -430,8 +431,7 @@ StreamT& operator<<(StreamT& os, const std::error_code& ec)
 }
 
 template <class StreamT, class T>
-    requires (detail::InheritsBasicOStream<StreamT> &&
-              std::is_rvalue_reference_v<StreamT&&>)
+    requires(detail::InheritsBasicOStream<StreamT> && std::is_rvalue_reference_v<StreamT &&>)
 StreamT&& operator<<(StreamT&& os, const T& value)
 {
     os << value;

@@ -21,10 +21,10 @@
 
 #include <toolbox/io/File.hpp>
 
+#include <linux/net_tstamp.h>
 #include <net/if.h>
 #include <netdb.h>
 #include <netinet/tcp.h>
-#include <linux/net_tstamp.h>
 
 namespace toolbox {
 inline namespace net {
