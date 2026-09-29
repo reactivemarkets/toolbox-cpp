@@ -19,8 +19,8 @@
 
 #include <toolbox/sys/Limits.hpp>
 #include <toolbox/sys/Time.hpp>
-#include <toolbox/util/Storage.hpp>
 #include <toolbox/util/Concepts.hpp>
+#include <toolbox/util/Storage.hpp>
 
 #include <boost/lockfree/queue.hpp>
 #include <boost/lockfree/stack.hpp>
@@ -162,8 +162,8 @@ class TOOLBOX_API AsyncLogger : public Logger {
 
   private:
     void write_all_messages();
-    void do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg,
-                      std::size_t size, bool warming_fake) noexcept override;
+    void do_write_log(WallTime ts, LogLevel level, int tid, LogMsgPtr&& msg, std::size_t size,
+                      bool warming_fake) noexcept override;
 
     Logger& logger_;
     boost::lockfree::queue<Task, boost::lockfree::fixed_sized<false>> tq_{512};

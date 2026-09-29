@@ -56,8 +56,10 @@ BOOST_AUTO_TEST_CASE(JdToTimeCase)
 
 BOOST_AUTO_TEST_CASE(IsoToTime)
 {
-    BOOST_CHECK_EQUAL(parse_time("20250521-00:00:00.000").value_or(WallTime{}), iso_to_time(20250521_ymd));
-    BOOST_CHECK_EQUAL(parse_time("20250521-00:00:00.000").value_or(WallTime{}), iso_to_time(parse_date("20250521")));
+    BOOST_CHECK_EQUAL(parse_time("20250521-00:00:00.000").value_or(WallTime{}),
+                      iso_to_time(20250521_ymd));
+    BOOST_CHECK_EQUAL(parse_time("20250521-00:00:00.000").value_or(WallTime{}),
+                      iso_to_time(parse_date("20250521")));
 }
 
 BOOST_AUTO_TEST_CASE(ParseDateCase)

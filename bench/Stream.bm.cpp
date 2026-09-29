@@ -17,8 +17,8 @@
 #include <toolbox/bm/Utility.hpp>
 #include <toolbox/util/Stream.hpp>
 
-#include <sstream>
 #include <iomanip>
+#include <sstream>
 
 TOOLBOX_BENCHMARK_MAIN
 

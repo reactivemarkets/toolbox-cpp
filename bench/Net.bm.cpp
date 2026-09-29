@@ -13,15 +13,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include <toolbox/bm.hpp>
 #include <toolbox/net/Endpoint.hpp>
 #include <toolbox/util/Random.hpp>
 #include <toolbox/util/Stream.hpp>
-#include <toolbox/bm.hpp>
 
 #include <algorithm>
 #include <cstddef>
-#include <vector>
 #include <limits>
+#include <vector>
 
 #include <netinet/in.h>
 
@@ -32,8 +32,9 @@ using namespace toolbox;
 
 namespace {
 
-template<size_t N>
-OStream<N>& make_stream() {
+template <size_t N>
+OStream<N>& make_stream()
+{
     static OStream<N> stream{nullptr};
 
     auto storage = OStream<N>::make_storage();
@@ -41,13 +42,14 @@ OStream<N>& make_stream() {
     // make sure all allocated memory is backed by physical pages,
     // so that no page faults occur during our benchmarks.
     char* p = storage.get();
-    std::fill(p, p+N, 0);
+    std::fill(p, p + N, 0);
 
     stream.set_storage(std::move(storage));
     return stream;
 }
 
-std::vector<sockaddr_in> generate_random_ipv4_addresses(size_t N) {
+std::vector<sockaddr_in> generate_random_ipv4_addresses(size_t N)
+{
     std::vector<sockaddr_in> ret;
     ret.reserve(N);
 

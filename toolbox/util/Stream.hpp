@@ -17,8 +17,8 @@
 #ifndef TOOLBOX_UTIL_STREAM_HPP
 #define TOOLBOX_UTIL_STREAM_HPP
 
-#include <toolbox/util/OStreamBase.hpp>
 #include <toolbox/util/Concepts.hpp>
+#include <toolbox/util/OStreamBase.hpp>
 #include <toolbox/util/Storage.hpp>
 
 namespace toolbox {
@@ -50,7 +50,10 @@ class OStream final : public OStreamBase<OStream<MaxN>> {
     }
 
     /// Default constructor allocates required storage
-    OStream() : storage_(make_storage()) {}
+    OStream()
+    : storage_(make_storage())
+    {
+    }
     ~OStream() = default;
 
     // Copy.
@@ -69,9 +72,7 @@ class OStream final : public OStreamBase<OStream<MaxN>> {
 
     // returns false if overflowed or output error.
     // return true otherwise.
-    explicit operator bool() const noexcept {
-        return !badbit_;
-    }
+    explicit operator bool() const noexcept { return !badbit_; }
 
     /// Release the managed storage.
     StoragePtr<MaxN> release_storage() noexcept
@@ -133,10 +134,7 @@ class OStream final : public OStreamBase<OStream<MaxN>> {
     }
 
     // Required by CRTP base (BasicOStream)
-    void do_set_badbit()
-    {
-        badbit_ = true;
-    }
+    void do_set_badbit() { badbit_ = true; }
 
     StoragePtr<MaxN> storage_;
     std::size_t bytes_written_{0u};
@@ -164,9 +162,7 @@ class OStaticStream final : public OStreamBase<OStaticStream<MaxN>> {
 
     // returns false if overflowed or output error.
     // return true otherwise.
-    explicit operator bool() const {
-        return !badbit_;
-    }
+    explicit operator bool() const { return !badbit_; }
 
     /// Reset the current position back to the beginning of the buffer.
     void reset() noexcept
@@ -178,15 +174,9 @@ class OStaticStream final : public OStreamBase<OStaticStream<MaxN>> {
   private:
     friend OStreamBase<OStaticStream<MaxN>>;
 
-    std::size_t available() noexcept
-    {
-        return BufSize - bytes_written_;
-    }
+    std::size_t available() noexcept { return BufSize - bytes_written_; }
 
-    char* wptr() noexcept
-    {
-        return buf_ + bytes_written_;
-    }
+    char* wptr() noexcept { return buf_ + bytes_written_; }
 
     // Required by CRTP base (BasicOStream)
     char* do_prepare_space(std::size_t num_bytes)
@@ -210,10 +200,7 @@ class OStaticStream final : public OStreamBase<OStaticStream<MaxN>> {
     }
 
     // Required by CRTP base (BasicOStream)
-    void do_set_badbit()
-    {
-        badbit_ = true;
-    }
+    void do_set_badbit() { badbit_ = true; }
 
     // size the buffer slightly bigger than requested as it allows
     // for higher performance outputting in OStreamBase. However, this
@@ -276,8 +263,8 @@ class OStreamJoiner {
     {
     }
 
-    explicit OStreamJoiner(StreamT& os, DelimT delim)
-        noexcept(std::is_nothrow_move_constructible_v<DelimT>)
+    explicit OStreamJoiner(StreamT& os,
+                           DelimT delim) noexcept(std::is_nothrow_move_constructible_v<DelimT>)
     : os_(&os)
     , delim_(std::move(delim))
     {

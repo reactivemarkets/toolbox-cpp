@@ -21,8 +21,8 @@
 #include <toolbox/util/RefCount.hpp>
 
 #include <boost/test/unit_test.hpp>
-#include <thread>
 #include <string_view>
+#include <thread>
 
 using namespace std;
 using namespace toolbox;
@@ -91,7 +91,7 @@ BOOST_AUTO_TEST_CASE(ReactorSocketPriority)
         auto rcvd = os::recv(fd, buf, 5, 0);
         BOOST_CHECK_EQUAL(rcvd, 5);
 
-        std::string_view bsv(buf, buf+sizeof(buf));
+        std::string_view bsv(buf, buf + sizeof(buf));
         BOOST_CHECK_EQUAL(bsv, "Hello");
         fd_process_order.push_back(fd);
     };
@@ -148,7 +148,10 @@ BOOST_AUTO_TEST_CASE(ReactorHighPriorityHook)
 
     // install high priority user hook
     std::size_t hook_invocation_count = 0;
-    auto high_prio_hook = [&](CyclTime) { hook_invocation_count++; return 0; };
+    auto high_prio_hook = [&](CyclTime) {
+        hook_invocation_count++;
+        return 0;
+    };
     r.set_user_high_priority_hook(bind(&high_prio_hook));
 
     auto [s1, s2] = socketpair(UnixStreamProtocol{});
@@ -194,10 +197,7 @@ BOOST_AUTO_TEST_CASE(ReactorHighPriorityYield)
     auto [l0, l1] = socketpair(UnixStreamProtocol{});
 
     auto send_data_to = [&](IoSock& sock) {
-        IoSock& corresponding = (sock == h0) ? h1
-                              : (sock == h1) ? h0
-                              : (sock == l0) ? l1
-                              : l0;
+        IoSock& corresponding = (sock == h0) ? h1 : (sock == h1) ? h0 : (sock == l0) ? l1 : l0;
         corresponding.send("Hello", 5, 0);
     };
 
@@ -279,6 +279,7 @@ BOOST_AUTO_TEST_CASE(ReactorHighPriorityYield)
 
     r.poll(CyclTime::now(), 0ms);
 
+    // clang-format off
     std::vector<Audit> valid_seq1 = {
         // high priority always first
         Audit{Audit::Entry, *h0},
@@ -305,7 +306,9 @@ BOOST_AUTO_TEST_CASE(ReactorHighPriorityYield)
         Audit{Audit::Exit, *h1},
         Audit{Audit::Exit, *l1}, // l1 handler sends data to h1
     };
+    // clang-format on
 
+    // clang-format off
     std::vector<Audit> valid_seq2 = {
         // high priority always first
         Audit{Audit::Entry, *h0},
@@ -332,7 +335,9 @@ BOOST_AUTO_TEST_CASE(ReactorHighPriorityYield)
         Audit{Audit::Exit, *h1},
         Audit{Audit::Exit, *l1}, // l1 handler sends data to h1
     };
+    // clang-format on
 
+    // clang-format off
     std::vector<Audit> valid_seq3 = {
         // high priority always first
         Audit{Audit::Entry, *h0},
@@ -358,7 +363,9 @@ BOOST_AUTO_TEST_CASE(ReactorHighPriorityYield)
         // control returned back to l0 handler
         Audit{Audit::Exit, *l0},
     };
+    // clang-format on
 
+    // clang-format off
     std::vector<Audit> valid_seq4 = {
         // high priority always first
         Audit{Audit::Entry, *h0},
@@ -384,11 +391,10 @@ BOOST_AUTO_TEST_CASE(ReactorHighPriorityYield)
         // control returned back to l0 handler
         Audit{Audit::Exit, *l0},
     };
+    // clang-format on
 
-    bool trail_matches =  (audit_trail == valid_seq1)
-                       || (audit_trail == valid_seq2)
-                       || (audit_trail == valid_seq3)
-                       || (audit_trail == valid_seq4);
+    bool trail_matches = (audit_trail == valid_seq1) || (audit_trail == valid_seq2)
+        || (audit_trail == valid_seq3) || (audit_trail == valid_seq4);
     BOOST_CHECK_EQUAL(trail_matches, true);
 }
 
@@ -470,7 +476,7 @@ BOOST_AUTO_TEST_CASE(ReactorLowPriorityProgress)
     const auto end = now.mono_time() + 95ms;
 
     // using 95ms instead of 100ms, because Reactor::poll internally
-    // uses own CyclTime, not the one we pass to it. 
+    // uses own CyclTime, not the one we pass to it.
 
     while (now.mono_time() < end) {
 
@@ -497,7 +503,7 @@ BOOST_AUTO_TEST_CASE(ReactorLowPriorityProgress)
         r.poll(now, 0s);
 
         BOOST_CHECK_EQUAL(hpc.invocation_count, ++num_of_times_polled);
-        BOOST_CHECK_EQUAL(lpc.invocation_count, i+1);
+        BOOST_CHECK_EQUAL(lpc.invocation_count, i + 1);
 
         now = CyclTime::now();
     }

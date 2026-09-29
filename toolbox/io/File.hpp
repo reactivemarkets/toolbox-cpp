@@ -20,6 +20,7 @@
 #include <toolbox/io/Buffer.hpp>
 #include <toolbox/io/Handle.hpp>
 #include <toolbox/sys/Error.hpp>
+
 #include <toolbox/contrib/libutil.h>
 
 #include <fcntl.h>
@@ -315,7 +316,6 @@ inline FileHandle flopen(const char* path, int flags, mode_t mode)
     }
     return fd;
 }
-
 
 } // namespace io
 } // namespace toolbox

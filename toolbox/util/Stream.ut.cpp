@@ -19,8 +19,8 @@
 #include <boost/test/unit_test.hpp>
 
 #include <array>
-#include <sstream>
 #include <limits>
+#include <sstream>
 
 using namespace std;
 using namespace toolbox;

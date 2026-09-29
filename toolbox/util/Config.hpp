@@ -17,9 +17,9 @@
 #ifndef TOOLBOX_UTIL_CONFIG_HPP
 #define TOOLBOX_UTIL_CONFIG_HPP
 
+#include <toolbox/util/String.hpp>
 #include <toolbox/util/TypeTraits.hpp>
 #include <toolbox/util/Utility.hpp>
-#include <toolbox/util/String.hpp>
 
 #include <algorithm>
 #include <map>
@@ -36,7 +36,7 @@ std::istream& parse_section(std::istream& is, FnT fn, std::string* name = nullpt
 {
     using namespace std::literals::string_literals;
 
-    enum class KeyClassification {SingleValued, MultiValued};
+    enum class KeyClassification { SingleValued, MultiValued };
     std::unordered_map<std::string, KeyClassification, string_hash, std::equal_to<>> key_class_map;
 
     std::string line;
@@ -80,16 +80,14 @@ std::istream& parse_section(std::istream& is, FnT fn, std::string* name = nullpt
                 throw std::runtime_error{
                     std::string{key}.append(" is already set as a single-valued key (with '=') "
                                             "and cannot be reassigned with '+='")};
-            }
-            else if (*key_class == KeyClassification::MultiValued && !is_multi) {
+            } else if (*key_class == KeyClassification::MultiValued && !is_multi) {
                 throw std::runtime_error{
                     std::string{key}.append(" is already set as a multi-valued key (with '+=') "
                                             "and cannot be reassigned with '='")};
             }
-        }
-        else {
-            key_class_map[key] = is_multi ? KeyClassification::MultiValued
-                                          : KeyClassification::SingleValued;
+        } else {
+            key_class_map[key]
+                = is_multi ? KeyClassification::MultiValued : KeyClassification::SingleValued;
         }
 
         fn(std::move(key), std::move(val));
@@ -159,7 +157,8 @@ class TOOLBOX_API Config {
     }
 
     template <typename ValueT>
-    auto get_multi(const std::string& key) const {
+    auto get_multi(const std::string& key) const
+    {
         return get_multi(key) | std::views::transform(transform_value<ValueT>);
     }
 
@@ -175,15 +174,12 @@ class TOOLBOX_API Config {
     {
         return read_section(is, next);
     }
-    void insert(std::string key, std::string val)
-    {
-        map_.emplace(std::move(key), std::move(val));
-    }
+    void insert(std::string key, std::string val) { map_.emplace(std::move(key), std::move(val)); }
 
     // existing values for given key are erased, and new values are inserted
-    template<typename... ValueTs>
+    template <typename... ValueTs>
         requires(toolbox::is_string_type_v<ValueTs> && ...)
-    void set(const std::string& key, ValueTs ... vals)
+    void set(const std::string& key, ValueTs... vals)
     {
         static_assert(sizeof...(ValueTs) > 0, "at least 1 value is required");
 
@@ -250,14 +246,10 @@ class TOOLBOX_API MultiConfig {
 
     template <typename F>
     void for_each_section(F f) const
-    noexcept(noexcept(
-        f(std::declval<const MultiConfig::MapType::key_type&>(),
-          std::declval<const MultiConfig::MapType::mapped_type&>())
-    ))
+        noexcept(noexcept(f(std::declval<const MultiConfig::MapType::key_type&>(),
+                            std::declval<const MultiConfig::MapType::mapped_type&>())))
     {
-       std::for_each(map_.begin(), map_.end(), [&f](const auto& kv) {
-           f(kv.first, kv.second);
-       });
+        std::for_each(map_.begin(), map_.end(), [&f](const auto& kv) { f(kv.first, kv.second); });
     }
 
   private:

@@ -22,7 +22,7 @@ namespace toolbox {
 inline namespace util {
 
 namespace {
-thread_local std::mt19937_64 mt19937_64_rng_ {std::random_device{}()};
+thread_local std::mt19937_64 mt19937_64_rng_{std::random_device{}()};
 } // namespace
 
 std::mt19937_64& mt19937_64_rng() noexcept

@@ -15,11 +15,11 @@
 #ifndef TOOLBOX_HDR_UTILITY
 #define TOOLBOX_HDR_UTILITY
 
-#include "Iterator.hpp"
 #include "Histogram.hpp"
+#include "Iterator.hpp"
 
-#include <toolbox/util/Concepts.hpp>
 #include <toolbox/Config.h>
+#include <toolbox/util/Concepts.hpp>
 
 #include <cstdint>
 #include <format>

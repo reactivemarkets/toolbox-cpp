@@ -83,7 +83,6 @@ class App {
     App(CyclTime now, Reactor& reactor, Inotify& inotify, ConfigLoader& config_loader)
     : config_loader_{config_loader}
     , file_watcher_{reactor, inotify}
-    // Immediate and then at 5s intervals.
     , tmr_{reactor.timer(now.mono_time(), 5s, Priority::Low, bind<&App::on_timer>(this))}
     {
         // Bind on_config_update slot to the foo.conf configuration file.
@@ -135,6 +134,7 @@ class App {
 
     ConfigLoader& config_loader_;
     FileWatcher file_watcher_;
+    // Immediate and then at 5s intervals.
     Timer tmr_;
     ConfigFuture config_future_;
     ConfigPtr config_;

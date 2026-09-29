@@ -17,8 +17,8 @@
 #ifndef TOOLBOX_UTIL_EXCEPTION_HPP
 #define TOOLBOX_UTIL_EXCEPTION_HPP
 
-#include <toolbox/util/Stream.hpp>
 #include <toolbox/util/Concepts.hpp>
+#include <toolbox/util/Stream.hpp>
 
 #include <string_view>
 
@@ -30,9 +30,7 @@ constexpr std::size_t MaxErrSize{511};
 
 struct ErrMsg {
     OStaticStream<MaxErrSize> os_;
-    operator std::string_view() const noexcept {
-        return os_.str();
-    }
+    operator std::string_view() const noexcept { return os_.str(); }
 };
 
 template <typename ValueT>
@@ -90,7 +88,6 @@ template <typename ExceptionT>
 struct PutAsJson {
     const ExceptionT* e;
 };
-
 
 template <typename ExceptionT, typename StreamT>
     requires Streamable<StreamT>

@@ -79,8 +79,7 @@ st = = uv =
     map<string, string> conf;
 
     string next;
-    parse_section(
-        is, [&conf](const auto& key, const auto& val) { conf.emplace(key, val); }, &next);
+    parse_section(is, [&conf](const auto& key, const auto& val) { conf.emplace(key, val); }, &next);
     BOOST_CHECK_EQUAL(conf.size(), 2U);
     BOOST_CHECK_EQUAL(conf["ab"], "");
     BOOST_CHECK_EQUAL(conf["cd"], "");
@@ -88,8 +87,7 @@ st = = uv =
     BOOST_CHECK(!is.fail());
 
     conf.clear();
-    parse_section(
-        is, [&conf](const auto& key, const auto& val) { conf.emplace(key, val); }, &next);
+    parse_section(is, [&conf](const auto& key, const auto& val) { conf.emplace(key, val); }, &next);
     BOOST_CHECK_EQUAL(conf.size(), 2U);
     BOOST_CHECK_EQUAL(conf["ef"], "gh");
     BOOST_CHECK_EQUAL(conf[""], "ij");
@@ -97,8 +95,7 @@ st = = uv =
     BOOST_CHECK(!is.fail());
 
     conf.clear();
-    parse_section(
-        is, [&conf](const auto& key, const auto& val) { conf.emplace(key, val); }, &next);
+    parse_section(is, [&conf](const auto& key, const auto& val) { conf.emplace(key, val); }, &next);
     BOOST_CHECK_EQUAL(conf.size(), 3U);
     BOOST_CHECK_EQUAL(conf["kl"], "mn");
     BOOST_CHECK_EQUAL(conf["op"], "qr");
@@ -225,8 +222,8 @@ foo +==abcd
 
     auto rng = config.get_multi("foo");
     BOOST_CHECK_EQUAL(rng.size(), 2);
-    
-    auto it =  rng.begin();
+
+    auto it = rng.begin();
     BOOST_CHECK_EQUAL(*it++, "test=++=test");
     BOOST_CHECK_EQUAL(*it++, "=abcd");
     BOOST_CHECK_EQUAL(it == rng.end(), true);
@@ -376,7 +373,6 @@ BOOST_AUTO_TEST_CASE(MultiAPIWithZeroValueKey)
     BOOST_CHECK_EQUAL(rng.begin() == rng.end(), true);
 }
 
-
 BOOST_AUTO_TEST_CASE(MultiAPIWithOneValueKey)
 {
     const string text{R"(
@@ -419,7 +415,7 @@ foo=101
 
     auto foo_rng = config.get_multi<int>("foo");
     BOOST_CHECK_EQUAL(foo_rng.size(), 2);
-    
+
     auto foo_it = foo_rng.begin();
     BOOST_CHECK_EQUAL(*foo_it++, 101);
     BOOST_CHECK_EQUAL(*foo_it++, 102);
@@ -449,7 +445,7 @@ foo=101
 
     auto foo_rng = config.get_multi<int>("foo");
     BOOST_CHECK_EQUAL(foo_rng.size(), 4);
-    
+
     auto foo_it = foo_rng.begin();
     BOOST_CHECK_EQUAL(*foo_it++, 111);
     BOOST_CHECK_EQUAL(*foo_it++, 222);
@@ -468,24 +464,24 @@ key_abc=value_abc
 key_xyz=value_xyz
 )"};
 
-	std::map<std::string,util::Config> sections;
+    std::map<std::string, util::Config> sections;
 
-	MultiConfig c;
-	istringstream is{text};
-	c.read(is);
-	c.for_each_section([&sections](const std::string& name, const util::Config& config) {
-		sections.emplace(name, config);
-	});
-	auto first{sections.find("First")};
-	auto second{sections.find("Second")};
+    MultiConfig c;
+    istringstream is{text};
+    c.read(is);
+    c.for_each_section([&sections](const std::string& name, const util::Config& config) {
+        sections.emplace(name, config);
+    });
+    auto first{sections.find("First")};
+    auto second{sections.find("Second")};
     if (first == sections.end()) {
-		BOOST_FAIL("Missing section 'First'");
-	}
+        BOOST_FAIL("Missing section 'First'");
+    }
     if (second == sections.end()) {
-		BOOST_FAIL("Missing section 'Second'");
-	}
-	BOOST_CHECK_EQUAL(first->second.get<std::string_view>("key_abc"), "value_abc"sv);
-	BOOST_CHECK_EQUAL(second->second.get<std::string_view>("key_xyz"), "value_xyz"sv);
+        BOOST_FAIL("Missing section 'Second'");
+    }
+    BOOST_CHECK_EQUAL(first->second.get<std::string_view>("key_abc"), "value_abc"sv);
+    BOOST_CHECK_EQUAL(second->second.get<std::string_view>("key_xyz"), "value_xyz"sv);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
