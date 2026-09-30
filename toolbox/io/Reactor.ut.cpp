@@ -279,11 +279,9 @@ BOOST_AUTO_TEST_CASE(ReactorHighPriorityYield)
 
     r.poll(CyclTime::now(), 0ms);
 
-    // clang-format off
     std::vector<Audit> valid_seq1 = {
         // high priority always first
-        Audit{Audit::Entry, *h0},
-        Audit{Audit::Exit, *h0},
+        Audit{Audit::Entry, *h0}, Audit{Audit::Exit, *h0},
 
         // AT THIS POINT l0/l1 handlers could be executed in any order
         // Lets assume l0 chosen first [choices so far: (l0)]
@@ -292,9 +290,7 @@ BOOST_AUTO_TEST_CASE(ReactorHighPriorityYield)
         // Reactor will poll on high priority sockets when l0 handler yields
         // AT THIS POINT h0/h1 handlers could be executed in any order
         // Lets assume h0 is chosen first [choices so far: (l0, h0)]
-        Audit{Audit::Entry, *h0},
-        Audit{Audit::Exit, *h0},
-        Audit{Audit::Entry, *h1},
+        Audit{Audit::Entry, *h0}, Audit{Audit::Exit, *h0}, Audit{Audit::Entry, *h1},
         Audit{Audit::Exit, *h1},
 
         // control returned back to l0 handler
@@ -302,17 +298,13 @@ BOOST_AUTO_TEST_CASE(ReactorHighPriorityYield)
 
         // Now, l1 handler executes
         Audit{Audit::Entry, *l1}, // l1 handler sends data to h1
-        Audit{Audit::Entry, *h1},
-        Audit{Audit::Exit, *h1},
+        Audit{Audit::Entry, *h1}, Audit{Audit::Exit, *h1},
         Audit{Audit::Exit, *l1}, // l1 handler sends data to h1
     };
-    // clang-format on
 
-    // clang-format off
     std::vector<Audit> valid_seq2 = {
         // high priority always first
-        Audit{Audit::Entry, *h0},
-        Audit{Audit::Exit, *h0},
+        Audit{Audit::Entry, *h0}, Audit{Audit::Exit, *h0},
 
         // AT THIS POINT l0/l1 handlers could be executed in any order
         // Lets assume l0 chosen first [choices so far: (l0)]
@@ -321,9 +313,7 @@ BOOST_AUTO_TEST_CASE(ReactorHighPriorityYield)
         // Reactor will poll on high priority sockets when l0 handler yields
         // AT THIS POINT h0/h1 handlers could be executed in any order
         // Lets assume h1 chosen first [choices so far: (l0, h1)]
-        Audit{Audit::Entry, *h1},
-        Audit{Audit::Exit, *h1},
-        Audit{Audit::Entry, *h0},
+        Audit{Audit::Entry, *h1}, Audit{Audit::Exit, *h1}, Audit{Audit::Entry, *h0},
         Audit{Audit::Exit, *h0},
 
         // control returned back to l0 handler
@@ -331,13 +321,10 @@ BOOST_AUTO_TEST_CASE(ReactorHighPriorityYield)
 
         // Now, l1 handler executes
         Audit{Audit::Entry, *l1}, // l1 handler sends data to h1
-        Audit{Audit::Entry, *h1},
-        Audit{Audit::Exit, *h1},
+        Audit{Audit::Entry, *h1}, Audit{Audit::Exit, *h1},
         Audit{Audit::Exit, *l1}, // l1 handler sends data to h1
     };
-    // clang-format on
 
-    // clang-format off
     std::vector<Audit> valid_seq3 = {
         // high priority always first
         Audit{Audit::Entry, *h0},
@@ -363,9 +350,7 @@ BOOST_AUTO_TEST_CASE(ReactorHighPriorityYield)
         // control returned back to l0 handler
         Audit{Audit::Exit, *l0},
     };
-    // clang-format on
 
-    // clang-format off
     std::vector<Audit> valid_seq4 = {
         // high priority always first
         Audit{Audit::Entry, *h0},
@@ -391,7 +376,6 @@ BOOST_AUTO_TEST_CASE(ReactorHighPriorityYield)
         // control returned back to l0 handler
         Audit{Audit::Exit, *l0},
     };
-    // clang-format on
 
     bool trail_matches = (audit_trail == valid_seq1) || (audit_trail == valid_seq2)
         || (audit_trail == valid_seq3) || (audit_trail == valid_seq4);
