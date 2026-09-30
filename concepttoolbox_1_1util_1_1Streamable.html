@@ -82,7 +82,7 @@ $(function() {
 <p><code>#include &lt;<a class="el" href="Concepts_8hpp_source.html">toolbox/util/Concepts.hpp</a>&gt;</code></p>
 <h2 class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="concepttoolbox_1_1util_1_1Streamable.html">toolbox::util::Streamable</a> =  <span class="keyword">requires</span> (T&amp; os) {</div>
+<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="concepttoolbox_1_1util_1_1Streamable.html">toolbox::util::Streamable</a> =  <span class="keyword">requires</span>(T&amp; os) {</div>
 <div class="line">    os.put(std::declval&lt;char&gt;());</div>
 <div class="line">    os.write(std::declval&lt;const char*&gt;(), std::declval&lt;std::size_t&gt;());</div>
 <div class="line">}</div>

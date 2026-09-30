@@ -122,7 +122,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">// constraint again, checking all operator&lt;&lt; overloads again, etc repeating in a cycle.</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00039" data-start="{" data-end="}">
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="concepttoolbox_1_1util_1_1Streamable.html">   39</a></span><span class="keyword">concept </span><a class="code hl_concept" href="concepttoolbox_1_1util_1_1Streamable.html">Streamable</a> = <span class="keyword">requires</span> (T&amp; os) {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="concepttoolbox_1_1util_1_1Streamable.html">   39</a></span><span class="keyword">concept </span><a class="code hl_concept" href="concepttoolbox_1_1util_1_1Streamable.html">Streamable</a> = <span class="keyword">requires</span>(T&amp; os) {</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    os.put(std::declval&lt;char&gt;());</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    os.write(std::declval&lt;const char*&gt;(), std::declval&lt;std::size_t&gt;());</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>

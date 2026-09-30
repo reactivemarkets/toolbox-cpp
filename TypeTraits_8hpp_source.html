@@ -197,9 +197,9 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="foldopen" id="foldopen00104" data-start="{" data-end="};">
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="structtoolbox_1_1util_1_1is__string__type.html">  104</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structtoolbox_1_1util_1_1is__string__type.html">is_string_type</a> : std::integral_constant&lt;bool, is_string_v&lt;T&gt; ||</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>                                                     is_string_view_v&lt;T&gt; ||</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                                                     is_decay_to_cstring_v&lt;T&gt;&gt; {};</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="structtoolbox_1_1util_1_1is__string__type.html">  104</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structtoolbox_1_1util_1_1is__string__type.html">is_string_type</a></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>: std::integral_constant&lt;bool, is_string_v&lt;T&gt; || is_string_view_v&lt;T&gt; || is_decay_to_cstring_v&lt;T&gt;&gt; {</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>};</div>
 </div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
@@ -241,7 +241,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="astructtoolbox_1_1util_1_1is__decay__to__cstring_html"><div class="ttname"><a href="structtoolbox_1_1util_1_1is__decay__to__cstring.html">toolbox::is_decay_to_cstring</a></div><div class="ttdef"><b>Definition</b> <a href="TypeTraits_8hpp_source.html#l00098">TypeTraits.hpp:98</a></div></div>
 <div class="ttc" id="astructtoolbox_1_1util_1_1is__instantiation__of__helper_html"><div class="ttname"><a href="structtoolbox_1_1util_1_1is__instantiation__of__helper.html">toolbox::is_instantiation_of_helper</a></div><div class="ttdef"><b>Definition</b> <a href="TypeTraits_8hpp_source.html#l00068">TypeTraits.hpp:68</a></div></div>
 <div class="ttc" id="astructtoolbox_1_1util_1_1is__instantiation__of_html"><div class="ttname"><a href="structtoolbox_1_1util_1_1is__instantiation__of.html">toolbox::is_instantiation_of</a></div><div class="ttdef"><b>Definition</b> <a href="TypeTraits_8hpp_source.html#l00074">TypeTraits.hpp:74</a></div></div>
-<div class="ttc" id="astructtoolbox_1_1util_1_1is__string__type_html"><div class="ttname"><a href="structtoolbox_1_1util_1_1is__string__type.html">toolbox::is_string_type</a></div><div class="ttdef"><b>Definition</b> <a href="TypeTraits_8hpp_source.html#l00104">TypeTraits.hpp:106</a></div></div>
+<div class="ttc" id="astructtoolbox_1_1util_1_1is__string__type_html"><div class="ttname"><a href="structtoolbox_1_1util_1_1is__string__type.html">toolbox::is_string_type</a></div><div class="ttdef"><b>Definition</b> <a href="TypeTraits_8hpp_source.html#l00104">TypeTraits.hpp:105</a></div></div>
 <div class="ttc" id="autil_2Utility_8hpp_html"><div class="ttname"><a href="util_2Utility_8hpp.html">Utility.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

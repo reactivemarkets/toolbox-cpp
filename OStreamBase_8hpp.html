@@ -84,66 +84,66 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
 <code>#include &lt;charconv&gt;</code><br />
 <code>#include &lt;concepts&gt;</code><br />
 <code>#include &lt;cstring&gt;</code><br />
-<code>#include &lt;system_error&gt;</code><br />
-<code>#include &lt;type_traits&gt;</code><br />
+<code>#include &lt;limits&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;string_view&gt;</code><br />
-<code>#include &lt;cassert&gt;</code><br />
-<code>#include &lt;limits&gt;</code><br />
+<code>#include &lt;system_error&gt;</code><br />
+<code>#include &lt;type_traits&gt;</code><br />
 <code>#include &quot;<a class="el" href="TypeTraits_8hpp_source.html">TypeTraits.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for OStreamBase.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="OStreamBase_8hpp__incl.png" border="0" usemap="#atoolbox_2util_2OStreamBase_8hpp" alt=""/></div>
 <map name="atoolbox_2util_2OStreamBase_8hpp" id="atoolbox_2util_2OStreamBase_8hpp">
-<area shape="rect" title=" " alt="" coords="454,5,671,31"/>
+<area shape="rect" title=" " alt="" coords="446,5,663,31"/>
 <area shape="rect" title=" " alt="" coords="5,79,91,104"/>
-<area shape="poly" title=" " alt="" coords="457,33,295,53,105,81,104,76,294,48,456,28"/>
-<area shape="rect" title=" " alt="" coords="115,79,197,104"/>
-<area shape="poly" title=" " alt="" coords="490,33,211,81,210,76,489,28"/>
-<area shape="rect" title=" " alt="" coords="221,79,301,104"/>
-<area shape="poly" title=" " alt="" coords="515,33,315,80,314,75,514,28"/>
-<area shape="rect" title=" " alt="" coords="325,79,392,104"/>
-<area shape="poly" title=" " alt="" coords="531,33,405,77,404,72,529,28"/>
-<area shape="rect" title=" " alt="" coords="417,79,525,104"/>
-<area shape="poly" title=" " alt="" coords="550,33,498,72,495,68,546,29"/>
-<area shape="rect" title=" " alt="" coords="578,152,670,177"/>
-<area shape="poly" title=" " alt="" coords="570,30,616,138,611,140,565,32"/>
-<area shape="rect" title=" " alt="" coords="511,225,569,251"/>
-<area shape="poly" title=" " alt="" coords="564,31,545,211,540,211,559,31"/>
-<area shape="rect" title=" " alt="" coords="933,225,1030,251"/>
-<area shape="poly" title=" " alt="" coords="641,28,708,43,783,68,859,102,894,125,927,150,953,180,972,211,968,214,949,183,923,154,891,129,856,107,781,73,706,49,640,33"/>
-<area shape="rect" title=" " alt="" coords="1015,299,1084,324"/>
-<area shape="poly" title=" " alt="" coords="663,28,753,46,801,60,846,76,913,103,964,129,986,145,1007,166,1026,191,1045,224,1054,255,1055,285,1050,285,1049,256,1040,226,1022,194,1003,169,983,149,962,134,910,108,844,81,799,65,752,51,662,33"/>
-<area shape="rect" title=" " alt="" coords="1105,79,1164,104"/>
-<area shape="poly" title=" " alt="" coords="672,25,866,45,1087,76,1092,77,1091,82,1086,81,865,50,671,31"/>
-<area shape="rect" href="TypeTraits_8hpp.html" title=" " alt="" coords="651,79,765,104"/>
-<area shape="poly" title=" " alt="" coords="587,28,673,70,671,75,585,33"/>
-<area shape="poly" title=" " alt="" coords="696,106,650,145,647,141,693,102"/>
-<area shape="poly" title=" " alt="" coords="710,104,704,140,697,161,685,179,668,192,642,204,584,226,582,221,640,199,665,187,681,175,692,158,699,139,705,104"/>
-<area shape="rect" href="util_2Utility_8hpp.html" title=" " alt="" coords="746,152,913,177"/>
-<area shape="poly" title=" " alt="" coords="729,102,799,143,797,147,726,106"/>
-<area shape="poly" title=" " alt="" coords="783,180,583,229,582,224,782,175"/>
-<area shape="poly" title=" " alt="" coords="855,175,945,217,943,222,853,180"/>
-<area shape="rect" href="Config_8h.html" title=" " alt="" coords="504,299,632,324"/>
-<area shape="poly" title=" " alt="" coords="787,180,730,199,669,228,626,259,591,291,587,287,623,254,667,223,728,194,785,175"/>
-<area shape="rect" href="Math_8hpp.html" title=" " alt="" coords="695,225,857,251"/>
-<area shape="poly" title=" " alt="" coords="823,179,795,216,791,213,818,176"/>
-<area shape="rect" title=" " alt="" coords="657,299,695,324"/>
-<area shape="poly" title=" " alt="" coords="763,180,721,197,702,210,686,227,679,240,675,255,675,285,669,285,670,254,674,238,682,224,698,206,718,193,761,175"/>
-<area shape="rect" title=" " alt="" coords="888,299,955,324"/>
-<area shape="poly" title=" " alt="" coords="840,176,872,224,910,285,905,288,867,227,835,179"/>
-<area shape="poly" title=" " alt="" coords="821,248,1002,295,1001,300,819,253"/>
-<area shape="poly" title=" " alt="" coords="743,253,616,297,614,292,742,248"/>
-<area shape="poly" title=" " alt="" coords="761,253,705,293,702,288,758,249"/>
-<area shape="rect" title=" " alt="" coords="801,299,863,324"/>
-<area shape="poly" title=" " alt="" coords="787,249,817,286,812,289,783,253"/>
-<area shape="rect" title=" " alt="" coords="720,299,776,324"/>
-<area shape="poly" title=" " alt="" coords="774,252,760,287,755,285,769,250"/>
-<area shape="poly" title=" " alt="" coords="801,248,887,290,884,295,798,253"/>
+<area shape="poly" title=" " alt="" coords="459,33,110,81,105,82,104,77,109,76,459,28"/>
+<area shape="rect" title=" " alt="" coords="93,299,163,324"/>
+<area shape="poly" title=" " alt="" coords="446,26,401,33,355,43,309,59,267,81,226,112,199,142,179,179,156,226,144,257,136,286,130,284,138,255,151,224,174,176,195,139,222,108,264,76,307,54,353,38,400,27,445,21"/>
+<area shape="rect" title=" " alt="" coords="593,79,674,104"/>
+<area shape="poly" title=" " alt="" coords="569,29,612,68,609,71,566,33"/>
+<area shape="rect" title=" " alt="" coords="699,79,779,104"/>
+<area shape="poly" title=" " alt="" coords="585,28,697,71,695,76,583,33"/>
+<area shape="rect" title=" " alt="" coords="803,79,869,104"/>
+<area shape="poly" title=" " alt="" coords="601,28,790,76,789,81,599,33"/>
+<area shape="rect" title=" " alt="" coords="893,79,952,104"/>
+<area shape="poly" title=" " alt="" coords="628,28,743,48,880,76,879,81,742,53,627,33"/>
+<area shape="rect" title=" " alt="" coords="165,225,224,251"/>
+<area shape="poly" title=" " alt="" coords="464,33,388,51,349,64,312,81,265,111,230,153,214,183,204,213,199,211,209,181,226,151,262,107,309,76,347,59,386,46,463,28"/>
+<area shape="rect" title=" " alt="" coords="587,225,685,251"/>
+<area shape="poly" title=" " alt="" coords="561,30,584,103,628,212,623,214,579,105,555,32"/>
+<area shape="rect" title=" " alt="" coords="977,79,1085,104"/>
+<area shape="poly" title=" " alt="" coords="637,28,964,76,963,81,637,33"/>
+<area shape="rect" title=" " alt="" coords="458,152,550,177"/>
+<area shape="poly" title=" " alt="" coords="553,32,515,140,510,138,548,30"/>
+<area shape="rect" href="TypeTraits_8hpp.html" title=" " alt="" coords="323,79,437,104"/>
+<area shape="poly" title=" " alt="" coords="528,33,422,76,420,71,526,28"/>
+<area shape="poly" title=" " alt="" coords="346,107,302,126,258,154,230,183,210,214,205,211,226,180,254,150,299,121,344,102"/>
+<area shape="poly" title=" " alt="" coords="401,102,473,143,471,147,399,106"/>
+<area shape="rect" href="util_2Utility_8hpp.html" title=" " alt="" coords="267,152,434,177"/>
+<area shape="poly" title=" " alt="" coords="378,105,363,140,358,138,373,103"/>
+<area shape="poly" title=" " alt="" coords="327,180,234,222,232,217,325,175"/>
+<area shape="poly" title=" " alt="" coords="397,175,577,219,576,225,396,180"/>
+<area shape="rect" href="Config_8h.html" title=" " alt="" coords="187,299,315,324"/>
+<area shape="poly" title=" " alt="" coords="345,179,268,289,264,286,340,176"/>
+<area shape="rect" href="Math_8hpp.html" title=" " alt="" coords="350,225,511,251"/>
+<area shape="poly" title=" " alt="" coords="365,175,409,214,406,218,362,179"/>
+<area shape="rect" title=" " alt="" coords="339,299,378,324"/>
+<area shape="poly" title=" " alt="" coords="349,178,342,211,341,250,351,285,346,287,336,251,337,210,344,177"/>
+<area shape="rect" title=" " alt="" coords="571,299,637,324"/>
+<area shape="poly" title=" " alt="" coords="406,175,465,193,525,223,562,253,590,286,586,289,558,257,523,228,463,198,404,180"/>
+<area shape="poly" title=" " alt="" coords="381,253,177,301,176,296,380,248"/>
+<area shape="poly" title=" " alt="" coords="403,253,294,296,292,291,401,248"/>
+<area shape="rect" title=" " alt="" coords="403,299,459,324"/>
+<area shape="poly" title=" " alt="" coords="433,251,433,285,428,285,428,251"/>
+<area shape="poly" title=" " alt="" coords="421,253,382,291,378,287,417,249"/>
+<area shape="rect" title=" " alt="" coords="483,299,546,324"/>
+<area shape="poly" title=" " alt="" coords="446,249,492,287,489,292,442,253"/>
+<area shape="poly" title=" " alt="" coords="460,248,564,291,562,296,458,253"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -403,10 +403,10 @@ requires detail::InheritsBasicOStream&lt;<a class="el" href="namespacetoolbox_1_
 requires detail::InheritsBasicOStream&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a>&gt;</td></tr>
 <tr class="memitem:a049fb33d138de042e0f36b04ebaabe77"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a049fb33d138de042e0f36b04ebaabe77">toolbox::util::operator&lt;&lt;</a> (<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &amp;os, <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">const</a> std::error_code &amp;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">ec</a>)</td></tr>
 <tr class="separator:a049fb33d138de042e0f36b04ebaabe77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c6700e65ff0490a14071dfc94863a03" id="r_a8c6700e65ff0490a14071dfc94863a03"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">class</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> , <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">class</a> T &gt; <br />
-requires (detail::InheritsBasicOStream&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a>&gt; &amp;&amp; std::is_rvalue_reference_v&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a>&amp;&amp;&gt;)</td></tr>
-<tr class="memitem:a8c6700e65ff0490a14071dfc94863a03"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &amp;&amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a8c6700e65ff0490a14071dfc94863a03">toolbox::util::operator&lt;&lt;</a> (<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &amp;&amp;os, <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">const</a> T &amp;value)</td></tr>
-<tr class="separator:a8c6700e65ff0490a14071dfc94863a03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76b6e5df3f7efa50b789d3bf5cea8f0f" id="r_a76b6e5df3f7efa50b789d3bf5cea8f0f"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">class</a> <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> , <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">class</a> T &gt; <br />
+requires (detail::InheritsBasicOStream&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a>&gt; &amp;&amp; std::is_rvalue_reference_v&lt;<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &amp;&amp;&gt;)</td></tr>
+<tr class="memitem:a76b6e5df3f7efa50b789d3bf5cea8f0f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &amp;&amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetoolbox_1_1util.html#a76b6e5df3f7efa50b789d3bf5cea8f0f">toolbox::util::operator&lt;&lt;</a> (<a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">StreamT</a> &amp;&amp;os, <a class="el" href="namespacetoolbox_1_1util.html#af6030b93dcb44cc63913112e4b945869">const</a> T &amp;value)</td></tr>
+<tr class="separator:a76b6e5df3f7efa50b789d3bf5cea8f0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
